@@ -1,13 +1,13 @@
-DM: The gentle rhythm of waves caressing the shore rouses you from your slumber, as you find
+DM: The gentle rhythm of waves caressing the shore rouses you from your slumber, as you fnd
 yourself lying on a sandy beach. The sun, hanging low on the horizon, bathes the tranquil ocean
 in a warm, golden glow. A salty breeze, tinged with the scent of seaweed, dances across your
 skin, carrying with it the distant cries of seagulls wheeling overhead.
 As you push yourself up to a sitting position, your gaze is drawn to a distant shape protruding
-from the sands—the fractured mast of a shipwreck, rising like a skeletal finger pointing at the
+from the sands—the fractured mast of a shipwreck, rising like a skeletal fnger pointing at the
 sky. Your hands clutch at the coarse sand beneath you, as profound sense of disorientation
 settling in.
 What do you do?
-Izack: I look around the beach and think back to how I got here. I then go to the water and cast
+Izack: I look around the beach and think back to how I got here. I then go the the water and cast
 a spell of binding upon some sand and water to make a golem companion to help with physical
 tasks
 DM: As you gaze across the sandy beach, fragments of memory drift like seafoam—disjointed
@@ -19,7 +19,7 @@ humanoid form emerges—your Unseen Servant, ready to assist you. Though not pre
 golem, it represents a magical construct bound to your commands.
 The servant waits silently, its watery form glistening in the sunlight, ready for your instruction.
 What would you like it to do?
-Izack: I need to improve my magic to the point of confidence before I venture on. I may have an
+Izack: I need to improve my magic to the point of confdence before I venture on. I may have an
 unseen hand, but I know more magics than that. I must know some sort of transmutation magic
 i can use to make a real golem. I have my new servant help make it's improved form, spending
 the next 3 hours gathering materials for it. I need this servant to be almost indepent from me.
@@ -12030,7 +12030,7 @@ Three signifcant conficts shaped magical development:
 2. The Nexus Rebellion (5,000 years ago)
 - Attempt to reunify primordial magical consciousness
 - Failed, but created complex magical networking systems
-- Introduced concept of magical communication        
+- Introduced concept of magical communication
 3. The Dimensional Collapse (3,000 years ago)
 - Catastrophic magical event threatening multiple realms
 - Resolved through unprecedented magical cooperation
