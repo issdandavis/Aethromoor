@@ -17,6 +17,45 @@
   endings
 
 *comment ================================================
+*comment ACHIEVEMENT DEFINITIONS
+*comment ================================================
+
+*achievement breakthrough visible 30 Breakthrough Collaboration
+  You achieved perfect dimensional harmony in your first lesson.
+  pre_stat text Collaboration above 60
+    You haven't yet experienced the true power of collaborative magic.
+  post_stat text Collaboration above 60
+    The dimensional boundaries sing at your touch.
+
+*achievement truthbound visible 25 Truthbound Mage
+  The Singing Dunes recognized your honesty and marked you as truthbound.
+  pre_stat text artifact_earned "Truth-Sworn Sand"
+    The desert has not yet tested you.
+  post_stat text artifact_earned "Truth-Sworn Sand"
+    The desert sands swirl in recognition when you pass.
+
+*achievement heartwood_guardian visible 25 Guardian of the Heartwood
+  You bonded with the ancient Heartwood Tree and became its guardian.
+  pre_stat text artifact_earned "Heartwood Guardian - Ancient Wisdom"
+    The forest has not yet chosen you.
+  post_stat text artifact_earned "Heartwood Guardian - Ancient Wisdom"
+    You can feel every living thing in Avalon as if they were part of you.
+
+*achievement glacier_partner visible 25 Partner of the Glacier
+  The Rune Glacier accepted you as an equal partner in magic.
+  pre_stat text artifact_earned "Glacier Partnership"
+    The ice has not yet recognized you.
+  post_stat text artifact_earned "Glacier Partnership"
+    Living runes dance across your skin in patterns of frost and power.
+
+*achievement collaborative_master visible 40 Collaborative Master
+  You mastered the art of dimensional collaboration and became a legendary mage.
+  pre_stat text collaboration above 85
+    You still work to understand true collaboration.
+  post_stat text collaboration above 85
+    Your name will be spoken alongside Izack Thorne's.
+
+*comment ================================================
 *comment STAT DEFINITIONS
 *comment ================================================
 
@@ -35,7 +74,6 @@
 
 *comment Ending Flags
 *create ending_type "none"
-*create achievement ""
 
 *comment Story Choices (for tracking player history)
 *create intro_choice ""
