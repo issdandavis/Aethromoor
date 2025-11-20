@@ -10,10 +10,15 @@
 *scene_list
   startup
   arrival
+  dorm_room
   first_lesson
+  academy_life
+  expedition_prep
   singing_dunes
   verdant_tithe
   rune_glacier
+  character_bonds
+  final_trial
   endings
 
 *comment ================================================

@@ -1,154 +1,208 @@
 # 🎮 Polly's Wingscroll: The First Thread
-## The Spiral of Pollyoneth - Interactive Game
 
-**A choice-based narrative game set in the Avalon Academy universe**
+**A choice-based narrative game set in Avalon Academy**
 
----
-
-## 🚀 QUICK START - PLAY THE GAME
-
-### **Option 1: Simple HTML Version (Play Right Now!)**
-1. Open this file: **`game/index.html`**
-2. That's it - the game runs in your browser!
-
-### **Option 2: Professional ChoiceScript Version**
-1. Download ChoiceScript from: https://www.choiceofgames.com/make-your-own-games/choicescript-intro/
-2. Copy everything from **`choicescript_game/`** folder
-3. Paste into ChoiceScript's `web/mygame/` folder
-4. Open ChoiceScript's `index.html`
-5. Click "Test Game"
-
-📖 **Full instructions:** See `QUICK_START.md`
+![Version](https://img.shields.io/badge/version-1.0-blue) ![Word Count](https://img.shields.io/badge/words-40000%2B-green) ![Endings](https://img.shields.io/badge/endings-14-purple)
 
 ---
 
-## 📁 REPOSITORY STRUCTURE
+## 🎯 Quick Start - PLAY NOW!
+
+### Option 1: Instant Play (HTML Version)
+**👉 Just open `game/index.html` in your browser - that's it!**
+
+### Option 2: ChoiceScript Version (Professional)
+See **[PLAY_THE_GAME.md](PLAY_THE_GAME.md)** for detailed instructions.
+
+---
+
+## 📖 About the Game
+
+### Story
+You're a new student at Avalon Academy, a living pocket dimension where the greatest mages of the age teach collaborative dimensional magic. Guided by Polly—a sarcastic, ancient raven familiar—you'll navigate relationships with legendary mages, explore magical realms, and shape your destiny through meaningful choices.
+
+### Key Features
+- **Customizable dorm room** with magical features
+- **11 complete scenes** with branching narratives
+- **3 expedition paths**: Singing Dunes, Verdant Tithe, or Rune Glacier
+- **14 unique endings** from legendary master to humble student
+- **Deep character relationships** that affect your story
+- **5 achievements** to unlock
+- **40,000+ words** of content
+- **High replay value** - every playthrough is different
+
+### Game Statistics
+- **Estimated Playtime**: 45-90 minutes per run
+- **Total Scenes**: 11
+- **Unique Choices**: 100+
+- **Relationship Tracking**: 5 characters
+- **Collaboration System**: Choices affect your magical approach
+
+---
+
+## 📁 Repository Structure
 
 ```
 Avalon/
+├── 🎮 PLAY_THE_GAME.md          ← START HERE TO PLAY
+├── 📤 SUBMISSION_GUIDE.md       ← Publishing/submission info
+├── 📋 README.md                 ← You are here
 │
-├── 🎮 GAMES/
-│   ├── game/                    ← HTML version (complete, play now!)
-│   │   ├── index.html          ← OPEN THIS to play
-│   │   ├── game.js
-│   │   └── style.css
-│   │
-│   └── choicescript_game/       ← Professional version (for publishing)
-│       ├── startup.txt
-│       └── scenes/
+├── game/                        ← HTML Version (Instant Play)
+│   ├── index.html              ← Double-click to play!
+│   ├── game.js                 ← Game logic
+│   └── style.css               ← Styling
 │
-├── 📚 DOCUMENTATION/
-│   ├── QUICK_START.md          ← How to play
-│   └── docs/
-│       ├── AUTOMATION_GUIDE.md  ← Zapier workflows
-│       └── PROJECT_ROADMAP.md   ← Development plan
+├── choicescript_game/          ← ChoiceScript Version (Professional)
+│   ├── startup.txt             ← Game configuration
+│   ├── scenes/                 ← All game scenes
+│   │   ├── arrival.txt
+│   │   ├── dorm_room.txt       ← NEW! Customization
+│   │   ├── first_lesson.txt
+│   │   ├── academy_life.txt    ← NEW! Daily life
+│   │   ├── expedition_prep.txt ← NEW! Preparation
+│   │   ├── singing_dunes.txt
+│   │   ├── verdant_tithe.txt
+│   │   ├── rune_glacier.txt
+│   │   ├── character_bonds.txt ← NEW! Relationships
+│   │   ├── final_trial.txt     ← NEW! Climax
+│   │   └── endings.txt         ← 14 unique endings
+│   └── web/                    ← Web player files
 │
-├── 📖 LORE/ (moved to lore/ folder)
-│   ├── Geography and Natural Lore.pdf
-│   ├── Pollys_Wingscrolls_Worldbuilding.markdown
-│   └── [all worldbuilding documents]
-│
-└── 📝 WRITING/ (moved to writing_drafts/ folder)
-    ├── The Spiral of Avalon novels
-    ├── Chapter drafts
-    └── Character archives
+├── lore/                       ← Worldbuilding documents
+├── writing_drafts/             ← Novel manuscripts
+├── docs/                       ← Additional documentation
+└── archive/                    ← Old files and backups
 ```
 
 ---
 
-## 🎯 WHAT'S IN EACH FOLDER
+## 🎭 Game Paths Overview
 
-### **`game/`** - HTML Game (Ready to Play!)
-- Complete game with 30+ scenes
-- 14 unique endings
-- 3 realm explorations
-- Just open `index.html` and play!
+### Scene Flow
+1. **Arrival** → Choose your first impression
+2. **Dorm Room** → Customize your space (**NEW!**)
+3. **First Lesson** → Learn collaborative magic
+4. **Academy Life** → Choose your training focus (**NEW!**)
+5. **Expedition Prep** → Prepare for your journey (**NEW!**)
+6. **Expedition** → Choose: Singing Dunes, Verdant Tithe, or Rune Glacier
+7. **Character Bonds** → Deepen relationships (**NEW!**)
+8. **Final Trial** → Face the ultimate test (**NEW!**)
+9. **Endings** → Discover your fate (14 possibilities)
 
-### **`choicescript_game/`** - Professional Version
-- ChoiceScript format for app publishing
-- Professional save/load system
-- Achievement tracking
-- Path to Google Play & App Store
-
-### **`docs/`** - Project Documentation
-- Guides for playing, automating, and developing
-- Project roadmap and timelines
-- Beta testing plans
-
-### **`lore/`** - Worldbuilding & Story Content
-- All Spiral of Pollyoneth lore
-- Geography, characters, magic systems
-- Novel manuscripts
-
-### **`writing_drafts/`** - Writing Archives
-- Novel drafts and revisions
-- Character development
-- Chat logs and brainstorming
+### Major Choices
+- **Dorm Style**: Sanctuary, Study, Workshop, or Zen
+- **Magical Features**: Multi-realm window, time clock, garden, or memory crystal
+- **Training Focus**: Theory (Aria), Practical (Izack), or Living Magic (Zara)
+- **Expedition**: Which realm to explore
+- **Bonds**: Which relationships to prioritize
+- **Trial Approach**: Leadership, collaboration, or support
 
 ---
 
-## 🎮 GAME FEATURES
+## 🏆 Endings Guide
 
-**Your Choices Matter:**
-- Collaboration vs Individual Power
-- Build relationships with Izack, Aria, Zara, Polly
-- Explore 3 magical realms
+### Legendary Tier (Best)
+1. **Collaborative Master** - Partnership + 80+ collaboration
+2. **Glacier Partner** - Achieved true partnership
+3. **Heartwood Guardian** - Bonded with ancient tree
 
-**Three Expeditions:**
-- 🏜️ **Singing Dunes** - Truth-testing desert with oath-magic
-- 🌳 **Verdant Tithe** - Sentient forest with living consciousness
-- ❄️ **Rune Glacier** - Adaptive ice with written magic
+### High Achievement
+4. **Truthbound Mage** - Desert's truth + high collaboration
+5. **Runeweaver** - Mastered the First Tongue
+6. **Forestbound Guardian** - Verdant Tithe connection
 
-**14 Unique Endings:**
-- Collaborative Master
-- Truthbound Mage
-- Forestbound Guardian
-- Heartwood Guardian
-- Runeweaver
-- Glacier Partner
-- And more!
+### Success Tier
+7. **Collaborative Scholar** - 75+ collaboration
+8. **Balanced Mage** - Found harmony
+9. **Humble Seeker** - Chose mystery wisely
 
----
+### Standard Tier
+10. **Boundary Specialist** - Competent professional
+11. **Second Chance** - Redemption through effort
 
-## 🔧 FOR DEVELOPERS
-
-**Current Status:**
-- ✅ HTML version: Complete
-- ✅ ChoiceScript: 2/3 expeditions done
-- ⏳ ChoiceScript endings: In progress
-
-**To Continue Development:**
-1. See `docs/PROJECT_ROADMAP.md` for full plan
-2. Current phase: Complete ChoiceScript content
-3. Next: Beta testing
+### Challenging Tier
+12. **Humbled Student** - Struggled but completed
+13. **Expelled** - Failed collaborative principles
+14. **Standard Path** - Average graduation
 
 ---
 
-## 📞 HELP & RESOURCES
+## 🎨 What's New in Version 1.0
 
-**Can't find something?**
-- Games are in: `game/` and `choicescript_game/`
-- Lore is in: `lore/`
-- Guides are in: `docs/` and `QUICK_START.md`
-
-**Having trouble playing?**
-- Read `QUICK_START.md` for detailed instructions
-- HTML version is easiest - just open `game/index.html`
-
-**Want to contribute?**
-- See `docs/PROJECT_ROADMAP.md` for current tasks
-- Beta testers welcome!
+### Expanded Content (Nov 2025)
+- ✨ **Dorm Room Customization** - 16 unique combinations
+- 📚 **Academy Life Scene** - Choose your training path
+- 🗺️ **Expedition Prep** - Meaningful preparation choices
+- 💕 **Character Bonds** - Deep relationship scenes
+- ⚔️ **Final Trial** - Collaborative crisis management
+- 📝 **40,000+ words** - More than doubled original content
+- 🎯 **Achievement system** - Proper ChoiceScript achievements
+- 🔧 **Professional polish** - Ready for submission
 
 ---
 
-## 🎊 JUST WANT TO PLAY?
+## 💻 Technical Details
 
-**→ Open `game/index.html`** ←
+### ChoiceScript Version
+- **Language**: ChoiceScript
+- **Scenes**: 11 complete .txt files
+- **Total Lines**: 5,000+ lines of code
+- **Achievements**: 5 defined achievements
+- **Variables Tracked**: 20+ stats and flags
 
-Everything else is for development and lore. The game works right now!
+### HTML Version
+- **Language**: JavaScript + HTML5 + CSS3
+- **Size**: ~100KB total
+- **Browser**: Works in all modern browsers
+- **Offline**: Fully playable offline
 
 ---
 
-*"In a land where even flowers hum with magic, tread wisely – the ivy has ears and the crows have tales to tell."*
+## 📤 Publishing Information
 
-**Created for The Spiral of Pollyoneth Universe**
+### Ready for Submission
+- ✅ Meets 30,000 word minimum (40,000+)
+- ✅ Complete game with all endings
+- ✅ Title under 30 characters
+- ✅ Professional ChoiceScript formatting
+- ✅ Multiple meaningful choices
+- ✅ No AI-generated content
+
+### Next Steps
+1. **Beta test** on Choice of Games forum (2-4 weeks)
+2. **Gather feedback** and make improvements
+3. **Submit to Hosted Games** via email
+4. **Wait for review** (2-6 weeks)
+5. **Publication** if approved (4-6 months total)
+
+**See [SUBMISSION_GUIDE.md](SUBMISSION_GUIDE.md) for complete details**
+
+---
+
+## 🎊 Credits
+
+### Game Design & Writing
+- All game content and narrative
+- Lore development
+- Character creation
+
+### Tools & Frameworks
+- **ChoiceScript** by Choice of Games LLC
+- **HTML/CSS/JavaScript** for web version
+- **Node.js** for local testing
+
+---
+
+## 🎮 Ready to Play?
+
+**👉 Open [PLAY_THE_GAME.md](PLAY_THE_GAME.md) or just double-click `game/index.html`**
+
+Your journey at Avalon Academy awaits. Every choice matters. Every relationship counts. And magic is alive.
+
+Welcome to Avalon. 🌟
+
+---
+
+*"I've watched Avalon Academy for three hundred years. Your story is about to begin."*
+*— Polly (Polymnia Aetheris)*
