@@ -1,0 +1,1153 @@
+*comment ================================================
+*comment YEAR TWO CRISIS - CONVERGENCE POINT
+*comment All three paths (Research/Combat/Diplomatic) reunite here
+*comment THE CRISIS: Dimensional instability threatens to collapse Avalon
+*comment Branch Point 2: Choose how to solve the crisis
+*comment ================================================
+
+*temp crisis_solution ""
+*temp execution_success false
+*temp collaboration_check false
+*temp path_contribution_bonus 0
+*temp crisis_severity 100
+
+*label start
+
+[b]== THE WORLD TREE TREMBLES ==[/b]
+
+*line_break
+
+You wake to a sound you've never heard before in Avalon—an alarm.
+
+Not a bell or a siren, but something deeper. A *resonance* that vibrates through the dimensional fabric itself, making your bones ache and your teeth hurt.
+
+*page_break
+
+*if polly_is_familiar = true
+  Polly is already awake, her feathers standing on end. [i]"That's... not good. That's the World Tree's distress call. I haven't heard that sound in three centuries."[/i]
+*else
+  *if familiar_type = "phoenix"
+    ${familiar_name} materializes in a burst of starlight, radiating distress.
+  *if familiar_type = "shadowfox"
+    ${familiar_name} flickers into visibility, every hair standing on end.
+  *if familiar_type = "elemental"
+    ${familiar_name}'s flames burn erratic and panicked.
+  *if familiar_type = "serpent"
+    ${familiar_name} coils tight around your arm, humming a discordant frequency.
+  *if familiar_type = "void"
+    ${familiar_name} manifests solid for once—you've never seen it look so agitated.
+
+*line_break
+
+*if has_golem = true
+  ${golem_name}'s eyes flash urgently.
+
+  *if golem_personality = "protective"
+    "${name}! Something is wrong with Avalon's dimensional structure. We must evacuate immediately."
+  *if golem_personality = "curious"
+    "Fascinating and terrifying! The pocket dimension's stability has dropped by 73%—"
+  *if golem_personality = "scholarly"
+    "Alert: Critical dimensional collapse imminent. Recommend immediate action."
+  *if golem_personality = "cheerful"
+    "Something's really, really wrong! But I'm sure we can fix it! Right?"
+
+*page_break
+
+You throw open your window and immediately understand the crisis.
+
+*line_break
+
+The World Tree—Avalon's heart, its anchor, the living structure that maintains this entire pocket dimension—is [i]cracking[/i].
+
+*page_break
+
+Fissures of impossible darkness spider across its trunk. Where they spread, reality itself seems to *thin*. You can see through the cracks to somewhere else—somewhere *wrong*. Empty space that hungers.
+
+*line_break
+
+The branches overhead, usually laden with impossible fruit, are withering. Dimensional instabilities ripple through the air like heat waves.
+
+*page_break
+
+Students pour from the dormitories, terrified. Faculty members materialize via emergency portals, their faces grim. The entire academy is mobilizing.
+
+*line_break
+
+*if polly_is_familiar = true
+  [i]"Come on,"[/i] Polly says, her usual humor gone. [i]"Izack, Aria, and Zara will be at the tree. If there's a solution, they'll find it. But they're going to need help."[/i]
+*else
+  You know without being told where you need to go: the World Tree. If Avalon is dying, that's where the fight will be.
+
+*page_break
+
+*comment ================================================
+*comment ARRIVAL AT THE WORLD TREE
+*comment ================================================
+
+*label arrival_at_crisis
+
+The scene at the World Tree is controlled chaos.
+
+*line_break
+
+Aria stands closest to the trunk, her hands surrounded by complex boundary wards as she examines the dimensional tears. Her expression is the most severe you've ever seen.
+
+*page_break
+
+Izack stands slightly back, coordinating teams of students and faculty. His usual gentle demeanor is sharpened by urgent command.
+
+*line_break
+
+Zara directs combat mages in establishing a protective perimeter, containing the dimensional instabilities before they spread beyond the tree.
+
+*page_break
+
+All three of your mentors, working in crisis mode.
+
+*line_break
+
+*if chosen_path = "research"
+  You immediately move to Aria's side. Your research training kicks in—observation, analysis, understanding before action.
+
+  *set path_contribution_bonus +10
+  *set aria_relationship +5
+
+  She glances at you with relief. [b]"${name}. Good. I need your theoretical knowledge. Look at this pattern—does it match anything from your studies?"[/b]
+
+  *goto crisis_analysis
+
+*if chosen_path = "combat"
+  You join Zara's defensive line without hesitation. Combat training means acting fast, holding the line while others find solutions.
+
+  *set path_contribution_bonus +10
+  *set zara_relationship +5
+
+  She nods approvingly. [b]"${name}! Help me stabilize these containment wards. We need to stop the instabilities from spreading!"[/b]
+
+  *goto crisis_containment
+
+*if chosen_path = "diplomatic"
+  You move to Izack's coordination point. Your diplomatic training means seeing the whole picture, organizing people toward common goals.
+
+  *set path_contribution_bonus +10
+  *set izack_relationship +5
+
+  He gestures you over urgently. [b]"${name}, thank the dimensions you're here. I need help coordinating the response teams—this is too much for one person."[/b]
+
+  *goto crisis_coordination
+
+*comment ================================================
+*comment PATH-SPECIFIC CONTRIBUTIONS
+*comment ================================================
+
+*label crisis_analysis
+
+[b]RESEARCH PATH: UNDERSTANDING THE THREAT[/b]
+
+*line_break
+
+You examine the dimensional tears alongside Aria, your months of research training focusing your perception.
+
+*page_break
+
+The cracks in the World Tree aren't random. They follow a *pattern*—concentric spirals radiating from a single point deep within the trunk.
+
+*line_break
+
+*if knowledge >= 70
+  Your studies suddenly click into place. [i]This is a dimensional feedback loop. The pocket dimension is collapsing in on itself.[/i]
+
+  *set knowledge +5
+  *set execution_success true
+
+  "Aria," you say urgently. "This is a feedback cascade. Something's draining the dimensional anchor at the tree's core."
+
+  *line_break
+
+  Her eyes widen. [b]"You're right. This isn't an external attack—it's internal destabilization. The question is: how do we stop it?"[/b]
+
+*else
+  The pattern is *almost* familiar. Something from your studies, but you can't quite grasp it. The urgency makes it hard to think clearly.
+
+  *line_break
+
+  "This pattern..." you start, but the words won't come.
+
+  *line_break
+
+  Aria's hand on your shoulder is surprisingly gentle. [b]"Breathe. Fear clouds analysis. What do you see?"[/b]
+
+*page_break
+
+Before you can respond, Izack and Zara arrive with grim news.
+
+*goto emergency_meeting
+
+*label crisis_containment
+
+[b]COMBAT PATH: HOLDING THE LINE[/b]
+
+*line_break
+
+The dimensional instabilities manifest as tears in reality itself. Through them, you glimpse the *void*—empty space between dimensions that hungers to consume.
+
+*page_break
+
+Your combat training kicks in. While the others analyze, you [i]act[/i].
+
+*line_break
+
+*if power >= 70
+  You channel your strongest defensive wards, forming barriers around each tear. The technique Zara taught you—layered defenses, each one buying time.
+
+  *set power +5
+  *set execution_success true
+
+  The tears stop expanding. Not healed, but contained. Stable enough that they won't spread while solutions are found.
+
+  *line_break
+
+  Zara grins fiercely. [b]"That's my student! You're buying us time—exactly what we need!"[/b]
+
+*else
+  You try to contain the nearest tear, but your ward wavers under the dimensional pressure. It's like trying to hold back an ocean with your hands.
+
+  *line_break
+
+  Zara moves to reinforce your spell, her power joining yours. [b]"Together,"[/b] she says firmly. [b]"Combat mages never fight alone."[/b]
+
+  *line_break
+
+  With her help, the containment holds.
+
+*page_break
+
+A student calls out—another tear opening on the far side of the tree. Then another. They're multiplying faster than you can contain them.
+
+*line_break
+
+Izack and Aria arrive with urgent news.
+
+*goto emergency_meeting
+
+*label crisis_coordination
+
+[b]DIPLOMATIC PATH: ORGANIZING THE RESPONSE[/b]
+
+*line_break
+
+Chaos threatens to overwhelm the response. Too many people, each trying to help in their own way, accidentally interfering with each other.
+
+*page_break
+
+Your diplomatic training sharpens into focus. This isn't about magic—it's about [i]people[/i].
+
+*line_break
+
+*if empathy >= 70
+  You see the pattern immediately. The faculty needs clear roles. Students need specific tasks. Everyone needs to work together, not against each other.
+
+  *set empathy +5
+  *set collaboration +10
+  *set execution_success true
+
+  "Listen!" Your voice carries authority you didn't know you possessed. "Research students, with Aria—analyze the tears! Combat students, with Zara—containment only! Everyone else, establish evacuation protocols!"
+
+  *line_break
+
+  The chaos crystallizes into coordinated action. Izack looks at you with profound respect.
+
+  *line_break
+
+  [b]"That was extraordinary, ${name}. You just prevented dozens of people from working at cross-purposes."[/b]
+
+*else
+  You try to organize people, but your voice gets lost in the panic. Too many conflicting instructions. Too much fear.
+
+  *line_break
+
+  Izack steps in, his voice cutting through the noise with practiced ease. He organizes the response with the skill of centuries, but you can see the strain in his eyes.
+
+  *line_break
+
+  [b]"Help me,"[/b] he says quietly to you. [b]"I need you to coordinate the evacuation team. Can you do that?"[/b]
+
+  *line_break
+
+  You nod and focus on the smaller task, managing it successfully.
+
+*page_break
+
+A distant crack echoes through Avalon—another section of the World Tree fracturing. Time is running out.
+
+*line_break
+
+Aria arrives with Zara, their expressions grave.
+
+*goto emergency_meeting
+
+*comment ================================================
+*comment EMERGENCY MEETING - ASSESSING THE SITUATION
+*comment ================================================
+
+*label emergency_meeting
+
+[b]== CRISIS POINT ==[/b]
+
+*line_break
+
+Izack, Aria, and Zara form a tight circle near the tree's base. You join them—your contributions have earned you a place at this table.
+
+*page_break
+
+*if romantic_interest = "izack"
+  Izack's eyes find yours, and despite the crisis, there's warmth there. [i]You're safe. We'll get through this.[/i] The unspoken message clear.
+*if romantic_interest = "aria"
+  Aria's hand briefly squeezes yours—a gesture of connection in the midst of catastrophe.
+*if romantic_interest = "zara"
+  Zara stands close enough that your shoulders touch, drawing comfort from proximity even now.
+
+*line_break
+
+Aria speaks first, her voice clinical but you can hear the underlying terror. [b]"The dimensional anchor is failing. The World Tree was created to maintain Avalon's pocket dimension, but something has compromised its core. At current rate of degradation, we have... hours. Maybe less."[/b]
+
+*page_break
+
+[b]"If the anchor fails completely?"[/b] someone asks.
+
+*line_break
+
+Aria's expression is answer enough, but she says it anyway. [b]"The pocket dimension collapses. Avalon ceases to exist. Everyone inside is scattered across dimensional space. Most won't survive."[/b]
+
+*page_break
+
+Silence. Hundreds of students. Decades of collected knowledge. The academy itself—all of it hangs in the balance.
+
+*line_break
+
+Zara breaks the silence, her voice tight. [b]"Then we fix it. There has to be a way."[/b]
+
+*page_break
+
+Izack nods slowly. [b]"There are ways. I have three possible solutions. Each with risks."[/b]
+
+*line_break
+
+He looks at each of you in turn—his fellow instructors, then you. When his silver eyes meet yours, you see something that makes your heart skip: [i]I trust you to help make this choice.[/i]
+
+*page_break
+
+*comment ================================================
+*comment THE THREE SOLUTIONS - BRANCH POINT 2
+*comment ================================================
+
+*label three_solutions
+
+[b]"The first option,"[/b] Izack begins, [b]"is what Avalon was built for: [i]collaboration[/i]."[/b]
+
+*page_break
+
+He gestures to the gathered crowd—students, faculty, all of Avalon's community.
+
+*line_break
+
+[b]"We could perform a mass collaborative ritual. Every person here, linking their magic together, channeling power into the World Tree to stabilize the dimensional anchor. It would be the largest collaborative working ever attempted."[/b]
+
+*page_break
+
+*if collaboration >= 70
+  The idea resonates with you immediately. This is exactly what you've trained for—what Avalon represents.
+*else
+  The scale of that collaboration seems almost impossible. So many people, so much that could go wrong.
+
+*line_break
+
+Aria speaks up, her voice carefully neutral. [b]"The risk: if collaboration fails—if people panic, if the connection breaks—the feedback could kill everyone involved. We'd need [i]perfect[/i] harmony under extreme pressure."[/b]
+
+*page_break
+
+[b]"The second option,"[/b] Aria continues, [b]"is more reliable but... costly."[/b]
+
+*line_break
+
+She traces patterns in the air, showing complex boundary seal formations.
+
+*page_break
+
+[b]"I could seal the tears using high-level boundary magic. Create an artificial dimensional membrane around the failing anchor. It would be stable, certain, and safe."[/b]
+
+*line_break
+
+[b]"But?"[/b] Zara prompts, sensing the hesitation.
+
+*page_break
+
+Aria's jaw tightens. [b]"But it requires sacrificing some of Avalon's core principles. The seals would be... rigid. Permanent. They'd stabilize the dimension by *restricting* it. No more easy travel between realms. No more open doors. Avalon would become more like a prison than a bridge between worlds."[/b]
+
+*line_break
+
+Izack's pain is visible. Everything he built Avalon to be, compromised for survival.
+
+*page_break
+
+Zara steps forward. [b]"There's a third option. One you haven't mentioned yet."[/b]
+
+*line_break
+
+She looks at you directly. [b]"What if we don't choose between collaboration and boundaries? What if we [i]combine[/i] them?"[/b]
+
+*page_break
+
+Aria's eyes widen. [b]"That's... theoretically possible. Use collaborative magic to strengthen Avalon's core while simultaneously using boundary magic to reinforce the damaged areas. The best of both approaches."[/b]
+
+*line_break
+
+Izack nods slowly. [b]"But exponentially more difficult. It would require someone who understands [i]both[/i] paradigms deeply—someone who could coordinate massive collaboration while simultaneously performing master-level boundary work. And the margin for error would be..."[/b]
+
+*line_break
+
+[b]"Essentially zero,"[/b] Aria finishes.
+
+*page_break
+
+All three of them look at you.
+
+*line_break
+
+*if (knowledge >= 70) and (empathy >= 70)
+  You realize with sudden clarity: they think [i]you[/i] could do it. Your theoretical knowledge combined with your understanding of people. Your unique position as student and heir to their traditions.
+
+  *set collaboration_check true
+
+*else
+  The look in their eyes is both question and measurement. [i]Can you do this?[/i]
+
+*page_break
+
+*if polly_is_familiar = true
+  Polly's voice is unusually serious. [i]"This is the choice that defines everything, ${name}. Not just for Avalon, but for what kind of mage you'll become. Choose carefully."[/i]
+
+*line_break
+
+[b]"We need to decide [i]now[/i],"[/b] Aria says as another crack sounds through the dimension. [b]"The anchor won't last much longer."[/b]
+
+*page_break
+*stat_chart
+
+The fate of Avalon rests on this choice.
+
+*page_break
+
+*comment ================================================
+*comment THE CHOICE - BRANCH POINT 2
+*comment ================================================
+
+*label crisis_choice
+
+*choice
+  #Option A: Izack's Collaborative Solution - "We'll work together. All of us."
+    *set crisis_solution "collaborative"
+    *set izack_relationship +10
+
+    Izack's face transforms with hope and pride.
+
+    [b]"Yes. [i]Yes[/i]. This is what Avalon is [i]for[/i]. We face this together, or not at all."[/b]
+
+    *goto collaborative_solution
+
+  #Option B: Aria's Boundary Solution - "We need certainty. Use the boundary seals."
+    *set crisis_solution "boundary"
+    *set aria_relationship +10
+
+    Aria nods, her expression resolute but sad.
+
+    [b]"The practical choice. I can do this. Avalon will survive, even if it becomes... something different."[/b]
+
+    *goto boundary_solution
+
+  *if (knowledge >= 70) and (empathy >= 70)
+    #Option C: Forge Your Own Path - "Let me try combining both approaches."
+      *set crisis_solution "hybrid"
+      *set collaboration +15
+      *set aria_relationship +15
+      *set izack_relationship +15
+      *set zara_relationship +15
+
+      The three instructors exchange glances—surprise, hope, and fear mixing together.
+
+      *line_break
+
+      Izack speaks quietly. [b]"${name}... this is incredibly dangerous. Are you certain?"[/b]
+
+      *goto hybrid_solution
+
+*comment ================================================
+*comment SOLUTION A: COLLABORATIVE APPROACH
+*comment ================================================
+
+*label collaborative_solution
+
+[b]== THE POWER OF UNITY ==[/b]
+
+*line_break
+
+Within minutes, the entire academy is assembled at the World Tree.
+
+*page_break
+
+Students. Faculty. Even the familiars and golems. Hundreds of individuals, each with their own magic, their own style, their own fears.
+
+*line_break
+
+Izack stands at the center, his voice carrying to every corner. [b]"I'm going to ask more of you than I ever have before. We're going to link our magic—all of us—and pour our combined power into stabilizing the dimensional anchor."[/b]
+
+*page_break
+
+[b]"This will hurt. This will be terrifying. But if we hold together—if we [i]trust[/i] each other—we can save Avalon. Not through individual power, but through what we become when we work as one."[/b]
+
+*line_break
+
+*if chosen_path = "research"
+  Your theoretical knowledge makes you invaluable here. You help Aria design the connection matrix—the pattern that will link everyone's magic together safely.
+
+  *set knowledge +10
+
+*if chosen_path = "combat"
+  Your combat training helps establish the protective framework. If the ritual falters, your defensive wards will contain the damage.
+
+  *set power +10
+
+*if chosen_path = "diplomatic"
+  Your diplomatic skills shine as you help people overcome their fear, building the trust needed for this level of magical intimacy.
+
+  *set empathy +10
+
+*page_break
+
+Everyone joins hands. The connection forms slowly—tentative at first, then growing stronger.
+
+*line_break
+
+You feel them all. Every student's determination. Every teacher's hope. The familiars' fierce loyalty. The golems' unwavering support. Even Polly's ancient wisdom flowing through the link.
+
+*page_break
+
+[i]This is collaboration at its highest form.[/i]
+
+*line_break
+
+Izack begins the channeling. Power flows from hundreds of sources, converging on the World Tree's damaged core.
+
+*page_break
+
+*if collaboration >= 70
+  The magic flows smoothly. Your training, your understanding of collaborative techniques, helps you serve as a focal point in the network.
+
+  *set execution_success true
+
+  The cracks in the World Tree begin to [i]heal[/i]. Not just seal—actually repair themselves. The dimensional anchor stabilizes, then strengthens beyond even its original power.
+
+  *page_break
+
+  [i]This is what's possible when people truly work together.[/i]
+
+  *line_break
+
+  The ritual completes. The connection gently dissolves. Everyone staggers, exhausted but alive.
+
+  *line_break
+
+  The World Tree stands whole. Its branches bloom with new impossible fruit. Avalon is not just saved—it's [i]reborn[/i].
+
+  *set crisis_severity 0
+  *goto aftermath_success
+
+*else
+  The connection wavers. Too many people, too much fear. The collaborative link starts to fracture.
+
+  *line_break
+
+  People cry out as magical feedback burns through the network. The ritual is failing—
+
+  *page_break
+
+  Izack pours his own power into stabilizing the connection, taking the strain on himself. Aria and Zara do the same, the three of them serving as anchors.
+
+  *line_break
+
+  It's not perfect. It's painful. But it [i]holds[/i].
+
+  *page_break
+
+  The World Tree's cracks seal. Not healed, but contained. Stable enough. Avalon survives, though you can see the strain lines still visible in the bark.
+
+  *set crisis_severity 40
+  *goto aftermath_partial
+
+*comment ================================================
+*comment SOLUTION B: BOUNDARY APPROACH
+*comment ================================================
+
+*label boundary_solution
+
+[b]== THE PRICE OF CERTAINTY ==[/b]
+
+*line_break
+
+Aria stands alone before the World Tree, her hands already glowing with boundary magic.
+
+*page_break
+
+[b]"Everyone, evacuate to the far side of the academy. This working will be... intense. I need complete focus."[/b]
+
+*line_break
+
+*if chosen_path = "research"
+  She hesitates, then looks at you. [b]"${name}—I could use your help. Someone to maintain the outer containment while I work on the core seals. Are you willing?"[/b]
+
+  *line_break
+
+  *choice
+    #"I'll help you."
+      *set aria_relationship +15
+      *set knowledge +10
+
+      You stand beside her, channeling your research training into supporting her work.
+
+      *goto boundary_execution
+
+    #"This should be your decision alone."
+      *set aria_relationship +5
+
+      She nods, respect in her eyes. [b]"Thank you for understanding. Stay safe."[/b]
+
+      You evacuate with the others.
+
+      *goto boundary_execution_solo
+
+*if (chosen_path = "combat") or (chosen_path = "diplomatic")
+  [b]"The rest of you—be ready for evacuation if this fails. Zara, have your combat mages ready to contain any explosions. Izack, prepare emergency portals."[/b]
+
+  *goto boundary_execution_solo
+
+*label boundary_execution
+
+Working with Aria is like watching a master sculptor, except her medium is reality itself.
+
+*page_break
+
+She traces seals in the air—complex, beautiful, and utterly rigid. Each one locks a portion of dimensional space into fixed structure.
+
+*line_break
+
+Your role is to maintain the outer framework while she works on the core. Your research knowledge helps you understand the theory behind her techniques.
+
+*page_break
+
+The seals form layer after layer. The cracks in the World Tree stop spreading. The dimensional instabilities freeze in place.
+
+*line_break
+
+But you can [i]feel[/i] what's being lost. The fluidity that made Avalon special. The openness. The ease of moving between dimensions.
+
+*page_break
+
+Aria feels it too. Tears stream down her face as she works, though her hands never waver.
+
+*line_break
+
+[i]She's killing the thing she loves to save it.[/i]
+
+*page_break
+
+The final seal snaps into place. The World Tree is stable. Rigid. Alive but constrained.
+
+*set crisis_severity 20
+*goto aftermath_boundary
+
+*label boundary_execution_solo
+
+You watch from a distance as Aria works alone.
+
+*page_break
+
+Her magic blazes like a star, seals forming in intricate cascades. The World Tree's cracks seal one by one.
+
+*line_break
+
+It takes hours. By the end, Aria sways with exhaustion, kept upright only by her iron will.
+
+*page_break
+
+But it's done. Avalon is stable. Changed, but stable.
+
+*set crisis_severity 30
+*goto aftermath_boundary
+
+*comment ================================================
+*comment SOLUTION C: HYBRID APPROACH
+*comment ================================================
+
+*label hybrid_solution
+
+[b]== TRANSCENDING BOUNDARIES ==[/b]
+
+*line_break
+
+[i]"I can do this,"[/i] you say, and you believe it. All your training—theoretical knowledge from Aria, collaborative techniques from Izack, crisis response from Zara—it all converges to this moment.
+
+*page_break
+
+Aria steps forward. [b]"Then let me teach you the boundary seals. You'll need to cast them while simultaneously coordinating the collaborative working."[/b]
+
+*line_break
+
+Izack adds, [b]"I'll help you establish the connection network. But you'll need to maintain it while performing Aria's technique."[/b]
+
+*page_break
+
+Zara grins fiercely. [b]"And I'll make sure you don't get killed by magical feedback. Standard combat mage support."[/b]
+
+*line_break
+
+The three of them—your mentors, your friends, possibly more—surround you with their combined knowledge.
+
+*page_break
+
+*if (knowledge >= 80) and (empathy >= 80) and (collaboration >= 70)
+  [i]You understand.[/i] Not just intellectually, but deeply. You see how the two approaches can interweave—collaboration providing power and flexibility, boundaries providing structure and stability.
+
+  *set execution_success true
+  *set knowledge +15
+  *set empathy +15
+  *set collaboration +20
+
+  "I see it," you whisper. "I know what to do."
+
+  *goto hybrid_execution_excellent
+
+*elseif (knowledge >= 70) and (empathy >= 70)
+  The theory makes sense. You think you understand. But the execution will be incredibly difficult.
+
+  "I'll try," you say, and hope it's enough.
+
+  *goto hybrid_execution_difficult
+
+*else
+  This is beyond you. You can feel it—the technique is simply too advanced, too complex.
+
+  *line_break
+
+  But you're going to try anyway, because Avalon needs you.
+
+  *goto hybrid_execution_failure
+
+*label hybrid_execution_excellent
+
+You stand at the World Tree's base and open yourself to the academy.
+
+*page_break
+
+The collaborative connection forms—not forced, but invited. Each person joining freely, adding their power to the gestalt.
+
+*line_break
+
+At the same time, you begin tracing Aria's boundary seals. Left hand for collaboration. Right hand for boundaries. Two techniques that were never meant to work together.
+
+*page_break
+
+But in your hands, they [i]do[/i].
+
+*line_break
+
+The collaborative power flows through the boundary structures, guided and shaped. The boundaries prevent the collaborative magic from becoming chaotic. The collaboration provides the power the boundaries need to be flexible rather than rigid.
+
+*page_break
+
+[i]This is something new. Something neither Izack nor Aria achieved alone.[/i]
+
+*line_break
+
+The World Tree doesn't just heal—it [i]transforms[/i]. The cracks become veins of new growth. The damage becomes stronger than the original structure.
+
+*page_break
+
+When it's done, you collapse into Zara's waiting arms. Exhausted but triumphant.
+
+*line_break
+
+Avalon is saved. And you've just proven something that will echo through dimensional magical theory for generations.
+
+*set crisis_severity 0
+*achievement crisis_hero 15 Crisis Resolution
+*goto aftermath_transcendent
+
+*label hybrid_execution_difficult
+
+The technique pushes you to your absolute limit.
+
+*page_break
+
+Collaboration in your left hand. Boundaries in your right. Your mind splitting between two fundamentally different approaches to magic.
+
+*line_break
+
+It hurts. Your head feels like it's splitting. Blood drips from your nose.
+
+*page_break
+
+But you [i]hold[/i].
+
+*line_break
+
+The World Tree stabilizes. The cracks seal. It's not perfect—you can see where the two techniques didn't quite mesh—but it works.
+
+*page_break
+
+You collapse, and the last thing you see before losing consciousness is your mentors' faces—pride mixed with concern.
+
+*line_break
+
+When you wake hours later, Avalon is still standing.
+
+*set crisis_severity 15
+*achievement crisis_hero 15 Crisis Resolution
+*goto aftermath_success
+
+*label hybrid_execution_failure
+
+You try. You really do.
+
+*page_break
+
+But the technique is simply beyond your current capabilities. The collaborative link fragments. The boundary seals fracture. Magical feedback burns through your system—
+
+*line_break
+
+Izack, Aria, and Zara catch you before you fall. Their combined power takes over, performing the hybrid technique themselves, using you as a focus but doing the actual work.
+
+*page_break
+
+It saves Avalon. But you know—they did it, not you. You weren't ready.
+
+*line_break
+
+The disappointment in yourself is almost worse than the physical pain.
+
+*set crisis_severity 25
+*goto aftermath_partial
+
+*comment ================================================
+*comment AFTERMATH SCENES
+*comment ================================================
+
+*label aftermath_success
+
+[b]== AFTERMATH: TRIUMPH ==[/b]
+
+*line_break
+
+The World Tree stands whole. Avalon is saved. Completely. Perfectly.
+
+*page_break
+
+The academy erupts in celebration. Students crying with relief. Faculty embracing. Even the usually stoic Aria allows herself to smile.
+
+*line_break
+
+Izack finds you in the crowd. [b]"What you did today... ${name}, you saved hundreds of lives. Preserved decades of knowledge. Kept the dream of Avalon alive."[/b]
+
+*page_break
+
+*if romantic_interest = "izack"
+  His hand cups your face gently. [b]"I knew you were special from the moment we met. But today you proved it to everyone."[/b]
+
+  *line_break
+
+  The kiss he presses to your forehead is soft and full of promise.
+
+*else
+  He pulls you into a warm embrace that speaks of pride, relief, and deep affection.
+
+*page_break
+
+Aria approaches next, her usually stern expression softened by genuine emotion.
+
+*line_break
+
+*if romantic_interest = "aria"
+  [b]"You did the impossible,"[/b] she says softly, her forehead resting against yours. [b]"I didn't think anyone could execute that technique. I was wrong. You're... extraordinary."[/b]
+
+  *line_break
+
+  Her kiss tastes like relief and wonder.
+
+*else
+  [b]"Your performance today was masterful. I will be studying what you accomplished for years to come."[/b]
+
+  *line_break
+
+  Coming from Aria, that's the highest praise imaginable.
+
+*page_break
+
+Zara tackles you in an enthusiastic hug, lifting you off your feet.
+
+*line_break
+
+*if romantic_interest = "zara"
+  [b]"That's my ${man_woman}!"[/b] she laughs, then kisses you soundly. [b]"Saving entire dimensions like it's nothing. Show-off."[/b]
+
+  *line_break
+
+  Her joy is infectious, making everything feel lighter.
+
+*else
+  [b]"You absolute legend! That was AMAZING!"[/b]
+
+*page_break
+
+*if polly_is_familiar = true
+  Polly lands on your shoulder, her voice thick with emotion. [i]"I've been around for a thousand years, kid. I've seen a lot of mages do a lot of things. But what you did today? That was special. You didn't just save Avalon—you proved what's possible when someone truly understands both collaboration and boundaries."[/i]
+
+  *line_break
+
+  [i]"Izack is going to write about you in the history books. You just became a legend."[/i]
+
+*goto year_two_conclusion
+
+*label aftermath_partial
+
+[b]== AFTERMATH: SURVIVAL ==[/b]
+
+*line_break
+
+Avalon stands. Damaged, but standing.
+
+*page_break
+
+The World Tree bears visible scars. The dimensional stability is lower than before. But you're alive. The academy survives.
+
+*line_break
+
+Izack addresses the assembled crowd, his voice carrying exhaustion and relief in equal measure.
+
+*page_break
+
+[b]"We've survived a crisis that could have destroyed everything. It wasn't perfect. It wasn't easy. But we're here. Together. That's what matters."[/b]
+
+*line_break
+
+Later, the three instructors meet with you privately.
+
+*page_break
+
+*if chosen_path = "research"
+  Aria speaks first. [b]"Your theoretical contributions were vital. Without your analysis, we wouldn't have understood the crisis in time."[/b]
+
+*if chosen_path = "combat"
+  Zara nods approvingly. [b]"Your containment work bought us the time we needed. Classic combat mage—holding the line so others can find solutions."[/b]
+
+*if chosen_path = "diplomatic"
+  Izack's smile is warm despite his exhaustion. [b]"Your coordination prevented chaos from making everything worse. Leadership under pressure—exactly what a diplomat should provide."[/b]
+
+*page_break
+
+[b]"But,"[/b] Aria continues, [b]"there's work ahead. The World Tree is stable, but damaged. We'll need to monitor it carefully. And we all need to be stronger, more prepared, in case something like this happens again."[/b]
+
+*line_break
+
+It's not a celebration. But it's survival. And sometimes, that's enough.
+
+*goto year_two_conclusion
+
+*label aftermath_boundary
+
+[b]== AFTERMATH: THE PRICE OF SAFETY ==[/b]
+
+*line_break
+
+Avalon is stable. Completely, perfectly stable.
+
+*page_break
+
+But everyone can feel the difference. The academy feels... constrained. Smaller. The easy flow between dimensions is gone, replaced by rigid controlled passages.
+
+*line_break
+
+Aria stands alone near the World Tree, staring at her handiwork. The seals pulse with steady, unyielding light.
+
+*page_break
+
+When you approach, she doesn't turn. [b]"I saved Avalon by destroying what made it special. Izack created this place to be a bridge between worlds. I turned it into a fortress."[/b]
+
+*line_break
+
+*choice
+  #"You did what you had to do. We're alive because of you."
+    *set aria_relationship +10
+    *set empathy +5
+
+    She finally looks at you, eyes glistening. [b]"Thank you. I hope history agrees with you."[/b]
+
+    *goto boundary_conclusion
+
+  #"Can the seals be modified later? Made more flexible?"
+    *set knowledge +5
+    *set aria_relationship +5
+
+    [b]"Perhaps. With time and research. But for now, they need to remain rigid to maintain stability."[/b]
+
+    *goto boundary_conclusion
+
+  #Say nothing. Just stand with her.
+    *set empathy +10
+    *set aria_relationship +15
+
+    Sometimes silence is the greatest comfort. You simply stand beside her, sharing the weight of necessary choices.
+
+    *goto boundary_conclusion
+
+*label boundary_conclusion
+
+Later, when the academy has settled into its new normal, Izack addresses everyone.
+
+*page_break
+
+[b]"Avalon has changed. The boundaries that protect us are stronger but less flexible. We'll adapt. We'll find new ways to connect with other dimensions. The dream survives, even if the methods must change."[/b]
+
+*line_break
+
+His voice carries hope, but you can hear the sadness beneath it.
+
+*page_break
+
+*if romantic_interest = "aria"
+  That night, Aria seeks you out. [b]"I need you to know—I don't regret my choice. But I'm grateful I don't have to carry it alone."[/b]
+
+  *line_break
+
+  You hold her as she finally allows herself to cry.
+
+*goto year_two_conclusion
+
+*label aftermath_transcendent
+
+[b]== AFTERMATH: A NEW PARADIGM ==[/b]
+
+*line_break
+
+The World Tree doesn't just stand—it [i]glows[/i].
+
+*page_break
+
+The technique you performed created something new. A hybrid dimensional anchor that combines collaborative flexibility with boundary stability. Something that neither Izack nor Aria achieved alone.
+
+*line_break
+
+The entire magical community will be talking about this for decades.
+
+*page_break
+
+Aria examines the tree with scholarly fascination. [b]"This is... I need to study this. You've just created a entirely new branch of dimensional theory."[/b]
+
+*line_break
+
+Izack watches with tears of joy. [b]"You didn't just save Avalon. You proved that the next generation can surpass us. Can take what we built and make it better."[/b]
+
+*page_break
+
+Zara just grins and claps you on the shoulder. [b]"Stop making the rest of us look bad, yeah?"[/b]
+
+*line_break
+
+Later, in a private ceremony, the three instructors present you with something unprecedented: a custom-designed artifact that represents your achievement.
+
+*page_break
+
+[b]The Unity Prism[/b]—a crystalline structure that glows with both collaborative warmth and boundary precision. Proof that seemingly opposed approaches can work together.
+
+*line_break
+
+*set artifact_earned "Unity Prism"
+
+[b]"Wear this,"[/b] Izack says, [b]"and remember what you accomplished. Remember that the future of magic lies not in choosing sides, but in transcending them."[/b]
+
+*goto year_two_conclusion
+
+*comment ================================================
+*comment CONCLUSION AND TRANSITION
+*comment ================================================
+
+*label year_two_conclusion
+
+*page_break
+
+[b]== THE NEXT STEP ==[/b]
+
+*line_break
+
+The crisis is past. Avalon survives. But something fundamental has shifted.
+
+*page_break
+
+You're not just a student anymore. You're someone who stood at the center of a dimensional crisis and [i]chose[/i] how to resolve it.
+
+*line_break
+
+The Year Two Trial awaits—formal testing of what you've learned. But after today, it feels almost anticlimactic.
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"One crisis down,"[/i] Polly says with her characteristic dry humor. [i]"Several more to go before you graduate. But hey—if you can save Avalon from dimensional collapse, a little trial should be a breeze, right?"[/i]
+
+  *line_break
+
+  [i]"...Right?"[/i]
+
+*page_break
+
+*if has_golem = true
+  ${golem_name} approaches, ${his_her} eyes glowing with something that might be pride.
+
+  *if golem_personality = "protective"
+    "You protected everyone. I am honored to serve someone so worthy."
+  *if golem_personality = "curious"
+    "I recorded the entire event! Would you like to review the dimensional readings? They're fascinating!"
+  *if golem_personality = "scholarly"
+    "Your technique will be referenced in academic texts for generations."
+  *if golem_personality = "cheerful"
+    "You were amazing! Can we do something less life-threatening next time, though?"
+
+*page_break
+
+As you walk back to your dorm through the transformed academy, you reflect on the choice you made.
+
+*line_break
+
+*if crisis_solution = "collaborative"
+  You chose unity. Trust. The risk of collaboration. And it either saved everything or almost destroyed everything—but it was true to Avalon's ideals.
+
+*if crisis_solution = "boundary"
+  You chose certainty. Safety. The pragmatic solution. Avalon survives, even if it's changed. Sometimes survival requires compromise.
+
+*if crisis_solution = "hybrid"
+  You chose to forge your own path. To transcend the either/or. To prove that the future can be better than the past.
+
+*page_break
+
+Whatever you chose, you proved something today:
+
+*line_break
+
+You're ready for what comes next.
+
+*page_break
+
+[i]The Year Two Trial awaits.[/i]
+
+*finish
+
+*comment Player proceeds to year_two_trial scene
+*goto_scene year_two_trial
