@@ -1,0 +1,151 @@
+*comment ================================================
+*comment POLLY'S WINGSCROLL: THE FIRST THREAD
+*comment A Choice-Based Adventure in Avalon Academy
+*comment Based on The Spiral of Pollyoneth universe
+*comment ================================================
+
+*title Polly's Wingscroll: The First Thread
+*author The Spiral of Pollyoneth
+
+*scene_list
+  startup
+  arrival
+  first_lesson
+  singing_dunes
+  verdant_tithe
+  rune_glacier
+  endings
+
+*comment ================================================
+*comment STAT DEFINITIONS
+*comment ================================================
+
+*comment Character Stats
+*create name "Student"
+*create collaboration 50
+*create izack_relationship 50
+*create aria_relationship 50
+*create zara_relationship 50
+*create polly_relationship 50
+
+*comment Path Tracking
+*create chosen_path "none"
+*create expedition_choice "none"
+*create artifact_earned "none"
+
+*comment Ending Flags
+*create ending_type "none"
+*create achievement ""
+
+*comment Story Choices (for tracking player history)
+*create intro_choice ""
+*create lesson_approach ""
+*create crisis_response ""
+*create biome_visited ""
+
+*comment ================================================
+*comment TITLE SCREEN
+*comment ================================================
+
+*image avalon_logo.png center
+
+*line_break
+Welcome to Avalon Academy, where the boundaries between realms blur and magic is a living conversation.
+
+*line_break
+In this choice-based narrative, you are a new student arriving at the legendary Avalon Academy, guided by Polly—a sarcastic, ancient raven familiar who has witnessed the rise of dimensional magic itself.
+
+*line_break
+Your choices will determine:
+[b]• Your mastery of collaborative magic[/b]
+[b]• Your relationships with legendary mages[/b]
+[b]• Which magical realm you explore[/b]
+[b]• Your ultimate destiny among the threads of magic[/b]
+
+*line_break
+[i]14 unique endings await, each shaped by your decisions.[/i]
+
+*page_break
+
+*comment ================================================
+*comment CHARACTER CREATION
+*comment ================================================
+
+Before we begin, what should we call you?
+
+*input_text name
+
+Excellent, ${name}. Your journey begins now.
+
+*line_break
+*stat_chart
+  text name
+  percent collaboration Collaboration
+  opposed_pair Izack
+    izack_relationship
+  opposed_pair Aria
+    aria_relationship
+  opposed_pair Zara
+    zara_relationship
+
+*page_break
+
+*comment ================================================
+*comment PROLOGUE - POLLY'S INTRODUCTION
+*comment ================================================
+
+[i]*Caw!*[/i]
+
+Alright, ${name}. Let me guess—you're nervous, excited, and probably wondering if that portal sickness will ever wear off.
+
+Spoiler: it won't for another hour. You're welcome for that information.
+
+I'm Polymnia Aetheris, but everyone calls me Polly. Yes, like the bird. No, the irony is not lost on me. I'll be your narrator, occasional advisor, and the only honest voice you'll hear today.
+
+*line_break
+
+Fair warning: I know how this ends. I've seen every twist, every heartbreak, every triumph. But I'll try to let you experience it fresh, even though I'm terrible at keeping secrets.
+
+*page_break
+
+You stand at the edge of Avalon Academy, watching the impossible Spiral Spire twist upward into clouds that shimmer with leyline energy. The World Tree's branches arc overhead, and you can [i]feel[/i] the convergence of magical currents thrumming through the air.
+
+*line_break
+
+This realm—Avalon itself—is alive. Not metaphorically. Izack Thorne, the greatest dimensional mage of our age, literally [i]created[/i] a sentient pocket dimension that grows like a living thing.
+
+And you're about to become part of it.
+
+*page_break
+
+Through the crystalline gates ahead, you can see the courtyard. Izack himself is waiting to meet the new arrivals.
+
+[i]Fair warning: he's brilliant, kind, and will absolutely try to convince you that listening to magical currents is more important than controlling them. He's not wrong, but don't tell him I said that.[/i]
+
+*line_break
+
+So, ${name}. How do you want to make your entrance?
+
+*choice
+  #Approach respectfully and introduce yourself properly.
+    *set intro_choice "polite"
+    *set collaboration +10
+    *set izack_relationship +10
+
+    Smart. Politeness costs nothing and earns everything. Well, sometimes.
+    *goto_scene arrival polite_approach
+
+  #Ask Polly more questions about what to expect.
+    *set intro_choice "curious"
+    *set polly_relationship +10
+
+    [i]Smart. Ask the raven who's been here since the beginning. I like you already.[/i]
+    *goto_scene arrival ask_polly
+
+  #Walk past confidently—you've read about Avalon and know what you're doing.
+    *set intro_choice "confident"
+    *set aria_relationship +10
+    *set collaboration -5
+
+    [i]*Caw!* Oh, we have a confident one. This should be entertaining.[/i]
+    *goto_scene arrival confident_entrance
