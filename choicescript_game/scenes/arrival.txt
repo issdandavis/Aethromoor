@@ -228,4 +228,4 @@ She guides you toward the academy proper.
 
 Your journey at Avalon Academy has truly begun.
 
-*goto_scene dorm_room
+*goto_scene familiar_selection

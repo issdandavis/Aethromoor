@@ -738,3 +738,62 @@ But tonight, you've deepened a bond that will last beyond Avalon.
 *page_break
 
 *goto_scene final_trial
+
+*comment ================================================
+*comment ROMANCE CHECK - Triggers romance_scenes if applicable
+*comment ================================================
+
+*page_break
+
+*if (romance_enabled = true) and ((izack_relationship > 70) or (aria_relationship > 70) or (zara_relationship > 70))
+  You feel a deeper connection forming...
+
+  *if (izack_relationship > 70) and (romantic_interest = "none" or romantic_interest = "izack")
+    Something about Izack makes your heart race.
+
+    *page_break
+
+    *choice
+      #Explore these feelings for Izack
+        *set romantic_interest "izack"
+        *goto_scene romance_scenes
+
+      #Keep it professional
+        *set romantic_interest "none"
+        *goto next_scene
+
+  *if (aria_relationship > 70) and (romantic_interest = "none" or romantic_interest = "aria")
+    Aria's brilliance captivates you.
+
+    *page_break
+
+    *choice
+      #Explore these feelings for Aria
+        *set romantic_interest "aria"
+        *goto_scene romance_scenes
+
+      #Keep it professional
+        *set romantic_interest "none"
+        *goto next_scene
+
+  *if (zara_relationship > 70) and (romantic_interest = "none" or romantic_interest = "zara")
+    Zara's warmth draws you in.
+
+    *page_break
+
+    *choice
+      #Explore these feelings for Zara
+        *set romantic_interest "zara"
+        *goto_scene romance_scenes
+
+      #Keep it professional
+        *set romantic_interest "none"
+        *goto next_scene
+
+*label next_scene
+
+*comment Check for secret paths discovered
+*if (secret_paths_found >= 1) or (hidden_lore_discovered >= 1)
+  *goto_scene secret_paths
+
+*goto_scene final_trial
