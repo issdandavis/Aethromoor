@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polly's Wingscroll: The First Thread</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>Polly's Wingscroll: The First Thread</h1>
+            <p class="subtitle">A Choice-Based Adventure in Avalon Academy</p>
+        </div>
+
+        <div class="stats-panel">
+            <div class="stat">
+                <span class="stat-label">Collaboration:</span>
+                <div class="stat-bar">
+                    <div class="stat-fill" id="collaboration-bar"></div>
+                </div>
+                <span class="stat-value" id="collaboration-value">0</span>
+            </div>
+            <div class="relationships">
+                <span class="stat-label">Relationships:</span>
+                <span id="izack-rel">Izack: 😐</span>
+                <span id="aria-rel">Aria: 😐</span>
+                <span id="zara-rel">Zara: 😐</span>
+            </div>
+        </div>
+
+        <div class="story-panel">
+            <div id="story-text" class="story-text"></div>
+            <div id="choices" class="choices"></div>
+        </div>
+
+        <div class="footer">
+            <button id="restart-btn" class="restart-btn" style="display: none;">Start a New Thread</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

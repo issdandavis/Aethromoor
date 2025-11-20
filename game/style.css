@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #e4e4e4;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.game-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(26, 26, 46, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(94, 132, 226, 0.3);
+    border: 2px solid rgba(94, 132, 226, 0.5);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(94, 132, 226, 0.5);
+    padding-bottom: 20px;
+}
+
+.header h1 {
+    color: #5e84e2;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(94, 132, 226, 0.5);
+}
+
+.subtitle {
+    color: #a8b2d1;
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+.stats-panel {
+    background: rgba(15, 52, 96, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(94, 132, 226, 0.3);
+}
+
+.stat {
+    margin-bottom: 15px;
+}
+
+.stat-label {
+    display: inline-block;
+    width: 120px;
+    color: #5e84e2;
+    font-weight: bold;
+}
+
+.stat-bar {
+    display: inline-block;
+    width: 200px;
+    height: 20px;
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 10px;
+    vertical-align: middle;
+    border: 1px solid rgba(94, 132, 226, 0.5);
+}
+
+.stat-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #5e84e2, #a8b2d1);
+    transition: width 0.5s ease;
+    width: 50%;
+}
+
+.stat-value {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    color: #5e84e2;
+    font-weight: bold;
+}
+
+.relationships {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.relationships span {
+    padding: 5px 10px;
+    background: rgba(26, 26, 46, 0.6);
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.story-panel {
+    min-height: 400px;
+}
+
+.story-text {
+    background: rgba(15, 52, 96, 0.3);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    line-height: 1.8;
+    font-size: 1.1em;
+    border-left: 4px solid #5e84e2;
+}
+
+.story-text p {
+    margin-bottom: 15px;
+}
+
+.polly-comment {
+    color: #c792ea;
+    font-style: italic;
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(199, 146, 234, 0.1);
+    border-left: 3px solid #c792ea;
+    border-radius: 5px;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.choice-btn {
+    background: linear-gradient(135deg, #5e84e2 0%, #4a6bb5 100%);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.05em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.choice-btn:hover {
+    background: linear-gradient(135deg, #6a92f0 0%, #5577c9 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(94, 132, 226, 0.4);
+}
+
+.choice-btn:active {
+    transform: translateY(0);
+}
+
+.choice-indicator {
+    font-size: 0.85em;
+    color: #a8b2d1;
+    margin-top: 5px;
+    display: block;
+}
+
+.restart-btn {
+    background: linear-gradient(135deg, #c792ea 0%, #a572c9 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.restart-btn:hover {
+    background: linear-gradient(135deg, #d5a3f5 0%, #b582d9 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(199, 146, 234, 0.4);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .stat-bar {
+        width: 150px;
+    }
+
+    .relationships {
+        font-size: 0.85em;
+    }
+}
