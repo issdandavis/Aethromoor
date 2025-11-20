@@ -9,10 +9,12 @@
 
 *scene_list
   startup
+  character_creation
   arrival
   familiar_selection
   dorm_room
   first_lesson
+  magic_training
   academy_life
   golem_workshop
   expedition_prep
@@ -22,8 +24,26 @@
   character_bonds
   romance_scenes
   secret_paths
+  year_one_trial
+  year_two_start
+  path_selection
+  research_path
+  combat_path
+  diplomatic_path
+  year_two_crisis
+  year_two_trial
+  year_three_start
+  advanced_training
+  teaching_scenes
+  political_intrigue
+  year_three_trial
+  year_four_start
+  thesis_project
+  final_expedition
+  avalon_crisis
   final_trial
   endings
+  epilogue
 
 *comment ================================================
 *comment ACHIEVEMENT DEFINITIONS
@@ -63,6 +83,90 @@
     You still work to understand true collaboration.
   post_stat text collaboration above 85
     Your name will be spoken alongside Izack Thorne's.
+
+*achievement crisis_hero visible 15 Crisis Resolution
+  You resolved a dimensional crisis through courage and collaboration.
+
+*achievement spell_learner visible 5 First True Spell
+  You learned your first dimensional spell.
+
+*achievement nature_speaker visible 10 Nature's Gift
+  The Heartwood Tree taught you to sense life itself.
+
+*achievement crisis_mage visible 15 Forged in Fire
+  You learned a spell through sheer desperation and will.
+
+*achievement dimensional_master visible 25 Master of Dimensions
+  You achieved mastery in Dimensional Magic.
+
+*achievement boundary_master visible 25 Master of Boundaries
+  You achieved mastery in Boundary Magic.
+
+*achievement living_master visible 25 Master of Life
+  You achieved mastery in Living Magic.
+
+*achievement collaborative_grandmaster visible 25 Grandmaster of Collaboration
+  You achieved mastery in Collaborative Magic.
+
+*achievement written_master visible 25 Master of Runes
+  You achieved mastery in Written Magic.
+
+*achievement truth_master visible 25 Master of Truth
+  You achieved mastery in Truth Magic.
+
+*achievement memory_master visible 25 Master of Memory
+  You achieved mastery in Memory Magic (secret).
+
+*achievement universal_mage visible 30 Universal Mage
+  You achieved broad mastery across all schools of magic.
+
+*achievement perfect_mage visible 50 The Perfect Mage
+  You achieved 100% mastery in all seven schools of magic.
+
+*achievement true_love visible 20 True Love
+  You found lasting love at Avalon Academy.
+
+*achievement polyamorous visible 25 Love Multiplied
+  You formed a consensual polyamorous relationship.
+
+*achievement heartbreaker visible 15 Heartbreaker
+  You broke someone's heart.
+
+*achievement perfect_student visible 20 Perfect Scholar
+  You graduated with perfect grades.
+
+*achievement wealthy_graduate visible 15 Wealthy Graduate
+  You graduated with significant wealth.
+
+*achievement famous_mage visible 20 Famous Mage
+  Your reputation spread across dimensions.
+
+*achievement secret_keeper visible 30 Secret Keeper
+  You discovered all secret paths in one playthrough.
+
+*achievement completionist visible 50 Master of All Paths
+  You've experienced every major story branch.
+
+*achievement speedrunner visible 10 Efficient Mage
+  You completed your education in record time.
+
+*achievement researcher visible 20 Published Scholar
+  You published multiple research papers.
+
+*achievement teacher visible 15 Mentor
+  You successfully taught other students.
+
+*achievement diplomat visible 20 Diplomatic Master
+  You resolved conflicts through negotiation.
+
+*achievement warrior visible 20 Battle Mage
+  You proved yourself in magical combat.
+
+*achievement founder visible 30 Academy Founder
+  You established your own magical institution.
+
+*achievement legacy visible 40 Living Legend
+  Your legacy will inspire generations of mages.
 
 *comment ================================================
 *comment STAT DEFINITIONS
@@ -142,6 +246,126 @@
 *create romance_enabled true
 *create first_kiss_scene ""
 *create romance_depth 0
+
+*comment ================================================
+*comment MAGIC SCHOOL SYSTEM
+*comment ================================================
+
+*comment School Mastery Levels (0-100)
+*create dimensional_magic 0
+*create boundary_magic 0
+*create living_magic 0
+*create collaborative_magic 10
+*create written_magic 0
+*create truth_magic 0
+*create memory_magic 0
+
+*comment Spell Unlock Flags
+*comment Dimensional Magic Spells
+*create spell_dimensional_sight false
+*create spell_minor_portal false
+*create spell_pocket_space false
+*create spell_stabilized_portal false
+*create spell_pocket_dimension false
+*create spell_dimensional_anchor false
+*create spell_reality_shift false
+
+*comment Boundary Magic Spells
+*create spell_simple_ward false
+*create spell_elemental_barrier false
+*create spell_selective_permeability false
+*create spell_dimensional_seal false
+*create spell_prison_field false
+*create spell_reality_lock false
+*create spell_absolute_defense false
+
+*comment Living Magic Spells
+*create spell_life_sense false
+*create spell_accelerated_growth false
+*create spell_minor_healing false
+*create spell_life_channel false
+*create spell_major_healing false
+*create spell_transmutation false
+*create spell_spark_of_life false
+
+*comment Collaborative Magic Spells
+*create spell_resonance_link true
+*create spell_circle_casting false
+*create spell_perfect_harmony false
+*create spell_mass_coordination false
+*create spell_network_anchor false
+*create spell_gestalt_consciousness false
+*create spell_legacy_binding false
+
+*comment Written Magic Spells
+*create spell_rune_reading false
+*create spell_temporary_inscription false
+*create spell_lasting_inscription false
+*create spell_living_runes false
+*create spell_artifact_forging false
+*create spell_spell_storage false
+*create spell_inheritance_script false
+
+*comment Truth Magic Spells
+*create spell_truth_sense false
+*create spell_compel_honesty false
+*create spell_oath_binding false
+*create spell_contract_magic false
+*create spell_truth_aura false
+*create spell_reality_enforcement false
+*create spell_universal_oath false
+
+*comment Memory Magic Spells (Advanced/Secret)
+*create spell_perfect_recall false
+*create spell_memory_palace false
+*create spell_memory_share false
+*create spell_thought_preservation false
+*create spell_memory_modification false
+*create spell_dream_walking false
+*create spell_living_archive false
+
+*comment Spell Learning Tracking
+*create total_spells_known 1
+*create spells_mastered 0
+*create favorite_school "none"
+*create dimensional_mastery_acknowledged false
+*create boundary_mastery_acknowledged false
+*create living_mastery_acknowledged false
+*create collaborative_mastery_acknowledged false
+*create written_mastery_acknowledged false
+*create truth_mastery_acknowledged false
+*create memory_mastery_acknowledged false
+*create generalist_acknowledged false
+
+*comment ================================================
+*comment PROGRESSION & SUCCESS TRACKING
+*comment ================================================
+
+*comment Wealth & Resources
+*create wealth 50
+*create gold 100
+*create artifacts_collected 0
+
+*comment Fame & Reputation
+*create fame 0
+*create reputation "unknown"
+*create published_papers 0
+*create legendary_deeds 0
+
+*comment Happiness & Wellbeing
+*create happiness 75
+*create stress 25
+*create life_satisfaction 50
+
+*comment Academic Progress
+*create current_year 1
+*create academic_standing "average"
+*create grades 50
+*create research_projects 0
+
+*comment Character Origin (for tracking backstory choice)
+*create origin "none"
+*create origin_bonus_used false
 
 *comment ================================================
 *comment TITLE SCREEN
@@ -280,20 +504,46 @@ Excellent, ${name}.
 *stat_chart
   text name
   text he_she Pronouns
+
+  text current_year Year
+  text academic_standing Academic Standing
+
   percent collaboration Collaboration
+  percent power Power
+  percent knowledge Knowledge
+  percent empathy Empathy
+
   opposed_pair Communication vs Domination
     communication_vs_domination
   opposed_pair Honesty vs Deception
     honesty_vs_deception
-  percent power Power
-  percent knowledge Knowledge
-  percent empathy Empathy
+  opposed_pair Tradition vs Innovation
+    tradition_vs_innovation
+  opposed_pair Individual vs Collective
+    individual_vs_collective
+
+  percent dimensional_magic Dimensional Magic
+  percent boundary_magic Boundary Magic
+  percent living_magic Living Magic
+  percent collaborative_magic Collaborative Magic
+  percent written_magic Written Magic
+  percent truth_magic Truth Magic
+  percent memory_magic Memory Magic
+
+  text total_spells_known Spells Learned
+
+  percent wealth Wealth
+  percent fame Fame
+  percent happiness Happiness
+
   opposed_pair Izack
     izack_relationship
   opposed_pair Aria
     aria_relationship
   opposed_pair Zara
     zara_relationship
+  opposed_pair Polly
+    polly_relationship
 
 *page_break
 
@@ -333,26 +583,6 @@ Through the crystalline gates ahead, you can see the courtyard. Izack himself is
 
 So, ${name}. How do you want to make your entrance?
 
-*choice
-  #Approach respectfully and introduce yourself properly.
-    *set intro_choice "polite"
-    *set collaboration +10
-    *set izack_relationship +10
+Before we continue, let's learn more about your background.
 
-    Smart. Politeness costs nothing and earns everything. Well, sometimes.
-    *goto_scene arrival polite_approach
-
-  #Ask Polly more questions about what to expect.
-    *set intro_choice "curious"
-    *set polly_relationship +10
-
-    [i]Smart. Ask the raven who's been here since the beginning. I like you already.[/i]
-    *goto_scene arrival ask_polly
-
-  #Walk past confidently—you've read about Avalon and know what you're doing.
-    *set intro_choice "confident"
-    *set aria_relationship +10
-    *set collaboration -5
-
-    [i]*Caw!* Oh, we have a confident one. This should be entertaining.[/i]
-    *goto_scene arrival confident_entrance
+*goto_scene character_creation
