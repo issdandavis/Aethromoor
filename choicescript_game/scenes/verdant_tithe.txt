@@ -1,0 +1,12 @@
+*comment ================================================
+*comment VERDANT TITHE EXPEDITION
+*comment ================================================
+
+*comment TODO: Full expedition content to be added
+*comment This is a placeholder for testing
+
+The portal opens onto an ocean of green...
+
+[i]More content coming soon...[/i]
+
+*finish

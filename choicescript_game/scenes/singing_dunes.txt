@@ -1,0 +1,12 @@
+*comment ================================================
+*comment SINGING DUNES EXPEDITION
+*comment ================================================
+
+*comment TODO: Full expedition content to be added
+*comment This is a placeholder for testing
+
+The portal deposits your expedition group onto golden sand that gleams with crystalline fragments.
+
+[i]More content coming soon...[/i]
+
+*finish

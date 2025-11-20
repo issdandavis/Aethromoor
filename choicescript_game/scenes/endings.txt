@@ -1,0 +1,12 @@
+*comment ================================================
+*comment ENDINGS
+*comment ================================================
+
+*comment TODO: All 14 endings to be added
+*comment This is a placeholder for testing
+
+Your story concludes...
+
+[i]Endings coming soon...[/i]
+
+*finish

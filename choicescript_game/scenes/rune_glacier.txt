@@ -1,0 +1,12 @@
+*comment ================================================
+*comment RUNE GLACIER EXPEDITION
+*comment ================================================
+
+*comment TODO: Full expedition content to be added
+*comment This is a placeholder for testing
+
+The temperature drops the moment you step through the portal...
+
+[i]More content coming soon...[/i]
+
+*finish
