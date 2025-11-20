@@ -330,6 +330,11 @@ const storyNodes = {
                 text: "Thank everyone and express how amazing the collaboration felt",
                 next: 'ending_collaborative_master',
                 effects: { collaboration: 3, izack: 3, aria: 2, zara: 3 }
+            },
+            {
+                text: "Ask if there are opportunities to explore more of Avalon's realms",
+                next: 'field_expedition_offer',
+                effects: { collaboration: 2, izack: 2 }
             }
         ]
     },
@@ -360,6 +365,11 @@ const storyNodes = {
                 text: "Ask Aria about advanced boundary techniques",
                 next: 'ending_balanced_mage',
                 effects: { collaboration: 1, aria: 3, izack: 1 }
+            },
+            {
+                text: "Ask about field expeditions to explore Avalon's different biomes",
+                next: 'field_expedition_offer',
+                effects: { collaboration: 1, izack: 1, aria: 1 }
             }
         ]
     },
@@ -678,7 +688,568 @@ const storyNodes = {
             <p><strong>Relationships: Severed</strong></p>
         `,
         choices: []
+    },
+
+    // NEW EXPANDED CONTENT - Exploring the Realms
+
+    field_expedition_offer: {
+        text: `
+            <p>After your successful first lesson, Izack gathers the class with exciting news.</p>
+
+            <p>"Avalon has grown far beyond what I originally imagined," he says, eyes bright with wonder. "This realm now spans multiple biomes - forests that think, oceans that remember the past, deserts lit by eternal flame. We've arranged field expeditions for advanced students to explore these regions."</p>
+
+            <p><span class="polly-comment">"Translation: he accidentally created a small planet and now needs students to go poke around and make sure nothing's trying to eat the academy. It's educational AND practical!"</span></p>
+
+            <p>Aria steps forward with a crystalline map that shifts and glows. "We have three expeditions departing tomorrow. Each will teach different aspects of magic through direct environmental interaction."</p>
+
+            <p>She points to three glowing regions on the map:</p>
+
+            <p>"The <strong>Singing Dunes</strong> - a desert where the sand responds to truth and lies. You'll learn about honesty in magic and oath-binding."</p>
+
+            <p>"The <strong>Verdant Tithe</strong> - an ancient forest where every thought has weight. Perfect for studying the connection between mind and nature."</p>
+
+            <p>"The <strong>Rune Glacier</strong> - a constantly shifting ice field inscribed with living spells. Ideal for those who want to understand written magic at its most dynamic."</p>
+
+            <p><span class="polly-comment">"Choose wisely. Each one will try to kill you in completely different ways. I'll be supervising the Dunes trip because watching students panic when the sand starts screaming never gets old."</span></p>
+        `,
+        choices: [
+            {
+                text: "Volunteer for the Singing Dunes expedition with Polly",
+                next: 'singing_dunes_journey',
+                effects: { collaboration: 1, aria: 1 }
+            },
+            {
+                text: "Join the Verdant Tithe forest exploration",
+                next: 'verdant_tithe_journey',
+                effects: { collaboration: 2, izack: 1 }
+            },
+            {
+                text: "Request the Rune Glacier - you want to master written magic",
+                next: 'rune_glacier_journey',
+                effects: { collaboration: 0, aria: 2 }
+            }
+        ]
+    },
+
+    singing_dunes_journey: {
+        text: `
+            <p>The portal deposits your expedition group onto golden sand that gleams with crystalline fragments. The heat hits you immediately, but it's the <em>sound</em> that's unforgettable.</p>
+
+            <p>The dunes are humming.</p>
+
+            <p>A low, haunting chorus rises from the desert itself - like a thousand voices singing just below the threshold of words. The sound shifts with each step you take.</p>
+
+            <p><span class="polly-comment">*Landing on a sun-bleached stone* "Welcome to Sul'dessar, specifically the Sunscarred Dunes. This sand has a nasty habit of glowing red-hot when someone breaks an oath. Also, mirages here aren't just illusions - they're actual memories the desert preserved. Try not to walk into any traumatic historical events."</span></p>
+
+            <p>Your group's guide, a weathered desert mage named Kael, gestures to an oasis shimmering in the distance. "We camp there tonight. But first - a test."</p>
+
+            <p>He hands each student a small crystal vial. "Fill this with sand while speaking a truth about yourself. The desert will judge whether you're honest. If you lie..." He points to a patch of sand glowing angry crimson. "That's what happens."</p>
+
+            <p>The other students nervously approach the dunes. You kneel and scoop sand, preparing to speak.</p>
+
+            <p><span class="polly-comment">"This should be entertaining. The dunes are listening."</span></p>
+        `,
+        choices: [
+            {
+                text: "Speak a vulnerable truth: 'I'm afraid I'm not strong enough to make a difference here'",
+                next: 'dunes_honest_truth',
+                effects: { collaboration: 2, aria: 2 }
+            },
+            {
+                text: "Share something safe: 'I want to learn everything Avalon can teach'",
+                next: 'dunes_safe_truth',
+                effects: { collaboration: 1 }
+            },
+            {
+                text: "Test the desert's limits with an exaggeration: 'I'm destined to be the greatest mage of my generation'",
+                next: 'dunes_rejected',
+                effects: { collaboration: -1 }
+            }
+        ]
+    },
+
+    dunes_honest_truth: {
+        text: `
+            <p>As your words leave your lips, the sand in your vial begins to glow - not red with anger, but soft gold like sunrise.</p>
+
+            <p>The humming of the dunes shifts into something that sounds almost like... approval? The tone warms, and you feel the desert's ancient attention settle on you like a gentle hand.</p>
+
+            <p>Kael nods, impressed. "The desert respects vulnerability more than bravado. That sand you're holding is now <em>truth-sworn</em>. It will glow in the presence of deception - a valuable tool for a mage who values honesty."</p>
+
+            <p><span class="polly-comment">"Well, well. The desert likes you. That's rare. Most students try to sound impressive and end up with screaming sand. You just earned yourself an actual magical artifact by being honest about your fears. There's a lesson in that."</span></p>
+
+            <p>Over the next three days, your expedition explores the Singing Dunes. You witness oath-bound sand spirits emerging at twilight, visit an Ironwood oasis where trees harder than metal provide shelter, and learn to navigate by listening to the desert's song.</p>
+
+            <p>On the final night, as mirages dance under the stars, Kael teaches your group the art of oath-magic - binding promises to the land itself.</p>
+
+            <p>"In times of great need," he explains, "a promise made here and kept elsewhere strengthens both you and the desert. You become part of its song."</p>
+
+            <p><span class="polly-comment">"You've learned that magic isn't just about power - it's about truth, trust, and being willing to be vulnerable. The desert taught you what Avalon's been trying to say all along."</span></p>
+        `,
+        choices: [
+            {
+                text: "Return to Avalon with your truth-sworn sand and new understanding",
+                next: 'ending_truthbound_mage',
+                effects: { collaboration: 2, aria: 2 }
+            }
+        ]
+    },
+
+    dunes_safe_truth: {
+        text: `
+            <p>The sand accepts your words - not glowing, but remaining neutral. It's true enough that the desert doesn't reject it, but not deep enough to earn its favor.</p>
+
+            <p>Kael observes. "Acceptable. The desert allows surface truths, though it reserves its blessings for deeper honesty."</p>
+
+            <p><span class="polly-comment">"You played it safe. Nothing wrong with that, but you also didn't get the special desert blessing the really honest students receive. In magic, as in life, you get out what you put in."</span></p>
+
+            <p>The expedition continues. You learn about the Singing Dunes, witness sand spirits, and study oath-magic from a distance. It's educational and safe.</p>
+
+            <p>But you can't help noticing that some of your fellow students - those who spoke vulnerable truths - seem to hear the desert's song more clearly than you do.</p>
+        `,
+        choices: [
+            {
+                text: "Return to Avalon with solid knowledge but no special connection",
+                next: 'ending_balanced_mage',
+                effects: { collaboration: 1 }
+            }
+        ]
+    },
+
+    dunes_rejected: {
+        text: `
+            <p>The moment your exaggeration leaves your mouth, the sand in your vial flares crimson and erupts into scorching heat. You drop it with a yelp.</p>
+
+            <p>Around you, the entire dune begins to glow angry red. The humming shifts into something discordant - almost like screaming.</p>
+
+            <p><span class="polly-comment">"And THERE it is! The desert does NOT appreciate arrogance masquerading as truth. I warned you the sand would judge."</span></p>
+
+            <p>Kael quickly draws a circle of protection around you as the sand settles, still glowing faintly. "The Sunscarred Dunes punish those who lie to themselves most of all. Claiming destinies you haven't earned is the worst kind of falsehood here."</p>
+
+            <p>The rest of the expedition becomes a lesson in humility. The desert refuses to teach you its deeper secrets, and the oath-spirits avoid you entirely.</p>
+
+            <p>By the time you return to Avalon, you've learned about the Singing Dunes... but from the outside, as one the desert rejected.</p>
+        `,
+        choices: [
+            {
+                text: "Return to Avalon, humbled by the experience",
+                next: 'ending_humbled_student',
+                effects: { collaboration: 0 }
+            }
+        ]
+    },
+
+    verdant_tithe_journey: {
+        text: `
+            <p>The portal opens onto an ocean of green. Trees larger than Avalon's towers rise into mist, their canopy creating a twilight world below. The air itself feels <em>alive</em> - thick with the scent of growing things and something else... awareness.</p>
+
+            <p>Izack leads this expedition personally. "Welcome to the Verdant Tithe, one of Avalon's transplanted biomes drawn from the ancient forests of Nirestal. Here, every thought has weight."</p>
+
+            <p>As if to demonstrate, a vine near you shifts, reaching toward a student who's thinking intensely about their family. The plant seems to sense the emotion.</p>
+
+            <p><span class="polly-comment">*Perched on Izack's shoulder* "The Thoughtvines are just the beginning. In the deep forest, the trees themselves remember every person who's passed through. Try to keep your mind calm - anxious thoughts attract attention you don't want."</span></p>
+
+            <p>Izack nods. "The Tithe takes a piece of your consciousness as payment for passage - usually just surface thoughts or recent memories. In return, it offers guidance and protection. But you must learn to quiet your mind."</p>
+
+            <p>Your group begins walking the forest path. Around you, luminescent fungi bloom in response to your footsteps, and you swear you can hear whispers in the rustling leaves.</p>
+
+            <p>Suddenly, the path ahead splits into three directions. Each trail seems to call to different aspects of your mind.</p>
+
+            <p>Izack smiles. "The forest is testing you. Choose the path that resonates, but understand - each leads to a different lesson."</p>
+        `,
+        choices: [
+            {
+                text: "Take the path lined with silver Dreamwillow trees - you sense visions there",
+                next: 'dreamwillow_path',
+                effects: { collaboration: 1, izack: 2 }
+            },
+            {
+                text: "Follow the trail where Thoughtvines grow thickest - you want to understand the forest's mind",
+                next: 'thoughtvine_path',
+                effects: { collaboration: 2, zara: 1 }
+            },
+            {
+                text: "Choose the path leading to a distant glow - the Heartwood Tree awaits",
+                next: 'heartwood_path',
+                effects: { collaboration: 3, izack: 2 }
+            }
+        ]
+    },
+
+    dreamwillow_path: {
+        text: `
+            <p>The Dreamwillow grove is breathtaking. Silver leaves shimmer overhead, and the air is heavy with possibility. Izack gestures for the group to sit beneath the largest tree.</p>
+
+            <p>"Dreamwillows show visions of possible futures," he explains softly. "But be warned - they show <em>all</em> possibilities, not just pleasant ones. The forest wants you to understand that every choice branches reality."</p>
+
+            <p>As you lean against the silvery bark, drowsiness overtakes you. Your vision blurs, and suddenly you're seeing...</p>
+
+            <p>...yourself, years older, standing at the heart of Avalon's Spiral Spire, guiding dozens of students through a complex collaborative spell. The vision feels warm, right.</p>
+
+            <p>...yourself, alone in a tower, surrounded by books and power, having mastered magic but lost all your connections. Cold. Empty.</p>
+
+            <p>...yourself, standing at a threshold between Avalon and the demon realm Varn'ka'zul, making a choice that will determine the fate of both worlds.</p>
+
+            <p>The visions fade. You gasp, returning to the present.</p>
+
+            <p><span class="polly-comment">"The Dreamwillows don't tell you which future is 'right.' They just show you that your choices matter. What you do now echoes forward."</span></p>
+
+            <p>Izack places a hand on your shoulder. "The forest has shown you its deepest lesson: magic is choice, and every choice shapes not just you, but the world around you."</p>
+        `,
+        choices: [
+            {
+                text: "Embrace the vision of collaborative teaching - that's the future you'll work toward",
+                next: 'ending_collaborative_scholar',
+                effects: { collaboration: 3, izack: 3 }
+            },
+            {
+                text: "The visions trouble you - ask Izack how to ensure you choose wisely",
+                next: 'ending_balanced_mage',
+                effects: { collaboration: 2, izack: 2 }
+            }
+        ]
+    },
+
+    thoughtvine_path: {
+        text: `
+            <p>The Thoughtvines grow so thick here that they form living walls, pulsing gently with bioluminescent light. As you walk among them, you feel your thoughts becoming... shared.</p>
+
+            <p>It's not invasive - more like your consciousness is expanding to include the forest itself. You can sense the other students' wonder, Izack's pride, Polly's amused observation.</p>
+
+            <p>And beneath it all, the forest's vast, ancient mind.</p>
+
+            <p><span class="polly-comment">"This is what the Third Thread feels like - consciousness braiding together. Not domination, not submission, just... connection. Multiple minds becoming something greater."</span></p>
+
+            <p>A memory that isn't yours surfaces: you see this forest centuries ago, feel the Dryads singing it into awareness, experience the moment it first began to <em>think</em>.</p>
+
+            <p>Izack's voice cuts through gently. "You're experiencing the forest's living memory. It's offering you a gift - understanding of how collaboration at the deepest level feels."</p>
+
+            <p>The vines pulse brighter, and you feel a question form in your mind - not in words, but in pure meaning:</p>
+
+            <p><em>Will you remember me? Will you carry this connection forward?</em></p>
+
+            <p>The forest wants to know if you'll honor what you've learned here.</p>
+        `,
+        choices: [
+            {
+                text: "Promise to carry the forest's lesson of connection with you always",
+                next: 'ending_forestbound_mage',
+                effects: { collaboration: 4, izack: 3, zara: 2 }
+            },
+            {
+                text: "Accept the gift gratefully but make no binding promises",
+                next: 'ending_collaborative_scholar',
+                effects: { collaboration: 2, izack: 2 }
+            }
+        ]
+    },
+
+    heartwood_path: {
+        text: `
+            <p>The path leads deep into the forest's heart. The trees here are impossibly ancient, their bark inscribed with natural runes that glow faintly. At the center stands a tree unlike any other.</p>
+
+            <p>The Heartwood Tree.</p>
+
+            <p>It's massive beyond belief, with bark that seems to pulse like a heartbeat and roots that disappear into glowing earth. You can feel its awareness - vast, patient, kind but utterly inhuman.</p>
+
+            <p><span class="polly-comment">*Unusually quiet* "This is one of the oldest living things in any realm. It was here before Avalon, before Izack, before most of what we call civilization. It's the forest's heart and mind made manifest."</span></p>
+
+            <p>Izack bows respectfully to the tree. "The Heartwood only reveals itself to those it wishes to teach. You've been called here."</p>
+
+            <p>As you approach, the tree's roots shift, creating a natural seat at its base. The moment you sit, understanding floods through you:</p>
+
+            <p>You feel the interconnection of all living things - how every breath you take feeds the plants, how every plant's gift feeds you. You understand that magic isn't something you <em>do</em>, it's something you <em>participate in</em>.</p>
+
+            <p>The Heartwood offers you a single fruit - golden, glowing with concentrated life essence.</p>
+
+            <p>Izack's eyes widen. "I've visited this tree a hundred times. It's never offered its fruit before."</p>
+
+            <p><span class="polly-comment">"If you eat that, you'll be bonded to the forest forever. You'll carry a piece of the Verdant Tithe in your soul. That's not a small thing."</span></p>
+        `,
+        choices: [
+            {
+                text: "Accept the fruit and bond with the forest's ancient wisdom",
+                next: 'ending_heartwood_guardian',
+                effects: { collaboration: 5, izack: 4, zara: 2 }
+            },
+            {
+                text: "Politely decline - the gift is too great, and you're not ready for that bond",
+                next: 'ending_humble_seeker',
+                effects: { collaboration: 2, izack: 3 }
+            }
+        ]
+    },
+
+    rune_glacier_journey: {
+        text: `
+            <p>The temperature drops the moment you step through the portal. You're standing on ice that glows from within, inscribed with shifting runic patterns that rearrange themselves as you watch.</p>
+
+            <p>Aria leads this expedition, her bearing regal even in the arctic cold. "The Rune Glacier is one of Avalon's most dangerous teaching environments. The ice remembers every spell ever cast here and rewrites itself constantly."</p>
+
+            <p><span class="polly-comment">*Fluffing her feathers against the cold* "It's like trying to read a book that's rewriting itself while you're reading it. Students who can't adapt freeze in time pockets or get lost in recursive spell loops. Fun!"</span></p>
+
+            <p>Aria gestures across the ice field. "Your task: navigate to the central chamber where an ancient spell-library is frozen. The glacier will test your ability to read, interpret, and respond to written magic in real-time."</p>
+
+            <p>She hands each student a crystal stylus. "These can write on the ice temporarily. Use them to create paths, counter hostile runes, or communicate with the glacier itself. Some say it's sentient."</p>
+
+            <p>As your group begins walking, the ice beneath your feet suddenly blazes with a rune of <strong>TRIAL</strong>. Three paths appear, each marked with different runic sequences.</p>
+
+            <p>One path shows <em>Control</em> runes - straight lines, rigid structure, commanding magic.</p>
+
+            <p>Another displays <em>Harmony</em> runes - flowing curves, collaborative patterns, responsive magic.</p>
+
+            <p>The third path is blank ice - no runes at all, an unknown challenge.</p>
+
+            <p>Aria watches you carefully. "Your choice of path will determine what the glacier teaches you."</p>
+        `,
+        choices: [
+            {
+                text: "Choose the Control path - master structured, disciplined magic",
+                next: 'glacier_control_path',
+                effects: { collaboration: -1, aria: 3 }
+            },
+            {
+                text: "Take the Harmony path - learn responsive, flowing magic",
+                next: 'glacier_harmony_path',
+                effects: { collaboration: 2, aria: 2, izack: 1 }
+            },
+            {
+                text: "Step onto the blank ice - embrace the unknown",
+                next: 'glacier_mystery_path',
+                effects: { collaboration: 1, aria: 2 }
+            }
+        ]
+    },
+
+    glacier_harmony_path: {
+        text: `
+            <p>The moment you step onto the Harmony path, the runes beneath your feet begin to sing - literally producing musical tones as they shift and flow.</p>
+
+            <p>Aria walks beside you. "Good choice. The glacier responds best to those who work <em>with</em> it rather than trying to dominate it."</p>
+
+            <p>As you progress, the ice presents challenges: a crevasse appears, but when you draw a bridging rune that complements the glacier's existing patterns, the ice itself forms a crossing. A frozen time-pocket threatens to trap a fellow student, but by writing a harmony rune that resonates with the glacier's frequency, you help free them.</p>
+
+            <p><span class="polly-comment">"You're learning the glacier's language instead of forcing your own. This is exactly what Avalon teaches - magic as conversation, not command."</span></p>
+
+            <p>After hours of navigation, you reach the central chamber. Here, countless spells are preserved in crystalline ice, forming a library of magical knowledge spanning centuries.</p>
+
+            <p>Aria gestures to the frozen spells. "This is the Glacier's gift - every mage who's worked in harmony with it has left knowledge here. You've earned the right to learn from them."</p>
+
+            <p>You spend days studying the frozen library, learning collaboration techniques from mages long dead but whose wisdom lives on in ice.</p>
+
+            <p>When you finally leave, the glacier writes one last rune beneath your feet: <strong>FRIEND</strong>.</p>
+        `,
+        choices: [
+            {
+                text: "Return to Avalon with the glacier's friendship and ancient knowledge",
+                next: 'ending_runeweaver',
+                effects: { collaboration: 3, aria: 3, izack: 2 }
+            }
+        ]
+    },
+
+    // NEW ENDINGS
+
+    ending_truthbound_mage: {
+        text: `
+            <p><strong>Ending: The Truthbound Mage</strong></p>
+
+            <p>You return to Avalon carrying truth-sworn sand from the Singing Dunes and a profound understanding that magic begins with honesty - especially honesty with yourself.</p>
+
+            <p>Over time, you become known as someone who can cut through deception, not through force but through simple, relentless truth. Your truth-sworn sand helps arbitrate disputes, reveals hidden intentions, and guides lost students back to themselves.</p>
+
+            <p><span class="polly-comment">"You learned the hardest lesson: that vulnerability is strength, that admitting fear takes more courage than pretending confidence. The desert recognized that, and now so does everyone else."</span></p>
+
+            <p>Aria approaches you months later with a proposal. "We need someone to establish a sister academy in the Singing Dunes - a place where oath-magic and truth-binding can be taught properly. Would you consider it?"</p>
+
+            <p>Izack adds, "You've shown that Avalon's principles work anywhere - even in a desert that literally punishes lies. That's the kind of mage we need shaping the next generation."</p>
+
+            <p><em>You've become a bridge between Avalon and the ancient wisdom of the Singing Dunes, proving that truth and vulnerability are the foundations of all real magic.</em></p>
+
+            <p><strong>Collaboration Score: Exemplary</strong></p>
+            <p><strong>Achievement: Bearer of Truth-Sworn Sand</strong></p>
+        `,
+        choices: []
+    },
+
+    ending_forestbound_mage: {
+        text: `
+            <p><strong>Ending: The Forestbound Guardian</strong></p>
+
+            <p>You return from the Verdant Tithe forever changed. A piece of the forest's consciousness lives within you now - you can hear the whispers of growing things, sense the health of ecosystems, and understand the language of life itself.</p>
+
+            <p>Thoughtvines grow wherever you spend time, and students notice that plants seem healthier in your presence. You've become a living bridge between civilization and the wild.</p>
+
+            <p><span class="polly-comment">"You're basically a walking piece of the forest now. It's actually pretty beautiful, even if it means you occasionally sprout flowers when you're happy. Yes, that's a thing that happens. You'll get used to it."</span></p>
+
+            <p>Izack is fascinated. "You've achieved something I've only theorized - true symbiosis between human consciousness and a living ecosystem. The forest chose you as its ambassador."</p>
+
+            <p>Zara, herself a hybrid, understands. "You're like me now - belonging to multiple worlds, seeing connections others miss. It's a gift."</p>
+
+            <p>The Verdant Tithe calls to you in dreams, and sometimes you return there, walking paths that appear only for you, learning secrets the forest shares with its chosen ones.</p>
+
+            <p><em>You've become the Forestbound Guardian - a mage who embodies the living connection between mind and nature, proving that true magic is relationship, not dominion.</em></p>
+
+            <p><strong>Collaboration Score: Transcendent</strong></p>
+            <p><strong>Achievement: Friend of the Verdant Tithe</strong></p>
+        `,
+        choices: []
+    },
+
+    ending_heartwood_guardian: {
+        text: `
+            <p><strong>Ending: Guardian of the Heartwood</strong></p>
+
+            <p>You eat the golden fruit, and the world explodes into connection.</p>
+
+            <p>Every living thing in Avalon suddenly feels close - you sense the golem Clayborn's growing consciousness, the fish in Avalon's Time Ocean swimming through memory, the students' hopes and fears pulsing like heartbeats. You've become part of life's great web.</p>
+
+            <p><span class="polly-comment">*Tears streaming* "Do you know what you just did? The Heartwood hasn't chosen a guardian in three thousand years. You're bonded to one of the oldest, wisest living things in existence. I'm actually crying. Caw."</span></p>
+
+            <p>Izack kneels before you in respect. "You carry the forest's heart now. When you speak, ancient wisdom speaks through you. When you act, the pattern of life itself guides you."</p>
+
+            <p>Aria's eyes show wonder. "I've spent my life studying boundaries. You just erased them - you exist in perfect balance between human and forest, individual and collective, mortal and eternal."</p>
+
+            <p>Over the years, you become Avalon's living anchor - the one who ensures the realm stays connected to its purpose, who speaks for the voiceless, who reminds everyone that magic is life and life is sacred.</p>
+
+            <p>When you eventually stand before the Spiral Spire in times of crisis, roots grow from your feet, leaves bloom in your hair, and the Heartwood's ancient power flows through you to heal, protect, and unite.</p>
+
+            <p><em>You are the Guardian of the Heartwood - living proof that when you give yourself fully to connection, you become something greater than you ever imagined possible.</em></p>
+
+            <p><strong>Collaboration Score: Transcendent Beyond Measure</strong></p>
+            <p><strong>Achievement: Heartwood Guardian - Chosen of the Ancient Forest</strong></p>
+        `,
+        choices: []
+    },
+
+    ending_runeweaver: {
+        text: `
+            <p><strong>Ending: The Runeweaver</strong></p>
+
+            <p>Your time at the Rune Glacier has transformed you into a master of written magic. You can read spells in ice, stone, and air. You understand that runes aren't just symbols - they're living conversations frozen into form.</p>
+
+            <p>Aria takes you as a personal apprentice. "You've learned what took me decades - that the most powerful magic comes from working with existing patterns rather than imposing your own."</p>
+
+            <p><span class="polly-comment">"You literally made friends with a sentient glacier. That's either brilliance or madness, and I'm honestly not sure which. Possibly both."</span></p>
+
+            <p>Over time, you develop a unique specialty: you can write runes that adapt to their environment, spells that rewrite themselves to respond to changing conditions. Your defensive wards don't just protect - they learn and evolve.</p>
+
+            <p>When a crisis threatens Avalon's boundaries, you're the one who inscribes the new protections - runes that sing in harmony with the realm's heartbeat, barriers that flex instead of break, defenses that collaborate rather than simply resist.</p>
+
+            <p>The Rune Glacier sends you gifts sometimes: ice that won't melt, carrying new patterns for you to study. You've become its student for life.</p>
+
+            <p><em>You are the Runeweaver - a mage who writes magic as living conversation, proving that the most enduring spells are those that work in harmony with the world.</em></p>
+
+            <p><strong>Collaboration Score: Strong</strong></p>
+            <p><strong>Achievement: Friend of the Rune Glacier</strong></p>
+        `,
+        choices: []
+    },
+
+    ending_humble_seeker: {
+        text: `
+            <p><strong>Ending: The Humble Seeker</strong></p>
+
+            <p>You respectfully decline the Heartwood's fruit, bowing deeply to the ancient tree. "I'm honored beyond words, but I'm not ready for such a bond. I still have so much to learn."</p>
+
+            <p>The Heartwood's awareness shifts - and you sense... approval? The tree's roots form a different pattern, and a single leaf falls into your hand - silver-edged, glowing faintly.</p>
+
+            <p><span class="polly-comment">"The tree respects your honesty. By admitting you're not ready, you proved the wisdom it was looking for. That leaf is a promise - when you ARE ready, the Heartwood will remember you."</span></p>
+
+            <p>Izack places a hand on your shoulder. "Knowing your limitations is its own form of strength. The Heartwood tested your humility as much as your potential."</p>
+
+            <p>You return to Avalon with the Heartwood's leaf and a deep understanding that the best magic comes from knowing when to accept gifts and when to wait until you're truly ready to honor them.</p>
+
+            <p>Your path continues - still learning, still growing, still seeking wisdom rather than rushing toward power.</p>
+
+            <p><em>You are the Humble Seeker - a mage who understands that true wisdom often means acknowledging what you don't yet know.</em></p>
+
+            <p><strong>Collaboration Score: Growing</strong></p>
+            <p><strong>Achievement: Blessed by the Heartwood</strong></p>
+        `,
+        choices: []
+    },
+
+    glacier_control_path: {
+        text: `
+            <p>You choose the path of Control, and the glacier immediately challenges you. The runes under your feet lock into rigid patterns, demanding perfect execution.</p>
+
+            <p>Aria watches as you navigate with precise, disciplined magic. "Control isn't wrong," she says, "but on this path, one mistake compounds into disaster."</p>
+
+            <p>You progress through sheer will and technical skill, but it's exhausting. Every step requires perfect rune-writing, flawless execution. When a time-pocket opens, you force it closed through raw power rather than finesse.</p>
+
+            <p><span class="polly-comment">"You're fighting the glacier instead of working with it. That takes strength, but it's the hard way."</span></p>
+
+            <p>You reach the central library, but the knowledge here resists you. These spells were left by collaborative mages, and they don't respond well to domination.</p>
+
+            <p>Aria intervenes. "You've proven your discipline. Now - are you willing to add flexibility to it?"</p>
+        `,
+        choices: [
+            {
+                text: "Admit control alone isn't enough - ask Aria to teach you harmony",
+                next: 'ending_balanced_mage',
+                effects: { collaboration: 1, aria: 3 }
+            },
+            {
+                text: "Insist your approach works - you just need more practice",
+                next: 'ending_boundary_specialist',
+                effects: { collaboration: 0, aria: 2 }
+            }
+        ]
+    },
+
+    glacier_mystery_path: {
+        text: `
+            <p>You step onto blank ice, and immediately the world shifts. The glacier shows you its true nature - not a static library, but a living entity that's been watching, learning, evolving for centuries.</p>
+
+            <p>The ice beneath you becomes a mirror, reflecting not your image but your <em>potential</em>. You see paths you could take, mages you could become, futures branching like frost patterns.</p>
+
+            <p><span class="polly-comment">"Oh. Oh, the glacier is showing you something it's never shown anyone else. This is... actually I have no idea what this is."</span></p>
+
+            <p>Aria's voice is awed. "The glacier is offering you a choice no other student has faced. It wants to know - will you help it grow? Will you teach it as much as you learn from it?"</p>
+
+            <p>The runes ask a question in pure meaning: <em>Will you be my partner, not my master or my student, but my equal?</em></p>
+
+            <p>This is unprecedented. The glacier wants symbiosis - to learn from you as you learn from it.</p>
+        `,
+        choices: [
+            {
+                text: "Accept the glacier's offer of partnership - grow together",
+                next: 'ending_glacier_partner',
+                effects: { collaboration: 5, aria: 4, izack: 3 }
+            },
+            {
+                text: "Decline gently - partnership with a glacier is beyond you right now",
+                next: 'ending_humble_seeker',
+                effects: { collaboration: 2, aria: 3 }
+            }
+        ]
+    },
+
+    ending_glacier_partner: {
+        text: `
+            <p><strong>Ending: Partner of the Rune Glacier</strong></p>
+
+            <p>You accept, and the blank ice blazes with new runes - a collaborative script written by you and the glacier together, creating magic that's never existed before.</p>
+
+            <p><span class="polly-comment">*Absolutely stunned* "You just... you and a sentient glacier just invented a new form of magic. Together. I don't... I have no words. That's never happened in recorded history."</span></p>
+
+            <p>Aria kneels in the snow, touching the new runes with wonder. "This is the Third Thread manifested in written magic. Human and environment, thought and element, becoming equals in creation."</p>
+
+            <p>From that day forward, you and the glacier work as partners. You teach it about human emotion, creativity, hope. It teaches you about patience, eternity, the slow wisdom of ice. Together, you develop spells that adapt and evolve, magic that learns.</p>
+
+            <p>Other mages come to study what you've created. The glacier opens itself to them differently now - no longer just a testing ground, but a teacher that learned how to teach from you.</p>
+
+            <p>Izack visits months later, tears in his eyes. "This is what I dreamed Avalon could inspire - true partnership between mages and the world itself. You've become something entirely new."</p>
+
+            <p><em>You are the Glacier's Partner - the first mage to achieve true equality with an elemental force, proving that magic's highest form is mutual creation.</em></p>
+
+            <p><strong>Collaboration Score: Revolutionary</strong></p>
+            <p><strong>Achievement: Co-Creator with the Rune Glacier</strong></p>
+        `,
+        choices: []
     }
+}
 };
 
 // UI Update Functions
