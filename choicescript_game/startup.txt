@@ -367,6 +367,43 @@
 *create origin "none"
 *create origin_bonus_used false
 
+*comment Additional Stats Used in Scenes
+*create confidence 50
+*create wisdom 50
+*create charisma 50
+*create discipline 50
+*create creativity 50
+*create humility 50
+*create leadership 50
+
+*comment Year 4 Thesis Tracking
+*create thesis_topic "none"
+
+*comment Teaching & Career Tracking
+*create teaching_interest false
+*create career_path "undecided"
+*create career_certainty 50
+*create mentoring_approach "none"
+
+*comment Combat Path Tracking
+*create combat_specialization "none"
+*create tournament_score 0
+
+*comment Research Path Tracking
+*create published_researcher false
+*create academic_standing_year_two "good"
+
+*comment Advanced Training Tracking
+*create magical_identity "none"
+*create mastery_count 0
+*create mastery_demonstration "none"
+*create mentor_achievement false
+
+*comment Miscellaneous Scene Variables
+*create forest_blessing false
+*create crisis_severity 0
+*create all_magic_schools 0
+
 *comment ================================================
 *comment TITLE SCREEN
 *comment ================================================
