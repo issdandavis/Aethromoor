@@ -1,0 +1,1751 @@
+*comment ================================================
+*comment MAGIC TRAINING - Recurring Practice System
+*comment Practice any of the 7 magic schools
+*comment Unlock spells at thresholds, repeatable with variations
+*comment ================================================
+
+*temp training_roll 0
+*temp practice_success false
+*temp spell_unlock false
+*temp spell_unlocked ""
+*temp training_school ""
+
+*label start
+
+*line_break
+
+[b]== PRACTICE HALL ==[/b]
+
+*line_break
+
+The Practice Hall is a vast chamber beneath the Spiral Spire, carved from living crystal that pulses with ambient magic. Different sections are dedicated to each school of dimensional magic, each space adapted to its unique nature.
+
+*page_break
+
+Polly lands on your shoulder with a flutter of midnight feathers.
+
+[i]"Training time, is it? Smart. Natural talent only gets you so far—the rest is practice, practice, practice. Though I'll warn you, some days the magic cooperates, and some days it laughs at your efforts."[/i]
+
+*line_break
+
+She tilts her head, regarding you with one gleaming eye.
+
+[i]"So which school are you focusing on today?"[/i]
+
+*page_break
+
+*label school_selection
+
+[b]Choose your training focus:[/b]
+
+*line_break
+
+*choice
+  #Dimensional Magic—manipulating space, distance, and dimensional boundaries.
+    *set training_school "dimensional"
+    *goto dimensional_practice
+
+  #Boundary Magic—creating barriers, wards, and protective fields.
+    *set training_school "boundary"
+    *goto boundary_practice
+
+  #Living Magic—working with life energy, healing, and nature.
+    *set training_school "living"
+    *goto living_practice
+
+  #Collaborative Magic—partnership spells and group resonance.
+    *set training_school "collaborative"
+    *goto collaborative_practice
+
+  #Written Magic—runes, inscriptions, and lasting enchantments.
+    *set training_school "written"
+    *goto written_practice
+
+  #Truth Magic—oaths, honesty, and reality enforcement.
+    *set training_school "truth"
+    *goto truth_practice
+
+  #Memory Magic—recall, preservation, and mental archives. (Advanced)
+    *set training_school "memory"
+    *goto memory_practice
+
+  #Actually, I'd rather do something else right now.
+    *goto academy_life
+
+*comment ================================================
+*comment DIMENSIONAL MAGIC PRACTICE
+*comment ================================================
+
+*label dimensional_practice
+
+*line_break
+
+You make your way to the Dimensional section, where space itself seems uncertain. The floor is sometimes three feet away, sometimes three inches. Doorways lead to rooms larger inside than outside.
+
+*line_break
+
+Izack Thorne is here, guiding two other students through a portal stabilization exercise.
+
+*page_break
+
+He notices you and smiles warmly. "Ah, ${name}! Come to work on your dimensional sense?"
+
+"Exactly," you say.
+
+*line_break
+
+[i]"Izack's the best teacher for this,"[/i] Polly mutters. [i]"Assuming you can tolerate his relentless optimism about 'listening to the fabric of reality.'"[/i]
+
+*page_break
+
+Izack gestures to a practice space where a small dimensional boundary has been marked with shimmeringcrystal.
+
+"Show me what you can do. Try to sense the boundary's nature—its texture, temperature, emotional resonance. Then see if you can flex it. Just a little."
+
+*line_break
+
+*rand training_roll 1 100
+
+*if (dimensional_magic + collaboration) > training_roll
+  *set practice_success true
+*else
+  *set practice_success false
+
+*if practice_success
+  *goto dimensional_success
+*else
+  *goto dimensional_failure
+
+*comment ================================================
+
+*label dimensional_success
+
+You close your eyes and extend your awareness. The boundary appears in your mind's eye—a shimmering membrane that hums with potential.
+
+*line_break
+
+You can feel its texture: smooth but not rigid, responsive but not weak. When you gently push your intention against it, the boundary [i]flexes[/i], bulging outward like a soap bubble.
+
+*page_break
+
+"Excellent!" Izack claps his hands together. "You're not forcing it—you're asking it to move. That's the key difference between domination and collaboration."
+
+*line_break
+
+[i]"Show-off,"[/i] Polly says, but there's approval in her tone. [i]"Though I suppose you earned it."[/i]
+
+*set dimensional_magic +10
+*set collaboration +5
+*set izack_relationship +5
+*set knowledge +5
+
+*page_break
+
+You spend the next hour refining your technique. By the end, you can sense dimensional boundaries from across the room and understand their basic properties.
+
+[b]+10 Dimensional Magic[/b]
+[b]+5 Collaboration[/b]
+[b]+5 Knowledge[/b]
+[b]+5 Izack Relationship[/b]
+
+*line_break
+
+*comment Check for spell unlocks
+*if (dimensional_magic >= 20) and (spell_dimensional_sight = false)
+  *set spell_unlock true
+  *set spell_unlocked "Dimensional Sight"
+  *set spell_dimensional_sight true
+  *set total_spells_known +1
+  *goto dimensional_spell_unlock
+
+*if (dimensional_magic >= 35) and (spell_minor_portal = false)
+  *set spell_unlock true
+  *set spell_unlocked "Minor Portal"
+  *set spell_minor_portal true
+  *set total_spells_known +1
+  *goto dimensional_spell_unlock
+
+*if (dimensional_magic >= 50) and (spell_pocket_space = false)
+  *set spell_unlock true
+  *set spell_unlocked "Pocket Space"
+  *set spell_pocket_space true
+  *set total_spells_known +1
+  *goto dimensional_spell_unlock
+
+*if (dimensional_magic >= 70) and (spell_stabilized_portal = false)
+  *set spell_unlock true
+  *set spell_unlocked "Stabilized Portal"
+  *set spell_stabilized_portal true
+  *set total_spells_known +1
+  *goto dimensional_spell_unlock
+
+*goto practice_conclusion
+
+*comment ================================================
+
+*label dimensional_failure
+
+You close your eyes and reach out, but the boundary feels... slippery. Elusive. Every time you think you have a sense of it, your awareness slides off like water on glass.
+
+*line_break
+
+You push harder, trying to force the connection—
+
+The boundary ripples violently, and suddenly you're stumbling backward as space itself seems to reject your touch.
+
+*page_break
+
+Izack steadies you with a gentle hand on your shoulder. "Easy. The boundary is telling you something important."
+
+"That I'm terrible at this?" you say, frustrated.
+
+*line_break
+
+He laughs kindly. "That you're trying to dominate instead of listen. Dimensional magic isn't about force—it's about conversation."
+
+*page_break
+
+[i]"Classic mistake,"[/i] Polly chimes in. [i]"You're treating reality like it's an object to be moved instead of a partner to dance with. Try again tomorrow with more humility."[/i]
+
+*set dimensional_magic +5
+*set power +3
+*set failures +1
+
+*page_break
+
+Despite the failure, you learned something valuable about what [i]not[/i] to do.
+
+[b]+5 Dimensional Magic[/b]
+[b]+3 Power[/b]
+
+*line_break
+
+Izack spends the rest of the session teaching you theory, explaining the philosophical foundation of dimensional collaboration.
+
+*goto practice_conclusion
+
+*comment ================================================
+
+*label dimensional_spell_unlock
+
+*page_break
+
+*line_break
+
+As you finish the practice session, something clicks. The knowledge you've been accumulating suddenly crystallizes into a concrete technique.
+
+*page_break
+
+[b]*SPELL UNLOCKED: ${spell_unlocked}*[/b]
+
+*line_break
+
+*if spell_unlocked = "Dimensional Sight"
+  You've learned to perceive dimensional boundaries without conscious effort. Portals, weak points, and spatial anomalies now reveal themselves to your enhanced awareness.
+
+  *line_break
+
+  Izack notices the shift in your posture. "You can see them now, can't you? The threads of space."
+
+  You nod, marveling at how the world has suddenly gained another layer of depth.
+
+*if spell_unlocked = "Minor Portal"
+  You've learned to create small, temporary portals—no larger than your hand, lasting only a few minutes, but perfect for reaching objects across short distances.
+
+  *line_break
+
+  To demonstrate, you open a tiny portal between your hand and a book on Izack's desk. Your fingers reach through space and grasp it.
+
+  Izack grins. "Your first portal! Congratulations, ${name}."
+
+*if spell_unlocked = "Pocket Space"
+  You've learned to create a small pocket dimension—a space between spaces where you can store objects safely. It's no bigger than a backpack, but it's [i]yours[/i].
+
+  *line_break
+
+  Izack watches as you carve out the pocket space with careful dimensional manipulation. "Personal storage dimensions are a rite of passage for dimensional mages."
+
+*if spell_unlocked = "Stabilized Portal"
+  You've learned to create full-sized portals that hold steady for hours. This is advanced magic, requiring precise control and significant energy.
+
+  *line_break
+
+  When you demonstrate by opening a stable portal across the practice hall, Izack actually whistles. "Impressive. Most students don't master this until their second year."
+
+*line_break
+
+[i]"Well, well,"[/i] Polly says. [i]"Look at you, collecting spells like they're trading cards. Don't let it go to your head."[/i]
+
+*set happiness +10
+*set izack_relationship +5
+
+*goto practice_conclusion
+
+*comment ================================================
+*comment BOUNDARY MAGIC PRACTICE
+*comment ================================================
+
+*label boundary_practice
+
+*line_break
+
+You head to the Boundary section, where the air feels somehow [i]thicker[/i], protected by layers of interwoven wards and barriers.
+
+*line_break
+
+Aria Ravencrest is here, examining a complex ward structure with clinical precision. She glances up as you approach.
+
+*page_break
+
+"${name}. Here to practice boundary construction?"
+
+"Yes, Master Ravencrest."
+
+*line_break
+
+She nods curtly. "Good. Boundary magic requires precision and theoretical understanding. Show me your foundation."
+
+*page_break
+
+[i]"Translation: 'Prove you're not wasting my time,'"[/i] Polly whispers. [i]"Aria has no patience for sloppy work."[/i]
+
+*line_break
+
+Aria gestures to a practice dummy. "Create a simple ward around the target. Focus on definition—the boundary should be absolutely clear, with no ambiguity about what's inside and what's outside."
+
+*page_break
+
+*rand training_roll 1 100
+
+*if (boundary_magic + knowledge) > training_roll
+  *set practice_success true
+*else
+  *set practice_success false
+
+*if practice_success
+  *goto boundary_success
+*else
+  *goto boundary_failure
+
+*comment ================================================
+
+*label boundary_success
+
+You visualize the boundary as a crystalline shell, perfectly defined. [i]Inside is protected. Outside is not.[/i] The distinction must be absolute.
+
+*line_break
+
+You channel energy through your hands, and a shimmering barrier springs into existence around the dummy. It's translucent but clearly visible, and when you test it with a gentle push, it holds firm.
+
+*page_break
+
+Aria circles the ward, examining it from every angle. "The structure is sound. No weak points. The energy distribution is even."
+
+*line_break
+
+She almost smiles. "Well done. This is textbook boundary construction."
+
+*page_break
+
+[i]"'Well done' from Aria is like a standing ovation from anyone else,"[/i] Polly mutters. [i]"Congratulations."[/i]
+
+*set boundary_magic +10
+*set knowledge +5
+*set aria_relationship +5
+*set power +5
+
+*page_break
+
+Aria spends the next hour teaching you advanced techniques—how to make boundaries selective, how to layer multiple wards, how to anchor them to physical objects.
+
+[b]+10 Boundary Magic[/b]
+[b]+5 Knowledge[/b]
+[b]+5 Power[/b]
+[b]+5 Aria Relationship[/b]
+
+*line_break
+
+*comment Check for spell unlocks
+*if (boundary_magic >= 25) and (spell_simple_ward = false)
+  *set spell_unlock true
+  *set spell_unlocked "Simple Ward"
+  *set spell_simple_ward true
+  *set total_spells_known +1
+  *goto boundary_spell_unlock
+
+*if (boundary_magic >= 40) and (spell_elemental_barrier = false)
+  *set spell_unlock true
+  *set spell_unlocked "Elemental Barrier"
+  *set spell_elemental_barrier true
+  *set total_spells_known +1
+  *goto boundary_spell_unlock
+
+*if (boundary_magic >= 55) and (spell_selective_permeability = false)
+  *set spell_unlock true
+  *set spell_unlocked "Selective Permeability"
+  *set spell_selective_permeability true
+  *set total_spells_known +1
+  *goto boundary_spell_unlock
+
+*if (boundary_magic >= 75) and (spell_dimensional_seal = false)
+  *set spell_unlock true
+  *set spell_unlocked "Dimensional Seal"
+  *set spell_dimensional_seal true
+  *set total_spells_known +1
+  *goto boundary_spell_unlock
+
+*goto practice_conclusion
+
+*comment ================================================
+
+*label boundary_failure
+
+You try to visualize the boundary, but your mental image keeps shifting. Is it a shell? A field? A wall? The uncertainty shows in your casting.
+
+*line_break
+
+The ward forms—sort of. It's flickering, unstable, with visible weak points. When you test it with a gentle push, it collapses entirely.
+
+*page_break
+
+Aria's expression is unreadable. "Your foundation is unclear. You're trying to build without knowing what you're building."
+
+*line_break
+
+She conjures a perfect ward with a flick of her wrist. "Boundary magic demands precision. There is no room for ambiguity. Inside and outside must be absolutely distinct."
+
+*page_break
+
+[i]"She's not being harsh,"[/i] Polly says. [i]"Well, she is, but she's also right. Sloppy boundaries are dangerous—they can fail at exactly the wrong moment."[/i]
+
+*set boundary_magic +5
+*set knowledge +3
+*set failures +1
+
+*page_break
+
+Despite the setback, you learned what not to do.
+
+[b]+5 Boundary Magic[/b]
+[b]+3 Knowledge[/b]
+
+*line_break
+
+Aria spends the rest of the session drilling you on theoretical principles, ensuring you understand the mathematics underlying boundary construction.
+
+*goto practice_conclusion
+
+*comment ================================================
+
+*label boundary_spell_unlock
+
+*page_break
+
+*line_break
+
+As you complete the final ward, something in your understanding shifts. The theoretical knowledge becomes practical skill.
+
+*page_break
+
+[b]*SPELL UNLOCKED: ${spell_unlocked}*[/b]
+
+*line_break
+
+*if spell_unlocked = "Simple Ward"
+  You've mastered the basic protective ward—a translucent barrier that can deflect physical objects and minor magical effects. It's the foundation of all boundary magic.
+
+  *line_break
+
+  Aria actually nods in approval. "Every boundary mage's first spell. Use it well."
+
+*if spell_unlocked = "Elemental Barrier"
+  You've learned to create specialized barriers that specifically block elemental attacks—fire, ice, lightning, or force. The ward recognizes the nature of incoming threats and adapts.
+
+  *line_break
+
+  When you demonstrate by blocking one of Aria's test fire bolts, she allows herself a small smile. "Efficient."
+
+*if spell_unlocked = "Selective Permeability"
+  You've learned the art of creating boundaries that allow some things through while blocking others. You can make a barrier that stops weapons but permits people, or blocks magic but allows physical touch.
+
+  *line_break
+
+  Aria observes your demonstration with interest. "This technique separates competent boundary mages from masters."
+
+*if spell_unlocked = "Dimensional Seal"
+  You've learned to seal dimensional rifts and prevent portal formation in designated areas. This is powerful magic, capable of cutting off entire dimensions from each other.
+
+  *line_break
+
+  When you successfully seal a practice portal, Aria's eyes widen slightly. "That level of control is... impressive, ${name}."
+
+*line_break
+
+[i]"Another spell for your collection,"[/i] Polly observes. [i]"At this rate, you'll have an entire spellbook by graduation."[/i]
+
+*set happiness +10
+*set aria_relationship +5
+
+*goto practice_conclusion
+
+*comment ================================================
+*comment LIVING MAGIC PRACTICE
+*comment ================================================
+
+*label living_practice
+
+*line_break
+
+You make your way to the Living section—a part of the Practice Hall that's barely indoors. Vines climb the walls, small trees grow from the floor, and the air smells of earth and growing things.
+
+*line_break
+
+Zara is tending to a flower that blooms with dimensional energy, its petals cycling through colors that don't exist in normal reality.
+
+*page_break
+
+She looks up and grins. "Hey, ${name}! Come to work with the living magic?"
+
+"Yes. If you have time to teach me."
+
+*line_break
+
+"Always." She gestures you closer to the strange flower. "Living magic is about connection—feeling the life energy in all things and learning to channel it."
+
+*page_break
+
+[i]"Zara makes it sound so peaceful,"[/i] Polly says. [i]"What she doesn't mention is that life energy is incredibly chaotic and doesn't always cooperate."[/i]
+
+*line_break
+
+Zara places your hand near the flower. "Don't think about controlling it. Just... sense it. Feel its life."
+
+*page_break
+
+*rand training_roll 1 100
+
+*if (living_magic + empathy) > training_roll
+  *set practice_success true
+*else
+  *set practice_success false
+
+*if practice_success
+  *goto living_success
+*else
+  *goto living_failure
+
+*comment ================================================
+
+*label living_success
+
+You quiet your mind and simply [i]feel[/i]. The flower's life energy becomes perceptible—a warm, vibrant pulse that resonates with your own heartbeat.
+
+*line_break
+
+It's not just alive; it's [i]joyfully[/i] alive. You can sense its contentment with the soil, its pleasure in the light, its connection to the dimensional currents that feed it.
+
+*page_break
+
+"You feel it," Zara breathes. "I can see it in your face."
+
+*line_break
+
+She guides your hand to hover above the flower. "Now try channeling a tiny bit of energy into it. Just a gift—no expectations."
+
+*line_break
+
+You let a trickle of your own life energy flow through your palm. The flower responds immediately, blooming brighter, its petals unfurling with visible joy.
+
+*page_break
+
+"Perfect!" Zara claps delightedly. "That's exactly how living magic should feel—like a conversation, a partnership."
+
+*line_break
+
+[i]"Not bad,"[/i] Polly admits. [i]"You've got a decent sense for life energy. Must be all that empathy."[/i]
+
+*set living_magic +10
+*set empathy +5
+*set zara_relationship +5
+*set collaboration +5
+
+*page_break
+
+Zara spends the next hour teaching you to sense different types of life energy—plants, animals, fungi, even the strange living currents in Avalon itself.
+
+[b]+10 Living Magic[/b]
+[b]+5 Empathy[/b]
+[b]+5 Collaboration[/b]
+[b]+5 Zara Relationship[/b]
+
+*line_break
+
+*comment Check for spell unlocks
+*if (living_magic >= 15) and (spell_life_sense = false)
+  *set spell_unlock true
+  *set spell_unlocked "Life Sense"
+  *set spell_life_sense true
+  *set total_spells_known +1
+  *goto living_spell_unlock
+
+*if (living_magic >= 30) and (spell_accelerated_growth = false)
+  *set spell_unlock true
+  *set spell_unlocked "Accelerated Growth"
+  *set spell_accelerated_growth true
+  *set total_spells_known +1
+  *goto living_spell_unlock
+
+*if (living_magic >= 45) and (spell_minor_healing = false)
+  *set spell_unlock true
+  *set spell_unlocked "Minor Healing"
+  *set spell_minor_healing true
+  *set total_spells_known +1
+  *goto living_spell_unlock
+
+*if (living_magic >= 65) and (spell_life_channel = false)
+  *set spell_unlock true
+  *set spell_unlocked "Life Channel"
+  *set spell_life_channel true
+  *set total_spells_known +1
+  *goto living_spell_unlock
+
+*goto practice_conclusion
+
+*comment ================================================
+
+*label living_failure
+
+You reach out with your awareness, trying to sense the flower's life energy, but... nothing. You feel your own pulse, your own warmth, but the flower remains separate, distant.
+
+*line_break
+
+Frustrated, you push harder, trying to force the connection—
+
+The flower wilts slightly, its petals dimming.
+
+*page_break
+
+"Whoa!" Zara gently pulls your hand back. "You're projecting anxiety onto it. Life energy responds to emotion."
+
+*line_break
+
+She touches the flower herself, and it brightens again, recovering from your inadvertent pressure.
+
+"Living magic requires emotional clarity," she explains gently. "If you're frustrated or forcing, the life energy feels that and retreats."
+
+*page_break
+
+[i]"It's like trying to pet a cat while angry,"[/i] Polly offers. [i]"The cat knows, and it will absolutely judge you."[/i]
+
+*set living_magic +5
+*set empathy +3
+*set failures +1
+
+*page_break
+
+Despite the difficulty, you learned something important about emotional state and magic.
+
+[b]+5 Living Magic[/b]
+[b]+3 Empathy[/b]
+
+*line_break
+
+Zara spends the rest of the session teaching you meditation techniques to help clear your emotional state before working with life energy.
+
+*goto practice_conclusion
+
+*comment ================================================
+
+*label living_spell_unlock
+
+*page_break
+
+*line_break
+
+As you finish the practice, your understanding of life energy deepens into something more concrete—a specific technique.
+
+*page_break
+
+[b]*SPELL UNLOCKED: ${spell_unlocked}*[/b]
+
+*line_break
+
+*if spell_unlocked = "Life Sense"
+  You've learned to perceive life energy without conscious focus. Living things now reveal themselves to your awareness—you can sense plants, animals, and people through walls and in darkness.
+
+  *line_break
+
+  Zara smiles warmly. "Welcome to how I experience the world. It's beautiful, isn't it?"
+
+*if spell_unlocked = "Accelerated Growth"
+  You've learned to channel life energy into plants, causing them to grow weeks' worth in minutes. Seeds sprout, saplings mature, flowers bloom—all at your touch.
+
+  *line_break
+
+  When you demonstrate on a seedling, watching it grow into a healthy young plant, Zara actually tears up a little. "Never gets old watching someone learn this."
+
+*if spell_unlocked = "Minor Healing"
+  You've learned to channel life energy into wounded flesh, accelerating natural healing. Cuts close, bruises fade, pain diminishes. You can't fix everything, but you can help.
+
+  *line_break
+
+  Zara nods approvingly. "This spell will save lives. Use it wisely."
+
+*if spell_unlocked = "Life Channel"
+  You've learned to act as a conduit for life energy, channeling it from one source to another. You can transfer vitality from yourself to others, or from the environment to those who need it.
+
+  *line_break
+
+  When you successfully channel energy from a thriving tree to a wilting flower, reviving it completely, Zara's eyes shine. "That's mastery, ${name}. True mastery."
+
+*line_break
+
+[i]"Handy spells to have,"[/i] Polly notes. [i]"Though try not to become the designated healer for every expedition. That's a fast track to exhaustion."[/i]
+
+*set happiness +10
+*set zara_relationship +5
+
+*goto practice_conclusion
+
+*comment ================================================
+*comment COLLABORATIVE MAGIC PRACTICE
+*comment ================================================
+
+*label collaborative_practice
+
+*line_break
+
+You approach the Collaborative section, where several students are already working together, their magic interweaving in complex patterns.
+
+*line_break
+
+Izack notices you and waves you over. "Perfect timing! We're practicing group resonance. Care to join?"
+
+*page_break
+
+[i]"Collaborative magic is your foundation,"[/i] Polly reminds you. [i]"Every student at Avalon learns it, but you've shown particular aptitude."[/i]
+
+*line_break
+
+Four other students are arranged in a circle, their hands linked. In the center, a dimensional boundary wavers, held stable by their combined focus.
+
+"Join the circle," Izack instructs. "Match their rhythm and add your resonance to theirs."
+
+*page_break
+
+*rand training_roll 1 100
+
+*if (collaborative_magic + collaboration) > training_roll
+  *set practice_success true
+*else
+  *set practice_success false
+
+*if practice_success
+  *goto collaborative_success
+*else
+  *goto collaborative_failure
+
+*comment ================================================
+
+*label collaborative_success
+
+You step into the circle and take the hands of the students on either side of you. Their energy patterns become immediately clear—five different rhythms, each unique but harmonizing.
+
+*line_break
+
+You breathe deeply and let your own pattern join the symphony.
+
+*line_break
+
+The effect is immediate. The boundary in the center stabilizes completely, and you can feel everyone's perspective simultaneously—five minds working as one coordinated whole.
+
+*page_break
+
+"Beautiful!" Izack says. "Notice how ${his_her} addition didn't disrupt the pattern—${he_she} enhanced it."
+
+*line_break
+
+The other students smile at you, and you feel the warmth of their appreciation through the collaborative link.
+
+*page_break
+
+[i]"Show-off,"[/i] Polly mutters, but there's pride in her voice. [i]"But really, you're quite good at this."[/i]
+
+*set collaborative_magic +10
+*set collaboration +5
+*set izack_relationship +5
+*set empathy +5
+
+*page_break
+
+The session continues with increasingly complex collaborative exercises. By the end, you can seamlessly join and leave group resonances without disrupting the pattern.
+
+[b]+10 Collaborative Magic[/b]
+[b]+5 Collaboration[/b]
+[b]+5 Empathy[/b]
+[b]+5 Izack Relationship[/b]
+
+*line_break
+
+*comment Check for spell unlocks
+*if (collaborative_magic >= 30) and (spell_circle_casting = false)
+  *set spell_unlock true
+  *set spell_unlocked "Circle Casting"
+  *set spell_circle_casting true
+  *set total_spells_known +1
+  *goto collaborative_spell_unlock
+
+*if (collaborative_magic >= 50) and (spell_perfect_harmony = false)
+  *set spell_unlock true
+  *set spell_unlocked "Perfect Harmony"
+  *set spell_perfect_harmony true
+  *set total_spells_known +1
+  *goto collaborative_spell_unlock
+
+*if (collaborative_magic >= 70) and (spell_mass_coordination = false)
+  *set spell_unlock true
+  *set spell_unlocked "Mass Coordination"
+  *set spell_mass_coordination true
+  *set total_spells_known +1
+  *goto collaborative_spell_unlock
+
+*if (collaborative_magic >= 85) and (spell_gestalt_consciousness = false)
+  *set spell_unlock true
+  *set spell_unlocked "Gestalt Consciousness"
+  *set spell_gestalt_consciousness true
+  *set total_spells_known +1
+  *goto collaborative_spell_unlock
+
+*goto practice_conclusion
+
+*comment ================================================
+
+*label collaborative_failure
+
+You step into the circle and take the offered hands, but the moment you try to join the resonance, something goes wrong.
+
+*line_break
+
+Your energy pattern clashes with the existing harmonics instead of blending. The boundary in the center flickers dangerously.
+
+*line_break
+
+One of the students gasps. "The resonance is destabilizing!"
+
+*page_break
+
+Izack quickly steps in, adding his own energy to stabilize the pattern. "Easy, everyone. ${name}, step back for a moment."
+
+*line_break
+
+You release the circle, embarrassed. The resonance immediately smooths out without you.
+
+*page_break
+
+Izack approaches you with his usual kindness. "Your energy pattern is too independent right now. Collaborative magic requires letting go of control."
+
+*line_break
+
+[i]"Translation: you tried to join a song by singing a different song,"[/i] Polly explains. [i]"You need to listen first, then add your voice."[/i]
+
+*set collaborative_magic +5
+*set collaboration +3
+*set failures +1
+
+*page_break
+
+Despite the failure, you learned about the importance of listening in collaborative work.
+
+[b]+5 Collaborative Magic[/b]
+[b]+3 Collaboration[/b]
+
+*line_break
+
+Izack spends the rest of the session teaching you resonance meditation—how to quiet your individual pattern and become receptive to others.
+
+*goto practice_conclusion
+
+*comment ================================================
+
+*label collaborative_spell_unlock
+
+*page_break
+
+*line_break
+
+As the collaborative session ends, your accumulated experience crystallizes into a new technique.
+
+*page_break
+
+[b]*SPELL UNLOCKED: ${spell_unlocked}*[/b]
+
+*line_break
+
+*if spell_unlocked = "Circle Casting"
+  You've learned to form a magical circle with other mages, pooling your power for spells that would be impossible alone. The whole becomes greater than the sum of parts.
+
+  *line_break
+
+  Izack beams with pride. "Circle casting is the foundation of Avalon's greatest works. You're ready for advanced collaborative magic."
+
+*if spell_unlocked = "Perfect Harmony"
+  You've learned to achieve perfect resonance with other mages—a state where your magic flows together so seamlessly that distinctions between individuals become meaningless.
+
+  *line_break
+
+  When you demonstrate with another student, achieving perfect synchronization, Izack actually applauds. "That's the Third Thread in action!"
+
+*if spell_unlocked = "Mass Coordination"
+  You've learned to coordinate the magical efforts of large groups—dozens of mages working as one. You can act as a focal point, directing their combined power with precision.
+
+  *line_break
+
+  Izack watches as you successfully coordinate all the students in the practice hall. "This is leadership magic. You could command an academy of your own someday."
+
+*if spell_unlocked = "Gestalt Consciousness"
+  You've learned to temporarily merge consciousness with other willing mages, creating a shared mind with pooled knowledge and abilities. It's profound, powerful, and slightly terrifying.
+
+  *line_break
+
+  After experiencing true gestalt with Izack for just a moment, you stagger back, overwhelmed. He steadies you, grinning. "Now you understand what's possible."
+
+*line_break
+
+[i]"Collaborative magic suits you,"[/i] Polly observes. [i]"You've always been good with people—or as good as any mage can be."[/i]
+
+*set happiness +10
+*set izack_relationship +5
+
+*goto practice_conclusion
+
+*comment ================================================
+*comment WRITTEN MAGIC PRACTICE
+*comment ================================================
+
+*label written_practice
+
+*line_break
+
+You enter the Written section, where the walls are covered in glowing runes. Some are ancient, carved centuries ago. Others are fresh, still pulsing with the intention of their creators.
+
+*line_break
+
+A senior student named Grey is here, carefully inscribing a complex pattern into a practice stone. Grey looks up as you approach.
+
+*page_break
+
+"Written magic practice?" they ask.
+
+"Yes. I want to learn rune work."
+
+*line_break
+
+Grey nods. "Runes are permanent intention—magic frozen into symbol. Every mark must be precise, or the whole inscription fails."
+
+*page_break
+
+[i]"Grey's a perfectionist,"[/i] Polly warns. [i]"But they know their runes. Pay attention."[/i]
+
+*line_break
+
+Grey hands you a stylus and a practice stone. "Draw this rune." They sketch a simple protective symbol in the air. "Exact proportions. Steady hand. Clear intention."
+
+*page_break
+
+*rand training_roll 1 100
+
+*if (written_magic + knowledge) > training_roll
+  *set practice_success true
+*else
+  *set practice_success false
+
+*if practice_success
+  *goto written_success
+*else
+  *goto written_failure
+
+*comment ================================================
+
+*label written_success
+
+You study the rune carefully, memorizing its proportions. Then, with a steady hand, you inscribe it onto the practice stone.
+
+*line_break
+
+The lines glow faintly as you complete each stroke. When you finish the final mark, the entire rune pulses with soft blue light—active and stable.
+
+*page_break
+
+Grey examines your work closely. "Perfect proportions. Steady energy flow. This is excellent foundational work."
+
+*line_break
+
+They show you how to test the rune by attempting to push through it. The protective symbol holds firm, repelling your touch.
+
+*page_break
+
+"Well done," Grey says simply. "Precision like that will serve you well."
+
+*line_break
+
+[i]"High praise from Grey,"[/i] Polly notes. [i]"They once criticized a master's rune work for being 'adequate.' You should feel proud."[/i]
+
+*set written_magic +10
+*set knowledge +5
+*set grey_relationship +5
+*set power +5
+
+*page_break
+
+Grey spends the next hour teaching you additional runes—protection, light, heat, cold, and basic structural reinforcement.
+
+[b]+10 Written Magic[/b]
+[b]+5 Knowledge[/b]
+[b]+5 Power[/b]
+[b]+5 Grey Relationship[/b]
+
+*line_break
+
+*comment Check for spell unlocks
+*if (written_magic >= 20) and (spell_rune_reading = false)
+  *set spell_unlock true
+  *set spell_unlocked "Rune Reading"
+  *set spell_rune_reading true
+  *set total_spells_known +1
+  *goto written_spell_unlock
+
+*if (written_magic >= 35) and (spell_temporary_inscription = false)
+  *set spell_unlock true
+  *set spell_unlocked "Temporary Inscription"
+  *set spell_temporary_inscription true
+  *set total_spells_known +1
+  *goto written_spell_unlock
+
+*if (written_magic >= 55) and (spell_lasting_inscription = false)
+  *set spell_unlock true
+  *set spell_unlocked "Lasting Inscription"
+  *set spell_lasting_inscription true
+  *set total_spells_known +1
+  *goto written_spell_unlock
+
+*if (written_magic >= 75) and (spell_living_runes = false)
+  *set spell_unlock true
+  *set spell_unlocked "Living Runes"
+  *set spell_living_runes true
+  *set total_spells_known +1
+  *goto written_spell_unlock
+
+*goto practice_conclusion
+
+*comment ================================================
+
+*label written_failure
+
+You try to copy the rune, but your hand wavers. The proportions come out slightly wrong—one line too long, another at the wrong angle.
+
+*line_break
+
+When you complete the inscription, it glows weakly for a moment, then fades entirely. The magic unraveled because the symbol wasn't precise enough.
+
+*page_break
+
+Grey shakes their head. "Rune work doesn't forgive mistakes. An imprecise rune is worse than no rune—it's wasted effort and materials."
+
+*line_break
+
+They demonstrate the correct form again, their hand perfectly steady. "Practice the motion without magic first. Build muscle memory."
+
+*page_break
+
+[i]"Harsh but fair,"[/i] Polly comments. [i]"Written magic is unforgiving. Either you get it right or you don't."[/i]
+
+*set written_magic +5
+*set knowledge +3
+*set failures +1
+
+*page_break
+
+Despite the failure, you learned about the importance of precision in rune work.
+
+[b]+5 Written Magic[/b]
+[b]+3 Knowledge[/b]
+
+*line_break
+
+Grey spends the rest of the session having you practice the basic strokes repeatedly, building the muscle memory for accurate inscription.
+
+*goto practice_conclusion
+
+*comment ================================================
+
+*label written_spell_unlock
+
+*page_break
+
+*line_break
+
+As you finish your practice rune, your accumulated knowledge suddenly clicks into place—a new technique emerges.
+
+*page_break
+
+[b]*SPELL UNLOCKED: ${spell_unlocked}*[/b]
+
+*line_break
+
+*if spell_unlocked = "Rune Reading"
+  You've learned to read and understand written magic. Ancient inscriptions reveal their meaning to you, and you can sense the intention behind any rune you examine.
+
+  *line_break
+
+  Grey nods approvingly. "Now you can learn from the old masters. The academy's walls are covered in lessons."
+
+*if spell_unlocked = "Temporary Inscription"
+  You've learned to inscribe runes in air or on surfaces, creating temporary magical effects. The inscriptions fade after minutes or hours, but they don't require permanent materials.
+
+  *line_break
+
+  When you draw a glowing light-rune in midair, Grey actually smiles. "Useful for field work."
+
+*if spell_unlocked = "Lasting Inscription"
+  You've learned to create permanent magical inscriptions that endure for years. Your runes can be carved into stone, metal, or wood, creating lasting enchantments.
+
+  *line_break
+
+  Grey examines your first lasting inscription with care. "This will still be active when you're old. That's the power of written magic."
+
+*if spell_unlocked = "Living Runes"
+  You've learned to create runes that adapt and evolve—semi-sentient inscriptions that respond to circumstances. They're complex, powerful, and slightly unpredictable.
+
+  *line_break
+
+  When your living rune successfully adapts its protection based on incoming threats, Grey actually looks impressed. "That's mastery. Few achieve this."
+
+*line_break
+
+[i]"Written magic is patient magic,"[/i] Polly observes. [i]"You're building something that outlasts you. That's rather profound, if you think about it."[/i]
+
+*set happiness +10
+*set grey_relationship +5
+
+*goto practice_conclusion
+
+*comment ================================================
+*comment TRUTH MAGIC PRACTICE
+*comment ================================================
+
+*label truth_practice
+
+*line_break
+
+You approach the Truth section—a space that feels oddly [i]clear[/i], as if all ambiguity has been stripped away. The air seems to ring with absolute honesty.
+
+*line_break
+
+Aria Ravencrest is here, consulting with a visiting truth mage from the Singing Dunes. They notice your arrival.
+
+*page_break
+
+"Truth magic," Aria says simply. "Are you certain you want to learn this?"
+
+*line_break
+
+The visiting mage—an elderly woman with desert sand still clinging to her robes—studies you with piercing eyes. "Truth magic is not for the self-deceived."
+
+*page_break
+
+[i]"They're not kidding,"[/i] Polly warns. [i]"Truth magic has a way of revealing things you'd rather keep hidden—even from yourself."[/i]
+
+*choice
+  #Yes. I want to learn truth magic.
+    *goto truth_continue
+
+  #On second thought, maybe another school would be better.
+    *goto school_selection
+
+*label truth_continue
+
+*page_break
+
+The desert mage nods. "Very well. Truth magic begins with self-honesty. Tell me something true that you do not want to say."
+
+*line_break
+
+The compulsion to honesty is immediate and uncomfortable.
+
+*page_break
+
+*rand training_roll 1 100
+
+*if (truth_magic + honesty_vs_deception) > training_roll
+  *set practice_success true
+*else
+  *set practice_success false
+
+*if practice_success
+  *goto truth_success
+*else
+  *goto truth_failure
+
+*comment ================================================
+
+*label truth_success
+
+You feel the pull of the truth compulsion, but instead of fighting it, you lean into it. You choose a truth that's uncomfortable but not devastating.
+
+*line_break
+
+"I'm afraid I'm not as talented as everyone thinks I am," you say quietly. "Sometimes I feel like an imposter."
+
+*line_break
+
+The words ring in the air, absolutely genuine.
+
+*page_break
+
+The desert mage nods slowly. "That is truth. Uncomfortable, but spoken freely. This is the foundation."
+
+*line_break
+
+Aria's expression softens slightly. "Doubt and talent often coexist. Your fear does not negate your ability."
+
+*page_break
+
+[i]"Well,"[/i] Polly says gently. [i]"That was brave. And for what it's worth, you're more talented than you think."[/i]
+
+*set truth_magic +10
+*set honesty_vs_deception +5
+*set aria_relationship +5
+*set empathy +5
+
+*page_break
+
+The desert mage spends the next hour teaching you to sense truth and falsehood in others' words, and to speak with binding honesty when needed.
+
+[b]+10 Truth Magic[/b]
+[b]+5 Honesty[/b]
+[b]+5 Empathy[/b]
+[b]+5 Aria Relationship[/b]
+
+*line_break
+
+*comment Check for spell unlocks
+*if (truth_magic >= 25) and (spell_truth_sense = false)
+  *set spell_unlock true
+  *set spell_unlocked "Truth Sense"
+  *set spell_truth_sense true
+  *set total_spells_known +1
+  *goto truth_spell_unlock
+
+*if (truth_magic >= 40) and (spell_compel_honesty = false)
+  *set spell_unlock true
+  *set spell_unlocked "Compel Honesty"
+  *set spell_compel_honesty true
+  *set total_spells_known +1
+  *goto truth_spell_unlock
+
+*if (truth_magic >= 60) and (spell_oath_binding = false)
+  *set spell_unlock true
+  *set spell_unlocked "Oath Binding"
+  *set spell_oath_binding true
+  *set total_spells_known +1
+  *goto truth_spell_unlock
+
+*if (truth_magic >= 80) and (spell_reality_enforcement = false)
+  *set spell_unlock true
+  *set spell_unlocked "Reality Enforcement"
+  *set spell_reality_enforcement true
+  *set total_spells_known +1
+  *goto truth_spell_unlock
+
+*goto practice_conclusion
+
+*comment ================================================
+
+*label truth_failure
+
+You feel the compulsion to speak truth, and you panic. You try to find a truth that's safe, comfortable, something that won't hurt—
+
+*line_break
+
+But truth magic doesn't work that way. Your hesitation itself is a form of deception.
+
+*line_break
+
+The desert mage shakes her head. "You resist. You seek to control what truth you reveal. This is the opposite of truth magic."
+
+*page_break
+
+Aria observes quietly. "Truth magic requires vulnerability. If you cannot be honest with yourself, you cannot work with truth."
+
+*line_break
+
+[i]"It's okay to not be ready,"[/i] Polly says softly. [i]"Truth magic isn't for everyone. There's no shame in that."[/i]
+
+*set truth_magic +5
+*set honesty_vs_deception +3
+*set failures +1
+
+*page_break
+
+Despite the difficulty, you learned something about the nature of truth and self-honesty.
+
+[b]+5 Truth Magic[/b]
+[b]+3 Honesty[/b]
+
+*line_break
+
+The desert mage gives you meditation exercises designed to help you become more comfortable with vulnerability and honesty.
+
+*goto practice_conclusion
+
+*comment ================================================
+
+*label truth_spell_unlock
+
+*page_break
+
+*line_break
+
+Your understanding of truth magic deepens, crystallizing into a specific technique.
+
+*page_break
+
+[b]*SPELL UNLOCKED: ${spell_unlocked}*[/b]
+
+*line_break
+
+*if spell_unlocked = "Truth Sense"
+  You've learned to sense lies and deception. When someone speaks falsehood in your presence, you feel it—a discordant note against the fabric of reality.
+
+  *line_break
+
+  The desert mage nods approvingly. "Use this gift wisely. Not all lies are malicious."
+
+*if spell_unlocked = "Compel Honesty"
+  You've learned to create a field of compulsory honesty. Those within it find themselves unable to speak deliberate falsehoods. The truth simply pours out.
+
+  *line_break
+
+  When you demonstrate on a volunteer, forcing them to admit something they'd rather hide, Aria cautions: "This is powerful magic. Use it ethically."
+
+*if spell_unlocked = "Oath Binding"
+  You've learned to bind spoken oaths with magical force. When someone swears a truth oath in your presence, they become magically compelled to honor it.
+
+  *line_break
+
+  The desert mage looks at you seriously. "Oath binding is how truth mages maintain justice. It's sacred work."
+
+*if spell_unlocked = "Reality Enforcement"
+  You've learned to enforce truth on reality itself—making spoken truths become absolute fact within your domain. If you declare something true, reality bends to match your word.
+
+  *line_break
+
+  When you demonstrate by declaring "This stone is warm" and it becomes warm, Aria actually steps back. "That's reality magic. That's... extraordinary power."
+
+*line_break
+
+[i]"Truth magic is terrifying,"[/i] Polly says bluntly. [i]"You're wielding absolute honesty as a weapon and a tool. Be careful with it."[/i]
+
+*set happiness +10
+*set aria_relationship +5
+
+*goto practice_conclusion
+
+*comment ================================================
+*comment MEMORY MAGIC PRACTICE
+*comment ================================================
+
+*label memory_practice
+
+*line_break
+
+You approach the Memory section—a small, quiet alcove that most students overlook. The air here feels [i]thick[/i] with preserved moments, like walking through concentrated nostalgia.
+
+*line_break
+
+A hooded figure sits in meditation, surrounded by floating crystalline memories—fragments of preserved experience that shimmer in the air.
+
+*page_break
+
+The figure looks up, and you recognize the ancient eyes of Master Kairos, one of Avalon's most reclusive teachers.
+
+"Memory magic," Kairos's voice is barely a whisper. "Few students seek this path. It is subtle, profound, and dangerous."
+
+*page_break
+
+[i]"Memory magic is advanced,"[/i] Polly warns. [i]"It deals with consciousness itself. Kairos rarely takes students."[/i]
+
+*choice
+  #I want to learn. Please teach me.
+    *goto memory_continue
+
+  #Perhaps I should gain more experience first.
+    *goto school_selection
+
+*label memory_continue
+
+*page_break
+
+Kairos studies you for a long moment. "Very well. Memory magic begins with perfect recall. Recall for me your arrival at Avalon—every detail."
+
+*line_break
+
+You close your eyes and reach back into your own memory...
+
+*page_break
+
+*rand training_roll 1 100
+
+*if (memory_magic + knowledge) > training_roll
+  *set practice_success true
+*else
+  *set practice_success false
+
+*if practice_success
+  *goto memory_success
+*else
+  *goto memory_failure
+
+*comment ================================================
+
+*label memory_success
+
+You sink into the memory, and suddenly you're [i]there[/i]—standing at the crystalline gates, feeling the portal sickness, hearing Izack's welcoming voice.
+
+*line_break
+
+Every detail is present: the smell of dimensional energy, the warmth of the sun, the texture of your travel bag's strap against your shoulder. You can even recall background conversations you didn't consciously notice at the time.
+
+*page_break
+
+"Perfect recall," Kairos murmurs. "You have the foundation."
+
+*line_break
+
+${he_she} guides you in preserving the memory—taking it from the ephemeral stream of consciousness and crystallizing it into permanent, perfect form.
+
+*page_break
+
+When you open your eyes, a small crystal floats before you, containing the preserved memory. You can feel that you could relive it with perfect clarity any time you wish.
+
+*line_break
+
+[i]"That's... actually impressive,"[/i] Polly admits. [i]"Memory magic is notoriously difficult."[/i]
+
+*set memory_magic +10
+*set knowledge +5
+*set collaboration +5
+
+*page_break
+
+Kairos spends the next hour teaching you the basics of memory manipulation—how to strengthen recall, how to organize thoughts, how to protect your mind from intrusion.
+
+[b]+10 Memory Magic[/b]
+[b]+5 Knowledge[/b]
+[b]+5 Collaboration[/b]
+
+*line_break
+
+*comment Check for spell unlocks
+*if (memory_magic >= 30) and (spell_perfect_recall = false)
+  *set spell_unlock true
+  *set spell_unlocked "Perfect Recall"
+  *set spell_perfect_recall true
+  *set total_spells_known +1
+  *goto memory_spell_unlock
+
+*if (memory_magic >= 50) and (spell_memory_palace = false)
+  *set spell_unlock true
+  *set spell_unlocked "Memory Palace"
+  *set spell_memory_palace true
+  *set total_spells_known +1
+  *goto memory_spell_unlock
+
+*if (memory_magic >= 70) and (spell_memory_share = false)
+  *set spell_unlock true
+  *set spell_unlocked "Memory Share"
+  *set spell_memory_share true
+  *set total_spells_known +1
+  *goto memory_spell_unlock
+
+*if (memory_magic >= 90) and (spell_living_archive = false)
+  *set spell_unlock true
+  *set spell_unlocked "Living Archive"
+  *set spell_living_archive true
+  *set total_spells_known +1
+  *goto memory_spell_unlock
+
+*goto practice_conclusion
+
+*comment ================================================
+
+*label memory_failure
+
+You try to recall your arrival, but the memory is hazy, imprecise. You remember the general outline—the gates, Izack's greeting—but the details escape you.
+
+*line_break
+
+The harder you grasp for specifics, the more they slip away, like trying to remember a dream after waking.
+
+*page_break
+
+Kairos shakes ${his_her} head. "Your mind has not learned to preserve experience with precision. You observe without truly [i]seeing[/i]."
+
+*line_break
+
+${he_she} demonstrates by recalling a memory from decades ago—speaking with such vivid detail that you can almost see the scene ${he_she} describes.
+
+*page_break
+
+"Memory magic requires present mindfulness," Kairos explains. "You must learn to experience the present fully before you can preserve it."
+
+*line_break
+
+[i]"Most people go through life half-asleep,"[/i] Polly notes. [i]"Memory mages have to be fully awake every moment. It's exhausting."[/i]
+
+*set memory_magic +5
+*set knowledge +3
+*set failures +1
+
+*page_break
+
+Despite the difficulty, you learned about the importance of mindful awareness.
+
+[b]+5 Memory Magic[/b]
+[b]+3 Knowledge[/b]
+
+*line_break
+
+Kairos gives you mindfulness exercises—techniques for experiencing the present moment with full attention and clarity.
+
+*goto practice_conclusion
+
+*comment ================================================
+
+*label memory_spell_unlock
+
+*page_break
+
+*line_break
+
+Your understanding of memory magic crystallizes into a new technique—a specific spell.
+
+*page_break
+
+[b]*SPELL UNLOCKED: ${spell_unlocked}*[/b]
+
+*line_break
+
+*if spell_unlocked = "Perfect Recall"
+  You've learned to remember everything perfectly. From this moment forward, every experience you have will be stored with complete fidelity. You can relive any moment with perfect clarity.
+
+  *line_break
+
+  Kairos nods. "This is both gift and burden. You will never forget—not the good, and not the bad."
+
+*if spell_unlocked = "Memory Palace"
+  You've learned to construct a mental palace—a vast internal space where you can organize and access all your knowledge and memories with perfect efficiency.
+
+  *line_break
+
+  As you complete your first memory palace, feeling the vast organized structure take shape in your mind, Kairos actually smiles. "Welcome to true knowledge."
+
+*if spell_unlocked = "Memory Share"
+  You've learned to share memories directly with others, letting them experience your experiences as if they were their own. It's intimate, powerful, and requires deep trust.
+
+  *line_break
+
+  When you successfully share a memory with Kairos, letting ${him_her} see through your eyes, ${he_she} nods approvingly. "You understand the gift of shared experience."
+
+*if spell_unlocked = "Living Archive"
+  You've learned to become a living repository of knowledge and experience—not just your own memories, but those of others who entrust them to you. You can preserve entire lifetimes of wisdom.
+
+  *line_break
+
+  Kairos looks at you with something approaching awe. "To achieve this level of mastery... you have become what few memory mages ever reach. A true keeper of history."
+
+*line_break
+
+[i]"Memory magic changes how you experience existence,"[/i] Polly says quietly. [i]"You'll never see the world quite the same way again."[/i]
+
+*set happiness +10
+*set knowledge +10
+
+*goto practice_conclusion
+
+*comment ================================================
+*comment PRACTICE CONCLUSION
+*comment ================================================
+
+*label practice_conclusion
+
+*page_break
+
+*line_break
+
+[b]Current Magic Mastery:[/b]
+
+*stat_chart
+  percent dimensional_magic Dimensional Magic
+  percent boundary_magic Boundary Magic
+  percent living_magic Living Magic
+  percent collaborative_magic Collaborative Magic
+  percent written_magic Written Magic
+  percent truth_magic Truth Magic
+  percent memory_magic Memory Magic
+
+  text total_spells_known Total Spells Learned
+
+*page_break
+
+Polly flutters down to land on your shoulder as you finish the practice session.
+
+[i]"Not bad work today, ${name}. You're building a solid foundation. Keep this up and you might actually become a competent mage."[/i]
+
+*line_break
+
+*if practice_success
+  [i]"Though try not to let success go to your head. Pride comes before spectacularly embarrassing magical failures."[/i]
+*else
+  [i]"And don't let failure discourage you. Every master mage has blown up a few practice dummies in their time. Or in Izack's case, created an accidental pocket dimension full of confused squirrels."[/i]
+
+*page_break
+
+*choice
+  #Practice another school of magic while I'm here.
+    *goto school_selection
+
+  #That's enough training for today. Return to academy life.
+    *goto_scene academy_life
+
+  *if (dimensional_magic + boundary_magic + living_magic + collaborative_magic + written_magic + truth_magic + memory_magic) >= 350
+    #I think I'm ready to attempt advanced mastery training.
+      *goto mastery_check
+
+*comment ================================================
+*comment MASTERY CHECK
+*comment ================================================
+
+*label mastery_check
+
+*page_break
+
+As you contemplate your magical progress, you realize you've achieved something remarkable—substantial mastery across multiple schools of magic.
+
+*line_break
+
+[i]"You know,"[/i] Polly says thoughtfully, [i]"you've developed quite an impressive skill set. Most mages specialize in one or two schools. You're becoming something of a generalist."[/i]
+
+*page_break
+
+*comment Check for mastery achievements
+*if (dimensional_magic >= 80) and (dimensional_mastery_acknowledged = false)
+  *achievement dimensional_master Master of Dimensions
+  *set dimensional_mastery_acknowledged true
+
+  *line_break
+
+  [b]ACHIEVEMENT UNLOCKED: Master of Dimensions[/b]
+
+  You've achieved true mastery in Dimensional Magic. Space itself responds to your will.
+
+*if (boundary_magic >= 80) and (boundary_mastery_acknowledged = false)
+  *achievement boundary_master Master of Boundaries
+  *set boundary_mastery_acknowledged true
+
+  *line_break
+
+  [b]ACHIEVEMENT UNLOCKED: Master of Boundaries[/b]
+
+  You've achieved true mastery in Boundary Magic. Your wards are unbreakable.
+
+*if (living_magic >= 80) and (living_mastery_acknowledged = false)
+  *achievement living_master Master of Life
+  *set living_mastery_acknowledged true
+
+  *line_break
+
+  [b]ACHIEVEMENT UNLOCKED: Master of Life[/b]
+
+  You've achieved true mastery in Living Magic. Life energy flows through you like a river.
+
+*if (collaborative_magic >= 80) and (collaborative_mastery_acknowledged = false)
+  *achievement collaborative_grandmaster Grandmaster of Collaboration
+  *set collaborative_mastery_acknowledged true
+
+  *line_break
+
+  [b]ACHIEVEMENT UNLOCKED: Grandmaster of Collaboration[/b]
+
+  You've achieved true mastery in Collaborative Magic. You embody the Third Thread.
+
+*if (written_magic >= 80) and (written_mastery_acknowledged = false)
+  *achievement written_master Master of Runes
+  *set written_mastery_acknowledged true
+
+  *line_break
+
+  [b]ACHIEVEMENT UNLOCKED: Master of Runes[/b]
+
+  You've achieved true mastery in Written Magic. Your inscriptions will outlive you.
+
+*if (truth_magic >= 80) and (truth_mastery_acknowledged = false)
+  *achievement truth_master Master of Truth
+  *set truth_mastery_acknowledged true
+
+  *line_break
+
+  [b]ACHIEVEMENT UNLOCKED: Master of Truth[/b]
+
+  You've achieved true mastery in Truth Magic. Reality itself bends to your honest word.
+
+*if (memory_magic >= 80) and (memory_mastery_acknowledged = false)
+  *achievement memory_master Master of Memory
+  *set memory_mastery_acknowledged true
+
+  *line_break
+
+  [b]ACHIEVEMENT UNLOCKED: Master of Memory (Secret)[/b]
+
+  You've achieved true mastery in Memory Magic. You are a living archive of experience.
+
+*comment Check for universal mastery
+*if (dimensional_magic >= 60) and (boundary_magic >= 60) and (living_magic >= 60) and (collaborative_magic >= 60) and (written_magic >= 60) and (truth_magic >= 60) and (memory_magic >= 60) and (generalist_acknowledged = false)
+  *achievement universal_mage Universal Mage
+  *set generalist_acknowledged true
+
+  *line_break
+
+  [b]ACHIEVEMENT UNLOCKED: Universal Mage[/b]
+
+  You've achieved broad mastery across all seven schools of magic. You are a true universal mage.
+
+  *page_break
+
+  [i]"This is rare,"[/i] Polly says seriously. [i]"Most mages specialize. You've chosen breadth over depth. That makes you uniquely valuable—and uniquely dangerous."[/i]
+
+*comment Check for perfect mastery
+*if (dimensional_magic >= 100) and (boundary_magic >= 100) and (living_magic >= 100) and (collaborative_magic >= 100) and (written_magic >= 100) and (truth_magic >= 100) and (memory_magic >= 100)
+  *achievement perfect_mage The Perfect Mage
+
+  *line_break
+
+  [b]ACHIEVEMENT UNLOCKED: The Perfect Mage[/b]
+
+  You've achieved 100% mastery in all seven schools of magic. You have reached the theoretical peak of magical ability.
+
+  *page_break
+
+  Polly is silent for a long moment.
+
+  *line_break
+
+  [i]"In all my centuries,"[/i] she finally says, [i]"I've never seen this. You've mastered every school perfectly. You've become... something new. Something unprecedented."[/i]
+
+  *line_break
+
+  [i]"The question is: what will you do with all this power?"[/i]
+
+*page_break
+
+*goto_scene academy_life

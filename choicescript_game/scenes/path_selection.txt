@@ -1,0 +1,794 @@
+*comment ================================================
+*comment PATH SELECTION - MAJOR BRANCHING POINT
+*comment Year 2 begins: Choose Research, Combat, or Diplomatic path
+*comment This choice determines Years 2-4 content and available endings
+*comment ================================================
+
+*temp recommended_path ""
+*temp aria_recommends false
+*temp izack_recommends false
+*temp zara_recommends false
+
+*label start
+
+[b]== THE BEGINNING OF YEAR TWO ==[/b]
+
+*line_break
+
+You've completed your first year at Avalon Academy.
+
+*page_break
+
+One year ago, you walked through those crystalline gates as a nervous newcomer, portal-sick and uncertain. Today, you stand in the Grand Hall as a true student of dimensional magic.
+
+*line_break
+
+*if collaboration > 70
+  Your mastery of collaborative magic has earned you recognition across the Academy.
+*if power > 70
+  Your raw magical power has impressed even the most demanding instructors.
+*if knowledge > 70
+  Your theoretical understanding has made you one of Aria's most promising students.
+*if empathy > 70
+  Your ability to understand others has made you invaluable in group work.
+
+*page_break
+
+But Year One was preparation. The foundation.
+
+Now comes the true education.
+
+*line_break
+
+[i]"And now comes the part where they make you choose your future,"[/i] Polly mutters from her perch above the hall. [i]"No pressure. Just the next three years of your life and most of your available endings. Caw."[/i]
+
+*page_break
+
+*comment Calculate recommendations based on stats
+
+*if knowledge >= 65
+  *set aria_recommends true
+  *set recommended_path "research"
+
+*if power >= 65
+  *set zara_recommends true
+  *if recommended_path = ""
+    *set recommended_path "combat"
+
+*if empathy >= 65
+  *set izack_recommends true
+  *if recommended_path = ""
+    *set recommended_path "diplomatic"
+
+*if (collaboration >= 70) and (recommended_path = "")
+  *set recommended_path "diplomatic"
+
+*label faculty_announcement
+
+The three master mages stand at the front of the Grand Hall. Izack Thorne, Aria Ravencrest, and Zara—your teachers, your mentors, and now your potential guides for the next three years.
+
+*line_break
+
+Izack steps forward, his warm smile tempered by unusual seriousness.
+
+*page_break
+
+"First-year students learn together," he begins. "You share lessons, experiences, the foundation of dimensional magic. But starting in Year Two, Avalon asks you to choose a path."
+
+*line_break
+
+Aria continues, her voice sharp and precise. "Not a specialization—you'll continue studying all schools of magic. Rather, this is a choice of [i]focus[/i]. A commitment to how you'll spend the next three years. The problems you'll solve. The person you'll become."
+
+*page_break
+
+Zara speaks last, her tone gentle but firm. "This choice is binding. You cannot change paths once committed. Choose carefully."
+
+*line_break
+
+A shimmer of magical energy fills the hall. Three doors materialize along the back wall, each one glowing with distinct resonance.
+
+*page_break
+
+*label research_door_explanation
+
+[b]THE RESEARCH PATH[/b]
+
+*line_break
+
+Aria gestures to the first door—it glows with cool blue light, inscribed with equations and theoretical diagrams that shift and evolve.
+
+*page_break
+
+"The Research Path," Aria explains, "is for those who seek to understand the [i]why[/i] behind dimensional magic. You'll work directly with me on advanced theoretical projects. Publishing papers. Conducting experiments. Pushing the boundaries of what we know about reality itself."
+
+*line_break
+
+She pauses, her gaze sweeping the assembled students.
+
+*page_break
+
+"You'll spend Years Two through Four in intensive study. The Archives will become your second home. You'll collaborate with dimensional scholars from across the realms. Your thesis project in Year Four could revolutionize magical theory."
+
+*line_break
+
+"But," she adds, her voice cooling, "you'll miss practical combat training. You won't delve into dangerous dimensions hunting artifacts. And you'll have minimal involvement in inter-dimensional politics."
+
+*page_break
+
+*if aria_recommends
+  Aria's eyes find yours. "${name}, your theoretical aptitude makes you particularly suited for this path. I would be honored to mentor you."
+
+  *set aria_relationship +5
+
+*line_break
+
+[i]"The research path,"[/i] Polly whispers, [i]"means becoming a true scholar. Late nights in the Archives. Breakthrough discoveries. Academic fame. But also isolation, endless theories, and the real possibility of going slightly mad from dimensional mathematics."[/i]
+
+*page_break
+
+*label combat_door_explanation
+
+[b]THE COMBAT PATH[/b]
+
+*line_break
+
+Zara steps toward the second door—it pulses with fierce crimson light, carved with battle-wards and protective runes that seem to move defensively.
+
+*page_break
+
+"The Combat Path," Zara says, her voice carrying the weight of experience, "is for those who will defend the realms. Battle mages. Dungeon delvers. The ones who stand between dimensional threats and innocent lives."
+
+*line_break
+
+She places her hand on the glowing door, and the runes flare brighter.
+
+*page_break
+
+"You'll train intensively in magical combat. Learn to fight alone and in tactical teams. You'll venture into dangerous dimensions—not as researchers, but as warriors. By Year Four, you'll be capable of solo dungeon runs that would terrify most graduate students."
+
+*line_break
+
+"However," she warns, "you'll sacrifice advanced theoretical study. No publishing papers or revolutionary discoveries. And you'll be too busy training to engage with diplomatic missions."
+
+*page_break
+
+*if zara_recommends
+  Zara meets your eyes, nodding with respect. "${name}, your magical power and combat instincts are exceptional. I can make you into one of the greatest battle mages Avalon has ever produced."
+
+  *set zara_relationship +5
+
+*line_break
+
+[i]"The combat path,"[/i] Polly notes dryly, [i]"means becoming Avalon's defender. Exciting adventures, legendary duels, and protecting people who can't protect themselves. But also constant danger, combat-related trauma, and a distressing number of scars."[/i]
+
+*page_break
+
+*label diplomatic_door_explanation
+
+[b]THE DIPLOMATIC PATH[/b]
+
+*line_break
+
+Izack approaches the third door—it shimmers with golden light, inscribed with symbols from dozens of dimensional languages, all harmonizing together.
+
+*page_break
+
+"The Diplomatic Path," Izack explains warmly, "is for those who will bridge worlds. Negotiators. Ambassadors. The ones who prevent conflicts before they require battle mages."
+
+*line_break
+
+He gestures, and the symbols on the door rearrange themselves into new patterns.
+
+*page_break
+
+"You'll work with dimensional diplomats from across the multiverse. Learn dozens of cultural traditions, magical customs, political structures. You'll negotiate treaties, resolve disputes, build alliances. By Year Four, you'll be representing Avalon in inter-dimensional summits."
+
+*line_break
+
+"The trade-off," he says gently, "is that you'll miss deep theoretical research and intensive combat training. You'll be too busy negotiating to publish papers or delve dungeons."
+
+*page_break
+
+*if izack_recommends
+  Izack's expression softens as he looks at you. "${name}, your empathy and understanding of collaborative magic make you a natural diplomat. I believe you could change the future of inter-dimensional relations."
+
+  *set izack_relationship +5
+
+*line_break
+
+[i]"The diplomatic path,"[/i] Polly muses, [i]"means becoming a bridge between worlds. Preventing wars, building peace, making genuine change. But also endless politics, cultural missteps that could cause incidents, and the soul-crushing weight of responsibility for entire dimensions."[/i]
+
+*page_break
+
+*label reflection_moment
+
+The three doors glow before you.
+
+Research. Combat. Diplomacy.
+
+*line_break
+
+Each path leads to different content, different mentors, different endings. Once you choose, there is no going back.
+
+*page_break
+
+[i]"This is it,"[/i] Polly says quietly, her sarcasm fading. [i]"The choice that defines who you become. Choose the path that calls to your heart, ${name}. Not what others recommend. Not what seems safest. What feels [i]true[/i]."[/i]
+
+*line_break
+
+*if recommended_path != ""
+  [i]"Though for what it's worth, based on your strengths, I'd lean toward ${recommended_path}. But that's just one bird's opinion."[/i]
+
+*page_break
+
+Which door do you approach?
+
+*line_break
+
+*choice
+  #The Research Path—I want to understand the deepest mysteries of dimensional magic.
+    *goto confirm_research
+
+  #The Combat Path—I want to protect the realms and become a legendary battle mage.
+    *goto confirm_combat
+
+  #The Diplomatic Path—I want to bridge worlds and prevent conflicts through understanding.
+    *goto confirm_diplomatic
+
+  #I need more information before deciding.
+    *goto more_information
+
+*comment ================================================
+
+*label more_information
+
+You hesitate, studying the three doors.
+
+*line_break
+
+"Which aspect would you like to know more about?" Aria asks patiently.
+
+*page_break
+
+*choice
+  #What specific activities will I do on the Research Path?
+    *goto research_details
+
+  #What specific activities will I do on the Combat Path?
+    *goto combat_details
+
+  #What specific activities will I do on the Diplomatic Path?
+    *goto diplomatic_details
+
+  #What endings are available on each path?
+    *goto endings_explanation
+
+  #I'm ready to choose.
+    *goto reflection_moment
+
+*comment ================================================
+
+*label research_details
+
+Aria steps forward, clearly pleased by your interest in details.
+
+*page_break
+
+"On the Research Path, your typical schedule will include:
+
+*line_break
+
+[b]Year Two:[/b] Advanced dimensional theory, experimental magical frameworks, collaborative research projects with scholars from other realms.
+
+*line_break
+
+[b]Year Three:[/b] Publishing your first papers, teaching theoretical concepts to first-years, conducting original experiments in the Archives.
+
+*line_break
+
+[b]Year Four:[/b] Your thesis project—an original contribution to magical knowledge. If successful, your name will be cited in academic texts for generations."
+
+*page_break
+
+She continues, "You'll work closely with me. I'll mentor you in the art of magical research, introduce you to the greatest minds across dimensions, and help you develop theories that could reshape reality itself."
+
+*line_break
+
+"The Research Path produces Archivists, Theoretical Mages, and occasionally—very occasionally—paradigm-shifting geniuses who revolutionize entire schools of magic."
+
+*goto more_information
+
+*comment ================================================
+
+*label combat_details
+
+Zara's expression becomes focused, intense.
+
+*page_break
+
+"On the Combat Path, your training will include:
+
+*line_break
+
+[b]Year Two:[/b] Basic combat magic, defensive wards, tactical team coordination, supervised dungeon runs in low-danger dimensions.
+
+*line_break
+
+[b]Year Three:[/b] Advanced battle magic, solo combat certification, dimensional threat assessment, unsupervised expedition leadership.
+
+*line_break
+
+[b]Year Four:[/b] Elite combat specialization—you'll choose whether to focus on dimensional defense, artifact recovery, or threat elimination."
+
+*page_break
+
+She meets your eyes seriously. "I won't sugarcoat this. The Combat Path is dangerous. You'll face real threats. Some students get injured. But you'll also become capable of protecting entire dimensions."
+
+*line_break
+
+"Combat Path graduates become Battle Mages, Dimension Wardens, Artifact Hunters, and Elite Guards. They're the ones called when talking fails and action becomes necessary."
+
+*goto more_information
+
+*comment ================================================
+
+*label diplomatic_details
+
+Izack smiles warmly, encouraging your curiosity.
+
+*page_break
+
+"On the Diplomatic Path, your journey will involve:
+
+*line_break
+
+[b]Year Two:[/b] Dimensional cultures and customs, magical diplomacy fundamentals, language studies, shadowing experienced ambassadors.
+
+*line_break
+
+[b]Year Three:[/b] Leading minor negotiations, mediating student disputes, cultural exchange programs, building relationships with dimensional representatives.
+
+*line_break
+
+[b]Year Four:[/b] Independent diplomatic missions, representing Avalon at inter-dimensional summits, potentially negotiating treaties that affect millions of lives."
+
+*page_break
+
+He continues gently, "You'll work with representatives from dimensions you've never imagined. Some negotiations will be frustrating. Some will fail. But when you succeed in preventing a conflict that would have cost lives—there's no better feeling."
+
+*line_break
+
+"Diplomatic Path graduates become Ambassadors, Cultural Liaisons, Treaty Negotiators, and Inter-Dimensional Mediators. They're the ones who build the bridges that make places like Avalon possible."
+
+*goto more_information
+
+*comment ================================================
+
+*label endings_explanation
+
+[i]"Ah,"[/i] Polly says, [i]"you want spoilers. Very well."[/i]
+
+*page_break
+
+Izack shoots a reproachful look at the raven. "We can't tell you exactly which endings you'll experience—those depend on many choices beyond just your path. But I can share the general possibilities."
+
+*line_break
+
+He gestures to the three doors.
+
+*page_break
+
+"[b]Research Path endings[/b] include: Becoming a legendary Archivist, publishing revolutionary theories, discovering new schools of magic, or potentially teaching at Avalon as faculty.
+
+*line_break
+
+[b]Combat Path endings[/b] include: Becoming Avalon's Champion, leading elite defense forces, soloing legendary dungeons, or establishing your own protective order.
+
+*line_break
+
+[b]Diplomatic Path endings[/b] include: Becoming an Ambassador to major dimensions, negotiating historic peace treaties, establishing new dimensional alliances, or founding a diplomatic institution."
+
+*page_break
+
+Aria adds, "Each path also offers romantic endings with different partners, collaborative endings involving your companions, and secret endings available only through specific choices."
+
+*line_break
+
+[i]"Choose the path that matches who you want to become,"[/i] Polly advises. [i]"The endings will follow naturally from that truth."[/i]
+
+*goto more_information
+
+*comment ================================================
+
+*label confirm_research
+
+You step toward the blue door, feeling its cool theoretical resonance.
+
+*page_break
+
+Aria's expression brightens—subtle, but genuine. "You're choosing the Research Path?"
+
+*line_break
+
+*choice
+  #Yes. I want to understand the deepest truths of magic.
+    *set chosen_path "research"
+    *goto research_commitment
+
+  #Actually, let me reconsider.
+    *goto reflection_moment
+
+*comment ================================================
+
+*label confirm_combat
+
+You step toward the crimson door, feeling its fierce protective energy.
+
+*page_break
+
+Zara nods with approval. "You're choosing the Combat Path?"
+
+*line_break
+
+*choice
+  #Yes. I want to defend the realms and become a battle mage.
+    *set chosen_path "combat"
+    *goto combat_commitment
+
+  #Actually, let me reconsider.
+    *goto reflection_moment
+
+*comment ================================================
+
+*label confirm_diplomatic
+
+You step toward the golden door, feeling its harmonious bridging magic.
+
+*page_break
+
+Izack's smile is warm and welcoming. "You're choosing the Diplomatic Path?"
+
+*line_break
+
+*choice
+  #Yes. I want to build bridges between worlds.
+    *set chosen_path "diplomatic"
+    *goto diplomatic_commitment
+
+  #Actually, let me reconsider.
+    *goto reflection_moment
+
+*comment ================================================
+
+*label research_commitment
+
+*achievement researcher visible Published Scholar
+  You committed to the Research Path and the pursuit of magical knowledge.
+
+*page_break
+
+The blue door opens before you, revealing a glimpse of the Archives beyond—endless shelves of knowledge, glowing research chambers, dimensional scholars at work.
+
+*line_break
+
+Aria approaches and places her hand on your shoulder. "Welcome to the Research Path, ${name}. You've chosen the path of understanding, of discovery, of pushing the boundaries of what magic can be."
+
+*page_break
+
+She produces a small crystal pendant—it pulses with cool blue light, inscribed with theoretical equations.
+
+*line_break
+
+"This is the Researcher's Focus," she explains. "While you wear it, you'll have enhanced access to the Archives, invitations to scholarly conferences, and recognition as one of my personal research students."
+
+*page_break
+
+She fastens the pendant around your neck. The moment it touches your skin, you feel it—a subtle expansion of your mind, connections forming to vast repositories of knowledge.
+
+*line_break
+
+*set knowledge +20
+*set aria_relationship +15
+*set dimensional_magic +10
+*set fame +10
+*set published_papers 1
+
+Aria continues, "Starting tomorrow, you'll begin work on your first research project. We'll be investigating the nature of dimensional boundaries—specifically, whether they possess a form of consciousness."
+
+*page_break
+
+[i]"And just like that,"[/i] Polly observes, [i]"you've become a scholar. The next three years will be spent in libraries, laboratories, and late-night research sessions. Welcome to academic life, ${name}."[/i]
+
+*line_break
+
+The other students watch as you pass through the blue door.
+
+You've chosen research. Understanding over action. Theory over practice.
+
+The path of the mind.
+
+*page_break
+
+*goto research_ceremony
+
+*comment ================================================
+
+*label combat_commitment
+
+*achievement warrior visible Battle Mage
+  You committed to the Combat Path and the defense of the realms.
+
+*page_break
+
+The crimson door opens before you, revealing training grounds beyond—combat circles, defensive wards, warriors practicing in perfect synchronization.
+
+*line_break
+
+Zara approaches and extends her hand. "Welcome to the Combat Path, ${name}. You've chosen the path of protection, of strength, of standing between threats and innocent lives."
+
+*page_break
+
+She presents a leather bracer—it's reinforced with protective runes that glow with fierce red light.
+
+*line_break
+
+"This is the Defender's Mark," she explains. "While you wear it, you'll have access to advanced training facilities, authorization for combat missions, and recognition as one of my personal combat students."
+
+*page_break
+
+She helps you fasten the bracer to your forearm. The moment it's secured, you feel it—a surge of focused power, your magical energy aligning for battle readiness.
+
+*line_break
+
+*set power +20
+*set zara_relationship +15
+*set boundary_magic +10
+*set legendary_deeds 1
+
+Zara continues, "Starting tomorrow, you'll begin intensive combat training. We're going to push your limits, develop your fighting instincts, and forge you into a warrior Avalon can depend on."
+
+*page_break
+
+[i]"And just like that,"[/i] Polly notes, [i]"you've become a fighter. The next three years will be spent in training grounds, dangerous dimensions, and life-or-death battles. Welcome to warrior life, ${name}."[/i]
+
+*line_break
+
+The other students watch as you pass through the crimson door.
+
+You've chosen combat. Action over theory. Strength over diplomacy.
+
+The path of the defender.
+
+*page_break
+
+*goto combat_ceremony
+
+*comment ================================================
+
+*label diplomatic_commitment
+
+*achievement diplomat visible Diplomatic Master
+  You committed to the Diplomatic Path and the bridging of worlds.
+
+*page_break
+
+The golden door opens before you, revealing conference chambers beyond—circular tables where beings from impossible dimensions negotiate peace, maps showing cultural territories, translators working in dozens of languages.
+
+*line_break
+
+Izack approaches with a gentle smile. "Welcome to the Diplomatic Path, ${name}. You've chosen the path of understanding, of bridges, of preventing the conflicts that others would have to fight."
+
+*page_break
+
+He offers a circlet—delicate golden metal inscribed with symbols from countless dimensional languages.
+
+*line_break
+
+"This is the Ambassador's Circlet," he explains. "While you wear it, you'll have diplomatic immunity in most aligned dimensions, invitations to inter-dimensional summits, and recognition as one of my personal diplomatic students."
+
+*page_break
+
+He places the circlet gently on your head. The moment it settles, you feel it—a sudden awareness of cultural currents, the ability to sense emotional truth in others, connections forming to diplomatic networks.
+
+*line_break
+
+*set empathy +20
+*set izack_relationship +15
+*set collaborative_magic +10
+*set fame +10
+
+Izack continues, "Starting tomorrow, you'll begin diplomatic training. We'll study dimensional cultures, practice negotiation techniques, and learn the art of building trust between worlds that have never met."
+
+*page_break
+
+[i]"And just like that,"[/i] Polly says warmly, [i]"you've become a bridge-builder. The next three years will be spent in negotiations, cultural exchanges, and preventing wars before they start. Welcome to diplomatic life, ${name}."[/i]
+
+*line_break
+
+The other students watch as you pass through the golden door.
+
+You've chosen diplomacy. Understanding over force. Connection over isolation.
+
+The path of the ambassador.
+
+*page_break
+
+*goto diplomatic_ceremony
+
+*comment ================================================
+
+*label research_ceremony
+
+*if chosen_path = "research"
+
+  [b]THE RESEARCHER'S OATH[/b]
+
+  *line_break
+
+  Aria leads you to a circular chamber lined with floating books and glowing research notes. In the center, a crystalline pedestal pulses with theoretical energy.
+
+  *page_break
+
+  "Place your hand on the Knowledge Stone," Aria instructs. "And speak the Researcher's Oath."
+
+  *line_break
+
+  You place your hand on the cool crystal. The words come instinctively:
+
+  *page_break
+
+  [b]"I swear to seek truth above comfort,
+  To question what others accept,
+  To push the boundaries of understanding,
+  And to share my discoveries for the benefit of all dimensions."[/b]
+
+  *line_break
+
+  The crystal flares brilliant blue. Knowledge floods your mind—glimpses of every research project ever conducted at Avalon, every breakthrough, every paradigm shift.
+
+  *page_break
+
+  You see Aria's own research journey, her transformation from politician to scholar. You see the greatest minds across dimensions, all connected through their pursuit of truth.
+
+  *line_break
+
+  When the vision fades, you're trembling.
+
+  *page_break
+
+  "Welcome to the Research Path," Aria says formally. "May your theories reshape reality itself."
+
+  *line_break
+
+  *set stress +10
+  *set happiness +15
+
+  The ceremony complete, Aria guides you deeper into the Archives.
+
+  Your research journey begins now.
+
+  *page_break
+
+  *finish To be continued in: Research Path
+
+  *goto_scene research_path
+
+*comment ================================================
+
+*label combat_ceremony
+
+*if chosen_path = "combat"
+
+  [b]THE DEFENDER'S OATH[/b]
+
+  *line_break
+
+  Zara leads you to a training circle etched with protective runes and battle-wards. In the center, a floating blade of pure magical energy waits.
+
+  *page_break
+
+  "Grasp the Blade of Avalon," Zara instructs. "And speak the Defender's Oath."
+
+  *line_break
+
+  You reach out and grasp the energy blade. It's hot, fierce, demanding. The words come instinctively:
+
+  *page_break
+
+  [b]"I swear to defend those who cannot defend themselves,
+  To stand against threats both seen and unseen,
+  To use my power with wisdom and restraint,
+  And to protect the innocent across all dimensions."[/b]
+
+  *line_break
+
+  The blade flares brilliant crimson. Power floods your body—glimpses of every battle fought to defend Avalon, every warrior's courage, every victory earned through sacrifice.
+
+  *page_break
+
+  You see Zara's own combat journey, her rise from student to legendary defender. You see warriors across dimensions, all connected through their willingness to stand and fight.
+
+  *line_break
+
+  When the vision fades, you're burning with determination.
+
+  *page_break
+
+  "Welcome to the Combat Path," Zara says formally. "May your strength never falter."
+
+  *line_break
+
+  *set stress +15
+  *set happiness +15
+
+  The ceremony complete, Zara leads you to the training grounds.
+
+  Your warrior journey begins now.
+
+  *page_break
+
+  *finish To be continued in: Combat Path
+
+  *goto_scene combat_path
+
+*comment ================================================
+
+*label diplomatic_ceremony
+
+*if chosen_path = "diplomatic"
+
+  [b]THE AMBASSADOR'S OATH[/b]
+
+  *line_break
+
+  Izack leads you to a circular chamber where dimensional representatives from a dozen realms have gathered to witness your commitment.
+
+  *page_break
+
+  In the center, a floating sphere shows images of every dimension in the known multiverse—all connected, all in need of bridges.
+
+  *line_break
+
+  "Touch the Sphere of Worlds," Izack instructs. "And speak the Ambassador's Oath."
+
+  *page_break
+
+  You place your hand on the warm sphere. The words come instinctively:
+
+  *page_break
+
+  [b]"I swear to listen before speaking,
+  To understand before judging,
+  To build bridges where others see only chasms,
+  And to work for peace even when war seems inevitable."[/b]
+
+  *line_break
+
+  The sphere flares brilliant gold. Understanding floods your awareness—glimpses of every successful negotiation in Avalon's history, every prevented war, every bridge built between impossible cultures.
+
+  *page_break
+
+  You see Izack's own diplomatic journey, his creation of Avalon as a neutral meeting ground. You see ambassadors across dimensions, all connected through their commitment to understanding.
+
+  *line_break
+
+  When the vision fades, you're trembling with the weight of responsibility—and the joy of possibility.
+
+  *page_break
+
+  "Welcome to the Diplomatic Path," Izack says formally. "May your words build peace."
+
+  *line_break
+
+  *set stress +10
+  *set happiness +20
+
+  The ceremony complete, Izack introduces you to the dimensional representatives.
+
+  Your diplomatic journey begins now.
+
+  *page_break
+
+  *finish To be continued in: Diplomatic Path
+
+  *goto_scene diplomatic_path

@@ -1,0 +1,1368 @@
+*comment ================================================
+*comment RESEARCH PATH - YEAR TWO
+*comment Exclusive content for players who chose Research Path with Aria
+*comment This path focuses on academic study, magical theory, and breakthrough discoveries
+*comment ================================================
+
+*temp research_topic ""
+*temp experiment_success false
+*temp paper_quality ""
+*temp conference_presentation ""
+*temp breakthrough_type ""
+
+*label start
+
+[b]== THE RESEARCH PATH ==[/b]
+
+*line_break
+
+The Archives of Avalon stretch before you—infinite shelves of knowledge, floating research chambers, dimensional scholars at work across impossible geometries.
+
+*page_break
+
+Aria walks beside you, her usual stern demeanor softened by something that might be... pride?
+
+[b]"Welcome to your true education, ${name}. The Research Path is not for everyone. It demands patience, intellectual courage, and the willingness to be wrong a thousand times before you're right once."[/b]
+
+*line_break
+
+She gestures to the vast collection around you.
+
+*page_break
+
+[b]"But when you [i]are[/i] right—when you discover something that changes how we understand reality itself—there is no greater feeling in any dimension."[/b]
+
+*line_break
+
+*if aria_romance = true
+  Her hand brushes yours as you walk, a gesture subtle enough to seem accidental. But you know better.
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Welcome to nerd paradise,"[/i] Polly comments from your shoulder. [i]"The next three years will be spent reading, experimenting, and occasionally setting things on fire by accident. Academic fire. The best kind."[/i]
+
+*line_break
+
+*set knowledge +5
+*set aria_relationship +10
+
+You're officially a research student now. The path of understanding opens before you.
+
+*page_break
+
+*comment ================================================
+*comment ARIA'S WELCOME AND MENTORSHIP OFFER
+*comment ================================================
+
+*label aria_mentorship_intro
+
+Aria leads you to a private research chamber—walls lined with floating equations, a central workbench covered in experimental apparatus, and a window that looks out onto impossible dimensional vistas.
+
+*page_break
+
+[b]"This is your laboratory,"[/b] she announces. [b]"Your private space for the next three years. It will adapt to your research needs, grow as you grow, and keep your experiments secure."[/b]
+
+*line_break
+
+She turns to face you fully.
+
+*page_break
+
+[b]"I want to be clear about what this path means, ${name}. Research is not glamorous. You won't have the combat mages' glory or the diplomats' prestige. But you will [i]understand[/i]. You'll see the patterns beneath reality that others miss."[/b]
+
+*line_break
+
+*choice
+  #"I'm ready to learn everything you can teach me."
+    *set knowledge +5
+    *set aria_relationship +10
+
+    Aria's expression warms—subtle, but genuine.
+
+    [b]"Good. Your eagerness to learn will serve you well. Though temper it with patience—some discoveries take years."[/b]
+
+    *goto research_philosophy
+
+  #"What was your greatest research breakthrough?"
+    *set empathy +5
+    *set aria_relationship +15
+
+    Aria pauses, something flickering across her face—nostalgia? Pride?
+
+    [b]"I discovered that dimensional boundaries have memory. They remember every crossing, every spell, every touch. That discovery changed how we approach inter-dimensional travel."[/b]
+
+    *page_break
+
+    [b]"Perhaps you'll make a discovery that eclipses mine."[/b]
+
+    *goto research_philosophy
+
+  #"Why did you leave politics for research?"
+    *set knowledge +5
+    *set aria_relationship +20
+
+    Aria's expression hardens briefly, then softens.
+
+    [b]"Because politics is about compromise and persuasion. Research is about truth. I grew tired of making truth bend to political necessity."[/b]
+
+    *page_break
+
+    *if aria_romance = true
+      She steps closer, her voice dropping.
+
+      [b]"I wanted to find something [i]real[/i]. Something that couldn't be corrupted by agendas or egos."[/b]
+
+      *line_break
+
+      [b]"I found it in magic. And perhaps... in other things as well."[/b]
+
+      *set romance_depth +1
+
+    *goto research_philosophy
+
+*label research_philosophy
+
+*page_break
+
+Aria crosses to the window, gesturing to the dimensional landscapes beyond.
+
+*page_break
+
+[b]"The foundation of good research is curiosity tempered by rigor. Ask bold questions, but verify your answers meticulously. A sloppy experiment is worse than no experiment at all."[/b]
+
+*line_break
+
+*if collaboration >= 70
+  [b]"Your collaborative skills will serve you well here. The best research is never done in isolation. We stand on the shoulders of those who came before."[/b]
+
+*page_break
+
+[b]"Now,"[/b] she says, turning back to you with renewed energy. [b]"Let's begin your first project."[/b]
+
+*page_break
+
+*comment ================================================
+*comment FIRST RESEARCH PROJECT CHOICE
+*comment ================================================
+
+*label first_project_choice
+
+[b]== CHOOSING YOUR FOCUS ==[/b]
+
+*line_break
+
+Aria conjures three glowing diagrams in the air—each representing a different research direction.
+
+*page_break
+
+[b]"For your first year on the Research Path, you'll focus on one theoretical domain. This choice will determine which specialized spells you learn, which papers you publish, and which discoveries you might make."[/b]
+
+*line_break
+
+She gestures to the first diagram—intricate patterns of dimensional stability.
+
+*page_break
+
+[b]"[i]Dimensional Stability Theory[/i] examines why some dimensions remain constant while others shift and change. This is foundational work—understanding the deep structure of reality itself."[/b]
+
+*line_break
+
+*if dimensional_magic >= 50
+  [b]"Your existing knowledge of dimensional magic makes you particularly suited for this path."[/b]
+
+*page_break
+
+She indicates the second diagram—mathematical equations that seem to shift as you watch them.
+
+[b]"[i]Boundary Magic Mathematics[/i] treats dimensional boundaries as mathematical objects. You'll learn to calculate probability of successful crossings, predict boundary failures, and potentially discover new traversal methods."[/b]
+
+*line_break
+
+*if boundary_magic >= 50
+  [b]"Your aptitude for boundary magic suggests you'd excel here."[/b]
+
+*page_break
+
+The third diagram shows interlinked magical signatures harmonizing together.
+
+[b]"[i]Collaborative Resonance Patterns[/i] studies how different magical traditions can amplify each other. This research directly serves Avalon's mission of dimensional cooperation."[/b]
+
+*line_break
+
+*if collaboration >= 70
+  [b]"Given your collaborative abilities, this might be the most natural fit."[/b]
+
+*page_break
+
+[b]"Choose carefully,"[/b] Aria advises. [b]"Your research topic will shape your academic career."[/b]
+
+*line_break
+
+*choice
+  #Dimensional Stability Theory—I want to understand reality's deep structure.
+    *set research_topic "dimensional_stability"
+    *set dimensional_magic +10
+    *set knowledge +10
+
+    Aria nods approvingly.
+
+    [b]"Excellent. This is the most challenging path, but potentially the most revolutionary. We'll begin by examining why Avalon itself remains stable despite connecting to hundreds of shifting dimensions."[/b]
+
+    *goto research_begins
+
+  #Boundary Magic Mathematics—I want to calculate and predict dimensional crossings.
+    *set research_topic "boundary_mathematics"
+    *set boundary_magic +10
+    *set knowledge +10
+
+    Aria's eyes light up—this is clearly her specialty.
+
+    [b]"My personal favorite. Boundary mathematics is precise, elegant, and immediately applicable. We'll start by deriving the core equations that govern dimensional permeability."[/b]
+
+    *goto research_begins
+
+  #Collaborative Resonance Patterns—I want to study how different magics work together.
+    *set research_topic "collaborative_resonance"
+    *set collaborative_magic +10
+    *set knowledge +10
+
+    Aria smiles warmly.
+
+    [b]"This serves Avalon's mission directly. Understanding how magical traditions harmonize could prevent countless conflicts. We'll begin by analyzing successful collaborative spells from your first year."[/b]
+
+    *goto research_begins
+
+*comment ================================================
+*comment BEGINNING RESEARCH - EARLY EXPERIMENTS
+*comment ================================================
+
+*label research_begins
+
+*page_break
+
+*set stress +10
+*set happiness +10
+
+Over the next several weeks, you immerse yourself in research.
+
+*page_break
+
+Your laboratory becomes your sanctuary. You spend hours reading theoretical texts, conducting preliminary experiments, and gradually building your understanding of ${research_topic}.
+
+*line_break
+
+*if has_golem = true
+  ${golem_name} assists with your research, maintaining precise experimental conditions and recording detailed observations.
+
+  *line_break
+
+  *if golem_personality = "scholarly"
+    "Your research methodology is improving," ${he_she} notes approvingly. "Today's experiment showed 12% better control than last week."
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"You know what's wild?"[/i] Polly observes one evening as you're elbow-deep in calculations. [i]"You're actually [b]enjoying[/b] this. Most people would be bored to tears, but you're in your element."[/i]
+
+  *line_break
+
+  She's right. This feels [i]right[/i].
+
+*page_break
+
+*comment ================================================
+*comment LABORATORY WORK - EXPERIMENTAL MAGIC
+*comment ================================================
+
+*label laboratory_experiments
+
+[b]== THE EXPERIMENTAL PHASE ==[/b]
+
+*line_break
+
+Three weeks into your research, Aria announces it's time to move from theory to practice.
+
+*page_break
+
+[b]"Reading about magic is valuable,"[/b] she explains, [b]"but research means [i]doing[/i]. Testing hypotheses. Running experiments. Sometimes failing spectacularly."[/b]
+
+*line_break
+
+She sets up an experimental apparatus—crystalline sensors surrounding a small dimensional rift.
+
+*page_break
+
+[b]"Based on your theoretical work so far, I want you to attempt an original experiment. Something no one has tried before."[/b]
+
+*line_break
+
+*if research_topic = "dimensional_stability"
+  [b]"Try stabilizing this micro-rift. According to your readings, dimensional stability should respond to harmonic resonance. Test that hypothesis."[/b]
+
+*if research_topic = "boundary_mathematics"
+  [b]"Calculate the exact permeability coefficient of this boundary, then test your calculation by sending a specific amount of magical energy through. See if reality matches your math."[/b]
+
+*if research_topic = "collaborative_resonance"
+  [b]"This rift connects to a dimension with completely different magical physics. Try creating a resonance pattern that bridges both systems."[/b]
+
+*page_break
+
+You step up to the apparatus, your heart racing.
+
+This is it. Your first real experiment.
+
+*line_break
+
+*choice
+  #Proceed carefully, following established protocols exactly.
+    *set experiment_success true
+    *set knowledge +10
+    *set aria_relationship +10
+
+    You take your time, methodically following each step, double-checking every calculation.
+
+    *page_break
+
+    The experiment proceeds smoothly. The sensors show exactly what your theory predicted.
+
+    *line_break
+
+    Aria watches with approval. [b]"Perfect execution. This is how good research is done—carefully, precisely, verifiably."[/b]
+
+    *goto experiment_results
+
+  #Push the boundaries—try something more ambitious than Aria suggested.
+    *set power +10
+    *set reckless_actions +1
+    *rand experiment_success 1 2
+
+    You decide to go bigger. If a small rift can be affected, what about a larger one?
+
+    *page_break
+
+    *if experiment_success = 1
+      *comment Success through boldness
+      *set experiment_success true
+
+      The energy surges, the apparatus glows blindingly bright—and then stabilizes.
+
+      *line_break
+
+      It worked. It [i]worked[/i].
+
+      *page_break
+
+      Aria's eyebrows rise. [b]"That was... reckless. But remarkable. You achieved results beyond what I expected."[/b]
+
+      *line_break
+
+      [b]"Just don't make a habit of it. Bold hypotheses are good. Exploding laboratories are not."[/b]
+
+      *goto experiment_results
+
+    *else
+      *comment Failure through overreach
+      *set experiment_success false
+      *set stress +15
+
+      The energy surges, the apparatus glows—and then [i]explodes[/i] in a wash of dimensional backlash.
+
+      *page_break
+
+      You're thrown backward, landing hard. The experimental rift collapses into chaos.
+
+      *line_break
+
+      Aria is at your side immediately, checking you for injuries.
+
+      *page_break
+
+      [b]"Are you hurt?"[/b] Her voice is sharp with concern.
+
+      *line_break
+
+      You shake your head, more embarrassed than injured.
+
+      *page_break
+
+      [b]"This,"[/b] Aria says firmly, [b]"is why we follow protocols. Ambition is valuable, ${name}, but so is [i]not dying[/i]."[/b]
+
+      *line_break
+
+      *if aria_romance = true
+        Her hand lingers on your shoulder, betraying more worry than her stern words suggest.
+
+      *goto experiment_failure_recovery
+
+  #Collaborate with Aria—ask her to work through the experiment with you.
+    *set collaboration +10
+    *set aria_relationship +15
+    *set experiment_success true
+
+    "Could we do this together?" you ask. "I'd learn more from collaborating than working alone."
+
+    *page_break
+
+    Aria's expression softens with genuine pleasure.
+
+    [b]"Yes. Always yes. Research should never be a solitary pursuit."[/b]
+
+    *page_break
+
+    You work through the experiment together, Aria providing guidance while letting you lead. Her expertise complements your fresh perspective.
+
+    *line_break
+
+    The results are excellent—and you've learned far more than you would have alone.
+
+    *goto experiment_results
+
+*label experiment_failure_recovery
+
+*page_break
+
+After the failed experiment, Aria insists you document what went wrong.
+
+[b]"Failed experiments are still data,"[/b] she explains. [b]"Understanding [i]why[/i] something failed is often more valuable than understanding why it succeeded."[/b]
+
+*line_break
+
+You spend the next few days analyzing the failure, and gradually, you understand. The theory was sound. The execution was overambitious.
+
+*page_break
+
+[b]"Next time,"[/b] Aria says, [b]"you'll know better. That's what makes you a researcher—the willingness to learn from mistakes."[/b]
+
+*set knowledge +5
+
+*goto learning_new_spells
+
+*label experiment_results
+
+*page_break
+
+The successful experiment yields more than just data—it teaches you a new spell.
+
+*line_break
+
+*if research_topic = "dimensional_stability"
+  *if (dimensional_magic >= 40)
+    You've learned [b]Dimensional Anchor[/b]—a spell that can temporarily stabilize shifting dimensional spaces.
+
+    *set total_spells_known +1
+    *set dimensional_magic +5
+    *achievement dimensional_researcher visible Dimensional Researcher
+      You learned advanced dimensional magic through original research.
+
+*if research_topic = "boundary_mathematics"
+  *if (boundary_magic >= 40)
+    You've learned [b]Boundary Calculation[/b]—a spell that lets you mathematically predict dimensional crossing success rates.
+
+    *set total_spells_known +1
+    *set boundary_magic +5
+    *achievement boundary_mathematician visible Boundary Mathematician
+      You mastered the mathematics of dimensional boundaries.
+
+*if research_topic = "collaborative_resonance"
+  *if (collaborative_magic >= 40)
+    You've learned [b]Resonance Bridge[/b]—a spell that harmonizes incompatible magical systems.
+
+    *set total_spells_known +1
+    *set collaborative_magic +5
+    *achievement resonance_master visible Resonance Master
+      You discovered new collaborative magical techniques.
+
+*page_break
+
+*goto learning_new_spells
+
+*comment ================================================
+*comment ADVANCED SPELL LEARNING
+*comment ================================================
+
+*label learning_new_spells
+
+Aria observes your progress with evident satisfaction.
+
+*page_break
+
+[b]"You're ready for more advanced techniques,"[/b] she announces. [b]"Research path students have access to spells that others rarely learn. Would you like to study boundary magic in depth?"[/b]
+
+*line_break
+
+*choice
+  #Yes, teach me advanced boundary magic.
+    *set boundary_magic +15
+    *set knowledge +5
+
+    Over the next weeks, Aria teaches you techniques she's spent decades perfecting.
+
+    *page_break
+
+    You learn to read dimensional boundaries like texts, to sense their stability, to manipulate their permeability with precision.
+
+    *line_break
+
+    *if boundary_magic >= 60
+      [b]"You have a gift for this,"[/b] Aria notes. [b]"Your boundary magic is approaching mastery level."[/b]
+
+    *goto publishing_preparation
+
+  #I'd rather focus on dimensional theory.
+    *set dimensional_magic +15
+    *set knowledge +5
+
+    You dive deep into dimensional theory—the underlying mathematics of reality itself.
+
+    *page_break
+
+    It's abstract, challenging work. But gradually, you begin to see the patterns. The elegant logic beneath apparent chaos.
+
+    *goto publishing_preparation
+
+  #Can we study collaborative magic together?
+    *set collaborative_magic +15
+    *set aria_relationship +10
+
+    [b]"Together,"[/b] Aria agrees warmly. [b]"That's the spirit of collaborative magic itself."[/b]
+
+    *page_break
+
+    You study as partners, experimenting with how your magical styles complement each other. The work is rewarding—intellectually and personally.
+
+    *goto publishing_preparation
+
+*comment ================================================
+*comment PUBLISHING YOUR FIRST PAPER
+*comment ================================================
+
+*label publishing_preparation
+
+*page_break
+
+*set knowledge +10
+
+[b]== ACADEMIC PUBLICATION ==[/b]
+
+*line_break
+
+After three months of intensive research, Aria makes an announcement that fills you with both excitement and terror.
+
+*page_break
+
+[b]"It's time to publish your first paper."[/b]
+
+*line_break
+
+You stare at her. "My first... paper? In an actual academic journal?"
+
+*page_break
+
+[b]"Your research is solid,"[/b] she assures you. [b]"You've conducted original experiments, gathered meaningful data, and developed testable theories. That's publication-worthy work."[/b]
+
+*line_break
+
+[b]"I'll help you write it, but the ideas are yours. This will be your contribution to magical knowledge."[/b]
+
+*page_break
+
+*if aria_romance = true
+  She touches your hand gently.
+
+  [b]"I'm proud of you, ${name}. More than you know."[/b]
+
+  *set romance_depth +1
+
+*page_break
+
+Writing the paper takes weeks.
+
+*page_break
+
+You struggle with academic prose, with structuring arguments, with presenting data clearly. Aria guides you through every revision, her editorial feedback sharp but constructive.
+
+*line_break
+
+*if knowledge >= 80
+  Your strong theoretical foundation makes the writing process smoother than expected.
+  *set paper_quality "excellent"
+*elseif knowledge >= 60
+  You manage to produce solid academic work with Aria's help.
+  *set paper_quality "good"
+*else
+  The writing is challenging, but you persevere.
+  *set paper_quality "acceptable"
+
+*page_break
+
+Finally, it's complete:
+
+*line_break
+
+*if research_topic = "dimensional_stability"
+  [b]"Harmonic Resonance Patterns in Stable Dimensional Spaces: A Preliminary Study"[/b]
+
+  *line_break
+
+  Your paper proposes that dimensional stability correlates with natural harmonic frequencies.
+
+*if research_topic = "boundary_mathematics"
+  [b]"Mathematical Models for Predicting Dimensional Boundary Permeability"[/b]
+
+  *line_break
+
+  Your paper presents new equations for calculating crossing success rates.
+
+*if research_topic = "collaborative_resonance"
+  [b]"Resonance Amplification in Cross-Dimensional Collaborative Magic"[/b]
+
+  *line_break
+
+  Your paper demonstrates how different magical traditions can amplify each other through resonance patterns.
+
+*page_break
+
+Aria submits it to the [i]Journal of Dimensional Studies[/i], one of the most prestigious academic publications in the multiverse.
+
+*line_break
+
+*set published_papers +1
+*set fame +10
+*set stress +15
+*set happiness +20
+
+[b]"Now we wait,"[/b] she says. [b]"Peer review takes time."[/b]
+
+*page_break
+
+*comment ================================================
+*comment PAPER ACCEPTANCE AND RECOGNITION
+*comment ================================================
+
+*label paper_acceptance
+
+Six weeks later, the acceptance letter arrives.
+
+*page_break
+
+Your paper has been accepted for publication.
+
+*line_break
+
+Not just accepted—the reviewers called it [i]"a promising contribution from an emerging scholar"[/i] and [i]"methodologically sound with intriguing implications."[/i]
+
+*page_break
+
+*if paper_quality = "excellent"
+  One reviewer even noted that your work [i]"shows remarkable sophistication for a second-year student."[/i]
+
+  *set fame +10
+  *set aria_relationship +15
+
+*line_break
+
+Aria doesn't smile often. But when she shows you the acceptance letter, she's positively beaming.
+
+*page_break
+
+[b]"${name}, do you understand what this means? You're published. Your ideas are now part of the academic record. Scholars across dimensions will read your work, cite your findings, build on your theories."[/b]
+
+*line_break
+
+She steps closer.
+
+*page_break
+
+[b]"You're not just a student anymore. You're a contributing member of the magical research community."[/b]
+
+*line_break
+
+*if aria_romance = true
+  She pulls you into an embrace—rare for her, especially in the Archives where others might see.
+
+  [b]"I'm so proud of you,"[/b] she whispers.
+
+  *set romance_depth +1
+  *set aria_relationship +20
+
+*page_break
+
+*choice
+  #"I couldn't have done this without you."
+    *set empathy +10
+    *set aria_relationship +10
+
+    [b]"Perhaps,"[/b] Aria allows. [b]"But the ideas were yours. I merely helped you articulate them."[/b]
+
+    *goto conference_invitation
+
+  #"This feels incredible. I want to do more research."
+    *set knowledge +10
+    *set power +5
+
+    [b]"Good,"[/b] Aria says with satisfaction. [b]"Because we're just getting started."[/b]
+
+    *goto conference_invitation
+
+  #"What's next? Another paper?"
+    *set knowledge +10
+
+    [b]"Eventually,"[/b] Aria agrees. [b]"But first—you've been invited to present at a conference."[/b]
+
+    *goto conference_invitation
+
+*comment ================================================
+*comment ACADEMIC CONFERENCE
+*comment ================================================
+
+*label conference_invitation
+
+*page_break
+
+[b]== THE INTER-DIMENSIONAL RESEARCH SYMPOSIUM ==[/b]
+
+*line_break
+
+The invitation arrives on shimmering paper that shifts between dimensions.
+
+*page_break
+
+[i]You are cordially invited to present your research at the Annual Inter-Dimensional Research Symposium, to be held in the Crystalline Halls of Academic Excellence...[/i]
+
+*line_break
+
+You look up at Aria, startled.
+
+*page_break
+
+[b]"This is one of the most prestigious academic conferences in the multiverse,"[/b] she explains. [b]"Researchers from hundreds of dimensions attend. It's a tremendous opportunity."[/b]
+
+*line_break
+
+[b]"And yes, I'll be attending with you."[/b]
+
+*page_break
+
+*if aria_romance = true
+  [b]"As your mentor,"[/b] she adds with a slight smile. [b]"And perhaps... in other capacities."[/b]
+
+*page_break
+
+*set stress +20
+*set fame +10
+
+The conference is held in a dimension that exists purely for academic gatherings—halls of crystal and light, where scholars from impossible realities mingle and exchange ideas.
+
+*page_break
+
+You arrive to find hundreds of researchers, each more brilliant and intimidating than the last.
+
+*line_break
+
+*if polly_is_familiar = true
+  [i]"Academic gatherings,"[/i] Polly mutters. [i]"Where everyone tries to sound smarter than everyone else while secretly panicking that they're frauds. You'll fit right in."[/i]
+
+*page_break
+
+*label conference_networking
+
+Before your presentation, Aria encourages you to network.
+
+[b]"Make connections. Research is collaborative. The relationships you build here could last your entire career."[/b]
+
+*page_break
+
+*choice
+  #Approach the group of dimensional theorists discussing your research area.
+    *set knowledge +10
+    *set fame +5
+
+    You introduce yourself nervously to a cluster of senior researchers.
+
+    *page_break
+
+    "Ah, you're the young scholar whose paper we've been discussing!" one exclaims. "Your harmonic resonance theory is quite intriguing."
+
+    *line_break
+
+    You spend an hour in deep theoretical discussion, learning from their decades of experience while also defending your own ideas.
+
+    *goto conference_presentation
+
+  #Stay close to Aria and meet her established colleagues.
+    *set aria_relationship +15
+    *set fame +10
+
+    Aria introduces you to her network—legendary researchers whose papers you've read in class.
+
+    *page_break
+
+    They treat you with surprising respect, clearly valuing Aria's endorsement.
+
+    *line_break
+
+    "Any student of Aria Ravencrest is someone to watch," one notes approvingly.
+
+    *goto conference_presentation
+
+  #Seek out other young researchers—people at your level.
+    *set collaboration +10
+    *set empathy +5
+
+    You find a group of second and third-year students from various academies.
+
+    *page_break
+
+    They're nervous too, which is oddly comforting. You share experiences, compare research approaches, and make genuine connections with peers who understand the challenges you face.
+
+    *goto conference_presentation
+
+*label conference_presentation
+
+*page_break
+
+[b]== YOUR PRESENTATION ==[/b]
+
+*line_break
+
+The presentation hall is packed.
+
+*page_break
+
+You stand before hundreds of dimensional researchers, your research displayed on floating crystalline screens behind you.
+
+*line_break
+
+*set stress +20
+
+Your hands tremble slightly as you begin.
+
+*page_break
+
+*if empathy >= 70
+  But then you remember: this is about communication, not performance. You're sharing ideas with people who care about the same things you do.
+
+  *set stress -10
+
+*if knowledge >= 80
+  Your deep understanding of the material gives you confidence. You know this research inside and out.
+
+  *set stress -10
+
+*page_break
+
+*choice
+  #Present with formal academic precision.
+    *set conference_presentation "formal"
+    *set knowledge +10
+
+    You deliver your presentation exactly as prepared—methodical, precise, thoroughly documented.
+
+    *page_break
+
+    The academics in the audience nod approvingly. Your rigor is evident.
+
+    *goto presentation_results
+
+  #Present with enthusiastic passion for your discoveries.
+    *set conference_presentation "passionate"
+    *set power +10
+    *set fame +10
+
+    You let your genuine excitement show. This research means something to you, and that passion comes through.
+
+    *page_break
+
+    The audience leans forward, engaged not just by your findings but by your enthusiasm.
+
+    *goto presentation_results
+
+  #Present collaboratively—invite audience questions throughout.
+    *set conference_presentation "collaborative"
+    *set collaboration +10
+    *set empathy +10
+
+    You turn your presentation into a conversation, welcoming interruptions and questions.
+
+    *page_break
+
+    The format is unusual, but it works. By the end, half the audience feels invested in your research.
+
+    *goto presentation_results
+
+*label presentation_results
+
+*page_break
+
+When you finish, there's a moment of silence.
+
+Then—applause.
+
+*line_break
+
+*set happiness +20
+*set fame +15
+*set stress -30
+
+*if paper_quality = "excellent"
+  Not polite academic applause. Genuine, enthusiastic recognition.
+
+  *set fame +10
+
+*page_break
+
+During the question period, senior researchers engage seriously with your work. They offer suggestions, challenge your assumptions, propose collaborations.
+
+*line_break
+
+You're being treated as a [i]colleague[/i].
+
+*page_break
+
+*if aria_romance = true
+  From the back of the hall, you catch Aria's eye. She's trying to maintain professional composure, but you can see the pride—and something warmer—in her expression.
+
+*page_break
+
+After the session, several researchers approach you with their cards, inviting future collaboration.
+
+One—a legendary dimensional theorist—says something that takes your breath away:
+
+*page_break
+
+"Keep working like this, young scholar, and you'll make history."
+
+*page_break
+
+*comment ================================================
+*comment ARIA PERSONAL MOMENT - POST-CONFERENCE
+*comment ================================================
+
+*label post_conference_aria
+
+That evening, after the formal conference dinner, Aria suggests a walk through the Crystal Gardens.
+
+*page_break
+
+The gardens are beautiful—plants that grow in pure crystalline structure, refracting dimensional light into impossible colors.
+
+*line_break
+
+[b]"You were magnificent today,"[/b] Aria says quietly.
+
+*page_break
+
+*choice
+  #"Thank you. It means everything coming from you."
+    *set aria_relationship +15
+
+    She stops walking, turning to face you fully.
+
+    [b]"${name}, you've exceeded every expectation. You're not just a talented student. You're becoming a true researcher."[/b]
+
+    *goto aria_deepening
+
+  #"I was terrified. But I loved it."
+    *set honesty_vs_deception +10
+    *set aria_relationship +10
+
+    Aria laughs—genuine, warm, unguarded.
+
+    [b]"Fear and love often coexist in research. The terror of being wrong. The love of discovering truth. You're learning to embrace both."[/b]
+
+    *goto aria_deepening
+
+  #"What was your first conference like?"
+    *set empathy +10
+    *set aria_relationship +20
+
+    Aria's expression turns nostalgic.
+
+    [b]"Terrifying. I was convinced everyone would see through me, realize I didn't belong there."[/b]
+
+    *page_break
+
+    [b]"But I [i]did[/i] belong. Just as you do. That's what I see in you—the same potential I once had, before politics nearly ruined me."[/b]
+
+    *goto aria_deepening
+
+*label aria_deepening
+
+*page_break
+
+*if aria_romance = true
+  The crystal gardens are private here, tucked away from the main conference.
+
+  *line_break
+
+  Aria steps closer.
+
+  *page_break
+
+  [b]"I should maintain professional boundaries,"[/b] she says softly. [b]"I'm your mentor. Your teacher."[/b]
+
+  *line_break
+
+  [b]"But watching you present today, seeing you shine—${name}, I..."[/b]
+
+  *page_break
+
+  *choice
+    #Kiss her
+      *set romance_depth +2
+      *set aria_relationship +20
+
+      You close the distance, and she meets you halfway.
+
+      *page_break
+
+      The kiss is different from your first—less tentative, more certain. A recognition that this thing between you is real and growing.
+
+      *line_break
+
+      When you part, she's smiling with rare vulnerability.
+
+      [b]"Worth waiting for,"[/b] she murmurs.
+
+      *goto aria_politics_discussion
+
+    #"We should wait until I graduate. But I feel it too."
+      *set honesty_vs_deception +15
+      *set aria_relationship +10
+
+      She nods, clearly both disappointed and respectful.
+
+      [b]"You're right. And wise. After graduation, we can explore this properly."[/b]
+
+      *goto aria_politics_discussion
+
+*else
+  [b]"I see a future for you in research, ${name},"[/b] Aria continues. [b]"If you continue this path, you could become one of the great dimensional theorists."[/b]
+
+  *set knowledge +5
+
+  *goto aria_politics_discussion
+
+*label aria_politics_discussion
+
+*page_break
+
+[b]== ARIA'S PAST ==[/b]
+
+*line_break
+
+As you walk together, Aria begins to talk—really talk—about her past.
+
+*page_break
+
+[b]"I was a politician before I became a researcher,"[/b] she says. [b]"A member of my dimension's ruling council. I was good at it—negotiation, strategy, reading people's intentions."[/b]
+
+*line_break
+
+*set knowledge +5
+
+[b]"But I grew disillusioned."[/b]
+
+*page_break
+
+[b]"Politics requires compromise. Sometimes necessary compromise, but compromise nonetheless. I watched truth become negotiable, saw knowledge twisted to serve agendas."[/b]
+
+*line_break
+
+She gestures at the crystalline gardens around you.
+
+*page_break
+
+[b]"Magic—research—is different. Reality doesn't care about politics. A theory is either true or false. An experiment either works or doesn't. There's a purity to that."[/b]
+
+*line_break
+
+*choice
+  #"Do you ever miss politics?"
+    *set empathy +10
+
+    [b]"Sometimes,"[/b] she admits. [b]"The ability to create change on that scale. But not enough to return."[/b]
+
+    *goto aria_future_discussion
+
+  #"Research has its own politics though."
+    *set knowledge +10
+    *set aria_relationship +10
+
+    Aria laughs ruefully. [b]"True. Academic politics can be vicious. But at least the underlying work is real."[/b]
+
+    *goto aria_future_discussion
+
+  #"Thank you for sharing this with me."
+    *set aria_relationship +15
+
+    She meets your eyes with warmth. [b]"You've earned my trust, ${name}. Completely."[/b]
+
+    *goto aria_future_discussion
+
+*label aria_future_discussion
+
+*page_break
+
+[b]"The question is,"[/b] Aria says, [b]"what future do [i]you[/i] want? Academia? Applied research? Teaching?"[/b]
+
+*line_break
+
+*choice
+  #"I want to make discoveries that change everything."
+    *set power +10
+
+    [b]"Ambitious,"[/b] Aria notes approvingly. [b]"And achievable, if you maintain your current trajectory."[/b]
+
+    *goto breakthrough_preparation
+
+  #"I want to teach others what you've taught me."
+    *set empathy +10
+
+    [b]"Noble,"[/b] Aria says warmly. [b]"The best researchers often become the best teachers."[/b]
+
+    *goto breakthrough_preparation
+
+  #"I'm still figuring that out."
+    *set honesty_vs_deception +10
+
+    [b]"Honest,"[/b] Aria says. [b]"You have time to decide. Let the work guide you."[/b]
+
+    *goto breakthrough_preparation
+
+*comment ================================================
+*comment MAJOR RESEARCH BREAKTHROUGH
+*comment ================================================
+
+*label breakthrough_preparation
+
+*page_break
+
+*set knowledge +10
+
+[b]== THE BREAKTHROUGH ==[/b]
+
+*line_break
+
+Two months after the conference, you're deep in your research when it happens.
+
+*page_break
+
+The moment every researcher dreams of.
+
+The moment when everything [i]clicks[/i].
+
+*line_break
+
+You're reviewing your experimental data—readings you've analyzed dozens of times—when suddenly you see it. The pattern you've been missing.
+
+*page_break
+
+*if research_topic = "dimensional_stability"
+  Dimensional stability isn't about harmonic resonance at all. It's about [i]memory[/i].
+
+  *line_break
+
+  Stable dimensions remember their own structure. They resist change because they know what they [i]are[/i].
+
+  *set breakthrough_type "dimensional_memory"
+
+*if research_topic = "boundary_mathematics"
+  Boundary permeability isn't random. It's [i]intentional[/i].
+
+  *line_break
+
+  Dimensional boundaries choose whether to allow crossings based on the traveler's intent and resonance with the destination dimension.
+
+  *set breakthrough_type "boundary_consciousness"
+
+*if research_topic = "collaborative_resonance"
+  Collaborative magic doesn't just amplify power. It creates [i]new magical properties[/i] that don't exist in either tradition alone.
+
+  *line_break
+
+  The resonance between different magics literally births new forms of magic.
+
+  *set breakthrough_type "emergent_magic"
+
+*page_break
+
+Your hands shake as you verify your findings. Check and recheck.
+
+It's real. It's [i]real[/i].
+
+*line_break
+
+*set stress +20
+*set happiness +30
+
+*page_break
+
+You find Aria in her own laboratory.
+
+"I need to show you something," you say, your voice barely steady.
+
+*page_break
+
+You present your findings.
+
+*line_break
+
+Aria's eyes widen as she processes what you're showing her. She begins running her own calculations, testing your theory against known data.
+
+*page_break
+
+Finally, she looks up.
+
+*line_break
+
+[b]"${name},"[/b] she says quietly. [b]"This is... this is [i]extraordinary[/i]."[/b]
+
+*page_break
+
+[b]"If you're right—and I believe you are—you've made a fundamental discovery about how dimensional magic works. This will reshape the field."[/b]
+
+*line_break
+
+*set fame +20
+*set knowledge +15
+*set aria_relationship +20
+
+*page_break
+
+*if aria_romance = true
+  She crosses to you and pulls you into a fierce embrace.
+
+  [b]"I knew you were special,"[/b] she whispers. [b]"I knew it from the moment you chose the Research Path."[/b]
+
+  *set romance_depth +2
+
+*page_break
+
+*label learning_rare_spell
+
+[b]"Your breakthrough has practical applications,"[/b] Aria says, her mind already racing ahead. [b]"If your theory is correct, we can develop entirely new spells based on it."[/b]
+
+*line_break
+
+Over the next weeks, you and Aria work together to translate your theoretical discovery into practical magic.
+
+*page_break
+
+*if breakthrough_type = "dimensional_memory"
+  You develop [b]Memory Echo[/b]—a spell that allows you to access a dimension's memory of its own past states, potentially restoring damaged dimensions.
+
+  *set dimensional_magic +15
+  *set total_spells_known +1
+
+*if breakthrough_type = "boundary_consciousness"
+  You develop [b]Boundary Negotiation[/b]—a spell that communicates with dimensional boundaries, requesting passage rather than forcing it.
+
+  *set boundary_magic +15
+  *set total_spells_known +1
+
+*if breakthrough_type = "emergent_magic"
+  You develop [b]Emergent Synthesis[/b]—a spell that deliberately combines incompatible magical systems to create entirely new effects.
+
+  *set collaborative_magic +15
+  *set total_spells_known +1
+
+*page_break
+
+[b]"This will be your second publication,"[/b] Aria announces. [b]"And it will be significant. Potentially career-defining."[/b]
+
+*line_break
+
+*set published_papers +1
+*set fame +20
+
+*page_break
+
+*comment ================================================
+*comment YEAR TWO RESEARCH CONCLUSION
+*comment ================================================
+
+*label research_year_conclusion
+
+[b]== THE RESEARCH PATH: YEAR TWO COMPLETE ==[/b]
+
+*line_break
+
+As your second year at Avalon draws to close, you reflect on how much you've accomplished:
+
+*page_break
+
+*if published_papers >= 2
+  → Published ${published_papers} academic papers
+*line_break
+→ Learned ${total_spells_known} spells, including rare research-exclusive techniques
+*line_break
+→ Presented at a prestigious inter-dimensional conference
+*line_break
+→ Made a potentially paradigm-shifting theoretical breakthrough
+*line_break
+→ Established yourself as a serious researcher in the academic community
+
+*page_break
+
+Aria reviews your progress with evident pride.
+
+*page_break
+
+[b]"You've exceeded every expectation, ${name}. Year Three will bring even greater challenges—advanced theory, teaching responsibilities, and preparation for your eventual thesis project."[/b]
+
+*line_break
+
+[b]"But for now, be proud of what you've accomplished. You're not just a student anymore. You're a researcher."[/b]
+
+*page_break
+
+*if aria_romance = true
+  She takes your hand in hers—a gesture she now allows herself more freely.
+
+  [b]"And you're important to me,"[/b] she adds quietly. [b]"More than I expected when this year began."[/b]
+
+  *line_break
+
+  *set happiness +20
+
+*page_break
+
+*set knowledge +5
+*set grades +30
+*set academic_standing "excellent"
+
+You've completed the Research Path for Year Two.
+
+*line_break
+
+But your journey is far from over.
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Well done, scholar,"[/i] Polly says warmly. [i]"You've chosen the path of understanding, and you're walking it well. But remember—knowledge without wisdom can be dangerous."[/i]
+
+  *line_break
+
+  [i]"Stay humble. Stay curious. And for the love of all dimensions, [b]don't accidentally destroy reality[/b] with one of your experiments."[/i]
+
+*page_break
+
+*achievement published_scholar visible 25 Published Scholar
+  You published academic papers and established yourself as a researcher.
+
+*page_break
+
+[b]Year Three awaits.[/b]
+
+*line_break
+
+But first—a crisis is brewing at Avalon.
+
+*page_break
+
+*finish Year Two Research Complete
+
+*goto_scene year_two_crisis

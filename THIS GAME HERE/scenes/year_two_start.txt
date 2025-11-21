@@ -1,0 +1,489 @@
+*comment ================================================
+*comment YEAR TWO START - Welcome Back to Avalon Academy
+*comment The player returns after summer break as a second-year student
+*comment This scene acknowledges Year 1 accomplishments and introduces specialization paths
+*comment ================================================
+
+*set current_year 2
+
+*temp year_one_performance ""
+*temp specialization_interest ""
+
+*label start
+
+[b]== SUMMER'S END ==[/b]
+
+*line_break
+
+Three months away from Avalon felt like three years.
+
+*page_break
+
+You step through the crystalline gate once more, and the familiar wash of leyline energy greets you like an old friend. The dimensional boundary recognizes you now—no longer a stranger, but part of Avalon's living memory.
+
+The Spiral Spire still twists impossibly skyward. The World Tree's branches still arc overhead, laden with impossible fruit. But something feels different.
+
+*line_break
+
+You're different.
+
+*page_break
+
+[i]*A familiar caw echoes from above.*[/i]
+
+Polly descends in a flutter of metallic feathers, landing on the gate's crystalline arch.
+
+*if polly_is_familiar = true
+  [i]"There's my favorite student! Look at you—came back for Year Two instead of running away screaming. I'm so proud."[/i]
+
+  *line_break
+
+  She hops to your shoulder, her weight familiar and comforting.
+
+  [i]"We've got a lot to talk about. Year Two is when things get [b]interesting[/b]. And by interesting, I mean 'significantly more likely to involve dimensional crises.'"[/i]
+*else
+  [i]"Welcome back, ${name}! Still alive, still mostly sane, and you remembered how to find the portal. Excellent work."[/i]
+
+  *line_break
+
+  *if familiar_type = "phoenix"
+    Your phoenix familiar, ${familiar_name}, materializes in a shimmer of starlight, circling your head with excited chirps.
+  *if familiar_type = "shadowfox"
+    Your shadow-fox familiar, ${familiar_name}, flickers into existence beside you, tail swishing with barely contained excitement.
+  *if familiar_type = "elemental"
+    Your fire elemental familiar, ${familiar_name}, sparks to life on your shoulder, radiating warmth and joy.
+  *if familiar_type = "serpent"
+    Your crystalline serpent familiar, ${familiar_name}, coils around your arm, humming with dimensional frequencies.
+  *if familiar_type = "void"
+    Your void familiar, ${familiar_name}, manifests as an impossible shimmer beside you, its alien presence somehow comforting.
+
+  *line_break
+
+  [i]"Year Two is when things get real. Hope you studied over the summer."[/i]
+
+*page_break
+
+*comment ================================================
+*comment UPDATED DORM ROOM - SHOWING PROGRESSION
+*comment ================================================
+
+Your dorm room has changed.
+
+When you left for summer break, it was a first-year's space—small, simple, still figuring itself out. Now, as you open the door, the room has [i]grown[/i].
+
+*page_break
+
+The space is nearly twice the size. The walls shimmer with faint traces of your magical signature—Avalon has literally shaped itself around your presence.
+
+*if has_golem = true
+  ${golem_name} stands in the corner, exactly where you left ${him_her}. The ${golem_element} golem's eyes glow to life as you enter.
+
+  *line_break
+
+  *if golem_personality = "protective"
+    "${name}. You have returned. I maintained our space as instructed." The golem's voice carries genuine warmth beneath its constructed nature.
+  *if golem_personality = "curious"
+    "Welcome back! I observed seventy-three different magical phenomena while you were gone. Would you like a full report?"
+  *if golem_personality = "scholarly"
+    "Your return is precisely on schedule. I have catalogued the room's dimensional expansion and prepared detailed notes."
+  *if golem_personality = "cheerful"
+    "You're back! I missed you! Everything's exactly how you left it—I was very careful!"
+
+*page_break
+
+*if artifact_earned != "none"
+  The artifact you earned during your expedition—${artifact_earned}—rests on a new shelf. The room seems to have created a display space specifically for it, recognizing its importance.
+
+*line_break
+
+On your desk, three letters wait:
+
+*page_break
+
+One from Izack, written in flowing script that seems to shift between languages.
+One from Aria, precise and elegant, sealed with a boundary glyph.
+One from Zara, cheerful and covered in hand-drawn stars.
+
+*if izack_romance = true
+  *line_break
+  Izack's letter has a small pressed flower tucked inside the envelope.
+*if aria_romance = true
+  *line_break
+  Aria's seal glows faintly when you touch it—a personal touch she rarely shows.
+*if zara_romance = true
+  *line_break
+  Zara's letter is warm to the touch, infused with her hybrid magic.
+
+*page_break
+
+*comment ================================================
+*comment POLLY'S YEAR ONE ASSESSMENT
+*comment ================================================
+
+[i]"So,"[/i] Polly says, settling onto your desk. [i]"Let's talk about your first year."[/i]
+
+*line_break
+
+*if collaboration >= 70
+  [i]"You were [b]exceptional[/b]. I've been at Avalon since Izack created this place, and I've seen thousands of students. You ranked in the top percentile for collaborative magic. Izack literally cried when you weren't looking."[/i]
+  *set year_one_performance "exceptional"
+  *set academic_standing "exemplary"
+  *set grades +20
+*elseif collaboration >= 50
+  [i]"You did well. Solid understanding of collaborative magic, good relationships, consistent progress. You're exactly what Avalon needs—steady, reliable, and actually listening to the lessons."[/i]
+  *set year_one_performance "successful"
+  *set academic_standing "good"
+  *set grades +10
+*else
+  [i]"You struggled. Not going to lie—you fought against some of Avalon's core principles. But you're still here, which means you're learning. Year Two is your chance to prove you understand what collaboration actually means."[/i]
+  *set year_one_performance "challenging"
+  *set academic_standing "average"
+
+*page_break
+
+*if expedition_choice != "none"
+  [i]"Your expedition to ${expedition_choice} was"[/i]
+
+  *if artifact_earned != "none"
+    [i]"a complete success. You brought back ${artifact_earned}, which is no small feat. Those environments don't give up their secrets easily."[/i]
+  *else
+    [i]"educational. You survived, you learned, and you came back with all your limbs. That counts as a win in my book."[/i]
+
+*page_break
+
+*if total_spells_known >= 10
+  [i]"You learned ${total_spells_known} spells in your first year. That's [b]impressive[/b]. Most students manage five or six."[/i]
+*elseif total_spells_known >= 5
+  [i]"You learned ${total_spells_known} spells. Solid foundation. You're building your repertoire at a healthy pace."[/i]
+*else
+  [i]"You learned ${total_spells_known} spells. Quality over quantity, I suppose. Though you might want to expand your toolkit this year."[/i]
+
+*page_break
+
+*comment ================================================
+*comment MENTOR MEETING - YEAR TWO EXPECTATIONS
+*comment ================================================
+
+[i]"Come on. The instructors want to see you. They're gathering all the second-years for The Talk."[/i]
+
+*line_break
+
+"The Talk?"
+
+*line_break
+
+[i]"The 'time to specialize and also please don't die' talk. It's a tradition."[/i]
+
+*page_break
+
+*label mentor_meeting
+
+The Hall of Threads has changed since you last saw it.
+
+New wings have grown from the original structure—Avalon expanding to accommodate its growing population. Through the crystalline walls, you can see new students arriving for their first year, looking exactly as nervous as you once did.
+
+*page_break
+
+Izack, Aria, and Zara stand at the center of the hall, surrounded by about twenty second-year students. You recognize most of them from your first-year classes.
+
+*if izack_relationship >= 70
+  Izack's face lights up when he sees you. He doesn't wave—too dignified for that—but his warm smile is unmistakable.
+*elseif izack_relationship >= 50
+  Izack nods to you with friendly recognition.
+*else
+  Izack's expression is professionally pleasant, though you sense he's reserving judgment about your potential.
+
+*line_break
+
+*if aria_relationship >= 70
+  Aria's usual stern expression softens visibly. She inclines her head with genuine respect—high praise from her.
+*elseif aria_relationship >= 50
+  Aria acknowledges you with a slight nod.
+*else
+  Aria's sharp eyes assess you, and you get the distinct impression she's still deciding if you have what it takes.
+
+*line_break
+
+*if zara_relationship >= 70
+  Zara actually abandons her position to pull you into a quick hug. "I missed you!" she whispers before returning to her spot, grinning.
+*elseif zara_relationship >= 50
+  Zara waves enthusiastically, her hybrid features bright with genuine happiness.
+*else
+  Zara offers a friendly smile, though it's more professional than warm.
+
+*page_break
+
+[b]"Welcome back, second-years,"[/b] Aria begins, her voice carrying authority and precision. [b]"Your first year established your foundation. Year Two is about [i]specialization[/i]."[/b]
+
+*line_break
+
+Izack steps forward, his presence warm and encouraging.
+
+[b]"You've learned the basics of dimensional magic, collaborative techniques, and Avalon's core principles. Now it's time to discover your particular gift—the area where your unique talents will shine brightest."[/b]
+
+*page_break
+
+Zara adds, [b]"We've structured Year Two around three primary paths. You'll choose one as your focus, though you'll still study the others. Think of it as declaring a major."[/b]
+
+*line_break
+
+[i]"Translation: pick the path that plays to your strengths and preferably won't get you killed. Each one has different requirements, dangers, and extremely interesting ways to fail spectacularly."[/i]
+
+*page_break
+
+*comment ================================================
+*comment THE THREE PATHS - RESEARCH / COMBAT / DIPLOMATIC
+*comment ================================================
+
+*label path_introduction
+
+Aria waves her hand, and three glowing symbols appear in the air:
+
+*page_break
+
+[b]THE RESEARCH PATH[/b]
+
+A symbol of an open book intertwined with dimensional rifts.
+
+[b]"For those who seek to understand the [i]why[/i] of magic,"[/b] Aria explains. [b]"Research path students study advanced theory, experiment with new spell combinations, and push the boundaries of what's possible. You'll work closely with me on boundary magic and dimensional theory."[/b]
+
+*line_break
+
+[i]"Pros: You become brilliant, publish papers, potentially make breakthrough discoveries. Cons: Long hours in the library, your experiments might explode, and you'll develop a caffeine addiction. Also, Aria's standards are EXTREMELY high."[/i]
+
+*page_break
+
+[b]THE COMBAT PATH[/b]
+
+A symbol of crossed staves wreathed in protective wards.
+
+[b]"For those who want to protect and defend,"[/b] Zara says. [b]"Combat mages learn advanced protective magic, crisis response, and how to use dimensional magic in dangerous situations. You'll train with me and occasionally Aria for tactical applications."[/b]
+
+*line_break
+
+[i]"Pros: You become a certified badass, learn to handle dimensional threats, and develop excellent reflexes. Cons: Significantly higher chance of injury, rigorous physical training, and you'll spend a lot of time fighting things that shouldn't exist."[/i]
+
+*page_break
+
+[b]THE DIPLOMATIC PATH[/b]
+
+A symbol of interlinked hands surrounded by harmonic frequencies.
+
+[b]"For those who build bridges between realms,"[/b] Izack says softly. [b]"Diplomatic path students master communication magic, cross-dimensional negotiation, and collaborative techniques that can unite diverse groups. You'll work with me on understanding how different magical traditions can harmonize."[/b]
+
+*line_break
+
+[i]"Pros: You become a master negotiator, learn to work with anyone, and develop skills that make you invaluable to inter-realm relations. Cons: Politics is exhausting, you'll mediate a LOT of arguments, and sometimes diplomacy fails and then everyone looks at you to fix it."[/i]
+
+*page_break
+
+*comment ================================================
+*comment PERSONALIZED MENTOR ADVICE
+*comment ================================================
+
+*label personalized_advice
+
+Aria gestures to the group. [b]"We'll speak with each of you individually about which path suits your talents. But first—questions?"[/b]
+
+*line_break
+
+A brave student raises their hand. "What if we're not sure which path to choose?"
+
+*line_break
+
+Izack smiles. [b]"Then trust your instincts. Magic has a way of guiding us toward where we're needed most."[/b]
+
+*page_break
+
+*if collaboration >= 70
+  Aria catches your eye. [b]"${name}, could you stay after? We'd like to speak with you specifically."[/b]
+
+  *line_break
+
+  [i]"Ooh, special attention. This is either very good or you're about to be voluntold for something dangerous."[/i]
+  *goto special_meeting
+*else
+  [b]"We'll meet with each of you over the next few days. For now, think carefully about your choice. This will shape the rest of your time at Avalon."[/b]
+  *goto general_dismissal
+
+*comment ================================================
+*comment SPECIAL MEETING (High performers only)
+*comment ================================================
+
+*label special_meeting
+
+The other students file out, chattering excitedly about the paths. You remain.
+
+*page_break
+
+When the hall empties, the three instructors' demeanor shifts subtly. Less formal. More intimate.
+
+*line_break
+
+*if izack_relationship >= 70
+  Izack speaks first. [b]"${name}, your first year was remarkable. Your understanding of collaborative magic surpassed many advanced students. We wanted to make sure you knew that."[/b]
+
+*line_break
+
+*if aria_relationship >= 70
+  Aria adds, [b]"You have a gift for dimensional theory. Whichever path you choose, I'd like to work with you on some advanced research projects. If you're interested."[/b]
+
+*line_break
+
+*if zara_relationship >= 70
+  Zara grins. [b]"And you're a natural at working with diverse magical traditions. I think you could do any of these paths exceptionally well."[/b]
+
+*page_break
+
+*if romantic_interest != "none"
+  *if romantic_interest = "izack"
+    Izack's eyes linger on yours a moment longer than professional, though he maintains proper distance with the others present.
+  *if romantic_interest = "aria"
+    Aria's hand brushes yours briefly—a gesture so subtle only you notice, but laden with meaning.
+  *if romantic_interest = "zara"
+    Zara's smile holds extra warmth, the kind that makes your heart skip.
+
+*line_break
+
+[i]"They're giving you first pick, basically. This is the magical equivalent of being teacher's pet, except with more dimensional rifts and less apples."[/i]
+
+*page_break
+
+Izack continues, [b]"We also wanted to warn you: Year Two brings increased attention. Your success last year was noticed beyond Avalon. Other realms are watching. Some with friendly interest. Others..."[/b]
+
+He trails off meaningfully.
+
+*line_break
+
+Aria's expression hardens. [b]"The dimensional stability that Avalon represents threatens certain... entities. They prefer chaos. Students who show exceptional promise sometimes become targets."[/b]
+
+*page_break
+
+*choice
+  #"I can handle it. I didn't come here to play it safe."
+    *set power +10
+    *set aria_relationship +5
+
+    Aria's smile is approving, though concerned. [b]"Good. But don't confuse courage with recklessness."[/b]
+
+    *goto path_advice_conclusion
+
+  #"What kind of threats are we talking about?"
+    *set knowledge +10
+    *set izack_relationship +5
+
+    Izack exchanges a glance with Aria. [b]"Entities that feed on dimensional instability. Factions that oppose collaborative magic. Nothing you can't handle—but nothing to take lightly."[/b]
+
+    *goto path_advice_conclusion
+
+  #"Will you help protect us?"
+    *set empathy +10
+    *set collaboration +5
+
+    Zara steps forward warmly. [b]"Always. That's what Avalon is for—we protect each other. You're not facing this alone."[/b]
+
+    *goto path_advice_conclusion
+
+*label path_advice_conclusion
+
+*page_break
+
+[b]"Choose your path carefully,"[/b] Aria says. [b]"But know that whatever you choose, we believe in you."[/b]
+
+*line_break
+
+*if izack_romance = true
+  As you turn to leave, Izack's hand briefly touches your shoulder. The gesture is subtle, but his warmth radiates through the contact.
+*if aria_romance = true
+  Aria hands you a small crystal. [b]"For protection,"[/b] she says quietly. [b]"Keep it close."[/b] Her fingers linger on yours.
+*if zara_romance = true
+  Zara walks with you to the door. [b]"Coffee later?"[/b] she asks hopefully. [b]"I want to hear about your summer."[/b]
+
+*goto path_reflection
+
+*comment ================================================
+*comment GENERAL DISMISSAL PATH
+*comment ================================================
+
+*label general_dismissal
+
+The meeting concludes, and students begin filtering out, discussing their choices animatedly.
+
+*page_break
+
+*if izack_relationship >= 50
+  Izack catches your eye and nods encouragingly.
+*if aria_relationship >= 50
+  Aria gestures for you to approach. [b]"Consider your strengths, ${name}. Choose wisely."[/b]
+*if zara_relationship >= 50
+  Zara gives you a thumbs-up and a encouraging grin.
+
+*goto path_reflection
+
+*comment ================================================
+*comment FINAL REFLECTION AND PATH SELECTION
+*comment ================================================
+
+*label path_reflection
+
+*page_break
+
+You walk through the academy grounds, processing everything.
+
+Year Two. Specialization. Increased danger. New opportunities.
+
+*line_break
+
+*if has_golem = true
+  ${golem_name} walks beside you, offering steady companionship.
+
+*if polly_is_familiar = true
+  Polly rides on your shoulder, unusually quiet.
+*else
+  *if familiar_type = "phoenix"
+    ${familiar_name} glides overhead, starlight trailing from ${his_her} wings.
+  *if familiar_type = "shadowfox"
+    ${familiar_name} flickers in and out of visibility beside you.
+  *if familiar_type = "elemental"
+    ${familiar_name}'s flames dance with your mood—contemplative, but excited.
+  *if familiar_type = "serpent"
+    ${familiar_name} hums a dimensional frequency that somehow sounds thoughtful.
+  *if familiar_type = "void"
+    ${familiar_name} exists beside you, its presence oddly comforting.
+
+*page_break
+
+*if total_spells_known >= 10
+  You've already learned ${total_spells_known} spells. You're ahead of most students. The question is: how do you want to grow from here?
+
+*line_break
+
+*if artifact_earned != "none"
+  Your hand unconsciously touches where you keep ${artifact_earned}. Year One taught you about discovery, challenge, and growth.
+
+*line_break
+
+Year Two will teach you about mastery.
+
+*page_break
+
+[i]"So,"[/i] Polly finally says. [i]"Which path calls to you, ${name}?"[/i]
+
+*line_break
+
+Research—the pursuit of knowledge and understanding.
+
+Combat—the protection of what matters.
+
+Diplomacy—the art of building bridges.
+
+*line_break
+
+[i]"Choose wisely. This decision will echo through the rest of your story. And trust me—I've seen where each path leads. They're all incredible. They're all dangerous. They're all [b]yours[/b]."[/i]
+
+*page_break
+*stat_chart
+
+The choice awaits.
+
+*goto_scene path_selection

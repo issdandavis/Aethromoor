@@ -1,0 +1,1434 @@
+*comment ================================================
+*comment POLITICAL INTRIGUE - Year Three Politics and Power
+*comment Student council elections, faculty conflicts, and academy governance
+*comment ~2500 words of morally complex political maneuvering
+*comment ================================================
+
+*temp election_approach ""
+*temp campaign_strategy ""
+*temp election_result ""
+*temp faculty_side ""
+*temp reform_stance ""
+*temp political_allies 0
+*temp political_enemies 0
+*temp council_elected false
+
+*label start
+
+*comment This scene occurs during Year Three
+*comment Player navigates academy politics and power struggles
+
+*line_break
+
+[b]== POLITICAL INTRIGUE ==[/b]
+
+*line_break
+
+Three months into Year Three, academy politics erupt into something impossible to ignore.
+
+*page_break
+
+It starts with a simple announcement at morning assembly.
+
+*line_break
+
+Aria stands before the gathered students, her expression more severe than usual.
+
+[b]"The Student Council will hold elections this month. Third-year students are eligible to run for leadership positions. The council advises administration on policy, mediates student concerns, and represents Avalon's interests to external organizations."[/b]
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Translation: student politics. All the drama of real politics but with the added complication that everyone involved can literally reshape reality with magic."[/i]
+
+  *line_break
+
+  "Is it always this... tense?"
+
+  *line_break
+
+  [i]"Oh, you have no idea. Last year's election involved three reality fractures, two duels, and one candidate who accidentally turned himself into a sentient debate trophy. Politics plus magic equals entertainment."[/i]
+
+*page_break
+
+*comment ================================================
+*comment NOMINATION AND INITIAL REACTIONS
+*comment ================================================
+
+*label nomination
+
+Within hours, your name appears on the nomination list.
+
+*line_break
+
+You didn't nominate yourself.
+
+*page_break
+
+*if collaboration >= 70
+  The nomination paper lists fifteen supporters—students from all years, citing your collaborative abilities and fairness.
+
+  *set political_allies +3
+  *set fame +15
+
+*elseif collaboration >= 50
+  The nomination paper lists eight supporters—mostly students you've worked with directly.
+
+  *set political_allies +1
+  *set fame +10
+
+*else
+  The nomination paper lists three supporters—barely meeting the minimum requirement. You suspect someone nominated you as a joke.
+
+  *set political_allies 0
+  *set fame +5
+
+*page_break
+
+*if has_golem = true
+  ${golem_name} examines the nomination list with interest.
+
+  *if golem_personality = "protective"
+    "Someone has nominated you for leadership. This exposes you to scrutiny and potential conflict. I recommend caution."
+
+  *if golem_personality = "curious"
+    "Fascinating! A political campaign! I can help with research on all other candidates and develop strategic approaches based on—"
+
+    *line_break
+
+    "That might be overkill for a student election."
+
+    *line_break
+
+    "There's no such thing as overkill. Only 'victory' and 'insufficient preparation.'"
+
+  *if golem_personality = "scholarly"
+    "The Student Council historically influences significant policy decisions. This is a meaningful opportunity for impact. I can compile relevant precedents."
+
+  *if golem_personality = "cheerful"
+    "You're running for student council! This is SO exciting! We should make campaign posters! With sparkles! And maybe dimensional animations!"
+
+*page_break
+
+*comment ================================================
+*comment RIVAL CANDIDATES
+*comment ================================================
+
+*label rival_candidates
+
+Three other third-years are running:
+
+*line_break
+
+[b]Cassian Morgrave[/b] - Combat path. Popular. Charismatic. Argues for "strengthening Avalon's defensive capabilities" and "taking a firmer stance with other realms."
+
+*line_break
+
+[b]Lyra Shadowmend[/b] - Research path. Brilliant. Cold. Campaigns on "academic excellence" and "maintaining Avalon's intellectual reputation."
+
+*line_break
+
+[b]Devon Brightwater[/b] - Diplomatic path. Friendly. Earnest. Focuses on "student wellbeing" and "making Avalon more accessible to non-traditional students."
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"So you've got the warrior who wants to militarize the school, the academic elitist who wants to raise entry standards, and the bleeding heart who wants to let everyone in regardless of ability. Classic political archetypes."[/i]
+
+  *line_break
+
+  "What about me?"
+
+  *line_break
+
+  *if collaboration >= 70
+    [i]"You're the collaborative idealist. The one who actually believes in Avalon's founding principles. That's either going to win you the election or make you look hopelessly naive."[/i]
+  *else
+    [i]"You're the wild card. No one quite knows what you stand for yet. That's either an opportunity or a liability depending on how you play it."[/i]
+
+*page_break
+
+*comment ================================================
+*comment CAMPAIGN CHOICE
+*comment ================================================
+
+*label campaign_choice
+
+A second-year student you mentored approaches you in the library.
+
+*line_break
+
+"Are you really running? Because... I hope you win. Cassian scares me. Lyra makes me feel stupid. Devon's nice but I don't think he'd actually change anything."
+
+*page_break
+
+You realize: whether you intended to or not, you're [i]in[/i] this now.
+
+*line_break
+
+How do you approach your campaign?
+
+*page_break
+
+*choice
+  #Run an honest campaign - Talk about real issues, admit complexities, avoid oversimplifying
+    *set campaign_strategy "honest"
+    *set honesty_vs_deception +20
+    *set empathy +10
+    *set stress +10
+
+    You decide to run on truth. No easy promises. No oversimplified solutions. Just honest discussion about academy challenges and collaborative approaches to solving them.
+
+    *page_break
+
+    *if spell_truth_sense = true
+      Your truth magic helps. Students can [i]feel[/i] your sincerity when you speak. It's impossible to fake the resonance of genuine commitment.
+
+      *set political_allies +2
+
+    *line_break
+
+    It's exhausting. Every conversation requires nuance, careful thought, acknowledgment that you don't have all the answers.
+
+    *line_break
+
+    Some students appreciate it. Others find it frustrating—they want simple solutions, not complex realities.
+
+    *goto debate_preparation
+
+  #Run a strategic campaign - Find out what different groups want, tailor your message
+    *set campaign_strategy "strategic"
+    *set empathy +15
+    *set knowledge +10
+    *set honesty_vs_deception -10
+
+    You decide to be smart about this. Different student groups have different concerns. Combat students worry about practical training. Research students want better laboratory access. First-years need mentorship programs.
+
+    *page_break
+
+    You craft targeted messages for each group, emphasizing how your leadership would address their specific needs.
+
+    *line_break
+
+    It works. Your poll numbers rise.
+
+    *line_break
+
+    But you start to notice contradictions in your own promises. You've told combat students you'll prioritize training resources while telling research students you'll expand laboratory funding. Both require the same limited budget.
+
+    *set stress +15
+    *set political_allies +3
+
+    *goto debate_preparation
+
+  #Run an idealistic campaign - Focus on Avalon's founding principles of collaboration
+    *set campaign_strategy "idealistic"
+    *set collaboration +15
+    *set tradition_vs_innovation -10
+    *set individual_vs_collective +15
+
+    You decide to campaign on what Avalon [i]means[/i]. Collaboration over competition. Dimensional harmony. The revolutionary idea that magic is stronger when shared.
+
+    *page_break
+
+    *if izack_relationship >= 60
+      Izack approaches you one evening in the gardens.
+
+      [b]"I heard your campaign speech yesterday. You sounded like me, fifty years ago."[/b]
+
+      *line_break
+
+      A pause, then warmly:
+
+      [b]"It was a compliment. Don't lose that idealism, ${name}. Even when politics tries to crush it."[/b]
+
+      *set izack_relationship +5
+
+    *page_break
+
+    Your idealistic message resonates with some students—particularly those who came to Avalon specifically because of its collaborative philosophy.
+
+    *line_break
+
+    Others dismiss you as naive. Cassian openly mocks your "impractical dreams" during a public forum.
+
+    *set political_allies +2
+    *set political_enemies +1
+
+    *goto debate_preparation
+
+  #Withdraw from the election - This isn't worth the stress and division
+    *set campaign_strategy "withdrawn"
+    *set stress -15
+    *set fame -10
+
+    You stare at the nomination paper and realize: you don't want this.
+
+    *line_break
+
+    Student politics, campaign promises, the constant scrutiny—it's not why you came to Avalon. You came to learn magic, not navigate political maneuvering.
+
+    *page_break
+
+    You formally withdraw your nomination.
+
+    *line_break
+
+    *if polly_is_familiar = true
+      [i]"Probably wise. Politics isn't for everyone. Though you're going to watch someone else make decisions that affect your education for the next two years."[/i]
+
+    *line_break
+
+    The election continues without you. Devon Brightwater eventually wins—a safe, uncontroversial choice.
+
+    *line_break
+
+    But as you watch from the sidelines, you can't shake the feeling that you could have made a difference.
+
+    *goto faculty_conflict
+
+*comment ================================================
+*comment DEBATE PREPARATION
+*comment ================================================
+
+*label debate_preparation
+
+*page_break
+
+The mandatory candidate debate approaches.
+
+*line_break
+
+All four candidates will answer questions from students and faculty. It's being held in the Hall of Threads, with the entire academy attending.
+
+*page_break
+
+*if has_golem = true
+  *if golem_personality = "curious"
+    ${golem_name} has prepared a comprehensive briefing document.
+
+    *line_break
+
+    "I analyzed fifteen years of Student Council debates. Successful candidates demonstrate three key qualities: confidence, specificity, and authentic connection with audience concerns. I've prepared response frameworks for seventeen probable question categories."
+
+    *line_break
+
+    "You've been busy."
+
+    *line_break
+
+    "I contain multitudes. Also spreadsheets."
+
+*page_break
+
+The night before the debate, ${romantic_interest} finds you.
+
+*if romantic_interest = "izack"
+  *if izack_romance = true
+    Izack sits beside you in the quiet gardens.
+
+    [b]"Nervous?"[/b]
+
+    *line_break
+
+    "Terrified."
+
+    *line_break
+
+    [b]"Good. That means you care."[/b]
+
+    *page_break
+
+    He takes your hand gently.
+
+    [b]"Remember—you're not trying to win a debate. You're trying to articulate a vision. What kind of Avalon do you want to help create? Answer that honestly, and the rest will follow."[/b]
+
+    *set izack_relationship +5
+    *set stress -10
+
+*if romantic_interest = "aria"
+  *if aria_romance = true
+    Aria summons you to her office.
+
+    [b]"Tomorrow's debate will test you. Not just your ideas, but your ability to defend them under pressure."[/b]
+
+    *line_break
+
+    She slides a paper across her desk—a practice question list.
+
+    [b]"I wrote these. They're harder than what you'll actually face. Practice with me."[/b]
+
+    *page_break
+
+    You spend two hours in the most rigorous mock debate of your life. Aria attacks every weakness in your arguments, forces you to defend positions from multiple angles, makes you articulate principles you didn't realize you held.
+
+    *line_break
+
+    By the end, you're exhausted but prepared.
+
+    [b]"You're ready,"[/b] she says with rare approval.
+
+    *set aria_relationship +5
+    *set knowledge +10
+    *set stress -5
+
+*if romantic_interest = "zara"
+  *if zara_romance = true
+    Zara finds you stress-pacing the training grounds at midnight.
+
+    [b]"Hey. Can't sleep?"[/b]
+
+    *line_break
+
+    "Debate tomorrow. I'm... not great at public speaking."
+
+    *line_break
+
+    [b]"Okay. New approach. Let's beat up some practice dummies while you talk through your platform."[/b]
+
+    *page_break
+
+    It's absurd—rehearsing debate answers while sparring—but somehow it works. The physical activity calms your nerves. Speaking while moving makes the words flow naturally.
+
+    *line_break
+
+    After an hour, Zara grins.
+
+    [b]"See? You're amazing. Just be yourself tomorrow and you'll kill it. Metaphorically! Please don't literally kill anyone during a political debate!"[/b]
+
+    *set zara_relationship +5
+    *set stress -10
+    *set power +5
+
+*page_break
+
+*comment ================================================
+*comment THE DEBATE
+*comment ================================================
+
+*label debate
+
+The Hall of Threads is packed.
+
+*line_break
+
+Every student. All faculty. Even some visitors from other realms who heard about Avalon's "experimental democratic governance model."
+
+*page_break
+
+The four candidates sit on stage. You can feel hundreds of eyes assessing you.
+
+*line_break
+
+*if spell_truth_sense = true
+  Your truth sense is overwhelming in this environment. Dozens of people with hidden agendas, private fears, secret hopes. The emotional currents are dizzying.
+
+  *line_break
+
+  You force yourself to focus.
+
+*page_break
+
+Aria moderates. She wastes no time on pleasantries.
+
+[b]"First question: Avalon Academy faces limited resources. How do you prioritize funding between combat training, research facilities, and diplomatic programs?"[/b]
+
+*page_break
+
+*if campaign_strategy = "honest"
+  You answer honestly: "That's a false choice. All three are essential to Avalon's mission. The real question is how we increase total resources through better inter-realm partnerships, alumni contributions, and efficient resource sharing."
+
+  *line_break
+
+  *if knowledge >= 60
+    You provide specific examples—dimensional efficiency improvements that could reduce operational costs, collaborative research programs that could attract external funding.
+
+    *set political_allies +2
+
+  *line_break
+
+  Some faculty members nod approvingly. Aria's expression remains neutral, but you think you see a flicker of respect.
+
+*if campaign_strategy = "strategic"
+  You've prepared for this. You pivot to discuss "strategic investment priorities that maximize outcomes across all programs."
+
+  *line_break
+
+  It sounds good. It's deliberately vague enough that everyone can project their preferred priorities onto it.
+
+  *line_break
+
+  *if spell_truth_sense = true
+    But your truth sense screams at you. The answer is technically accurate but emotionally dishonest. You're avoiding the hard question instead of answering it.
+
+    *set honesty_vs_deception -5
+    *set stress +10
+
+  *line_break
+
+  Still, it plays well politically. No one can attack you for an answer that doesn't actually commit to anything.
+
+  *set political_allies +1
+
+*if campaign_strategy = "idealistic"
+  You answer from principles: "Avalon was founded on collaborative magic. Combat, research, and diplomacy aren't competing priorities—they're complementary approaches. We need to break down the artificial barriers between paths and create integrated programs."
+
+  *line_break
+
+  It's a bold answer. It challenges the current structure.
+
+  *line_break
+
+  Cassian immediately attacks: "So your solution to limited resources is to just... wish them away with collaboration magic? That's not a budget plan. That's fantasy."
+
+  *set political_enemies +1
+
+*page_break
+
+The debate continues for two hours.
+
+*line_break
+
+Questions range from practical (student safety protocols) to philosophical (Avalon's relationship with non-magical realms) to deeply personal (how your background shapes your leadership approach).
+
+*page_break
+
+*if empathy >= 70
+  Your empathy serves you well. You can sense what questioners really care about beneath their surface concerns. You address underlying fears and hopes, not just stated questions.
+
+  *set political_allies +2
+
+*if power >= 70
+  At one point, Cassian tries to intimidate you with a subtle display of combat magic—letting power crackle around his hands while you speak.
+
+  *line_break
+
+  You match it effortlessly, your own magic manifesting as calm, controlled brilliance.
+
+  *line_break
+
+  The message is clear: you're not afraid of him.
+
+  *set political_allies +1
+  *set political_enemies +1
+
+*page_break
+
+The final question comes from a first-year student, voice shaking with nervousness:
+
+*line_break
+
+"Why do you want to lead?"
+
+*page_break
+
+*if campaign_strategy = "honest"
+  You pause, considering the question seriously.
+
+  "I'm not sure I do want to lead. Leadership sounds exhausting. But I care about Avalon—what it stands for, what it could become. And I think I have ideas that could help. That's enough reason to try."
+
+  *line_break
+
+  The hall is silent.
+
+  *line_break
+
+  Then slow, building applause. It's not universal—some students clearly wanted a more inspiring answer—but it's genuine.
+
+*if campaign_strategy = "strategic"
+  You deliver the answer you've prepared: inspirational language about service, opportunity, responsibility. It's a good answer. Professional. Polished.
+
+  *line_break
+
+  Also completely calculated.
+
+  *line_break
+
+  The applause is polite but measured. No one doubts your competence. Some wonder about your authenticity.
+
+*if campaign_strategy = "idealistic"
+  You speak from the heart.
+
+  "Because I believe in what Izack Thorne created here. A place where magic is collaborative, where dimensional boundaries are conversations not barriers, where we learn to work [i]with[/i] reality instead of dominating it. That vision is worth fighting for."
+
+  *line_break
+
+  Half the hall erupts in applause. The other half looks skeptical.
+
+  *line_break
+
+  You've inspired your supporters and confirmed your opponents' view that you're naive.
+
+*page_break
+
+*comment ================================================
+*comment ELECTION RESULTS
+*comment ================================================
+
+*label election_results
+
+*line_break
+
+[b]== THREE DAYS LATER ==[/b]
+
+*line_break
+
+The election results are announced at evening assembly.
+
+*page_break
+
+Aria stands at the center of the Hall of Threads, holding a sealed envelope.
+
+[b]"The students have voted. Your next Student Council President is..."[/b]
+
+*page_break
+
+*if (collaboration >= 70) and (campaign_strategy = "honest" or campaign_strategy = "idealistic")
+  [b]"${name}."[/b]
+
+  *line_break
+
+  For a moment, you can't process it.
+
+  *line_break
+
+  Then the hall erupts—cheers from supporters, stunned silence from opponents, general chaos.
+
+  *set council_elected true
+  *set fame +25
+  *set stress +20
+  *set election_result "victory"
+
+  *page_break
+
+  *if polly_is_familiar = true
+    [i]"Congratulations. You won a popularity contest that comes with actual power and responsibility. Hope you're ready for committees, budget meetings, and student complaints about dining hall food."[/i]
+
+*elseif (collaboration >= 50) and (fame >= 30)
+  [b]"${name}."[/b]
+
+  *line_break
+
+  You won. Barely. The vote was close.
+
+  *line_break
+
+  You glance at the breakdown: you won by advocating for specific factions while Cassian and Lyra split the traditionalist vote.
+
+  *set council_elected true
+  *set fame +20
+  *set stress +25
+  *set election_result "narrow_victory"
+
+  *page_break
+
+  *if polly_is_familiar = true
+    [i]"Narrow victory. Congratulations, I think? You've got a mandate from about fifty-one percent of students and determined opposition from forty-nine percent. Governing should be... interesting."[/i]
+
+*else
+  [b]"Devon Brightwater."[/b]
+
+  *line_break
+
+  You lost.
+
+  *line_break
+
+  You feel... surprisingly okay with it. Devon's a good choice—genuinely kind, committed to student wellbeing.
+
+  *set council_elected false
+  *set fame +10
+  *set stress -10
+  *set election_result "loss"
+
+  *page_break
+
+  *if polly_is_familiar = true
+    [i]"You gave it a good try. Sometimes the right choice is losing gracefully and supporting whoever wins. Less stressful too."[/i]
+
+  *line_break
+
+  Devon approaches you after the announcement.
+
+  *line_break
+
+  "You ran a good campaign. I'd like you to serve on the council anyway—as a regular member, not president. Your ideas are important."
+
+  *line_break
+
+  You accept.
+
+*page_break
+
+*comment ================================================
+*comment FACULTY CONFLICT DISCOVERY
+*comment ================================================
+
+*label faculty_conflict
+
+*line_break
+
+[b]== TWO WEEKS LATER ==[/b]
+
+*line_break
+
+*if council_elected = true
+  Your first Student Council meeting reveals something unexpected.
+
+*else
+  Your first meeting as a council member reveals something unexpected.
+
+*page_break
+
+Devon (or you, if you won) calls the council to order.
+
+*line_break
+
+"We need to discuss something serious. There's conflict among faculty. Aria and Izack are... fighting."
+
+*line_break
+
+"Fighting? Like magically?"
+
+*line_break
+
+"No. Politically. About Avalon's future direction."
+
+*page_break
+
+Another council member—a second-year named Mira—spreads documents across the table.
+
+*line_break
+
+"Aria wrote a proposal: 'Structural Reforms for Sustainable Growth.' She wants more rules, standardized curriculum, formal assessment metrics, official partnerships with established magical institutions."
+
+*page_break
+
+"And Izack?"
+
+*line_break
+
+"Is opposing all of it. He wants to maintain Avalon's experimental nature. Freedom, exploration, individual student paths."
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Ah. The eternal conflict. Structure versus freedom. Tradition versus innovation. Every institution faces this eventually. Avalon's just been lucky enough to avoid it for fifty years because Izack and Aria usually agree."[/i]
+
+  *line_break
+
+  "What changed?"
+
+  *line_break
+
+  [i]"Avalon's growing. When it was twenty students, informal organization worked. Now it's hundreds. Scale changes everything."[/i]
+
+*page_break
+
+*if council_elected = true
+  "As Student Council President, you should probably... do something about this?"
+
+  *line_break
+
+  Great. Your first real responsibility and it's mediating between the two most powerful mages in the realm.
+
+*else
+  "Someone needs to address this before it splits the faculty. And students are already choosing sides."
+
+*page_break
+
+*comment ================================================
+*comment INVESTIGATING THE CONFLICT
+*comment ================================================
+
+*label investigate_conflict
+
+You decide to investigate directly.
+
+*line_break
+
+First stop: Aria's office.
+
+*page_break
+
+She's working on what looks like an organizational chart when you arrive. Every teaching position, research program, and administrative function mapped out in precise detail.
+
+[b]"${name}. I assume you're here about the proposal."[/b]
+
+*line_break
+
+"I wanted to understand your perspective."
+
+*page_break
+
+She gestures to the chart.
+
+[b]"Avalon Academy is at a crossroads. We can continue as an experimental institution with minimal structure, or we can formalize our organization and become a lasting educational force."[/b]
+
+*line_break
+
+[b]"Izack's vision worked when Avalon was small. But we have two hundred students now, ${name}. We need administrative systems, clear policies, accountability structures. Without them, we risk chaos."[/b]
+
+*page_break
+
+*if spell_truth_sense = true
+  Your truth sense reads her easily. She's absolutely sincere. She genuinely believes formalization is necessary for Avalon's survival and growth.
+
+  *line_break
+
+  But there's something else beneath the surface—fear. She's afraid that Avalon's informal nature makes it vulnerable to external threats and internal collapse.
+
+*page_break
+
+*if aria_relationship >= 60
+  She adds more quietly, [b]"I know you studied my proposal. What did you think?"[/b]
+
+  *line_break
+
+  *choice
+    #"Your concerns are valid. Growth requires structure."
+      *set aria_relationship +10
+      *set faculty_side "aria"
+      *set tradition_vs_innovation -15
+
+      [b]"Thank you. I'm glad someone understands the necessity of this."[/b]
+
+      *goto izack_conversation
+
+    #"I see your point, but I'm worried about losing what makes Avalon special."
+      *set empathy +10
+
+      She nods slowly. [b]"A fair concern. Structure doesn't have to mean losing our essential character. But we must find balance."[/b]
+
+      *goto izack_conversation
+
+    #"I think you're wrong. Avalon's strength is its flexibility."
+      *set aria_relationship -10
+      *set faculty_side "izack"
+      *set tradition_vs_innovation +15
+
+      Her expression hardens. [b]"Then you haven't thought carefully about institutional sustainability. Flexibility without structure is just chaos waiting to happen."[/b]
+
+      *goto izack_conversation
+
+*else
+  You thank her for her time and leave.
+
+  *goto izack_conversation
+
+*comment ================================================
+*comment IZACK'S PERSPECTIVE
+*comment ================================================
+
+*label izack_conversation
+
+*page_break
+
+Next, you find Izack in the Dream Gardens.
+
+*line_break
+
+He's tending to impossible flowers—blooms that exist in multiple dimensions simultaneously, requiring constant magical attention.
+
+[b]"I wondered when you'd come ask about the conflict."[/b]
+
+*page_break
+
+"Aria's proposal—"
+
+*line_break
+
+[b]"Is well-intentioned and fundamentally misguided,"[/b] he says, not unkindly.
+
+*page_break
+
+[b]"${name}, I founded Avalon as a refuge from rigid magical institutions. Every major magical academy I trained at was obsessed with hierarchy, standardization, formal assessments. They churned out competent mages who thought exactly alike."[/b]
+
+*line_break
+
+[b]"Avalon is different. Students find their own paths. Faculty mentor rather than lecture. We grow organically, shaped by the needs of each generation."[/b]
+
+*page_break
+
+*if spell_truth_sense = true
+  His truth resonates clearly. He's passionate, sincere, deeply committed to preserving Avalon's unique character.
+
+  *line_break
+
+  But underneath—there's stubbornness. Maybe even fear of change. He created Avalon as an ideal, and Aria's proposal challenges that ideal's viability.
+
+*page_break
+
+*if izack_relationship >= 60
+  He turns to face you directly.
+
+  [b]"What do you think? You've experienced both—Aria's structured approach and my freedom-focused philosophy. Which serves students better?"[/b]
+
+  *page_break
+
+  *choice
+    #"Freedom. Structure would kill what makes Avalon revolutionary."
+      *set izack_relationship +10
+      *set faculty_side "izack"
+      *set tradition_vs_innovation +15
+
+      He smiles warmly. [b]"I'm glad you understand. Too many forget that true innovation requires the freedom to fail, experiment, discover."[/b]
+
+      *goto zara_perspective
+
+    #"Both have value. Maybe you're not as opposed as you think?"
+      *set empathy +15
+      *set collaboration +10
+
+      [b]"Perhaps. Though finding that middle ground is... challenging."[/b]
+
+      *goto zara_perspective
+
+    #"I think Aria's right. Avalon needs more structure."
+      *set izack_relationship -10
+      *set faculty_side "aria"
+      *set tradition_vs_innovation -15
+
+      He looks genuinely disappointed. [b]"I hope you're wrong. But I suppose time will tell."[/b]
+
+      *goto zara_perspective
+
+*else
+  You thank him and leave, mind churning with both perspectives.
+
+  *goto zara_perspective
+
+*comment ================================================
+*comment ZARA CAUGHT IN THE MIDDLE
+*comment ================================================
+
+*label zara_perspective
+
+*page_break
+
+You find Zara in the training grounds, beating up practice dummies with unusual ferocity.
+
+*line_break
+
+"Frustration workout?"
+
+*line_break
+
+[b]"Oh, you have NO idea."[/b]
+
+*page_break
+
+She collapses onto a bench.
+
+[b]"Aria's my mentor. Taught me boundary magic, discipline, how to channel hybrid abilities. I owe her everything."[/b]
+
+*line_break
+
+[b]"But Izack gave me a home. When other institutions rejected me as 'too volatile,' he saw potential. He created the space where I could exist."[/b]
+
+*page_break
+
+[b]"Now they're asking me to choose sides. Aria wants me to support her proposal. Izack wants me to defend traditional Avalon values."[/b]
+
+*line_break
+
+She looks at you, genuinely distressed.
+
+[b]"What am I supposed to do? I love them both. And they're both partly right!"[/b]
+
+*page_break
+
+*if zara_relationship >= 60
+  You sit beside her.
+
+  *choice
+    #"You don't have to choose sides. Support the ideas you believe in from both."
+      *set zara_relationship +10
+      *set empathy +10
+
+      [b]"Is that allowed? Can I just... take parts of each argument?"[/b]
+
+      *line_break
+
+      "Why not?"
+
+      *line_break
+
+      She laughs shakily. [b]"Because politics demands you pick a team. But maybe you're right. Maybe there's a third option."[/b]
+
+      *goto hidden_agenda
+
+    #"Support Aria. Growth requires structure."
+      *set faculty_side "aria"
+      *set zara_relationship -5
+
+      [b]"Maybe. It feels like betraying Izack though."[/b]
+
+      *goto hidden_agenda
+
+    #"Support Izack. Avalon's freedom is worth preserving."
+      *set faculty_side "izack"
+      *set zara_relationship -5
+
+      [b]"Maybe. But Aria's concerns are legitimate too."[/b]
+
+      *goto hidden_agenda
+
+*else
+  You leave her to work through her conflict alone.
+
+  *goto hidden_agenda
+
+*comment ================================================
+*comment HIDDEN AGENDA - STUDENT FACTIONS
+*comment ================================================
+
+*label hidden_agenda
+
+*page_break
+
+*line_break
+
+[b]== THE DEEPER CONFLICT ==[/b]
+
+*line_break
+
+As you investigate the faculty conflict, you discover something more concerning.
+
+*page_break
+
+Students are forming factions.
+
+*line_break
+
+Not just supporting different positions, but actively organizing to influence Avalon's direction.
+
+*page_break
+
+*if council_elected = true
+  A third-year student named Marcus approaches you privately.
+
+  *line_break
+
+  "We need to talk. About Avalon's mission."
+
+*else
+  You overhear conversations in the library, the dining hall, the training grounds. Always the same themes.
+
+*page_break
+
+The [b]Traditionalists[/b] want to preserve Avalon exactly as Izack created it. They resist any formalization, any compromise with external institutions, any departure from founding principles.
+
+*line_break
+
+"Avalon is revolutionary," they argue. "The moment we conform to normal institutional structures, we become just another magical academy."
+
+*page_break
+
+The [b]Reformers[/b] want to modernize. They support Aria's proposals and go further—suggesting partnerships with governments, formal degree programs, standardized testing.
+
+*line_break
+
+"Avalon's ideals are beautiful," they say. "But idealism without structure is unsustainable. We need to be practical."
+
+*page_break
+
+And quietly, a third group emerges—the [b]Radicals[/b].
+
+*line_break
+
+They want to overthrow the current system entirely. Replace faculty governance with full student democracy. Reject all external partnerships. Make Avalon completely autonomous.
+
+*line_break
+
+"Why should ancient mages control our education?" they whisper. "We outnumber them. Avalon should belong to students."
+
+*page_break
+
+*if spell_truth_sense = true
+  Your truth sense reveals complex motivations.
+
+  *line_break
+
+  Traditionalists are afraid—of change, of losing the place that accepted them.
+
+  *line_break
+
+  Reformers are pragmatic—they want Avalon to survive and thrive long-term.
+
+  *line_break
+
+  Radicals are angry—at authority, at being treated as students rather than equals, at structures they didn't consent to.
+
+  *line_break
+
+  Everyone believes they're protecting Avalon. Everyone sees threats the others ignore.
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Welcome to politics. Where everyone has legitimate concerns and reasonable arguments, but they're all incompatible with each other. Fun times."[/i]
+
+*page_break
+
+*comment ================================================
+*comment TAKING A STAND
+*comment ================================================
+
+*label taking_stand
+
+You realize you can't stay neutral. The conflict is escalating.
+
+*line_break
+
+A Student Council meeting is called to draft a recommendation to faculty.
+
+*page_break
+
+*if council_elected = true
+  As president, your position will carry significant weight.
+
+*else
+  As a council member, you have a voice in the final recommendation.
+
+*page_break
+
+How do you position yourself?
+
+*choice
+  #Support Aria's structural reforms - Avalon needs organization to survive
+    *set faculty_side "aria"
+    *set tradition_vs_innovation -20
+    *set aria_relationship +15
+    *set izack_relationship -10
+    *set stress +15
+
+    You draft a statement supporting formalization.
+
+    *page_break
+
+    "Avalon's mission is too important to risk through organizational chaos. We support measured structural reforms that preserve our collaborative philosophy while providing stable foundation for growth."
+
+    *line_break
+
+    Traditionalist students are furious. Some accuse you of betraying Izack's vision.
+
+    *line_break
+
+    But Reformers rally behind you. Aria personally thanks you for your "mature understanding of institutional needs."
+
+    *set political_enemies +2
+    *set political_allies +3
+    *set fame +15
+
+    *goto mediation_attempt
+
+  #Support Izack's freedom-focused approach - Structure would kill Avalon's soul
+    *set faculty_side "izack"
+    *set tradition_vs_innovation +20
+    *set izack_relationship +15
+    *set aria_relationship -10
+    *set stress +15
+
+    You draft a statement defending Avalon's current structure.
+
+    *page_break
+
+    "Avalon's strength lies in its flexibility, its willingness to adapt to individual students rather than forcing students to adapt to rigid systems. Formalization would destroy the revolutionary nature of collaborative education."
+
+    *line_break
+
+    Reformers dismiss you as naive and short-sighted.
+
+    *line_break
+
+    But Traditionalists embrace you. Izack personally expresses deep appreciation for your "understanding of Avalon's essential character."
+
+    *set political_enemies +2
+    *set political_allies +3
+    *set fame +15
+
+    *goto mediation_attempt
+
+  #Propose a compromise - Take elements from both positions
+    *set faculty_side "compromise"
+    *set empathy +20
+    *set collaboration +15
+    *set stress +25
+
+    You draft a nuanced position.
+
+    *page_break
+
+    "Avalon needs both structure and freedom. We propose selective formalization—administrative systems for operations while preserving academic freedom. Clear policies for safety and resources, but continued flexibility in curriculum and student paths."
+
+    *line_break
+
+    It's the hardest position to defend. Everyone can find something to dislike.
+
+    *line_break
+
+    But slowly, moderates from all factions begin to coalesce around the compromise.
+
+    *set political_allies +2
+    *set political_enemies +1
+
+    *if empathy >= 70
+      Your empathy helps you articulate concerns from all sides, making everyone feel heard even when you don't fully agree.
+
+      *set political_allies +2
+
+    *goto mediation_attempt
+
+  #Stay neutral - This is a faculty decision, not student council's role
+    *set faculty_side "neutral"
+    *set stress -10
+    *set fame -10
+
+    You argue the council should not take an official position.
+
+    *page_break
+
+    "This is a governance question that faculty must resolve. Our role is representing student concerns to administration, not making institutional policy decisions."
+
+    *line_break
+
+    It's a safe position. Also a cop-out.
+
+    *line_break
+
+    Some council members respect your restraint. Others accuse you of avoiding hard decisions when leadership requires taking stands.
+
+    *goto mediation_attempt
+
+*comment ================================================
+*comment ATTEMPTING MEDIATION
+*comment ================================================
+
+*label mediation_attempt
+
+*page_break
+
+*if faculty_side = "compromise" or empathy >= 70
+  You decide to attempt formal mediation between Aria and Izack.
+
+  *line_break
+
+  It's presumptuous—a third-year student trying to mediate between legendary mages.
+
+  *line_break
+
+  But someone has to try.
+
+  *page_break
+
+  You request a meeting with both of them. Surprisingly, they agree.
+
+  *page_break
+
+  The three of you meet in a neutral space—the Spiral Library's meditation room.
+
+  *line_break
+
+  Aria and Izack sit across from each other, decades of friendship strained by disagreement.
+
+  *page_break
+
+  You facilitate carefully.
+
+  "What do you both want for Avalon's future?"
+
+  *page_break
+
+  [b]"Survival,"[/b] Aria says immediately. [b]"I want Avalon to exist fifty years from now, still teaching collaborative magic."[/b]
+
+  *line_break
+
+  [b]"Freedom,"[/b] Izack counters. [b]"I want students to discover themselves, not be processed through standardized systems."[/b]
+
+  *page_break
+
+  "Those aren't incompatible goals."
+
+  *line_break
+
+  *if empathy >= 75
+    You help them hear each other. Point out where their positions overlap. Identify shared values beneath surface disagreements.
+
+    *line_break
+
+    It takes three hours.
+
+    *line_break
+
+    But slowly, painfully, they begin finding common ground.
+
+    *set aria_relationship +10
+    *set izack_relationship +10
+    *set collaboration +20
+    *set fame +20
+
+    *page_break
+
+    [b]"Perhaps... limited formalization,"[/b] Izack concedes. [b]"Safety protocols. Resource allocation systems. But academic freedom remains."[/b]
+
+    *line_break
+
+    [b]"And experimental programs continue,"[/b] Aria agrees. [b]"Structure in operations, flexibility in education."[/b]
+
+    *line_break
+
+    They look at each other—friends again, not just colleagues in conflict.
+
+    *set achievement "Diplomatic Master"
+
+  *else
+    You try, but the mediation doesn't quite work. They're both too entrenched, and you don't have the diplomatic skill to bridge the gap fully.
+
+    *line_break
+
+    They agree to keep talking. That's something.
+
+*else
+  The faculty conflict continues. Eventually, it will require resolution—but not today, and not through your direct intervention.
+
+*page_break
+
+*comment ================================================
+*comment CONSEQUENCES
+*comment ================================================
+
+*label consequences
+
+*line_break
+
+[b]== CONSEQUENCES ==[/b]
+
+*line_break
+
+Your political involvement has effects that ripple through academy life.
+
+*page_break
+
+*if council_elected = true
+  As Student Council President, you're now involved in every major decision.
+
+  *line_break
+
+  Budget meetings. Policy discussions. Mediation between student complaints and faculty responses.
+
+  *set stress +20
+  *set fame +30
+  *set collaboration +15
+
+*else
+  As a council member, you have influence on academy governance.
+
+  *set stress +10
+  *set fame +15
+  *set collaboration +10
+
+*page_break
+
+*if faculty_side = "aria"
+  Your support for structural reforms earns you Aria's trust—but strains your relationship with traditionalist students.
+
+  *line_break
+
+  You're invited to faculty meetings as a student representative. It's an honor. Also exhausting.
+
+  *set aria_relationship +10
+  *set izack_relationship -5
+  *set knowledge +15
+
+*if faculty_side = "izack"
+  Your defense of Avalon's freedom-focused approach makes you a hero to traditionalists—but reformers view you as obstacle to necessary progress.
+
+  *line_break
+
+  Izack involves you in planning new experimental programs. It's exciting. Also chaotic.
+
+  *set izack_relationship +10
+  *set aria_relationship -5
+  *set tradition_vs_innovation +15
+
+*if faculty_side = "compromise"
+  Your compromise position satisfies no one completely but earns grudging respect from all sides.
+
+  *line_break
+
+  You've become the person people approach when they need someone who can see multiple perspectives.
+
+  *set empathy +20
+  *set stress +15
+  *set fame +20
+
+*page_break
+
+*if has_golem = true
+  ${golem_name} observes the aftermath with interest.
+
+  *if golem_personality = "scholarly"
+    "Fascinating. Political involvement has increased your stress levels by thirty-seven percent while simultaneously improving your collaborative abilities and reputation. The tradeoffs are complex."
+
+  *if golem_personality = "protective"
+    "You've made enemies. I'm monitoring potential threats. Politics is dangerous even without literal magic involved."
+
+  *if golem_personality = "curious"
+    "This is AMAZING! You're actually influencing academy policy! Can I attend the next council meeting? I promise to just observe! Mostly observe!"
+
+  *if golem_personality = "cheerful"
+    "I'm so proud of you! You're making real differences! Even if you look exhausted and three students glared at you in the dining hall!"
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Well. You survived your first major political crisis. Congratulations."[/i]
+
+  *line_break
+
+  "It doesn't feel like I survived. It feels like I'm drowning."
+
+  *line_break
+
+  [i]"That's leadership. Welcome to the misery."[/i]
+
+  *page_break
+
+  [i]"But seriously—you did something important. You engaged with complex problems that don't have perfect answers. You made choices that will affect people. That's what power means."[/i]
+
+  *line_break
+
+  [i]"Now rest. Because Year Three Trial is coming, and it's going to test everything you've learned about collaborative magic, political navigation, and working under pressure."[/i]
+
+*page_break
+
+You collapse into bed that night, mind spinning with council responsibilities, faculty conflicts, political maneuvering, and moral complexity.
+
+*line_break
+
+Year Three is nothing like what you expected.
+
+*line_break
+
+You're not just learning magic anymore.
+
+*line_break
+
+You're learning power—how to use it, how to navigate it, how to survive it.
+
+*page_break
+
+*stat_chart
+
+*page_break
+
+The political intrigue has reshaped you. For better or worse, you're no longer just a student.
+
+*line_break
+
+You're a player in Avalon's future.
+
+*page_break
+
+*goto_scene year_three_trial

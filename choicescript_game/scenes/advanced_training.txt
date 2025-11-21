@@ -1,0 +1,1199 @@
+*comment ================================================
+*comment ADVANCED TRAINING - Year Three Elite Magic
+*comment Master-tier spells and techniques
+*comment Personal magical breakthrough and teaching moments
+*comment ================================================
+
+*temp workshop_spell ""
+*temp breakthrough_type ""
+*temp challenge_success false
+*temp teaching_success false
+*temp mastery_achieved false
+*temp advanced_spell_learned ""
+
+*label start
+
+*line_break
+
+[b]== ADVANCED MAGICAL WORKSHOP ==[/b]
+
+*line_break
+
+Three weeks into Year Three, you receive a formal invitation on crystalline parchment that shimmers with dimensional energy.
+
+*page_break
+
+[i]Master ${name},[/i]
+
+*line_break
+
+[i]You are cordially invited to the Advanced Magical Workshop—an intensive session reserved for third-year students who have demonstrated exceptional aptitude in one or more schools of magic.[/i]
+
+*line_break
+
+[i]This workshop explores master-tier techniques rarely taught to undergraduates. Participation requires proven competency (70+ mastery in at least one school) and willingness to push beyond comfortable limits.[/i]
+
+*line_break
+
+[i]The workshop convenes tomorrow at dawn in the Spiral Spire's uppermost chamber.[/i]
+
+*page_break
+
+*if polly_is_familiar = true
+  Polly peers at the invitation, her metallic eyes gleaming.
+
+  *line_break
+
+  [i]"Well, well. The Advanced Workshop. Only happens once per year, only for students who've hit serious mastery thresholds. This is where you learn the spells that make people go 'wait, you can DO that?'"[/i]
+
+  *line_break
+
+  "Have you attended these before?"
+
+  *line_break
+
+  [i]"I've OBSERVED hundreds. Most fascinating educational experience at Avalon. Students either have breakthroughs that define their entire career... or discover they weren't as ready as they thought. No middle ground."[/i]
+
+*page_break
+
+*comment ================================================
+*comment ELIGIBILITY CHECK
+*comment ================================================
+
+*label eligibility_check
+
+*set mastery_count 0
+
+*if dimensional_magic >= 70
+  *set mastery_count +1
+*if boundary_magic >= 70
+  *set mastery_count +1
+*if living_magic >= 70
+  *set mastery_count +1
+*if collaborative_magic >= 70
+  *set mastery_count +1
+*if written_magic >= 70
+  *set mastery_count +1
+*if truth_magic >= 70
+  *set mastery_count +1
+*if memory_magic >= 70
+  *set mastery_count +1
+
+*if mastery_count = 0
+  *comment Player hasn't hit 70 in any school - gentle redirect
+  *goto not_ready_yet
+*else
+  *goto workshop_begins
+
+*comment ================================================
+*comment NOT READY PATH (if player hasn't hit 70 threshold)
+*comment ================================================
+
+*label not_ready_yet
+
+*if polly_is_familiar = true
+  [i]"Hmm. Actually, ${name}... looking at your current skill levels, you might not quite meet the threshold yet. The workshop requires 70+ mastery in at least one school."[/i]
+
+  *line_break
+
+  You check your magical proficiencies. She's right—you're close, but not quite there.
+
+  *line_break
+
+  [i]"Don't feel bad! Most third-years don't qualify. Just means you need more practice before tackling master-tier magic. Push your training, and you'll get there."[/i]
+
+*page_break
+
+The Advanced Workshop will have to wait. For now, you focus on building your foundational skills.
+
+*line_break
+
+[b]Continue your Year Three studies...[/b]
+
+*page_break
+
+*goto year_three_continuation
+
+*comment ================================================
+*comment WORKSHOP BEGINS
+*comment ================================================
+
+*label workshop_begins
+
+The Spiral Spire's uppermost chamber is breathtaking—a crystalline dome that seems to contain entire galaxies. Reality is thin here, the veil between dimensions almost translucent.
+
+*page_break
+
+Seven other third-year students are present. You recognize all of them—the elite practitioners who've pushed hardest in their studies.
+
+*line_break
+
+*if chosen_path = "research"
+  Aria stands at the chamber's center, surrounded by floating diagrams of impossible complexity.
+*if chosen_path = "combat"
+  Zara paces the perimeter, her hybrid magic crackling with barely contained energy.
+*if chosen_path = "diplomatic"
+  Izack stands calmly, but the dimensional pressure around him suggests power held in perfect control.
+
+*page_break
+
+*if chosen_path = "research"
+  [b]"Welcome,"[/b] Aria's voice cuts through the chamber like a blade. [b]"You are here because you have achieved measurable mastery. Today, you learn what lies beyond mastery—the spells that define legendary mages."[/b]
+
+*if chosen_path = "combat"
+  [b]"Alright, masters-in-training!"[/b] Zara grins fiercely. [b]"You've hit the high-level thresholds. You can handle serious magic. Today, we explore the techniques that turn skilled mages into EXCEPTIONAL ones!"[/b]
+
+*if chosen_path = "diplomatic"
+  [b]"Thank you all for coming,"[/b] Izack says warmly. [b]"Mastery is not a destination—it's a doorway. Today, we step through together and explore collaborative magic at its highest expression."[/b]
+
+*page_break
+
+*comment ================================================
+*comment ADVANCED SPELL SELECTION
+*comment ================================================
+
+*label spell_selection
+
+*if chosen_path = "research"
+  [b]"Each of you will learn one master-tier spell today,"[/b] Aria explains. [b]"Choose based on your strengths and your vision for your magical practice."[/b]
+
+*if chosen_path = "combat"
+  [b]"I'm going to teach you ONE advanced technique,"[/b] Zara says. [b]"Not ten. Not five. ONE. Master it completely. That's how you build real power."[/b]
+
+*if chosen_path = "diplomatic"
+  [b]"Master-tier collaborative magic requires perfect understanding,"[/b] Izack notes. [b]"We will explore one advanced technique in depth."[/b]
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Here it comes—the good stuff. Choose carefully. These aren't spells you forget. They become part of your magical identity."[/i]
+
+*page_break
+
+*label choose_advanced_spell
+
+[b]Choose your advanced spell focus:[/b]
+
+*line_break
+
+*choice
+  *if (chosen_path = "research") and (dimensional_magic >= 70) #Reality Lock - Freeze dimensional flux in a specific area
+    *set workshop_spell "Reality Lock"
+    *set spell_reality_lock true
+    *set total_spells_known +1
+    *goto learn_reality_lock
+
+  *if (chosen_path = "research") and (written_magic >= 70) #Spell Storage - Store spells in crystals for later activation
+    *set workshop_spell "Spell Storage"
+    *set spell_storage true
+    *set total_spells_known +1
+    *goto learn_spell_storage
+
+  *if (chosen_path = "combat") and (boundary_magic >= 70) #Absolute Defense - Impenetrable barrier for short duration
+    *set workshop_spell "Absolute Defense"
+    *set spell_absolute_defense true
+    *set total_spells_known +1
+    *goto learn_absolute_defense
+
+  *if (chosen_path = "combat") and (dimensional_magic >= 70) #Prison Field - Trap entities in dimensional pocket
+    *set workshop_spell "Prison Field"
+    *set spell_prison_field true
+    *set total_spells_known +1
+    *goto learn_prison_field
+
+  *if (chosen_path = "diplomatic") and (collaborative_magic >= 70) #Gestalt Consciousness - Merge minds temporarily for perfect understanding
+    *set workshop_spell "Gestalt Consciousness"
+    *set spell_gestalt true
+    *set total_spells_known +1
+    *goto learn_gestalt
+
+  *if (chosen_path = "diplomatic") and (empathy >= 70) #Mass Coordination - Harmonize large groups toward common goal
+    *set workshop_spell "Mass Coordination"
+    *set spell_mass_coordination true
+    *set total_spells_known +1
+    *goto learn_mass_coordination
+
+*comment ================================================
+*comment RESEARCH PATH: REALITY LOCK
+*comment ================================================
+
+*label learn_reality_lock
+
+Aria creates a dimensional instability in the center of the chamber—space twisting, reality flickering, dimensions bleeding into each other.
+
+*page_break
+
+[b]"Reality Lock,"[/b] she explains, [b]"freezes dimensional flux. Imagine a chaotic portal storm—dimensions colliding, space fracturing. Reality Lock creates absolute stability in a defined area."[/b]
+
+*line_break
+
+She extends her hand, and suddenly the chaotic instability [i]stops[/i]. Not collapses—stops. Frozen mid-fluctuation like a photograph of chaos.
+
+*line_break
+
+[b]"The spell doesn't eliminate the instability. It pauses it. Gives you time to analyze, plan, or escape. Duration depends on your power."[/b]
+
+*page_break
+
+For three hours, Aria guides you through the technique. The key is perfect understanding of dimensional mechanics combined with absolute willpower.
+
+*line_break
+
+By the end, you can hold a small Reality Lock for thirty seconds. Aria nods with rare approval.
+
+*page_break
+
+[b]"Adequate for a first attempt. Practice this daily. Eventually, you'll hold entire buildings stable during dimensional storms."[/b]
+
+*set dimensional_magic +15
+*set knowledge +10
+*set power +10
+
+*line_break
+
+[b]SPELL LEARNED: Reality Lock[/b]
+
+[i]Freeze dimensional flux in a targeted area, creating stability amid chaos.[/i]
+
+*goto workshop_breakthrough
+
+*comment ================================================
+*comment RESEARCH PATH: SPELL STORAGE
+*comment ================================================
+
+*label learn_spell_storage
+
+Aria presents a collection of crystalline matrices, each one geometrically perfect and humming with potential.
+
+*page_break
+
+[b]"Spell Storage,"[/b] she says, [b]"allows you to cast a spell ONCE, store it in a prepared crystal, and activate it later—instantly, without recasting."[/b]
+
+*line_break
+
+She demonstrates. A complex ward spell, cast slowly and carefully, flows into a crystal. The crystal pulses with captured magic.
+
+*line_break
+
+Then she throws the crystal. It shatters, and the ward deploys instantly, perfectly, as if she'd just cast it.
+
+*page_break
+
+[b]"Applications are endless. Pre-cast emergency spells. Gift magic to non-mages. Deploy defenses faster than any opponent can react. The limitation is preparation time and crystal quality."[/b]
+
+*line_break
+
+You spend hours learning the precise technique—the mental discipline to shape magic into storable form, the exact moment to channel it into crystal matrix, the trigger mechanisms.
+
+*page_break
+
+By the end, you successfully store a simple light spell. When you activate it, the crystal blooms with perfect illumination.
+
+*page_break
+
+[b]"Excellent. Now practice with more complex spells. Build a library of stored magic."[/b]
+
+*set written_magic +15
+*set knowledge +10
+*set creativity +10
+
+*line_break
+
+[b]SPELL LEARNED: Spell Storage[/b]
+
+[i]Store pre-cast spells in crystals for instant later activation.[/i]
+
+*goto workshop_breakthrough
+
+*comment ================================================
+*comment COMBAT PATH: ABSOLUTE DEFENSE
+*comment ================================================
+
+*label learn_absolute_defense
+
+Zara conjures three combat drones—magical constructs that attack with lethal force.
+
+*page_break
+
+[b]"Absolute Defense,"[/b] she explains while casually dodging a plasma bolt, [b]"creates a barrier that CANNOT be breached. Not 'very strong'—ABSOLUTE. For about five seconds."[/b]
+
+*line_break
+
+She snaps her fingers. A perfect sphere of golden light envelops her.
+
+*line_break
+
+The combat drones unleash everything—plasma, force beams, dimensional tears. The barrier doesn't even flicker.
+
+*page_break
+
+Five seconds later, it vanishes.
+
+*line_break
+
+[b]"Five seconds of perfect safety. Sounds short. In combat, it's eternity. Time to cast a counter-spell. Time to escape. Time to save someone's life."[/b]
+
+*page_break
+
+She teaches you the technique—it's not about raw power, but about absolute commitment. The barrier is impenetrable because you DECIDE it's impenetrable. Total conviction manifested as reality.
+
+*line_break
+
+Your first attempts last two seconds. Your fifth attempt: six seconds of genuine Absolute Defense.
+
+*page_break
+
+Zara whoops with delight. [b]"YES! That's it! You FELT it, right? That moment when you KNEW nothing could touch you?"[/b]
+
+*set boundary_magic +15
+*set power +15
+*set confidence +10
+
+*line_break
+
+[b]SPELL LEARNED: Absolute Defense[/b]
+
+[i]Create an impenetrable barrier for several seconds of complete protection.[/i]
+
+*goto workshop_breakthrough
+
+*comment ================================================
+*comment COMBAT PATH: PRISON FIELD
+*comment ================================================
+
+*label learn_prison_field
+
+Zara releases a hostile elemental construct—fire and rage given semi-sentient form. It lunges toward you.
+
+*page_break
+
+Before you can react, Zara gestures sharply. The elemental [i]vanishes[/i]—not destroyed, but gone.
+
+*line_break
+
+[b]"Prison Field,"[/b] she explains. [b]"Traps the target in a dimensional pocket. Tiny space, no exits, absolute containment. Duration varies based on target's power and your skill."[/b]
+
+*page_break
+
+She releases the elemental from its prison. It reappears, disoriented and furious.
+
+*line_break
+
+[b]"Perfect for dealing with threats you can't or won't kill. Trap them, deal with the immediate crisis, release them later for interrogation or diplomatic exchange."[/b]
+
+*page_break
+
+The technique is complex—you must create a dimensional pocket, target a specific entity, and force them inside before they can resist. It requires speed, precision, and significant power.
+
+*line_break
+
+You practice on progressively stronger constructs. By the end, you can Prison Field a mid-level threat for approximately one minute.
+
+*page_break
+
+Zara nods with fierce pride. [b]"That's my student! You just learned a technique that most combat mages take YEARS to master!"[/b]
+
+*set dimensional_magic +15
+*set power +15
+*set tactical_skill +10
+
+*line_break
+
+[b]SPELL LEARNED: Prison Field[/b]
+
+[i]Trap entities in a dimensional pocket for temporary containment.[/i]
+
+*goto workshop_breakthrough
+
+*comment ================================================
+*comment DIPLOMATIC PATH: GESTALT CONSCIOUSNESS
+*comment ================================================
+
+*label learn_gestalt
+
+Izack's expression grows serious.
+
+*page_break
+
+[b]"Gestalt Consciousness is the most intimate collaborative magic that exists. You temporarily merge minds with another person—sharing thoughts, feelings, memories, understanding."[/b]
+
+*line_break
+
+He pauses, letting the weight of that sink in.
+
+*line_break
+
+[b]"This isn't telepathy. This is becoming, briefly, a single consciousness with another being. You understand them completely. They understand you completely. No secrets. No barriers. Total transparency."[/b]
+
+*page_break
+
+[b]"It's used in the most critical diplomatic situations—when words fail, when trust must be absolute, when two parties need perfect mutual understanding."[/b]
+
+*line_break
+
+He demonstrates with another instructor—their eyes lock, magic flows, and for thirty seconds you can FEEL the harmonic resonance as two minds become one.
+
+*line_break
+
+When they separate, both look profoundly moved.
+
+*page_break
+
+[b]"This requires consent, trust, and exceptional empathic sensitivity. You cannot force Gestalt—the other person must willingly merge with you."[/b]
+
+*line_break
+
+You practice with Izack. The moment of connection is overwhelming—you feel his century of memories, his profound love for Avalon, his complex emotions about teaching, about you...
+
+*line_break
+
+Then you separate, gasping.
+
+*page_break
+
+[b]"Intense, yes?"[/b] Izack says gently. [b]"That's why it's used sparingly. But when diplomacy demands absolute understanding, nothing else compares."[/b]
+
+*set collaborative_magic +15
+*set empathy +15
+*set wisdom +10
+
+*line_break
+
+[b]SPELL LEARNED: Gestalt Consciousness[/b]
+
+[i]Temporarily merge minds with a willing partner for perfect understanding.[/i]
+
+*goto workshop_breakthrough
+
+*comment ================================================
+*comment DIPLOMATIC PATH: MASS COORDINATION
+*comment ================================================
+
+*label learn_mass_coordination
+
+Izack summons twenty magical constructs, each with simulated personality and independent will.
+
+*page_break
+
+[b]"Mass Coordination,"[/b] he explains, [b]"harmonizes large groups toward a common goal. Not mind control—you don't override their will. You help them FIND their collective will."[/b]
+
+*line_break
+
+He demonstrates. The twenty constructs are arguing, conflicting, chaotic. Izack extends his hands, and gentle magic flows outward.
+
+*line_break
+
+The constructs don't become identical. They remain individuals. But suddenly they're LISTENING to each other. Finding common ground. Moving together with purpose.
+
+*page_break
+
+[b]"This is how Avalon coordinates massive collaborative projects. How we mediate realm disputes with hundreds of participants. How we turn chaos into cooperation."[/b]
+
+*line_break
+
+The technique requires you to sense each individual's perspective, understand their goals, and gently illuminate the paths where their interests align.
+
+*page_break
+
+You practice for hours. Your first attempts create confusion. Your later attempts achieve genuine coordination—watching independent beings choose to work together because you helped them see how.
+
+*line_break
+
+Izack beams with pride. [b]"Beautiful work. This is collaborative magic at its finest."[/b]
+
+*set collaborative_magic +15
+*set empathy +15
+*set leadership +10
+
+*line_break
+
+[b]SPELL LEARNED: Mass Coordination[/b]
+
+[i]Harmonize large groups toward common goals through collaborative magic.[/i]
+
+*goto workshop_breakthrough
+
+*comment ================================================
+*comment PERSONAL BREAKTHROUGH
+*comment ================================================
+
+*label workshop_breakthrough
+
+*page_break
+
+After learning your advanced spell, the instructor approaches you privately.
+
+*page_break
+
+*if chosen_path = "research"
+  [b]"You've mastered the technique,"[/b] Aria says. [b]"But true mastery comes from innovation. How will YOU use this spell? What unique applications can you discover?"[/b]
+
+*if chosen_path = "combat"
+  [b]"You've got the spell down,"[/b] Zara says. [b]"But the BEST combat mages don't just learn techniques—they ADAPT them. Make it yours. Find your signature style."[/b]
+
+*if chosen_path = "diplomatic"
+  [b]"You understand the spell,"[/b] Izack says gently. [b]"Now discover how it reflects your unique magical identity. Every mage brings something personal to their practice."[/b]
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Translation: time for your personal breakthrough. This is when you stop being 'student who learned Spell X' and become 'mage who does something nobody else does.'"[/i]
+
+*page_break
+
+*label breakthrough_choice
+
+[b]How do you personalize your magical practice?[/b]
+
+*line_break
+
+*choice
+  #Combine schools in innovative ways - Create hybrid techniques
+    *set breakthrough_type "hybrid"
+    *goto breakthrough_hybrid
+
+  #Develop a signature spell - Create something uniquely yours
+    *set breakthrough_type "signature"
+    *goto breakthrough_signature
+
+  #Refine efficiency - Cast familiar spells with less energy
+    *set breakthrough_type "efficiency"
+    *goto breakthrough_efficiency
+
+*comment ================================================
+
+*label breakthrough_hybrid
+
+You spend the next hour experimenting—combining schools you've mastered in ways you've never tried before.
+
+*page_break
+
+*if (dimensional_magic >= 70) and (boundary_magic >= 70)
+  You merge dimensional manipulation with barrier magic. The result is stunning—wards that exist in multiple dimensions simultaneously, nearly impossible to breach because they defend on multiple planes of reality.
+
+  *set breakthrough_spell "Dimensional Wards"
+
+*elseif (collaborative_magic >= 70) and (living_magic >= 70)
+  You combine collaborative resonance with life magic. The result allows you to share vitality across a group—healing flows between allies, distributing damage and recovery collectively.
+
+  *set breakthrough_spell "Shared Vitality"
+
+*elseif (written_magic >= 70) and (truth_magic >= 70)
+  You merge runic inscription with truth enforcement. The result is contracts that literally cannot be broken—the runes enforce truthful adherence to agreements written in them.
+
+  *set breakthrough_spell "Binding Contract"
+
+*else
+  You create a hybrid technique combining your strongest schools. The result is rough but promising—a unique magical expression that no other student has developed.
+
+  *set breakthrough_spell "Personal Hybrid Technique"
+
+*page_break
+
+*if chosen_path = "research"
+  Aria examines your work with analytical precision. [b]"Fascinating. I've never seen exactly this combination before. Document it thoroughly—this could be publishable."[/b]
+
+*if chosen_path = "combat"
+  Zara tests your technique enthusiastically. [b]"Whoa! That's COOL! You just invented something! How does it feel to be an innovator?"[/b]
+
+*if chosen_path = "diplomatic"
+  Izack's eyes shine with genuine delight. [b]"Original work. This is how magical knowledge grows—students becoming creators. Well done."[/b]
+
+*set creativity +20
+*set tradition_vs_innovation +15
+*set fame +10
+
+*line_break
+
+[b]BREAKTHROUGH: Hybrid Technique[/b]
+
+[i]You can now combine schools in innovative ways![/i]
+
+*goto master_challenge
+
+*comment ================================================
+
+*label breakthrough_signature
+
+You retreat into meditation, exploring the depths of your magical identity. What defines YOU as a mage? What do you want your magic to express?
+
+*page_break
+
+*if empathy >= 70
+  Your signature develops around connection—a spell that creates temporary empathic bonds, allowing you to feel what others feel, bridging divides through shared experience.
+
+  *set breakthrough_spell "Empathic Bridge"
+
+*elseif power >= 70
+  Your signature emerges as pure force—a concentrated blast of magical energy that can be shaped into any form you imagine in the moment of casting.
+
+  *set breakthrough_spell "Adaptive Force"
+
+*elseif knowledge >= 70
+  Your signature manifests as analytical magic—a spell that reveals hidden patterns, connections, and truths invisible to normal perception.
+
+  *set breakthrough_spell "Pattern Recognition"
+
+*else
+  Your signature spell emerges from your unique experiences—a defensive technique that protects not just the body, but the mind and spirit simultaneously.
+
+  *set breakthrough_spell "Holistic Shield"
+
+*page_break
+
+*if chosen_path = "research"
+  [b]"A signature spell,"[/b] Aria says with something approaching warmth. [b]"The mark of a true practitioner. This is YOURS—no one else will cast it quite the same way."[/b]
+
+*if chosen_path = "combat"
+  [b]"Your signature!"[/b] Zara grins hugely. [b]"Now you're not just 'that student'—you're 'that student who does the amazing ${breakthrough_spell} thing!'"[/b]
+
+*if chosen_path = "diplomatic"
+  [b]"Beautiful,"[/b] Izack says softly. [b]"Signature spells reflect the mage's soul. This says so much about who you've become."[/b]
+
+*set creativity +15
+*set confidence +15
+*set magical_identity +20
+
+*line_break
+
+[b]BREAKTHROUGH: Signature Spell - ${breakthrough_spell}[/b]
+
+[i]A unique magical expression that defines your practice![/i]
+
+*goto master_challenge
+
+*comment ================================================
+
+*label breakthrough_efficiency
+
+You focus on refinement—casting spells you already know, but with perfect efficiency. Eliminating wasted motion, unnecessary energy expenditure, imprecise targeting.
+
+*page_break
+
+Over hours of meticulous practice, you discover the truth: mastery isn't about flashy new techniques. It's about executing fundamentals flawlessly.
+
+*line_break
+
+Your simple ward now costs half the energy. Your basic portal opens twice as fast. Your healing spell wastes nothing, directing every particle of magic precisely where needed.
+
+*page_break
+
+*if chosen_path = "research"
+  [b]"Efficiency is the hallmark of true understanding,"[/b] Aria nods approvingly. [b]"Novices need massive power to accomplish anything. Masters whisper and reality listens."[/b]
+
+*if chosen_path = "combat"
+  [b]"Smart!"[/b] Zara says. [b]"In real combat, efficiency means you can cast twice as many spells before exhaustion. That's the difference between surviving and dying."[/b]
+
+*if chosen_path = "diplomatic"
+  [b]"The subtle path,"[/b] Izack smiles. [b]"Many pursue spectacle. You pursue perfection. Both have value, but perfection endures longer."[/b]
+
+*set all_magic_schools +10
+*set wisdom +15
+*set discipline +15
+
+*line_break
+
+[b]BREAKTHROUGH: Perfect Efficiency[/b]
+
+[i]You can now cast all spells with significantly reduced energy cost![/i]
+
+*goto master_challenge
+
+*comment ================================================
+*comment MASTER-LEVEL CHALLENGE
+*comment ================================================
+
+*label master_challenge
+
+*page_break
+
+The workshop concludes with a final test.
+
+*page_break
+
+*if chosen_path = "research"
+  Aria creates a dimensional anomaly—complex, unstable, dangerous. [b]"Analyze it. Solve it. You have ten minutes. Failure means dimensional collapse of this chamber."[/b]
+
+*if chosen_path = "combat"
+  Zara summons a genuinely dangerous combat construct. [b]"Defeat it or contain it. You have five minutes. If you fail, it attacks the academy. No pressure!"[/b]
+
+*if chosen_path = "diplomatic"
+  Izack presents three magical constructs representing warring factions. [b]"Mediate their conflict. Achieve consensus. You have fifteen minutes. If you fail, their simulated war escalates to real violence."[/b]
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Okay, this is the real deal. They're not kidding about failure consequences. Time to show everything you've learned."[/i]
+
+*page_break
+
+*label challenge_attempt
+
+*temp challenge_roll 0
+*rand challenge_roll 1 100
+
+*if chosen_path = "research"
+  *if (knowledge + dimensional_magic + collaboration) >= (challenge_roll + 50)
+    *set challenge_success true
+  *else
+    *set challenge_success false
+
+*if chosen_path = "combat"
+  *if (power + tactical_skill + (boundary_magic + dimensional_magic)/2) >= (challenge_roll + 50)
+    *set challenge_success true
+  *else
+    *set challenge_success false
+
+*if chosen_path = "diplomatic"
+  *if (empathy + collaborative_magic + wisdom) >= (challenge_roll + 50)
+    *set challenge_success true
+  *else
+    *set challenge_success false
+
+*if challenge_success
+  *goto challenge_success_path
+*else
+  *goto challenge_failure_path
+
+*comment ================================================
+
+*label challenge_success_path
+
+*page_break
+
+*if chosen_path = "research"
+  You analyze the dimensional anomaly with methodical precision. Every fluctuation, every instability, every point of stress. Then you apply your newly learned techniques—stabilizing here, reinforcing there, carefully guiding the anomaly into controlled dissolution.
+
+  *line_break
+
+  Eight minutes later, the anomaly disperses harmlessly.
+
+  *line_break
+
+  Aria actually smiles. [b]"Exceptional. Graduate-level work. You didn't just solve the problem—you solved it ELEGANTLY."[/b]
+
+*if chosen_path = "combat"
+  You engage the construct with everything you've learned. Not just power, but tactics. Strategy. Timing. You use Absolute Defense to block its devastating attacks, Prison Field to contain it when it tries to flee, and precision strikes to disable its mobility.
+
+  *line_break
+
+  Four minutes later, the construct is defeated.
+
+  *line_break
+
+  Zara whoops and literally jumps in the air. [b]"THAT'S MY STUDENT! That was MASTERFUL! You didn't just win—you DOMINATED!"[/b]
+
+*if chosen_path = "diplomatic"
+  You apply Gestalt Consciousness to truly understand each faction's perspective. Then Mass Coordination to help them see their common interests. You speak with empathy, with wisdom, with genuine care for all parties.
+
+  *line_break
+
+  Twelve minutes later, the three factions reach consensus.
+
+  *line_break
+
+  Izack's eyes shine with pride. [b]"That was beautiful, ${name}. You didn't impose a solution—you helped them discover their own. That's collaborative magic at its finest."[/b]
+
+*page_break
+
+*set grades +30
+*set fame +20
+*set confidence +20
+*set academic_standing "exemplary"
+
+*if chosen_path = "research"
+  *set aria_relationship +15
+  *set knowledge +20
+
+*if chosen_path = "combat"
+  *set zara_relationship +15
+  *set power +20
+
+*if chosen_path = "diplomatic"
+  *set izack_relationship +15
+  *set empathy +20
+
+*line_break
+
+[b]CHALLENGE COMPLETED![/b]
+
+*line_break
+
+[b]+30 Grades[/b]
+
+[b]+20 Fame[/b]
+
+[b]+20 Confidence[/b]
+
+[b]+20 Path Primary Stat[/b]
+
+*goto polly_recognition
+
+*comment ================================================
+
+*label challenge_failure_path
+
+*page_break
+
+*if chosen_path = "research"
+  You analyze the anomaly, apply techniques, make adjustments... but something's wrong. The instability grows faster than you can stabilize it.
+
+  *line_break
+
+  At the seven-minute mark, Aria steps in smoothly, containing the collapse before it can cause damage.
+
+  *line_break
+
+  [b]"You weren't ready,"[/b] she says without judgment. [b]"This challenge requires more knowledge, more power, or more practice. You'll get there—just not today."[/b]
+
+*if chosen_path = "combat"
+  You engage the construct, but it's faster than anticipated. Stronger. More tactically sophisticated. Your defenses hold for three minutes, but then the construct breaks through.
+
+  *line_break
+
+  Zara destroys it instantly before it can threaten the academy.
+
+  *line_break
+
+  [b]"Hey, you did well!"[/b] she says encouragingly. [b]"This was HARD. You just need more training. We'll get you there!"[/b]
+
+*if chosen_path = "diplomatic"
+  You try everything—empathy, reason, compromise. But the factions are deeply entrenched. You make progress, but not enough. At fourteen minutes, they're still deadlocked.
+
+  *line_break
+
+  Izack steps in, applying his century of experience to mediate the final agreements.
+
+  *line_break
+
+  [b]"You showed promise,"[/b] he says gently. [b]"But this scenario required mastery you're still developing. Keep practicing."[/b]
+
+*page_break
+
+*set stress +15
+*set humility +10
+
+*line_break
+
+You didn't pass the master-level challenge. That stings. But you learned from the attempt.
+
+*line_break
+
+*if polly_is_familiar = true
+  [i]"Hey, most students don't even attempt these challenges. You tried. You learned. That's what matters. Next time, you'll be ready."[/i]
+
+*goto polly_recognition
+
+*comment ================================================
+*comment POLLY'S RECOGNITION
+*comment ================================================
+
+*label polly_recognition
+
+*page_break
+
+Later that evening, back in your quarters, Polly lands on your desk with a soft rustle of metallic wings.
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Alright, ${name}. We need to talk."[/i]
+
+  *line_break
+
+  Her tone is unusually serious.
+
+  *line_break
+
+  [i]"I've been your familiar for almost three years now. I've watched you grow from a portal-sick first-year into... this."[/i]
+
+  *page_break
+
+  She gestures with one wing—at your quarters filled with advanced magical texts, at the spells you've mastered, at the achievements you've earned.
+
+  *line_break
+
+  [i]"You're approaching master level. Like, genuinely. Not 'student who's doing well'—actual master-tier competency."[/i]
+*else
+  Polly appears at your window, tapping for entry. You let her in.
+
+  *line_break
+
+  [i]"${name}. I've observed you for three years. Time for my honest assessment."[/i]
+
+*page_break
+
+*if (dimensional_magic >= 80) or (boundary_magic >= 80) or (living_magic >= 80) or (collaborative_magic >= 80) or (written_magic >= 80) or (truth_magic >= 80) or (memory_magic >= 80)
+  *set mastery_achieved true
+
+*if mastery_achieved = true
+  [i]"You've hit eighty-plus mastery in at least one school. That's [b]master level[/b]. Not apprentice. Not journeyman. MASTER."[/i]
+
+  *line_break
+
+  She pauses for emphasis.
+
+  *line_break
+
+  [i]"Most Avalon graduates never hit eighty in anything. You did it while still in school. That's... remarkable."[/i]
+
+  *page_break
+
+  *if dimensional_magic >= 80
+    *achievement master_dimensional Dimensional Magic Master: Achieved 80+ mastery in Dimensional Magic
+    [b]ACHIEVEMENT UNLOCKED: Dimensional Magic Master[/b]
+
+    *line_break
+
+  *if boundary_magic >= 80
+    *achievement master_boundary Boundary Magic Master: Achieved 80+ mastery in Boundary Magic
+    [b]ACHIEVEMENT UNLOCKED: Boundary Magic Master[/b]
+
+    *line_break
+
+  *if living_magic >= 80
+    *achievement master_living Living Magic Master: Achieved 80+ mastery in Living Magic
+    [b]ACHIEVEMENT UNLOCKED: Living Magic Master[/b]
+
+    *line_break
+
+  *if collaborative_magic >= 80
+    *achievement master_collaborative Collaborative Magic Master: Achieved 80+ mastery in Collaborative Magic
+    [b]ACHIEVEMENT UNLOCKED: Collaborative Magic Master[/b]
+
+    *line_break
+
+  *if written_magic >= 80
+    *achievement master_written Written Magic Master: Achieved 80+ mastery in Written Magic
+    [b]ACHIEVEMENT UNLOCKED: Written Magic Master[/b]
+
+    *line_break
+
+  *if truth_magic >= 80
+    *achievement master_truth Truth Magic Master: Achieved 80+ mastery in Truth Magic
+    [b]ACHIEVEMENT UNLOCKED: Truth Magic Master[/b]
+
+    *line_break
+
+  *if memory_magic >= 80
+    *achievement master_memory Memory Magic Master: Achieved 80+ mastery in Memory Magic
+    [b]ACHIEVEMENT UNLOCKED: Memory Magic Master[/b]
+
+  *page_break
+
+  [i]"When you graduate—and you WILL graduate—you won't be entering the magical world as a beginner. You'll be entering as someone competent to take on serious responsibilities immediately."[/i]
+
+*else
+  [i]"You're solid. Really solid. Not quite master-tier yet—that's eighty-plus in a school—but you're on track. Keep pushing, and you'll get there before graduation."[/i]
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"I'm proud of you, ${name}. I don't say that often. But watching you develop these past three years has been... meaningful. For both of us."[/i]
+
+  *line_break
+
+  Her metallic feathers seem to shimmer with emotion.
+
+  *line_break
+
+  [i]"You're going to do important things. I'm glad I get to be part of that journey."[/i]
+
+  *set polly_relationship +20
+  *set happiness +15
+
+*page_break
+
+*comment ================================================
+*comment TEACHING MOMENT
+*comment ================================================
+
+*label teaching_moment
+
+*page_break
+
+The next week, you receive an unusual request.
+
+*page_break
+
+A first-year student—nervous, overwhelmed, struggling with basic dimensional magic—asks if you would tutor them.
+
+*page_break
+
+*choice
+  #Of course - Share what I've learned
+    *goto teaching_accepted
+
+  #I'm too busy with my own studies
+    *goto teaching_declined
+
+*comment ================================================
+
+*label teaching_accepted
+
+You meet the first-year student—their name is Kira, and they're clearly terrified of failing.
+
+*page_break
+
+"I just don't understand dimensional boundaries," they admit. "Every explanation makes it more confusing. But I heard you're really good at this..."
+
+*line_break
+
+*if polly_is_familiar = true
+  [i]"Teaching moment,"[/i] Polly murmurs. [i]"This is where you discover if you truly understand something—by explaining it to someone else."[/i]
+
+*page_break
+
+*temp teaching_roll 0
+*rand teaching_roll 1 100
+
+*if (knowledge + empathy + collaboration) >= teaching_roll
+  *set teaching_success true
+*else
+  *set teaching_success false
+
+*if teaching_success
+  *goto teaching_success
+*else
+  *goto teaching_struggle
+
+*comment ================================================
+
+*label teaching_success
+
+You explain dimensional boundaries not with complex theory, but with metaphors Kira can understand. You demonstrate patiently. You adjust your teaching based on their responses.
+
+*page_break
+
+Two hours later, Kira successfully senses their first dimensional boundary.
+
+*line_break
+
+Their face lights up with pure joy. "I did it! I actually DID it! Thank you so much!"
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"And THAT'S the teaching achievement,"[/i] Polly says warmly. [i]"You didn't just help them learn—you gave them confidence. That's master-level work."[/i]
+
+*achievement teacher Master Teacher: Successfully taught advanced technique to another student
+
+*line_break
+
+[b]ACHIEVEMENT UNLOCKED: Master Teacher[/b]
+
+*set empathy +15
+*set collaboration +15
+*set fame +10
+*set happiness +10
+
+*line_break
+
+You've discovered you can teach. That's its own form of mastery.
+
+*goto path_choice
+
+*comment ================================================
+
+*label teaching_struggle
+
+You try to explain dimensional boundaries, but your explanations are too complex. You assume knowledge Kira doesn't have. You get frustrated when they don't immediately understand.
+
+*page_break
+
+After two hours, Kira is more confused than before.
+
+*line_break
+
+"I'm sorry," they say quietly. "Maybe I'm just not smart enough for this."
+
+*line_break
+
+You feel terrible. You didn't mean to make them feel worse.
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Teaching is HARD,"[/i] Polly says gently. [i]"Knowing something and explaining it are different skills. You'll get better with practice."[/i]
+
+*set humility +10
+*set stress +10
+
+*line_break
+
+Teaching is harder than you expected. But you learned from the attempt.
+
+*goto path_choice
+
+*comment ================================================
+
+*label teaching_declined
+
+You explain that you're focused on your own advanced studies right now and can't commit to tutoring.
+
+*page_break
+
+The first-year looks disappointed but understanding.
+
+*line_break
+
+*if polly_is_familiar = true
+  [i]"Fair choice. You've got to prioritize your own development. Though teaching does reinforce your own learning..."[/i]
+
+*set stress -5
+
+*goto path_choice
+
+*comment ================================================
+*comment FINAL PATH CHOICE
+*comment ================================================
+
+*label path_choice
+
+*page_break
+
+As the advanced training period concludes, you must decide your next focus.
+
+*page_break
+
+*choice
+  #Continue to teaching scenes - Develop my teaching abilities
+    *if teaching_interest = true
+      *goto_scene teaching_scenes
+    *else
+      You haven't shown enough interest in teaching to pursue that path yet.
+      *goto path_choice_retry
+
+  #Continue to political intrigue - Get involved in academy governance
+    *if (fame >= 50) or (collaboration >= 70)
+      *goto_scene political_intrigue
+    *else
+      You don't have enough reputation or collaborative skill for political involvement yet.
+      *goto path_choice_retry
+
+  #Continue to year three trial - Standard progression
+    *goto_scene year_three_trial
+
+*label path_choice_retry
+
+*page_break
+
+Choose a different path:
+
+*page_break
+
+*choice
+  #Actually, I'll continue to the year three trial
+    *goto_scene year_three_trial
+
+*comment ================================================
+*comment YEAR THREE CONTINUATION (if not ready for workshop)
+*comment ================================================
+
+*label year_three_continuation
+
+You focus on building your magical skills through standard Year Three curriculum. The advanced workshop will be available once you reach the required mastery thresholds.
+
+*page_break
+
+*goto_scene year_three_trial

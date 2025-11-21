@@ -1,0 +1,910 @@
+*comment YEAR TWO: DIPLOMATIC PATH
+*comment Exclusive content for players who chose Izack's diplomatic specialization
+
+*label start
+
+The morning sun filters through stained glass windows as you make your way to the Diplomatic Wing—a section of Avalon you'd barely noticed before choosing this specialization. The architecture here is different, more open, with soaring archways that seem to shimmer with dimensional energy.
+
+Izack waits for you at the entrance, his silver eyes gleaming with quiet satisfaction. "Welcome to your true education," he says. "Everything you've learned so far has been preparation. Now, we begin the real work."
+
+He gestures, and the air ripples. Through the shimmer, you glimpse other places—crystalline cities, floating gardens, realms of perpetual twilight. "These are our neighbors," Izack explains. "Hundreds of dimensions, each with their own magical traditions, their own cultures, their own... conflicts."
+
+*set empathy %+5
+*set dimensional_magic %+10
+
+"War between dimensions is catastrophic," he continues, his voice taking on a grave tone. "I've seen entire realities torn apart by misunderstanding and pride. That's why I created Avalon—not just as a school, but as neutral ground. A place where different worlds can meet, learn, communicate."
+
+He turns to you, and there's an intensity in his gaze you've rarely seen. "You have a gift for understanding people, for building bridges. I want to teach you to use that gift on a cosmic scale."
+
+*choice
+    #"I'm honored by your trust in me."
+        *set empathy %+3
+        Izack's expression softens. "Trust is earned, and you've earned mine. Your ability to see multiple perspectives, to find common ground—these are rare gifts."
+
+        *if (izack_romance = true)
+            His hand briefly touches yours. "Rarer than you know."
+
+        *goto induction
+
+    #"This sounds like enormous responsibility."
+        *set empathy %+2
+        *set wisdom %+2
+        "It is," Izack acknowledges. "Inter-dimensional diplomacy can prevent wars... or accidentally start them. That's why training is essential. I won't send you into any situation you're not prepared for."
+
+        *goto induction
+
+    #"Will I get to visit other dimensions?"
+        *set dimensional_magic %+3
+        Izack smiles. "Visit, study, form friendships across realities. One of the greatest joys of this path is experiencing the infinite variety of magical traditions and cultures."
+
+        *goto induction
+
+*label induction
+
+Over the next week, Izack introduces you to the fundamentals of inter-dimensional diplomacy. You learn about the Dimensional Council—a loose coalition of realms committed to peaceful coexistence. You study the principles of cross-cultural communication, the nuances of magical protocols, the art of negotiation when parties don't even share the same concept of time.
+
+"Every dimension has its own relationship with magic," Izack explains during one session, conjuring images of different magical systems. "Some see it as science, others as religion. Some channel it through technology, others through dance or song. Understanding these differences is crucial."
+
+*set wisdom %+5
+*set collaborative_magic %+5
+
+You also learn about truth magic's role in diplomacy. Izack demonstrates the Oath Binding spell—a way to enforce agreements with magical certainty.
+
+"This is why truth magic is so valuable in negotiations," he says as golden runes shimmer in the air between his hands. "When parties can bind their promises with magic, trust becomes tangible."
+
+*set truth_magic %+10
+
+*if (truth_magic >= 60)
+    You find yourself naturally grasping the principles. The spell responds to your intent, golden light weaving between your fingers as you practice the binding patterns.
+
+    "Excellent," Izack says with genuine pride. "You have real talent for this."
+    *set truth_magic %+5
+
+After a week of intensive study, Izack announces it's time for your first assignment.
+
+*goto first_assignment
+
+*label first_assignment
+
+"The best way to learn diplomacy is to practice it," Izack says, spreading three scrolls across his desk. "I have three situations that could use diplomatic intervention. Choose the one that interests you most."
+
+He taps the first scroll. "The Lunar Realm and the Solar Court have been feuding for centuries over territorial boundaries. Both sides have requested a neutral mediator."
+
+The second scroll glows with aquamarine light. "The Dimensional Council is holding its quarterly assembly. Avalon has a seat, and I'd like you to represent us. It's an excellent opportunity to build connections."
+
+The third scroll shimmers with unknown colors. "We've established contact with a newly discovered realm—the Crystalline Expanse. They've expressed interest in a formal treaty with Avalon. First contact diplomacy is delicate but rewarding."
+
+*choice
+    #Mediate the conflict between Lunar Realm and Solar Court
+        *set diplomatic_assignment "mediation"
+        *set empathy %+3
+        "Conflict resolution," Izack nods approvingly. "This will teach you to find common ground between seemingly irreconcilable positions."
+
+        *goto mediation_assignment
+
+    #Represent Avalon at the Dimensional Council
+        *set diplomatic_assignment "council"
+        *set wisdom %+3
+        "Political networking," Izack says. "You'll learn how the dimensional community actually functions, and make connections that will serve you throughout your life."
+
+        *goto council_assignment
+
+    #Negotiate treaty with the Crystalline Expanse
+        *set diplomatic_assignment "treaty"
+        *set dimensional_magic %+3
+        "First contact," Izack's eyes light up. "There's something special about being among the first to establish relations with a new realm. The treaty you negotiate will shape their relationship with the wider dimensional community."
+
+        *goto treaty_assignment
+
+*label mediation_assignment
+
+The Lunar Realm materializes around you in a wash of silver light. You and Izack stand in a garden of luminescent flowers that bloom only in moonlight. Across from you, representatives from both realms eye each other with barely concealed hostility.
+
+Lady Celestine of the Lunar Realm is tall and elegant, with skin that seems to glow from within. Lord Radiance of the Solar Court blazes with golden intensity, his very presence radiating heat.
+
+"Thank you for coming," Lady Celestine says coldly. "Though I doubt even Avalon's influence can make this one see reason."
+
+"Reason?" Lord Radiance's voice crackles. "You speak of reason while your realm encroaches on territory that has been ours for millennia!"
+
+*set empathy %+5
+
+You feel the tension crackling between them. Izack catches your eye, giving you a subtle nod—this is your assignment. He's here to support, but you must lead.
+
+*choice
+    #Let each side present their grievances fully
+        *set empathy %+5
+        *set wisdom %+3
+        You raise a hand gently. "Before we discuss solutions, I'd like to understand the full situation. Lady Celestine, would you explain your realm's position?"
+
+        Over the next hour, you listen carefully as each side presents their case. Lady Celestine describes how the Solar Court's expansion has disrupted delicate ecosystems that depend on moonlight. Lord Radiance counters that the Lunar Realm has been using subtle magic to extend their influence into neutral zones.
+
+        By listening without judgment, you begin to see the real issue—both realms are growing, and the boundaries established centuries ago no longer fit current realities.
+
+        "I see the problem," you say finally. "The old borders no longer serve either of your needs."
+
+        Both representatives pause, surprised to hear their unspoken frustration articulated.
+
+        *set mediation_success true
+        *goto mediation_resolution
+
+    #Propose immediate compromise
+        *set fame %+3
+        "What if we established a shared zone?" you suggest. "Territory that both realms could access, with carefully negotiated terms of use?"
+
+        Lady Celestine frowns. "We've tried shared arrangements before. They never work."
+
+        Lord Radiance crosses his arms. "I agree with my lunar colleague for once. Shared sovereignty leads to constant friction."
+
+        Izack touches your elbow gently. "Listen first," he murmurs. "Understand before proposing solutions."
+
+        You realize you've moved too quickly, trying to solve the problem before fully understanding it.
+
+        *set mediation_success false
+        *goto mediation_resolution
+
+    #Use truth magic to verify each claim
+        *if (truth_magic >= 50)
+            *set truth_magic %+5
+            *set wisdom %+3
+            You channel truth magic carefully, golden light forming a subtle aura around the conversation. "I propose we ground this discussion in verifiable facts. With your permission, I'd like to use truth magic to confirm the historical and current boundaries."
+
+            Both representatives exchange glances, then nod. In the presence of truth magic, exaggerations and misunderstandings quickly fall away. You discover that many of their grievances are based on incomplete information—territorial changes neither side actually caused, but both assumed the other had.
+
+            "It seems," you say carefully, "that some of your conflicts may be based on misunderstandings rather than malicious actions."
+
+            The revelation shifts the atmosphere immediately. It's easier to negotiate with someone when you realize they're not actually your enemy.
+
+            *set mediation_success true
+            *set empathy %+5
+            *goto mediation_resolution
+        *else
+            *set truth_magic %+3
+            You attempt to channel truth magic, but your control isn't refined enough for diplomatic work. The spell flickers and fades, making both representatives uncomfortable.
+
+            "Perhaps we should stick to traditional negotiation," Izack suggests smoothly, stepping in to salvage the situation.
+
+            *set mediation_success false
+            *goto mediation_resolution
+
+*label mediation_resolution
+
+*if (mediation_success = true)
+    After hours of careful negotiation, you help both sides reach an agreement. The new treaty establishes updated boundaries that accommodate both realms' growth, with buffer zones where both lunar and solar magic can coexist.
+
+    When Lord Radiance and Lady Celestine shake hands—the first friendly contact between their realms in decades—you feel a profound sense of accomplishment.
+
+    "Remarkable," Izack says later as you return to Avalon. "You prevented a conflict that could have escalated for generations."
+
+    *set fame %+15
+    *set empathy %+5
+    *set gold +500
+
+    News of your successful mediation spreads through the dimensional community. You've made a name for yourself as a skilled negotiator.
+
+    *goto cultural_exchange
+*else
+    Despite your efforts, the negotiations stall. Neither side is willing to compromise, and eventually both representatives leave without agreement.
+
+    You feel disappointed, but Izack places a reassuring hand on your shoulder. "Your first mediation is always difficult," he says. "But you've learned valuable lessons about preparation and patience."
+
+    *set empathy %+3
+    *set wisdom %+5
+
+    "Sometimes the most important learning comes from what doesn't work," he continues. "Now you know what to do differently next time."
+
+    *goto cultural_exchange
+
+*label council_assignment
+
+The Dimensional Council meets in a space that exists between dimensions—a vast hall where walls shimmer with portals to dozens of different realms. Representatives from across the multiverse gather in a spectacular display of diversity.
+
+You see beings of pure energy conversing with crystalline entities, shadow-wreathed diplomats comparing notes with representatives who appear as living gardens. The sheer variety is overwhelming.
+
+"Stay close," Izack murmurs. "Council politics can be complex. Your goal today is to observe, make connections, and represent Avalon's interests."
+
+*set wisdom %+5
+*set fame %+5
+
+The council session covers various inter-dimensional matters—trade agreements, magical research collaborations, disputes over dimensional boundaries. You watch carefully, learning the subtle dynamics of who holds influence, who forms alliances, who harbors old grudges.
+
+During a recess, several representatives approach you.
+
+*choice
+    #Focus on meeting representatives from magical realms
+        *set dimensional_magic %+5
+        *set collaborative_magic %+5
+        You gravitate toward representatives from highly magical dimensions. Ambassador Crystallia of the Gem Realms shares insights about crystalline spellcasting. Archon Shadowmere discusses shadow magic's diplomatic applications—using darkness to create private spaces for sensitive negotiations.
+
+        "You're from Avalon?" asks a being wreathed in rainbow light. "I'm Envoy Prismata. We've long admired your school's approach to truth magic."
+
+        You spend the next hour in fascinating discussions about magical theory across dimensions. Several representatives express interest in establishing formal exchanges with Avalon.
+
+        *set council_connections "magical"
+        *goto council_resolution
+
+    #Connect with representatives from non-magical realms
+        *set empathy %+5
+        *set wisdom %+5
+        You seek out representatives from dimensions with little or no inherent magic. Ambassador Chen represents a realm where magic is achieved through technology and scientific understanding. Delegate Torres comes from a dimension where magic is rare and often feared.
+
+        "It's refreshing to meet someone from a magical realm who doesn't assume superiority," Torres says. "Too many Council members forget that different doesn't mean lesser."
+
+        These conversations give you valuable perspective on how magic appears to those outside its embrace. You learn about the challenges non-magical realms face in a Council dominated by magical perspectives.
+
+        *set council_connections "diverse"
+        *goto council_resolution
+
+    #Build relationships across all factions
+        *set empathy %+5
+        *set fame %+5
+        You move through the gathering systematically, introducing yourself to representatives from all types of dimensions. You listen more than you speak, asking thoughtful questions and finding common ground.
+
+        By the end of the recess, you've made genuine connections with delegates from over a dozen realms. Several mention they'll remember Avalon's representative who actually took time to understand their concerns.
+
+        *set council_connections "broad"
+        *goto council_resolution
+
+*label council_resolution
+
+When the Council reconvenes, a contentious issue arises—a proposal to restrict certain types of dimensional travel. The debate grows heated, with magical realms generally supporting restriction and non-magical realms opposing it.
+
+Izack leans toward you. "Avalon's vote will matter here. What's your recommendation?"
+
+*choice
+    #Support the restrictions (magical realms)
+        *set wisdom %+3
+        You vote to support measured restrictions, arguing that some dimensional travel can be destabilizing. The magical realm representatives nod approvingly, and several thank you afterward.
+
+        However, you notice some representatives from non-magical realms looking disappointed.
+
+        *set fame %+5
+        *goto council_end
+
+    #Oppose the restrictions (non-magical realms)
+        *set empathy %+3
+        You vote against the restrictions, arguing that limiting dimensional travel limits understanding and cooperation. The non-magical realm representatives express gratitude for Avalon's support.
+
+        Some magical realm representatives seem less pleased, though they respect your position.
+
+        *set fame %+5
+        *goto council_end
+
+    #Propose a compromise solution
+        *set wisdom %+5
+        *set empathy %+5
+        *set fame %+10
+        You raise your hand and address the Council. "What if, instead of blanket restrictions, we establish a voluntary registry system? Realms concerned about certain types of dimensional travel could register their preferences, while maintaining overall freedom of movement."
+
+        The hall falls quiet as representatives consider your proposal. Then Ambassador Crystallia speaks: "This honors both security concerns and freedom of movement. I support this amendment."
+
+        Delegate Torres nods. "As do we. This is exactly the kind of bridge-building the Council needs."
+
+        Your compromise passes with overwhelming support. As the session ends, numerous representatives approach to congratulate Avalon's delegation on finding common ground.
+
+        "Well done," Izack says quietly, pride evident in his voice. "That's what diplomacy looks like."
+
+        *goto council_end
+
+*label council_end
+
+Your successful representation of Avalon at the Council opens doors throughout the dimensional community. You've proven yourself as a thoughtful, fair-minded diplomat.
+
+*set gold +500
+
+*goto cultural_exchange
+
+*label treaty_assignment
+
+The portal to the Crystalline Expanse opens with a sound like wind chimes. You step through with Izack into a world that defies description.
+
+Everything here is alive with geometry and light. Crystal formations grow and shift like living things, resonating with mathematical precision. The inhabitants are crystalline beings, their bodies formed from interlocking geometric shapes that refract rainbow light.
+
+"Welcome," chimes a voice that seems to come from all directions. A being of extraordinary complexity materializes before you—Ambassador Facet, as they introduce themselves.
+
+*set dimensional_magic %+10
+
+"This realm is unlike anything I've seen," you breathe.
+
+Izack smiles. "First contact is always extraordinary. Remember—assume nothing, observe everything, and show respect for differences."
+
+*set wisdom %+5
+
+Over the next several days, you work on negotiating a formal treaty between Avalon and the Crystalline Expanse. The process is fascinating and challenging—the crystalline beings think in patterns and harmonies, their very language based on resonance and frequency.
+
+*choice
+    #Focus on magical exchange agreements
+        *set dimensional_magic %+10
+        *set collaborative_magic %+5
+        You propose that the treaty emphasize magical knowledge sharing. The crystalline beings teach you about geometric spellcasting—magic based on perfect mathematical forms.
+
+        In return, you share principles of truth magic. Ambassador Facet is particularly fascinated by how Avalon uses magic to ensure honesty and binding agreements.
+
+        "Harmonious," they chime. "Truth as frequency, honesty as resonance. This we understand."
+
+        *set treaty_focus "magical"
+        *goto treaty_resolution
+
+    #Emphasize cultural and educational exchange
+        *set empathy %+10
+        *set wisdom %+5
+        You suggest the treaty focus on deeper understanding between your peoples. This includes student exchanges, cultural ambassadors, and collaborative study programs.
+
+        The crystalline beings resonate with approval. "Growth through understanding," Ambassador Facet chimes. "This aligns with our core frequency."
+
+        They offer to teach selected Avalon students their meditation techniques—ways of achieving perfect mental clarity through geometric visualization.
+
+        *set treaty_focus "cultural"
+        *goto treaty_resolution
+
+    #Create balanced, comprehensive treaty
+        *set wisdom %+10
+        *set empathy %+5
+        You work carefully to create a treaty that covers all aspects of inter-dimensional relations—magical exchange, cultural understanding, trade agreements, and mutual defense provisions.
+
+        It takes longer to negotiate, but the result is a robust framework that will serve both Avalon and the Crystalline Expanse for generations.
+
+        Ambassador Facet's crystalline form pulses with complex patterns. "Complete harmony," they chime. "All frequencies aligned. This is unprecedented in our first contact protocols."
+
+        *set treaty_focus "comprehensive"
+        *goto treaty_resolution
+
+*label treaty_resolution
+
+The treaty signing is a spectacular ceremony. Using truth magic enhanced by crystalline resonance, you and Ambassador Facet create a binding agreement that exists simultaneously as magical oath and crystalline harmonic structure.
+
+*set truth_magic %+10
+*set fame %+15
+*set gold +500
+
+"This treaty will be studied for years to come," Izack tells you afterward. "First contact diplomacy done right sets the foundation for centuries of cooperation."
+
+*if (treaty_focus = "comprehensive")
+    The Crystalline Expanse is so impressed with your work that they offer you an honorary title—Resonance Ambassador. It's a rare honor for a being from outside their dimension.
+
+    *set fame %+10
+    *set dimensional_magic %+5
+
+*goto cultural_exchange
+
+*label cultural_exchange
+
+Several weeks into your diplomatic training, Izack announces a special opportunity.
+
+"True diplomacy requires more than negotiation skills," he says. "You must understand other cultures deeply, from within. I've arranged for you to spend time in a dimension very different from our own."
+
+He opens a portal to the Twilight Gardens—a realm where day and night exist simultaneously, where magic flows through living things in visible streams of light.
+
+"Live here for a week," Izack instructs. "Learn their customs, their magic, their way of seeing reality. This is cultural immersion."
+
+*set empathy %+10
+*set dimensional_magic %+10
+
+The Twilight Gardens are breathtaking. You stay with a local family who teach you their traditions—how they cultivate magic through meditation among bioluminescent flowers, how they resolve disputes through ritual dances, how they see time as circular rather than linear.
+
+*choice
+    #Fully embrace their customs and traditions
+        *set empathy %+10
+        *set wisdom %+5
+        You throw yourself into the experience, adopting their practices completely. You dress in their style, eat their food, participate in their rituals. Some practices feel strange at first, but you approach everything with openness and respect.
+
+        By the end of the week, you've begun to understand their perspective from within. When you attend a dispute resolution dance, you can feel the emotional logic of it—how movement and rhythm communicate what words cannot.
+
+        "You have a gift for cultural adaptation," your host family tells you. "Your empathy allows you to see through others' eyes."
+
+        They teach you a spell unique to their realm—Twilight Harmony, which allows you to perceive emotional resonance in any environment.
+
+        *set unique_spell "twilight_harmony"
+        *goto cultural_exchange_end
+
+    #Balance observation with your own identity
+        *set wisdom %+10
+        *set empathy %+5
+        You participate respectfully in the Twilight Gardens customs while maintaining your own identity. You're a visitor, learning but not pretending to be something you're not.
+
+        This honesty earns respect. "You honor us by learning," your host says, "and honor yourself by remaining authentic. This is the mark of a true diplomat."
+
+        They offer to teach you a spell from their tradition—Emotional Clarity, which allows you to sense the true feelings beneath spoken words.
+
+        *set unique_spell "emotional_clarity"
+        *goto cultural_exchange_end
+
+    #Struggle with cultural differences
+        *set empathy %+5
+        Some of their customs are difficult for you to understand or accept. The circular view of time feels disorienting. Some of their rituals seem inefficient to your linear mind.
+
+        You try your best, but there's an awkwardness to your participation. Your hosts are patient and kind, but you can tell you're missing something essential.
+
+        On your last day, the eldest of your host family sits with you. "Cultural understanding is not easy," they say gently. "Some barriers take time to cross. What matters is that you tried, that you showed respect even in confusion."
+
+        They give you a small token—a flower that glows with twilight—and wish you well on your diplomatic journey.
+
+        *goto cultural_exchange_end
+
+*label cultural_exchange_end
+
+When you return to Avalon, you're changed by the experience. You've seen reality through fundamentally different eyes, and it's expanded your understanding of what's possible.
+
+"Cultural immersion is the heart of diplomacy," Izack says when you debrief. "You can't truly negotiate with people you don't understand. And you can't understand them without experiencing their world."
+
+*if (izack_romance = true)
+    He studies you with those silver eyes. "You've grown remarkably. Not just in skill, but in depth of character."
+
+    There's warmth in his voice that makes your heart skip.
+
+*goto negotiation_crisis
+
+*label negotiation_crisis
+
+Your growing reputation as a diplomat leads to your most challenging assignment yet. Izack summons you urgently to the Diplomatic Wing.
+
+"We have a crisis," he says, his expression grave. "Negotiations between the Storm Realm and the Forest Dimension have completely broken down. They're on the verge of war."
+
+*set empathy %+5
+
+He shows you the situation: The Storm Realm claims the Forest Dimension has been using weather magic to steal their rain. The Forest Dimension counters that the Storm Realm's aggressive expansion has disrupted natural weather patterns. Both sides have mobilized military forces.
+
+"They've requested one final attempt at negotiation," Izack explains. "But emotions are running so high that even experienced diplomats have failed. I think you might succeed where others haven't—your gift for empathy, for truly listening to people."
+
+*choice
+    #"I'll do everything I can to prevent this war."
+        *set empathy %+5
+        Izack nods. "I know you will. Remember—in crisis negotiations, listening is more important than speaking. Help them hear each other."
+
+        *goto crisis_negotiation
+
+    #"What if I fail? The consequences are enormous."
+        *set wisdom %+3
+        "The consequences of not trying are certain war," Izack says gently. "The consequences of trying are uncertain. I'll be with you. You won't face this alone."
+
+        *if (izack_romance = true)
+            His hand finds yours, warm and reassuring.
+
+        *goto crisis_negotiation
+
+    #"Why do you have such faith in me?"
+        *set empathy %+3
+        Izack's expression softens. "Because I've watched you grow. I've seen how you connect with people, how you find common ground where others see only conflict. You have something that can't be taught—genuine compassion."
+
+        *goto crisis_negotiation
+
+*label crisis_negotiation
+
+The emergency negotiation takes place in a neutral dimensional space—a bare room with only a table and chairs. King Tempest of the Storm Realm crackles with barely contained fury, lightning flickering across his form. Queen Verdant of the Forest Dimension radiates cold anger, thorny vines writhing around her crown.
+
+The moment you enter, both begin shouting over each other.
+
+"—stealing our life's blood, our very rain!"
+"—disrupting patterns that have existed for millennia!"
+
+*set empathy %+5
+
+The raw emotion in the room is overwhelming. You can feel their rage, their fear, their sense of betrayal. This isn't just politics—both leaders believe their realms' very survival is at stake.
+
+*choice
+    #Let them vent their anger completely first
+        *set empathy %+10
+        *set wisdom %+5
+
+        You don't try to interrupt. You simply listen, giving each leader space to express their full fury and frustration. King Tempest rages about droughts and dying storms. Queen Verdant describes forests withering, rivers running dry.
+
+        After nearly an hour, the shouting gradually subsides. In the exhausted silence that follows, you speak quietly:
+
+        "You're both afraid. Afraid your realms are dying, and that the other is responsible."
+
+        Both leaders look at you, surprised that someone has truly heard them.
+
+        "But what if," you continue carefully, "neither of you is causing the other's problems? What if there's a third factor you haven't considered?"
+
+        King Tempest frowns. "What do you mean?"
+
+        Using truth magic to verify your findings, you present research Izack helped you prepare—evidence that a distant dimensional anomaly has been affecting weather patterns across multiple realms, including theirs.
+
+        "You're not enemies," you say gently. "You're both victims of the same problem. And if you work together, you might be able to solve it."
+
+        The atmosphere shifts dramatically. Anger transforms into thoughtful consideration.
+
+        *set crisis_success true
+        *set truth_magic %+10
+        *goto crisis_resolution
+
+    #Try to impose order and structure immediately
+        *set wisdom %+3
+
+        "Please," you say loudly, trying to be heard over the shouting. "We need to proceed in an orderly fashion. King Tempest, present your case, then Queen Verdant will—"
+
+        "Don't tell me to be orderly when my realm is dying!" King Tempest thunders.
+
+        "And don't expect me to sit quietly while he makes false accusations!" Queen Verdant snaps.
+
+        The shouting intensifies. Your attempt to impose structure has only made them angrier.
+
+        Izack touches your arm gently. "Sometimes in crisis," he murmurs, "people need to be heard before they can listen."
+
+        *set crisis_success false
+        *goto crisis_resolution
+
+    #Use empathy magic to understand their true feelings
+        *if (empathy >= 60)
+            *set empathy %+10
+            *set wisdom %+5
+
+            You close your eyes and extend your awareness, using your empathetic gifts to truly feel what both leaders are experiencing.
+
+            Beneath King Tempest's rage is terror—he's watching his realm's fundamental nature fade, storms weakening, his people losing their identity. Under Queen Verdant's cold anger is grief—ancient trees dying, ecosystems collapsing, irreplaceable beauty disappearing.
+
+            Both are lashing out because they're desperate and scared.
+
+            You open your eyes. "King Tempest, you fear that if the storms die, your realm loses its essence. Queen Verdant, you grieve every forest that withers, feeling each loss personally."
+
+            Both leaders freeze, shocked that someone has articulated their deepest fears.
+
+            "You see each other as enemies," you continue gently, "but you're both fighting the same battle—to preserve what you love against forces that seem overwhelming."
+
+            In the silence that follows, something shifts. They look at each other with new understanding.
+
+            *set crisis_success true
+            *goto crisis_resolution
+        *else
+            *set empathy %+5
+
+            You try to sense their deeper emotions, but the overwhelming anger in the room drowns out subtlety. Your empathetic reach isn't refined enough to pierce through such intense fury.
+
+            The negotiation continues to deteriorate.
+
+            *set crisis_success false
+            *goto crisis_resolution
+
+*label crisis_resolution
+
+*if (crisis_success = true)
+    Over the next several hours, with emotions finally under control, you facilitate a genuine conversation. Using truth magic to verify facts and empathy to maintain understanding, you help both leaders see their situation clearly.
+
+    They agree to a joint task force to address the dimensional anomaly affecting both realms. What began as a crisis on the brink of war ends with a alliance.
+
+    When Queen Verdant and King Tempest shake hands, there's hope in their eyes instead of hatred.
+
+    *set fame %+15
+    *set gold +1000
+    *set empathy %+5
+    *set truth_magic %+5
+
+    News of your success spreads rapidly. You prevented an inter-dimensional war through empathy and skillful negotiation.
+
+    "This is why diplomacy matters," Izack tells you afterward, pride clear in his voice. "Violence is easy. Understanding takes courage."
+
+    *if (izack_romance = true)
+        He pulls you into an embrace. "You were magnificent. I knew you would be."
+
+    *goto building_alliances
+*else
+    Despite your best efforts, the negotiation fails. Both leaders storm out, more entrenched in their positions than before.
+
+    You feel the weight of failure. War seems inevitable.
+
+    But Izack sits with you in the aftermath, patient and kind. "Some conflicts run too deep to resolve in one meeting," he says. "But you learned valuable lessons—about timing, about listening, about when to speak and when to let silence do the work."
+
+    *set empathy %+5
+    *set wisdom %+5
+
+    "Failure is a teacher," he continues. "Often a better teacher than success. And you tried, which is more than most would do."
+
+    Over the following weeks, the Storm Realm and Forest Dimension do engage in limited conflict, but it's less severe than it might have been. Your attempt at diplomacy created just enough doubt, just enough pause, to prevent total war.
+
+    "Even partial success matters," Izack assures you. "You may have saved thousands of lives without even knowing it."
+
+    *goto building_alliances
+
+*label building_alliances
+
+Your diplomatic work connects you with fascinating individuals from across the multiverse. As your reputation grows, so does your network of contacts.
+
+You correspond regularly with Ambassador Crystallia, who shares insights about crystalline magic. Envoy Prismata invites you to a cross-dimensional magical symposium. Even some of the Council members you met months ago reach out to collaborate on projects.
+
+*set fame %+10
+*set collaborative_magic %+10
+
+One evening, you're sorting through diplomatic correspondence when there's a knock on your door. It's not someone from Avalon.
+
+*choice
+    #A mysterious visitor from the Shadow Realm
+        *set shadow_contact true
+
+        A figure wreathed in living darkness stands at your door. "Envoy Shadowmere," they introduce themselves. "I've heard impressive things about your diplomatic work."
+
+        Over tea, Shadowmere explains they're building a coalition of realms interested in protecting dimensional stability. "We need someone from Avalon—someone trusted, skilled, and unaligned with any particular faction. Someone like you."
+
+        It's a fascinating opportunity to work on projects spanning multiple dimensions.
+
+        *set empathy %+5
+        *set dimensional_magic %+5
+
+        *if (single = true)
+            As the evening progresses, you sense Shadowmere's interest is not purely diplomatic. There's attraction in the way they lean closer, how their shadowy form seems to reach toward you.
+
+            *choice
+                #Express interest in something more than diplomacy
+                    *set romance_option "shadowmere"
+                    *set fame %+5
+                    "I find you fascinating," Shadowmere says, their voice like silk in darkness. "Would you consider visiting my realm? I'd like to show you the beauty of shadow."
+
+                    A romance across dimensions—it's as complicated as it is intriguing.
+
+                    *goto alliance_building_end
+
+                #Keep things professional
+                    You politely maintain diplomatic boundaries. Shadowmere accepts gracefully, though you sense a hint of disappointment.
+
+                    "Perhaps another time," they say before departing.
+
+                    *goto alliance_building_end
+        *else
+            You and Shadowmere discuss potential collaborations late into the night, building the foundation for future diplomatic work.
+
+            *goto alliance_building_end
+
+    #A delegation from the technological realms
+        *set tech_contact true
+
+        Three visitors in elegant but unfamiliar attire arrive—representatives from dimensions where magic and technology have merged in unique ways.
+
+        "We're forming an inter-dimensional research consortium," explains Dr. Chen, whom you remember from the Dimensional Council. "We'd like Avalon involved, and specifically, we'd like you as our liaison."
+
+        The project aims to study how magic functions across different dimensional physics—research that could revolutionize magical understanding.
+
+        *set wisdom %+5
+        *set dimensional_magic %+5
+
+        *if (single = true)
+            One of the delegates, a brilliant engineer named Kai, seems particularly interested in talking with you. You find their perspective on magic-as-technology refreshing.
+
+            *choice
+                #Explore a potential connection with Kai
+                    *set romance_option "kai"
+                    *set wisdom %+5
+                    Over the next few weeks, you and Kai correspond frequently. What begins as discussions about magical theory develops into something more personal.
+
+                    "I've never met anyone who sees magic the way you do," Kai tells you during one late-night conversation. "Would you visit my realm sometime? I'd love to show you how we've integrated spell circuits into our cities."
+
+                    *goto alliance_building_end
+
+                #Keep the relationship professional
+                    You maintain appropriate boundaries, though you and Kai develop a strong professional friendship.
+
+                    *goto alliance_building_end
+        *else
+            You spend a fascinating evening discussing the intersection of magic and technology with the delegation.
+
+            *goto alliance_building_end
+
+    #An old friend from your cultural exchange
+        *set twilight_contact true
+
+        It's one of your host family members from the Twilight Gardens, here to visit Avalon.
+
+        "I wanted to see your home as you saw ours," they explain with a warm smile. "And to thank you for being such a respectful visitor. You helped our family understand why cultural exchange matters."
+
+        You show them around Avalon, and their unique perspective offers insights you'd never considered about your own school.
+
+        *set empathy %+5
+        *set wisdom %+5
+
+        *goto alliance_building_end
+
+*label alliance_building_end
+
+Your network of dimensional contacts grows into something remarkable—a web of relationships spanning dozens of realities. These connections will serve you throughout your life, opening doors and enabling collaborations no one could achieve alone.
+
+*set fame %+10
+
+*goto collaborative_summit
+
+*label collaborative_summit
+
+Near the end of your second year, Izack proposes an ambitious project.
+
+"You've learned about diplomacy, negotiation, cultural exchange," he says, silver eyes gleaming with excitement. "Now I want to teach you about collaborative magic on a scale rarely attempted—magic that requires coordination across multiple dimensions."
+
+He explains his vision: a summit bringing together magical practitioners from different realms to jointly cast a spell addressing a shared problem—the dimensional instability that's been causing weather disruptions, territorial shifts, and other problems across multiple dimensions.
+
+"This will require everything you've learned," Izack continues. "Diplomatic coordination, cultural sensitivity, magical skill, and trust-building across boundaries."
+
+*set collaborative_magic %+15
+*set dimensional_magic %+10
+
+Over the next few weeks, you help organize the summit. You reach out to your network of contacts, negotiating terms that will make everyone comfortable participating. You coordinate with representatives from over twenty dimensions.
+
+The summit itself is breathtaking. In a specially prepared chamber at Avalon, magical practitioners from across the multiverse gather. You see crystalline mages next to shadow weavers, storm callers conversing with forest druids, technomancers comparing notes with traditional spellcasters.
+
+*choice
+    #Lead the collaborative casting personally
+        *if (magical_power >= 60)
+            *set collaborative_magic %+15
+            *set magical_power %+10
+            *set fame %+15
+
+            With Izack's guidance, you take the central position in the casting circle. Your role is to coordinate the different magical traditions, harmonizing their diverse approaches into unified purpose.
+
+            It's the most complex magic you've ever attempted. You must hold space for crystalline geometry, shadow manipulation, weather magic, growth magic, and a dozen other traditions simultaneously.
+
+            But your diplomatic training serves you well. Just as you've learned to find common ground between different cultures, you find the common threads between different magical systems.
+
+            The spell builds like a symphony, each tradition contributing its unique voice to a harmonious whole. When the magic finally releases, it ripples out across dimensions, stabilizing the anomalies that have been causing so many problems.
+
+            The chamber erupts in celebration. You've just participated in—and led—one of the most ambitious collaborative magical workings in dimensional history.
+
+            "Extraordinary," Izack breathes. "You've proven that cooperation across dimensions isn't just diplomatic theory. It's practical magic."
+
+            You learn several collaborative spells from the experience:
+            *set learned_circle_casting true
+            *set learned_perfect_harmony true
+            *set learned_mass_coordination true
+
+            *goto summit_end
+        *else
+            *set collaborative_magic %+10
+            *set magical_power %+5
+
+            You take the central position, but the complexity quickly overwhelms you. Coordinating so many different magical traditions requires more raw power and control than you currently possess.
+
+            You struggle to hold the casting together, and it begins to fracture.
+
+            Izack smoothly steps in, taking over the coordination. "Support me," he murmurs. "Feel how the different magics interweave."
+
+            From your new position, you learn by observation. Watching Izack harmonize dozens of magical traditions teaches you volumes about collaborative magic.
+
+            The spell succeeds, though you feel disappointed you couldn't lead it yourself.
+
+            "There's no shame in recognizing your current limits," Izack tells you afterward. "You'll be ready to lead workings like this in time. Today, you learned by participating."
+
+            *goto summit_end
+
+    #Coordinate the diplomatic aspects while Izack leads magically
+        *set empathy %+10
+        *set wisdom %+10
+        *set collaborative_magic %+10
+
+        You recognize that your greatest strength is diplomatic coordination, not raw magical power. While Izack takes the central position in the casting, you manage everything else.
+
+        You ensure everyone feels included and respected. When tensions arise between participants with historical conflicts, you mediate. When someone's uncomfortable with the format, you help adapt it to accommodate their tradition.
+
+        Your diplomatic work is what makes the magical work possible. Izack harmonizes the spells, but you harmonize the people.
+
+        The casting succeeds magnificently, and afterward, numerous participants specifically thank you for creating an environment where such collaboration felt safe and possible.
+
+        "Different kinds of power," Izack tells you with approval. "You're learning to use yours wisely."
+
+        *goto summit_end
+
+    #Participate as an equal rather than leading
+        *set collaborative_magic %+10
+        *set wisdom %+5
+
+        You take your place in the casting circle as one participant among many. It's humbling and educational to work as part of such a diverse group.
+
+        You contribute your truth magic to the working, using it to maintain clarity and purpose throughout the complex casting. Several other participants comment on how your magic helps keep everyone aligned.
+
+        The spell succeeds, and you gain deep understanding of how collaborative magic functions when multiple traditions work in true partnership.
+
+        *goto summit_end
+
+*label summit_end
+
+The summit becomes legendary in diplomatic circles. You've proven that inter-dimensional cooperation can achieve what no single realm could accomplish alone.
+
+*set fame %+15
+*set gold +1000
+
+In the days following the summit, you receive offers from multiple dimensions—positions as ambassador, opportunities for advanced study, invitations to join prestigious councils.
+
+Your diplomatic career is truly beginning.
+
+*goto izacks_philosophy
+
+*label izacks_philosophy
+
+One evening, after the summit celebrations have ended, Izack invites you to his private study. You've rarely been here—it's his sanctuary, lined with books and artifacts from countless dimensions.
+
+He pours tea and you sit together in comfortable silence for a moment before he speaks.
+
+"Do you understand now why I do this?" he asks. "Why I built Avalon, why I dedicate myself to training diplomats, why inter-dimensional cooperation matters so deeply to me?"
+
+*choice
+    #"Because war between dimensions is catastrophic."
+        *set wisdom %+5
+
+        "Yes," Izack nods gravely. "I've seen dimensional wars. I've watched realities tear themselves apart over misunderstandings, pride, fear. The destruction is beyond comprehension."
+
+        His silver eyes grow distant with memory. "I vowed I would do everything in my power to prevent such conflicts. Avalon is my answer—a place where different worlds meet as equals, where the next generation learns that cooperation is possible."
+
+        *goto philosophy_continues
+
+    #"Because you believe different dimensions have so much to teach each other."
+        *set empathy %+5
+
+        Izack's expression warms. "Exactly. Every dimension has unique wisdom, unique beauty, unique approaches to existence itself. When we isolate ourselves, we impoverish reality. When we connect, we all become richer."
+
+        He gestures to his collection of artifacts. "Every item here represents a connection made, knowledge shared, friendship formed across dimensional boundaries. This is what I fight for."
+
+        *goto philosophy_continues
+
+    #"Because you see what others don't—that we're all connected."
+        *set empathy %+5
+        *set wisdom %+5
+
+        Izack's smile is brilliant. "Yes. That's it exactly. Dimensional boundaries are real, but they're not walls. We're all part of something larger—the multiverse itself, infinite and interconnected."
+
+        He leans forward intently. "Most people see their own dimension as separate, isolated. But reality is a web, not a collection of islands. What happens in one dimension ripples through others. We're connected whether we acknowledge it or not."
+
+        *goto philosophy_continues
+
+*label philosophy_continues
+
+"I created Avalon as neutral ground," Izack continues, "because students are the future. If the next generation learns to build bridges instead of walls, to seek understanding before conflict, then maybe—maybe—we can create a multiverse where cooperation is the norm rather than the exception."
+
+*set wisdom %+10
+
+He looks at you with an intensity that takes your breath away. "And you've exceeded every hope I had. You don't just understand this intellectually—you embody it. You've proven that empathy and understanding can be more powerful than any destructive magic."
+
+*if (izack_romance = true)
+    He reaches for your hand, his touch warm. "These months working with you have been extraordinary. Not just because of your diplomatic successes, but because of who you are."
+
+    There's vulnerability in his expression you've rarely seen. "I've lived a long time, traveled countless dimensions. I've trained many students. But you..."
+
+    *choice
+        #Kiss him
+            *set izack_romance_depth +10
+
+            You close the distance between you, and when your lips meet his, you feel magic spark—not spell magic, but something deeper. Connection. Understanding. Perfect harmony.
+
+            When you finally pull apart, Izack is smiling. "I've waited a long time to do that," he admits. "But I wanted to wait until you'd finished your diplomatic training, until there was no question of impropriety."
+
+            "And now?" you ask.
+
+            "Now," he says softly, "we're colleagues. Partners. And if you're willing, something more."
+
+            *set romance_level +15
+            *goto philosophy_end
+
+        #"I care about you too. But this is complicated."
+            *set izack_romance_depth +5
+
+            "It is complicated," Izack acknowledges. "I'm your teacher, mentor, technically your supervisor at Avalon. The power dynamics alone..."
+
+            "But," he continues quietly, "I believe in honesty. And honestly, these feelings have become impossible to ignore. We don't have to decide anything tonight. But I wanted you to know."
+
+            There's relief in naming what's been building between you.
+
+            *goto philosophy_end
+
+        #"You've become one of my closest friends."
+            *set izack_friendship +10
+
+            Izack smiles warmly. "And you've become one of mine. That's rare at my age. True friendship is a precious gift."
+
+            There's genuine contentment in his expression—this is enough.
+
+            *goto philosophy_end
+*else
+    "You've become one of my most trusted colleagues," Izack continues. "When I need someone for delicate diplomatic work, I think of you. When I imagine the future of inter-dimensional relations, I see leaders like you shaping it."
+
+    *set fame %+10
+
+    *goto philosophy_end
+
+*label philosophy_end
+
+As you leave Izack's study that evening, you feel profoundly changed. You understand not just the techniques of diplomacy, but its purpose. Not just how to negotiate treaties, but why those treaties matter.
+
+You're not just learning a skill set. You're embracing a calling.
+
+*set empathy %+10
+*set wisdom %+10
+
+The diplomatic path has shaped you into someone who builds bridges across boundaries, who sees connection where others see division, who believes that understanding is always possible if both parties have courage.
+
+This is who you're becoming. This is the diplomat you were meant to be.
+
+*page_break The path forward awaits
+
+*comment Year Two Crisis begins - the true test of all your training
+*goto_scene year_two_crisis

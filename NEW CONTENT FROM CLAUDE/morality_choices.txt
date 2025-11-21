@@ -1,0 +1,718 @@
+*comment ================================================
+*comment MORALITY VARIATIONS - Complex Ethical Choices
+*comment Created by: Claude
+*comment Purpose: Add moral depth and meaningful consequences
+*comment Usage: Insert into relevant scenes or create new moral dilemma scenes
+*comment ================================================
+
+*comment ================================================
+*comment MORAL DILEMMA 1: THE CHEATING STUDENT
+*comment Tests: Individual vs. Community, Truth vs. Compassion
+*comment ================================================
+
+*label discovered_cheating
+
+During a crucial exam, you notice your friend struggling.
+
+*line_break
+
+Not just struggling—panicking. They're going to fail, and failure in this class means expulsion from Avalon.
+
+*page_break
+
+You glance at their paper. Blank. Almost completely blank.
+
+*line_break
+
+They catch your eye, and you see desperation there.
+
+*page_break
+
+The proctor is distracted, dealing with a magical mishap across the room. No one is watching.
+
+*line_break
+
+You know the answers. You could help.
+
+*choice
+  #Let them copy your answers
+    *set community_vs_individual +15
+    *set compassion +10
+    *set truth_vs_secrecy +15
+    *set guilt +10
+    *goto helped_cheat
+
+  #Slip them a note offering to study together afterward
+    *set wisdom +10
+    *set community_vs_individual +5
+    *set compassion +5
+    *goto note_help
+
+  #Do nothing—they need to succeed or fail on their own
+    *set individual_vs_community -15
+    *set discipline +10
+    *set truth_vs_secrecy -10
+    *goto let_them_fail
+
+  #Report the situation to the proctor after the exam
+    *set truth_vs_secrecy -20
+    *set justice +15
+    *set guilt +15
+    *goto report_situation
+
+*label helped_cheat
+You slide your paper slightly to the left, making it visible.
+
+*line_break
+
+They copy quickly, gratefully. You see relief flood their face.
+
+*page_break
+
+A week later, results are posted. They passed. Barely, but they passed.
+
+*line_break
+
+They hug you, whispering "Thank you. I owe you everything."
+
+*page_break
+
+But that night, you lie awake wondering:
+
+*line_break
+
+Did you help a friend? Or did you cheat them out of the lesson failure would have taught?
+
+*set friend_saved true
+*set moral_complexity +10
+
+*if (truth_vs_secrecy >= 60)
+  The guilt eats at you. You resolve to confess.
+  *set confession_planned true
+
+*return
+
+*label note_help
+You slide a small note: "Let's study together this weekend. We'll prepare for the next one."
+
+*line_break
+
+They read it, nod slightly, and return to their exam.
+
+*page_break
+
+They fail. You see them crying in the hall afterward.
+
+*line_break
+
+But they don't get expelled—the professor offers a retake, seeing their genuine effort.
+
+*page_break
+
+That weekend, you study together. They work harder than you've ever seen anyone work.
+
+*line_break
+
+They ace the retake.
+
+*page_break
+
+"Thank you," they say. "Not for the answers. For believing I could do it myself."
+
+*set friend_relationship +20
+*set wisdom +15
+*set mentor +10
+
+*return
+
+*label let_them_fail
+You focus on your own exam.
+
+*line_break
+
+It's not your responsibility to save them.
+
+*page_break
+
+They fail. They're expelled the next week.
+
+*line_break
+
+The last time you see them, they look at you with such betrayal in their eyes.
+
+*page_break
+
+"You could have helped," they say quietly.
+
+*line_break
+
+*choice
+  #"You needed to learn to stand on your own."
+    *set discipline +10
+    *set guilt -5
+    *goto justify_failure
+
+  #"I'm sorry. I thought... I don't know what I thought."
+    *set empathy +5
+    *set guilt +10
+    *goto apologize_failure
+
+  #Say nothing
+    *set cold +10
+    *goto silent_failure
+
+*label justify_failure
+"That's easy to say when *you're* staying," they reply.
+
+*set friend_relationship -30
+*set reputation_harsh +10
+
+*return
+
+*label apologize_failure
+They nod, tears in their eyes.
+
+"I understand. I just... I wish things were different."
+
+*set friend_relationship -10
+*set guilt +15
+
+*return
+
+*label silent_failure
+They turn and walk away.
+
+You never see them again.
+
+*set cold +15
+*set friend_relationship -40
+
+*return
+
+*label report_situation
+After the exam, you approach the proctor.
+
+"Professor, I need to report something..."
+
+*page_break
+
+The investigation is swift. Your friend is expelled for attempting to cheat, even though they didn't actually copy anything.
+
+*line_break
+
+The entire student body knows you reported them.
+
+*page_break
+
+Some students nod approvingly. "Rules matter," they say.
+
+*line_break
+
+Others avoid you in the halls. "Snitch," someone spray-paints on your dorm door.
+
+*page_break
+
+Your friend's last words to you: "I hope your principles keep you warm at night."
+
+*set justice +20
+*set friend_relationship -50
+*set reputation_enforcer +20
+*set isolation +15
+*set guilt +20
+
+*return
+
+*comment ================================================
+*comment MORAL DILEMMA 2: THE DANGEROUS DISCOVERY
+*comment Tests: Safety vs. Knowledge, Control vs. Freedom
+*comment ================================================
+
+*label forbidden_spell_found
+
+In the restricted section, you find it.
+
+*line_break
+
+A spell. Ancient, powerful, and explicitly forbidden by the Academy.
+
+*page_break
+
+The text is clear: "This dimensional manipulation can create permanent portals between realms. Warning: Uncontrolled portals may destabilize entire dimensions."
+
+*line_break
+
+It's exactly what you need for your thesis. This could make you legendary.
+
+*page_break
+
+But it's forbidden for a reason.
+
+*choice
+  #Learn the spell in secret
+    *set revelation_vs_secrecy +20
+    *set tradition_vs_innovation +20
+    *set power +15
+    *set dangerous_knowledge true
+    *goto learn_forbidden
+
+  #Report the discovery to professors
+    *set revelation_vs_secrecy -15
+    *set responsibility +15
+    *set academic_integrity +10
+    *goto report_forbidden
+
+  #Study the spell but don't learn it—just understand the theory
+    *set knowledge +10
+    *set wisdom +10
+    *set theoretical_only true
+    *goto study_forbidden
+
+  #Destroy the text so no one else can find it
+    *set safety +15
+    *set knowledge_destroyed +10
+    *set controversial_action true
+    *goto destroy_forbidden
+
+*label learn_forbidden
+Over the next weeks, you practice in secret.
+
+*line_break
+
+The spell is intoxicating. Reality bends to your will. You create a portal to a dimension of pure light, then close it. Open a window to a world of living music. Close it.
+
+*page_break
+
+Control is everything. And you have control.
+
+*line_break
+
+*if collaboration >= 70
+  But Izack notices. He always notices.
+
+  *page_break
+
+  "You're practicing something dangerous, aren't you? I can see it in your energy signature."
+
+  *choice
+    #Confess everything
+      *set collaboration +10
+      *set izack_relationship +15
+      *goto confess_to_izack
+
+    #Lie and deny it
+      *set guilt +15
+      *set izack_relationship -10
+      *goto lie_to_izack
+
+*if collaboration < 70
+  No one discovers your secret.
+
+  *line_break
+
+  You present your thesis. It's brilliant. Unprecedented.
+
+  *page_break
+
+  You graduate with highest honors.
+
+  *line_break
+
+  But you never tell anyone how you learned what you know.
+
+  *set academic_fraud +20
+  *set secret_shame +15
+
+*return
+
+*label confess_to_izack
+You tell him everything.
+
+*line_break
+
+He's quiet for a long time.
+
+*page_break
+
+"Forbidden knowledge isn't always forbidden because it's evil," he finally says. "Sometimes it's forbidden because we're not ready. Not as individuals, not as a society."
+
+*line_break
+
+"But you *are* ready. I can see that."
+
+*page_break
+
+"Don't use it lightly. Promise me."
+
+*set izack_trust +20
+*set responsible_power true
+*set promise_made true
+
+*return
+
+*label lie_to_izack
+"I don't know what you're talking about."
+
+*line_break
+
+He looks disappointed but nods.
+
+"If you say so."
+
+*page_break
+
+Your friendship is never quite the same.
+
+*set izack_relationship -15
+*set trust_damaged true
+
+*return
+
+*label report_forbidden
+The professors are grateful.
+
+"You did the right thing, ${name}. This spell has killed three students over the Academy's history."
+
+*page_break
+
+They seal the text permanently.
+
+*line_break
+
+Your thesis takes a different direction—less spectacular, but solid.
+
+*page_break
+
+You graduate with good grades, but not the legendary status you might have achieved.
+
+*line_break
+
+Still, you sleep well at night.
+
+*set integrity +20
+*set safety_first true
+*set peaceful_conscience true
+
+*return
+
+*label study_forbidden
+You memorize the theory without practicing the spell.
+
+*line_break
+
+Understanding without application. Knowledge without use.
+
+*page_break
+
+In your thesis, you write about *why* such spells are dangerous, analyzing the theoretical flaws that make them unstable.
+
+*line_break
+
+Your paper becomes required reading for advanced students.
+
+*page_break
+
+You've contributed to safety without taking the risk yourself.
+
+*set wisdom +20
+*set knowledge +15
+*set theoretical_mastery true
+*set academic_contribution +15
+
+*return
+
+*label destroy_forbidden
+You burn the text.
+
+*line_break
+
+Smoke curls up from the ancient pages, carrying away knowledge that can never be recovered.
+
+*page_break
+
+Later, you wonder:
+
+*line_break
+
+Did you save future students from danger? Or did you rob them of the choice you just made?
+
+*set moral_ambiguity +15
+*set knowledge_destroyed true
+
+*if wisdom >= 70
+  You realize there's no right answer. Some choices are just... hard.
+  *set acceptance_of_complexity true
+
+*return
+
+*comment ================================================
+*comment MORAL DILEMMA 3: THE RIVAL'S SECRET
+*comment Tests: Compassion vs. Competition, Loyalty vs. Ambition
+*comment ================================================
+
+*label rivals_secret
+
+You discover your main rival has been hiding something devastating.
+
+*line_break
+
+They're sick. A magical illness slowly draining their power. Without treatment, they won't be able to continue at the Academy.
+
+*page_break
+
+The treatment exists, but it's expensive. Their family can't afford it.
+
+*line_break
+
+You have the money. Barely. But it would take everything you've saved for your own future.
+
+*page_break
+
+This person has made your life difficult. Challenged you at every turn. Sometimes been cruel.
+
+*line_break
+
+But they're also brilliant, driven, and don't deserve this fate.
+
+*choice
+  #Pay for their treatment anonymously
+    *set compassion +20
+    *set wealth -50
+    *set empathy +15
+    *goto pay_anonymous
+
+  #Offer to pay, but let them know it's you
+    *set compassion +15
+    *set wealth -50
+    *set rival_relationship +30
+    *goto pay_openly
+
+  #Help them find other funding sources
+    *set wisdom +10
+    *set collaboration +10
+    *goto help_funding
+
+  #Do nothing—it's not your responsibility
+    *set ambition +10
+    *set cold +10
+    *goto ignore_rival
+
+  #Use this information as leverage
+    *set manipulation +20
+    *set ruthless +15
+    *set rival_relationship -40
+    *goto leverage_secret
+
+*label pay_anonymous
+Months later, they're cured.
+
+They never know it was you.
+
+*page_break
+
+They graduate at the top of the class, beating you by a single point.
+
+*line_break
+
+At graduation, they give a speech thanking an "anonymous benefactor" who saved their life.
+
+*page_break
+
+"I don't know who you are," they say, voice breaking. "But you showed me that competition doesn't have to mean cruelty. Thank you."
+
+*line_break
+
+You smile from the audience.
+
+*set peaceful_conscience true
+*set wealth +0
+*set happiness +20
+
+*return
+
+*label pay_openly
+You approach them directly.
+
+"I know about the illness. Let me help."
+
+*page_break
+
+They stare at you, stunned.
+
+"Why? I've been terrible to you."
+
+*line_break
+
+*choice
+  #"Because you deserve a chance."
+    *set compassion +10
+    *goto rival_transformed
+
+  #"Because losing to you when you're sick isn't really winning."
+    *set competitive +5
+    *goto rival_respected
+
+  #"Because it's the right thing to do."
+    *set integrity +10
+    *goto rival_transformed
+
+*label rival_transformed
+They accept, crying.
+
+Your rivalry transforms into the deepest friendship of your life.
+
+*set rival_relationship +50
+*set best_friend_gained true
+
+*return
+
+*label rival_respected
+They laugh through tears.
+
+"I can respect that."
+
+The rivalry continues, but it's different now. Mutual respect instead of animosity.
+
+*set rival_relationship +30
+*set healthy_competition true
+
+*return
+
+*label help_funding
+You help them apply for scholarships, set up a fundraising campaign, connect them with donors.
+
+*page_break
+
+It takes months, but together you raise enough.
+
+*line_break
+
+They're saved, and you haven't bankrupted yourself.
+
+*set wisdom +15
+*set collaboration +15
+*set problem_solver true
+*set rival_relationship +20
+
+*return
+
+*label ignore_rival
+They disappear from the Academy mid-semester.
+
+*line_break
+
+You win every competition after that.
+
+*page_break
+
+But the victories feel hollow.
+
+*line_break
+
+Years later, you hear they recovered on their own and became a powerful mage—but they never forgave the institution that failed to help them, or the students who stood by.
+
+*set guilt +15
+*set ambition +10
+*set hollow_victory true
+
+*return
+
+*label leverage_secret
+You approach them privately.
+
+"I know about your illness. I could help... for a price."
+
+*page_break
+
+Their face goes pale, then hard.
+
+"What do you want?"
+
+*line_break
+
+"Drop out of the competition. Recommend me for the scholarship."
+
+*page_break
+
+They agree, hating you.
+
+*line_break
+
+You win. You get the scholarship, the accolades, the recognition.
+
+*page_break
+
+But everyone knows what you did. Your victory is tainted.
+
+*line_break
+
+You're successful, powerful, and alone.
+
+*set ruthless +20
+*set reputation_manipulator +30
+*set isolation +25
+*set rival_relationship -50
+*set guilt +30
+*set success_at_cost true
+
+*return
+
+*comment ================================================
+*comment NOTES FOR INTEGRATION:
+*comment ================================================
+*comment
+*comment VARIABLES NEEDED (add to startup.txt):
+*comment *create guilt 0
+*comment *create compassion 50
+*comment *create justice 50
+*comment *create discipline 50
+*comment *create moral_complexity 0
+*comment *create confession_planned false
+*comment *create friend_saved false
+*comment *create mentor 0
+*comment *create cold 0
+*comment *create reputation_harsh 0
+*comment *create reputation_enforcer 0
+*comment *create isolation 0
+*comment *create dangerous_knowledge false
+*comment *create academic_fraud 0
+*comment *create secret_shame 0
+*comment *create izack_trust 0
+*comment *create responsible_power false
+*comment *create promise_made false
+*comment *create trust_damaged false
+*comment *create integrity 50
+*comment *create safety_first false
+*comment *create peaceful_conscience false
+*comment *create theoretical_mastery false
+*comment *create academic_contribution 0
+*comment *create moral_ambiguity 0
+*comment *create knowledge_destroyed false
+*comment *create acceptance_of_complexity false
+*comment *create ambition 50
+*comment *create manipulation 0
+*comment *create ruthless 0
+*comment *create rival_relationship 50
+*comment *create best_friend_gained false
+*comment *create healthy_competition false
+*comment *create problem_solver false
+*comment *create hollow_victory false
+*comment *create reputation_manipulator 0
+*comment *create success_at_cost false
+*comment
+*comment WHERE TO INSERT:
+*comment - discovered_cheating → academy_life.txt or year_two_start.txt
+*comment - forbidden_spell_found → secret_paths.txt or advanced_training.txt
+*comment - rivals_secret → combat_path.txt or year_three_start.txt
+*comment
+*comment PURPOSE:
+*comment These moral dilemmas have NO perfect answers.
+*comment Every choice has consequences—positive AND negative.
+*comment Players should feel the weight of their decisions.
+*comment Outcomes affect relationships, reputation, and self-image.
+*comment
+*comment This is what makes Choice of Games titles memorable:
+*comment Choices that make you pause and think,
+*comment Consequences that ripple through the entire story,
+*comment Moral complexity that mirrors real life.
+*comment
+*comment ================================================
