@@ -11,9 +11,10 @@ This repository contains narrative source material and chat logs related to the 
 ## Getting ready to add game files
 1. Install Node.js (LTS) and Git.
 2. From the repo root, run `./game/bootstrap_choicescript.sh` to clone the official ChoiceScript engine locally under `game/choicescript/`.
-3. Run `./game/sync_scenes.sh` to copy the demo scenes into `game/choicescript/web/mygame/`.
+3. Run `./game/sync_scenes.sh` to copy the demo scenes (startup, prologue, council, crossroads, mission, epilogue, and the stats screen) into `game/choicescript/web/mygame/`.
 4. Start the ChoiceScript server from inside `game/choicescript/` (`run-server.bat` on Windows, `serve.command` on macOS, `bash serve.sh` on Linux/WSL), then open the browser at `http://localhost:4200/` if it does not open automatically.
-5. Edit scenes in `game/scenes/` and re-run `./game/sync_scenes.sh` to refresh the playable build.
+5. Use the in-game **Show Stats** button to view honor, attunement, resolve, mentor, and renown values as you test branches.
+6. Edit scenes in `game/scenes/` and re-run `./game/sync_scenes.sh` to refresh the playable build.
 
 ## Security
 Previous commits contained plaintext API keys. They have been removed from the tracked files. Make sure to rotate any keys that may have been exposed and only store live credentials in your local `.env` file.

@@ -1,0 +1,36 @@
+The Council of Three convenes. Crystalline chairs float around a low table that pulses in time with the Spiral. You are asked why you sought Avalon.
+
+*choice
+  #To defend the Aerie. The west grows restless.
+    "Then your blade must carry purpose," says the Warden Primus.
+    *set honor +5
+    *set resolve +5
+    *goto decision
+  #To understand the Spiral’s resonance.
+    The Archivist smiles, impressed. "Curiosity protects as surely as steel."
+    *set attunement +10
+    *goto decision
+  #To uplift my mentor’s work.
+    ${mentor} straightens with pride.
+    *set renown +1
+    *set resolve +5
+    *goto decision
+
+*label decision
+The Council assigns you a trial. Each member offers a different path.
+
+*choice
+  #Accept the Warden Primus's combat trial.
+    You will spar against constructs that adapt to your tactics.
+    *set honor +5
+    *set resolve +5
+    *goto_scene crossroads
+  #Take the Archivist's lore trial.
+    You will decipher a broken songline beneath the city.
+    *set attunement +5
+    *goto_scene crossroads
+  #Request time to prepare with ${mentor}.
+    Preparation comes at a cost, but ${mentor} shares guarded notes.
+    *set resolve +5
+    *set attunement +2
+    *goto_scene crossroads

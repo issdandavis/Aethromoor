@@ -3,11 +3,16 @@
 *scene_list
   startup
   prologue
+  council
   crossroads
+  mission
+  epilogue
 
 *create honor 50
 *create attunement 50
 *create mentor "Aria"
+*create resolve 40
+*create renown 0
 
 You stand before the gates of Avalon, the Spiral of Eternity humming under your feet. Today you choose how you will meet the city's secrets.
 
@@ -19,11 +24,13 @@ You stand before the gates of Avalon, the Spiral of Eternity humming under your 
   #Drill with the wardens who guard the bridge to the central spire.
     Steel meets steel as you spar. The wardens nod when you match their pace.
     *set honor +10
+    *set renown +1
     *goto embark
   #Seek counsel from ${mentor}, the archivist who brought you here.
     ${mentor} speaks softly about balance between duty and wonder.
     *set mentor "Corin"
     *set attunement +5
+    *set resolve +5
     *goto embark
 
 *label embark

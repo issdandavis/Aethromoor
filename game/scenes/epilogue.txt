@@ -1,0 +1,16 @@
+*comment Ending scene referencing accumulated stats.
+
+You return to the Council chamber. Crystalline panes replay fragments of your trial.
+
+*if attunement >= 65
+  The Archivist crowns you Keeper of the Songline. Your name threads into the Spiral itself.
+  *ending
+*elseif honor >= 65
+  Warden Primus clasps your forearm. "Service has sharpened you. Walk with the wardens."
+  *ending
+*elseif resolve >= 50
+  The Council notes your resilience. "Growth in motion," ${mentor} whispers. "Avalon will remember."
+  *ending
+*else
+  You are invited to remain as a student, to try again when ready.
+  *finish

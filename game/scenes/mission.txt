@@ -1,0 +1,52 @@
+*comment Central mission scene demonstrating branches and stat checks.
+
+You stand before the trial site chosen for you.
+
+*choice
+  #Face the adaptive constructs in the Warden Primus's hall.
+    Clockwork figures mirror your stance. Each strike tests your resolve.
+    *if honor >= 60
+      You anticipate their forms and disarm the last construct with grace.
+      *set renown +2
+      *goto outcome_combat
+    *else
+      You fight hard but absorb several ringing blows.
+      *set resolve -5
+      *set renown +1
+      *goto outcome_combat
+  #Descend into the Spiral's songline vault.
+    Crystalline harmonics vibrate through your bones.
+    *if attunement >= 60
+      You weave lost notes back into place; the chamber brightens.
+      *set renown +2
+      *goto outcome_lore
+    *elseif attunement >= 45
+      You stabilize the songline, but your focus frays at the edges.
+      *set resolve -3
+      *goto outcome_lore
+    *else
+      The resonance overwhelms you. ${mentor} steadies your hand.
+      *set resolve -7
+      *goto outcome_lore
+  #Request a diplomatic errand to rally nearby banners.
+    You travel across the skybridge to negotiate support.
+    *if renown >= 2
+      Your earlier deeds precede you. Envoys pledge token aid.
+      *set honor +3
+      *goto outcome_diplomacy
+    *else
+      The envoys expect proof. You offer stories and promises instead.
+      *set resolve +3
+      *goto outcome_diplomacy
+
+*label outcome_combat
+The constructs kneel, gears winding down. Warden Primus nods once.
+*goto_scene epilogue
+
+*label outcome_lore
+The Archivist seals the vault and inscribes your attempt in the record.
+*goto_scene epilogue
+
+*label outcome_diplomacy
+Couriers rush ahead to inform the Council of your progress.
+*goto_scene epilogue

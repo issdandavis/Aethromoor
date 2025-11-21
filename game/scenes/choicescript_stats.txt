@@ -1,0 +1,8 @@
+*stat_chart
+  percent honor
+  percent attunement
+  percent resolve
+  text mentor
+  text renown
+
+*comment Renown displayed as text for the demo; convert to percent if desired.

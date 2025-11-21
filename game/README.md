@@ -20,11 +20,19 @@ This repository now includes a small ChoiceScript-friendly scaffolding to help y
    - macOS: double-click `serve.command` (you may need to allow it under System Settings > Gatekeeper the first time).
    - Linux/WSL: run `bash serve.sh`.
 4. Your browser should open to the demo. If it doesn’t, open `http://localhost:4200/` manually while the server is running.
+5. Use the in-game **Show Stats** button to track honor, attunement, resolve, mentor, and renown as you test branches.
 
 ## Editing and extending scenes
 - The sample scenes live in `game/scenes/`. Edit them directly there.
 - Run `./game/sync_scenes.sh` after changes to push updates into the engine’s `web/mygame/` folder.
 - Scene order and available files are controlled by `*scene_list` at the top of `startup.txt`.
+- The included demo highlights multiple ChoiceScript features you can reuse:
+  - `startup.txt` seeds player stats and points to subsequent scenes.
+  - `council.txt` shows nested choices and `*goto_scene` routing.
+  - `crossroads.txt` demonstrates an inline stat check before branching.
+  - `mission.txt` contains multi-level `*if`, `*elseif`, and `*else` checks.
+  - `epilogue.txt` uses stat-driven endings.
+  - `choicescript_stats.txt` defines the stats screen for the **Show Stats** button.
 
 ## Linking to existing narrative materials
 - Reference lore and narrative drafts live under `docs/avalon_materials/` and `docs/reference/`.

@@ -4,6 +4,7 @@ The skybridge to the Aerie arches above clouds. Banners from distant houses ripp
   #Pause to read the banners.
     The sigils speak of alliances and old debts. The wardens note your patience.
     *set honor +5
+    *set renown +1
     *goto next
   #Listen for echoes in the Spiral.
     A rhythm of distant bells answers you. Your attunement sharpens.
@@ -11,6 +12,7 @@ The skybridge to the Aerie arches above clouds. Banners from distant houses ripp
     *goto next
   #Move quickly; the council is waiting.
     You stride forward. ${mentor} jogs to keep up.
+    *set resolve +5
     *goto next
 
 *label next
