@@ -21,19 +21,19 @@ You stand before the gates of Avalon, the Spiral of Eternity humming under your 
 
 *choice
   #Study the ley lines that weave through the plaza.
-    The glyphs glow brighter as you trace them. You feel the Spiral answer your curiosity.
+    The glyphs glow brighter as you trace them. You feel the Spiral answer your curiosity. Aria, the archivist who brought you here, nods approvingly.
     *set attunement +10
     *set resonance_mark true
     *set mentor "Aria"
     *goto embark
   #Drill with the wardens who guard the bridge to the central spire.
-    Steel meets steel as you spar. The wardens nod when you match their pace.
+    Steel meets steel as you spar. The wardens nod when you match their pace. Aria, watching from the sidelines, makes a note in her journal.
     *set honor +10
     *set oathbound true
     *set mentor "Aria"
     *goto embark
-  #Seek counsel from Corin, the archivist who brought you here.
-    Corin speaks softly about balance between duty and wonder.
+  #Seek counsel from Corin, a renowned archivist.
+    You find Corin in a quiet alcove. Corin speaks softly about balance between duty and wonder, offering to guide your path.
     *set mentor "Corin"
     *set attunement +5
     *goto embark

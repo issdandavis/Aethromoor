@@ -23,8 +23,10 @@ Beneath the council chambers, ancient pathways wind into the heart of the Spiral
     *set council_trust +10
     *if mentor = "Corin"
       "I chose this path long ago," Corin continues, "trading action for understanding. Some days I wonder if I chose wisely."
+    *elseif mentor = "Aria"
+      "I walked these depths in my youth," Aria reflects. "Each generation must find their own truth here."
     *else
-      "Aria walked these depths before me," ${mentor} muses. "Each generation must find their own truth here."
+      "The archivists who came before walked these depths," ${mentor} muses. "Each generation must find their own truth here."
     *goto spiral_revelation
 
 *label spiral_revelation
