@@ -1,0 +1,52 @@
+You descend a spiral staircase into the oldest section of Avalon's archives. The air hums with ancient power, and crystalline shelves hold tomes that predate the academy itself.
+
+${mentor} warned you about this place. "The deep archives remember everything," they said. "Even things best forgotten."
+
+*choice
+  #Seek texts about the World Tree's awakening.
+    You pull a leather-bound codex from a high shelf. The pages glow faintly, showing roots that stretch across dimensions.
+    *if attunement >= 55
+      The World Tree's voice whispers in your mind, sharing fragments of its dream. You understand the Spiral's song more clearly now.
+      *set attunement +15
+      *set resonance_mark true
+      *goto deep_discovery
+    The text is too advanced. You feel the Tree's presence but cannot grasp its meaning.
+    *set attunement +5
+    *goto deep_discovery
+  #Study the contracts that founded Avalon Academy.
+    Nine magical traditions, nine signatures in light and shadow. The Interstice Moment, when peace was chosen over power.
+    *set honor +10
+    *set council_trust +10
+    *goto deep_discovery
+  #Search for ${mentor}'s earlier research on dimensional linguistics.
+    You find notes in ${mentor}'s hand, detailing how space itself can be read as grammar. Marginal sketches show portal configurations.
+    *set attunement +10
+    *set council_trust +5
+    *goto deep_discovery
+  #Touch nothing; simply observe and listen.
+    The archives whisper around you. You catch fragments of student gossip from decades past, prophecies half-fulfilled, and songs the fey once sang.
+    *set attunement +5
+    *goto deep_discovery
+
+*label deep_discovery
+A shimmer of light beckons from deeper in the archives. You've learned something valuable here.
+
+*if resonance_mark
+  The Spiral marks you permanently. The archives will always welcome you back.
+
+*choice
+  #Return to the council with your findings.
+    Knowledge is meant to be shared.
+    *goto_scene council
+  #Venture deeper into the forbidden section.
+    Some truths are worth the risk.
+    *if attunement >= 65
+      The wards part for you. Ancient secrets await.
+      *set attunement +10
+      *finish
+    The wards hold firm. You're not ready yet.
+    *goto_scene epilogue
+  #Find ${mentor} and discuss what you've learned.
+    Wisdom grows through conversation.
+    *set council_trust +5
+    *goto_scene epilogue

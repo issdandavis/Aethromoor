@@ -7,6 +7,9 @@
   council
   archives
   wardens
+  library_depths
+  spiral_meditation
+  warden_trial
   epilogue
 
 *create honor 50

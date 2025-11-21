@@ -1,0 +1,63 @@
+The meditation chamber floats suspended above the central Spiral. Translucent walls reveal the eternal dance of magical currents below. Cushions arranged in a circle invite stillness.
+
+*if oathbound
+  Your warden's training taught you discipline. That foundation may help here.
+*else
+  You've approached magic through study and wonder. Now you must find stillness within.
+
+A master of the Third Thread—magic that learns and adapts—guides you. "The Spiral doesn't demand. It listens. What will you say?"
+
+*choice
+  #Meditate on duty and protection.
+    You focus on oaths, shields, and the weight of responsibility. The Spiral responds with a steady, grounding rhythm.
+    *set honor +10
+    *if oathbound
+      Your bond strengthens. The Spiral recognizes your commitment.
+      *set attunement +10
+      *set council_trust +5
+      *goto meditation_result
+    The meditation is harder without an oath to anchor you.
+    *set attunement +5
+    *goto meditation_result
+  #Open yourself completely to the Spiral's song.
+    You release control, letting the currents of magic flow through you without resistance.
+    *set attunement +15
+    *if resonance_mark
+      The mark flares. You and the Spiral harmonize perfectly, becoming one voice.
+      *set attunement +10
+      *goto meditation_result
+    The experience is overwhelming but beautiful. You glimpse infinity.
+    *goto meditation_result
+  #Seek balance between duty and wonder.
+    You hold both honor and curiosity in your heart, finding the point where they meet.
+    *set honor +5
+    *set attunement +10
+    *set council_trust +10
+    *goto meditation_result
+  #Ask ${mentor} to meditate with you.
+    ${mentor} settles beside you. "We'll navigate the Spiral together."
+    Your combined focus creates unexpected resonance. The Third Thread master nods approvingly.
+    *set attunement +10
+    *set council_trust +15
+    *goto meditation_result
+
+*label meditation_result
+The session ends. You rise from the cushion, changed.
+
+*if attunement >= 70
+  The Spiral's voice is clear now. You could teach others this harmony.
+
+The master smiles. "The council will hear of your progress. But mastery isn't about power—it's about listening."
+
+*choice
+  #Thank the master and return to your duties.
+    Wisdom must be practiced, not just learned.
+    *goto_scene epilogue
+  #Ask to study the Third Thread magic further.
+    Evolution calls to you.
+    *set attunement +5
+    *finish
+  #Propose demonstrating this technique to the council.
+    Innovation could benefit all of Avalon.
+    *set council_trust +5
+    *goto_scene council

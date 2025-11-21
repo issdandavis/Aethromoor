@@ -1,0 +1,107 @@
+The martial hall's training ground has been cleared. Silver spears mark a boundary circle. Wardens in formal armor stand witness as the captain approaches.
+
+"You've shown interest in our ways," the captain says. "Now prove you understand them. This trial tests both blade and mind."
+
+*choice
+  #Accept the challenge with a formal salute.
+    You match their ceremony with respect. The wardens nod.
+    *set honor +10
+    *goto trial_begins
+  #Ask what the trial entails before committing.
+    The captain appreciates your caution. "Wise to know the terms before binding yourself."
+    *set attunement +5
+    *goto trial_begins
+  #Decline respectfully; you're not ready yet.
+    "Honesty has its own honor," the captain says. "Return when you are certain."
+    *set honor +5
+    *goto_scene epilogue
+
+*label trial_begins
+The trial has three components: combat form, tactical judgment, and oathkeeping.
+
+*comment Combat Form
+A warden steps forward with a practice blade. You must demonstrate your skill.
+
+*choice
+  #Fight with honor, holding nothing back.
+    Steel rings against steel. You move with precision and strength.
+    *if honor >= 60
+      Your reputation precedes you. The wardens watch in approval as you execute flawless forms.
+      *set honor +10
+      *goto tactical_test
+    You fight well, but lack the refinement that comes with experience.
+    *set honor +5
+    *goto tactical_test
+  #Use unconventional tactics to gain advantage.
+    You feint, improvise, and adapt. The warden raises an eyebrow.
+    *set attunement +5
+    *goto tactical_test
+  #Consult ${mentor} about historical warden techniques.
+    ${mentor} whispers advice about ancient battle forms once used by Avalon's founders.
+    *set honor +8
+    *set council_trust +5
+    *goto tactical_test
+
+*label tactical_test
+"Now," the captain says, "a scenario. Hostile forces approach the academy. You command the bridge defense. What do you do?"
+
+*choice
+  #Propose a layered defense using wards and wardens together.
+    "Balance," the captain says. "Honor and magic working in concert. Well considered."
+    *set honor +10
+    *set attunement +5
+    *set council_trust +10
+    *goto oath_moment
+  #Suggest evacuating non-combatants first, then holding the line.
+    "You value lives over glory. That's true strength."
+    *set honor +15
+    *goto oath_moment
+  #Recommend a bold counter-attack to scatter the enemy.
+    The wardens murmur. This is aggressive but could work.
+    *if honor >= 65
+      "Decisive," the captain nods. "We need leaders who aren't afraid to act."
+      *set honor +10
+      *goto oath_moment
+    "Too reckless without proven trust. But you show potential."
+    *set honor +5
+    *goto oath_moment
+
+*label oath_moment
+The captain presents a silver badge bearing Avalon's spiral and crossed spears.
+
+"Will you swear to protect this academy, its people, and the balance we guard?"
+
+*choice
+  #Take the oath and accept the badge.
+    You kneel, speaking words that have been spoken for generations. The weight of duty settles on your shoulders.
+    *set oathbound true
+    *set honor +15
+    *set council_trust +15
+    *goto trial_complete
+  #Accept the badge but request time before taking the full oath.
+    "You honor the oath by not speaking it lightly," the captain says. "When you're ready, we'll be here."
+    *set honor +10
+    *goto trial_complete
+  #Suggest a modified oath that includes seeking knowledge.
+    The captain considers. "Balance again. Honor with wisdom. The council will need to approve this."
+    *set honor +5
+    *set attunement +5
+    *set council_trust +5
+    *goto trial_complete
+
+*label trial_complete
+The trial ends. The wardens clasp your forearm in the traditional gesture.
+
+*if oathbound
+  You are one of them now. The responsibility is real, and so is the bond.
+
+*choice
+  #Join the wardens for their evening meal.
+    Bonds forged in training are strengthened in fellowship.
+    *finish
+  #Report your success to the council.
+    They should know the wardens have faith in you.
+    *goto_scene council
+  #Seek ${mentor}'s guidance on balancing these new responsibilities.
+    Wisdom helps carry the weight.
+    *goto_scene epilogue
