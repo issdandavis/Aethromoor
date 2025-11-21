@@ -1,0 +1,609 @@
+*comment ================================================
+*comment COMPLETE NEW SCENE: MIDTERM EXAMINATION
+*comment Created by: Claude
+*comment Status: Complete, ready to integrate
+*comment Suggested Location: Between year_one_trial.txt and year_two_start.txt
+*comment OR: As part of academy_life.txt expansion
+*comment ================================================
+
+*label start
+
+[b]== MIDTERM EXAMINATION ==[/b]
+
+*page_break
+
+The examination hall is larger than it should be—another pocket dimension woven into Avalon's architecture.
+
+*line_break
+
+Two hundred students sit at individual desks that hover three feet off the ground, each surrounded by anti-cheating wards that shimmer faintly gold.
+
+*page_break
+
+Professor Void stands at the front, her silver hair floating in its characteristic underwater drift.
+
+*line_break
+
+"This examination will test everything you've learned so far. Theory, practice, control, and creativity."
+
+*page_break
+
+"You have three hours. The exam adapts to your skill level—no two tests are identical."
+
+*line_break
+
+She waves her hand, and exam papers materialize on each desk.
+
+*page_break
+
+"Begin."
+
+*comment ================================================
+*comment PART 1: THEORETICAL QUESTIONS
+*comment ================================================
+
+*label theory_section
+
+The first section is pure theory.
+
+*page_break
+
+[b]Question 1: Explain the fundamental difference between dimensional magic and boundary magic.[/b]
+
+*choice
+  #Dimensional magic manipulates space itself; boundary magic creates barriers within space
+    *set knowledge +10
+    *set exam_score +15
+    *goto theory_correct_1
+
+  #They're essentially the same, just different applications
+    *set exam_score +5
+    *goto theory_partial_1
+
+  #Dimensional magic is more powerful than boundary magic
+    *set exam_score +0
+    *goto theory_wrong_1
+
+*label theory_correct_1
+You write confidently, elaborating on the distinction between manipulation and limitation.
+
+*set confidence +5
+
+*goto theory_2
+
+*label theory_partial_1
+You give a basic answer that's not entirely wrong, but misses the nuance.
+
+*goto theory_2
+
+*label theory_wrong_1
+Professor Void will not be impressed by this answer.
+
+*goto theory_2
+
+*label theory_2
+
+*page_break
+
+[b]Question 2: A dimensional portal destabilizes during construction. Describe three methods to safely collapse it.[/b]
+
+*if dimensional_magic >= 60
+  This is easy for you. Your practical experience makes the answer obvious.
+
+  *set exam_score +20
+  *set confidence +5
+
+*if (dimensional_magic >= 30) and (dimensional_magic < 60)
+  You know the theory, but haven't practiced it enough. You answer as best you can.
+
+  *set exam_score +15
+
+*if dimensional_magic < 30
+  You struggle with this one, making educated guesses.
+
+  *set exam_score +8
+  *set stress +5
+
+*goto theory_3
+
+*label theory_3
+
+*page_break
+
+[b]Question 3: Discuss the ethical implications of memory magic. Should memories ever be altered or erased?[/b]
+
+*line_break
+
+This question has no right answer—it's testing your reasoning ability.
+
+*choice
+  #Yes, in extreme cases where memories cause suffering
+    *set compassion +5
+    *set exam_score +15
+    *goto ethics_compassion
+
+  #No, memories are integral to identity and should never be altered
+    *set integrity +5
+    *set exam_score +15
+    *goto ethics_integrity
+
+  #It depends on consent and context
+    *set wisdom +10
+    *set exam_score +20
+    *goto ethics_nuanced
+
+  #Memory magic should be banned entirely
+    *set cautious_vs_bold -10
+    *set exam_score +10
+    *goto ethics_restrictive
+
+*label ethics_compassion
+You argue for compassionate intervention in cases of trauma.
+
+*goto practical_section
+
+*label ethics_integrity
+You defend the sanctity of personal identity and memory.
+
+*goto practical_section
+
+*label ethics_nuanced
+You present a balanced argument exploring multiple perspectives.
+
+Professor Void has specifically mentioned appreciating nuanced thinking.
+
+*set professor_void_impressed true
+
+*goto practical_section
+
+*label ethics_restrictive
+A safe but unimaginative answer.
+
+*goto practical_section
+
+*comment ================================================
+*comment PART 2: PRACTICAL DEMONSTRATION
+*comment ================================================
+
+*label practical_section
+
+*page_break
+
+The theoretical portion vanishes, replaced by a practical challenge.
+
+*line_break
+
+A small dimensional rift appears above your desk—unstable, crackling with energy.
+
+*page_break
+
+[b]PRACTICAL CHALLENGE: Stabilize or safely collapse the rift. You will be graded on method, control, and safety.[/b]
+
+*choice
+  #Use collaborative magic—invite nearby students to help
+    *if collaborative_magic >= 50
+      *set exam_score +25
+      *set collaboration +15
+      *goto collaborative_solution
+    *set exam_score +15
+    *set collaboration +10
+    *goto collaborative_solution
+
+  #Use pure dimensional magic to stabilize it
+    *if dimensional_magic >= 70
+      *set exam_score +30
+      *set power +10
+      *goto dimensional_solution
+    *if dimensional_magic >= 40
+      *set exam_score +20
+      *goto dimensional_solution
+    *set exam_score +10
+    *set stress +10
+    *goto dimensional_struggle
+
+  #Use boundary magic to contain it, then collapse safely
+    *if boundary_magic >= 60
+      *set exam_score +25
+      *set wisdom +5
+      *goto boundary_solution
+    *set exam_score +15
+    *goto boundary_solution
+
+  #Immediately alert a professor for help
+    *set exam_score +5
+    *set cautious_vs_bold -15
+    *set wisdom +10
+    *goto get_help
+
+*label collaborative_solution
+You reach out mentally to the students nearest you.
+
+*line_break
+
+Three of them respond, linking their power with yours.
+
+*page_break
+
+Together, you weave a containment field, then carefully unravel the rift's energy, dispersing it harmlessly.
+
+*line_break
+
+Professor Void nods approvingly. "Collaboration. Excellent."
+
+*set teamwork_recognized true
+
+*goto creativity_section
+
+*label dimensional_solution
+You extend your awareness into the rift itself, feeling its structure.
+
+*page_break
+
+With precise manipulation, you stabilize the dimensional fluctuations, transforming the dangerous tear into a stable, tiny portal.
+
+*line_break
+
+Through it, you can see another world—a brief glimpse of impossible beauty.
+
+*page_break
+
+Then you close it gently, like shutting a door.
+
+*line_break
+
+"Impressive control," Professor Void murmurs.
+
+*set dimensional_mastery_shown true
+
+*goto creativity_section
+
+*label dimensional_struggle
+You attempt to stabilize the rift, but your control wavers.
+
+The rift expands slightly before you manage to collapse it.
+
+*line_break
+
+It's safe, but not elegant.
+
+*page_break
+
+"Functional," Professor Void says. "But work on your control."
+
+*set needs_improvement_noted true
+
+*goto creativity_section
+
+*label boundary_solution
+You don't try to manipulate the rift—you contain it.
+
+*page_break
+
+A perfect sphere of boundary magic encases the instability. Then, within that safe containment, you let it collapse on itself.
+
+*line_break
+
+No one is endangered. Nothing is damaged.
+
+*page_break
+
+"Safe. Conservative. Effective." Professor Void's assessment is neutral, but not disapproving.
+
+*goto creativity_section
+
+*label get_help
+You raise your hand immediately.
+
+"Professor! I need assistance!"
+
+*page_break
+
+Professor Void appears beside your desk in an instant, collapsing the rift with a gesture.
+
+*line_break
+
+"Knowing your limits is better than reckless confidence," she says quietly.
+
+*page_break
+
+But you see other students smirking. You played it safe. Maybe *too* safe.
+
+*set pride -10
+*set reputation_cautious +10
+
+*goto creativity_section
+
+*comment ================================================
+*comment PART 3: CREATIVE APPLICATION
+*comment ================================================
+
+*label creativity_section
+
+*page_break
+
+The final challenge appears:
+
+*line_break
+
+[b]CREATIVE CHALLENGE: Using any school of magic you know, create something beautiful. You have 10 minutes.[/b]
+
+*page_break
+
+Beauty. Not power, not utility. Beauty.
+
+*choice
+  #Create a dimensional sculpture that exists in multiple spaces simultaneously
+    *if dimensional_magic >= 50
+      *set exam_score +25
+      *set creativity +15
+      *goto art_dimensional
+
+  #Grow a living plant that blooms in impossible colors
+    *if living_magic >= 50
+      *set exam_score +25
+      *set creativity +15
+      *goto art_living
+
+  #Write a spell-rune that glows and changes with emotions
+    *if written_magic >= 50
+      *set exam_score +25
+      *set creativity +15
+      *goto art_written
+
+  #Create a collaborative art piece with nearby students
+    *if collaborative_magic >= 50
+      *set exam_score +30
+      *set creativity +15
+      *goto art_collaborative
+
+  #Make a memory-crystal showing your happiest moment
+    *if memory_magic >= 40
+      *set exam_score +25
+      *set creativity +15
+      *goto art_memory
+
+  #Admit you're not creative enough for this
+    *set exam_score +0
+    *set humility +10
+    *goto art_none
+
+*label art_dimensional
+You craft a shape that shouldn't exist—a four-dimensional flower that rotates through spaces human eyes can't fully perceive.
+
+*page_break
+
+It shimmers, beautiful and impossible.
+
+*line_break
+
+Students gasp. Professor Void actually smiles.
+
+*set renowned_for_creativity true
+
+*goto exam_complete
+
+*label art_living
+A seed sprouts in your palm.
+
+*page_break
+
+It grows rapidly, blooming into a flower that shifts colors—but not colors that exist in nature. New hues, impossible shades that make people's eyes water with beauty.
+
+*line_break
+
+The flower hums a single perfect note.
+
+*set nature_artist true
+
+*goto exam_complete
+
+*label art_written
+You write a rune in the air with pure magic.
+
+*page_break
+
+It glows softly, and as people look at it, it changes—reflecting their emotions back at them in light and color.
+
+*line_break
+
+Someone laughs. Someone cries. Both from the beauty.
+
+*set rune_artist true
+
+*goto exam_complete
+
+*label art_collaborative
+You reach out to four nearby students.
+
+"Let's make something together."
+
+*page_break
+
+Five minds, five magics, one vision.
+
+*line_break
+
+You create a miniature Aurora—dancing lights that swirl through the air, singing in harmonies that blend your five different magical signatures.
+
+*page_break
+
+It's the most beautiful thing you've ever been part of.
+
+*line_break
+
+And you didn't do it alone.
+
+*set collaborative_artist true
+*set collaboration +20
+
+*goto exam_complete
+
+*label art_memory
+You pull your happiest memory from your mind and crystallize it.
+
+*page_break
+
+A small, glowing orb forms in your hand. Anyone who touches it will feel that moment of pure joy—not your specific memory, but the *feeling* of it.
+
+*line_break
+
+You offer it to the room.
+
+*page_break
+
+Students take turns holding it, and for a moment, each one smiles.
+
+*set empathy +15
+*set gift_giver true
+
+*goto exam_complete
+
+*label art_none
+"I... I don't know how to make beauty with magic. Only function."
+
+*page_break
+
+Professor Void regards you thoughtfully.
+
+"Honesty is its own kind of beauty. But ${name}—learn to see magic as more than a tool. See it as art."
+
+*set lesson_learned true
+
+*goto exam_complete
+
+*comment ================================================
+*comment EXAM RESULTS
+*comment ================================================
+
+*label exam_complete
+
+*page_break
+
+*comment Calculate final grade
+*temp final_grade "unknown"
+
+*if exam_score >= 90
+  *set final_grade "Exceptional"
+  *set academic_standing "excellent"
+
+*if (exam_score >= 75) and (exam_score < 90)
+  *set final_grade "Exceeds Expectations"
+  *set academic_standing "very good"
+
+*if (exam_score >= 60) and (exam_score < 75)
+  *set final_grade "Satisfactory"
+  *set academic_standing "good"
+
+*if (exam_score >= 45) and (exam_score < 60)
+  *set final_grade "Acceptable"
+  *set academic_standing "passing"
+
+*if exam_score < 45
+  *set final_grade "Needs Improvement"
+  *set academic_standing "struggling"
+
+*page_break
+
+Three days later, results are posted.
+
+*line_break
+
+[b]${name}[/b]
+[b]Grade: ${final_grade}[/b]
+
+*page_break
+
+*if exam_score >= 90
+  You've proven yourself among the academy's best.
+
+  *line_break
+
+  Professor Void personally congratulates you. "Remarkable work."
+
+  *set professor_void_relationship +20
+  *set fame +15
+
+*if (exam_score >= 60) and (exam_score < 90)
+  Solid performance. You're exactly where you should be.
+
+  *set confidence +5
+
+*if exam_score < 60
+  You'll need to work harder.
+
+  *line_break
+
+  But this is only midterms. You have time to improve.
+
+  *set determination +10
+
+*page_break
+
+*if collaborative_artist = true
+  Students are still talking about the collaborative aurora you created. Word spreads that you're someone worth working with.
+
+  *set reputation_collaborator +15
+
+*if dimensional_mastery_shown = true
+  Your dimensional control impressed several professors. You may be offered advanced study opportunities.
+
+  *set advanced_study_potential true
+
+*page_break
+
+The midterm is over.
+
+*line_break
+
+Halfway through your first year.
+
+*page_break
+
+Time to see what the second half brings.
+
+*goto_scene year_two_start
+
+*comment ================================================
+*comment VARIABLES NEEDED (add to startup.txt):
+*comment ================================================
+*comment
+*comment *create exam_score 0
+*comment *create professor_void_impressed false
+*comment *create professor_void_relationship 50
+*comment *create teamwork_recognized false
+*comment *create dimensional_mastery_shown false
+*comment *create needs_improvement_noted false
+*comment *create reputation_cautious 0
+*comment *create creativity 50
+*comment *create renowned_for_creativity false
+*comment *create nature_artist false
+*comment *create rune_artist false
+*comment *create collaborative_artist false
+*comment *create gift_giver false
+*comment *create lesson_learned false
+*comment *create academic_standing "good"
+*comment *create reputation_collaborator 0
+*comment *create advanced_study_potential false
+*comment *create determination 50
+*comment
+*comment ================================================
+*comment NOTES FOR INTEGRATION:
+*comment ================================================
+*comment
+*comment This scene can be:
+*comment - Inserted as a new scene file: midterm_exam.txt
+*comment - Added to scene_list in startup.txt
+*comment - Placed between year_one_trial and year_two_start
+*comment
+*comment PURPOSE:
+*comment - Tests player's magical knowledge
+*comment - Provides meaningful choice consequences
+*comment - Allows creative expression
+*comment - Rewards different play styles (combat, collaborative, creative)
+*comment - Affects academic standing and reputation
+*comment - Creates memorable moments
+*comment
+*comment This is the kind of scene that makes players feel like they're
+*comment actually attending a magic academy, not just reading about one.
+*comment
+*comment ================================================

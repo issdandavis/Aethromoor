@@ -1,0 +1,403 @@
+*comment ================================================
+*comment SCENERY & WORLD-BUILDING - Atmospheric Details
+*comment Created by: Claude
+*comment Purpose: Add immersion and sensory detail to existing scenes
+*comment Usage: Insert these descriptions into current scene files
+*comment ================================================
+
+*comment ================================================
+*comment AVALON ACADEMY - DETAILED LOCATIONS
+*comment ================================================
+
+*label avalon_main_courtyard
+
+*comment INSERT INTO: arrival.txt or academy_life.txt
+
+The main courtyard of Avalon Academy defies conventional geometry.
+
+*line_break
+
+Floating gardens drift overhead, their roots dangling in mid-air, dripping water that evaporates before reaching the ground. The mist smells of jasmine and ozone.
+
+*page_break
+
+The central fountain doesn't flow—it *phases*, water existing in multiple states simultaneously. You watch ice crystals form and melt in the same instant, see steam condense into droplets that immediately freeze again.
+
+*line_break
+
+Students walk on pathways that shift and rearrange themselves, marble stones sliding aside to create new routes. No one seems surprised.
+
+*page_break
+
+Above, the sky cycles through sunset and dawn every few minutes—Avalon exists slightly out of sync with normal time.
+
+*if first_time_courtyard = false
+  *set first_time_courtyard true
+  *set wonder +10
+
+  You stand there, overwhelmed by the impossible beauty of it all.
+
+  *line_break
+
+  This is *real*. Magic is real. And you're here to learn it.
+
+*return
+
+*comment ================================================
+
+*label library_atmosphere
+
+*comment INSERT INTO: Any library scene, or secret_paths.txt
+
+The Avalon library is less a building and more a dimension unto itself.
+
+*line_break
+
+Bookshelves stretch upward into darkness, impossibly tall. Some books fly from shelf to shelf on their own, reorganizing themselves by criteria only they understand.
+
+*page_break
+
+The air tastes like old paper and candlewax, with an undertone of something indefinable—raw information, perhaps, or concentrated thought.
+
+*line_break
+
+Whispers echo through the stacks, though you see no one speaking. Are they ghosts? Enchantments? Or do the books themselves converse when unobserved?
+
+*page_break
+
+Reading tables float at various heights. Some students sit in mid-air, cross-legged on nothing, books hovering before them.
+
+*line_break
+
+Light comes from nowhere and everywhere—no lamps, no windows, just a soft, pervasive glow that somehow doesn't produce shadows.
+
+*if dimensional_magic >= 40
+  You sense it—the library exists partially in a pocket dimension. That's why it seems larger inside than the building suggests from outside.
+
+  *set knowledge +5
+
+*return
+
+*comment ================================================
+
+*label training_grounds_detail
+
+*comment INSERT INTO: magic_training.txt, combat_path.txt
+
+The training grounds ripple with residual magic from decades of practice.
+
+*line_break
+
+The grass here is an unnatural silver-blue, and it *hums* when you step on it—resonating with magical energy like a tuning fork.
+
+*page_break
+
+Protective wards shimmer in the air, invisible barriers that activate if spells become too dangerous. You've seen them glow—a brilliant gold lattice that appears in moments of crisis, then fades when the threat passes.
+
+*line_break
+
+Scorch marks, frost patches, and small rifts in reality dot the field. Failed experiments, practice gone wrong, or just the natural consequence of learning to manipulate fundamental forces.
+
+*page_break
+
+To the east, archery targets float and weave. To the west, conjured elementals spar with students. To the north, someone is attempting to grow a plant from seed to full tree in thirty seconds.
+
+*line_break
+
+The air smells like thunderstorms and burned sugar.
+
+*choice
+  #Practice your dimensional magic here
+    *set dimensional_magic +3
+    *goto train_dimensional
+
+  #Practice boundary magic
+    *set boundary_magic +3
+    *goto train_boundary
+
+  #Just observe and learn from others
+    *set wisdom +5
+    *set observant +5
+    *goto observe_training
+
+*label train_dimensional
+*label train_boundary
+*label observe_training
+*return
+
+*comment ================================================
+
+*label dorm_room_expanded
+
+*comment INSERT INTO: dorm_room.txt (enhance existing scene)
+
+Your dorm room is more than mere lodging—it's a space that *learns* you.
+
+*line_break
+
+The walls shift color based on your mood. Right now they're a calm ${dorm_wall_color}, reflecting your current emotional state.
+
+*page_break
+
+Your bed is impossibly comfortable, the mattress adjusting to your preferred firmness each night. The pillow is always the perfect temperature.
+
+*line_break
+
+But it's the small magics that make it home:
+
+*page_break
+
+- The window shows whatever view you prefer—mountains, ocean, forest, or the swirling void between dimensions
+- Books shelve themselves after you read them
+- Tea brews itself at optimal temperature
+- Laundry cleans and folds itself (though sometimes it gets creative with organization)
+- A small crystal on your desk glows brighter when friends are nearby
+
+*page_break
+
+*if familiar_selected != "none"
+  Your familiar, ${familiar_name}, has claimed ${familiar_his_her} favorite spot: ${familiar_spot}.
+
+  *line_break
+
+  ${familiar_he_she_cap} looks utterly content, as if this room was made for ${familiar_him_her}.
+
+*page_break
+
+Some nights, you hear music—distant, beautiful, and achingly sad. You've learned it's the building itself, singing to its residents. Avalon takes care of its students.
+
+*if happiness >= 60
+  You've come to love this place. It feels more like home than anywhere you've ever lived.
+  *set dorm_love true
+
+*return
+
+*comment ================================================
+
+*label magical_feast_hall
+
+*comment INSERT INTO: academy_life.txt or new feast scene
+
+The dining hall defies rational explanation.
+
+*line_break
+
+Tables stretch for what seems like miles, yet somehow you can always find a seat. The ceiling shows the actual night sky—not an illusion, but a portal to the heavens above.
+
+*page_break
+
+Food appears on request, materializing from nothing. Some students bring meals from their homelands—dishes from dozens of dimensions, cultures that don't exist in your world.
+
+*line_break
+
+Tonight you see:
+- Floating soups that follow diners to their seats
+- Bread that's perpetually fresh from the oven
+- Fruits from the Verdant Tithe that taste like music
+- Ice cream that never melts (even when set on fire)
+- A roast that carves itself into perfect portions
+
+*page_break
+
+Conversations overlap in a dozen languages. Laughter echoes. Someone's demonstrating a spell with their dessert, making it perform a small ballet.
+
+*line_break
+
+*if izack_relationship >= 50
+  You spot Izack across the hall, waving you over to his table.
+
+*if aria_relationship >= 50
+  Aria sits alone near a window, reading while eating. She doesn't look up, but there's an empty seat across from her.
+
+*if zara_relationship >= 50
+  Zara is holding court at a large table, telling an animated story that has everyone laughing.
+
+*choice
+  #Join Izack
+    *if izack_relationship >= 50
+      *goto join_izack_feast
+
+  #Sit with Aria
+    *if aria_relationship >= 50
+      *goto join_aria_feast
+
+  #Join Zara's table
+    *if zara_relationship >= 50
+      *goto join_zara_feast
+
+  #Find a quiet spot alone
+    *goto feast_alone
+
+  #Sit with other students
+    *goto feast_new_friends
+
+*label join_izack_feast
+*label join_aria_feast
+*label join_zara_feast
+*label feast_alone
+*label feast_new_friends
+*return
+
+*comment ================================================
+
+*label dimensional_storm
+
+*comment INSERT INTO: year_two_crisis.txt or avalon_crisis.txt
+
+Without warning, reality fractures.
+
+*line_break
+
+The sky *tears*—a jagged rip in the fabric of existence. Through it, you glimpse other worlds: a city of crystal, an ocean of fire, a void filled with singing lights.
+
+*page_break
+
+Dimensional storms are rare but catastrophic. Space itself becomes unstable.
+
+*line_break
+
+Effects manifest immediately:
+
+*page_break
+
+- Gravity fluctuates. Students float, then slam to the ground
+- Time stutters. Someone takes a step and ages a year. Another moves backward through their own timeline
+- Matter becomes negotiable. Walls might be liquid. Air might be solid
+- Sounds become visible. Colors become audible
+- Up and down lose meaning
+
+*page_break
+
+Professors rush to contain it, weaving barriers of pure collaborative magic. But it's spreading.
+
+*line_break
+
+"Students! To the safe rooms!" someone shouts.
+
+*page_break
+
+But you hesitate.
+
+*line_break
+
+*if dimensional_magic >= 70
+  You can *feel* it—the storm's pattern. It's not random. There's a rhythm, a structure.
+
+  *page_break
+
+  You might be able to help. Or you might make it worse.
+
+*choice
+  #Try to help stabilize the dimensional rupture
+    *if dimensional_magic >= 70
+      *set power +10
+      *set confidence +15
+      *goto storm_help
+    *goto storm_fail
+
+  #Follow orders and get to safety
+    *set wisdom +10
+    *set cautious_vs_bold -10
+    *goto storm_safe
+
+  #Help evacuate other students first
+    *set empathy +15
+    *set collaboration +10
+    *goto storm_evacuate
+
+  #Study the phenomenon while retreating
+    *set knowledge +10
+    *set observant +10
+    *goto storm_observe
+
+*label storm_help
+*label storm_fail
+*label storm_safe
+*label storm_evacuate
+*label storm_observe
+*return
+
+*comment ================================================
+
+*label night_in_avalon
+
+*comment INSERT INTO: Any evening/night scene for atmosphere
+
+Night falls strangely in Avalon.
+
+*line_break
+
+The sun doesn't set so much as *dissolve*, colors bleeding into the sky like watercolors on wet paper. Purple, indigo, silver, and deep blue swirl together.
+
+*page_break
+
+Three moons rise—Avalon orbits a planet, not a star, and that planet has three satellites. They're named Memory, Wisdom, and Power.
+
+*line_break
+
+Tonight, Memory is full, casting silver light that makes people nostalgic. You find yourself thinking of home, of the path that led you here.
+
+*page_break
+
+Bioluminescent flowers bloom in the gardens, their glow pulsing in time with an unheard heartbeat. Moths the size of your hand drift between them, leaving trails of glowing dust.
+
+*line_break
+
+Students walk the paths, some alone, some in groups. You hear:
+- Whispered conversations about exams
+- Laughter from a late-night study group
+- Someone practicing a spell, the incantation melodic
+- Distant music from a celebration you're not invited to
+
+*page_break
+
+The air is cool and smells like night-blooming jasmine and old magic.
+
+*choice
+  #Take a walk through the gardens
+    *goto night_walk
+
+  #Return to your dorm and rest
+    *set stress -10
+    *goto sleep
+
+  #Find friends and join them
+    *goto find_friends
+
+  #Practice magic under the moonlight
+    *if dimensional_magic >= 30
+      *set dimensional_magic +5
+    *goto night_practice
+
+*label night_walk
+*label sleep
+*label find_friends
+*label night_practice
+*return
+
+*comment ================================================
+*comment NOTES FOR INTEGRATION:
+*comment ================================================
+*comment
+*comment VARIABLES NEEDED (add to startup.txt):
+*comment *create first_time_courtyard false
+*comment *create wonder 0
+*comment *create dorm_wall_color "soft blue"
+*comment *create dorm_love false
+*comment *create familiar_spot "by the window"
+*comment
+*comment WHERE TO ADD:
+*comment - avalon_main_courtyard → arrival.txt (first impression)
+*comment - library_atmosphere → secret_paths.txt (perfect fit)
+*comment - training_grounds_detail → magic_training.txt, combat_path.txt
+*comment - dorm_room_expanded → dorm_room.txt (enhance existing)
+*comment - magical_feast_hall → academy_life.txt (daily life)
+*comment - dimensional_storm → year_two_crisis.txt or avalon_crisis.txt
+*comment - night_in_avalon → character_bonds.txt, romance_scenes.txt
+*comment
+*comment PURPOSE:
+*comment These scenes add sensory immersion and make the world feel alive.
+*comment They transform functional scenes into memorable experiences.
+*comment Players should FEEL like they're at Avalon, not just reading about it.
+*comment
+*comment ================================================

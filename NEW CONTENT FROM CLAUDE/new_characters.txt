@@ -1,0 +1,383 @@
+*comment ================================================
+*comment NEW CHARACTERS - Additional NPCs for Avalon Academy
+*comment Created by: Claude
+*comment Status: Ready to integrate into main game
+*comment Location: Add to relevant scenes or create new scenes
+*comment ================================================
+
+*comment ================================================
+*comment NEW CHARACTER 1: PROFESSOR MERIDIAN VOID
+*comment The Dimensional Theory Professor
+*comment ================================================
+
+*label meet_meridian
+
+Professor Meridian Void steps into the lecture hall, and reality seems to bend slightly around her presence.
+
+*line_break
+
+She's a tall woman with silver hair that floats as if underwater, her eyes shifting between violet and deep black. Dimensional rifts flicker in her wake like afterimages.
+
+*page_break
+
+"Good morning, students. I am Professor Meridian Void, and I will be teaching you that everything you think you know about dimensions is wrong."
+
+*line_break
+
+She waves her hand, and the classroom suddenly seems impossibly vast—as if the walls have receded into infinity.
+
+*page_break
+
+"Some call me unorthodox. Others call me dangerous. I prefer 'thorough.'"
+
+*choice
+  #Raise your hand and ask a question about her dimensional manipulation
+    *set knowledge +5
+    *set meridian_relationship +10
+    *set curiosity +5
+    *goto meridian_impressed
+
+  #Stay quiet and observe her technique carefully
+    *set wisdom +5
+    *set meridian_relationship +5
+    *set cautious_vs_bold -10
+    *goto meridian_notes
+
+  #Challenge her statement about dimensions being "wrong"
+    *set confidence +10
+    *set meridian_relationship -5
+    *set power +5
+    *goto meridian_challenge
+
+*label meridian_impressed
+Professor Void's eyes fix on you with interest.
+
+"Ah. A student who thinks. How refreshing."
+
+*set meridian_interest true
+
+*line_break
+
+She snaps her fingers, and a miniature pocket dimension blooms in the air before you—a perfect sphere containing a tiny, rotating galaxy.
+
+*page_break
+
+"Questions are the foundation of dimensional magic. The universe rewards curiosity... and punishes certainty."
+
+*return
+
+*label meridian_notes
+You watch carefully as Professor Void manipulates the classroom space, mentally cataloging every gesture and energy pattern.
+
+*set observant +5
+
+*line_break
+
+She notices your attention but says nothing, merely offering the slightest approving nod.
+
+*set meridian_respect true
+
+*return
+
+*label meridian_challenge
+Professor Void smiles—a sharp, dangerous expression.
+
+"Oh? And what do *you* know of dimensions, ${name}?"
+
+*choice
+  #Explain your understanding based on your origin
+    *if origin = "refugee"
+      *set meridian_relationship +15
+      *set power +5
+      "Ah. You've *lived* in other dimensions. Then you know more than most."
+      *set meridian_respect true
+      *goto meridian_pass
+
+    *if origin = "lineage"
+      *set meridian_relationship +10
+      "Family knowledge. Useful... but often outdated. Be prepared to unlearn."
+      *goto meridian_pass
+
+    *set meridian_relationship +5
+    "Interesting. We shall see if experience matches confidence."
+    *goto meridian_pass
+
+  #Admit you're still learning
+    *set humility +10
+    *set meridian_relationship +5
+    "Honesty. Good. Arrogance kills dimensional mages faster than instability."
+    *goto meridian_pass
+
+*label meridian_pass
+*return
+
+*comment ================================================
+*comment NEW CHARACTER 2: KESTREL ASHENWING
+*comment Student Rival/Potential Ally
+*comment ================================================
+
+*label meet_kestrel
+
+A student your age stands near the training grounds, practicing boundary magic with intense focus.
+
+*line_break
+
+${he_she} has dark skin, close-cropped hair with silver streaks, and eyes that glow faintly when ${he_she} casts spells. Scars cross ${his_her} forearms—the marks of serious magical training.
+
+*page_break
+
+Kestrel Ashenwing. You've heard the name whispered in the halls—prodigy, perfectionist, competitor.
+
+*line_break
+
+${he_she} notices you watching.
+
+*page_break
+
+"You're ${name}, aren't you? The new student everyone's talking about."
+
+*choice
+  #"I wouldn't say everyone's talking about me..."
+    *set humility +5
+    *set kestrel_relationship +10
+    *goto kestrel_humble
+
+  #"And you're Kestrel. I've heard about your skills."
+    *set confidence +5
+    *set kestrel_relationship +5
+    *goto kestrel_neutral
+
+  #"I hope they're saying good things."
+    *set charisma +5
+    *set kestrel_relationship +3
+    *goto kestrel_charm
+
+  #"Does that bother you?"
+    *set confidence +10
+    *set kestrel_relationship -5
+    *goto kestrel_rival
+
+*label kestrel_humble
+Kestrel's expression softens slightly.
+
+"Humility. That's... actually refreshing in this place."
+
+*line_break
+
+${he_she} lowers ${his_her} training barrier, gesturing for you to come closer.
+
+*page_break
+
+"Most students here are either terrified or arrogant. You might actually be interesting."
+
+*set kestrel_ally_potential true
+
+*return
+
+*label kestrel_neutral
+Kestrel nods, sizing you up.
+
+"Then we're even. Both watching, both evaluating."
+
+*line_break
+
+"Avalon's competitive. Not just with grades—with survival. Some lessons here can kill you."
+
+*set kestrel_relationship +5
+
+*return
+
+*label kestrel_charm
+Kestrel snorts, a slight smile breaking through.
+
+"Charm won't protect you from dimensional backlash. But it might make group projects more bearable."
+
+*set kestrel_friendship_possible true
+
+*return
+
+*label kestrel_rival
+Kestrel's eyes narrow, magical energy crackling around ${his_her} fingers.
+
+"Bother me? No. Motivate me? Yes."
+
+*line_break
+
+"I've been the top student here for two years. I don't plan to change that because of *you*."
+
+*set kestrel_rivalry true
+*set competitive_relationship +15
+
+*return
+
+*comment ================================================
+*comment NEW CHARACTER 3: WHISPER
+*comment Mysterious Librarian of the Forbidden Section
+*comment ================================================
+
+*label meet_whisper
+
+Deep in the Avalon library, past the regular stacks, you find a section marked with warning runes.
+
+*line_break
+
+"Forbidden Knowledge - Authorized Access Only"
+
+*page_break
+
+A figure materializes from the shadows—not quite solid, not quite transparent. They wear robes that seem to be made of literal darkness, their face obscured by a hood.
+
+*line_break
+
+When they speak, it's barely audible, like wind through leaves.
+
+*page_break
+
+"I am Whisper. Keeper of what should perhaps remain unknown."
+
+*choice
+  #"What kind of knowledge is forbidden?"
+    *set knowledge +5
+    *set curiosity +10
+    *set whisper_met true
+    *goto whisper_knowledge
+
+  #"I apologize, I didn't mean to intrude."
+    *set wisdom +5
+    *set whisper_relationship +10
+    *goto whisper_respectful
+
+  #"Are you a ghost?"
+    *set blunt +5
+    *set whisper_relationship -5
+    *goto whisper_amused
+
+  #Say nothing, just wait
+    *set patience +10
+    *set wisdom +5
+    *set whisper_relationship +15
+    *goto whisper_impressed
+
+*label whisper_knowledge
+Whisper drifts closer, and you feel a chill.
+
+"The kind that changes you. Memory magic that can rewrite your identity. Truth spells that reveal things minds weren't meant to process. Dimensional theories that could unravel reality."
+
+*page_break
+
+"Most students seek power. Few understand that some power comes with costs that cannot be unpaid."
+
+*choice
+  #"Then why keep such knowledge at all?"
+    *set philosophical +10
+    *goto whisper_deeper
+
+  #"I understand. Some things are better left unknown."
+    *set wisdom +5
+    *goto whisper_agree
+
+*label whisper_deeper
+For the first time, you sense approval in Whisper's presence.
+
+"Because destroying knowledge is a greater sin than possessing it. But *using* it... that requires wisdom most do not have."
+
+*set whisper_relationship +15
+*set deep_thinker true
+
+*return
+
+*label whisper_agree
+*set whisper_relationship +10
+*return
+
+*label whisper_respectful
+"Respect. So rare among the young."
+
+*line_break
+
+Whisper's form becomes slightly more solid, as if your courtesy has anchored them somehow.
+
+*page_break
+
+"You may return here, ${name}. When you have questions that others cannot—or should not—answer."
+
+*set whisper_friendship true
+*set secret_access true
+
+*return
+
+*label whisper_amused
+A sound like distant wind chimes—laughter?
+
+"I am what became of a mage who delved too deeply into memory magic. Part spirit, part echo, part warning."
+
+*set whisper_tragic_story true
+
+*return
+
+*label whisper_impressed
+Whisper observes you in silence for a long moment.
+
+*line_break
+
+Then, slowly, they lower their hood.
+
+*page_break
+
+What you see is both beautiful and terrible—a face that shifts and changes, as if unable to settle on a single identity. One moment young, the next ancient. Male, female, neither, both.
+
+*line_break
+
+"You know when to speak and when to listen. That is rarer than magical talent."
+
+*set whisper_true_form_seen true
+*set wisdom +10
+*set whisper_relationship +20
+*set special_student true
+
+*return
+
+*comment ================================================
+*comment NOTES FOR INTEGRATION:
+*comment ================================================
+*comment
+*comment MERIDIAN VOID - Can be added to:
+*comment - magic_training.txt (as advanced instructor)
+*comment - year_three_start.txt (teaching theory)
+*comment - thesis_project.txt (potential advisor)
+*comment
+*comment KESTREL ASHENWING - Can be added to:
+*comment - academy_life.txt (peer interaction)
+*comment - combat_path.txt (rival or training partner)
+*comment - year_two_crisis.txt (ally or antagonist)
+*comment - Can develop into romance option OR friendly rival
+*comment
+*comment WHISPER - Can be added to:
+*comment - secret_paths.txt (perfect fit!)
+*comment - advanced_training.txt (forbidden knowledge)
+*comment - thesis_project.txt (research assistance)
+*comment
+*comment VARIABLES NEEDED (add to startup.txt):
+*comment *create meridian_relationship 50
+*comment *create meridian_interest false
+*comment *create meridian_respect false
+*comment *create kestrel_relationship 50
+*comment *create kestrel_ally_potential false
+*comment *create kestrel_friendship_possible false
+*comment *create kestrel_rivalry false
+*comment *create competitive_relationship 0
+*comment *create whisper_met false
+*comment *create whisper_relationship 50
+*comment *create whisper_friendship false
+*comment *create whisper_true_form_seen false
+*comment *create secret_access false
+*comment *create special_student false
+*comment *create observant 50
+*comment *create blunt 50
+*comment *create patience 50
+*comment *create philosophical 50
+*comment *create cautious_vs_bold 50
+*comment *create deep_thinker false
+*comment *create whisper_tragic_story false
+*comment
+*comment ================================================
