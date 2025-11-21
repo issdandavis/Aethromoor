@@ -7,6 +7,9 @@ The martial hall thrums with sparring and shouted cadence. Racks of spears line 
     *set oathbound true
     *set council_trust +10
     *goto after_wardens
+  #Request to undertake the formal warden trial.
+    The captain sizes you up. "Bold. Let's see if you're ready."
+    *goto_scene warden_trial
   #Test the wardens' tactics with a new formation.
     Your suggestion closes gaps in their defense. The captain nods approvingly.
     *if honor >= 60
