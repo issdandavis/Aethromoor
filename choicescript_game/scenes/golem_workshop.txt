@@ -113,17 +113,17 @@ Grey places a hand on your creation.
 
 *choice
   #Share a happy memory
-    *set golem_personality "${golem_personality}_joyful"
+    *set golem_personality golem_personality&"_joyful"
     *set empathy +10
     You think of your happiest moment and pour it into ${golem_name}.
 
   #Share your determination to learn
-    *set golem_personality "${golem_personality}_determined"
+    *set golem_personality golem_personality&"_determined"
     *set knowledge +10
     You think of your drive to master magic and pour it into ${golem_name}.
 
   #Share your hope for the future
-    *set golem_personality "${golem_personality}_hopeful"
+    *set golem_personality golem_personality&"_hopeful"
     *set collaboration +10
     You think of the future you want to build and pour it into ${golem_name}.
 
