@@ -20,6 +20,14 @@ rsync -av --delete "$SOURCE_DIR/" "$TARGET_DIR/"
 # Generate mygame.js
 echo "Generating mygame.js..."
 cd "$SCRIPT_DIR/choicescript"
-node mygamegenerator.js mygame > web/mygame/mygame.js
+if [ ! -f "mygamegenerator.js" ]; then
+  echo "Error: mygamegenerator.js not found in $SCRIPT_DIR/choicescript" >&2
+  exit 1
+fi
+
+if ! node mygamegenerator.js mygame > web/mygame/mygame.js; then
+  echo "Error: Failed to generate mygame.js" >&2
+  exit 1
+fi
 
 echo "Done. Launch the ChoiceScript server from $SCRIPT_DIR/choicescript to play."

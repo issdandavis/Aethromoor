@@ -16,8 +16,12 @@ except ImportError:
     print("Error: anthropic package not installed. Install with: pip install anthropic")
     sys.exit(1)
 
-# Load environment variables
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    print("Error: python-dotenv package not installed. Install with: pip install python-dotenv")
+    sys.exit(1)
+
 load_dotenv(Path(__file__).parent.parent / 'config' / '.env')
 
 ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY')
