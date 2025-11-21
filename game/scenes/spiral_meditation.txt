@@ -2,9 +2,12 @@ The meditation chamber floats suspended above the central Spiral. Translucent wa
 
 *if oathbound
   Your warden's training taught you discipline. That foundation may help here.
+  *goto meditation_start
 *else
   You've approached magic through study and wonder. Now you must find stillness within.
+  *goto meditation_start
 
+*label meditation_start
 A master of the Third Thread—magic that learns and adapts—guides you. "The Spiral doesn't demand. It listens. What will you say?"
 
 *choice
