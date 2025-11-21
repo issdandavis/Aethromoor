@@ -31,10 +31,10 @@ Beneath the council chambers, ancient pathways wind into the heart of the Spiral
 *label spiral_revelation
 The Spiral pulses with recognition. You feel yourself changing, marked by this place.
 
-*if resonance_mark and (attunement >= 75)
+*if resonance_mark and attunement >= 75
   A sigil appears on your palm—the mark of one who has truly heard the Spiral's song. The council will take notice.
   *set council_trust +15
-*elseif oathbound and (honor >= 70)
+*elseif oathbound and honor >= 70
   Your oath resonates through the depths. The wardens who guard this place salute as you pass.
   *set honor +10
 
@@ -45,7 +45,7 @@ The Spiral pulses with recognition. You feel yourself changing, marked by this p
     *goto_scene council
   #Venture further into the uncharted passages.
     Against ${mentor}'s advice, you press deeper. The unknown calls to you.
-    *if (attunement >= 80) or (honor >= 80)
+    *if attunement >= 80 or honor >= 80
       Your strength of purpose carries you through. You discover a sealed portal, inactive for generations but still humming with potential.
       *set council_trust +20
       *set resonance_mark true
