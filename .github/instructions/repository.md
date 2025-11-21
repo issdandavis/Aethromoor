@@ -99,7 +99,7 @@ Avalon/
 ## Important Notes
 
 - **No external dependencies**: This project intentionally avoids npm packages, build tools, or complex dependencies
-- **Browser compatibility**: HTML game should work in modern browsers without polyfills
+- **Browser compatibility**: HTML game should work in modern browsers from 2018+ (Chrome 60+, Firefox 60+, Safari 12+, Edge 79+) without polyfills
 - **Archive directory**: Do not modify files in `archive/` - they are historical records
 - **Lore consistency**: Reference `lore/` files for canonical information about characters, magic systems, and world geography
 
