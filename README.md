@@ -72,6 +72,7 @@ Avalon/
 ├── lore/                       ← Worldbuilding documents
 ├── writing_drafts/             ← Novel manuscripts
 ├── docs/                       ← Additional documentation
+├── music/                      ← Audio/music project files
 └── archive/                    ← Old files and backups
 ```
 

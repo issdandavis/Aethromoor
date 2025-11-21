@@ -1,0 +1,41 @@
+# System and temporary files
+*.log
+*.lnk
+*.url
+*.xml
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules (if any)
+node_modules/
+
+# Build artifacts
+dist/
+build/
+*.tmp
+
+# Personal notes that shouldn't be committed
+keys.txt
+numbers.txt
+next court date.txt
+not ures.txt
+notes.txt
+notes2.txt
+
+# API keys and sensitive data
+*API*.txt
+*api*.txt
+*key*.txt
+*secret*.txt
+
+# Archive files that are duplicates
+archive.zip
