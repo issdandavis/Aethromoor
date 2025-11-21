@@ -16,9 +16,21 @@
 
 📚 LORE & WORLDBUILDING:
    lore/ ← All worldbuilding documents
+      - Chronicles and lore archives
+      - Appendices and summaries
+      - Geography PDFs
+      - Magic system documentation
 
 📝 WRITING:
    writing_drafts/ ← Novel manuscripts
+      - The Spiral of Avalon drafts
+      - Chapter revisions
+      - Outlines and guides
+      - Final manuscripts (PDF & DOCX)
+
+🎵 MUSIC:
+   music/ ← Audio project files
+      - FL Studio project files
 
 📋 PROJECT DOCS:
    docs/AUTOMATION_GUIDE.md ← Zapier workflows
@@ -26,6 +38,9 @@
 
 📦 OLD FILES:
    archive/ ← Chat logs and old versions
+      - Conversation exports
+      - Old bundles
+      - AI chat logs
 
 ═══════════════════════════════════════════════════════
 
