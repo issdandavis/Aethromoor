@@ -14,6 +14,10 @@
   dorm_room
   first_lesson
   academy_life
+  library_secrets
+  creature_encounter
+  tournament
+  midnight_mystery
   golem_workshop
   expedition_prep
   singing_dunes
@@ -142,6 +146,56 @@
 *create romance_enabled true
 *create first_kiss_scene ""
 *create romance_depth 0
+
+*comment Library Secrets Scene Variables
+*create library_visited false
+*create discovery_made "none"
+*create demon_knowledge 0
+*create fae_song_knowledge 0
+*create prophecy_knowledge 0
+*create symbiotic_magic_learned false
+*create boundary_expertise 0
+*create creativity 50
+
+*comment Creature Encounter Variables
+*create creature_gardens_visited false
+*create magical_companion "none"
+*create melodrake_friend false
+*create butterfly_friend false
+*create thoughtweaver_friend false
+*create phoenix_friend false
+*create phoenix_feather false
+*create thoughtweaver_web false
+*create nature_affinity 0
+*create healer_affinity 0
+
+*comment Tournament Variables
+*create tournament_participated false
+*create tournament_result "none"
+*create tournament_points 0
+*create team_synergy 0
+*create vex_relationship 0
+*create thorn_relationship 0
+*create leadership_recognition false
+*create reliability_recognition false
+
+*comment Midnight Mystery Variables
+*create midnight_mystery_skipped false
+*create secret_knowledge_gained false
+*create student_guardian_corps false
+*create innovative_solution false
+*create reality_rose_stabilized false
+*create philosophical_insight 0
+*create quantum_magic_training 0
+*create courage 50
+
+*comment Additional Utility Stats
+*create curiosity 50
+*create trust_authority false
+*create cautious_approach false
+*create destiny_awareness 0
+*create hope_inspiration 0
+*create collaboration_theory 0
 
 *comment ================================================
 *comment TITLE SCREEN
