@@ -14,6 +14,7 @@
   dorm_room
   first_lesson
   academy_life
+  free_time
   library_secrets
   creature_encounter
   tournament
@@ -196,6 +197,12 @@
 *create destiny_awareness 0
 *create hope_inspiration 0
 *create collaboration_theory 0
+
+*comment Free Time & Practice Variables
+*create stress_reduced false
+*create lyra_relationship 0
+*create kade_relationship 0
+*create training_partner "none"
 
 *comment ================================================
 *comment TITLE SCREEN
