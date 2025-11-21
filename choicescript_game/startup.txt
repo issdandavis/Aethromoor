@@ -177,6 +177,7 @@
 *create gender "nb"
 *create gender_full "nonbinary"
 *create he_she "they"
+*create He_She "They"
 *create him_her "them"
 *create his_her "their"
 *create His_Her "Their"
@@ -398,11 +399,22 @@
 *create mastery_count 0
 *create mastery_demonstration "none"
 *create mentor_achievement false
+*create breakthrough_type "none"
 
 *comment Miscellaneous Scene Variables
 *create forest_blessing false
 *create crisis_severity 0
 *create all_magic_schools 0
+*create achievement "none"
+
+*comment Dorm Room Customization
+*create dorm_style "default"
+*create dorm_comfort 0
+*create dorm_magical 0
+*create has_familiar_perch false
+*create has_study_nook false
+*create has_alchemy_corner false
+*create window_view "courtyard"
 
 *comment ================================================
 *comment TITLE SCREEN
@@ -444,6 +456,7 @@ What is your gender?
     *set gender "m"
     *set gender_full "male"
     *set he_she "he"
+    *set He_She "He"
     *set him_her "him"
     *set his_her "his"
     *set His_Her "His"
@@ -457,6 +470,7 @@ What is your gender?
     *set gender "f"
     *set gender_full "female"
     *set he_she "she"
+    *set He_She "She"
     *set him_her "her"
     *set his_her "her"
     *set His_Her "Her"
@@ -470,6 +484,7 @@ What is your gender?
     *set gender "nb"
     *set gender_full "nonbinary"
     *set he_she "they"
+    *set He_She "They"
     *set him_her "them"
     *set his_her "their"
     *set His_Her "Their"
@@ -491,6 +506,7 @@ Choose your pronouns:
 *choice
   #He/Him
     *set he_she "he"
+    *set He_She "He"
     *set him_her "him"
     *set his_her "his"
     *set His_Her "His"
@@ -500,6 +516,7 @@ Choose your pronouns:
 
   #She/Her
     *set he_she "she"
+    *set He_She "She"
     *set him_her "her"
     *set his_her "her"
     *set His_Her "Her"
@@ -509,6 +526,7 @@ Choose your pronouns:
 
   #They/Them
     *set he_she "they"
+    *set He_She "They"
     *set him_her "them"
     *set his_her "their"
     *set His_Her "Their"

@@ -1422,7 +1422,7 @@ Every detail is present: the smell of dimensional energy, the warmth of the sun,
 
 *line_break
 
-${he_she} guides you in preserving the memory—taking it from the ephemeral stream of consciousness and crystallizing it into permanent, perfect form.
+${He_She} guides you in preserving the memory—taking it from the ephemeral stream of consciousness and crystallizing it into permanent, perfect form.
 
 *page_break
 
@@ -1493,7 +1493,7 @@ Kairos shakes ${his_her} head. "Your mind has not learned to preserve experience
 
 *line_break
 
-${he_she} demonstrates by recalling a memory from decades ago—speaking with such vivid detail that you can almost see the scene ${he_she} describes.
+${He_She} demonstrates by recalling a memory from decades ago—speaking with such vivid detail that you can almost see the scene ${he_she} describes.
 
 *page_break
 
