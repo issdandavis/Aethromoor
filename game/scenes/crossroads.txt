@@ -1,20 +1,52 @@
-Beyond the council doors, a triad of portals rotates in perfect alignment. Each promises a different future.
+Beyond the council doors, where architecture transforms from merely impossible to actively defiant of causality, a triad of portals rotates in perfect alignment. Each one pulses with its own distinct frequency—visual music that you can somehow taste, each flavor suggesting different destinies.
+
+The first portal resonates with crystalline clarity, its edges singing in harmonics that speak of knowledge pursued with disciplined passion. Through its aperture, you glimpse libraries that extend into dimensions where books dream themselves into existence and understanding itself becomes tangible enough to hold.
+
+The second blazes with martial purpose, silver-white energy crackling around its perimeter like controlled lightning. Beyond it, training grounds where physics answers to different laws, where honor manifests as protective wards and oaths taken sincerely alter the fundamental nature of reality itself.
+
+The third descends—a spiral staircase carved from shadows that somehow illuminate rather than obscure, leading to depths where the realm's foundational mysteries await those brave or foolish enough to seek them.
+
+Each promises a different future. Each will shape not just what you learn, but who you become in the learning.
 
 *comment Branch into dedicated scenes to show *goto_scene usage and stat checks.
 *choice
   #Step through the resonant portal tuned to the Spiral.
     *if attunement >= 60
-      The portal sings in harmony with you. Knowledge floods your mind, and the Spiral welcomes you as a student.
+      You approach the portal with steady purpose, and it responds to your presence like recognition between kindred spirits. The barrier between here and there grows permeable, not because you command it but because you understand the grammar of permission it speaks. Your consciousness extends through the aperture, tasting the harmonics on the other side, and the Spiral welcomes you with profound certainty.
+      [p]
+      Knowledge floods your mind—not as information dumped into unprepared neural pathways, but as understanding that blooms from seeds already planted by your earlier attunement work. You see how the ley lines connect, how collaborative magic harmonizes different traditions into synthesis greater than any single methodology. You glimpse the vast archive of accumulated wisdom that Avalon maintains, each tome a conversation waiting to be understood, each inscription a question posed to readers across generations.
+      [p]
+      The portal sings in harmony with you as you cross its threshold. On the other side, the Archives await—crystalline halls where voices whisper in dimensional harmonics and reality itself becomes text waiting to be read by those who possess the literacy to parse its meaning.
       *goto_scene archives
     *else
-      Your attunement falters, and the portal resists. You retreat to study more.
+      You reach toward the portal with intent, but your attunement falters at the crucial moment. The Spiral can be forgiving of ignorance, patient with those still learning its languages—but it will not compromise the safety of those who attempt to navigate dimensional architecture without sufficient preparation.
+      [p]
+      The portal resists your passage, its edges growing solid rather than permeable. Not hostile—more like a teacher gently but firmly preventing a student from advancing before mastering prerequisite material. You feel the rejection not as punishment but as protection, the realm itself suggesting that this path requires capacities you haven't yet developed.
+      [p]
+      ${mentor} places a hand on your shoulder, understanding in the gesture. "The Archives will still be there when you're ready," they assure you. "The Spiral measures time in seasons and centuries. It can afford to wait until you've cultivated the attunement necessary to survive what it has to teach." They guide you back toward the preparation chambers, where foundational work awaits your attention.
       *finish
   #Enter the martial hall marked by silver spears.
-    The wardens salute as you pass. Honor carries you forward into service.
+    The portal accepts you without hesitation, recognizing something in your bearing that suggests readiness for what lies beyond. You step through and emerge into vastness—a training hall that extends to horizons impossible to perceive from its external dimensions, where the ceiling disappears into heights that hold their own weather systems and the floor is packed earth that remembers every technique ever practiced upon it.
+    [p]
+    Wardens salute as you pass, their gestures carrying weight that transcends mere military courtesy. These are dimensional guardians, defenders of boundaries that most people never realize need defending. They face incursions from realms where physics answers to malicious intent, temporal paradoxes that could unravel causality itself, entities whose very existence threatens consensus reality's structural integrity.
+    [p]
+    Honor carries you forward into service. Not the crude concept of reputation management, but the deeper truth that some oaths, taken sincerely in places where magic listens, fundamentally alter what you can become. The martial hall doesn't just train fighters—it forges living bulwarks against chaos, individuals whose commitment to protecting others manifests as tangible force in reality's defensive architecture.
     *goto_scene wardens
   #Descend into the Spiral's depths beneath the chamber.
-    A hidden stairway spirals downward. Few know of this path, but ${mentor} nods approval.
+    Few notice the hidden stairway—it exists in that perceptual blind spot where attention slides away unless deliberately focused. But ${mentor} nods approval when you move toward it, confirming what you suspected: this path was always meant for those curious enough to look beyond the obvious choices, brave enough to seek understanding in places where light bends in impossible ways and time flows thematically rather than sequentially.
+    [p]
+    The stairway spirals downward into depths that shouldn't exist beneath a structure already floating in dimensional suspension. Each step carved from living stone that pulses with warmth suggesting biological processes, each turn revealing inscriptions in languages that predate formal communication—conceptual ancestors of meaning itself, waiting for readers who can perceive significance without requiring translation into conventional symbols.
+    [p]
+    The air grows thicker as you descend, saturated with magic so concentrated it feels almost liquid against your skin. Breathing becomes meditation, each inhalation drawing power into lungs never designed for such intensity. The Spiral's song grows louder here—not in volume but in presence, as if you're approaching the source of resonance that echoes throughout Avalon's entire architecture.
+    [p]
+    ${mentor} follows at respectful distance, allowing you to experience this threshold moment without interference but remaining close enough to intervene if the depths prove more than you're prepared to navigate. "Remember," their voice carries down the spiral with perfect clarity despite impossible acoustics, "where boundaries blur, something always listens. Choose your questions carefully."
     *goto_scene spiral_depths
   #Seek ${mentor} for guidance before you decide.
-    ${mentor} meets your eyes. "The Spiral shifts for those who listen. Remember what you want to protect."
+    You turn from the portals toward ${mentor}, seeking wisdom before commitment. They meet your eyes with gaze that holds depths suggesting experiences spanning more lifetimes than one mortal existence should contain—perhaps memories inherited through lineage magic, or understanding accumulated across dimensional iterations where learning persists even when individual identity fragments and reforms.
+    [p]
+    "The Spiral shifts for those who listen," ${mentor} says, voice carrying harmonics that suggest multiple conversations happening simultaneously on frequencies you can almost but not quite perceive. "Each portal leads to transformation, but the nature of what you become depends on the path you choose. Knowledge, honor, mystery—all three matter, all three shape Avalon's purpose. The question isn't which is correct, but which calls to something true in your nature that you haven't yet named."
+    [p]
+    A pause, weighted with significance. "${mentor}'s eyes reflect light that comes from no visible source. "Remember what you want to protect. Not abstract concepts—specific things, people, possibilities. The Spiral doesn't judge motivations harshly, but it does demand honesty about what drives you. Power sought for itself tends toward corruption. Power sought to preserve something worth preserving... that becomes foundation for genuine greatness."
+    [p]
+    They gesture toward the council chambers. "Come. We'll discuss this with those whose perspectives span centuries of witnessing what various paths produce in their travelers."
     *goto_scene council
