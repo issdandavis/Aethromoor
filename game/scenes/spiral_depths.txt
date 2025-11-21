@@ -1,0 +1,119 @@
+Beneath the council chambers, where architecture surrenders to geology and constructed reality gives way to something that predates intention, ancient pathways wind into the Spiral's heart. Few are granted passage here—not because access is jealously guarded, but because finding these passages requires perception that transcends ordinary sight. The stairs you descended exist in that liminal space where physical and conceptual overlap, accessible only to those who have demonstrated they can navigate ambiguity without demanding false certainty.
+
+Time flows differently in these depths. Not slower or faster precisely, but thematically rather than sequentially. Moments expand to accommodate significance, compress when nothing consequential occurs. You could spend what feels like hours here and emerge to find minutes passed above, or vice versa. The Spiral operates according to narrative logic in these foundational chambers, organizing experience by meaning rather than mechanical chronology.
+
+The walls shimmer with crystallized memories—not metaphorical, but literal. Experiences preserved in mineral form, each facet containing compressed understanding that can be absorbed through touch or contemplation. The accumulated wisdom of everyone who ever walked these paths exists here in condensed form, available to those willing to learn from generations past without demanding they repeat every mistake personally.
+
+Phosphorescent fungi provide illumination that doesn't quite behave like light from conventional sources—it seems to emanate from different temporal angles simultaneously, casting shadows that suggest multiple possible futures overlapping in the present moment. The air tastes like deep earth and old water and something metallic-sweet that might be concentrated magic leaching from stone saturated with power accumulated across centuries.
+
+*comment This scene explores deeper Avalon lore and introduces a mentor relationship moment.
+*choice
+  #Examine the crystallized memories along the walls.
+    You approach the nearest deposit of memory-crystal with reverence appropriate for handling something both ancient and alive. The facets pulse gently, responding to proximity with warmth suggesting welcome rather than warning. When your fingers make contact, understanding floods through the connection—not words or images exactly, but compressed experience that translates directly into knowledge.
+    [p]
+    You witness Avalon's founding through the consciousness of those who built it. Towers rising from mist that had been ocean moments before, reality reshaping itself around collective intent strong enough to impose new patterns on fundamental physics. The first oaths spoken in spaces where magic listened with sufficient attention that promises became structurally incorporated into the realm's foundation.
+    [p]
+    You feel the weight of choices made by founders who understood they were establishing patterns that would echo across generations. Their debates about whether to build walls or welcome diversity, whether to preserve stability through rigid tradition or embrace evolution through constant adaptation. The tensions inherent in attempting to create something both enduring and flexible.
+    [p]
+    History settles on you—not as burden precisely, but as context. You understand now that every choice you make here participates in ongoing conversation begun long before your arrival and that will continue long after your eventual departure. The Spiral doesn't demand you succeed, but it does require you remain aware that your actions ripple outward with consequences extending beyond immediate visibility.
+    *set attunement +10
+    *set council_trust +5
+    *goto spiral_revelation
+  #Follow the harmonic resonance deeper into the Spiral.
+    The song has been present since you entered these depths, but you've been treating it as background atmosphere rather than primary signal. Now you shift attention, focusing on the harmonics that pulse through stone and air and the boundaries between them. The resonance grows stronger in response to your attention—not louder, but more present, as if recognition creates mutual reinforcement between listener and listened-to.
+    [p]
+    You follow the song deeper into passages that narrow and widen according to logic that transcends architectural planning. The walls here predate construction—this is natural cave system that Avalon's founders discovered and incorporated rather than something they built from deliberate design. The Spiral existed before the realm, waiting for someone to recognize its significance and build around rather than over it.
+    [p]
+    The passage opens into chamber where light bends in ways that violate optical physics while somehow appearing perfectly natural. Gravitational constant shifts between heartbeats. Time itself becomes visible as golden threads connecting past to present to futures that haven't crystallized into actuality yet. You sense presence here—something ancient that predates not just Avalon but possibly reality itself as you understand it.
+    *if attunement >= 70
+      Your attunement allows perception that untrained awareness would filter out as impossible. You see the Spiral's true nature now: not merely location, but living bridge between worlds. Sentient in ways that don't require individual consciousness, sustained by countless acts of understanding and sacrifice performed across generations by those who recognized that some things matter more than personal survival.
+      [p]
+      The bridge exists because people chose to build it through their commitments—not physical construction, but sustained intention strong enough to impose new patterns on fundamental reality. It endures because every generation renews those commitments, accepts responsibility for maintaining what their predecessors established. And it grows because each generation adds something new, synthesizing inherited wisdom with novel understanding achieved through addressing challenges their founders never anticipated.
+      [p]
+      You understand sacrifice differently now. Not grim duty performed reluctantly, but joyful participation in something larger than individual existence. The Spiral doesn't demand you surrender identity, but it does invite you to recognize that individual significance derives from relationships to larger patterns rather than isolated achievement.
+      [p]
+      The resonance mark appears on your palm if it wasn't already present—the Spiral's acknowledgment that you have achieved genuine understanding rather than mere intellectual comprehension.
+      *set attunement +15
+      *set resonance_mark true
+      *goto spiral_revelation
+    *else
+      The harmonics intensify beyond your current capacity to process coherently. Too much information arriving through too many channels simultaneously, overwhelming perceptual frameworks not yet developed to handle this density of meaning. You feel consciousness beginning to fragment under the pressure, identity dissolving into the larger pattern like drop falling into ocean.
+      [p]
+      Survival instinct triggers automatic protective withdrawal. You step back from the chamber's threshold, retreating to depths where the resonance operates at intensity you can process without losing coherence. Not failure—wisdom. Recognizing limits and respecting them prevents catastrophic overstep.
+      [p]
+      The Spiral accepts your retreat without judgment. There will be other opportunities when you've developed capacity to survive what it wants to teach you. Patience measured in centuries can afford to wait for individual development.
+      *set attunement +5
+      *goto spiral_revelation
+  #Seek ${mentor}'s wisdom about this place.
+    You speak ${mentor}'s name into darkness, not quite prayer but carrying similar tones of supplication mixed with hope that someone wiser might offer guidance when your own understanding proves insufficient. And ${mentor} appears beside you—not through walking, but through manifestation, as if your need summoned them from whatever task they'd been engaged in elsewhere.
+    [p]
+    "The Spiral remembers all who walk its paths," ${mentor} says, voice carrying harmonics suggesting they're speaking from multiple temporal positions simultaneously—addressing your present self while also conversing with past and future versions of you that exist in parallel timelines. "What you choose to remember shapes what you become. Not just personal memories, but which aspects of collective history you incorporate into your ongoing identity."
+    [p]
+    They gesture at the crystallized memories embedded in surrounding stone. "These preserve everything that happened here. But preservation isn't the same as active incorporation. You could memorize every detail and learn nothing meaningful, or you could absorb single crucial insight that transforms your entire approach to existence. Wisdom isn't accumulating maximum information—it's recognizing which patterns matter and integrating them deeply enough that they reshape your fundamental nature."
+    *set council_trust +10
+    *if mentor = "Corin"
+      Corin's expression holds complexity suggesting experiences that span more than one lifetime's accumulation. "I chose this path long ago," they continue, voice carrying notes of both satisfaction and lingering uncertainty. "Trading immediate action for long-term understanding. Accepting that my contribution to Avalon's ongoing story would be measured in insights that enable others' achievements rather than personal dramatic accomplishments."
+      [p]
+      A pause weighted with significance. "Some days I wonder if I chose wisely. Whether the world needed more scholars or more warriors, whether my particular combination of talents could have served better through different application. But then I witness moments like this—watching someone younger navigate thresholds I helped prepare—and I recognize that choosing well matters less than committing fully to whatever choice you make."
+    *else
+      *comment Handles Aria and any other mentor value
+      ${mentor} reflects with visible emotion, their usual composure softening into something more vulnerable. "I walked these depths in my youth, when they terrified me more than they do now. Everything seemed larger then—the stakes higher, the risks more catastrophic, my own inadequacy more obvious. But I learned that the Spiral doesn't demand perfection. It requires honesty and sustained effort toward something that matters beyond personal advantage."
+      [p]
+      "Each generation must find their own truth here," ${mentor} continues. "I can share what I discovered, but my insights won't simply transfer to your consciousness like data copied between archives. You have to earn understanding through personal engagement with mystery, accepting that some questions don't have final answers—just increasingly sophisticated ways of asking better questions."
+    *goto spiral_revelation
+
+*label spiral_revelation
+The Spiral pulses with recognition, its rhythm synchronizing with your heartbeat for several cycles before returning to its own eternal cadence. You feel yourself changing in ways that won't become fully apparent until later—seeds planted now that will germinate when circumstances provide appropriate conditions. Being marked by this place doesn't mean achieving some final state of enlightenment. It means accepting that you've become part of an ongoing story larger than individual existence.
+
+*if resonance_mark and attunement >= 75
+  A sigil blazes into visibility on your palm—not appearing gradually but manifesting all at once like lightning striking, burning itself into your flesh with intensity that should hurt but instead feels like recognition. The mark of one who has truly heard the Spiral's song, not just listened superficially but understood deeply enough that the understanding altered fundamental nature.
+  [p]
+  The Council will take notice. This marking carries implications beyond personal achievement—it represents the realm identifying you as someone capable of being trusted with responsibilities that require seeing beyond surface appearances to underlying patterns. Doors will open, but they lead to chambers where failure carries catastrophic consequences. Power without proportional responsibility becomes corruption; this mark ensures you receive both simultaneously.
+  *set council_trust +15
+*elseif oathbound and honor >= 70
+  Your oath resonates through the depths like struck bell, the commitment you made above amplifying through stone and time until it manifests as audible harmonic that the Spiral itself acknowledges. Wardens who guard these passages salute as you pass—not all of them corporeal, some existing as preserved consciousness bound to protective duty across lifetimes through choices that transcended individual mortality.
+  [p]
+  They recognize in you something that mirrors their own foundational choice: prioritizing service above personal advantage, accepting that some things matter enough to warrant sacrifice. Your honor increases not as abstract score but as tangible quality that others can perceive and respond to.
+  *set honor +10
+
+*comment Branch back to the main story flow.
+*choice
+  #Return to the council with what you've learned.
+    You turn from the depths and begin ascending the winding stairs, each step returning you incrementally toward surface reality where time flows sequentially and causality operates according to more predictable patterns. Your mind holds revelations that will take months to fully integrate—understanding acquired too rapidly to process immediately, requiring sustained contemplation before transforming from raw insight into practical wisdom.
+    [p]
+    ${mentor} walks beside you, maintaining respectful silence that acknowledges this transition requires processing space. When you finally emerge into the council chambers, you discover that hours passed subjectively have been mere minutes externally. Or perhaps days compressed into moments. The Spiral's temporal fluidity makes accurate accounting impossible.
+    [p]
+    But you've changed, regardless of how much chronological time the transformation required. The council will recognize it when they look at you—that subtle shift in presence suggesting someone who has confronted mystery and returned intact but altered.
+    *goto_scene council
+  #Venture further into the uncharted passages.
+    Against ${mentor}'s subtle caution, you press deeper into passages that narrow until they become barely navigable, forcing you to squeeze through apertures that sometimes feel more conceptual than physical—threading yourself through gaps in reality's standard configuration to access spaces that shouldn't exist according to conventional dimensional geometry.
+    [p]
+    The unknown calls to you with intensity that transcends rational justification. Some part of your nature recognizes affinity with mystery itself, feels more alive when navigating uncertainty than when following well-mapped territories. Dangerous inclination potentially, but also sign of temperament suited to roles that require venturing beyond established boundaries to discover what lies in unmapped domains.
+    *if attunement >= 80 or honor >= 80
+      Your strength of purpose—whether achieved through attunement that lets you perceive safe paths or honor that grants courage to navigate dangerous ones despite risks—carries you through passages that would defeat less developed travelers. The way twists back on itself repeatedly, looping through dimensional folds that make navigation impossible through conventional spatial reasoning. But you persist, trusting instinct or following resonance patterns or simply refusing to surrender regardless of difficulty.
+      [p]
+      Eventually the passage opens into hidden chamber that predates Avalon's founding. Here stands a sealed portal, inactive for generations but still humming with potential like engine idling rather than fully shut down. The sealing wards show signs of degradation—not catastrophic failure imminent, but suggestion that whatever danger prompted original closure may have passed, making reopening feasible if approached with appropriate caution.
+      [p]
+      This discovery matters. The Council will want to know that resources they thought permanently lost might become accessible again. Your willingness to venture beyond safe boundaries despite risks has produced tangible value, justifying the danger you accepted.
+      *set council_trust +20
+      *set resonance_mark true
+      *goto_scene epilogue
+    *else
+      The paths twist back on themselves with increasing intensity, dimensional geometry growing so convoluted that forward motion becomes indistinguishable from circling. You persist longer than prudence recommends, driven by determination that edges toward stubbornness, before finally accepting that these passages require capabilities you haven't yet developed.
+      [p]
+      When you finally surrender to necessity and retrace your route, you discover yourself emerging at the entrance once more—the Spiral gently but firmly redirecting you toward more appropriate challenges. Not punishment for attempting beyond your capacity, but protective intervention preventing catastrophic overstep.
+      [p]
+      ${mentor} waits at the threshold, expression holding understanding without judgment. "Ambition serves you well when tempered by realistic assessment of current capability," they observe. "The Spiral respects those who push boundaries, but it will protect you from destroying yourself through excessive confidence. Learn from this. Humility isn't weakness—it's foundation for genuine growth."
+      *set attunement +5
+      *goto_scene council
+  #Meditate here, seeking clarity before the next challenge.
+    You settle into meditation posture on stone that radiates warmth suggesting geological processes active far below. Eyes closed, breathing regulated into steady rhythm that matches the Spiral's own pulse, you let accumulated stimulation from this journey gradually integrate into more coherent understanding.
+    [p]
+    Meditation in this place differs from practice conducted in ordinary locations. The concentrated magic saturating these depths means that consciousness itself becomes more fluid, permeable to insights that normally require years of contemplation to achieve. You don't force understanding—you create receptive space and allow wisdom to emerge organically from patterns already present in your experience but not yet recognized consciously.
+    [p]
+    Time passes unmeasured. Could be minutes. Could be hours. The distinction feels increasingly irrelevant as you sink deeper into state where individual identity becomes less rigidly defined, awareness expanding to include larger patterns that your normal consciousness filters out to maintain coherent sense of separate self.
+    [p]
+    When you finally return to ordinary awareness and stand, you feel centered in ways that transcend emotional equilibrium. Not just calm, but integrated—different aspects of your nature that normally compete for dominance now operating in cooperative harmony. Both honor and attunement have strengthened through recognition that they're complementary rather than competitive values.
+    *set attunement +5
+    *set honor +5
+    *goto_scene council

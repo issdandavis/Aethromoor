@@ -1,19 +1,62 @@
-You pause at the threshold of a balcony overlooking the Spiral. Choices made today ripple outward.
+You pause at the threshold of a balcony that extends from Avalon's highest spire, where architecture finally surrenders to open sky and the only boundary between you and infinite possibility is the decision to step forward or hold back. Below, the Spiral spreads in patterns too vast to comprehend from this perspective—intricate geometries of ley lines connecting through intersections where different magical traditions have learned to harmonize their approaches, creating synthesis more powerful than any single methodology could achieve alone.
+
+The view encompasses not just physical geography but temporal dimensions overlaid on spatial ones. You can perceive—not quite seeing, but sensing through faculties that Avalon has begun awakening in you—the echoes of past decisions still rippling outward through the realm's structure. And if you focus appropriately, hints of futures that haven't crystallized into actuality yet, probability threads connecting present circumstances to potential outcomes that will only manifest if particular choices get made.
+
+Choices made today ripple outward with consequences extending beyond immediate visibility. The Spiral operates according to narrative logic where significance matters more than mechanical causation, meaning your decisions here carry weight proportional to their thematic resonance rather than just their direct practical effects.
 
 *if resonance_mark
-  The Spiral thrums in time with your pulse, marking you as one who listens.
+  The Spiral thrums in time with your pulse—not matching it precisely, but synchronizing in ways that suggest you've become part of its fundamental rhythm. The resonance mark on your palm pulses gently, warm without burning, present without demanding constant attention. You are marked now as one who listens, someone who has achieved understanding deep enough that the realm itself acknowledges you as participant in its ongoing conversation rather than mere temporary visitor.
+  [p]
+  This changes things. Doors will open that remain closed to others. Responsibilities will find you whether you seek them or not. The Spiral recognizes those who hear its song, and it has ways of ensuring they end up in positions where their particular gifts serve purposes larger than personal ambition.
 *elseif oathbound
-  The badge of the wardens gleams. Duty anchors your steps.
+  The badge of the wardens gleams against your chest, catching light from three moons hanging in perfect alignment overhead. Not just decoration or identification—the badge itself carries protective enchantments, defensive wards that activate automatically when you face certain categories of threat. More importantly, it serves as tangible reminder of commitments made in places where magic listened carefully enough that promises became structurally incorporated into your fundamental nature.
+  [p]
+  Duty anchors your steps now. Not constraining freedom, but providing foundation stable enough to support ambitious construction. You understand differently than before why warriors accept limitations that others might perceive as restrictions—because some things matter enough to warrant sacrifice, and protecting them requires accepting that personal desires sometimes must yield to larger necessities.
 *else
-  The council watches, curious which oath you will claim.
+  The council watches from their suspended platforms, visible through crystalline walls that permit observation while maintaining appropriate distance. You sense their attention focused on you with intensity suggesting they're not just monitoring behavior but actively evaluating character, trying to determine which oath you will claim when circumstances eventually force choice between paths that cannot be walked simultaneously.
+  [p]
+  Potential remains fluid. You haven't committed to particular trajectory yet, which means maximum flexibility but also suggests uncertainty about fundamental values. The Spiral doesn't judge indecision harshly, but it does expect that everyone eventually clarifies their core commitments—not through abstract declaration, but through accumulated choices that reveal patterns suggesting underlying priorities.
 
-*comment Offer a small wrap-up and replay hook.
+Wind carries voices from below—students debating magical theory in the academy's open-air classrooms, wardens calling cadence during training exercises, archivists arguing good-naturedly about optimal cataloging methodologies. Avalon thrums with life that you're now part of, conversations you'll contribute to, ongoing story you'll help shape through whatever role you eventually claim.
+
+*comment Offer wrap-up and replay hook with deeper reflection.
 *choice
   #Reflect on what you learned.
-    Honor: ${honor}
-    Attunement: ${attunement}
-    Council trust: ${council_trust}
+    You sink into contemplation, reviewing the path that brought you to this threshold moment. Not just recalling events chronologically, but examining patterns they form when considered together—themes emerging from accumulated choices, trajectories suggested by decisions made when faced with competing values.
+    [p]
+    *if honor >= 70
+      Your honor stands at ${honor}—testimony to commitments made seriously enough that they altered your fundamental nature. The path of the warrior calls to you, offering clarity that comes from defending principles worth preserving even when defense requires sacrifice. You understand differently now what it means to stand between vulnerable people and forces that would harm them, accepting that some oaths matter more than personal survival.
+    *elseif honor >= 50
+      Your honor rests at ${honor}—neither dramatically high nor concerningly low, suggesting balanced approach between protective commitment and pragmatic flexibility. You haven't committed fully to warrior's path, but neither have you dismissed its significance. The middle ground offers advantages, though eventually most people find they must choose more definitive positions when circumstances force clarity.
+    *else
+      Your honor measures ${honor}—relatively low score indicating either deliberate choice to prioritize other values or simple lack of opportunities to demonstrate protective commitment. Not necessarily problematic, depending on what you've been cultivating instead, but worth examining whether this reflects intentional path or accidental drift.
+    [p]
+    *if attunement >= 70
+      Your attunement reaches ${attunement}—remarkable achievement suggesting genuine capacity to perceive patterns that remain invisible to ordinary awareness. The Spiral has recognized you as someone capable of understanding its deeper nature, not just manipulating its surface manifestations. Knowledge pursued with this dedication becomes foundation for transformations that reshape not just individual capability but collective possibility.
+    *elseif attunement >= 50
+      Your attunement stands at ${attunement}—respectable development indicating solid foundation without achieving extraordinary heights yet. You perceive more than casual observers, less than true adepts, occupying productive middle ground where learning continues without either stagnating or overwhelming your capacity to integrate insights coherently.
+    *else
+      Your attunement measures ${attunement}—relatively limited development suggesting either focus on other priorities or insufficient exposure to experiences that cultivate deeper perception. Not irreversible, but worth considering whether this aligns with your intended trajectory or represents gap requiring attention.
+    [p]
+    *if council_trust >= 70
+      The Council's trust in you reaches ${council_trust}—extraordinary confidence earned through demonstrated judgment and sustained reliable performance. They view you as someone who can be trusted with significant responsibility, whose character has proven resilient enough to handle authority without corrupting under its pressure. Doors will open, but they lead to chambers where failure carries catastrophic consequences.
+    *elseif council_trust >= 50
+      The Council's trust measures ${council_trust}—moderate confidence suggesting they recognize your potential while maintaining appropriate caution about granting too much authority too quickly. You've proven yourself capable, but not yet to extent that warrants full access to Avalon's most sensitive resources or positions. Further development required before reaching inner circles.
+    *else
+      The Council's trust stands at ${council_trust}—limited confidence reflecting either mistakes that damaged credibility or insufficient opportunities to demonstrate reliability. Recovery possible through sustained competent performance, but you'll need to work harder than others to overcome initial skepticism about your judgment and character.
+    [p]
+    You carry these measurements forward not as final scores but as current snapshot of ongoing development. The path continues beyond this moment, shaped by choices still unmade and consequences yet to manifest.
     *finish
   #Step forward into the Spiral once more.
-    The path shifts with every decision.
+    You move toward the balcony's edge where protective railing ends and open air begins. Not planning to fall—the gesture carries symbolic significance rather than suicidal intent. Stepping forward into uncertainty, accepting that growth requires venturing beyond comfortable boundaries into domains where safety cannot be guaranteed and outcomes remain unpredictable.
+    [p]
+    The Spiral responds to your willingness. Wind currents shift impossibly, creating stable vortex that supports your weight like solid platform made from air pressure and intention. You float suspended between certainty and mystery, anchored by nothing except commitment to continue engaging with whatever challenges emerge.
+    [p]
+    Below, the realm spreads in patterns that shift with every decision made by every inhabitant, collective choices creating emergent complexity that no single planner could have designed deliberately. You're part of that now—not just observer, but active participant whose choices ripple outward to influence larger patterns.
+    [p]
+    The path shifts with every decision, never static, always responsive to accumulated choices shaping trajectory toward futures that haven't crystallized into actuality yet. But you step forward anyway, accepting uncertainty as necessary condition for meaningful growth, trusting that the Spiral will continue teaching those willing to remain students regardless of how much they've already learned.
+    [p]
+    Your journey continues beyond this threshold moment, into territories unmapped and possibilities unexplored. Whatever comes next, you'll face it as someone changed by passage through Avalon's mysteries—marked by experiences that cannot be undone, carrying wisdom that will inform every subsequent choice you make.
+    [p]
+    The Spiral remembers all who walk its paths. And now you walk among those it will remember.
     *ending

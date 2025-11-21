@@ -7,34 +7,53 @@
   council
   archives
   wardens
+  spiral_depths
   epilogue
 
 *create honor 50
 *create attunement 50
-*create mentor "Aria"
+*create mentor "your guide"
 *create council_trust 45
 *create oathbound false
 *create resonance_mark false
 
-You stand before the gates of Avalon, the Spiral of Eternity humming under your feet. Today you choose how you will meet the city's secrets.
+You stand before the crystalline gates of Avalon, where reality itself seems to hold its breath. Beneath your feet, the Spiral of Eternity hums with a rhythm older than memory—not quite sound, not quite vibration, but something that resonates in the marrow of your bones. The air shimmers with possibility, carrying the scent of ozone and growing things, of ancient mysteries and futures yet unwritten.
+
+The gates tower above you, their surfaces etched with living inscriptions that shift and reorganize as you watch, responding to your presence by revealing new layers of meaning. Beyond them, spires of impossible architecture reach toward skies that hold three moons in perfect alignment. This is Pollyoneth, the realm that listens, the city where boundaries blur and magic speaks in living language.
+
+Today, you will choose how you meet its secrets.
 
 *choice
   #Study the ley lines that weave through the plaza.
-    The glyphs glow brighter as you trace them. You feel the Spiral answer your curiosity.
+    You kneel in the central plaza, tracing your fingers across glyphs carved into stone that pulses with inner warmth. The symbols respond to your touch like strings plucked on some cosmic instrument, their resonance deepening as you begin to understand the patterns they form. Magic isn't mechanical here—it's conversational, alive, waiting for someone who knows how to listen.
+    [p]
+    The ley lines ignite beneath your hands, threads of luminous energy connecting in vast webs that bind the realm into coherent wholeness. You can see it now—the underlying grammar of this place, the architectural magic that holds Avalon suspended between what was and what might be. The Spiral answers your curiosity with revelations that flood your consciousness like starlight breaking through clouds.
+    [p]
+    Aria Thalorien, the warrior-scholar archivist who guided you here, watches with eyes that hold centuries of patient wisdom. She nods once, a gesture weighted with approval and recognition. "You hear it," she says softly. "The language beneath the language. Few possess that gift on their first day within these walls."
     *set attunement +10
     *set resonance_mark true
+    *set mentor "Aria"
     *goto embark
   #Drill with the wardens who guard the bridge to the central spire.
-    Steel meets steel as you spar. The wardens nod when you match their pace.
+    Steel meets steel with a sound like bells ringing in storm winds. You spar with the wardens on the training grounds, where crystalline sand remembers every footstep and adjusts the terrain to test your adaptability. The wardens move with precision born of decades defending boundaries others cannot perceive—dimensional rifts, temporal anomalies, incursions from realms where physics answers to different laws.
+    [p]
+    When you match their pace, incorporating techniques they haven't seen before, their eyes light with professional respect. One veteran, her armor etched with protective runes that glow faintly blue, executes a salute that carries the weight of formal acknowledgment. "Swift learning," she observes. "And innovative application. The Spiral needs defenders who can adapt, not just follow established patterns."
+    [p]
+    From the sidelines, Aria makes careful notes in a journal bound in leather that seems to shift between several colors depending on the angle of light. She's recording more than combat technique—she's documenting the shape of your character, the choices that reveal who you might become.
     *set honor +10
     *set oathbound true
+    *set mentor "Aria"
     *goto embark
-  #Seek counsel from ${mentor}, the archivist who brought you here.
-    ${mentor} speaks softly about balance between duty and wonder.
+  #Seek counsel from Corin, a renowned archivist.
+    You find Corin in a quiet alcove where reality seems slightly softer, as if the boundaries between thought and manifestation grow permeable in spaces dedicated to contemplation. Shelves carved from living wood hold tomes that whisper to each other when no one is listening, exchanging theories and updating their own contents based on discoveries made elsewhere in the library.
+    [p]
+    Corin looks up from a manuscript written in script that rearranges itself as you watch, always presenting the next insight you need rather than the one you expect. The archivist's eyes hold depths suggesting experiences that span more than a single lifetime—perhaps memories inherited through lineage magic, or wisdom accumulated across dimensional iterations.
+    [p]
+    "Balance," Corin says softly, voice carrying harmonics that suggest multiple conversations happening simultaneously on frequencies you can almost perceive. "Between duty that anchors and wonder that elevates. Between the structures that give magic meaning and the chaos that keeps it vital. Walk that edge, and the Spiral will teach you things that cannot be learned through devotion to either extreme alone." A pause, weighted with significance. "I would be honored to guide your path, if you'll permit it."
     *set mentor "Corin"
     *set attunement +5
     *goto embark
 
 *label embark
-You carry these first decisions into the city. The Spiral waits.
+You carry these first decisions into the city like seeds planted in fertile soil. The Spiral waits—patient, eternal, already beginning to shape itself around the patterns you've established. Somewhere in its depths, the World Tree dreams, and your choices become part of the story it will remember across ages.
 *finish

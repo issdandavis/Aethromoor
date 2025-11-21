@@ -1,20 +1,40 @@
-The skybridge to the Aerie arches above clouds. Banners from distant houses ripple in the wind. Below, the Spiral resonates with each step you take.
+The skybridge to the Aerie arches across impossible distances, spanning the gap between what is and what could be. Far above, clouds move in patterns too precise to be natural—geometric formations suggesting intelligence behind their choreography. The bridge itself is constructed from materials that exist in several dimensions simultaneously, its surface smooth as polished obsidian yet warm as living flesh beneath your feet.
+
+Banners from the great houses hang from crystalline pylons that rise like frozen music from the bridge's edges. Each sigil tells stories older than the realm itself—the Ravencrest raven with eyes that hold dimensional apertures, the Elenstraea star-crown wreathed in probability threads, houses you don't yet recognize but feel you should, as if their significance exists just beyond the edges of your current understanding.
+
+Below, the Spiral resonates. Not visibly—you cannot see it from this height—but you feel it through the soles of your feet with each step you take. A rhythm like heartbeats counted in centuries, like the slow turn of seasons compressed into moments, like time itself learning to dance.
+
+The wind carries voices: fragments of lectures from the academy's open-air classrooms, laughter from students testing levitation spells over safety wards, the chiming of dimensional bells that mark hours measured by significance rather than duration. Magic saturates the air so thoroughly that breathing feels like drinking starlight.
 
 *choice
   #Pause to read the banners.
-    The sigils speak of alliances and old debts. The wardens note your patience.
+    You stop before the nearest banner, letting the bridge's other travelers flow around you like water parting around stone. The sigil depicts an oak tree whose roots become ravens, whose branches hold books that transform into keys. Beneath it, inscribed in script that adjusts its language to match the reader's understanding: "House Thornweave—Where Knowledge Grows Deep and Memory Takes Flight."
+    [p]
+    As you study it, connections form in your mind. Thornweave allied with Ravencrest during the Interstice Moment, the magical truce that ended the Third Boundary War. Their current representative sits on the Council of Harmonies, advocating for dimensional research constrained by ethical frameworks rather than political expedience. Understanding the alliances, recognizing the old debts and ongoing negotiations woven through these symbols—this knowledge will serve you well in navigating Avalon's complex social architecture.
+    [p]
+    A warden pausing nearby notices your attention to detail. "Patient observation," they comment, professional approval clear in their tone. "The Spiral favors those who look before leaping." They make a subtle hand gesture that you recognize as notation for the Council's awareness—your name will be remembered positively when decisions about trust and access require making.
     *set honor +5
     *set council_trust +5
     *goto next
   #Listen for echoes in the Spiral.
-    A rhythm of distant bells answers you. Your attunement sharpens.
+    You close your eyes, letting visual distractions fade, focusing instead on the deeper rhythms that pulse beneath surface reality. The Spiral doesn't just exist—it sings. Harmonics layer upon harmonics, creating chord progressions that encode information in pure resonance.
+    [p]
+    Distant bells answer your attention, their tones shifting to acknowledge your presence. You're not commanding them—that would be crude, mechanical. Instead, you're participating in an ongoing conversation that predates your arrival and will continue long after you've departed. The bells speak of boundaries tested and maintained, of portals calibrated to specific resonance frequencies, of time flowing thematically through seasonal shifts rather than linear progression.
+    [p]
+    Your attunement sharpens. You can feel the ley lines now, vast networks of magical energy flowing through channels carved by centuries of collaborative spellwork. Each intersection point represents a node where different magical traditions harmonized their approaches, creating synthesis more powerful than any single methodology. This is what makes Avalon unique: not dominance, but cooperation. Not mastery, but dialogue.
     *set attunement +5
     *goto next
   #Move quickly; the council is waiting.
-    You stride forward. ${mentor} jogs to keep up.
+    Time holds different significance in Pollyoneth, but punctuality still matters when powerful entities have cleared space in their schedules to evaluate you. You stride forward with purpose, covering ground with efficient speed that suggests confidence rather than anxiety. The bridge seems to shorten beneath your urgency, responding to intent by adjusting its dimensional properties—a helpful feature for a realm where causality occasionally needs gentle encouragement toward preferred outcomes.
+    [p]
+    ${mentor} jogs to keep pace with you, breathing slightly harder than the exertion warrants. "Eager," they observe, tone holding notes of both concern and understanding. "But remember—the Council values those who demonstrate they can be trusted with power, not just those who desire it. Rushing suggests either ignorance of what you're approaching or insufficient respect for those who hold authority here."
+    [p]
+    You notice several council guards exchanging glances, making mental notes about your priorities. The gesture isn't hostile, but it carries weight. First impressions matter in Avalon, where memory is preserved with magical precision and nothing important ever truly fades from institutional awareness.
     *set council_trust -5
     *goto next
 
 *label next
-You reach the council chambers. A portal shimmers, leading deeper into Avalon.
+The bridge delivers you to the council chambers, a structure that shouldn't exist according to physics as you understood them before crossing Avalon's threshold. Platforms float in precise orbital patterns around a central dais, each one representing different magical traditions in careful balance. Between them, the air ripples with portal energy—dimensional apertures leading deeper into Avalon's layered geography.
+
+One portal shimmers with particular intensity, its edges traced in light that tastes like mint and sounds like distant choral harmonies. It awaits your passage, a threshold between who you were and who you might become.
 *finish
