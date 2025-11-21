@@ -244,14 +244,14 @@ You step through the portal. Avalon's leyline energy washes over you, welcoming 
 *if desert_blessing
   But something has changed. You can feel truth and lies differently now—like a new sense awakened by the desert. Your truth-sworn sand pulses gently in your pocket, warm and reassuring.
 
-*goto_scene endings truthbound_ending
+*goto_scene endings truthbound_mage_ending
 
 *if (kael_approval = 1)
   You've grown, even if the desert didn't bless you. Sometimes wisdom comes from walking carefully rather than boldly.
 
-*goto_scene endings balanced_ending
+*goto_scene endings balanced_mage_ending
 
 *if kael_approval <= 0
   You return to Avalon humbled, carrying lessons learned the hard way.
 
-*goto_scene endings humbled_ending
+*goto_scene endings humbled_student_ending

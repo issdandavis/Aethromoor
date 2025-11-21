@@ -373,9 +373,9 @@ Izack addresses the group one final time. "You've learned that consciousness its
   *goto_scene endings heartwood_guardian_ending
 
 *if forest_bond >= 3
-  *goto_scene endings forestbound_ending
+  *goto_scene endings forestbound_guardian_ending
 
 *if forest_blessing
-  *goto_scene endings balanced_ending
+  *goto_scene endings balanced_mage_ending
 
-*goto_scene endings standard_ending
+*goto_scene endings standard_path_ending
