@@ -1,0 +1,856 @@
+*comment ================================================
+*comment MIDNIGHT MYSTERY
+*comment Explore Avalon's secrets during forbidden hours
+*comment Optional scene with branching investigations
+*comment ================================================
+
+*temp investigation_path ""
+*temp clue_found ""
+*temp companion_midnight ""
+*temp secret_revealed ""
+
+*label start
+
+*line_break
+
+[b]== MIDNIGHT AT AVALON ==[/b]
+
+*line_break
+
+You wake to moonlight streaming through your window.
+
+Something feels... off.
+
+*page_break
+
+The air hums with unusual energy. Leylines that normally flow gently are pulsing with agitation.
+
+*line_break
+
+Through your window, you see strange lights dancing around the Spiral Spire.
+
+*page_break
+
+[i]*Tap tap*[/i]
+
+Polly pecks at your window.
+
+*page_break
+
+[i]"You feel it too?"[/i] she asks when you let her in. [i]"Something's happening. Something the masters don't want students knowing about."[/i]
+
+*line_break
+
+[i]"Which, naturally, means we should absolutely investigate."[/i]
+
+*page_break
+
+*choice
+  #"What do you mean 'something the masters don't want us knowing about'?"
+    *goto polly_explanation
+
+  #Get dressed and sneak out immediately—this could be important.
+    *set curiosity +15
+    *goto sneaking_out
+
+  #"Polly, we shouldn't break curfew. Whatever it is, the masters can handle it."
+    *set cautious_approach true
+    *goto cautious_response
+
+*label polly_explanation
+
+Polly settles on your bedpost.
+
+*page_break
+
+[i]"Earlier tonight, I saw Aria and Izack arguing. Rare—they usually agree on everything. Something about 'containment protocols' and 'not ready to tell the students.'"[/i]
+
+*line_break
+
+[i]"Then Zara rushed past carrying emergency supplies to the lower vaults. You know, the ones students aren't allowed near?"[/i]
+
+*page_break
+
+[i]"Whatever's happening, it's big. And they're keeping us in the dark."[/i]
+
+*page_break
+
+*choice
+  #"Then we need to find out what's really going on."
+    *set curiosity +10
+    *goto sneaking_out
+
+  #"Maybe they have good reasons for keeping secrets."
+    *goto cautious_response
+
+*label cautious_response
+
+Polly cocks her head.
+
+*page_break
+
+[i]"You're not wrong. Secrets exist for reasons. But sometimes students deserve to know what they're studying under."[/i]
+
+*line_break
+
+[i]"Your call. Stay safe in bed, or come investigate with me."[/i]
+
+*page_break
+
+*choice
+  #Stay in bed—trust the masters.
+    *set trust_authority true
+    *goto stay_in_bed
+
+  #Curiosity wins—let's go investigate.
+    *set curiosity +10
+    *goto sneaking_out
+
+*label stay_in_bed
+
+You choose to trust the masters and return to bed.
+
+*page_break
+
+[i]"Suit yourself,"[/i] Polly says. [i]"I'll tell you what I find in the morning. Assuming I don't get turned into a toad for snooping."[/i]
+
+*line_break
+
+She flies out into the night.
+
+*page_break
+
+You lie awake for a while, wondering what secrets Avalon holds.
+
+Eventually, sleep claims you.
+
+*line_break
+
+*comment This is the "safe" ending that skips the midnight exploration
+*set midnight_mystery_skipped true
+
+*finish
+
+*comment ================================================
+*comment SNEAKING OUT
+*comment ================================================
+
+*label sneaking_out
+
+You dress quietly and slip into the hallway.
+
+*page_break
+
+Avalon at night is different.
+
+The architecture shifts more freely without students' consciousness anchoring it. Hallways lead to rooms that don't exist during the day. Shadows move with purpose.
+
+*line_break
+
+It's beautiful and slightly unnerving.
+
+*page_break
+
+[i]"Stick close,"[/i] Polly advises. [i]"The academy gets weird after midnight. Spatial logic becomes optional."[/i]
+
+*page_break
+
+You reach the main courtyard.
+
+Three paths lie before you, each leading to different sources of the strange energy:
+
+*page_break
+
+*choice
+  #Follow the lights to the Spiral Spire—the academy's heart.
+    *set investigation_path "spire"
+    *goto spire_investigation
+
+  #Head to the lower vaults where Zara went.
+    *set investigation_path "vaults"
+    *goto vault_investigation
+
+  #Investigate the gardens—something's glowing there that shouldn't be.
+    *set investigation_path "gardens"
+    *goto garden_investigation
+
+*comment ================================================
+*comment SPIRE INVESTIGATION
+*comment ================================================
+
+*label spire_investigation
+
+The Spiral Spire looms above you, twisting impossibly upward.
+
+Lights dance around its peak—dimensional auroras in colors that hurt to look at directly.
+
+*page_break
+
+[i]"The spire is the anchor point for Avalon's existence,"[/i] Polly explains quietly. [i]"If something's wrong there, it affects the entire realm."[/i]
+
+*page_break
+
+As you approach, you hear voices:
+
+Aria and Izack, deep in discussion.
+
+*page_break
+
+[b]"—can't keep compensating manually,"[/b] Aria's voice carries worry. [b]"The boundary strain is increasing. At this rate, we'll need to—"[/b]
+
+*line_break
+
+[b]"I know,"[/b] Izack interrupts. [b]"But if we tell the students, panic could destabilize things further. Fear affects dimensional boundaries."[/b]
+
+*page_break
+
+[i]"Uh oh,"[/i] Polly whispers. [i]"That sounds bad."[/i]
+
+*page_break
+
+*choice
+  #Reveal yourself—ask them directly what's happening.
+    *set approach_method "direct"
+    *goto spire_direct_approach
+
+  #Stay hidden and listen—gather more information first.
+    *set approach_method "stealthy"
+    *goto spire_eavesdrop
+
+*label spire_direct_approach
+
+You step into view.
+
+*page_break
+
+"Izack. Aria. What's happening to Avalon?"
+
+*line_break
+
+Both masters spin toward you. Aria's hand moves to create a defensive ward before she recognizes you.
+
+*page_break
+
+[b]"${name},"[/b] Izack sighs. [b]"You shouldn't be here."[/b]
+
+*line_break
+
+[b]"But since you are..."[/b] He exchanges a glance with Aria. [b]"I suppose you deserve the truth."[/b]
+
+*page_break
+
+*goto spire_revelation
+
+*label spire_eavesdrop
+
+You press against the wall, listening.
+
+*page_break
+
+Aria continues. [b]"The demon realm Varn'ka'zul is pressing against our boundaries. Not attacking—just... existing nearby with such malevolent intensity that it's warping dimensional space."[/b]
+
+*line_break
+
+[b]"We've been reinforcing the barriers every night. But it's exhausting us."[/b]
+
+*page_break
+
+Izack responds. [b]"Perhaps it's time to teach the advanced students boundary reinforcement. Collaborative maintenance could distribute the load."[/b]
+
+*page_break
+
+*choice
+  #Step out and volunteer—you can help with this.
+    *set collaboration +15
+    *goto spire_volunteer
+
+  #Continue listening—there might be more.
+    *goto spire_continue_listening
+
+*label spire_volunteer
+
+You step forward.
+
+"I can help. We all can. The students—we're stronger than you think."
+
+*page_break
+
+Aria's eyes narrow, but Izack looks thoughtful.
+
+*page_break
+
+*goto spire_revelation
+
+*label spire_continue_listening
+
+Aria speaks again. [b]"There's another option. We could invoke the First Compact—ask the Fae for assistance."[/b]
+
+*line_break
+
+Izack shakes his head violently. [b]"No. Fae deals always have hidden costs. I won't endanger the students that way."[/b]
+
+*page_break
+
+[i]"Smart man,"[/i] Polly whispers. [i]"Fae help is worse than the problem."[/i]
+
+*page_break
+
+*choice
+  #Reveal yourself now—this is too important to hide.
+    *goto spire_direct_approach
+
+  #Slip away with this knowledge—you know enough.
+    *set secret_knowledge_gained true
+    *goto investigation_complete
+
+*label spire_revelation
+
+Izack gestures to the Spire.
+
+[b]"Look closely."[/b]
+
+*page_break
+
+You focus your senses on the dimensional barriers.
+
+Now that you know what to look for, you can see it: hairline fractures, invisible to normal sight but clear to trained perception.
+
+*line_break
+
+The boundaries between Avalon and other realms are under strain.
+
+*page_break
+
+[b]"We've been maintaining them,"[/b] Aria explains. [b]"But we're only three mages. Even with our experience, the load is becoming unsustainable."[/b]
+
+*line_break
+
+Izack meets your eyes. [b]"This is why we push collaboration so hard. Avalon can't survive on individual power alone. It requires a community sharing the burden."[/b]
+
+*page_break
+
+*choice
+  #"Teach us. Let the students help maintain the boundaries."
+    *set collaboration +20
+    *set responsibility_accepted true
+    *goto spire_student_help
+
+  #"Is there another solution? Something that doesn't rely solely on constant maintenance?"
+    *set creative_thinking +15
+    *goto spire_alternative
+
+*label spire_student_help
+
+Izack and Aria exchange a long look.
+
+*page_break
+
+[b]"You understand what you're offering?"[/b] Aria asks. [b]"This isn't optional practice. These boundaries failing means Avalon ceases to exist. The pressure is immense."[/b]
+
+*line_break
+
+"I understand. And I think the other students will too."
+
+*page_break
+
+Izack smiles sadly. [b]"You're braver than we were at your age. Very well—tomorrow, we'll begin training a student maintenance corps."[/b]
+
+*page_break
+
+*set secret_revealed "boundary_strain"
+*set student_guardian_corps true
+*set izack_relationship +20
+*set aria_relationship +20
+
+*goto investigation_complete
+
+*label spire_alternative
+
+You think about everything you've learned.
+
+*page_break
+
+"What if... what if we made the boundaries adaptive? Taught them to flex rather than just resist?"
+
+*line_break
+
+Aria blinks. [b]"Explain."[/b]
+
+*page_break
+
+"You've taught us that boundaries want to connect realms, not just separate them. What if we redesigned Avalon's barriers to absorb pressure and transform it into something useful?"
+
+*page_break
+
+Izack's eyes light up. [b]"Like dimensional judo—using the demon realm's hostile pressure against itself..."[/b]
+
+*line_break
+
+Aria is already calculating. [b]"It would require complete boundary restructuring. Incredibly complex. But theoretically possible."[/b]
+
+*page_break
+
+[b]"And it would need collaborative effort,"[/b] Izack adds. [b]"Every student contributing their understanding of boundaries and adaptation."[/b]
+
+*page_break
+
+[i]"You just proposed a solution the masters didn't think of,"[/i] Polly whispers in awe. [i]"That's... impressive."[/i]
+
+*page_break
+
+*set secret_revealed "adaptive_boundaries"
+*set innovative_solution true
+*set izack_relationship +25
+*set aria_relationship +25
+*set collaboration +25
+
+*goto investigation_complete
+
+*comment ================================================
+*comment VAULT INVESTIGATION
+*comment ================================================
+
+*label vault_investigation
+
+The lower vaults are forbidden to students for good reason.
+
+They house the dangerous, the experimental, and the deeply weird.
+
+*page_break
+
+[i]"I've only been down here twice,"[/i] Polly says nervously. [i]"Both times involved things that shouldn't exist."[/i]
+
+*page_break
+
+You descend stone stairs that spiral downward into the earth.
+
+The temperature drops. The air feels thick with concentrated magic.
+
+*line_break
+
+And you hear... singing?
+
+*page_break
+
+Following the sound, you find Zara in a chamber filled with crystalline formations.
+
+She's not alone.
+
+*page_break
+
+Floating before her is a being of pure light and shadow—beautiful, terrifying, clearly not from any realm you recognize.
+
+*page_break
+
+[i]"Oh no,"[/i] Polly breathes. [i]"That's an Umbral Angel. They're from the void between realms. What's it doing here?"[/i]
+
+*page_break
+
+*choice
+  #Stay hidden and watch—don't interrupt whatever's happening.
+    *set approach_method "observant"
+    *goto vault_observe
+
+  #Call out to Zara—she might need help.
+    *set approach_method "protective"
+    *goto vault_intervene
+
+*label vault_observe
+
+You watch as Zara and the Umbral Angel continue their... conversation? Ritual?
+
+*page_break
+
+The being speaks in harmonics rather than words. Zara responds with gestures that leave trails of light.
+
+*line_break
+
+Gradually, you understand: they're negotiating.
+
+*page_break
+
+The angel wants passage through Avalon to reach another realm. Zara is explaining why that's impossible without destabilizing everything.
+
+*page_break
+
+Finally, they reach agreement.
+
+The angel will wait. When Avalon's boundaries are stronger, safe passage can be arranged.
+
+*line_break
+
+In return, it offers knowledge of void-magic—power drawn from the spaces between realities.
+
+*page_break
+
+The angel fades.
+
+Zara slumps, exhausted.
+
+*page_break
+
+*choice
+  #Reveal yourself and help her back upstairs.
+    *set zara_relationship +15
+    *goto vault_help_zara
+
+  #Slip away—let her keep her secret.
+    *goto investigation_complete
+
+*label vault_intervene
+
+"Zara!" you call out.
+
+*page_break
+
+She spins, shocked. The Umbral Angel's attention shifts to you.
+
+*line_break
+
+You feel its regard—ancient, alien, utterly inhuman.
+
+*page_break
+
+[b]"${name}?"[/b] Zara's voice is strained. [b]"You shouldn't be here. This is... delicate."[/b]
+
+*line_break
+
+The angel speaks directly into your mind: [i]ANOTHER WITNESS. CURIOUS.[/i]
+
+*page_break
+
+*choice
+  #Stand your ground—show no fear.
+    *set courage +15
+    *goto vault_confidence
+
+  #Back away slowly—you're in over your head.
+    *goto vault_retreat
+
+*label vault_confidence
+
+You meet the angel's non-gaze steadily.
+
+"I'm a student of Avalon Academy. Whatever business you have here, I trust Zara to handle it wisely."
+
+*page_break
+
+The angel seems... amused?
+
+[i]BRAVE. FOR ONE SO SMALL.[/i]
+
+*line_break
+
+It addresses Zara again. [i]YOUR STUDENTS HAVE POTENTIAL. I WILL REMEMBER THIS NEGOTIATION.[/i]
+
+*page_break
+
+The angel fades.
+
+*page_break
+
+*goto vault_help_zara
+
+*label vault_retreat
+
+You back away carefully.
+
+The angel loses interest, returning its focus to Zara.
+
+*line_break
+
+You watch from a safer distance as they conclude their negotiation.
+
+*page_break
+
+*goto vault_help_zara
+
+*label vault_help_zara
+
+When the angel is gone, Zara nearly collapses.
+
+You rush forward, supporting her.
+
+*page_break
+
+[b]"Thanks,"[/b] she murmurs. [b]"Umbral Angels are... exhausting. They exist in multiple dimensions simultaneously. Communicating with them is like thinking in four directions at once."[/b]
+
+*page_break
+
+You help her up the stairs.
+
+*line_break
+
+[b]"The masters don't know I do this,"[/b] she admits. [b]"Negotiating with beings from the void realms. But someone has to. They're curious about Avalon, and curiosity left unmanaged leads to problems."[/b]
+
+*page_break
+
+*choice
+  #"Your secret is safe with me. But be careful."
+    *set zara_relationship +20
+    *set secret_knowledge_gained true
+    *goto investigation_complete
+
+  #"You should tell Izack and Aria. They'd want to help."
+    *set honest_approach true
+    *goto vault_suggest_honesty
+
+*label vault_suggest_honesty
+
+Zara shakes her head.
+
+[b]"They have enough to worry about. The boundary strain, teaching, managing the academy..."[/b]
+
+*line_break
+
+[b]"I can handle the void negotiations. It's what hybrids like me are suited for—existing between categories, mediating impossible conversations."[/b]
+
+*page_break
+
+*set secret_revealed "void_negotiations"
+*set zara_relationship +15
+
+*goto investigation_complete
+
+*comment ================================================
+*comment GARDEN INVESTIGATION
+*comment ================================================
+
+*label garden_investigation
+
+The gardens at night are alive in ways they aren't during the day.
+
+Plants that looked ordinary in sunlight now glow with bioluminescence. Flowers hum with barely-audible music.
+
+*line_break
+
+And at the center, something is definitely wrong.
+
+*page_break
+
+A massive bloom—easily twenty feet across—pulses with unstable energy.
+
+It's beautiful and dangerous, oscillating between multiple states of reality.
+
+*page_break
+
+[i]"That's a Reality Rose,"[/i] Polly says. [i]"They bloom once every decade and cause absolute chaos. Every probability near them becomes simultaneously real."[/i]
+
+*page_break
+
+As you watch, you see the rose existing in multiple states:
+
+• Fully bloomed and radiant
+• Wilted and dying
+• Still a bud, potential unrealized
+• All three at once
+
+*page_break
+
+Around it, reality fractures.
+
+The same bench exists in three different positions. A tree is simultaneously young, mature, and ancient.
+
+*line_break
+
+And it's spreading.
+
+*page_break
+
+*choice
+  #Try to stabilize the rose using boundary techniques.
+    *set approach_method "technical"
+    *goto garden_stabilize
+
+  #Let it bloom naturally—this might be beautiful, not dangerous.
+    *set approach_method "trusting"
+    *goto garden_observe_bloom
+
+  #Find the masters—this is beyond your ability.
+    *set approach_method "cautious"
+    *goto garden_get_help
+
+*label garden_stabilize
+
+You focus your boundary training on the Reality Rose.
+
+*page_break
+
+The challenge is complex—how do you stabilize something that's simultaneously in multiple states?
+
+*line_break
+
+Then you remember: boundaries don't enforce single realities. They mediate between them.
+
+*page_break
+
+Instead of forcing the rose into one state, you create gentle boundaries [i]between[/i] its different states.
+
+*line_break
+
+Let it be all three things—just in organized layers rather than chaotic overlap.
+
+*page_break
+
+Slowly, carefully, the probability storm calms.
+
+The rose still exists in multiple states, but now they're harmonious rather than destructive.
+
+*page_break
+
+[i]"Brilliant!"[/i] Polly exclaims. [i]"You didn't fight its nature—you just helped it express that nature more cleanly."[/i]
+
+*page_break
+
+The rose seems to acknowledge you—all three versions simultaneously bowing their petals in your direction.
+
+*page_break
+
+*set secret_revealed "reality_rose"
+*set reality_rose_stabilized true
+*set aria_relationship +20
+*set collaboration +15
+
+*goto investigation_complete
+
+*label garden_observe_bloom
+
+You sit near the rose and simply watch.
+
+*page_break
+
+As the night progresses, the probability storm reaches its peak—then begins to resolve.
+
+*line_break
+
+The rose doesn't collapse into a single state. Instead, it achieves perfect balance between all possibilities.
+
+*page_break
+
+You witness something profound:
+
+Reality isn't a single track. It's a symphony of possibilities existing in delicate balance.
+
+*page_break
+
+The rose fully blooms in all states simultaneously—an impossible, beautiful paradox.
+
+*line_break
+
+Seeds drift off on the night breeze, each carrying that same quantum uncertainty.
+
+*page_break
+
+[i]"You just watched something most mages never see,"[/i] Polly whispers. [i]"The Reality Rose choosing to be everything it could be rather than just one thing."[/i]
+
+*page_break
+
+*set secret_revealed "reality_rose_bloom"
+*set philosophical_insight +25
+*set izack_relationship +15
+
+*goto investigation_complete
+
+*label garden_get_help
+
+You rush to find the masters.
+
+*page_break
+
+Izack arrives first, takes one look at the Reality Rose, and starts laughing.
+
+*line_break
+
+[b]"Oh, it's bloom night! I forgot this was the year."[/b]
+
+*page_break
+
+He sits beside the rose casually.
+
+*line_break
+
+[b]"Come, sit. This happens naturally. We just need to make sure it doesn't spread beyond the garden boundaries."[/b]
+
+*page_break
+
+You spend the night with Izack, containing the probability storm while letting the rose bloom freely.
+
+*line_break
+
+He teaches you techniques for managing quantum uncertainty that aren't in any textbook.
+
+*page_break
+
+*set secret_revealed "reality_rose_bloom"
+*set izack_relationship +20
+*set quantum_magic_training +20
+
+*goto investigation_complete
+
+*comment ================================================
+*comment INVESTIGATION COMPLETE
+*comment ================================================
+
+*label investigation_complete
+
+*line_break
+
+[b]== DAWN APPROACHES ==[/b]
+
+*line_break
+
+*if secret_revealed = "boundary_strain"
+  You've learned that Avalon's existence requires constant maintenance. The masters can't protect it alone forever.
+
+*if secret_revealed = "adaptive_boundaries"
+  You've proposed a solution that could revolutionize how Avalon maintains its dimensional barriers.
+
+*if secret_revealed = "void_negotiations"
+  You've discovered Zara's secret work mediating with beings from the void between realms.
+
+*if secret_revealed = "reality_rose"
+  You've helped stabilize a Reality Rose, preventing probability chaos from consuming the gardens.
+
+*if secret_revealed = "reality_rose_bloom"
+  You've witnessed the rare bloom of a Reality Rose—a moment of pure quantum possibility.
+
+*page_break
+
+Polly settles on your shoulder as you return to your dorm.
+
+*page_break
+
+[i]"Some secrets exist for good reasons,"[/i] she says quietly. [i]"But some secrets just need the right person to discover them."[/i]
+
+*line_break
+
+[i]"You learned something important tonight. Use that knowledge wisely."[/i]
+
+*page_break
+
+You slip back into bed just as the first light of dawn touches the horizon.
+
+*line_break
+
+Tomorrow, things will be different.
+
+You know more about Avalon's true nature now—the challenges it faces, the secrets it holds, the responsibilities its mages bear.
+
+*page_break
+
+*if student_guardian_corps
+  Tomorrow, you'll begin training with other students to help maintain Avalon's boundaries.
+
+*if innovative_solution
+  Tomorrow, you'll work with the masters to redesign Avalon's dimensional architecture.
+
+*if secret_knowledge_gained
+  Tomorrow, you'll carry the weight of knowledge you weren't supposed to have.
+
+*page_break
+
+[b]The night has revealed Avalon's hidden truth: even paradise requires work to maintain, and every student has a role to play in preserving it.[/b]
+
+*line_break
+
+*finish

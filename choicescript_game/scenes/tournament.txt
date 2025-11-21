@@ -1,0 +1,936 @@
+*comment ================================================
+*comment MAGICAL TOURNAMENT
+*comment Participate in Avalon's Annual Collaborative Competition
+*comment Tests skills, relationships, and collaborative philosophy
+*comment ================================================
+
+*temp tournament_style ""
+*temp team_composition ""
+*temp tournament_result ""
+*temp rival_encountered false
+
+*label start
+
+*line_break
+
+[b]== THE HARMONIC TRIALS ==[/b]
+
+*line_break
+
+Izack stands before the assembled students, eyes bright with excitement.
+
+*page_break
+
+[b]"Every year, Avalon hosts the Harmonic Trials—a competition that tests not individual power, but collaborative skill. This year, you're all eligible to participate."[/b]
+
+*line_break
+
+Polly lands on a nearby perch. [i]"Translation: it's a magical obstacle course designed to be impossible solo. You'll need partners, strategy, and actual teamwork to survive, let alone win."[/i]
+
+*page_break
+
+Aria steps forward. [b]"The Trials have three stages: Harmony, Crisis, and Synthesis. Each tests different aspects of collaboration. Teams of three will compete."[/b]
+
+*line_break
+
+Zara grins. [b]"And the winning team gets to study advanced techniques with all three masters simultaneously. Plus bragging rights for a year."[/b]
+
+*page_break
+
+[i]"Also you get your names inscribed on the Hall of Harmonics,"[/i] Polly adds. [i]"Some students get competitive about that."[/i]
+
+*page_break
+
+*choice
+  #"I'm in! This sounds amazing."
+    *set tournament_enthusiasm +20
+    *goto team_formation
+
+  #"What exactly do the trials test?"
+    *set cautious_approach true
+    *goto trial_explanation
+
+  #"Is winning really that important? I'm more interested in the experience."
+    *set collaboration +10
+    *goto philosophical_approach
+
+*label trial_explanation
+
+Izack nods approvingly at your question.
+
+*page_break
+
+[b]"Good to understand what you're getting into. Let me explain:"[/b]
+
+*line_break
+
+[b]"Stage One: Harmony. Teams must create a perfect three-way resonance while navigating a shifting dimensional maze. If anyone's magical frequency drops out of sync, you start over."[/b]
+
+*page_break
+
+Aria continues. [b]"Stage Two: Crisis. We throw unexpected problems at you—dimensional rifts, temporal loops, ethical dilemmas. You must solve them collaboratively under time pressure."[/b]
+
+*page_break
+
+Zara finishes. [b]"Stage Three: Synthesis. All teams work together on one massive collaborative spell. We judge not who's strongest, but who contributes most effectively to the collective effort."[/b]
+
+*page_break
+
+[i]"Basically,"[/i] Polly summarizes, [i]"it's designed to be impossible for jerks. Selfish mages fail spectacularly. Collaborative ones shine."[/i]
+
+*page_break
+
+*goto team_formation
+
+*label philosophical_approach
+
+Izack's expression warms with approval.
+
+*page_break
+
+[b]"Exactly the right attitude. The Trials aren't really about winning—they're about learning to work with people you might not naturally connect with."[/b]
+
+*line_break
+
+[i]"That said,"[/i] Polly interjects, [i]"winning IS nice. Just saying."[/i]
+
+*page_break
+
+*set izack_relationship +15
+*set collaboration +15
+
+*goto team_formation
+
+*comment ================================================
+*comment TEAM FORMATION
+*comment ================================================
+
+*label team_formation
+
+Izack claps his hands. [b]"Form your teams! Three members each. Choose wisely—you'll need compatible magic but diverse perspectives."[/b]
+
+*page_break
+
+Students immediately start clustering together. You notice several groupings forming:
+
+*line_break
+
+• [b]The Prodigies:[/b] Three students known for raw magical power, already arguing about who should lead
+
+• [b]The Scholars:[/b] Theoretical experts who seem more interested in analyzing the Trials than winning
+
+• [b]The Hybrids:[/b] Students like Zara with mixed magical heritage, naturally collaborative
+
+*page_break
+
+Several students approach you:
+
+*page_break
+
+*choice
+  #Join Zara and another hybrid student—natural collaboration, diverse perspectives.
+    *set team_composition "hybrids"
+    *set teammate_1 "Zara"
+    *set teammate_2 "Kael" 
+    *comment Kael is a wind-element hybrid
+    *goto team_hybrids
+
+  #Form a balanced team with one scholar and one practical mage.
+    *set team_composition "balanced"
+    *set teammate_1 "Lyra"
+    *comment Lyra is scholarly
+    *set teammate_2 "Marcus"
+    *comment Marcus is practical
+    *goto team_balanced
+
+  #Team up with two students you don't know well—challenge yourself.
+    *set team_composition "strangers"
+    *set teammate_1 "Riven"
+    *set teammate_2 "Selene"
+    *goto team_strangers
+
+  #Approach the struggling Prodigies—see if you can help them work together.
+    *set team_composition "prodigies"
+    *set teammate_1 "Vex"
+    *set teammate_2 "Thorn"
+    *goto team_prodigies
+
+*comment ================================================
+*comment HYBRID TEAM
+*comment ================================================
+
+*label team_hybrids
+
+Zara beams when you approach. [b]"Yes! Team Hybrid!"[/b]
+
+*line_break
+
+Kael, a tall student with windswept hair and eyes like storm clouds, nods. [b]"This should be interesting. Three different magical heritages working as one."[/b]
+
+*page_break
+
+[i]"Oh, this team is going to be unstoppable,"[/i] Polly predicts. [i]"You all already understand that magic is about blending different approaches."[/i]
+
+*page_break
+
+*set zara_relationship +20
+*set collaboration +20
+*set team_synergy 80
+
+Your team feels natural. Comfortable. Like you've been working together for years.
+
+*page_break
+
+*goto stage_one
+
+*comment ================================================
+*comment BALANCED TEAM
+*comment ================================================
+
+*label team_balanced
+
+Lyra pushes her glasses up, already thinking strategically. [b]"Good composition. Theory, practice, and your collaborative instincts. We complement each other."[/b]
+
+*line_break
+
+Marcus cracks his knuckles. [b]"I'll handle the heavy lifting. You two figure out the complicated stuff."[/b]
+
+*page_break
+
+[i]"Classic balanced team,"[/i] Polly observes. [i]"Not as flashy as some, but solid fundamentals usually win."[/i]
+
+*page_break
+
+*set collaboration +15
+*set team_synergy 65
+
+Your team will need to work to harmonize, but the potential is there.
+
+*page_break
+
+*goto stage_one
+
+*comment ================================================
+*comment STRANGER TEAM
+*comment ================================================
+
+*label team_strangers
+
+Riven studies you with analytical eyes. [b]"Don't know you. But Polly vouches for you, and that bird's instincts are rarely wrong."[/b]
+
+*line_break
+
+Selene, quiet until now, speaks. [b]"Three unknowns. High risk. Also high potential for surprise combinations."[/b]
+
+*page_break
+
+[i]"Bold choice,"[/i] Polly says. [i]"This team will either crash spectacularly or achieve something unexpected. No middle ground."[/i]
+
+*page_break
+
+*set curiosity +15
+*set team_synergy 45
+
+Your team is a gamble. But sometimes gambles pay off.
+
+*page_break
+
+*goto stage_one
+
+*comment ================================================
+*comment PRODIGY TEAM
+*comment ================================================
+
+*label team_prodigies
+
+Vex looks skeptical. [b]"You? You're not even in the advanced class yet."[/b]
+
+*line_break
+
+Thorn elbows him. [b]"Shut up, Vex. We need someone who actually understands collaboration, or we'll fail the first stage."[/b]
+
+*page_break
+
+[i]"Ooh, damage control duty,"[/i] Polly says gleefully. [i]"You're basically the babysitter for two powerful but terrible team players. This will be educational for everyone."[/i]
+
+*page_break
+
+*set team_synergy 30
+*set leadership_challenge true
+
+This team will be difficult. But if you can make it work, you'll prove something important.
+
+*page_break
+
+*goto stage_one
+
+*comment ================================================
+*comment STAGE ONE: HARMONY
+*comment ================================================
+
+*label stage_one
+
+*line_break
+
+[b]== STAGE ONE: THE MAZE OF RESONANCE ==[/b]
+
+*line_break
+
+Aria leads all teams to a massive dimensional construct.
+
+The maze shifts and changes, walls appearing and disappearing based on magical resonance.
+
+*page_break
+
+[b]"The rules are simple,"[/b] she explains. [b]"Your team must maintain perfect three-way harmonic resonance while navigating to the center. If even one person drops out of sync, you return to the start."[/b]
+
+*line_break
+
+[b]"Oh, and the maze actively tries to disrupt your harmony with distractions, illusions, and emotional triggers."[/b]
+
+*page_break
+
+[i]"She makes it sound so pleasant,"[/i] Polly mutters. [i]"What she means is: the maze will find your deepest insecurities and psychological weak points, then exploit them ruthlessly."[/i]
+
+*page_break
+
+*if team_composition = "hybrids"
+  Zara takes your hand, Kael takes the other. [b]"Together. Like we've practiced."[/b]
+
+*if team_composition = "balanced"
+  Lyra outlines a strategy. [b]"Stay focused on each other, not the illusions."[/b]
+
+*if team_composition = "strangers"
+  Riven and Selene look uncertain. [b]"Guess we're about to learn if we can work together."[/b]
+
+*if team_composition = "prodigies"
+  Vex and Thorn both try to take charge at once, then glare at each other. This is already going poorly.
+
+*page_break
+
+You enter the maze.
+
+*page_break
+
+*if team_synergy >= 70
+  *goto stage_one_success
+*else
+  *goto stage_one_challenge
+
+*label stage_one_challenge
+
+The maze immediately attacks.
+
+*page_break
+
+Illusions appear: people you've failed, fears you've suppressed, doubts you've hidden.
+
+*line_break
+
+*if team_composition = "prodigies"
+  Vex sees an illusion of himself being called weak. He surges with power, disrupting the resonance.
+  
+  [b]"VEX!"[/b] Thorn shouts. [b]"Control yourself!"[/b]
+
+  *page_break
+
+  The harmonic breaks. You're teleported back to the start.
+
+*page_break
+
+*choice
+  #Take charge—these two need clear leadership.
+    *set approach_method "leadership"
+    *set collaboration +10
+
+    You step between them.
+
+    *page_break
+
+    "Listen. We can't win if you keep competing with each other. Vex, your power is impressive, but you need to channel it [i]with[/i] us, not [i]at[/i] us. Thorn, stop criticizing and start supporting."
+
+    *line_break
+
+    "From now on, we move as one. No showing off. No ego. Team."
+
+    *page_break
+
+    Both prodigies look chastened.
+
+    [b]"Fine,"[/b] Vex mutters. [b]"But just so you know, I don't like being told what to do."[/b]
+
+    *line_break
+
+    [b]"Noted,"[/b] you say calmly. [b]"Now let's try again."[/b]
+
+    *page_break
+
+    *set team_synergy +20
+    *goto stage_one_retry
+
+  #Find common ground—help them see past their rivalry.
+    *set approach_method "mediation"
+    *set collaboration +15
+
+    "Why are you both here?" you ask.
+
+    *page_break
+
+    They blink, surprised.
+
+    *line_break
+
+    [b]"What?"[/b]
+
+    *page_break
+
+    "At Avalon. Why did you come to a school that teaches collaboration if you only care about individual power?"
+
+    *page_break
+
+    Vex shifts uncomfortably. [b]"I... my magic was hurting people. Couldn't control it alone."[/b]
+
+    *line_break
+
+    Thorn looks away. [b]"Family expected me to be the best. But 'best' at what? I came here to figure that out."[/b]
+
+    *page_break
+
+    "Exactly. You both need this. Not to prove you're strongest, but to learn what you can't learn alone."
+
+    *line_break
+
+    "So let's actually try. Together."
+
+    *page_break
+
+    Something shifts in both of them.
+
+    *page_break
+
+    *set team_synergy +30
+    *set vex_relationship +10
+    *set thorn_relationship +10
+    *goto stage_one_retry
+
+*label stage_one_retry
+
+You enter the maze again.
+
+This time, you maintain focus on each other rather than the illusions.
+
+*page_break
+
+*if team_synergy >= 50
+  The resonance holds.
+
+  When illusions appear, you acknowledge them but don't engage. Your attention stays on the team connection.
+
+  *page_break
+
+  Slowly, step by step, you navigate the shifting walls.
+
+  *line_break
+
+  The maze throws everything at you: phantom voices, emotional manipulation, false paths.
+
+  *page_break
+
+  But your team's harmony remains stable.
+
+  *page_break
+
+  *goto stage_one_completion
+
+*else
+  The resonance wavers but doesn't break.
+
+  It's not perfect, but it's enough.
+
+  *page_break
+
+  You struggle through, spending twice as long as the better-coordinated teams, but eventually reaching the center.
+
+  *page_break
+
+  *goto stage_one_completion
+
+*label stage_one_success
+
+*comment For teams with high initial synergy
+
+Your team moves through the maze like water—flowing, adaptive, perfectly synchronized.
+
+*page_break
+
+The illusions appear, but you barely notice them. Your focus is entirely on the harmonic connection between you.
+
+*line_break
+
+*if team_composition = "hybrids"
+  Zara's hybrid nature helps her sense exactly when to adjust her magical frequency. Kael's wind-element flexibility lets him flow with the changes.
+
+*page_break
+
+You reach the center quickly, efficiently, and with energy to spare.
+
+*page_break
+
+*goto stage_one_completion
+
+*label stage_one_completion
+
+*line_break
+
+[b]== STAGE ONE COMPLETE ==[/b]
+
+*line_break
+
+Aria nods as your team emerges. [b]"Well done. You maintained resonance despite the maze's interference."[/b]
+
+*page_break
+
+*if team_synergy >= 70
+  [b]"Particularly impressive,"[/b] she adds. [b]"Your harmony was nearly perfect."[/b]
+  
+  *set tournament_points +30
+
+*elseif team_synergy >= 50
+  [b]"Adequate performance. Room for improvement, but you succeeded."[/b]
+  
+  *set tournament_points +20
+
+*else
+  [b]"You made it, though not cleanly. The next stage will be harder."[/b]
+  
+  *set tournament_points +10
+
+*page_break
+
+[i]"Not bad,"[/i] Polly says. [i]"Now comes the fun part: actual crisis management."[/i]
+
+*page_break
+
+*goto stage_two
+
+*comment ================================================
+*comment STAGE TWO: CRISIS
+*comment ================================================
+
+*label stage_two
+
+*line_break
+
+[b]== STAGE TWO: THE CRISIS CHAMBER ==[/b]
+
+*line_break
+
+Izack grins as he leads teams to the Crisis Chamber.
+
+[b]"This is my favorite stage. We simulate real magical emergencies. You have limited time to solve them collaboratively."[/b]
+
+*page_break
+
+[i]"His favorite because he gets to terrify students with realistic disaster scenarios,"[/i] Polly clarifies. [i]"The crises are VERY realistic. Some students have nightmares for weeks."[/i]
+
+*page_break
+
+Your team enters the chamber.
+
+Immediately, the scenario begins:
+
+*page_break
+
+[b]A DIMENSIONAL RIFT HAS OPENED INSIDE A POPULATED BUILDING.[/b]
+
+*line_break
+
+[b]TIME LIMIT: 5 MINUTES BEFORE IT DESTABILIZES COMPLETELY[/b]
+
+*page_break
+
+You see (simulated) civilians trapped on multiple floors. The rift is spreading. If it reaches critical size, the entire structure will be pulled into dimensional chaos.
+
+*page_break
+
+*choice
+  #Divide responsibilities—each person handles a different aspect.
+    *set crisis_approach "divided"
+    *goto crisis_divided
+
+  #Work as one unit—tackle each problem together sequentially.
+    *set crisis_approach "unified"
+    *goto crisis_unified
+
+  #Creative solution—use the rift itself to solve the problem.
+    *set crisis_approach "creative"
+    *goto crisis_creative
+
+*label crisis_divided
+
+*if team_synergy < 50
+  You try to divide tasks, but coordination fails.
+
+  *page_break
+
+  Your team members work at cross-purposes, duplicating effort and missing crucial details.
+
+  *line_break
+
+  Time runs out.
+
+  *page_break
+
+  The simulation rift explodes. Everyone is "killed."
+
+  *page_break
+
+  Izack resets the scenario. [b]"Try again. And this time, actually communicate."[/b]
+
+  *page_break
+
+  *set tournament_points -10
+  *goto stage_two_retry
+
+*else
+  You quickly assign roles:
+
+  *page_break
+
+  *if team_composition = "balanced"
+    Lyra handles rift analysis. Marcus evacuates civilians. You coordinate and reinforce boundaries.
+
+  *if team_composition = "hybrids"
+    Zara calms the civilians. Kael uses wind to create evacuation paths. You stabilize the rift.
+
+  *page_break
+
+  It's efficient, effective, and completes with a minute to spare.
+
+  *page_break
+
+  *set tournament_points +25
+  *goto stage_two_complete
+
+*label crisis_unified
+
+Your team moves as one coordinated unit.
+
+*page_break
+
+First: evacuate civilians together, using combined magic to create protective barriers.
+
+*line_break
+
+Second: approach the rift as a team, harmonizing your boundary techniques.
+
+*page_break
+
+It takes longer than dividing tasks, but there are no mistakes, no miscommunication.
+
+*line_break
+
+You complete with thirty seconds remaining.
+
+*page_break
+
+*set tournament_points +20
+*set team_synergy +10
+*goto stage_two_complete
+
+*label crisis_creative
+
+*if collaboration < 50
+  You suggest using the rift, but your team doesn't trust the creative approach.
+
+  Argument ensues. Time wastes.
+
+  *page_break
+
+  *set tournament_points +5
+  *goto stage_two_retry
+
+*else
+  "What if we don't close the rift?" you propose. "What if we use it?"
+
+  *page_break
+
+  Your teammates look uncertain but willing to try.
+
+  *line_break
+
+  Together, you reshape the rift into a controlled evacuation portal—sending civilians directly to safety [i]through[/i] the dimensional opening.
+
+  *page_break
+
+  Then you stabilize it as a permanent, safe doorway.
+
+  *page_break
+
+  Izack starts laughing. [b]"Brilliant! You didn't solve the crisis—you turned it into an asset!"[/b]
+
+  *page_break
+
+  *set tournament_points +35
+  *set collaboration +20
+  *goto stage_two_complete
+
+*label stage_two_retry
+
+[b]"Again,"[/b] Izack says. [b]"Learn from your mistakes."[/b]
+
+*page_break
+
+*comment Give them another chance with slight stat boost from learning
+*set team_synergy +10
+
+*goto crisis_unified
+*comment Default to unified approach on retry
+
+*label stage_two_complete
+
+*line_break
+
+[b]== STAGE TWO COMPLETE ==[/b]
+
+*line_break
+
+Izack nods approvingly. [b]"You handled a realistic crisis scenario. In the field, lives depend on exactly this kind of collaborative problem-solving."[/b]
+
+*page_break
+
+*goto stage_three
+
+*comment ================================================
+*comment STAGE THREE: SYNTHESIS
+*comment ================================================
+
+*label stage_three
+
+*line_break
+
+[b]== STAGE THREE: THE GREAT SYNTHESIS ==[/b]
+
+*line_break
+
+All teams gather in the central courtyard.
+
+Aria, Izack, and Zara stand together.
+
+*page_break
+
+[b]"For the final stage,"[/b] Izack announces, [b]"all teams will collaborate on a single massive spell: creating a temporary realm pocket that can sustain life."[/b]
+
+*line_break
+
+Aria adds, [b]"This requires every mage working in perfect harmony. We're not judging which team is strongest—we're evaluating who contributes most effectively to the collective effort."[/b]
+
+*page_break
+
+Zara explains, [b]"Some of you will provide power. Some will maintain boundaries. Some will weave life-sustaining patterns. Find where you fit and commit fully."[/b]
+
+*page_break
+
+The spell begins.
+
+Thirty students, dozens of magical traditions, one shared goal.
+
+*page_break
+
+*choice
+  #Take a leadership role—help coordinate different teams.
+    *set synthesis_role "coordinator"
+    *goto synthesis_coordinator
+
+  #Provide steady magical power—be the foundation others build on.
+    *set synthesis_role "foundation"
+    *goto synthesis_foundation
+
+  #Fill gaps—support wherever the spell needs help.
+    *set synthesis_role "support"
+    *goto synthesis_support
+
+*label synthesis_coordinator
+
+You position yourself at a nexus point where multiple magical streams converge.
+
+*page_break
+
+"Team Three, your frequency is drifting! Team Seven, can you boost power to the southern boundary? Team One, perfect—maintain exactly that pattern!"
+
+*line_break
+
+You become the living link between all teams, sensing who needs what and directing collaborative flow.
+
+*page_break
+
+It's exhausting but exhilarating.
+
+*page_break
+
+*set tournament_points +30
+*set leadership_recognition true
+*goto synthesis_complete
+
+*label synthesis_foundation
+
+You pour steady, reliable power into the spell's foundation.
+
+*page_break
+
+Not flashy. Not dramatic. Just consistent, trustworthy energy that others can build upon.
+
+*line_break
+
+Other mages notice and adjust, using your stability as their anchor point.
+
+*page_break
+
+[i]"Foundation work,"[/i] Polly observes. [i]"Unglamorous but essential. The whole spell would collapse without people like you."[/i]
+
+*page_break
+
+*set tournament_points +25
+*set reliability_recognition true
+*goto synthesis_complete
+
+*label synthesis_support
+
+You flow through the spell, finding weak points and reinforcing them.
+
+*page_break
+
+A boundary wavers—you strengthen it. A power stream falters—you supplement it. A pattern starts to unravel—you help re-weave it.
+
+*line_break
+
+You're everywhere and nowhere, supporting the collective without seeking recognition.
+
+*page_break
+
+*set tournament_points +30
+*set collaboration +25
+*goto synthesis_complete
+
+*label synthesis_complete
+
+The spell completes.
+
+*page_break
+
+In the center of the courtyard, a perfect sphere of reality hangs in the air—a miniature realm with its own sky, land, and life-sustaining magic.
+
+*line_break
+
+Everyone stares in wonder at what you've created together.
+
+*page_break
+
+Izack's voice is thick with emotion. [b]"This is why Avalon exists. Thirty mages, one impossible creation. No one could have done this alone."[/b]
+
+*page_break
+
+*goto tournament_results
+
+*comment ================================================
+*comment TOURNAMENT RESULTS
+*comment ================================================
+
+*label tournament_results
+
+*line_break
+
+[b]== HARMONIC TRIALS: RESULTS ==[/b]
+
+*line_break
+
+The masters confer, then announce the results.
+
+*page_break
+
+*if tournament_points >= 80
+  [b]"First Place:"[/b] Your team!
+
+  *page_break
+
+  [i]"You actually won,"[/i] Polly says, sounding surprised. [i]"Not bad. Not bad at all."[/i]
+
+  *page_break
+
+  Izack, Aria, and Zara approach with genuine pride.
+
+  *line_break
+
+  [b]"You demonstrated exceptional collaborative skill at every stage,"[/b] Aria says. [b]"Your names will be inscribed in the Hall of Harmonics, and you're welcome to study advanced techniques with all three of us."[/b]
+
+  *page_break
+
+  *set tournament_result "champion"
+  *set izack_relationship +20
+  *set aria_relationship +20
+  *set zara_relationship +20
+  *set collaboration +30
+
+*elseif tournament_points >= 60
+  [b]"Second Place:"[/b] Your team!
+
+  *page_break
+
+  [i]"Solid performance,"[/i] Polly approves. [i]"Not flashy, but you proved you can work effectively with others. That's what matters."[/i]
+
+  *page_break
+
+  *set tournament_result "strong"
+  *set collaboration +20
+
+*elseif tournament_points >= 40
+  [b]"Honorable Mention:"[/b] Your team made it through all stages.
+
+  *page_break
+
+  [i]"You didn't win, but you learned a lot,"[/i] Polly says. [i]"Sometimes that's more valuable."[/i]
+
+  *page_break
+
+  *set tournament_result "participant"
+  *set collaboration +10
+
+*else
+  Your team struggled but completed the trials.
+
+  *page_break
+
+  [i]"Well, you didn't give up,"[/i] Polly offers. [i]"That counts for something."[/i]
+
+  *page_break
+
+  *set tournament_result "struggled"
+  *set collaboration +5
+
+*page_break
+
+*if team_composition = "prodigies"
+  Vex and Thorn approach you afterward.
+
+  *page_break
+
+  [b]"We actually worked together,"[/b] Thorn says, sounding amazed. [b]"Like, actually collaborated without ego getting in the way."[/b]
+
+  *line_break
+
+  Vex nods reluctantly. [b]"It was... not terrible. Thanks for keeping us from being complete disasters."[/b]
+
+  *page_break
+
+  *set vex_relationship +15
+  *set thorn_relationship +15
+
+*page_break
+
+The Harmonic Trials taught you something invaluable:
+
+[b]True strength comes not from individual power, but from the ability to work harmoniously with others.[/b]
+
+*line_break
+
+*finish

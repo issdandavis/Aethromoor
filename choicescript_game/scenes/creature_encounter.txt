@@ -1,0 +1,709 @@
+*comment ================================================
+*comment CREATURE ENCOUNTER
+*comment Meet and interact with magical creatures of Avalon
+*comment Optional scene that can occur during exploration
+*comment ================================================
+
+*temp creature_met ""
+*temp approach_method ""
+*temp bond_formed false
+
+*label start
+
+*comment This scene can occur during academy exploration or as a side quest
+
+*line_break
+
+[b]== THE CREATURE GARDENS ==[/b]
+
+*line_break
+
+Zara invited you to help her in the Creature Gardens—a sprawling preserve where Avalon houses magical beings from across the realms.
+
+*page_break
+
+[i]"Most students avoid this place,"[/i] she says as you walk through gates woven from living vines. [i]"They think magical creatures are just tools or curiosities. But each one is a person, with thoughts and feelings and preferences."[/i]
+
+*line_break
+
+Polly snorts. [i]"Says the hybrid who's half-creature herself. No offense, Zara."[/i]
+
+*line_break
+
+[b]"None taken."[/b] Zara grins. [b]"But Polly, you're literally a familiar. You're a magical creature too."[/b]
+
+*line_break
+
+[i]"I'm an [b]extraordinary[/b] magical creature. Totally different."[/i]
+
+*page_break
+
+The gardens are beautiful.
+
+Crystalline habitats shimmer with different environmental conditions. You see:
+
+• A pool of starlight where Lumina sprites dance
+• A grove of singing trees where Melodrakes nest
+• A volcanic outcropping where a Phoenix tends its eternal flame
+• A time-twisted garden where Temporal Butterflies exist in multiple moments simultaneously
+
+*page_break
+
+[b]"We have three creatures who need attention today,"[/b] Zara explains. [b]"Each one is special. Choose who you'd like to work with."[/b]
+
+*page_break
+
+*choice
+  #The Melodrake—a dragon-like creature whose songs can reshape reality.
+    *set creature_met "melodrake"
+    *goto melodrake_encounter
+
+  #The Temporal Butterfly—a creature that exists across multiple timelines at once.
+    *set creature_met "butterfly"
+    *goto butterfly_encounter
+
+  #The Thoughtweaver Spider—a being that spins webs from pure ideas.
+    *set creature_met "spider"
+    *goto spider_encounter
+
+  #The Phoenix—an ancient being of rebirth and transformation.
+    *set creature_met "phoenix"
+    *goto phoenix_encounter
+
+*comment ================================================
+*comment MELODRAKE ENCOUNTER
+*comment ================================================
+
+*label melodrake_encounter
+
+The Melodrake's habitat is a crystalline cave that resonates with every sound.
+
+*page_break
+
+The creature itself is magnificent—serpentine body covered in scales that shimmer like musical notes made solid. Wings that hum even when folded.
+
+*line_break
+
+It's currently curled in a corner, making low, discordant sounds.
+
+*page_break
+
+[b]"She's unhappy,"[/b] Zara says softly. [b]"Melodrakes need harmony to thrive. Something's disturbing her."[/b]
+
+*line_break
+
+[i]"Probably the construction on the new tower,"[/i] Polly suggests. [i]"All that banging and clanging. Not exactly musical."[/i]
+
+*page_break
+
+The Melodrake lifts her head, regarding you with eyes that swirl with color.
+
+She opens her mouth and releases a note—pure, crystalline, heartbreakingly beautiful.
+
+*line_break
+
+But there's sadness in it.
+
+*page_break
+
+*choice
+  #Sing back to her—try to harmonize with her melody.
+    *set approach_method "harmony"
+    *set collaboration +15
+    *set zara_relationship +10
+
+    You take a breath and sing.
+
+    Not words—just tone, trying to match her frequency and complement it.
+
+    *page_break
+
+    At first, your voice cracks. You're not a trained singer.
+
+    But the Melodrake doesn't care about perfection—she cares about [b]intention[/b].
+
+    *line_break
+
+    You sing of understanding. Of shared sadness. Of the desire to help.
+
+    *page_break
+
+    The Melodrake's eyes brighten.
+
+    She sings again, and this time you can harmonize with her. Two voices becoming one melody.
+
+    *line_break
+
+    The cave fills with light as the music resonates through the crystal.
+
+    *page_break
+
+    [i]"Oh wow,"[/i] Polly breathes. [i]"You just created a collaborative song-spell with a Melodrake. That's... that's actually impressive."[/i]
+
+    *page_break
+
+    Zara is grinning. [b]"She likes you!"[/b]
+
+    *page_break
+
+    The Melodrake unfurls her wings and wraps them gently around you—a draconic hug.
+
+    You can feel her gratitude, her relief at being understood.
+
+    *page_break
+
+    *set bond_formed true
+    *set melodrake_friend true
+    *goto melodrake_resolution
+
+  #Use magic to create a shield against the construction noise.
+    *set approach_method "practical"
+    *set aria_relationship +5
+
+    You focus your dimensional training, creating a boundary around the habitat.
+
+    The shield dampens external noise while allowing natural sounds through.
+
+    *page_break
+
+    The Melodrake immediately perks up as the irritating construction sounds fade.
+
+    She trills experimentally, testing the acoustic space.
+
+    *line_break
+
+    The notes bounce around the shielded habitat perfectly.
+
+    *page_break
+
+    [b]"Practical solution,"[/b] Zara approves. [b]"She appreciates the peace."[/b]
+
+    *page_break
+
+    The Melodrake approaches you, gently touching her snout to your hand in thanks.
+
+    *page_break
+
+    *set melodrake_helped true
+    *goto melodrake_resolution
+
+*label melodrake_resolution
+
+*if bond_formed
+  The Melodrake sings a final note—this one full of joy and gratitude.
+
+  *line_break
+
+  As the sound fades, you feel something settle in your chest. A connection. A bond.
+
+  *page_break
+
+  [b]"She's chosen you as a friend,"[/b] Zara says, voice full of warmth. [b]"Melodrakes are incredibly selective. This is a rare honor."[/b]
+
+  *line_break
+
+  [i]"Also means she'll show up occasionally to serenade you at inconvenient moments,"[/i] Polly adds. [i]"But the songs are admittedly beautiful, so there are worse problems."[/i]
+
+  *page_break
+
+  *set magical_companion "melodrake"
+
+*page_break
+
+You leave the habitat with a new understanding: magical creatures aren't so different from people. They need understanding, respect, connection.
+
+*page_break
+
+*goto creature_conclusion
+
+*comment ================================================
+*comment TEMPORAL BUTTERFLY ENCOUNTER
+*comment ================================================
+
+*label butterfly_encounter
+
+The time-twisted garden is disorienting.
+
+Plants grow, bloom, wither, and seed in loops. You can see the same rose existing as bud, flower, and seed pod simultaneously.
+
+*page_break
+
+[b]"Don't think about it too hard,"[/b] Zara advises. [b]"Temporal magic gives everyone headaches at first."[/b]
+
+*line_break
+
+In the center of the garden, a Temporal Butterfly rests on a flower.
+
+*page_break
+
+Except "rests" isn't quite right—it's landing, resting, and taking off all at the same time. You can see three versions of it: past, present, and future.
+
+*page_break
+
+[b]"She's tangled,"[/b] Zara explains. [b]"Sometimes Temporal Butterflies get their timelines knotted. She's stuck in a loop, reliving the same moment over and over."[/b]
+
+*line_break
+
+[i]"Temporal magic is the worst,"[/i] Polly grumbles. [i]"Give me nice simple dimensional rifts any day."[/i]
+
+*page_break
+
+The butterfly seems aware of you across all three timeframes. Her wings shimmer with colors that don't have names in linear time.
+
+*page_break
+
+*choice
+  #Gently untangle her timelines using what Aria taught you about boundaries.
+    *set approach_method "technical"
+    *set aria_relationship +15
+
+    You focus, seeing the temporal knot as a boundary problem.
+
+    *page_break
+
+    The butterfly's timelines are wound around each other—past pulling on future, future constraining present.
+
+    *line_break
+
+    Carefully, delicately, you apply boundary techniques. Not forcing the timelines apart, but gently encouraging them to separate and flow naturally.
+
+    *page_break
+
+    It's like untangling thread, but the thread is [b]time itself[/b].
+
+    *page_break
+
+    After several minutes of concentrated work, you feel something give.
+
+    The timelines snap into proper sequence.
+
+    *line_break
+
+    The butterfly suddenly exists in only one moment—[b]now[/b].
+
+    *page_break
+
+    She flutters her wings experimentally, then spirals upward in joy.
+
+    *line_break
+
+    [b]"Beautifully done,"[/b] Zara says. [b]"That was advanced temporal work."[/b]
+
+    *page_break
+
+    The butterfly lands on your shoulder and remains there, her wings slowly flapping in perfect present-moment time.
+
+    *page_break
+
+    *set bond_formed true
+    *set butterfly_friend true
+    *goto butterfly_resolution
+
+  #Meditate with her—experience the loop rather than trying to fix it.
+    *set approach_method "empathetic"
+    *set collaboration +10
+    *set zara_relationship +10
+
+    Instead of trying to fix her immediately, you sit beside the flower she's looping around.
+
+    *page_break
+
+    You close your eyes and open your senses to temporal flow.
+
+    At first, it's nauseating—time moving forward and backward and sideways all at once.
+
+    *line_break
+
+    But gradually, you adjust.
+
+    *page_break
+
+    You begin to understand her experience.
+
+    She's not suffering—she's confused. Lost in time's currents, unable to find her way back to linear existence.
+
+    *line_break
+
+    You project calm. Presence. A temporal anchor point.
+
+    *page_break
+
+    The butterfly notices.
+
+    Across all three timeframes, she focuses on you. Your stable, linear existence becomes a beacon.
+
+    *line_break
+
+    Slowly, drawn by your temporal solidity, her timelines begin to align.
+
+    *page_break
+
+    Past, present, and future converge.
+
+    She becomes singular again, landing on your outstretched hand.
+
+    *page_break
+
+    [i]"You just solved a temporal problem through meditation and empathy,"[/i] Polly says, impressed. [i]"Most mages would have used force and made it worse."[/i]
+
+    *page_break
+
+    *set bond_formed true
+    *set butterfly_friend true
+    *goto butterfly_resolution
+
+*label butterfly_resolution
+
+*if bond_formed
+  The Temporal Butterfly has claimed you as hers.
+
+  *page_break
+
+  [b]"She'll visit you occasionally,"[/b] Zara explains. [b]"And if you're ever in temporal danger—caught in a time loop or temporal trap—she'll find you and help."[/b]
+
+  *line_break
+
+  [i]"Also, she might accidentally show you glimpses of your own past or possible futures,"[/i] Polly adds. [i]"It's unsettling but useful."[/i]
+
+  *page_break
+
+  *set magical_companion "temporal_butterfly"
+
+*page_break
+
+You leave understanding that time, like magic, responds to gentleness better than force.
+
+*page_break
+
+*goto creature_conclusion
+
+*comment ================================================
+*comment THOUGHTWEAVER SPIDER ENCOUNTER
+*comment ================================================
+
+*label spider_encounter
+
+The Thoughtweaver's habitat is a massive spherical chamber filled with gleaming webs.
+
+But these aren't silk threads—they're woven from pure [b]ideas[/b].
+
+*page_break
+
+[b]"Thoughtweavers spin mental constructs into physical form,"[/b] Zara explains. [b]"Every web represents a different concept or theory."[/b]
+
+*line_break
+
+You can see the webs shimmer with meaning:
+
+• A mathematical web proves an elegant theorem
+• A philosophical web explores the nature of consciousness
+• A magical web diagrams the relationship between all types of energy
+
+*page_break
+
+At the center sits the Thoughtweaver herself.
+
+She's beautiful and alien—crystalline spider-form glowing with internal light, eight eyes that seem to see [b]through[/b] you into your thoughts.
+
+*page_break
+
+[b]"She's working on something complex,"[/b] Zara says quietly. [b]"A web that's been frustrating her for weeks. It's about... collaborative magic, actually. How multiple minds can think as one without losing individual identity."[/b]
+
+*page_break
+
+*choice
+  #Offer your thoughts—share what you've learned about collaboration.
+    *set approach_method "intellectual"
+    *set collaboration +20
+    *set izack_relationship +10
+
+    You approach the incomplete web carefully.
+
+    *page_break
+
+    The Thoughtweaver turns all eight eyes on you, considering.
+
+    Then she extends a leg, inviting you closer.
+
+    *line_break
+
+    You touch the web, and immediately your thoughts become visible—streaming out as glowing threads that weave into the pattern.
+
+    *page_break
+
+    You share everything you've learned:
+
+    • Izack's lesson about listening to magic
+    • Your experience in collaborative casting
+    • The feeling of multiple minds harmonizing
+
+    *line_break
+
+    The Thoughtweaver adds her own understanding—patterns of connection you'd never considered.
+
+    *page_break
+
+    Together, you complete the web.
+
+    It's stunning: a perfect representation of how individual thoughts can merge without losing their essence.
+
+    *line_break
+
+    The Third Thread, made visible and comprehensible through intellectual architecture.
+
+    *page_break
+
+    [i]"That's... that's going to be studied for decades,"[/i] Polly says quietly. [i]"You and a Thoughtweaver just solved a problem that's stumped theoretical mages for centuries."[/i]
+
+    *page_break
+
+    The Thoughtweaver reaches out and gently touches your forehead with one crystalline leg.
+
+    You feel a flood of gratitude and deep respect.
+
+    *page_break
+
+    *set bond_formed true
+    *set thoughtweaver_friend true
+    *set collaboration_theory +30
+    *goto spider_resolution
+
+  #Meditate nearby—provide calm presence while she works.
+    *set approach_method "supportive"
+    *set collaboration +10
+
+    You sit quietly at the edge of the chamber, not interfering but maintaining a peaceful presence.
+
+    *page_break
+
+    Sometimes the best help is simply being there.
+
+    *line_break
+
+    The Thoughtweaver works, occasionally glancing at you. Your calm seems to help her focus.
+
+    *page_break
+
+    After an hour, she makes a breakthrough—the web suddenly snaps into coherence.
+
+    Not perfect, but good enough to satisfy her.
+
+    *line_break
+
+    She skitters over and taps your shoulder gently—acknowledgment of your support.
+
+    *page_break
+
+    *set thoughtweaver_helped true
+    *goto spider_resolution
+
+*label spider_resolution
+
+*if bond_formed
+  The Thoughtweaver creates a small web—just for you.
+
+  *page_break
+
+  It's a gift: a web that represents [b]your thoughts[/b], your unique pattern of thinking and understanding.
+
+  *line_break
+
+  [b]"Keep it,"[/b] Zara says. [b]"Thoughtweaver gifts are incredibly rare. This web will help you organize your thoughts when you're confused or overwhelmed."[/b]
+
+  *page_break
+
+  *set magical_companion "thoughtweaver"
+  *set thoughtweaver_web true
+
+*page_break
+
+You leave with new appreciation for how thoughts can be as real and tangible as anything physical.
+
+*page_break
+
+*goto creature_conclusion
+
+*comment ================================================
+*comment PHOENIX ENCOUNTER
+*comment ================================================
+
+*label phoenix_encounter
+
+The volcanic outcropping radiates intense heat.
+
+At its peak, wreathed in eternal flame, sits the Phoenix.
+
+*page_break
+
+She's ancient. You can feel it.
+
+This isn't her first life, or her hundredth. She's died and been reborn countless times across eons.
+
+*page_break
+
+[b]"The Phoenix is... complicated,"[/b] Zara says carefully. [b]"She's wise beyond measure, but she's also tired. Every rebirth carries the weight of all her previous lives."[/b]
+
+*line_break
+
+[i]"She's considering whether to be reborn next time,"[/i] Polly adds quietly. [i]"Or just... let the cycle end."[/i]
+
+*page_break
+
+The Phoenix looks at you with eyes older than civilizations.
+
+She doesn't speak, but you feel her question: [i]Why should I continue?[/i]
+
+*page_break
+
+*choice
+  #Share your hope for the future—tell her why life matters.
+    *set approach_method "hopeful"
+    *set collaboration +10
+
+    You speak from the heart.
+
+    *page_break
+
+    "Because every cycle brings new possibilities. Because you've seen civilizations fall, but you've also seen them rise. Because students like me are still learning, still growing."
+
+    *line_break
+
+    "The future isn't written yet. There's still beauty to witness, wisdom to share, hope to kindle."
+
+    *page_break
+
+    The Phoenix tilts her head, flames flickering with interest.
+
+    *page_break
+
+    She shows you a vision: herself teaching young mages in her next life, sharing accumulated wisdom, watching them create things she could never imagine.
+
+    *line_break
+
+    Purpose. Meaning. Connection across lives.
+
+    *page_break
+
+    The flames burn brighter.
+
+    She's chosen to continue.
+
+    *page_break
+
+    *set bond_formed true
+    *set phoenix_friend true
+    *set hope_inspiration +20
+    *goto phoenix_resolution
+
+  #Simply sit with her—share the weight of existence without trying to fix it.
+    *set approach_method "understanding"
+    *set zara_relationship +15
+
+    You climb up and sit near her, comfortable despite the heat.
+
+    *page_break
+
+    You don't try to convince her. Don't offer platitudes.
+
+    Just... exist alongside her ancient weariness.
+
+    *line_break
+
+    Sometimes, the greatest kindness is acknowledgment.
+
+    *page_break
+
+    The Phoenix shuffles closer.
+
+    She shows you memories: civilizations she's watched rise and fall, loves lost to time, endless cycles of birth and death.
+
+    *line_break
+
+    It's overwhelming. But you don't look away.
+
+    *page_break
+
+    After a long silence, she projects a new feeling: [i]gratitude[/i].
+
+    Not because you solved anything. Because you witnessed. Understood. Didn't trivialize her burden.
+
+    *page_break
+
+    *set bond_formed true
+    *set phoenix_friend true
+    *goto phoenix_resolution
+
+*label phoenix_resolution
+
+*if bond_formed
+  The Phoenix plucks a single feather—gleaming gold and flame—and offers it to you.
+
+  *page_break
+
+  [b]"A Phoenix feather,"[/b] Zara whispers in awe. [b]"They only give them to those they deeply respect. It will burn away any curse, heal any wound, even pull you back from death... once."[/b]
+
+  *line_break
+
+  [i]"Don't waste it,"[/i] Polly advises. [i]"That's literally one life in feather form."[/i]
+
+  *page_break
+
+  You accept the feather with profound gratitude.
+
+  *page_break
+
+  *set magical_companion "phoenix"
+  *set phoenix_feather true
+
+*page_break
+
+You leave understanding that even immortal beings struggle with purpose and meaning.
+
+*page_break
+
+*goto creature_conclusion
+
+*comment ================================================
+*comment CONCLUSION
+*comment ================================================
+
+*label creature_conclusion
+
+As you leave the Creature Gardens, Zara smiles at you.
+
+*page_break
+
+[b]"You have a gift for connecting with magical beings. Not everyone does."[/b]
+
+*line_break
+
+*if bond_formed
+  [b]"The bond you formed today is special. Treasure it."[/b]
+
+*page_break
+
+[i]"Creatures remember kindness,"[/i] Polly says. [i]"And they have long memories. What you did today might matter more than you realize."[/i]
+
+*page_break
+
+*if magical_companion = "melodrake"
+  Somewhere in her crystalline cave, the Melodrake sings. You can feel the song in your bones, warm and comforting.
+
+*if magical_companion = "temporal_butterfly"
+  A shimmer of wings catches your eye—the butterfly, existing half a second in your future, waves goodbye.
+
+*if magical_companion = "thoughtweaver"
+  The web the Thoughtweaver gave you pulses gently against your chest, organizing your swirling thoughts.
+
+*if magical_companion = "phoenix"
+  The Phoenix feather radiates gentle warmth, a reminder that even ancient beings can choose hope.
+
+*page_break
+
+You've learned that magical creatures aren't tools or curiosities.
+
+They're people—different people, but people nonetheless. Worthy of respect, understanding, and friendship.
+
+*line_break
+
+*finish

@@ -1,0 +1,345 @@
+*comment ================================================
+*comment FREE TIME HUB
+*comment Central scene for accessing optional content
+*comment Connects to: library, creatures, tournament, midnight mystery
+*comment ================================================
+
+*temp free_time_choice ""
+*temp time_of_day ""
+
+*label start
+
+*comment This scene occurs during academy life, providing access to optional content
+
+*line_break
+
+[b]== FREE TIME AT AVALON ==[/b]
+
+*line_break
+
+For once, you have no scheduled classes or mandatory training.
+
+Avalon's intensive program rarely grants free time, but today is an exception—the masters are attending an important dimensional conference, and students have been given the day to pursue their own interests.
+
+*page_break
+
+Polly lands on your shoulder as you step into the courtyard.
+
+*line_break
+
+[i]"Free time! You know what that means—opportunity to get into interesting trouble. Or, if you're boring, you could study. But where's the fun in that?"[/i]
+
+*page_break
+
+You have several options for how to spend this rare gift of time:
+
+*page_break
+
+*choice
+  *if not(library_visited)
+    #Visit the Infinite Library—research magic and discover secrets.
+      *set free_time_choice "library"
+      *goto library_intro
+
+  *if not(creature_gardens_visited)
+    #Explore the Creature Gardens—meet magical beings.
+      *set free_time_choice "creatures"
+      *goto creatures_intro
+
+  *if not(tournament_participated)
+    #Sign up for the Harmonic Trials—test your collaborative skills.
+      *set free_time_choice "tournament"
+      *goto tournament_intro
+
+  #Practice magic alone—work on individual techniques.
+    *set free_time_choice "solo_practice"
+    *goto solo_practice
+
+  #Spend time with your training partner—strengthen your collaborative bond.
+    *set free_time_choice "partner_time"
+    *goto partner_practice
+
+  #Rest and relax—you've been working hard and need a break.
+    *set free_time_choice "rest"
+    *goto rest_scene
+
+*comment ================================================
+*comment LIBRARY INTRO
+*comment ================================================
+
+*label library_intro
+
+[i]"The library!"[/i] Polly approves. [i]"Excellent choice. Nothing dangerous ever happens in libraries."[/i]
+
+*line_break
+
+She pauses.
+
+*line_break
+
+[i]"Okay, that's a lie. Lots of dangerous things happen in libraries. But they're [b]educational[/b] dangerous things."[/i]
+
+*page_break
+
+You head toward the magnificent crystal archway that marks the entrance to Avalon's Infinite Library.
+
+*page_break
+
+*comment Transition to library_secrets scene
+*goto_scene library_secrets
+
+*comment ================================================
+*comment CREATURES INTRO
+*comment ================================================
+
+*label creatures_intro
+
+[i]"The Creature Gardens!"[/i] Polly perks up. [i]"Oh, I love this. Zara's probably there—she practically lives among the magical creatures."[/i]
+
+*page_break
+
+You make your way to the gardens, passing through gates woven from living vines.
+
+*line_break
+
+The air here feels different—alive with the presence of beings from across the realms.
+
+*page_break
+
+*comment Transition to creature_encounter scene
+*goto_scene creature_encounter
+
+*comment ================================================
+*comment TOURNAMENT INTRO
+*comment ================================================
+
+*label tournament_intro
+
+[i]"The Harmonic Trials!"[/i] Polly caws excitedly. [i]"Now we're talking! Competitive collaborative magic—the phrase itself is deliciously contradictory."[/i]
+
+*page_break
+
+You head to the Hall of Threads where students are gathering for the tournament announcement.
+
+*line_break
+
+The energy in the room is electric—excitement, nerves, determination all mixing together.
+
+*page_break
+
+*comment Transition to tournament scene
+*goto_scene tournament
+
+*comment ================================================
+*comment SOLO PRACTICE
+*comment ================================================
+
+*label solo_practice
+
+You find a quiet practice chamber and work on individual techniques.
+
+*page_break
+
+*if class_focus = "theory"
+  You study complex dimensional formulas, working through proofs and theoretical models.
+
+*if class_focus = "practical"
+  You practice portal creation and boundary manipulation, refining your technique.
+
+*if class_focus = "living_magic"
+  You meditate with a potted Thoughtvine, learning to sense its consciousness.
+
+*page_break
+
+Hours pass in focused concentration.
+
+*line_break
+
+When you emerge, you feel more confident in your individual abilities.
+
+*page_break
+
+[i]"Not bad,"[/i] Polly observes. [i]"Solo practice has its place. Just don't forget that Avalon is all about [b]not[/b] doing things solo."[/i]
+
+*page_break
+
+*set power +15
+*set knowledge +10
+
+*goto free_time_conclusion
+
+*comment ================================================
+*comment PARTNER PRACTICE
+*comment ================================================
+
+*label partner_practice
+
+You find your training partner and spend the afternoon practicing collaborative techniques.
+
+*page_break
+
+*if training_partner = "lyra"
+  Lyra has prepared a detailed practice schedule.
+  
+  You work through precision exercises together, each pushing the other to be more exact, more refined.
+
+*if training_partner = "kade"
+  Kade suggests trying something ambitious (as usual).
+  
+  You spend the afternoon attempting collaborative spells that are technically above your level—failing often, but learning with each attempt.
+
+*if training_partner = "zara"
+  Zara leads you through nature-based collaborative exercises.
+  
+  Working with Thoughtvines and magical plants, you learn how collaboration extends beyond just human partners.
+
+*page_break
+
+By the end, your connection with your partner has deepened significantly.
+
+*line_break
+
+You're beginning to understand what Izack means about the Third Thread—magic that flows between minds, not just through them.
+
+*page_break
+
+[i]"Good work,"[/i] Polly says approvingly. [i]"This is what Avalon is all about."[/i]
+
+*page_break
+
+*set collaboration +20
+*set empathy +10
+
+*if training_partner = "lyra"
+  *set lyra_relationship +15
+
+*if training_partner = "kade"
+  *set kade_relationship +15
+
+*if training_partner = "zara"
+  *set zara_relationship +15
+
+*goto free_time_conclusion
+
+*comment ================================================
+*comment REST SCENE
+*comment ================================================
+
+*label rest_scene
+
+You return to your dorm room and actually relax.
+
+*page_break
+
+*if dorm_style = "sanctuary"
+  You sink into the comfortable cushions, letting tension drain away.
+
+*if dorm_style = "study"
+  You put away your books and notes, allowing yourself to simply exist without learning for once.
+
+*if dorm_style = "workshop"
+  You tidy your workspace, then sit by the window, doing nothing productive for the first time in weeks.
+
+*if dorm_style = "zen"
+  You meditate in your minimalist space, finding center and calm.
+
+*page_break
+
+[i]"Rest is important too,"[/i] Polly says, uncharacteristically serious. [i]"Avalon's program is intense. Burning out helps no one."[/i]
+
+*line_break
+
+She settles beside you.
+
+*line_break
+
+[i]"You're doing well here, you know. Better than most students at this stage. Just... don't forget to breathe occasionally."[/i]
+
+*page_break
+
+*set empathy +15
+*set polly_relationship +10
+*comment Restore some mental/emotional energy
+*set stress_reduced true
+
+*goto free_time_conclusion
+
+*comment ================================================
+*comment CONCLUSION
+*comment ================================================
+
+*label free_time_conclusion
+
+*line_break
+
+[b]== EVENING APPROACHES ==[/b]
+
+*line_break
+
+Your free time comes to an end as the sun begins to set over Avalon's impossible architecture.
+
+*page_break
+
+*if free_time_choice = "solo_practice"
+  You've strengthened your individual skills—an important foundation for collaborative work.
+
+*if free_time_choice = "partner_time"
+  You've deepened your connection with your training partner—the Third Thread flows more easily between you now.
+
+*if free_time_choice = "rest"
+  You feel refreshed and centered, ready to tackle whatever challenges come next.
+
+*page_break
+
+Tomorrow, your regular training resumes.
+
+But today gave you something valuable—[b]choice[/b]. The agency to pursue what matters most to you.
+
+*line_break
+
+*if free_time_choice != "library" and free_time_choice != "creatures" and free_time_choice != "tournament"
+  [i]"There will be more free days,"[/i] Polly says. [i]"Opportunities to explore other aspects of Avalon. For now, enjoy what you learned today."[/i]
+
+*page_break
+
+*comment This scene can loop back to academy_life or continue forward
+*finish
+
+*comment ================================================
+*comment MIDNIGHT OPTION (Special Late-Night Access)
+*comment ================================================
+
+*label midnight_option
+
+*comment This label can be called from other scenes if player is exploring at night
+
+*line_break
+
+[b]== LATE NIGHT DISTURBANCE ==[/b]
+
+*line_break
+
+*if not(midnight_mystery_skipped)
+  *comment Player hasn't done midnight mystery yet
+  
+  Hours later, you're awakened by strange energy pulses.
+  
+  *page_break
+  
+  Polly taps at your window.
+  
+  [i]"Feel that? Something's happening. Want to investigate?"[/i]
+  
+  *page_break
+  
+  *choice
+    #Investigate the disturbance
+      *goto_scene midnight_mystery
+    
+    #Stay in bed—trust the masters
+      *set midnight_mystery_skipped true
+      *finish
+
+*else
+  *comment Player already did midnight mystery or chose to skip
+  *finish
