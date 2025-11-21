@@ -11,7 +11,7 @@
 
 *create honor 50
 *create attunement 50
-*create mentor "Aria"
+*create mentor "your guide"
 *create council_trust 45
 *create oathbound false
 *create resonance_mark false
@@ -23,14 +23,16 @@ You stand before the gates of Avalon, the Spiral of Eternity humming under your 
     The glyphs glow brighter as you trace them. You feel the Spiral answer your curiosity.
     *set attunement +10
     *set resonance_mark true
+    *set mentor "Aria"
     *goto embark
   #Drill with the wardens who guard the bridge to the central spire.
     Steel meets steel as you spar. The wardens nod when you match their pace.
     *set honor +10
     *set oathbound true
+    *set mentor "Aria"
     *goto embark
-  #Seek counsel from ${mentor}, the archivist who brought you here.
-    ${mentor} speaks softly about balance between duty and wonder.
+  #Seek counsel from Corin, the archivist who brought you here.
+    Corin speaks softly about balance between duty and wonder.
     *set mentor "Corin"
     *set attunement +5
     *goto embark

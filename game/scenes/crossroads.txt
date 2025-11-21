@@ -6,8 +6,9 @@ Beyond the council doors, a triad of portals rotates in perfect alignment. Each 
     *if attunement >= 60
       The portal sings in harmony with you. Knowledge floods your mind, and the Spiral welcomes you as a student.
       *goto_scene archives
-    Your attunement falters, and the portal resists. You retreat to study more.
-    *finish
+    *else
+      Your attunement falters, and the portal resists. You retreat to study more.
+      *finish
   #Enter the martial hall marked by silver spears.
     The wardens salute as you pass. Honor carries you forward into service.
     *goto_scene wardens
