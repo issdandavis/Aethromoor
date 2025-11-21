@@ -1,0 +1,60 @@
+Beneath the council chambers, ancient pathways wind into the heart of the Spiral. Few are granted passage here, where time flows differently and memories crystallize into visible form.
+
+*comment This scene explores deeper Avalon lore and introduces a mentor relationship moment.
+*choice
+  #Examine the crystallized memories along the walls.
+    You see fragments of Avalon's founding—towers rising from mist, the first oaths spoken. The weight of history settles on you.
+    *set attunement +10
+    *set council_trust +5
+    *goto spiral_revelation
+  #Follow the harmonic resonance deeper into the Spiral.
+    The song grows stronger, pulling you toward a chamber where light bends in impossible ways. You sense the presence of something ancient.
+    *if attunement >= 70
+      Your attunement allows you to perceive the true nature of the Spiral—a living bridge between worlds, sustained by countless acts of understanding and sacrifice.
+      *set attunement +15
+      *set resonance_mark true
+      *goto spiral_revelation
+    *else
+      The harmonics overwhelm you. You step back, knowing you need more preparation.
+      *set attunement +5
+      *goto spiral_revelation
+  #Seek ${mentor}'s wisdom about this place.
+    ${mentor} appears beside you, as if summoned by your need. "The Spiral remembers all who walk its paths," ${mentor} says. "What you choose to remember shapes what you become."
+    *set council_trust +10
+    *if mentor = "Corin"
+      "I chose this path long ago," Corin continues, "trading action for understanding. Some days I wonder if I chose wisely."
+    *else
+      "Aria walked these depths before me," ${mentor} muses. "Each generation must find their own truth here."
+    *goto spiral_revelation
+
+*label spiral_revelation
+The Spiral pulses with recognition. You feel yourself changing, marked by this place.
+
+*if resonance_mark and (attunement >= 75)
+  A sigil appears on your palm—the mark of one who has truly heard the Spiral's song. The council will take notice.
+  *set council_trust +15
+*elseif oathbound and (honor >= 70)
+  Your oath resonates through the depths. The wardens who guard this place salute as you pass.
+  *set honor +10
+
+*comment Branch back to the main story flow.
+*choice
+  #Return to the council with what you've learned.
+    You ascend the winding stairs, your mind full of revelations.
+    *goto_scene council
+  #Venture further into the uncharted passages.
+    Against ${mentor}'s advice, you press deeper. The unknown calls to you.
+    *if (attunement >= 80) or (honor >= 80)
+      Your strength of purpose carries you through. You discover a sealed portal, inactive for generations but still humming with potential.
+      *set council_trust +20
+      *set resonance_mark true
+      *goto_scene epilogue
+    *else
+      The paths twist back on themselves. You find yourself at the entrance once more, humbled.
+      *set attunement +5
+      *goto_scene council
+  #Meditate here, seeking clarity before the next challenge.
+    You sit in silence, letting the Spiral's rhythms wash over you. When you finally stand, you feel centered.
+    *set attunement +5
+    *set honor +5
+    *goto_scene council
