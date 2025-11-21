@@ -1249,7 +1249,6 @@ const storyNodes = {
         `,
         choices: []
     }
-}
 };
 
 // UI Update Functions
