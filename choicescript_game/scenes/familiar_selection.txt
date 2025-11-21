@@ -176,7 +176,7 @@ What will you name your shadow-fox familiar?
 
 You approach the shadow-fox.
 
-${familiar_name} watches you with eyes that shimmer between colors—now silver, now gold, now deep violet. ${He_She} flickers in and out of visibility, never quite solid.
+${familiar_name} watches you with eyes that shimmer between colors—now silver, now gold, now deep violet. ${he_she} flickers in and out of visibility, never quite solid.
 
 *line_break
 
@@ -186,7 +186,7 @@ When you extend your hand, ${familiar_name} [i]melts[/i] into shadow and reforms
 
 The bond forms like a whisper in the dark.
 
-You feel ${familiar_name}'s consciousness—curious, secretive, loyal beyond measure. ${He_She} knows the spaces between spaces, the secrets hidden in shadows.
+You feel ${familiar_name}'s consciousness—curious, secretive, loyal beyond measure. ${he_she} knows the spaces between spaces, the secrets hidden in shadows.
 
 *line_break
 
