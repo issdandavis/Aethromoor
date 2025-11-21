@@ -1,0 +1,110 @@
+*comment ================================================
+*comment YEAR FOUR START - Senior Year Begins
+*comment [PLACEHOLDER - Full content to be added]
+*comment ================================================
+
+*label start
+
+*set current_year 4
+
+[b]== YEAR FOUR - SENIOR YEAR ==[/b]
+
+*line_break
+
+[i]*Polly lands on your shoulder with unusual solemnity.*[/i]
+
+"This is it, ${name}. Your final year at Avalon Academy. Four years ago, you walked through those gates as a nervous first-year. Now look at you."
+
+*page_break
+
+[i]"Senior year. Thesis projects. Final expeditions. Graduation. And probably one last crisis because this academy can't go a month without dimensional drama."[/i]
+
+*line_break
+
+You're standing in the courtyard, watching new first-years arrive. You remember being that terrified. That uncertain.
+
+Now you're one of the advanced students they'll look up to.
+
+*page_break
+
+Izack gathers all senior students for an announcement.
+
+[b]"Welcome to your final year. This year, you'll complete your thesis project—a demonstration of everything you've learned. You'll face your final expedition. And you'll prove you're ready to graduate as full mages."[/b]
+
+*page_break
+
+*choice
+  #I'm ready for this. Four years of preparation.
+    *set confidence +10
+    *set stress -5
+
+    You feel confident. You've trained for this.
+
+    *goto thesis_selection
+
+  #I'm nervous but excited. This is the culmination.
+    *set empathy +5
+    *set happiness +10
+
+    This is it—the final year. Everything you've worked for.
+
+    *goto thesis_selection
+
+  #Can I really do this? The pressure is overwhelming.
+    *set stress +15
+    *set collaboration +5
+
+    The weight of expectations feels heavy. But you're not alone.
+
+    *goto thesis_selection
+
+*label thesis_selection
+
+*page_break
+
+Aria steps forward with a list.
+
+[b]"Your thesis project will define your graduation. Choose carefully."[/b]
+
+*line_break
+
+[b]Four thesis options:[/b]
+
+*page_break
+
+*choice
+  #Create Your Own Pocket Dimension (like Izack did)
+    *set thesis_topic "pocket_dimension"
+    *goto thesis_chosen
+
+  #Bridge to Another Realm (diplomatic/exploratory)
+    *set thesis_topic "realm_bridge"
+    *goto thesis_chosen
+
+  #Solve an Ancient Magical Mystery (research focused)
+    *set thesis_topic "ancient_mystery"
+    *goto thesis_chosen
+
+  #Revolutionize Magical Education (teaching focused)
+    *set thesis_topic "education_reform"
+    *goto thesis_chosen
+
+*label thesis_chosen
+
+*page_break
+
+You've chosen your thesis topic: [b]${thesis_topic}[/b]
+
+*line_break
+
+[i]"Good choice. Now you just have to actually [i]do[/i] it. No pressure."[/i]
+
+*page_break
+
+The year ahead will challenge everything you've learned.
+
+But you're ready.
+
+*page_break
+
+*goto_scene thesis_project

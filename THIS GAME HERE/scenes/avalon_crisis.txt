@@ -1,0 +1,347 @@
+*comment ================================================
+*comment AVALON CRISIS - The Ultimate Test
+*comment [PLACEHOLDER - Full epic content to be added]
+*comment ================================================
+
+*label start
+
+[b]== THE AVALON CRISIS ==[/b]
+
+*line_break
+
+It begins with a scream.
+
+*page_break
+
+Not a human scream—a dimensional scream. The fabric of Avalon itself crying out in pain.
+
+*line_break
+
+Alarms blare. Students rush from buildings. Faculty members race toward the Spiral Spire, where reality is tearing apart.
+
+*page_break
+
+[i]"This is it. The crisis I've been warning you about. Something is trying to destroy Avalon."[/i]
+
+*line_break
+
+Through the tears in reality, you see them: entities from beyond the dimensional boundaries. Hostile forces that view Avalon as an abomination—a realm that shouldn't exist.
+
+*page_break
+
+Izack, Aria, and Zara stand at the forefront, casting defensive magic.
+
+But even they're struggling.
+
+*line_break
+
+[b]"Students!"[/b] Izack calls out. [b]"We need everyone! This is bigger than anything we've faced!"[/b]
+
+*page_break
+
+*choice
+  #Lead the collaborative defense - unite everyone's magic
+    *if collaborative_magic >= 70
+      *goto collaborative_victory
+    *else
+      *goto collaborative_struggle
+
+  #Use your thesis work to counter the attack
+    *goto thesis_defense
+
+  #Channel raw power - hold the line with force
+    *if power >= 80
+      *goto power_victory
+    *else
+      *goto power_struggle
+
+  #Attempt diplomacy - communicate with the attackers
+    *if empathy >= 75
+      *goto diplomatic_resolution
+    *else
+      *goto diplomatic_failure
+
+*comment ================================================
+
+*label collaborative_victory
+
+You raise your voice above the chaos:
+
+[b]"Everyone! Link your magic with mine! We stand together!"[/b]
+
+*page_break
+
+And they do.
+
+*line_break
+
+Student and faculty alike, you form a massive collaborative network. Hundreds of mages, one unified intention.
+
+*page_break
+
+The hostile entities strike—
+
+—and shatter against your perfect unity.
+
+*line_break
+
+Avalon doesn't just survive. It grows stronger.
+
+*set legendary_deeds +3
+*set fame +50
+*set collaboration +20
+
+*achievement savior_of_avalon visible 50 Savior of Avalon
+  You saved Avalon Academy from total destruction.
+
+*goto crisis_aftermath_victory
+
+*comment ================================================
+
+*label collaborative_struggle
+
+You try to organize a collaborative defense, but your coordination falters.
+
+*line_break
+
+People follow your lead, but the network is unstable.
+
+*page_break
+
+It's enough. Barely.
+
+*line_break
+
+Avalon survives, but at a cost. Buildings are damaged. Several people are injured.
+
+*set stress +25
+*set close_calls +3
+
+*goto crisis_aftermath_survival
+
+*comment ================================================
+
+*label thesis_defense
+
+You use everything you learned from your thesis project.
+
+*page_break
+
+*if thesis_topic = "pocket_dimension"
+  You create pocket dimensions to absorb the attacks, redirecting them harmlessly.
+
+*if thesis_topic = "realm_bridge"
+  You open bridges to other realms, calling allies to Avalon's defense.
+
+*if thesis_topic = "ancient_mystery"
+  You use ancient knowledge to counter the entities' magic at its source.
+
+*if thesis_topic = "education_reform"
+  You organize students into perfectly coordinated teams using your teaching methods.
+
+*line_break
+
+It works.
+
+*set legendary_deeds +2
+*set fame +30
+
+*goto crisis_aftermath_victory
+
+*comment ================================================
+
+*label power_victory
+
+You channel more raw magical power than you've ever wielded.
+
+*line_break
+
+Dimensional magic, boundary magic, living magic—everything you've learned, poured into one devastating counter-strike.
+
+*page_break
+
+The hostile entities are obliterated.
+
+*line_break
+
+Avalon is safe.
+
+*page_break
+
+But you collapse, magically exhausted.
+
+*line_break
+
+Worth it.
+
+*set legendary_deeds +2
+*set fame +35
+*set stress +15
+
+*goto crisis_aftermath_victory
+
+*comment ================================================
+
+*label power_struggle
+
+You try to overpower the entities, but you're not strong enough alone.
+
+*line_break
+
+Your magic falters.
+
+*page_break
+
+Fortunately, Izack and Aria reinforce you. Together, you drive back the threat.
+
+*line_break
+
+But you couldn't do it alone.
+
+*set failures +1
+*set stress +20
+
+*goto crisis_aftermath_survival
+
+*comment ================================================
+
+*label diplomatic_resolution
+
+You step forward, using truth magic to communicate.
+
+*line_break
+
+[b]"Why are you attacking? What do you want?"[/b]
+
+*page_break
+
+The entities respond—
+
+*line_break
+
+They believe Avalon is destabilizing dimensional reality. They're trying to protect their own realms.
+
+*page_break
+
+You explain Izack's safeguards. You offer to prove Avalon is stable.
+
+*line_break
+
+*if truth_magic >= 60
+  Using truth magic, you show them the truth. They see Avalon's stability.
+
+  The attack stops.
+
+  *line_break
+
+  Not through violence—through understanding.
+
+  *set legendary_deeds +3
+  *set fame +40
+  *set empathy +15
+
+  *achievement dimensional_peacemaker visible 40 Dimensional Peacemaker
+    You resolved a dimensional crisis through diplomacy.
+
+  *goto crisis_aftermath_peace
+
+*if truth_magic < 60
+  They don't believe you. The attack continues.
+
+  *goto power_struggle
+
+*comment ================================================
+
+*label diplomatic_failure
+
+You try to communicate, but you lack the magical skills to bridge the gap.
+
+*line_break
+
+The entities don't understand you. They see your attempt as weakness.
+
+*set failures +1
+
+*goto power_struggle
+
+*comment ================================================
+
+*label crisis_aftermath_victory
+
+*page_break
+
+Avalon is saved.
+
+*line_break
+
+Buildings are damaged but repairable. Everyone survived.
+
+*page_break
+
+Izack approaches you, tears in his eyes.
+
+[b]"You saved us. You saved everything I've built."[/b]
+
+*line_break
+
+Aria adds: [b]"You've proven yourself beyond any doubt. You're not just a student anymore. You're a master."[/b]
+
+*page_break
+
+Zara grins: [b]"That was incredible. You're a legend now."[/b]
+
+*page_break
+
+*goto crisis_conclusion
+
+*comment ================================================
+
+*label crisis_aftermath_survival
+
+*page_break
+
+Avalon survived, but barely.
+
+*line_break
+
+The damage is extensive. Several buildings will need to be rebuilt. Some students are injured, though thankfully no one was killed.
+
+*page_break
+
+Izack looks exhausted but grateful: [b]"We made it through. That's what matters."[/b]
+
+*goto crisis_conclusion
+
+*comment ================================================
+
+*label crisis_aftermath_peace
+
+*page_break
+
+Avalon is not just safe—it has new allies.
+
+*line_break
+
+The entities that attacked now understand Avalon's purpose. They've agreed to protect it.
+
+*page_break
+
+Izack is amazed: [b]"I never thought... you've accomplished what I couldn't. True dimensional peace."[/b]
+
+*goto crisis_conclusion
+
+*comment ================================================
+
+*label crisis_conclusion
+
+*page_break
+
+The crisis is over.
+
+*line_break
+
+One final challenge remains: graduation.
+
+*page_break
+
+*goto_scene final_trial

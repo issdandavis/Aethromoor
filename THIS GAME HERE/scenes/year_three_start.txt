@@ -1,0 +1,1025 @@
+*comment ================================================
+*comment YEAR THREE START - "Mastery Year"
+*comment The player returns as a third-year student - now experienced, respected
+*comment This scene establishes their new status and responsibilities
+*comment ================================================
+
+*set current_year 3
+
+*temp leadership_reputation ""
+*temp teaching_interest false
+*temp year_three_focus ""
+
+*label start
+
+[b]== YEAR THREE: MASTERY ==[/b]
+
+*line_break
+
+The crystalline gate recognizes you before you even touch it.
+
+*page_break
+
+Where once it questioned your presence, examined your worthiness, now it simply [i]welcomes[/i]. The dimensional boundary parts like greeting an old friend—because that's what you are. Part of Avalon's living memory. Woven into its very essence.
+
+Two years ago, you arrived as a nervous first-year, portal-sick and uncertain.
+
+Today, you return as something else entirely.
+
+*page_break
+
+*if polly_is_familiar = true
+  Polly materializes on the gate's arch, her metallic feathers gleaming in the dimensional light.
+
+  [i]"Welcome back, Year Three. Look at you—practically ancient by student standards. In two more years, you'll be the one terrifying first-years just by existing."[/i]
+
+  *line_break
+
+  She hops to your shoulder with familiar ease.
+
+  [i]"Year Three is when students stop being learners and start being [b]practitioners[/b]. Hope you're ready for actual responsibility. And by actual, I mean 'people will literally trust you with their lives.'"[/i]
+*else
+  *if familiar_type = "phoenix"
+    ${familiar_name} appears in a cascade of starlight, circling you with an excited trill. Your phoenix familiar has grown stronger—${his_her} presence now radiates power that would have overwhelmed you two years ago.
+  *if familiar_type = "shadowfox"
+    ${familiar_name} flickers into existence, ${his_her} form more solid and substantial than ever. Two years of growth show in every movement—confidence, power, mastery.
+  *if familiar_type = "elemental"
+    ${familiar_name} blazes to life on your shoulder, flames dancing with controlled intensity. Your elemental familiar has evolved, burning brighter and more focused than ever before.
+  *if familiar_type = "serpent"
+    ${familiar_name} coils around your arm, ${his_her} crystalline body humming with dimensional frequencies that harmonize perfectly with your magical signature.
+  *if familiar_type = "void"
+    ${familiar_name} manifests beside you—less an impossible shimmer now, more a deliberate presence. Two years have taught ${him_her} how to exist in this reality without causing existential discomfort.
+
+  *line_break
+
+  Polly caws from above. [i]"Welcome back, ${name}. Year Three—when things get [b]serious[/b]."[/i]
+
+*page_break
+
+*comment ================================================
+*comment ARRIVING AT UPGRADED QUARTERS
+*comment ================================================
+
+*label upgraded_quarters
+
+Your quarters have transformed again.
+
+*line_break
+
+Last year, the room expanded to twice its original size. This year, it's become something else entirely—not just a dorm room, but a [i]suite[/i]. Personal workspace. Study area. Comfortable living space that reflects your status as an advanced student.
+
+*page_break
+
+The walls shimmer with your magical signature—two years of growth etched into Avalon's living structure. Your spells, your studies, your very presence has shaped this space.
+
+*if has_golem = true
+  ${golem_name} stands at attention near the window, clearly having maintained the space with meticulous care. The ${golem_element} golem's eyes brighten as you enter.
+
+  *line_break
+
+  *if golem_personality = "protective"
+    "${name}. Welcome home. I have monitored our quarters throughout the summer. No intruders. No dimensional anomalies. All is secure."
+  *if golem_personality = "curious"
+    "You're back! I observed one hundred forty-seven unique magical phenomena over the summer! Also, the room expanded by approximately eighteen percent. I have detailed notes!"
+  *if golem_personality = "scholarly"
+    "Your return is punctual. I have catalogued all dimensional shifts in our quarters and prepared a comprehensive report. The room's evolution is fascinating."
+  *if golem_personality = "cheerful"
+    "You're home! I missed you so much! Look—the room grew even bigger! Isn't it wonderful? I kept everything perfect for you!"
+
+  *line_break
+
+  Your golem has evolved too. Two years of existence has refined ${his_her} personality, deepened ${his_her} understanding. ${he_she_cap} feels less like a construct and more like a companion.
+
+*page_break
+
+Your desk—now a proper research station—holds several items:
+
+*line_break
+
+A formal letter bearing Avalon Academy's seal.
+
+*if artifact_earned != "none"
+  Your ${artifact_earned} rests on a prominent display, surrounded by protective wards you've maintained for two years.
+
+*if chosen_path = "research"
+  Research notes from your Year Two independent projects, waiting for you to continue.
+*if chosen_path = "combat"
+  Training schedules and advanced combat theory texts you were studying.
+*if chosen_path = "diplomatic"
+  Correspondence from three different realms requesting your consultation on dimensional matters.
+
+*page_break
+
+*if romantic_interest != "none"
+  And a personal letter, sealed with a magical signature you'd recognize anywhere.
+
+  *if romantic_interest = "izack"
+    Izack's handwriting—elegant, flowing, and carrying warmth that makes your heart skip.
+  *if romantic_interest = "aria"
+    Aria's precise script, with a boundary ward seal that tingles when you touch it.
+  *if romantic_interest = "zara"
+    Zara's cheerful handwriting, decorated with small magical doodles that actually move.
+
+  *line_break
+
+  The romantic relationship you've been building for the past year has deepened. What began as attraction has grown into something real, tested by time and shared experiences.
+
+*page_break
+
+*comment ================================================
+*comment OFFICIAL LETTER - NEW RESPONSIBILITIES
+*comment ================================================
+
+*label official_letter
+
+You open the formal letter first.
+
+*page_break
+
+[i]To ${name}, Third-Year Student of Avalon Academy:[/i]
+
+*line_break
+
+[i]Congratulations on completing your second year and advancing in your chosen path. Your progress has been noted by faculty and administration.[/i]
+
+*line_break
+
+*if collaboration >= 70
+  [i]Your exceptional collaborative abilities have earned you recognition across multiple departments.[/i]
+  *set leadership_reputation "exceptional"
+  *set teaching_interest true
+*elseif collaboration >= 50
+  [i]Your solid understanding of collaborative magic positions you well for Year Three responsibilities.[/i]
+  *set leadership_reputation "capable"
+*else
+  [i]Your individual accomplishments demonstrate clear magical talent. We hope Year Three will help you develop stronger collaborative skills.[/i]
+  *set leadership_reputation "independent"
+
+*page_break
+
+[i]As a third-year student, you are now eligible for the following opportunities:[/i]
+
+*line_break
+
+[i][b]• Mentorship Roles:[/b] You may volunteer to assist first-year students with their transition to Avalon.[/i]
+
+*line_break
+
+[i][b]• Independent Research:[/b] You may propose self-directed research projects under faculty supervision.[/i]
+
+*line_break
+
+[i][b]• External Representation:[/b] You may represent Avalon Academy at inter-realm gatherings and diplomatic functions.[/i]
+
+*line_break
+
+[i][b]• Academy Governance:[/b] You may participate in the Student Council, which advises administration on academy policies.[/i]
+
+*page_break
+
+[i]Year Three is the "Mastery Year"—when students transition from learning magic to [b]practicing[/b] it. Your success depends not only on your personal skill, but on your ability to contribute to Avalon's broader mission of dimensional harmony and collaborative excellence.[/i]
+
+*line_break
+
+[i]Please meet with your path advisor to discuss your Year Three focus.[/i]
+
+*line_break
+
+[i]With highest regards,[/i]
+
+[i]The Avalon Academy Faculty[/i]
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Translation: You're no longer a student who just learns things. You're now a student who [b]does[/b] things. And occasionally teaches things. And represents Avalon to scary inter-dimensional entities. Fun!"[/i]
+
+*line_break
+
+"This is really different from first year."
+
+*line_break
+
+*if polly_is_familiar = true
+  [i]"That's because first-years are babies who need constant supervision. Third-years are terrifying near-graduates who can accidentally tear reality if they're not careful. Avalon treats you accordingly."[/i]
+
+*page_break
+
+*comment ================================================
+*comment ROMANTIC LETTER (if applicable)
+*comment ================================================
+
+*if romantic_interest != "none"
+  *goto romantic_letter
+*else
+  *goto polly_assessment
+
+*label romantic_letter
+
+You open the personal letter, your heart already beating faster.
+
+*page_break
+
+*if romantic_interest = "izack"
+  *if izack_romance = true
+    Izack's letter is written in flowing script that shifts subtly between languages—a dimensional writing technique that only reveals its full meaning when read with magical sight.
+
+    *line_break
+
+    [i]${name},[/i]
+
+    *line_break
+
+    [i]I've been counting the days until your return. Three months felt like three years. The gardens haven't been the same without you walking through them. The leylines seem quieter.[/i]
+
+    *page_break
+
+    [i]I know the complications of our situation. The professional boundaries. The potential for impropriety. But ${name}—I've lived over a century, and I've never felt anything like what I feel for you.[/i]
+
+    *line_break
+
+    [i]Year Three brings new challenges. More responsibility. Higher stakes. But it also brings us closer to the day when you graduate, when these boundaries dissolve, when we can explore this connection without reservation.[/i]
+
+    *line_break
+
+    [i]Until then, know that my feelings haven't wavered. If anything, the distance has crystallized them into certainty.[/i]
+
+    *page_break
+
+    [i]Meet me in the Leyline Gazebo tonight? I've discovered something beautiful I want to share with you.[/i]
+
+    *line_break
+
+    [i]Always yours,[/i]
+
+    [i]Izack[/i]
+
+    *set izack_relationship +10
+    *set romance_depth +1
+    *set happiness +15
+
+*if romantic_interest = "aria"
+  *if aria_romance = true
+    Aria's letter is precise, elegant, and sealed with multiple boundary wards that recognize your magical signature. When you open it, her handwriting is as controlled as ever—but the words carry unmistakable emotion.
+
+    *line_break
+
+    [i]${name},[/i]
+
+    *line_break
+
+    [i]I am not skilled at expressing sentiment. My training emphasized precision over emotion, boundaries over connection. But you have challenged every defense I've carefully constructed over decades.[/i]
+
+    *page_break
+
+    [i]This summer, I attempted to rationalize my feelings. To analyze them as I would any magical phenomenon—categorize, understand, control. I failed. What I feel for you defies rational analysis.[/i]
+
+    *line_break
+
+    [i]Year Three will be demanding. Your path requires focus, discipline, excellence. But I want you to know—whatever challenges arise, you will not face them alone. I am here. I am yours. Even if propriety demands we maintain discretion.[/i]
+
+    *page_break
+
+    [i]I have enclosed a boundary crystal keyed to my magical signature. If you ever need me—for any reason—channel your magic into it. I will come.[/i]
+
+    *line_break
+
+    [i]Yours in all things,[/i]
+
+    [i]Aria[/i]
+
+    *line_break
+
+    A small crystal falls into your palm—dark, elegant, humming with Aria's distinctive magical signature.
+
+    *set aria_relationship +10
+    *set romance_depth +1
+    *set happiness +15
+
+*if romantic_interest = "zara"
+  *if zara_romance = true
+    Zara's letter is covered in hand-drawn illustrations that move and shift—little animations of the two of you together. Her handwriting is enthusiastic, warm, absolutely [i]Zara[/i].
+
+    *line_break
+
+    [i]${name}!!![/i]
+
+    *line_break
+
+    [i]I missed you SO MUCH. Three months is WAY too long. I tried to stay busy—trained new combat students, ran five expeditions to unstable dimensions, reorganized the entire arsenal—but nothing was as fun as when you're around.[/i]
+
+    *page_break
+
+    [i]I know Year Three is going to be intense. More responsibility, harder challenges, less time for fun. But I'm SO PROUD of how far you've come. Two years ago you could barely cast a basic ward. Now you're one of our strongest students.[/i]
+
+    *line_break
+
+    [i]I'm not great at the whole "professional boundaries" thing like Izack and Aria. I just know that I care about you. A lot. Maybe too much for a mentor-student relationship. But hey—you'll graduate eventually, right? And then we can figure out what this is without worrying about impropriety.[/i]
+
+    *page_break
+
+    [i]Until then, I'll be cheering you on. Training with you. Probably accidentally flirting during combat practice. The usual.[/i]
+
+    *line_break
+
+    [i]Come find me when you're settled? I want to show you this new hybrid technique I developed over summer. It's AMAZING and also slightly dangerous![/i]
+
+    *line_break
+
+    [i]Love (is that too strong? I mean it though!),[/i]
+
+    [i]Zara[/i]
+
+    *line_break
+
+    At the bottom, she's drawn a tiny animated version of herself waving enthusiastically.
+
+    *set zara_relationship +10
+    *set romance_depth +1
+    *set happiness +15
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Aww. Young love. Complicated by power dynamics and professional boundaries. Tale as old as time. Well, tale as old as formal educational institutions, anyway."[/i]
+
+  *line_break
+
+  "Is it weird? Being in a relationship with a mentor?"
+
+  *line_break
+
+  [i]"Depends. They're being respectful about it—waiting until you graduate for anything serious. And you're both adults. And this is a magical academy where the normal rules of reality are suggestions at best. So... embrace it? Just don't let it distract you from not dying."[/i]
+
+*page_break
+
+*comment ================================================
+*comment POLLY'S COMPREHENSIVE ASSESSMENT
+*comment ================================================
+
+*label polly_assessment
+
+*if polly_is_familiar = true
+  [i]"Alright, let's have The Talk."[/i]
+
+  *line_break
+
+  "What talk?"
+
+  *line_break
+
+  [i]"The 'where you've been and where you're going' talk. I've watched you for two years, ${name}. Time for my official Year Three assessment."[/i]
+*else
+  Polly swoops down, landing on your desk.
+
+  [i]"Time for your Year Three assessment. I've been watching you for two years. Here's what I've observed."[/i]
+
+*page_break
+
+*if collaboration >= 80
+  [i]"Your collaborative magic is [b]exceptional[/b]. Like, genuinely remarkable. In my decades at Avalon, I've seen maybe a dozen students master collaborative techniques the way you have. You don't just work with others—you [b]elevate[/b] them. Make everyone around you better."[/i]
+
+  *set academic_standing "exemplary"
+  *set grades +20
+*elseif collaboration >= 60
+  [i]"Your collaborative abilities are strong. You understand what Avalon teaches—that magic is stronger when shared. You work well with others. You contribute. Solid foundation."[/i]
+
+  *set academic_standing "excellent"
+  *set grades +15
+*elseif collaboration >= 40
+  [i]"Your collaborative skills are... developing. You've made progress, but you still default to working alone sometimes. Year Three will test whether you've truly internalized Avalon's principles."[/i]
+
+  *set academic_standing "good"
+  *set grades +5
+*else
+  [i]"Okay, real talk: you still struggle with collaboration. You're talented—no question—but you keep trying to do everything yourself. Year Three is your last chance to figure out that Avalon's entire philosophy is built on working [b]together[/b]."[/i]
+
+  *set academic_standing "adequate"
+
+*page_break
+
+*if chosen_path = "research"
+  [i]"Your research path work has been fascinating. Aria's impressed—and trust me, Aria is NOT easily impressed. Your theoretical understanding has grown exponentially."[/i]
+
+  *line_break
+
+  *if knowledge >= 75
+    [i]"You're publishing-level. Some of your papers could genuinely contribute to dimensional theory. That's huge."[/i]
+  *elseif knowledge >= 55
+    [i]"You're doing well. Strong theoretical foundation. Good experimental methodology. Keep pushing."[/i]
+  *else
+    [i]"You've got the basics, but research path requires deeper theoretical knowledge. Year Three needs to be about serious study."[/i]
+
+*if chosen_path = "combat"
+  [i]"Your combat training with Zara has transformed you. You're not just magically talented—you're tactically competent. You can handle dangerous situations."[/i]
+
+  *line_break
+
+  *if power >= 75
+    [i]"Your combat magic is seriously impressive. You could probably take on mid-level dimensional threats solo. Zara's practically glowing with pride."[/i]
+  *elseif power >= 55
+    [i]"You're a capable combatant. Good reflexes, solid technique. You can protect yourself and others when needed."[/i]
+  *else
+    [i]"You're developing, but combat path requires more raw power and tactical instinct. Year Three training will be intense."[/i]
+
+*if chosen_path = "diplomatic"
+  [i]"Your diplomatic work with Izack has been remarkable. You're developing skills that most mages never learn—actual communication and negotiation."[/i]
+
+  *line_break
+
+  *if empathy >= 75
+    [i]"Your empathy and understanding of others is genuinely exceptional. You can mediate between wildly different perspectives. That's a rare gift."[/i]
+  *elseif empathy >= 55
+    [i]"You're good at reading people, understanding different viewpoints. You're becoming a skilled negotiator."[/i]
+  *else
+    [i]"You've got potential, but diplomacy requires deeper emotional intelligence. Year Three needs to focus on really understanding others."[/i]
+
+*page_break
+
+*if total_spells_known >= 20
+  [i]"You've learned ${total_spells_known} spells over two years. That's [b]exceptional[/b]. Most graduates know fifteen or twenty total. You're already at graduate level."[/i]
+*elseif total_spells_known >= 12
+  [i]"You've learned ${total_spells_known} spells. That's a solid repertoire. Good variety, good foundation for Year Three."[/i]
+*else
+  [i]"You know ${total_spells_known} spells. That's... adequate, but you might want to expand your toolkit this year."[/i]
+
+*page_break
+
+*if romantic_interest != "none"
+  *if romantic_interest = "izack"
+    [i]"And you're dating Izack Thorne. The legendary dimensional mage who founded this place. The actual creator of collaborative magic. No pressure."[/i]
+  *if romantic_interest = "aria"
+    [i]"And you're dating Aria Ravencrest. The boundary mage who could unmake reality with a thought. The woman who once stared down an entire council of realm leaders. Intimidating girlfriend choice."[/i]
+  *if romantic_interest = "zara"
+    [i]"And you're dating Zara. The hybrid mage combat instructor who's possibly the most dangerous person at Avalon. Also the most enthusiastic. It's a compelling combination."[/i]
+
+  *line_break
+
+  [i]"They're handling it professionally, but everyone knows. Just... try not to let the relationship complicate your Year Three responsibilities? Romantic drama and dimensional stability don't mix well."[/i]
+
+*page_break
+
+*comment ================================================
+*comment NEW RESPONSIBILITIES MEETING
+*comment ================================================
+
+*label responsibilities_meeting
+
+[b]"Third-year students report to the Hall of Threads,"[/b] a voice echoes magically through your quarters.
+
+*line_break
+
+*if polly_is_familiar = true
+  [i]"That's your cue. Time to learn about all the exciting ways Year Three will make your life complicated."[/i]
+
+*page_break
+
+The Hall of Threads has evolved again. Where once it hosted gatherings of twenty students, it now accommodates hundreds—Avalon has grown significantly in just two years.
+
+First-year students cluster nervously near the entrance, exactly as you once did.
+
+Second-years move with more confidence, but still carrying textbooks and looking studious.
+
+And then there's you—the third-years. Only about fifteen students. The survivors who made it through two years of dimensional magic, expeditions, trials, and transformative education.
+
+*page_break
+
+You recognize all of them. Some you worked with closely. Others you only knew in passing. But you all share something profound—two years at Avalon Academy changes a person fundamentally.
+
+*line_break
+
+*if izack_relationship >= 70
+  Izack's eyes find yours across the hall. His smile is professional, appropriate for the public setting—but his warmth radiates clearly.
+*elseif izack_relationship >= 50
+  Izack nods to you with friendly recognition.
+*else
+  Izack acknowledges you with professional courtesy.
+
+*line_break
+
+*if aria_relationship >= 70
+  Aria's stern expression softens when she sees you. For just a moment, her guard drops, revealing genuine affection before her professional mask returns.
+*elseif aria_relationship >= 50
+  Aria inclines her head with respect.
+*else
+  Aria's sharp gaze assesses you with typical precision.
+
+*line_break
+
+*if zara_relationship >= 70
+  Zara's entire face lights up when she spots you. She waves enthusiastically before catching herself and trying to look professional. It's adorable.
+*elseif zara_relationship >= 50
+  Zara grins and gives you a quick thumbs-up.
+*else
+  Zara offers a friendly smile.
+
+*page_break
+
+*comment ================================================
+*comment THE YEAR THREE BRIEFING
+*comment ================================================
+
+*label year_three_briefing
+
+Aria steps forward, and the hall falls silent.
+
+*line_break
+
+[b]"Third-year students,"[/b] she begins, her voice carrying authority that makes first-years flinch. [b]"You have entered your final stage of development at Avalon Academy. Year Three is traditionally called the 'Mastery Year'—not because you have achieved complete mastery, but because you are now expected to [i]practice[/i] mastery."[/b]
+
+*page_break
+
+Izack continues, his tone warm but serious. [b]"For two years, you have been students—learning, growing, making mistakes in controlled environments. Starting today, you are [i]practitioners[/i]. When you use magic, it has real consequences. When you teach others, they rely on your knowledge. When you represent Avalon, you speak for all of us."[/b]
+
+*page_break
+
+Zara adds, [b]"This is the year when most students discover what kind of mage they'll become. Not just what path you chose, but what you [b]stand for[/b]. What you're willing to fight for. What kind of legacy you want to leave."[/b]
+
+*line_break
+
+The weight of their words settles over the gathered third-years.
+
+*page_break
+
+Aria waves her hand, and four glowing symbols appear in the air:
+
+*page_break
+
+[b]YEAR THREE RESPONSIBILITIES:[/b]
+
+*line_break
+
+[b]1. PATH MASTERY[/b] - Continue advancing in your specialized training, working toward graduate-level competency.
+
+*line_break
+
+*if chosen_path = "research"
+  For research path students: Lead your own research team. Publish findings. Push boundaries of dimensional theory.
+*if chosen_path = "combat"
+  For combat path students: Train junior students in defensive magic. Respond to dimensional threats. Develop advanced techniques.
+*if chosen_path = "diplomatic"
+  For diplomatic path students: Conduct autonomous missions to other realms. Mediate inter-dimensional conflicts. Build alliances.
+
+*page_break
+
+[b]2. MENTORSHIP (Optional)[/b] - Assist first-year students with their transition to Avalon.
+
+*line_break
+
+Izack explains, [b]"First-years are often overwhelmed. Having a third-year mentor—someone who remembers being in their position—can make the difference between success and failure."[/b]
+
+*page_break
+
+[b]3. INDEPENDENT PROJECTS (Optional)[/b] - Propose self-directed research or creative magical work.
+
+*line_break
+
+Aria notes, [b]"This is your opportunity to explore areas that fascinate you personally. Past independent projects have resulted in published papers, new spell development, and breakthrough discoveries."[/b]
+
+*page_break
+
+[b]4. ACADEMY GOVERNANCE (Optional)[/b] - Join the Student Council to advise administration on academy policies.
+
+*line_break
+
+Zara grins. [b]"This is basically getting involved in magical politics. It's exhausting but important. Student perspectives matter to how Avalon evolves."[/b]
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Notice how three of those four things are 'optional.' Translation: you'll definitely do at least two of them because you have an overdeveloped sense of responsibility."[/i]
+
+*page_break
+
+*comment ================================================
+*comment PERSONAL MEETING WITH PATH ADVISOR
+*comment ================================================
+
+*label advisor_meeting
+
+[b]"Each of you will meet privately with your path advisor,"[/b] Aria announces. [b]"We'll discuss your Year Three focus and expectations."[/b]
+
+*line_break
+
+The third-years begin filing out, called one by one to meet with their respective advisors.
+
+*page_break
+
+*if chosen_path = "research"
+  [b]"${name},"[/b] Aria calls. [b]"My office, please."[/b]
+  *goto aria_advisor
+*if chosen_path = "combat"
+  [b]"${name},"[/b] Zara says. [b]"Training grounds? I want to assess your progress."[/b]
+  *goto zara_advisor
+*if chosen_path = "diplomatic"
+  [b]"${name},"[/b] Izack says warmly. [b]"Walk with me to the gardens?"[/b]
+  *goto izack_advisor
+
+*comment ================================================
+*comment ARIA ADVISOR MEETING (Research Path)
+*comment ================================================
+
+*label aria_advisor
+
+Aria's office has always been immaculate—organized, efficient, intimidating. But today, you notice new additions: your research papers from Year Two, displayed on her wall alongside work from renowned dimensional theorists.
+
+*page_break
+
+She gestures for you to sit.
+
+[b]"${name}. Two years ago, you began the research path with potential. Today, you have transformed that potential into genuine competency."[/b]
+
+*line_break
+
+*if knowledge >= 75
+  [b]"Your theoretical understanding rivals some graduate students. Your experimental methodology is sound. Your papers demonstrate original thinking."[/b]
+
+  *line_break
+
+  She pauses, and something that might be pride crosses her severe features.
+
+  [b]"I would like you to lead a research team this year. Three second-year students will work under your direction on a project of your choosing."[/b]
+*elseif knowledge >= 55
+  [b]"Your progress has been solid. You have mastered the fundamentals and begun exploring advanced theory. Year Three will determine whether you can transition from student to scholar."[/b]
+
+  *line_break
+
+  [b]"I'm assigning you to an ongoing research project. You'll work with one other third-year, contributing to active dimensional stability research."[/b]
+*else
+  [b]"Your progress has been... adequate. But research path demands more. Year Three requires focused effort to reach the level expected of Avalon graduates."[/b]
+
+  *line_break
+
+  [b]"I'm assigning you additional study materials and practical exercises. Your theoretical foundation needs strengthening."[/b]
+
+*page_break
+
+*if aria_romance = true
+  Her professional demeanor softens slightly.
+
+  [b]"And ${name}... I want you to know that my assessment is entirely based on your academic merit. What exists between us personally does not influence my evaluation of your scholarly work."[/b]
+
+  *line_break
+
+  A pause, then quieter:
+
+  [b]"Though I am... proud of you. Professionally and personally."[/b]
+
+  *set aria_relationship +5
+
+*goto focus_choice
+
+*comment ================================================
+*comment ZARA ADVISOR MEETING (Combat Path)
+*comment ================================================
+
+*label zara_advisor
+
+The training grounds are empty except for you and Zara. She's already in combat stance, grinning.
+
+[b]"Assessment first, talking second. Show me what you learned over summer. Don't hold back—I can take it!"[/b]
+
+*page_break
+
+You spend the next twenty minutes demonstrating your combat techniques. Defensive wards, offensive magic, tactical positioning, crisis response. Zara matches you move for move, pushing you harder, testing your limits.
+
+*line_break
+
+Finally, she calls a halt.
+
+*page_break
+
+*if power >= 75
+  [b]"Wow. Just... wow. You've gotten REALLY good. Your power control is excellent, your tactical instincts are sharp, and you're not hesitating anymore."[/b]
+
+  *line_break
+
+  She's beaming with genuine pride.
+
+  [b]"I want you to co-teach the second-year combat sessions. You're skilled enough to train others. Plus, teaching reinforces your own learning."[/b]
+*elseif power >= 55
+  [b]"Solid work! Your technique has improved a lot. You're confident, capable, and you handle pressure well."[/b]
+
+  *line_break
+
+  [b]"This year, you'll assist me with combat training exercises. Not full teaching—more like demonstration and individual coaching. You're ready for that responsibility."[/b]
+*else
+  [b]"You've made progress, but combat path requires more raw power and faster reflexes. Your technique is okay, but you need to push harder."[/b]
+
+  *line_break
+
+  [b]"Year Three training will be intense. Extra practice sessions. More challenging scenarios. You can do this—but you need to commit fully."[/b]
+
+*page_break
+
+*if zara_romance = true
+  She steps closer, her professional demeanor cracking into something warmer.
+
+  [b]"And hey—I know I'm supposed to be all professional advisor right now, but I just want to say I'm really proud of you. Watching you grow these past two years has been amazing."[/b]
+
+  *line_break
+
+  A quick, almost shy smile.
+
+  [b]"Also you look great. The training definitely agrees with you. Is that inappropriate to mention? Probably. I said it anyway!"[/b]
+
+  *set zara_relationship +5
+
+*goto focus_choice
+
+*comment ================================================
+*comment IZACK ADVISOR MEETING (Diplomatic Path)
+*comment ================================================
+
+*label izack_advisor
+
+The Dream Gardens bloom around you as you walk with Izack. Flowers respond to your presence—you've been here so many times over two years that the gardens recognize you, opening in patterns of welcome.
+
+*page_break
+
+[b]"Two years ago,"[/b] Izack begins softly, [b]"you chose the diplomatic path. At the time, I wondered if you fully understood what that meant—the emotional labor, the constant mediation, the weight of representing Avalon to other realms."[/b]
+
+*line_break
+
+He turns to face you.
+
+*page_break
+
+*if empathy >= 75
+  [b]"You have exceeded every expectation. Your ability to understand others, to build bridges between different perspectives, to negotiate solutions that honor all parties—it's remarkable, ${name}."[/b]
+
+  *line_break
+
+  His smile is genuinely proud.
+
+  [b]"I'm authorizing you to conduct autonomous diplomatic missions this year. You'll represent Avalon in other realms, negotiate agreements, mediate disputes—all without constant supervision."[/b]
+*elseif empathy >= 55
+  [b]"You have developed well. Your empathy and communication skills have grown significantly. You understand the principles of collaborative diplomacy."[/b]
+
+  *line_break
+
+  [b]"This year, you'll accompany me on diplomatic missions to other realms. You'll observe, assist, and gradually take more active roles in negotiations."[/b]
+*else
+  [b]"You have potential, but diplomacy requires deeper emotional intelligence. You sometimes still approach problems from a purely strategic perspective rather than truly understanding all parties' needs."[/b]
+
+  *line_break
+
+  [b]"Year Three will focus on developing your empathy and communication. More intensive training, more complex scenarios, more attention to emotional nuance."[/b]
+
+*page_break
+
+*if izack_romance = true
+  He reaches out, gently touching your hand—a gesture brief enough to be deniable, but clearly intentional.
+
+  [b]"${name}, I want to be clear: my assessment of your diplomatic abilities is entirely professional. What I feel for you personally doesn't influence my evaluation of your skills."[/b]
+
+  *line_break
+
+  A pause, then softer:
+
+  [b]"Though watching you grow into this role has been one of the great privileges of my very long life. I am profoundly proud of you."[/b]
+
+  *set izack_relationship +5
+
+*goto focus_choice
+
+*comment ================================================
+*comment YEAR THREE FOCUS CHOICE
+*comment ================================================
+
+*label focus_choice
+
+*page_break
+
+*if chosen_path = "research"
+  Aria leans back, considering you carefully.
+
+  [b]"So. Your Year Three focus. You have multiple options. Choose what resonates most with your goals."[/b]
+
+*if chosen_path = "combat"
+  Zara sits beside you on the training ground bench.
+
+  [b]"Okay! Big decision time. What do you want to focus on this year? All the options are good—just pick what excites you most."[/b]
+
+*if chosen_path = "diplomatic"
+  Izack gestures to a garden bench, inviting you to sit.
+
+  [b]"Year Three requires a focus. You cannot do everything—spreading yourself too thin leads to burnout. Choose what calls to you most strongly."[/b]
+
+*page_break
+
+*if polly_is_familiar = true
+  [i]"Here it comes. The big Year Three commitment. Whatever you choose will shape your final two years at Avalon. No pressure!"[/i]
+
+*page_break
+
+*choice
+  #Master my path specialty - Go deep into advanced techniques
+    *set year_three_focus "mastery"
+    *set knowledge +15
+    *set power +15
+
+    *if chosen_path = "research"
+      [b]"Excellent choice,"[/b] Aria says. [b]"I'll develop an advanced curriculum specifically for you. We'll push into theoretical territory that few students explore."[/b]
+    *if chosen_path = "combat"
+      [b]"Yes!"[/b] Zara pumps her fist. [b]"We'll work on graduate-level combat magic. The really spectacular stuff. This is going to be SO cool!"[/b]
+    *if chosen_path = "diplomatic"
+      [b]"A wise choice,"[/b] Izack nods. [b]"Deep mastery of diplomatic principles will serve you throughout your life. We'll explore advanced collaborative techniques."[/b]
+
+    *goto year_three_conclusion
+
+  #Teach underclassmen - Help first and second-years develop
+    *set year_three_focus "teaching"
+    *set empathy +15
+    *set collaboration +15
+    *set teaching_interest true
+
+    *if chosen_path = "research"
+      [b]"Teaching is an excellent way to solidify your own understanding,"[/b] Aria notes. [b]"You'll mentor second-year research students. Expect it to be both rewarding and exhausting."[/b]
+    *if chosen_path = "combat"
+      [b]"Perfect!"[/b] Zara grins. [b]"You'll co-teach combat sessions. Fair warning: teaching is harder than learning. But watching students grow is amazing!"[/b]
+    *if chosen_path = "diplomatic"
+      [b]"Teaching embodies Avalon's collaborative principles,"[/b] Izack says warmly. [b]"You'll mentor first-years in communication and empathy. Your impact will be profound."[/b]
+
+    *goto year_three_conclusion
+
+  #Pursue independent project - Explore my own magical interests
+    *set year_three_focus "independent"
+    *set tradition_vs_innovation +20
+    *set creativity +15
+
+    *if chosen_path = "research"
+      [b]"Independent research,"[/b] Aria says approvingly. [b]"You'll propose a project and I'll supervise. This could result in publishable findings. Choose your topic carefully."[/b]
+    *if chosen_path = "combat"
+      [b]"Ooh, developing new techniques?"[/b] Zara's eyes light up. [b]"I love it! You can experiment with hybrid combat magic. I'll help make sure you don't accidentally blow anything up!"[/b]
+    *if chosen_path = "diplomatic"
+      [b]"Independent diplomatic work,"[/b] Izack considers. [b]"Perhaps studying unique inter-realm communication methods? Or developing new collaborative protocols? Fascinating possibilities."[/b]
+
+    *goto year_three_conclusion
+
+  #Political involvement - Join Student Council, shape academy policies
+    *set year_three_focus "governance"
+    *set fame +20
+    *set stress +15
+
+    *if chosen_path = "research"
+      [b]"Academy governance,"[/b] Aria says neutrally. [b]"It's important work, though it will consume significant time. Student input genuinely influences policy. Choose your battles wisely."[/b]
+    *if chosen_path = "combat"
+      [b]"Politics?"[/b] Zara makes a face. [b]"Not my favorite, but somebody's got to represent combat path students on the council. You'd be good at it!"[/b]
+    *if chosen_path = "diplomatic"
+      [b]"Student Council,"[/b] Izack nods approvingly. [b]"A natural extension of diplomatic training. You'll mediate between student interests and administrative needs. Exhausting but vital work."[/b]
+
+    *goto year_three_conclusion
+
+*comment ================================================
+*comment YEAR THREE CONCLUSION
+*comment ================================================
+
+*label year_three_conclusion
+
+*page_break
+
+*if chosen_path = "research"
+  Aria stands, signaling the meeting's end.
+
+  [b]"Year Three begins tomorrow. I expect excellence, ${name}. You have proven yourself capable—now prove yourself exceptional."[/b]
+
+  *line_break
+
+  *if aria_romance = true
+    As you turn to leave, she adds quietly: [b]"And ${name}? I'm glad you're back. The academy felt emptier without you."[/b]
+
+*if chosen_path = "combat"
+  Zara hops to her feet, energized.
+
+  [b]"This is going to be an AMAZING year! You're going to do incredible things. I can feel it!"[/b]
+
+  *line_break
+
+  *if zara_romance = true
+    She catches your hand briefly. [b]"And maybe we can find some time that's not training or meetings? I really did miss you."[/b]
+
+*if chosen_path = "diplomatic"
+  Izack walks with you back toward the main academy.
+
+  [b]"Trust your instincts this year, ${name}. You have developed remarkable intuition about people and situations. Let that guide you."[/b]
+
+  *line_break
+
+  *if izack_romance = true
+    Before you part ways, he murmurs: [b]"Tonight. Leyline Gazebo. I have something to show you."[/b]
+
+*page_break
+
+*comment ================================================
+*comment FINAL REFLECTION
+*comment ================================================
+
+*label final_reflection
+
+You return to your quarters as evening falls across Avalon.
+
+*line_break
+
+Your expanded suite feels different now—not just a room, but a [i]space[/i]. A place that reflects who you've become over two transformative years.
+
+*page_break
+
+*if has_golem = true
+  ${golem_name} has prepared everything perfectly. Your research materials organized. Your training gear maintained. Your space welcoming.
+
+  *if golem_personality = "protective"
+    "Everything is prepared for Year Three, ${name}. We are ready."
+  *if golem_personality = "curious"
+    "I'm SO excited for Year Three! Think of all the things we'll learn! Should I start taking notes now?"
+  *if golem_personality = "scholarly"
+    "I have compiled a comprehensive Year Three planning document. Would you like to review it?"
+  *if golem_personality = "cheerful"
+    "This is going to be the BEST year! I can feel it! We're going to do amazing things together!"
+
+*page_break
+
+*if polly_is_familiar = true
+  Polly settles on her favorite perch by the window.
+
+  [i]"Year Three, ${name}. The Mastery Year. You're no longer learning magic—you're [b]living[/b] it. Practicing it. Teaching it. Being trusted with real responsibility."[/i]
+
+  *line_break
+
+  She preens a metallic wing thoughtfully.
+
+  [i]"I've watched thousands of students over the decades. Most are fine. Some are exceptional. And a very few—a rare few—actually [b]change[/b] things. Make Avalon better. Contribute something lasting."[/i]
+
+  *page_break
+
+  [i]"You have that potential. What you do with it? That's the story of Year Three."[/i]
+
+*line_break
+
+You look out your window at Avalon Academy spread below.
+
+*page_break
+
+The Spiral Spire twists impossibly skyward, its crystalline surface reflecting starlight and dimensional energy.
+
+The World Tree arcs overhead, its branches heavy with impossible fruit, each one containing entire realities.
+
+The leylines flow visible beneath the academy's surface—rivers of pure magical potential.
+
+And walking those paths: first-years, nervous and excited. Second-years, confident and focused. And your fellow third-years—the survivors, the practitioners, the almost-graduates.
+
+*page_break
+
+*if romantic_interest != "none"
+  Somewhere in that vast academy, the person you love is thinking of you too. The connection you've built over two years, tested by time and challenge and shared experience.
+
+  *line_break
+
+  Year Three will deepen that bond. Or complicate it. Or both.
+
+*page_break
+
+Two years ago, you arrived with questions:
+
+Who am I? What kind of mage will I become? Can I survive this place?
+
+*line_break
+
+Year Three asks different questions:
+
+What will I create? How will I serve? What legacy will I leave?
+
+*page_break
+
+*if year_three_focus = "mastery"
+  You've chosen to master your specialty. To push deep into advanced techniques, to become truly exceptional in your chosen path.
+*if year_three_focus = "teaching"
+  You've chosen to teach. To lift up those coming behind you, to share what you've learned, to shape the next generation of dimensional mages.
+*if year_three_focus = "independent"
+  You've chosen independence. To explore your own interests, to discover new magical territory, to contribute original work to Avalon's collective knowledge.
+*if year_three_focus = "governance"
+  You've chosen governance. To involve yourself in academy politics, to advocate for student interests, to help shape Avalon's future policies.
+
+*page_break
+
+Whatever path you walk, one truth remains constant:
+
+You are no longer a student who just [i]learns[/i] magic.
+
+You are a practitioner who [i]lives[/i] it.
+
+*line_break
+
+Year Three begins now.
+
+*page_break
+
+*stat_chart
+
+*line_break
+
+Welcome to the Mastery Year.
+
+*page_break
+
+*goto_scene advanced_training

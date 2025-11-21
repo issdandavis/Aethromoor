@@ -1,0 +1,225 @@
+*comment ================================================
+*comment FINAL EXPEDITION - One Last Adventure
+*comment [PLACEHOLDER - Full content to be added]
+*comment ================================================
+
+*label start
+
+[b]== THE FINAL EXPEDITION ==[/b]
+
+*line_break
+
+All senior students must complete one final expedition before graduation.
+
+*page_break
+
+[i]"This isn't like your first-year field trips. This is master-level. The danger is real."[/i]
+
+*line_break
+
+You have a choice of destinations:
+
+*page_break
+
+*choice
+  #Return to the location you visited in Year 1 (advanced challenges)
+    *if expedition_choice = "Singing Dunes"
+      *goto singing_dunes_advanced
+    *if expedition_choice = "Verdant Tithe"
+      *goto verdant_tithe_advanced
+    *if expedition_choice = "Rune Glacier"
+      *goto rune_glacier_advanced
+    *goto dimensional_fringe
+
+  #Explore the Dimensional Fringe (most dangerous, legendary rewards)
+    *goto dimensional_fringe
+
+  #Lead a student expedition (teaching opportunity)
+    *goto teaching_expedition
+
+*comment ================================================
+
+*label singing_dunes_advanced
+
+You return to the Singing Dunes, but this time you face the Deep Desert—where truth magic is at its most powerful and dangerous.
+
+*page_break
+
+*if truth_magic >= 60
+  You master the trials. The desert itself acknowledges you as a truth-keeper.
+
+  *set artifacts_collected +1
+  *set fame +15
+  *set legendary_deeds +1
+
+  You earn: [b]The Sand of Eternal Oaths[/b]
+
+*if truth_magic < 60
+  The desert tests you harshly. You survive, but barely.
+
+  *set stress +10
+  *set close_calls +1
+
+*goto expedition_return
+
+*comment ================================================
+
+*label verdant_tithe_advanced
+
+You return to the Verdant Tithe, venturing to the Ancient Heartwood—the source of all life magic in Avalon.
+
+*page_break
+
+*if living_magic >= 60
+  The Heartwood accepts you as one of its guardians.
+
+  *set artifacts_collected +1
+  *set fame +15
+  *set legendary_deeds +1
+
+  You earn: [b]Seed of the World Tree[/b]
+
+*if living_magic < 60
+  The forest challenges you beyond your current abilities.
+
+  *set stress +10
+  *set failures +1
+
+*goto expedition_return
+
+*comment ================================================
+
+*label rune_glacier_advanced
+
+You return to the Rune Glacier, but this time you explore the Deep Vault—where the most powerful written magic is stored.
+
+*page_break
+
+*if written_magic >= 60
+  You decipher ancient runes that have remained unread for centuries.
+
+  *set artifacts_collected +1
+  *set fame +15
+  *set legendary_deeds +1
+
+  You earn: [b]The Codex of Living Runes[/b]
+
+*if written_magic < 60
+  The runes prove too complex. You learn what you can.
+
+  *set knowledge +10
+
+*goto expedition_return
+
+*comment ================================================
+
+*label dimensional_fringe
+
+The Dimensional Fringe—the boundary between Avalon and the void between dimensions.
+
+*line_break
+
+[i]"This is where Izack first discovered the principles that let him create Avalon. It's also where several mages have been lost forever."[/i]
+
+*page_break
+
+*if dimensional_magic >= 70
+  You navigate the Fringe successfully, touching the raw fabric of reality itself.
+
+  You understand dimensional magic at its deepest level.
+
+  *set artifacts_collected +1
+  *set fame +20
+  *set legendary_deeds +2
+
+  You earn: [b]Fragment of Pure Dimension[/b]
+
+  *achievement dimensional_explorer visible 25 Dimensional Explorer
+    You explored the Dimensional Fringe and survived.
+
+*if dimensional_magic < 70
+  The Fringe overwhelms you. You barely escape with your life.
+
+  *set stress +20
+  *set close_calls +2
+  *set failures +1
+
+  But you survive. That's what matters.
+
+*goto expedition_return
+
+*comment ================================================
+
+*label teaching_expedition
+
+You volunteer to lead a group of first-year students on their expedition.
+
+*page_break
+
+*if collaboration >= 70
+  You guide them flawlessly. They all succeed, and they credit your leadership.
+
+  *set fame +15
+  *set happiness +20
+
+  *achievement master_teacher visible 20 Master Teacher
+    You successfully mentored students through danger.
+
+*if collaboration < 70
+  You struggle to lead effectively, but everyone survives.
+
+  *set stress +10
+
+*goto expedition_return
+
+*comment ================================================
+
+*label expedition_return
+
+*page_break
+
+You return to Avalon, changed by the experience.
+
+*line_break
+
+*if familiar_type != "none"
+  Your familiar, ${familiar_name}, stayed by your side through it all.
+
+  The bond between you is unbreakable now.
+
+*if has_golem = true
+  Your golem, ${golem_name}, proved invaluable in the challenges you faced.
+
+*page_break
+
+*if romantic_interest != "none"
+  *if romantic_interest = "izack"
+    Izack is waiting when you return. He pulls you into a tight embrace.
+
+    [b]"I worry every time you go out there. But I'm so proud of you."[/b]
+
+  *if romantic_interest = "aria"
+    Aria is waiting, her usual composure cracking with relief.
+
+    [b]"Don't scare me like that. You're reckless."[/b]
+
+    But she's smiling.
+
+  *if romantic_interest = "zara"
+    Zara flies to meet you before you even reach the gates.
+
+    [b]"You made it! I knew you would, but still—"[/b]
+
+    She kisses you, laughing with relief.
+
+*page_break
+
+One more challenge remains.
+
+*line_break
+
+The final crisis is approaching.
+
+*page_break
+
+*goto_scene avalon_crisis

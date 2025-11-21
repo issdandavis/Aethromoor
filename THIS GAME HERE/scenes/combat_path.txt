@@ -1,0 +1,1397 @@
+*comment ================================================
+*comment COMBAT PATH - YEAR TWO
+*comment Exclusive content for players who chose Combat with Zara
+*comment Learn battle magic, defend Avalon, become a warrior
+*comment ================================================
+
+*temp combat_performance 0
+*temp tournament_score 0
+*temp dungeon_treasure ""
+*temp specialization_learned false
+
+*label start
+
+[b]== THE WARRIOR'S PATH ==[/b]
+
+*line_break
+
+The training grounds stretch before you—vast circles of combat magic, protective wards glowing in defensive patterns, and students practicing battle techniques under the watchful eyes of experienced combat mages.
+
+This is your home now.
+
+*page_break
+
+Zara waits at the center of the largest training circle, her hybrid features bright with anticipation. The Defender's Mark on your arm pulses in response to her presence—you're connected now, student and mentor, through the ancient bond of warriors.
+
+*line_break
+
+[i]"Ready to learn how to kick dimensional threats in their theoretical faces?"[/i] Polly asks cheerfully. [i]"Because that's basically what combat magic is—extremely aggressive problem-solving."[/i]
+
+*page_break
+
+*comment ================================================
+*comment SECTION 1: COMBAT TRAINING BEGINS
+*comment ================================================
+
+*label combat_training_begins
+
+[b]FIRST TRAINING SESSION: BATTLE MAGIC FUNDAMENTALS[/b]
+
+*line_break
+
+"Alright, combat students!" Zara's voice carries authority tempered with warmth. "Year One taught you control, precision, and collaboration. Year Two teaches you to use those skills when something's trying to kill you."
+
+*page_break
+
+She gestures, and a shimmering construct materializes—roughly humanoid, made of dimensional energy, clearly hostile.
+
+*line_break
+
+"This is a training construct. It won't actually hurt you, but it [i]will[/i] try its hardest. Your first lesson: defensive response under pressure."
+
+*page_break
+
+The construct lunges toward a nervous student. They panic, throwing up a hasty shield that shatters on impact. The construct dissipates—the test failed, but the student unharmed.
+
+*line_break
+
+Zara nods. "Fear breaks concentration. In combat, you can't afford that. ${name}, you're next."
+
+*page_break
+
+Another construct materializes, and this one is looking right at you.
+
+*line_break
+
+*choice
+  #Stand my ground and form a solid defensive barrier.
+    *set power +5
+    *set combat_performance +2
+
+    You plant your feet and channel your training. The barrier forms—not flashy, but solid. When the construct strikes, your shield holds.
+
+    *line_break
+
+    "Good!" Zara calls. "Defense first. Always."
+
+    *goto combat_lesson_continues
+
+  #Dodge and counter with offensive magic.
+    *set power +5
+    *set combat_performance +1
+
+    You sidestep the construct's lunge and fire a bolt of concentrated magic. It strikes true, dispersing the construct instantly.
+
+    *line_break
+
+    "Effective," Zara says, "but risky. What if you'd missed?"
+
+    *goto combat_lesson_continues
+
+  #Try to understand the construct's energy pattern first.
+    *set knowledge +5
+    *set combat_performance +3
+
+    You don't immediately defend or attack. Instead, you observe—reading the construct's magical signature, understanding its limitations.
+
+    *line_break
+
+    Then you adjust your shield's frequency to specifically counter its energy type. When it strikes, it can't even touch your barrier.
+
+    *line_break
+
+    Zara's expression shifts to impressed. "Now [i]that's[/i] combat intelligence. Anyone can throw power around. Smart fighters adapt."
+
+    *goto combat_lesson_continues
+
+*label combat_lesson_continues
+
+*page_break
+
+Over the next several hours, Zara pushes you through increasingly difficult scenarios:
+
+*line_break
+
+Multiple constructs attacking simultaneously.
+Defensive magic while maintaining awareness of allies.
+Combat casting under time pressure.
+Tactical positioning in three-dimensional space.
+
+*page_break
+
+By the end of the session, you're exhausted but exhilarated.
+
+*line_break
+
+*set power +5
+*set stress +10
+*set zara_relationship +10
+
+Zara dismisses the group, but gestures for you to stay behind.
+
+*page_break
+
+*label zara_private_training
+
+"You did well today," she says once you're alone. "Better than well, actually. You have combat instincts—the kind you can't teach."
+
+*line_break
+
+*if zara_romance = true
+  She steps closer, and you notice her hand brushing yours—not quite accidental.
+
+  *line_break
+
+  "I'm glad you chose this path. Teaching you feels..." She pauses, searching for words. "Special."
+
+  *set zara_relationship +5
+  *set happiness +5
+
+*page_break
+
+"Combat magic isn't just about power," Zara continues. "It's about protecting what matters. Tomorrow, we start specialization training. You'll need to choose your focus."
+
+*line_break
+
+"What kind of focus?" you ask.
+
+*page_break
+
+*comment ================================================
+*comment SECTION 2: COMBAT SPECIALIZATION CHOICE
+*comment ================================================
+
+*label specialization_introduction
+
+[b]CHOOSING YOUR COMBAT SPECIALIZATION[/b]
+
+*line_break
+
+Zara leads you to a chamber lined with three distinct training areas, each one resonating with different combat energy.
+
+*page_break
+
+"Every combat mage develops a specialization," she explains. "It shapes how you fight, what techniques you master, and what role you'll play in battle teams."
+
+*line_break
+
+She gestures to the three areas:
+
+*page_break
+
+[b]OFFENSIVE MAGIC[/b] - The first area crackles with destructive power. Fire, lightning, force—raw damage channeled with precision.
+
+*line_break
+
+"Offensive specialists are our heavy hitters," Zara explains. "You'll learn destruction magic, elemental combat, and how to eliminate threats quickly. High damage, high risk."
+
+*page_break
+
+[b]DEFENSIVE MAGIC[/b] - The second area glows with protective wards. Shields, barriers, dimensional anchoring—magic that protects and endures.
+
+*line_break
+
+"Defensive specialists keep everyone alive," Zara says. "You'll master shields, protective barriers, and dimensional stabilization. You'll be the wall between danger and your team."
+
+*page_break
+
+[b]TACTICAL MAGIC[/b] - The third area shimmers with complexity. Portals, terrain manipulation, support magic—combat through strategic advantage.
+
+*line_break
+
+"Tactical specialists control the battlefield," Zara continues. "You'll learn portal creation, environmental manipulation, and combat support. You won't deal the most damage, but you'll determine who wins."
+
+*page_break
+
+"Each path teaches different spells and techniques," Zara says. "Choose based on your strengths and what feels right."
+
+*line_break
+
+[i]"Choose based on what sounds cool,"[/i] Polly suggests. [i]"Because let's be honest, they're all awesome."[/i]
+
+*page_break
+
+*choice
+  #Offensive Magic - I want to bring overwhelming destructive power.
+    *set combat_specialization "offensive"
+    *set power +10
+    *goto offensive_specialization
+
+  #Defensive Magic - I want to protect my allies and outlast any threat.
+    *set combat_specialization "defensive"
+    *set power +10
+    *goto defensive_specialization
+
+  #Tactical Magic - I want to control the battlefield and support my team.
+    *set combat_specialization "tactical"
+    *set knowledge +10
+    *goto tactical_specialization
+
+*comment ================================================
+
+*label offensive_specialization
+
+*achievement offensive_master visible Offensive Combat Specialist
+  You specialized in offensive combat magic—destruction and overwhelming force.
+
+*page_break
+
+Zara nods with approval. "Offensive magic suits you. Let's see what you can handle."
+
+*line_break
+
+*set dimensional_magic +5
+*set specialization_learned true
+
+She demonstrates a spell—[b]Flame Lance[/b]—a spear of concentrated fire that can pierce through magical defenses.
+
+*page_break
+
+"Channel your anger, your determination, your protective instinct—then give it [i]form[/i]."
+
+*line_break
+
+You focus, drawing on the heat of battle, the need to protect, and—
+
+Fire manifests in your hand, condensing into a lance of pure thermal energy.
+
+*page_break
+
+*choice
+  #Throw it at the training target with full power.
+    *set power +5
+    *set combat_performance +2
+
+    You hurl the lance. It strikes the target dead center and [i]explodes[/i], reducing the magical construct to scattered energy.
+
+    *line_break
+
+    "Perfect form!" Zara grins. "You're a natural."
+
+    *goto specialization_complete
+
+  #Study the lance's structure before using it.
+    *set knowledge +5
+    *set combat_performance +1
+
+    Before throwing, you analyze the spell's construction. Understanding its structure lets you refine it, making the energy more stable, more efficient.
+
+    *line_break
+
+    When you finally throw it, the lance flies true and strikes with devastating precision.
+
+    *line_break
+
+    "Smart," Zara approves. "Power with intelligence—that's what makes great combat mages."
+
+    *goto specialization_complete
+
+*label defensive_specialization
+
+*achievement defensive_master visible Defensive Combat Specialist
+  You specialized in defensive combat magic—shields, protection, and endurance.
+
+*page_break
+
+Zara's smile is warm. "Defensive magic is the heart of any combat team. Let's begin."
+
+*line_break
+
+*set boundary_magic +5
+*set specialization_learned true
+
+She demonstrates a spell—[b]Dimensional Anchor[/b]—a protective ward that stabilizes reality itself, preventing hostile teleportation or dimensional manipulation.
+
+*page_break
+
+"Feel the boundaries around you. Not to break them—to [i]strengthen[/i] them. Make reality itself your shield."
+
+*line_break
+
+You extend your awareness to the dimensional membrane surrounding you. It feels fragile, full of weak points. You reach out and—
+
+The boundaries solidify. Reality becomes stable, anchored, [i]protected[/i].
+
+*page_break
+
+*choice
+  #Expand the anchor to protect the entire training area.
+    *set power +5
+    *set collaboration +5
+    *set combat_performance +3
+
+    You don't stop at personal protection. You push the anchor outward, stabilizing a protective zone that could shield an entire team.
+
+    *line_break
+
+    Zara's eyes widen. "That's advanced technique. Most students take months to achieve that range."
+
+    *goto specialization_complete
+
+  #Focus on making an impenetrable personal shield.
+    *set power +5
+    *set combat_performance +2
+
+    You concentrate the anchor around yourself, creating a defensive shell so strong that nothing could penetrate it.
+
+    *line_break
+
+    "Solid work," Zara says. "A shield that strong could save your life in critical moments."
+
+    *goto specialization_complete
+
+*label tactical_specialization
+
+*achievement tactical_master visible Tactical Combat Specialist
+  You specialized in tactical combat magic—portals, terrain control, and battlefield mastery.
+
+*page_break
+
+Zara's expression turns thoughtful. "Tactical magic requires creativity and quick thinking. Let's see how your mind works."
+
+*line_break
+
+*set dimensional_magic +5
+*set specialization_learned true
+
+She demonstrates a spell—[b]Minor Portal[/b]—creating a small dimensional gateway that can redirect attacks, reposition allies, or create strategic advantages.
+
+*page_break
+
+"Combat isn't just about power—it's about positioning. A portal in the right place can change everything."
+
+*line_break
+
+You focus on the space around you, feeling where the dimensional fabric is weakest, where reality would accept a controlled tear. You reach out and—
+
+A shimmering portal opens, stable and responsive to your will.
+
+*page_break
+
+*choice
+  #Link two portals together for tactical repositioning.
+    *set knowledge +5
+    *set combat_performance +3
+
+    You don't stop at one portal. You create a second, linking them—anyone stepping through one would emerge from the other.
+
+    *line_break
+
+    "Impressive!" Zara says. "Linked portals are Year Three material. You're ahead of the curve."
+
+    *goto specialization_complete
+
+  #Use the portal to redirect one of Zara's attacks back at her.
+    *set power +5
+    *set combat_performance +2
+
+    Zara tests you by firing a magical bolt. You angle your portal—her attack enters and redirects back toward her.
+
+    *line_break
+
+    She laughs, easily deflecting her own spell. "Creative! That's exactly the kind of thinking tactical mages need."
+
+    *goto specialization_complete
+
+*label specialization_complete
+
+*page_break
+
+*set total_spells_known +3
+*set grades +10
+
+Over the next week, Zara teaches you three fundamental spells in your chosen specialization:
+
+*line_break
+
+*if combat_specialization = "offensive"
+  [b]Flame Lance[/b] - Concentrated fire damage
+  [b]Lightning Strike[/b] - Chain lightning that jumps between targets
+  [b]Force Blast[/b] - Pure kinetic destruction
+
+*if combat_specialization = "defensive"
+  [b]Dimensional Anchor[/b] - Stabilizes reality and prevents hostile magic
+  [b]Barrier Sphere[/b] - Protective shield that can cover multiple allies
+  [b]Ward of Reflection[/b] - Reflects hostile spells back at attackers
+
+*if combat_specialization = "tactical"
+  [b]Minor Portal[/b] - Creates dimensional gateways for positioning
+  [b]Terrain Shift[/b] - Manipulates the battlefield environment
+  [b]Combat Ward[/b] - Support magic that enhances allies' abilities
+
+*page_break
+
+"You're ready," Zara announces. "Time for your first real test."
+
+*line_break
+
+[i]"Oh good,"[/i] Polly mutters. [i]"The 'let's see if they survive' portion of the curriculum. My favorite."[/i]
+
+*page_break
+
+*comment ================================================
+*comment SECTION 3: FIRST DUNGEON EXPEDITION
+*comment ================================================
+
+*label first_dungeon_expedition
+
+[b]EXPEDITION: THE FRACTURED VAULT[/b]
+
+*line_break
+
+Three days later, you stand before a swirling dimensional portal with five other combat students. Zara briefs the group, her expression serious.
+
+*page_break
+
+"The Fractured Vault is a dimensional pocket—unstable, dangerous, but perfect for training. It's filled with hostile constructs, environmental hazards, and dimensional anomalies."
+
+*line_break
+
+"Your mission: Navigate to the center and retrieve a training artifact. You'll face real danger. If your power drops too low or you make critical mistakes, I'll pull you out immediately."
+
+*page_break
+
+She looks each of you in the eye. "Work together. Trust your training. Come back safely."
+
+*line_break
+
+*if zara_romance = true
+  Her hand squeezes yours briefly. "Be careful," she whispers.
+  *set happiness +5
+
+*page_break
+
+Your team steps through the portal.
+
+*line_break
+
+Reality twists, and suddenly you're standing in a massive chamber of fractured crystal. The architecture is impossible—walls that shouldn't meet, stairs leading nowhere, gravity pulling in multiple directions.
+
+*page_break
+
+*if combat_specialization = "defensive"
+  You immediately cast Dimensional Anchor, stabilizing the space around your team. Everyone breathes easier.
+  *set combat_performance +2
+
+*line_break
+
+[i]"Welcome to interdimensional dungeon delving,"[/i] Polly says. [i]"Where the architecture hates you and everything wants you dead. Fun!"[/i]
+
+*page_break
+
+*label dungeon_first_encounter
+
+A shriek echoes through the vault. Three hostile constructs materialize—vaguely wolf-like, made of crackling energy, clearly aggressive.
+
+*line_break
+
+*if power >= 80
+  You react instantly, your training taking over.
+  *set combat_performance +2
+*else
+  You hesitate just a moment—long enough for the constructs to close the distance.
+  *set stress +5
+
+*page_break
+
+*choice
+  #Lead the offensive—take down threats quickly!
+    *if combat_specialization = "offensive"
+      Your specialization gives you the advantage. Flame Lance, Lightning Strike—you tear through the constructs with practiced efficiency.
+
+      *set power +5
+      *set combat_performance +3
+      *set legendary_deeds +1
+
+      "Incredible!" one of your teammates shouts. "You're unstoppable!"
+
+      *goto dungeon_continues
+
+    *else
+      You attack with everything you have, but without offensive specialization, you expend more energy than necessary.
+
+      *set power +3
+      *set stress +5
+      *set combat_performance +1
+
+      The constructs fall, but you're already tired.
+
+      *goto dungeon_continues
+
+  #Protect the team—maintain defensive positions!
+    *if combat_specialization = "defensive"
+      Your specialization shines. You anchor the space, create protective barriers, and let your teammates attack from safety.
+
+      *set power +5
+      *set collaboration +5
+      *set combat_performance +3
+
+      "Your shields are amazing!" a teammate calls. "We can focus on offense!"
+
+      *goto dungeon_continues
+
+    *else
+      You do your best to shield everyone, but defensive magic isn't your strength. The barriers hold, but barely.
+
+      *set power +3
+      *set stress +5
+      *set combat_performance +1
+
+      *goto dungeon_continues
+
+  #Control the battlefield—use tactical advantage!
+    *if combat_specialization = "tactical"
+      Your specialization transforms the fight. Portals redirect the constructs into walls. Terrain shifts trip them up. Your team coordinates perfectly.
+
+      *set power +5
+      *set knowledge +5
+      *set combat_performance +3
+
+      "That was brilliant!" someone laughs. "They never had a chance!"
+
+      *goto dungeon_continues
+
+    *else
+      You try to be clever, but tactical magic requires precision you haven't mastered. Your team wins, but it's messy.
+
+      *set power +3
+      *set stress +5
+      *set combat_performance +1
+
+      *goto dungeon_continues
+
+*label dungeon_continues
+
+*page_break
+
+Your team pushes deeper into the Fractured Vault. You encounter:
+
+*line_break
+
+- Dimensional anomalies that try to separate the group
+- Environmental hazards that require quick thinking
+- Puzzle chambers that test magical understanding
+- More combat encounters against increasingly dangerous constructs
+
+*page_break
+
+*if power >= 75
+  Throughout it all, you perform exceptionally. Your specialization, your training, your instincts—everything comes together.
+
+  *set combat_performance +3
+  *set dungeon_treasure "Crystal of Combat Mastery"
+
+  *page_break
+
+  At the vault's center, you find a glowing crystal artifact—the training objective. But beside it, something else catches your eye: a [b]Crystal of Combat Mastery[/b], a rare treasure that amplifies battle magic.
+
+  *line_break
+
+  "Take it!" your teammates encourage. "You earned it!"
+
+  *set power +10
+  *set legendary_deeds +1
+  *set artifact_earned "Crystal of Combat Mastery"
+
+*else
+  *set dungeon_treasure "none"
+
+  You struggle through the vault, succeeding but expending too much energy. By the time you reach the center, you're exhausted.
+
+  *line_break
+
+  You retrieve the training artifact, but there's no strength left to search for additional treasure.
+
+  *set stress +10
+
+*page_break
+
+The portal home opens, and your team staggers through.
+
+*line_break
+
+Zara catches you as you emerge. "You made it! Well done!"
+
+*page_break
+
+*if dungeon_treasure = "Crystal of Combat Mastery"
+  Her eyes widen when she sees the crystal. "You found a Combat Mastery crystal? Those are [i]rare[/i]. ${name}, you're showing exceptional potential."
+
+  *set zara_relationship +10
+  *set fame +5
+
+*else
+  "Completing the vault is success enough," she assures you. "Many students fail their first dungeon run. You survived and learned."
+
+  *set zara_relationship +5
+
+*page_break
+
+*comment ================================================
+*comment SECTION 4: SPARRING TOURNAMENT
+*comment ================================================
+
+*label sparring_tournament
+
+[b]THE COMBAT MAGE TOURNAMENT[/b]
+
+*line_break
+
+Two weeks after the dungeon expedition, Zara announces the sparring tournament—a tradition where second-year combat students test their skills against each other.
+
+*page_break
+
+"This isn't about winning," Zara explains to the assembled students. "It's about understanding your current level, learning from peers, and earning mutual respect."
+
+*line_break
+
+*if power >= 90
+  [i]"Though let's be honest, you're going to win,"[/i] Polly whispers. [i]"You're ridiculously strong."[/i]
+
+*page_break
+
+The tournament is structured as one-on-one matches in a protective arena. Injuries are prevented by wards, but the combat is real.
+
+*line_break
+
+*set tournament_score 0
+
+*if power >= 80
+  *set tournament_score +3
+*if collaboration >= 70
+  *set tournament_score +2
+*if combat_performance >= 8
+  *set tournament_score +2
+
+*page_break
+
+*label tournament_first_match
+
+[b]FIRST MATCH[/b]
+
+*line_break
+
+Your opponent is Garrett, an offensive specialist with a reputation for aggressive tactics.
+
+*page_break
+
+The match begins.
+
+*line_break
+
+*choice
+  #Match his aggression—overpower him with superior technique!
+    *if power >= 80
+      Your training shows. Every spell faster, every strike more precise. Garrett can't keep up.
+
+      *set tournament_score +2
+      *set power +3
+
+      Victory comes quickly.
+
+      *goto tournament_second_match
+
+    *else
+      You try to overpower him, but Garrett's rawpower matches yours. The fight becomes a brutal exchange.
+
+      *set tournament_score +1
+      *set stress +5
+
+      You win, but barely.
+
+      *goto tournament_second_match
+
+  #Stay defensive and wait for his mistake.
+    *if combat_specialization = "defensive"
+      Your shields are impenetrable. Garrett exhausts himself trying to break through, and when he drops his guard—you counter.
+
+      *set tournament_score +2
+      *set power +3
+
+      Perfect strategy.
+
+      *goto tournament_second_match
+
+    *else
+      Defense without specialization is risky. Garrett finds weaknesses in your shields.
+
+      *set tournament_score +1
+      *set stress +5
+
+      You survive, but it's close.
+
+      *goto tournament_second_match
+
+  #Use tactical thinking to outmaneuver him.
+    *if combat_specialization = "tactical"
+      You control the arena—portals repositioning you, terrain shifts disrupting his footing. Garrett's power means nothing when he can't land a hit.
+
+      *set tournament_score +2
+      *set knowledge +3
+
+      Flawless execution.
+
+      *goto tournament_second_match
+
+    *else
+      Your tactics are clever, but lack the specialized training to execute perfectly.
+
+      *set tournament_score +1
+      *set stress +5
+
+      You win, but it was harder than expected.
+
+      *goto tournament_second_match
+
+*label tournament_second_match
+
+*page_break
+
+[b]SECOND MATCH[/b]
+
+*line_break
+
+Your opponent is Maya, a defensive specialist known for her impenetrable shields.
+
+*page_break
+
+*choice
+  #Overwhelm her defenses with sustained assault.
+    *if combat_specialization = "offensive"
+      You know exactly how to break defensive magic. Sustained pressure, exploiting weak points, never letting up.
+
+      *set tournament_score +2
+      *set power +3
+
+      Her shields shatter. Victory.
+
+      *goto tournament_finals
+
+    *else
+      Maya's shields are too strong. You deplete your energy trying to break through.
+
+      *set tournament_score -1
+      *set stress +10
+
+      She outlasts you. You lose.
+
+      *goto tournament_elimination
+
+  #Turn her own defensive magic against her.
+    *if knowledge >= 70
+      You understand defensive theory. Instead of attacking her shields, you disrupt their energy patterns, causing them to collapse from within.
+
+      *set tournament_score +3
+      *set knowledge +5
+
+      Brilliant. The crowd cheers.
+
+      *goto tournament_finals
+
+    *else
+      Your attempt to be clever backfires. Maya adapts too quickly.
+
+      *set tournament_score -1
+      *set stress +10
+
+      You lose.
+
+      *goto tournament_elimination
+
+*label tournament_finals
+
+*page_break
+
+[b]TOURNAMENT FINALS[/b]
+
+*line_break
+
+You've reached the finals. Your opponent is Zara herself—the ultimate test.
+
+*page_break
+
+"I'm not going easy on you," she warns with a grin. "Show me everything you've learned."
+
+*line_break
+
+*if power >= 90
+  You can sense the power gap isn't as wide as you expected. You actually have a chance.
+
+*page_break
+
+The final match begins.
+
+*line_break
+
+*choice
+  #Fight with everything I've learned—hold nothing back!
+    *if tournament_score >= 6
+      The match is legendary. You and Zara exchange spells at a level that makes the watching students gasp. She's stronger, more experienced—but you're brilliant, adaptive, unstoppable.
+
+      *set power +10
+      *set legendary_deeds +2
+      *set zara_relationship +15
+      *set fame +15
+
+      *page_break
+
+      The final exchange comes down to pure will. Your spell strikes her barrier the same moment her counter-spell hits your shield.
+
+      *line_break
+
+      Both spells shatter simultaneously.
+
+      *line_break
+
+      Zara laughs, breathless and clearly delighted. "A draw! In twenty years of teaching, no second-year student has ever forced me to a draw!"
+
+      *page_break
+
+      The arena erupts in cheers. You've just become a legend.
+
+      *line_break
+
+      *achievement tournament_champion visible Tournament Champion
+        You fought Zara to a draw in the Combat Mage Tournament—a legendary achievement.
+
+      *goto tournament_victory_celebration
+
+    *else
+      You fight brilliantly, but Zara's experience wins out. Her counter-spell breaks through your final defense.
+
+      *set power +5
+      *set zara_relationship +10
+
+      *page_break
+
+      "Second place!" she announces warmly. "Exceptional work, ${name}. You should be proud."
+
+      *line_break
+
+      You are. Second place against [i]Zara[/i] is nothing to dismiss.
+
+      *goto tournament_respectable_finish
+
+  #Fight strategically—learn from her as we battle.
+    *set knowledge +10
+    *set zara_relationship +10
+
+    You don't try to win—you try to [i]learn[/i]. Every spell Zara casts, you analyze. Every technique, you memorize.
+
+    *line_break
+
+    You lose the match, but you gain something more valuable: insight into mastery.
+
+    *page_break
+
+    Zara helps you to your feet. "You chose wisdom over pride. That's the mark of a true warrior."
+
+    *goto tournament_learning_finish
+
+*label tournament_elimination
+
+*page_break
+
+You're eliminated in the semi-finals. It stings, but you learned valuable lessons about your current limits.
+
+*line_break
+
+*set empathy +10
+*set happiness -5
+
+Zara finds you after the tournament. "Losing teaches more than winning ever can. This was your first tournament—there will be many more."
+
+*page_break
+
+*if zara_romance = true
+  She touches your shoulder gently. "And for what it's worth, I thought you were incredible."
+  *set happiness +10
+
+*goto tournament_aftermath
+
+*label tournament_victory_celebration
+
+*page_break
+
+The tournament ends with you standing as the unprecedented champion—or rather, co-champion alongside Zara. Students crowd around, congratulating you, asking about your techniques.
+
+*line_break
+
+You've earned respect, fame, and recognition as one of Avalon's most promising combat mages.
+
+*goto tournament_aftermath
+
+*label tournament_respectable_finish
+
+*page_break
+
+Second place is an honor. You've proven yourself as one of the top combat students, earned respect from peers and instructors alike, and demonstrated exceptional growth.
+
+*line_break
+
+More importantly, you understand exactly what you need to improve.
+
+*goto tournament_aftermath
+
+*label tournament_learning_finish
+
+*page_break
+
+You didn't win, but you achieved something equally valuable—you learned. Zara's techniques, her strategy, her understanding of combat—you absorbed it all.
+
+*line_break
+
+This knowledge will serve you far beyond any trophy.
+
+*goto tournament_aftermath
+
+*label tournament_aftermath
+
+*page_break
+
+*comment ================================================
+*comment SECTION 5: DEFENDING AVALON
+*comment ================================================
+
+[b]CRISIS: THE BREACH[/b]
+
+*line_break
+
+Three days after the tournament, the alarm rings.
+
+*page_break
+
+It's not a drill. You can tell from the way the dimensional boundaries [i]scream[/i]—something is forcing its way through Avalon's defenses.
+
+*line_break
+
+[i]"All combat students to defensive positions!"[/i] Zara's voice echoes through magical amplification. [i]"This is real! Dimensional creatures are breaching the eastern boundary!"[/i]
+
+*page_break
+
+You grab your combat gear and run.
+
+*line_break
+
+*set stress +20
+
+The eastern boundary is chaos. Dimensional rifts tear open the sky, and through them pour creatures that shouldn't exist—writhing masses of impossible geometry, beings made of hungry shadows, constructs of pure dimensional instability.
+
+*page_break
+
+Aria and Zara are already there, holding the primary breach point. But smaller breaches are opening all along the boundary.
+
+*line_break
+
+"Combat students!" Zara shouts. "Teams of three! Seal the smaller breaches!"
+
+*page_break
+
+*choice
+  #Join the team defending the student dormitories!
+    You sprint toward the dorms where terrified first-years are sheltering. Three breaches open simultaneously, creatures pouring through.
+
+    *set empathy +10
+    *goto dorm_defense
+
+  #Join the team protecting the Archives!
+    The Archives hold irreplaceable knowledge. You run toward the library where scholars are desperately evacuating.
+
+    *set knowledge +10
+    *goto archives_defense
+
+  #Join Zara at the main breach—take the most dangerous position!
+    You don't hesitate. The main breach is where you're needed most.
+
+    *set power +10
+    *goto main_breach_defense
+
+*label dorm_defense
+
+*page_break
+
+The dormitory area is pandemonium. Younger students scatter, some paralyzed with fear, others trying to fight with limited training.
+
+*line_break
+
+You take charge immediately.
+
+*page_break
+
+*if combat_specialization = "defensive"
+  You cast Barrier Sphere—a massive protective dome covering the entire dormitory. The creatures slam against your shield, but it holds.
+
+  *set power +10
+  *set legendary_deeds +1
+  *set collaboration +10
+
+  "Everyone inside!" you shout. "Get to safety!"
+
+  *line_break
+
+  Your shields protect dozens of students while other combat mages systematically eliminate the creatures. You hold the barrier for fifteen excruciating minutes—longer than any second-year student should be capable of.
+
+  *page_break
+
+  When the last creature falls and you finally drop the shields, you collapse from exhaustion. But every student is safe.
+
+  *line_break
+
+  Later, those students will remember: when danger came, you stood between them and death.
+
+  *goto breach_sealed
+
+*else
+  You fight desperately, using every spell you know to eliminate creatures before they reach the younger students.
+
+  *set power +5
+  *set stress +15
+
+  It's chaotic, terrifying, and you take several hits that break through your hasty shields. But you hold the line.
+
+  *line_break
+
+  When reinforcements arrive, every student is safe. You succeeded.
+
+  *goto breach_sealed
+
+*label archives_defense
+
+*page_break
+
+The Archives are under siege. Creatures made of anti-knowledge—literal embodiments of ignorance—are trying to destroy centuries of research.
+
+*line_break
+
+You arrive just as one tears through a shelf of dimensional theory texts.
+
+*page_break
+
+Aria is there, fighting with devastating precision, but she's protecting scholars and can't pursue the creatures deeper into the library.
+
+*line_break
+
+"${name}!" she shouts. "Clear the stacks! Don't let them reach the Core Archives!"
+
+*page_break
+
+*if combat_specialization = "offensive"
+  You chase the creatures through the library with ruthless efficiency. Flame Lance. Lightning Strike. Force Blast.
+
+  *set power +10
+  *set legendary_deeds +1
+  *set aria_relationship +10
+
+  Each creature falls before it can destroy irreplaceable knowledge. Your offensive specialization makes you a perfect hunter in these confined spaces.
+
+  *line_break
+
+  When the last creature dies, you're standing in front of the Core Archives—untouched, safe. You protected the accumulated wisdom of generations.
+
+  *goto breach_sealed
+
+*else
+  You fight through the stacks, using whatever spells work best. It's desperate and improvised, but you manage to eliminate most of the creatures.
+
+  *set power +5
+  *set stress +15
+
+  Some texts are damaged, but the Core Archives remain safe. You succeeded.
+
+  *goto breach_sealed
+
+*label main_breach_defense
+
+*page_break
+
+The main breach is overwhelming. Reality itself is tearing open, and the largest creatures—the truly dangerous ones—are forcing their way through.
+
+*line_break
+
+Zara fights at the breach point, her hybrid magic blazing with unprecedented power. But she's being pushed back.
+
+*page_break
+
+You don't think. You just act.
+
+*line_break
+
+*if combat_specialization = "tactical"
+  You create portals around the breach—not to close it, but to redirect the creatures' momentum. They emerge from your portals disoriented, off-balance.
+
+  *set power +10
+  *set legendary_deeds +2
+  *set zara_relationship +15
+
+  "Brilliant!" Zara shouts. She uses the advantage you've created, striking down creatures that can't defend themselves.
+
+  *line_break
+
+  Together, you create a devastating synergy. Your tactical magic and her combat mastery combine into something greater than either of you alone.
+
+  *page_break
+
+  When Aria finally seals the main breach, both you and Zara are standing at the epicenter, surrounded by the dissolved remains of dozens of creatures.
+
+  *line_break
+
+  "You saved my life," Zara says quietly, after. "And probably dozens of others."
+
+  *goto breach_sealed
+
+*else
+  You fight alongside Zara with everything you have. You're not as strong, not as experienced, but you're [i]there[/i]—fighting beside her when she needs support most.
+
+  *set power +5
+  *set zara_relationship +10
+  *set stress +15
+
+  You take hits that were meant for her. You cover her blind spots. You stand when staying down would be easier.
+
+  *line_break
+
+  When the breach finally seals, you're injured and exhausted, but alive.
+
+  *line_break
+
+  "Thank you," Zara says, helping you stand. "I couldn't have held them without you."
+
+  *goto breach_sealed
+
+*label breach_sealed
+
+*page_break
+
+The breach crisis lasts three hours. By the end, every student in the Combat Path has faced real danger and survived.
+
+*line_break
+
+Four students were injured seriously enough to require healing magic. But zero deaths. Zero permanent harm.
+
+*page_break
+
+Because you stood. Because you fought.
+
+*line_break
+
+*set happiness +20
+*set power +10
+*set legendary_deeds +1
+
+[i]"Not bad for a bunch of second-years,"[/i] Polly says, clearly shaken but trying to hide it. [i]"You did good, ${name}. Really good."[/i]
+
+*page_break
+
+*comment ================================================
+*comment SECTION 6: ADVANCED COMBAT TECHNIQUES
+*comment ================================================
+
+*label advanced_combat_techniques
+
+[b]MASTERY TRAINING: ELITE TECHNIQUES[/b]
+
+*line_break
+
+One week after the breach, once everyone has recovered, Zara calls you to a private training session.
+
+*page_break
+
+"You proved yourself during the crisis," she says. "You're ready for advanced techniques—the ones I only teach to students who've demonstrated true combat mastery."
+
+*line_break
+
+*set total_spells_known +2
+
+*if combat_specialization = "offensive"
+  She teaches you [b]Meteor Strike[/b]—channeling dimensional energy into a devastating area attack—and [b]Elemental Fusion[/b]—combining multiple elements for unpredictable effects.
+
+  *set dimensional_magic +10
+
+*if combat_specialization = "defensive"
+  She teaches you [b]Prison Field[/b]—a barrier that can trap hostile entities—and [b]Elemental Barrier[/b]—shields that adapt to counter whatever attacks them.
+
+  *set boundary_magic +10
+
+*if combat_specialization = "tactical"
+  She teaches you [b]Combat Portal Network[/b]—creating multiple linked portals for squad coordination—and [b]Reality Anchor[/b]—stabilizing dimensional integrity during crisis situations.
+
+  *set dimensional_magic +10
+
+*page_break
+
+The training is intense—physically demanding and mentally exhausting. But you're learning techniques that most mages never master.
+
+*line_break
+
+*set power +10
+*set stress +10
+
+*page_break
+
+During one particularly grueling session, you're too exhausted to maintain perfect form. Zara calls a break.
+
+*line_break
+
+You collapse on the training ground, gasping.
+
+*page_break
+
+*comment ================================================
+*comment SECTION 7: ZARA'S WARRIOR PHILOSOPHY
+*comment ================================================
+
+*label zaras_philosophy
+
+Zara sits beside you, surprisingly relaxed for someone who just spent two hours pushing you to your absolute limits.
+
+*line_break
+
+"Why do you fight?" she asks suddenly.
+
+*page_break
+
+*choice
+  #"To protect people who can't protect themselves."
+    *set empathy +10
+    *set zara_relationship +10
+
+    Zara's smile is warm. "That's why I fight too."
+
+    *goto philosophy_conversation
+
+  #"To become strong enough that nothing can threaten what I love."
+    *set power +10
+    *set zara_relationship +10
+
+    Zara nods. "Strength as protection. I understand that completely."
+
+    *goto philosophy_conversation
+
+  #"Because someone has to stand between danger and innocent lives."
+    *set collaboration +10
+    *set zara_relationship +10
+
+    Zara's expression turns thoughtful. "You understand the warrior's burden."
+
+    *goto philosophy_conversation
+
+*label philosophy_conversation
+
+*page_break
+
+She's quiet for a moment, staring at the training grounds.
+
+*line_break
+
+"I'm a hybrid," she says finally. "Half-dimensional, half-human. For a long time, I didn't belong anywhere. Humans feared my power. Dimensional beings thought I was too human, too emotional."
+
+*page_break
+
+"Combat magic gave me purpose. It let me transform my power—something that made me different, frightening—into something [i]protective[/i]. I became the guardian of the spaces between worlds."
+
+*line_break
+
+She looks at you, her hybrid features somehow more beautiful for their uniqueness.
+
+*page_break
+
+"That's what combat magic [i]is[/i], ${name}. Not destruction. Not violence. It's transformation—taking power that could harm and shaping it into protection."
+
+*line_break
+
+*if zara_romance = true
+  She takes your hand gently. "I'm teaching you to be more than a fighter. I'm teaching you to be a [i]guardian[/i]."
+
+  *page_break
+
+  The moment stretches between you, charged with unspoken feelings.
+
+  *line_break
+
+  *choice
+    #Kiss her.
+      You lean forward, and she meets you halfway. The kiss is gentle, warm, full of promise.
+
+      *set happiness +20
+      *set zara_relationship +20
+      *set romance_progress +15
+
+      *line_break
+
+      When you finally pull back, she's smiling. "I've wanted to do that since the tournament."
+
+      *page_break
+
+      "Me too," you admit.
+
+      *line_break
+
+      "Good," she says. "Because you're incredible, and I'm not great at hiding my feelings."
+
+      *goto philosophy_conclusion
+
+    #"I'm honored to learn from you."
+      You don't kiss her—not yet. But your hand squeezes hers, acknowledging what's building between you.
+
+      *set happiness +10
+      *set zara_relationship +15
+
+      *line_break
+
+      "We have time," she says softly, understanding. "No rush."
+
+      *goto philosophy_conclusion
+
+*else
+  "I'm teaching you to be more than a fighter. I'm teaching you to be a [i]guardian[/i]."
+
+  *set happiness +10
+  *set zara_relationship +10
+
+  *goto philosophy_conclusion
+
+*label philosophy_conclusion
+
+*page_break
+
+The sun sets over Avalon's training grounds. You sit beside Zara—mentor and student, warrior and guardian, two people who've chosen to stand between danger and those they protect.
+
+*line_break
+
+You've grown so much since choosing the Combat Path. Stronger. Wiser. More capable.
+
+*page_break
+
+But you've also learned what Zara wanted you to understand:
+
+*line_break
+
+Combat magic isn't about destruction.
+
+It's about [i]protection[/i].
+
+*page_break
+
+*set power +5
+*set empathy +5
+*set happiness +15
+
+[i]"Alright, that was genuinely touching,"[/i] Polly says, landing nearby. [i]"But I should mention—there's a Year Two crisis developing. Something about dimensional instabilities and probably imminent danger. The usual."[/i]
+
+*page_break
+
+Zara stands, offering you her hand. "Ready to face whatever comes next?"
+
+*line_break
+
+You take her hand and rise.
+
+*line_break
+
+"Always."
+
+*page_break
+
+*finish Year Two - Combat Path Complete
+
+*goto_scene year_two_crisis
