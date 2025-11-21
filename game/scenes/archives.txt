@@ -1,21 +1,45 @@
-You step into a crystalline hall where voices whisper in harmonics. Tomes float between shelves, threading stories into the Spiral.
+You step into the Archives, and reality adjusts its definitions around you. The crystalline hall extends in directions that geometry shouldn't permit—not breaking mathematical laws so much as demonstrating that mathematics itself becomes more flexible in spaces where knowledge accumulates sufficient mass to bend conceptual frameworks.
+
+Voices whisper in harmonics that taste like silver and sound like distant choral arrangements. Not ghosts, but something stranger: the accumulated resonance of every conversation these halls have witnessed, preserved in the architecture itself like audio recordings pressed into crystal. Each whisper carries fragments of debates conducted centuries ago, theories proposed and tested, insights achieved through collaborative effort across multiple magical traditions.
+
+Tomes float between shelves carved from living wood that still grows, very slowly, adding new sections to accommodate expanding collections. The books don't simply store information—they thread stories into the Spiral's greater narrative, cross-referencing themselves with other volumes, updating their contents based on discoveries made elsewhere in the archive. Knowledge here is alive, conversational, always seeking synthesis with new understanding.
+
+The air shimmers with potential, saturated with magic so concentrated that breathing feels like drinking starlight mixed with ancient ink and the dust from pages that remember being trees. You can feel the weight of accumulated wisdom pressing against your consciousness, inviting you to become part of its ongoing dialogue.
 
 *choice
   #Anchor yourself with a calming chant.
-    The resonance steadies. You imprint the Spiral's cadence onto your own heartbeat.
+    The sensory overload threatens to overwhelm—too much information arriving through too many channels simultaneously. You close your eyes and begin to chant, drawing on meditation techniques learned during your earlier training. The words matter less than the rhythm they establish, a steady cadence that gives your consciousness something stable to hold while the Archive's resonance washes over you.
+    [p]
+    Gradually, the chaos resolves into patterns. You begin to perceive the underlying structure—how the floating tomes organize themselves into topical clusters, how the whispered conversations flow along established channels like streams following ancient riverbeds carved by centuries of similar discussions. The Spiral's cadence becomes audible beneath the surface chaos: a rhythm older than memory, patient as geology, inexorable as seasons.
+    [p]
+    You imprint that cadence onto your own heartbeat, synchronizing your biological rhythm with the realm's fundamental pulse. The Archive accepts you then, recognizing something in your disciplined approach that suggests you can be trusted with its accumulated wisdom. The voices quiet to respectful murmurs, and the floating tomes begin to orbit closer, offering themselves for study.
     *set attunement +10
     *set council_trust +5
     *goto after_archives
   #Let the current of memory carry you.
-    The voices show you futures yet unwritten. Insight floods your senses.
+    Instead of resisting the sensory flood, you surrender to it. Not abandonment of self, but conscious choice to become permeable, allowing the Archive's accumulated wisdom to flow through you rather than against you. Dangerous—this approach risks losing your individual identity in the collective consciousness preserved here. But potentially revelatory if you possess sufficient core stability to maintain coherence through the experience.
+    [p]
+    The voices swell into chorus, each whisper distinct yet harmonizing with the whole. You see futures yet unwritten—not prophecy precisely, but trajectories extending from current conditions, possibilities branching from every choice the realm might make. The Archive doesn't predict so much as it models, running countless scenarios simultaneously and preserving the results for consultation by those who need to understand consequences before committing to particular courses of action.
+    [p]
+    Insight floods your senses with such intensity that you briefly lose awareness of physical embodiment. You become pure understanding, consciousness divorced from flesh, experiencing knowledge the way it experiences itself—as living pattern seeking ever-greater complexity through synthesis and integration. When you finally return to ordinary perception, you find yourself changed. The resonance mark appears on your palm, a sigil indicating the Spiral has acknowledged you as one who truly listens.
     *set attunement +15
     *set resonance_mark true
     *goto after_archives
   #Search for ${mentor}'s research notes.
-    You spot ${mentor}'s sigil and glean warnings about unstable portals.
+    Practical necessity grounds you despite the Archive's overwhelming atmosphere. ${mentor} mentioned conducting research here on dimensional stability, documenting patterns in portal behavior that might predict catastrophic failures before they occur. Finding those notes could provide crucial information—warnings about unstable threshold points, protocols for safe navigation, perhaps even insights into the Spiral's deeper nature.
+    [p]
+    You navigate the floating tomes with deliberate purpose, searching for ${mentor}'s personal sigil: a rune combining elements of temporal flow and structural integrity, marked in ink that shifts between several colors depending on the observer's perspective. The Archive responds to your focused intent by reorganizing itself helpfully, moving relevant volumes into your path while shifting less immediately useful materials aside.
+    [p]
+    There—${mentor}'s journal, bound in leather that remembers being alive and occasionally acts like it still is. The pages smell like old paper and fresh mint, a preservation charm that keeps the contents from degrading while marking them with distinctive scent. You find warnings about unstable portals, carefully documented observations about dimensional resonance patterns that precede catastrophic collapse, detailed protocols for emergency stabilization procedures.
+    [p]
+    This knowledge could save lives. The Council will appreciate someone who prioritizes practical safety over abstract theoretical pursuit.
     *set council_trust +10
     *goto after_archives
 
 *label after_archives
-An attendant smiles. "The council likes when scholars bring back clarity."
+An Archive attendant manifests beside you—not quite corporeal, more like concentrated attention given temporary form. They smile with genuine warmth, their expression suggesting they've witnessed this threshold moment countless times yet still find joy in each iteration.
+
+"The Council appreciates scholars who bring back clarity rather than just collecting curiosities," they observe, voice carrying harmonics that suggest simultaneous conversations on multiple conceptual frequencies. "You've demonstrated understanding that will serve you well in the work ahead. The Spiral recognizes those who approach knowledge with both reverence and practical application in mind."
+
+They gesture toward a doorway that definitely wasn't there moments ago, its frame constructed from light solidified into architectural form. "Through there. Your path continues."
 *goto_scene epilogue

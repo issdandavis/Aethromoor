@@ -1,29 +1,59 @@
-The council chamber is a ring of suspended platforms. Holographic maps of the Spiral shimmer between the elders.
+The Council chamber exists in defiance of conventional spatial relationships. Suspended platforms orbit a central dais in patterns too precise to be natural, each one representing different magical traditions in carefully maintained balance. The architecture itself serves as ongoing demonstration of collaborative magic's fundamental principle: synthesis achieved through respectful dialogue between different approaches rather than dominance of any single methodology.
+
+Between the platforms, holographic maps of the Spiral shimmer with information density that would overwhelm unprepared observers. Each map displays different aspects of the realm's multilayered geography—physical terrain overlaid with ley line networks, dimensional boundaries marked in colors representing stability gradients, temporal flow patterns showing where causality moves thematically rather than linearly. The maps update continuously, responding to real-time changes in magical infrastructure.
+
+The elders occupy their platforms with bearing suggesting centuries of accumulated wisdom tempered by understanding that knowledge without compassion becomes tyranny. Each one wears insignia identifying their primary tradition—Dimensional Weaving, Chronothurgy, Boundary Maintenance, Collaborative Synthesis—but their presence here indicates commitment to integration rather than isolationist preservation of specialized expertise.
+
+The chamber's atmosphere carries weight beyond mere air pressure. You can feel the accumulated decisions made here across generations, each choice shaping Avalon's development through course corrections that preserved core values while adapting to evolving circumstances. This is where theory meets governance, where abstract magical philosophy transforms into practical policies affecting thousands of lives.
 
 *choice
   #Present a balanced plan to strengthen both wards and archives.
-    Elders exchange impressed glances.
+    You step forward with proposal developed through careful consideration of multiple priorities requiring simultaneous attention. The realm's defensive wards need reinforcement—recent dimensional turbulence suggests increased pressure against protective boundaries from entities testing for weaknesses. But the Archives also require expansion to accommodate accelerating knowledge accumulation, plus deeper integration between different collections currently maintained in semi-isolated sections.
+    [p]
+    "The wards and archives aren't separate concerns," you explain, projecting confidence while maintaining respectful deference toward those whose experience vastly exceeds your own. "They're complementary aspects of the same fundamental purpose: protecting what Avalon represents while ensuring that protection doesn't become stagnation. Strong wards without expanding knowledge create fortress mentality that eventually collapses from internal stagnation. Expanding archives without adequate defense leaves accumulated wisdom vulnerable to external threats."
+    [p]
+    You outline specific proposals: cross-training between wardens and archivists so defensive specialists understand theoretical foundations while scholars gain practical awareness of implementation challenges. Shared resources allocated to both domains simultaneously rather than forcing them into competition. Collaborative research into ward structures that learn from intrusion attempts the way Archives learn from new information.
+    [p]
+    The elders exchange glances weighted with impressed evaluation. This demonstrates understanding that transcends crude resource allocation mathematics—you've grasped the deeper principle that Avalon's strength emerges from integration rather than optimization of isolated components.
     *set honor +5
     *set attunement +5
     *set council_trust +10
     *goto after_council
   #Advocate for deeper research into the Spiral's song.
-    Not all elders approve, but ${mentor} speaks in your favor.
+    You present case for investigation into fundamental mysteries that Avalon has maintained working relationship with but never fully comprehended. The Spiral's song—the resonance underlying all magical activity within the realm—operates according to principles that current theory describes without explaining. Understanding its deeper nature could unlock capabilities that reshape what becomes possible within Pollyoneth's boundaries.
+    [p]
+    "We've learned to work with the Spiral through empirical trial-and-refinement," you argue, aware that this proposal will face resistance from conservative council members who prioritize stability over exploration. "But empirical knowledge has limits. We can predict patterns without understanding causation, manipulate variables without grasping underlying mechanisms. That approach suffices during stable periods but leaves us vulnerable when circumstances shift beyond familiar territory."
+    [p]
+    Several elders frown, their expressions suggesting concern about research that might destabilize functioning systems through excessive curiosity. But ${mentor} speaks in your favor, lending credibility that your relative inexperience can't yet command independently.
+    [p]
+    "${mentor}'s voice carries harmonics suggesting multiple levels of meaning delivered simultaneously. "The proposal demonstrates ambition tempered by awareness of risks. Research into foundational mysteries requires careful methodology and ethical constraints—but avoiding such research entirely means accepting permanent limitations on our capacity to adapt when unprecedented challenges emerge. I recommend provisional approval with close oversight."
+    [p]
+    The Council debates with intensity suggesting genuine uncertainty about optimal path forward. Eventually they grant conditional authorization, more because ${mentor}'s advocacy carries weight than because your arguments proved entirely convincing on their own merits.
     *set attunement +10
     *set council_trust +5
     *goto after_council
   #Request permission to reopen a dormant portal.
-    The room stills. This is bold.
+    The chamber stills as you voice proposal that crosses boundaries between reasonable initiative and dangerous presumption. Dormant portals exist throughout Avalon's infrastructure—dimensional apertures sealed after catastrophic incidents or strategic decisions to limit access to particular realms. Reopening one requires compelling justification and confidence that you can manage consequences if your assessment of safety proves incorrect.
+    [p]
+    "The sealed portal in the Eastern Archives," you specify, having researched this particular aperture's history during your earlier studies. "Closed seventy years ago after dimensional resonance anomaly suggested instability. But recent survey data indicates stabilization—the anomaly that justified sealing has resolved through natural processes. Reopening would restore access to the Library of Alternate Iterations, where Avalon maintains preserved records of paths not taken, decisions reversed, timelines that diverged from our current reality."
+    [p]
+    Bold. Potentially brilliant. Definitely risky. The Council evaluates you with intensity suggesting this moment carries more weight than mere policy decision—they're assessing your character, your judgment, your capacity to accept responsibility for consequences extending beyond your direct control.
     *if council_trust >= 55
-      They allow a trial. Responsibility settles on your shoulders.
+      The eldest council member, whose eyes hold depths suggesting experiences spanning multiple lifetimes, speaks with deliberate gravity: "We authorize trial reopening under controlled conditions with continuous monitoring. You will personally supervise the unsealing process and accept responsibility for stabilization if anomalies recur. Understand clearly—this permission reflects our confidence in your developing judgment. Betray that confidence through carelessness or arrogance, and the consequences will extend far beyond simple disciplinary action."
+      [p]
+      Responsibility settles on your shoulders like physical weight, transforming abstract approval into concrete obligation. The resonance mark appears on your palm if it wasn't already present—the Spiral acknowledging that you've accepted commitment carrying genuine cost if mishandled.
       *set resonance_mark true
       *set honor +5
       *goto after_council
     *else
-      The elders frown. "Earn our confidence first."
+      The council members exchange glances, and you can read the verdict in their expressions before anyone speaks aloud. One elder delivers judgment with firmness that brooks no negotiation: "Your proposal demonstrates ambition. Perhaps vision. Certainly confidence. But it lacks foundation in demonstrated reliability. Earn our trust through sustained competent performance in less risky domains first. Then return with this request, and we'll reconsider based on track record rather than theoretical capability."
+      [p]
+      It's rejection delivered with respect for the attempt while maintaining appropriate caution about granting significant authority to relative newcomers. You accept the decision with grace that itself builds credibility for future proposals.
       *set council_trust -5
       *goto after_council
 
 *label after_council
-A bell tolls from deeper within the chamber, signaling a new phase of your time in Avalon.
+A bell tolls from deeper within the chamber—not audible through ears precisely, but perceived through senses that magic develops in those who spend time in places where reality operates according to expanded rules. The sound carries harmonics suggesting transition, threshold crossing, transformation from one phase into another.
+
+The eldest council member gestures toward doorway that manifests in response to their intent. "Your path continues," they observe, voice holding warmth that suggests genuine investment in your development rather than mere institutional duty. "We've witnessed promising beginning. The Spiral recognizes those who approach its mysteries with both curiosity and appropriate caution. Walk forward with awareness that every choice you make from this point becomes part of the story Avalon tells about itself across generations."
 *goto_scene epilogue

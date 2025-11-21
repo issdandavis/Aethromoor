@@ -1,27 +1,59 @@
-The martial hall thrums with sparring and shouted cadence. Racks of spears line the walls beneath banners of past victories.
+The martial hall thrums with controlled violence and disciplined purpose. Sparring matches unfold across training grounds that extend to impossible horizons, each bout a conversation conducted in the grammar of steel and strategy. Shouted cadences echo from stone walls carved with names of fallen defenders—warriors who held dimensional boundaries against incursions that would have shattered consensus reality if allowed to breach Avalon's carefully maintained thresholds.
+
+Racks of spears line the walls beneath banners commemorating past victories, each weapon forged from materials harvested from different realms and enchanted to pierce not just flesh but the conceptual armor that certain entities wear as protection against conventional attacks. The air tastes like ozone and sweat and the peculiar metallic tang that magic leaves behind when used for defensive purposes rather than creative exploration.
+
+Wardens drill in perfect synchronization, their movements suggesting years of training together until individual identity becomes secondary to collective purpose. These are dimensional guardians, chosen not just for combat skill but for unwavering commitment to protecting others even when the nature of the threat exists beyond most people's capacity to perceive. They face entities whose very existence violates natural law, temporal paradoxes that could unravel causality itself, incursions from realms where malice has evolved sophisticated strategies for breaching protective wards.
+
+The hall's floor is packed earth that remembers every technique ever practiced upon it, sometimes offering suggestions to attentive students by subtly adjusting terrain to encourage better footwork. The ceiling disappears into heights that hold their own weather systems—storm clouds occasionally forming when particularly intense training sessions generate enough ambient energy to influence local atmospheric conditions.
 
 *choice
   #Pledge yourself to the wardens' code.
-    You kneel, reciting the vows. Steel rings as you receive a badge.
+    You kneel before the captain, an ancient warrior whose scars tell stories spanning multiple lifetimes—some earned in this realm, others carried forward through reincarnation cycles that preserve combat experience across iterations of consciousness. The vows come easily to your lips, words that feel less like memorization and more like remembering something your soul has always known.
+    [p]
+    "I pledge my strength to the defense of boundaries that protect the vulnerable from forces they cannot perceive. I swear to stand against chaos not because I crave battle, but because I understand that some oaths, taken sincerely in places where magic listens, fundamentally alter what I can become. I commit myself to the wardens' code: vigilance without paranoia, strength without cruelty, discipline that serves protection rather than domination."
+    [p]
+    Steel rings as the captain draws a ceremonial blade—not a weapon for combat, but a tool for marking commitments made in spaces where promises carry weight beyond mere social convention. They press the flat against your shoulder, and you feel magic sealing the oath into your very nature. A badge manifests in your palm, constructed from metal that exists in several dimensions simultaneously, marked with runes that will identify you to other defenders throughout the realm.
+    [p]
+    The assembled wardens salute with precision suggesting genuine respect rather than mere military courtesy. You have become one of them now—a living bulwark against forces that would tear reality apart if given opportunity.
     *set honor +15
     *set oathbound true
     *set council_trust +10
     *goto after_wardens
   #Test the wardens' tactics with a new formation.
-    Your suggestion closes gaps in their defense. The captain nods approvingly.
+    You've been observing the training drills with analytical attention, noticing patterns that suggest room for improvement. The current defensive formation handles frontal assaults effectively but leaves gaps vulnerable to attacks originating from unexpected dimensional angles—a weakness that certain entities would exploit ruthlessly if they recognized it.
+    [p]
+    Approaching the captain with respectful diffidence, you sketch your proposed modification in the training ground's dirt: a three-layer defensive structure incorporating overlapping ward geometries that would cover each other's blind spots while maintaining mobility sufficient to respond to rapidly shifting threat vectors. The formation draws on principles from multiple martial traditions, synthesizing techniques that normally don't cooperate into coherent tactical whole.
+    [p]
+    The captain studies your diagram with professional interest, their eyes tracking implications you hadn't consciously intended but that emerge naturally from the underlying structure. They call over senior squad leaders, who examine the proposal with gradually increasing enthusiasm tempered by institutional caution against untested innovations.
     *if honor >= 60
-      Your reputation precedes you. The squad drills your idea into doctrine.
+      Your reputation precedes you—word has spread about your earlier demonstrations of both capability and judgment. The captain nods decisively. "We'll drill it into doctrine," they announce, voice carrying authority that transforms suggestion into formal protocol. "Smart adaptation from someone who understands that protecting others requires constant evolution. Threats don't stay static; neither can our responses."
+      [p]
+      You spend the next several hours working with the squads, refining the formation through iterative testing until it operates with precision suggesting years of development rather than hours. The wardens accept you as tactical peer, someone whose insights merit serious consideration even when they challenge established patterns.
       *set council_trust +15
       *goto after_wardens
     *else
-      The captain asks you to prove yourself first.
+      The captain's expression holds careful neutrality. "Interesting theory," they observe, tone suggesting more skepticism than enthusiasm. "But we've learned through painful experience not to modify defensive protocols based on untested proposals from relative newcomers, regardless of how clever the underlying concept appears. Prove yourself in actual combat situations first. Earn the credibility that makes us willing to risk lives on your innovations."
+      [p]
+      It's fair criticism, delivered without malice. You acknowledge the wisdom in institutional caution, accepting that trust must be earned through demonstrated competence rather than granted based on confident presentation.
       *set honor +5
       *goto after_wardens
   #Ask the wardens what they fear most.
-    "Complacency," one whispers. "And portals that sing off-key."
+    The question emerges from genuine curiosity rather than tactical assessment. These warriors face threats that would shatter most people's sanity if perceived clearly—what frightens those who have already stared into dimensional voids and returned intact?
+    [p]
+    The training ground quiets as your question ripples outward, finding resonance with suppressed concerns that warriors rarely voice aloud. A veteran breaks the silence, their scarred hands stilling on weapon they'd been maintaining. "Complacency," they whisper, the word heavy with implications that extend beyond surface meaning.
+    [p]
+    "The assumption that today's threats mirror yesterday's patterns. The comfortable certainty that our current capabilities will prove sufficient for tomorrow's incursions. We fear becoming so confident in established protocols that we miss signals indicating fundamental changes in the nature of what we're defending against."
+    [p]
+    Another warden adds, voice carrying notes of specific trauma remembered with visceral intensity: "Portals that sing off-key. Dimensional apertures whose resonance patterns don't match any documented configuration. Those warn us that something new is trying to breach our reality—entities or forces that evolved in realms where the rules we understand don't apply. When familiar magic starts behaving unfamiliarly, that's when catastrophes become possible."
+    [p]
+    Your question has earned you respect through demonstrated wisdom: understanding that asking about fears reveals more about effective defense than asking about victories ever could.
     *set attunement +5
     *goto after_wardens
 
 *label after_wardens
-The captain clasps your forearm. "When the council calls, remember this hall."
+The captain clasps your forearm in the traditional grip warriors use when acknowledging peers worthy of standing beside them in desperate circumstances. Their grip is firm without being crushing, conveying respect through physical connection in ways words sometimes can't adequately express.
+
+"When the Council calls," they say, voice carrying weight suggesting prophecy as much as practical advice, "remember this hall. Remember that knowledge matters, yes—but so does the willingness to stand between vulnerable people and forces that would destroy them. Avalon needs scholars who understand theory and warriors who can implement practice. The realm flourishes when those roles harmonize rather than remaining isolated in separate domains."
+
+They release your arm and step back, saluting with precision that transforms casual gesture into formal acknowledgment. "You're welcome here anytime, whether for training or counsel. The wardens recognize potential allies regardless of which path they primarily walk."
 *goto_scene epilogue
