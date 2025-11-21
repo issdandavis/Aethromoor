@@ -31,5 +31,11 @@ not ures.txt
 notes.txt
 notes2.txt
 
+# API keys and sensitive data
+*API*.txt
+*api*.txt
+*key*.txt
+*secret*.txt
+
 # Archive files that are duplicates
 archive.zip
