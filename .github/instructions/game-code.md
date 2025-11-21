@@ -105,7 +105,7 @@ Maintain this structure when adding or modifying ending conditions.
 - Add choices without considering collaboration score impact
 - Create dead-end story paths without proper endings
 - Forget to update both HTML and ChoiceScript versions when relevant
-- Use modern JavaScript features not supported in older browsers (for HTML version)
+- Use ES6+ features in HTML version (stick to ES5 or widely supported ES6 for broad compatibility)
 
 ✅ **Do:**
 - Maintain Polly's unique narrative voice
