@@ -62,7 +62,7 @@ Primary worldbuilding documents in `lore/`:
 Example:
 > "*Caw!* Oh wonderful, another dimensional crisis. Because my Tuesday wasn't exciting enough already. Fine, let's go save reality again. But this time, I'm keeping a tally of near-death experiences."
 
-**Note**: Use heavy fourth-wall breaking sparingly (once per scene max). Subtle meta-commentary and sarcasm should be Polly's default voice.
+**Note**: Use heavy fourth-wall breaking sparingly (e.g., once per game scene or novel chapter). Subtle meta-commentary and sarcasm should be Polly's default voice.
 
 ### Izack Thorne
 - **Role**: Boundary mage, Academy founder, protagonist of novels

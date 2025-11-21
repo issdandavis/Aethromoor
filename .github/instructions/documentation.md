@@ -72,7 +72,12 @@ Use ATX-style headings with proper hierarchy:
 - Use relative paths for internal links
 
 #### Code Blocks
-Use fenced code blocks with language specification. Start with three backticks followed by the language name (e.g., `javascript`, `choicescript`, `bash`), then your code, then close with three backticks.
+Use fenced code blocks with language specification:
+~~~markdown
+```javascript
+const example = "code";
+```
+~~~
 
 #### Emphasis
 - **Bold** for strong emphasis and UI elements: "Click the **Play** button"

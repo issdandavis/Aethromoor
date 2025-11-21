@@ -38,7 +38,7 @@ ChoiceScript files use a specific syntax for interactive fiction. When working w
 
 ## HTML/JavaScript Game
 
-The `game/game.js` file contains the story as a JavaScript object structure.
+The `game/game.js` file contains the story as a JavaScript object structure. Code should work in modern browsers (Chrome, Firefox, Safari, Edge from 2018+).
 
 ### Story Node Structure
 ```javascript
@@ -105,7 +105,7 @@ Maintain this structure when adding or modifying ending conditions.
 - Add choices without considering collaboration score impact
 - Create dead-end story paths without proper endings
 - Forget to update both HTML and ChoiceScript versions when relevant
-- Use ES6+ features in HTML version (stick to ES5 or widely supported ES6 for broad compatibility)
+- Don't use ES6+ features with limited browser support (for HTML version, stick to ES5 or widely-supported ES6 like const/let)
 
 ✅ **Do:**
 - Maintain Polly's unique narrative voice
