@@ -399,11 +399,13 @@
 *create mastery_count 0
 *create mastery_demonstration "none"
 *create mentor_achievement false
+*create breakthrough_type "none"
 
 *comment Miscellaneous Scene Variables
 *create forest_blessing false
 *create crisis_severity 0
 *create all_magic_schools 0
+*create achievement "none"
 
 *comment Dorm Room Customization
 *create dorm_style "default"

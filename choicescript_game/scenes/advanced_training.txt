@@ -213,6 +213,13 @@ Seven other third-year students are present. You recognize all of them—the eli
     *set total_spells_known +1
     *goto learn_mass_coordination
 
+  #Not ready for advanced workshop yet
+    You focus on building your magical skills through standard Year Three curriculum. The advanced workshop will be available once you reach the required mastery thresholds.
+
+    *page_break
+
+    *goto_scene year_three_trial
+
 *comment ================================================
 *comment RESEARCH PATH: REALITY LOCK
 *comment ================================================
