@@ -8,15 +8,6 @@
 *temp decoration_choice ""
 *temp magical_feature ""
 
-*comment Track room customization for later references
-*create dorm_style "default"
-*create dorm_comfort 0
-*create dorm_magical 0
-*create has_familiar_perch false
-*create has_study_nook false
-*create has_alchemy_corner false
-*create window_view "courtyard"
-
 *label start
 
 After the initial greetings and orientation, a second-year student named Marcus leads you through the winding corridors of the residential tower.
