@@ -1,0 +1,151 @@
+═══════════════════════════════════════════════════════
+  🌟 FACTION INFORMATION - QUICK ACCESS GUIDE
+═══════════════════════════════════════════════════════
+
+📖 WHERE TO FIND FACTION INFORMATION:
+
+🎯 QUICK REFERENCE (1-PAGE CHEAT SHEET):
+   lore/FACTION_QUICK_REFERENCE.md
+
+📚 COMPLETE GUIDE (DETAILED ENCYCLOPEDIA):
+   lore/FACTION_GUIDE.md
+
+🗺️ ALL LORE FILES:
+   lore/README.md ← Complete navigation
+
+═══════════════════════════════════════════════════════
+
+💡 WHAT'S INSIDE?
+
+FACTION_QUICK_REFERENCE.md:
+   • One-page printable reference
+   • Faction comparison tables
+   • Combat styles at a glance
+   • Character rosters
+   • Common questions answered
+   • Perfect for quick lookups!
+
+FACTION_GUIDE.md:
+   • Complete faction histories
+   • Detailed unit compositions
+   • Strategic doctrines
+   • Avalon Academy deep dive
+   • Geographical maps
+   • Diplomatic relations
+   • Everything you need to know!
+
+═══════════════════════════════════════════════════════
+
+🎮 THE THREE MAJOR ALLIANCES:
+
+⚡ ARCANE DOMINION (Ancient Magic Preservers)
+   • Sun-Crown Order - Elite traditionalists
+   • Twilight Scholars - Dimensional explorers
+   • Starforged Remnants - Historical magic users
+
+🏰 MORTAL CONFEDERATIONS (Adaptable Humans)
+   • Human Kingdoms - Combined arms specialists
+   • Avalon Academy - Educational sanctuary
+   • Kel-Morian Artisans - Resource masters
+
+🌀 PRIMORDIAL COLLECTIVE (Evolutionary Forces)
+   • Demon Court - Contract magic specialists
+   • Third Thread - Reality-bending paradox
+   • Silent Word - Wordless magic users
+
+═══════════════════════════════════════════════════════
+
+🏛️ AVALON ACADEMY - THE NEUTRAL GROUND
+
+Where students from ALL factions learn together!
+
+Key Students:
+   • Zara - Triple heritage, impossible magic
+   • Malzeth'irun (Mal) - Demon prince learning compassion
+   • Marcus - Elemental prodigy
+   • Prince Rupert - Noble learning humility
+
+═══════════════════════════════════════════════════════
+
+🚀 HOW TO USE THIS INFORMATION:
+
+FOR READING:
+   1. Start with FACTION_QUICK_REFERENCE.md
+   2. Read sections that interest you in FACTION_GUIDE.md
+   3. Use tables to remember key details
+
+FOR PLAYING THE GAME:
+   1. Keep FACTION_QUICK_REFERENCE.md open
+   2. Check faction details when meeting new characters
+   3. Understand motivations and relationships
+
+FOR WRITING OR GMing:
+   1. Read FACTION_GUIDE.md completely
+   2. Use strategic doctrines for combat scenes
+   3. Reference student lists for Academy scenes
+   4. Check diplomatic relations for plot hooks
+
+═══════════════════════════════════════════════════════
+
+📍 FILE LOCATIONS:
+
+Main Faction Files:
+   /lore/FACTION_QUICK_REFERENCE.md
+   /lore/FACTION_GUIDE.md
+   /lore/README.md
+
+Other Lore:
+   /lore/Unified Worldbuilding Master Framework.txt
+   /lore/Pollys_Wingscrolls_Worldbuilding.markdown
+   /lore/__Geography and Natural Lore of the Spiral of Pollyoneth__.pdf
+
+Game Files:
+   /game/index.html ← PLAY THE GAME!
+
+═══════════════════════════════════════════════════════
+
+💭 HELPFUL TIPS:
+
+• Both faction files have clear headings - use them to jump around
+• Tables make it easy to compare different factions
+• TL;DR boxes give you quick summaries
+• Cross-references link related information
+• "NOTE" boxes highlight important details
+
+═══════════════════════════════════════════════════════
+
+🎯 MOST COMMON QUESTIONS:
+
+Q: Which faction is strongest?
+A: Depends on situation! Check the comparison tables.
+
+Q: Can factions work together?
+A: Yes! Avalon Academy proves it works.
+
+Q: Where is Avalon Academy?
+A: In the Twilight Boundaries, connected via World Tree.
+
+Q: Who is Mal?
+A: Demon prince who's learning compassion at Avalon.
+
+Q: What's the Third Thread?
+A: New magic type combining incompatible systems.
+
+For more answers, see FACTION_QUICK_REFERENCE.md!
+
+═══════════════════════════════════════════════════════
+
+✨ REMEMBER:
+
+• These files are organized to help YOU
+• Clear headings let you find what you need
+• Start with Quick Reference, go deeper as needed
+• All factions think they're the good guys
+• Understanding all sides makes better stories
+
+═══════════════════════════════════════════════════════
+
+📚 Created by Polly, Keeper of the Living Archive
+Last Updated: November 2025
+
+Have fun exploring the Everweave Realms! 🌟

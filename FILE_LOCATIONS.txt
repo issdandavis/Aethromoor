@@ -14,8 +14,14 @@
    game/ ← HTML version (complete)
    choicescript_game/ ← Professional version
 
+🌟 FACTION INFORMATION (NEW!):
+   FACTION_INFO.txt ← Quick access guide
+   lore/FACTION_QUICK_REFERENCE.md ← 1-page cheat sheet
+   lore/FACTION_GUIDE.md ← Complete encyclopedia
+
 📚 LORE & WORLDBUILDING:
    lore/ ← All worldbuilding documents
+   lore/README.md ← Lore navigation guide
 
 📝 WRITING:
    writing_drafts/ ← Novel manuscripts
@@ -33,5 +39,6 @@ MOST IMPORTANT:
 • To play: game/index.html
 • To understand structure: README.md
 • To learn how to play: START_HERE.md
+• For faction info: FACTION_INFO.txt (NEW!)
 
 ═══════════════════════════════════════════════════════
