@@ -15,6 +15,9 @@ if [ ! -d "$TARGET_DIR" ]; then
   mkdir -p "$TARGET_DIR"
 fi
 
+echo "WARNING: This will sync scenes and DELETE any files in the target that don't exist in the source."
 echo "Copying scenes from $SOURCE_DIR to $TARGET_DIR..."
+echo "Press Ctrl+C within 5 seconds to cancel..."
+sleep 5
 rsync -av --delete "$SOURCE_DIR/" "$TARGET_DIR/"
 echo "Done. Launch the ChoiceScript server from $SCRIPT_DIR/choicescript to play."
