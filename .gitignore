@@ -6,5 +6,12 @@ keys.txt
 .DS_Store
 Thumbs.db
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
 # ChoiceScript engine clone (downloaded locally)
 game/choicescript/
