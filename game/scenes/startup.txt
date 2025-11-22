@@ -17,25 +17,29 @@
 *create oathbound false
 *create resonance_mark false
 
-You stand before the gates of Avalon, the Spiral of Eternity humming under your feet. Today you choose how you will meet the city's secrets. Airships arc between spires overhead, their contrails forming luminous sigils that fade as quickly as they appear.
+You stand before the gates of Avalon, the Spiral of Eternity humming under your feet—a living dimensional realm that pulses with ancient magic. Today you choose how you will meet the city's secrets. 
+
+The air tastes of ozone and starlight. Airships arc between crystalline spires overhead, their contrails forming luminous sigils that fade as quickly as they appear. The very ground beneath you vibrates with leyline energy, those invisible rivers of power that connect all the realms—from the mortal world of Aethermoor to the demon-haunted depths of Varn'ka'zul.
+
+Avalon isn't just a city. It's a living spell, a pocket dimension created by Izack Thorne decades ago in a moment of desperate brilliance. The sentient realm responds to intention, to collaboration, to the quality of magic rather than its raw power. And now, as you cross its threshold, Avalon is watching you, learning you, deciding what you might become.
 
 *choice
   #Study the ley lines that weave through the plaza.
-    The glyphs glow brighter as you trace them. You feel the Spiral answer your curiosity.
+    You kneel, pressing your palm to the warm stone. The leylines beneath Avalon aren't like those in the mortal world—they're alive, conscious, woven from the dreams of the World Tree itself. As you trace the glowing glyphs with your fingertips, they pulse in response, teaching you their rhythm. This is collaborative magic at its purest: you listen, the Spiral answers, and together you create understanding. A faint mark appears on your wrist—silvery and ephemeral, a sign that Avalon has recognized your willingness to learn its language.
     *set attunement +10
     *set resonance_mark true
     *goto embark
   #Drill with the wardens who guard the bridge to the central spire.
-    Steel meets steel as you spar. The wardens nod when you match their pace.
+    The wardens of Avalon are more than soldiers—they're the living embodiment of the realm's promise to protect those who cannot protect themselves. Their martial discipline channels the same collaborative magic that fuels all of Avalon's wonders. As you spar with them, steel meeting steel in perfect cadence, you begin to understand: honor here isn't about individual glory, but about being the shield that lets others flourish. The wardens see your commitment and nod in approval, their leader pressing a silver badge into your palm—warm from her grip, inscribed with the words "I Stand Between."
     *set honor +10
     *set oathbound true
     *goto embark
   #Seek counsel from ${mentor}, the archivist who brought you here.
-    ${mentor} speaks softly about balance between duty and wonder.
+    You find ${mentor} in the shadow of a Spell-Memory Tree, its leaves glowing softly with absorbed enchantments. The archivist's eyes hold the patient wisdom of someone who understands that magic is as much about listening as casting. "Balance," ${mentor} tells you, voice gentle as rain on stone, "is the hardest magic to master. Not because it requires power, but because it requires honesty—with the world, and with yourself." As you walk together toward the central plaza, ${mentor} points out the subtle interplay between Avalon's defenses and its openness, between structure and wonder. You realize this is the lesson: that true strength comes from harmony, not dominance.
     *set mentor "Corin"
     *set attunement +5
     *goto embark
 
 *label embark
-You carry these first decisions into the city. The Spiral waits.
+You carry these first decisions into the city like seeds carried on the wind. The Spiral waits—patient, eternal, and infinitely curious about what you might grow into. Somewhere in the distance, a raven's caw echoes across the plaza, and you could swear it sounds almost like laughter.
 *finish

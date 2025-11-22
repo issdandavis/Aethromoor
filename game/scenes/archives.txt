@@ -1,21 +1,27 @@
-You step into a crystalline hall where voices whisper in harmonics. Tomes float between shelves, threading stories into the Spiral.
+You step into the Archives of Avalon, and the world transforms around you. 
+
+The crystalline hall stretches impossibly far in all directions—or perhaps it's infinite, folded back on itself through dimensional magic that makes distance meaningless. Voices whisper in harmonics here, not quite speech but something older: the resonance of knowledge itself, accumulated wisdom given voice. These aren't the whispers of ghosts but of stories that refuse to be forgotten, spells that remember being cast, histories that insist on being known.
+
+Tomes float between shelves carved from living crystal, each book threading its narrative into the greater tapestry of the Spiral. Some glow with recent enchantments, still warm from the hands that wrote them. Others are ancient, their pages inscribed in languages that predate even the Dragonkin's runic traditions—conceptual symbols that speak directly to understanding rather than through the crude intermediary of words.
+
+The very air tastes of old paper and starlight, of ozone and the peculiar scent that accompanies dimensional rifts. This is where Avalon stores its dreams, its fears, its accumulated wisdom. And as you stand here, breathing in centuries of collected knowledge, you realize: the Archives are choosing whether to accept you.
 
 *choice
   #Anchor yourself with a calming chant.
-    The resonance steadies. You imprint the Spiral's cadence onto your own heartbeat.
+    The whispers threaten to overwhelm you—too many voices, too much knowledge pressing against your consciousness like a tide. You could drown in it. Instead, you reach for the discipline Avalon has been teaching you, centering yourself with a chant that mirrors the Spiral's own rhythm. Your heartbeat slows, matching the cosmic pulse beneath the realm. The resonance steadies. The voices don't fade, but they organize themselves into a chorus rather than chaos. You imprint the Spiral's cadence onto your own breath, your own blood, and in doing so become a small part of its eternal song. The Archives recognize this as wisdom: knowing when to be still, when to listen, when to let the universe teach you its patterns.
     *set attunement +10
     *set council_trust +5
     *goto after_archives
   #Let the current of memory carry you.
-    The voices show you futures yet unwritten. Insight floods your senses.
+    You take a breath and do something that requires tremendous courage: you surrender. Not to chaos, but to trust. You let go of your need to control, to understand, to categorize and contain. The voices wash over you like a river, and instead of drowning, you learn to swim. Images flood your senses—futures yet unwritten, pasts still remembered, possibilities that exist in the space between certainty and dream. You see Avalon as it was: a single cave where Izack Thorne first bridged dimensions. You see it as it is: a living realm of impossible beauty. You see it as it might become: something beyond even his dreams, shaped by generations of students who learned to listen rather than command. The insight is overwhelming, beautiful, terrifying. You return to yourself marked by visions, blessed by understanding. The resonance mark on your wrist flares silver-bright.
     *set attunement +15
     *set resonance_mark true
     *goto after_archives
   #Search for ${mentor}'s research notes.
-    You spot ${mentor}'s sigil and glean warnings about unstable portals.
+    While the grand visions call to you, you choose something more grounded: practical knowledge that might help protect what Avalon has built. You navigate the floating shelves with careful intent, searching for ${mentor}'s sigil—a glyph that means "the bridge between knowing and doing." The notes you find are meticulous, beautiful in their precision. They detail unstable portals on Avalon's periphery, dimensional wounds that haven't fully healed, weak points where the realm's enemies might attempt to breach. But they also show solutions: collaborative rituals that could strengthen these boundaries, wards that respond to intention rather than force. You commit the warnings and the remedies both to memory. The council will appreciate this—pragmatic wisdom in service of Avalon's protection.
     *set council_trust +10
     *goto after_archives
 
 *label after_archives
-An attendant smiles. "The council likes when scholars bring back clarity."
+An attendant emerges from between the floating shelves—a being of pure light and purpose, one of Avalon's living constructs given form by the realm's need for stewards. It doesn't speak with words but with gentle pulses of understanding that bloom directly in your mind: gratitude, recognition, welcome. "The council likes when scholars bring back clarity," the construct's essence communicates, and you realize it means clarity of purpose, not just knowledge. You've proven yourself capable of navigating the Archives without losing yourself to their infinite depths. That matters here.
 *goto_scene convergence

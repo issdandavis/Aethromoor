@@ -86,29 +86,31 @@ Instead, you have free time—rare in Avalon's intensive program. You can spend 
 
 *label izack_bond
 
-You find Izack on the observation deck at the top of the Spiral Spire.
+You find Izack on the observation deck at the top of the Spiral Spire—the highest point in all of Avalon, where the realm's artificial sky meets the dimensional boundaries that separate this pocket universe from all the others.
 
-He's sitting on the edge, legs dangling over a drop that would terrify most people, casually eating an apple while watching dimensional currents swirl through the sky.
+He's sitting on the edge, legs dangling over a drop that would terrify most people, casually eating an apple while watching dimensional currents swirl through the sky like auroras made of pure magic. The view is breathtaking: all of Avalon spread below like a living map, the Dream Gardens glowing softly, the World Tree sapling pulsing with gentle light, the floating isles drifting in their eternal dance.
 
 *page_break
 
-[b]"Hey, ${name}!"[/b] He pats the space beside him. [b]"Join me?"[/b]
+[b]"Hey, ${name}!"[/b] Izack spots you immediately and pats the space beside him with genuine warmth. [b]"Join me? The view's incredible tonight. The leylines are doing something interesting with the dimensional boundaries—I think Avalon's growing again."[/b]
 
-You sit carefully, trying not to look down.
+You sit carefully beside him, trying very hard not to look at the dizzying drop below.
 
-[b]"Don't worry—there's a dimensional cushion below. If you fall, you'll just float gently back up. Probably."[/b]
+[b]"Don't worry—there's a dimensional cushion down there,"[/b] he says, eyes twinkling with mischief. [b]"If you fall, you'll just float gently back up. Probably."[/b]
 
 *line_break
 
-He grins at your expression.
+He grins at your expression, clearly enjoying himself.
 
-[b]"I'm kidding. Definitely. There's definitely a safety net."[/b]
+[b]"I'm kidding. Definitely. There's definitely a safety net. I learned that lesson the hard way during Avalon's early days. Aria was [i]not[/i] amused when I had to be rescued from floating three miles below the Academy for six hours."[/b]
 
 *page_break
 
-You sit together in companionable silence for a moment.
+You sit together in companionable silence for a moment, and you realize this is what Izack does best—creating spaces where people feel comfortable enough to be themselves, to ask questions, to wonder without fear of judgment.
 
-[b]"I heard about your expedition,"[/b] Izack says. [b]"Impressive. You did something most mages never achieve."[/b]
+Finally, he speaks, voice carrying a warmth that makes you understand why students follow him across dimensions.
+
+[b]"I heard about your expedition,"[/b] Izack says, his tone shifting from playful to genuinely proud. [b]"Impressive. You did something most mages never achieve in their entire careers."[/b]
 
 *line_break
 

@@ -13,69 +13,85 @@
 
 *line_break
 
-Three months have passed since you first arrived at Avalon Academy.
+Three months have passed since you first walked through Avalon's crystalline gates as a nervous newcomer, uncertain of your place in this impossible realm.
 
-You've completed your expedition. You've deepened your bonds with mentors and fellow students. You've learned theory, practiced application, and discovered what kind of mage you're becoming.
+Those three months feel like years. You've completed your expedition into one of the transplanted biomes—faced truths in the Singing Dunes, or listened to the whispers of the Verdant Tithe, or partnered with the ancient ice of the Rune Glacier. You've deepened your bonds with mentors who've become more than teachers, with fellow students who've become family in the way that only shared struggle can create. You've learned theory until the principles of dimensional magic felt like breathing, practiced application until spells became instinct, and discovered—slowly, painfully, joyfully—what kind of mage you're becoming.
 
-*page_break
-
-Now comes the final test.
+But all of that was preparation. Training. The safe space where mistakes could be made and learned from.
 
 *page_break
 
-All first-years gather in the Hall of Threads.
-
-Izack, Aria, and Zara stand before you, their expressions serious.
+Now comes the final test. The moment that separates students from practitioners. The crucible that determines who gets to call themselves a graduate of Avalon Academy.
 
 *page_break
 
-[b]"The final trial,"[/b] Izack begins, [b]"is not like your expedition. This time, you won't face a carefully designed challenge in a controlled environment."[/b]
+All first-years gather in the Hall of Threads, and the nervous energy is palpable. Some students stand with practiced confidence. Others barely contain their anxiety. You see faces you've grown to know well over these months: friends, rivals, study partners, the quiet ones who surprised everyone with their brilliance, the loud ones who learned humility through failure.
+
+Everyone knows today matters.
+
+Izack, Aria, and Zara stand before the assembled students, their expressions more serious than you've ever seen. Even Izack's usual warm enthusiasm is tempered by something heavier—responsibility, perhaps, or the weight of what they're about to ask of you.
+
+*page_break
+
+[b]"The final trial,"[/b] Izack begins, his voice carrying to every corner but somehow feeling intimate, as if he's speaking to each student personally, [b]"is not like your expedition. This time, you won't face a carefully designed challenge in a controlled environment. You won't have safety wards and emergency portals standing ready to pull you back if things go wrong."[/b]
 
 *line_break
 
-Aria continues:
+Aria continues, her sharp eyes sweeping across the gathered students:
 
-[b]"This time, you'll face an actual crisis. Something real, immediate, and dangerous."[/b]
-
-*page_break
-
-Zara finishes:
-
-[b]"We've identified dimensional instabilities throughout Avalon—minor tears in the fabric of the pocket dimension. Normally, we'd handle these ourselves. But you're ready to try."[/b]
-
-*line_break
-
-A holographic map appears, showing dozens of flickering points of instability scattered across Avalon.
+[b]"This time, you'll face an actual crisis. Something real, immediate, and genuinely dangerous. The kind of situation that working mages encounter in the field when dimensional magic refuses to behave according to theory."[/b]
 
 *page_break
 
-Izack gestures to the map.
+Zara finishes, her hybrid nature making her voice resonate with both mortal concern and something more cosmic:
 
-[b]"You'll work in teams of three. Each team will be assigned an instability to repair. Success means you graduate. Failure means..."[/b]
+[b]"We've identified dimensional instabilities throughout Avalon—minor tears in the fabric of our pocket dimension where the boundaries between realities have grown thin. Normally, we three would handle these repairs ourselves. But you're ready. You've proven yourselves capable. Now prove you can apply that capability when it truly counts."[/b]
 
 *line_break
 
-He doesn't finish, but the implication is clear.
+A holographic map materializes in the air above the assembled students—Aria's work, precise and beautiful, showing Avalon in intricate three-dimensional detail. Across its surface, dozens of flickering red points pulse like wounds in living flesh. Each one marks a dimensional instability, a place where the fabric of this pocket reality has grown dangerously thin.
 
 *page_break
 
-The teams are called out.
+Izack gestures to the map, and you notice his hand isn't quite steady. He's worried. Genuinely worried about sending students into real danger, about the responsibility he's taking by trusting you with this.
 
-You're assigned to work with two other students and given your target:
+[b]"You'll work in teams of three,"[/b] he explains. [b]"Each team will be assigned one instability to repair. Success means you've demonstrated the skill, judgment, and collaborative ability to graduate. You'll receive your degrees, your certifications, your place among Avalon's alumni."[/b]
 
 *line_break
 
-A dimensional tear near the World Tree's roots—one of the most critical structures in all of Avalon.
+He pauses, and the weight of what he's not saying fills the silence.
+
+[b]"Failure means..."[/b]
+
+He doesn't finish. He doesn't need to. The implication hangs in the air like smoke: failure could mean dimensional collapse, reality tears, students scattered across realities or worse.
+
+But also: failure means not graduating. Means more training, more time, the shame of needing a second chance at what others managed on their first attempt.
 
 *page_break
 
-Polly lands on your shoulder as you prepare.
+The teams are called out one by one, students' names echoing through the Hall as they form their assigned groups. Some clusters look confident, already coordinating. Others look terrified, barely holding themselves together.
 
-[i]"Well. This is it. The final exam. No pressure—only the structural integrity of the dimension we're all living in depends on your success."[/i]
+Then you hear your name called.
+
+You're assigned to work with two other students—people whose names have become familiar over three months of shared classes and collaborative exercises.
 
 *line_break
 
-[i]"Good luck with that."[/i]
+Your target appears on the map, highlighted in pulsing red:
+
+A dimensional tear near the World Tree's roots—one of the most critical, most sensitive structures in all of Avalon. The very foundation from which this entire pocket dimension draws its connection to other realms.
+
+If you fail here, the consequences won't be minor.
+
+*page_break
+
+Polly lands on your shoulder with more weight than usual, as if the seriousness of the moment has made even her heavier.
+
+[i]"Well. This is it. The final exam. No pressure—only the structural integrity of the dimension we're all currently living in depends on your success. Also your graduation. Also possibly your life. But other than that, totally casual."[/i]
+
+*line_break
+
+[i]"Good luck with that. I'll be watching. Narrating. Possibly composing a memorial poem if things go catastrophically wrong. You know, raven things."[/i]
 
 *page_break
 

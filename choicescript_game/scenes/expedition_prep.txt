@@ -13,37 +13,47 @@
 
 *line_break
 
-Izack calls an assembly in the Hall of Threads.
+The morning air tastes different today—charged with possibility and the faint ozone scent that always accompanies major dimensional workings. Izack has called an assembly in the Hall of Threads, that grand chamber where the three paths of Avalon's teaching philosophy converge into unified purpose.
 
-All first-year students gather, buzzing with nervous excitement. This is it—the moment everyone's been preparing for.
+All first-year students gather in nervous clusters, their excited chatter echoing off crystalline walls. You can feel the collective anticipation building like static before a storm. This is it—the moment everyone's been preparing for since arriving at the Academy.
 
 *page_break
 
-[b]"Tomorrow,"[/b] Izack begins, [b]"you'll each journey to one of Avalon's pocket dimensions for your first solo expedition."[/b]
+[b]"Tomorrow,"[/b] Izack begins, his voice carrying to every corner without needing amplification—dimensional acoustics designed by Aria herself, [b]"you'll each journey to one of Avalon's transplanted biomes for your first true expedition."[/b]
 
 *line_break
 
-A murmur runs through the assembled students.
+A murmur runs through the assembled students—part excitement, part terror, all of it honest. You catch glimpses of other faces: some determined, some pale, all of them aware that something fundamental is about to change.
 
-[b]"You've learned theory. You've practiced techniques. But there's no substitute for real experience. You'll face challenges that can't be simulated in a classroom."[/b]
+[b]"You've learned theory in these halls,"[/b] Izack continues, gesturing to the Archives visible through the transparent walls. [b]"You've practiced techniques in safe environments. But there's no substitute for real experience, for facing challenges that can't be simulated in a classroom, for discovering what you're truly capable of when magic stops being theoretical and becomes utterly, terrifyingly real."[/b]
 
 *page_break
 
-Aria steps forward.
+Aria steps forward to stand beside Izack, her presence radiating controlled power and absolute precision. Where Izack inspires through enthusiasm, Aria commands through competence.
 
-[b]"Three realms are open to first-years: the Singing Dunes, the Verdant Tithe, and the Rune Glacier. Each tests different aspects of dimensional magic. Choose wisely."[/b]
+[b]"Three biomes are open to first-years,"[/b] she announces, her voice carrying the weight of someone who has personally mapped every inch of dimensional space being discussed. [b]"The Singing Dunes of Sul'dessar, transplanted from the mortal realm's harshest desert. The Verdant Tithe, an ancient forest where consciousness itself takes root. And the Rune Glacier, where magic older than language waits frozen in living ice."[/b]
 
 *line_break
 
-Zara adds:
+She pauses, letting the gravity of those names settle into every student's awareness.
 
-[b]"You won't be in danger—we monitor all expeditions closely. But you will be challenged. Pushed to your limits. And what you learn there will shape your entire magical career."[/b]
+[b]"Each tests different aspects of dimensional magic. Each will push you to your absolute limits in different ways. Choose wisely—this choice will shape not just your expedition, but your entire magical career."[/b]
+
+*line_break
+
+Zara adds from her position near the World Tree sapling, her hybrid nature making her voice resonate with harmonics that speak to both mortal and magical bloodlines:
+
+[b]"You won't be in true danger—we monitor all expeditions with wards and scrying surfaces. Emergency portals stand ready. But you [i]will[/i] be challenged. You [i]will[/i] be pushed beyond comfort into growth. And what you learn in those crucible moments will become part of who you are forever."[/b]
 
 *page_break
 
-Polly, perched on your shoulder, mutters:
+Polly, perched on your shoulder, leans close to your ear and mutters in that stage-whisper she uses when she wants everyone to hear but pretends she's being discreet:
 
-[i]"This is the dramatic part where they tell you it's dangerous but safe. Classic teacher contradiction."[/i]
+[i]"This is the dramatic part where they tell you it's dangerous but safe, challenging but supervised, potentially life-changing but totally routine. Classic teacher contradiction. Though to be fair, they're not wrong—these expeditions [b]are[/b] all those things simultaneously. Dimensional magic specializes in paradox."[/i]
+
+*line_break
+
+Several nearby students suppress smiles. Polly's running commentary has become a beloved part of Academy life, even when—especially when—she's puncturing the solemnity of formal occasions.
 
 *page_break
 

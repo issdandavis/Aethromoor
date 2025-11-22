@@ -1,17 +1,21 @@
-Beyond the council doors, a triad of portals rotates in perfect alignment. Each promises a different future. Threads of light braid between them, knitting the fates of Avalon together.
+Beyond the council doors, reality shifts into something more fundamental than architecture. A triad of portals rotates in perfect alignment, each one pulsing with a different resonance, each promising a different path forward. This is the Crossroads—where Avalon's students must choose what kind of magic they'll pursue, what kind of person they'll become.
+
+The portals themselves are works of art. The first shimmers with the deep blue of midnight oceans and tastes of ancient knowledge—this is the path to the Archives, where the Spiral's accumulated wisdom waits for those brave enough to listen without drowning in infinity. The second gleams silver like spears in starlight, thrumming with disciplined purpose—the martial halls, where honor is forged through protection rather than conquest. The third pulses with prismatic light that shifts through every color imaginable—the council chambers, where balance is both taught and tested.
+
+Threads of light braid between the three portals, knitting the fates of Avalon together. Because this is the deeper truth: the paths aren't separate. They inform each other. The scholar needs the warrior's discipline. The warrior needs the scholar's wisdom. Both need the diplomat's understanding of balance. Izack Thorne designed it this way deliberately—to teach that choosing a path doesn't mean abandoning the others, merely deciding where to begin.
 
 *comment Branch into dedicated scenes to show *goto_scene usage and stat checks.
 *choice
   #Step through the resonant portal tuned to the Spiral.
     *if attunement >= 60
-      The portal sings in harmony with you. Knowledge floods your mind, and the Spiral welcomes you as a student.
+      You approach the portal and it sings for you—a harmonic so perfect it makes your chest ache with something that might be joy or might be recognition. This is what you've been training for: the ability to listen so deeply that the universe teaches you its patterns. The portal welcomes you as a student, not because you're powerful but because you're willing to learn. Knowledge floods your mind as you pass through—not facts but understanding, the difference between knowing about magic and truly comprehending it. The Spiral recognizes you as one of its own, someone who will preserve and expand what Avalon has built. The Archives await, infinite and patient.
       *goto_scene archives
-    Your attunement falters, and the portal resists. You gather stray harmonics to study later.
+    Your attunement wavers at the threshold—not because you lack talent but because you're not quite ready to surrender to the depths of what the Archives demand. The portal resists gently, like a teacher saying "not yet, but soon." You gather the stray harmonics that escape anyway, threading them into your understanding to study later. Every attempt teaches something, even the ones that don't fully succeed.
     *set attunement +5
     *goto_scene council
   #Enter the martial hall marked by silver spears.
-    The wardens salute as you pass. Honor carries you forward into service.
+    The wardens salute as you pass through the silver portal—not because you outrank them but because you've chosen to stand beside them. The gesture carries weight here: acknowledgment that protection is sacred work, that being the shield matters as much as being the sword. Honor carries you forward into service, into the understanding that sometimes love means being willing to face danger so others don't have to. The martial hall opens before you, resonating with the rhythms of disciplined purpose.
     *goto_scene wardens
   #Seek ${mentor} for guidance before you decide.
-    ${mentor} meets your eyes. "The Spiral shifts for those who listen. Remember what you want to protect."
+    ${mentor} waits beside the prismatic portal, as if knowing you'd need this conversation before choosing. Your mentor's eyes hold understanding without judgment—the patient wisdom of someone who remembers standing at this exact crossroads, feeling this exact uncertainty. "The Spiral shifts for those who listen," ${mentor} says quietly, one hand resting gently on your shoulder. "Remember what you want to protect. Not what you think you should protect, not what others expect you to protect, but what makes your heart sing with the need to keep it safe. That truth will guide you better than any advice I could give." The words settle into you like stones into still water, creating ripples that will expand long after this moment passes.
     *goto_scene council

@@ -9,37 +9,45 @@
 
 *label start
 
-After settling into Avalon Academy, you're called to the Familiar Bonding Chamber—a circular room where leylines converge in shimmering patterns.
+After settling into Avalon Academy and beginning your studies, you're called to the Familiar Bonding Chamber—a circular room carved from a single piece of living crystal that grows at the convergence of thirteen major leylines. The floor is inscribed with runes from every magical tradition Izack Thorne has encountered: Dragonkin geometry, Auridani song-symbols, even demonic contract-marks purified and repurposed for collaborative magic. The very air hums with potential, with the promise of partnership.
 
 *page_break
 
-Izack stands at the center, surrounded by various magical creatures, each one a potential familiar.
+Izack stands at the center of the intricate pattern, surrounded by various magical creatures. Each one is unique, each one waiting to bond with a student who will understand them.
 
-[b]"Every mage at Avalon bonds with a familiar,"[/b] he explains. [b]"These aren't pets or servants—they're partners. Equals. Your familiar will grow with you, learn with you, and sometimes know you better than you know yourself."[/b]
+[b]"Every mage at Avalon bonds with a familiar,"[/b] he explains, his voice carrying that gentle enthusiasm that makes learning feel like discovery rather than duty. [b]"These aren't pets or servants—they're partners. Equals. Your familiar will grow with you, learn with you, challenge you when you need challenging, comfort you when you need comfort. Sometimes they'll know you better than you know yourself. This bond is sacred work."[/b]
 
 *line_break
 
-*page_break
-
-You can already feel Polly's presence—she's been with you since arrival, her sarcastic commentary a constant companion.
-
-But Polly is... unusual. She's bonded to Avalon itself, an ancient dimensional anchor. She can narrate multiple students' stories simultaneously.
+He gestures to the assembled creatures with affection in his eyes, and you realize: Izack has helped each of these beings find their way here, has prepared them for this moment just as he's prepared you.
 
 *page_break
 
-Polly lands on your shoulder.
+You can already feel Polly's presence—she's been with you since arrival, her sarcastic commentary a constant companion through every lesson, every choice, every moment of doubt. But you've learned that Polly is... unusual. She's not just a familiar—she's bonded to Avalon itself, an ancient dimensional anchor who existed before Izack founded the Academy. She's Polydimensional Manifestation of Accumulated Wisdom and Occasional Sarcasm, and she can narrate multiple students' stories simultaneously, existing in several places at once through the peculiar magic of her nature.
 
-[i]"Right. Decision time, ${name}. I can be your familiar if you want—I'm already invested in your story. But fair warning: I come with three hundred years of sarcasm and a tendency to spoil plot points."[/i]
+*page_break
+
+Polly lands on your shoulder with familiar weight, her talons gentle despite their sharpness.
+
+[i]"Right. Decision time, ${name}. I can be your familiar if you want—I'm already invested in your story, clearly. Three hundred years of watching mages come and go, and somehow you've gotten under my metaphorical feathers."[/i]
 
 *line_break
 
-[i]"Or you can bond with one of the other familiars here. Each has unique gifts. Choose wisely."[/i]
+She shifts her weight, and you sense something beneath the sarcasm: genuine affection, carefully hidden but unmistakably there.
+
+[i]"But fair warning: I come with three hundred years of accumulated sarcasm, a tendency to spoil plot points when I think you're being dense, and enough memories to make me occasionally melancholy. Also, I've seen how most magical partnerships end, and it's made me somewhat cynical about promises."[/i]
+
+*line_break
+
+[i]"Or you can bond with one of the other familiars here. Each has unique gifts, untainted by centuries of accumulated experience. Fresh starts have their own magic. Choose wisely—this bond will shape everything that comes after."[/i]
 
 *page_break
 
 *label familiar_choice_menu
 
-Izack gestures to the assembled creatures:
+Izack gestures to the assembled creatures with pride and affection, like a parent introducing beloved children.
+
+[b]"Each familiar here has chosen to seek a bond. They're not compelled—that would violate everything Avalon stands for. They've come here freely, hoping to find someone who will understand them, work with them, grow alongside them. Take your time. Feel which one resonates with your soul."[/b]
 
 *page_break
 
@@ -49,31 +57,43 @@ Izack gestures to the assembled creatures:
     *set familiar_name "Polly"
     *set polly_is_familiar true
     *set familiar_personality "sarcastic"
+    
+    You've already made your choice, really. It was made in a hundred small moments—every time Polly's commentary made you laugh, every time her wisdom disguised as sarcasm guided you toward better decisions, every time her presence reminded you that you weren't alone in this impossible journey.
     *goto polly_bond
 
   #Bond with Lumina—a phoenix chick wreathed in gentle starlight, symbol of rebirth and hope.
     *set familiar_type "phoenix"
     *set familiar_personality "hopeful"
+    
+    A small phoenix chick watches you with eyes like captured suns. They're wreathed not in fire but in gentle starlight—the same luminescence that lights Avalon's artificial sky. Lumina represents hope, rebirth, the promise that even when everything burns, beauty can rise from ashes.
     *goto lumina_bond
 
   #Bond with Whisper—a shadow-fox that flickers between dimensions, master of secrets.
     *set familiar_type "shadowfox"
     *set familiar_personality "mysterious"
+    
+    A fox made of living shadow sits at the edge of the circle, flickering in and out of full visibility. Whisper exists partially in this dimension and partially in others, moving through the spaces between like thought moves through consciousness. They know secrets that haven't been spoken yet, truths that hide in darkness.
     *goto whisper_bond
 
   #Bond with Ember—a small fire elemental with a mischievous streak and fierce loyalty.
     *set familiar_type "elemental"
     *set familiar_personality "mischievous"
+    
+    A tiny fire elemental dances in the air, leaving trails of warmth but never burning. Ember is pure mischief and fierce loyalty combined, the kind of companion who will play pranks on your rivals and fight battles you didn't know you needed won.
     *goto ember_bond
 
   #Bond with Quartz—a crystalline serpent that hums with dimensional frequencies.
     *set familiar_type "serpent"
     *set familiar_personality "wise"
+    
+    A serpent carved from living crystal coils near the leyline convergence, their form resonating with the Spiral's own frequency. Quartz perceives magic the way others perceive light—directly, instinctively, with a wisdom that transcends mere knowledge.
     *goto quartz_bond
 
   #Bond with Void—a small aberration from between dimensions, utterly unique.
     *set familiar_type "void"
     *set familiar_personality "alien"
+    
+    Something small and indefinable hovers at the very edge of reality, neither fully present nor fully absent. Void comes from the spaces between dimensions, where the rules of normal existence don't quite apply. They're utterly unique—and somewhat unsettling—but their perspective reveals truths others can't even perceive.
     *goto void_bond
 
 *comment ================================================
@@ -82,21 +102,23 @@ Izack gestures to the assembled creatures:
 
 *label polly_bond
 
-You extend your hand to Polly.
+You extend your hand to Polly, letting the gesture speak what words might diminish.
 
-"I choose you. You've been with me from the beginning. Let's make it official."
+"I choose you. You've been with me from the beginning—through every doubt, every choice, every moment I wasn't sure I belonged here. Let's make it official. Let's be partners, not just... whatever we've been until now."
 
 *line_break
 
-For once, Polly is speechless.
+For once—perhaps for the first time in three centuries—Polly is genuinely speechless.
 
 *page_break
 
-She hops onto your extended hand, her metallic feathers shimmering with runic patterns.
+She hops onto your extended hand, her metallic feathers shimmering with runic patterns that seem to glow brighter than before. Her talons grip gently, and you feel something shift in the air between you—not magic being cast, but a truth being acknowledged.
 
-[i]"Well,"[/i] she finally says, her voice softer than usual. [i]"That's... unexpected. And touching. Which is annoying because I was going for cynical detachment."[/i]
+[i]"Well,"[/i] she finally says, her voice softer than usual, carrying an emotion you've never heard from her before. [i]"That's... unexpected. And touching. Which is annoying because I was going for cynical detachment as my defining characteristic."[/i]
 
 *line_break
+
+But despite the sarcasm, you can feel her gratitude, her relief, her joy at being chosen. At being wanted, not just tolerated or utilized.
 
 Izack smiles.
 

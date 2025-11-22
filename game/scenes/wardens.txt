@@ -1,27 +1,31 @@
-The martial hall thrums with sparring and shouted cadence. Racks of spears line the walls beneath banners of past victories.
+The martial hall thrums with the rhythm of sparring and shouted cadence—but this is more than simple combat training. The wardens of Avalon practice a unique discipline, one that channels their protective instincts through collaborative magic. When they fight together, their movements synchronize into patterns that strengthen Avalon's dimensional boundaries. Every drill is also a ritual. Every formation is also a ward.
+
+Racks of crystalline spears line the walls, each weapon inscribed with the names of wardens who've fallen defending the realm. Beneath them hang banners celebrating not individual victories but collective triumphs: "The Day the Portals Held," "When Three Became One Shield," "The Night We Chose to Stand." This is what honor means in Avalon—not personal glory, but the willingness to be the wall that lets others flourish.
+
+The hall itself responds to the wardens' discipline. The floor glows where their feet strike in unison. The air shimmers with protective magics that build and build with each synchronized movement. You're not just watching soldiers train. You're witnessing magic being born from dedication, from the choice to protect rather than conquer.
 
 *choice
   #Pledge yourself to the wardens' code.
-    You kneel, reciting the vows. Steel rings as you receive a badge.
+    You kneel before the captain—a scarred veteran whose eyes hold the calm certainty of someone who has stood between innocents and annihilation more times than they can count. The vows you recite are ancient, passed down from the first wardens who guarded dimensional boundaries in the age before Avalon existed. "I stand between. I am the wall that does not break. My strength serves those who cannot defend themselves. My courage protects those who dare to dream." As you speak each line, you feel Avalon itself listening, weighing your sincerity. Steel rings against steel as the captain pins a badge to your chest—warm from their hand, inscribed with glyphs that will glow when danger threatens. You are oathbound now, and the realm marks you as one of its protectors. The other wardens strike their spears against the floor in approval, and the sound echoes through the Spiral like thunder.
     *set honor +15
     *set oathbound true
     *set council_trust +10
     *goto after_wardens
   #Test the wardens' tactics with a new formation.
-    Your suggestion closes gaps in their defense. The captain nods approvingly.
+    You've been studying their movements, and you see it: a gap in their defensive pattern, a moment when three become two and the ward weakens. Your suggestion is simple but elegant—a shift in timing that lets the third warden pivot into support rather than leaving an opening. The captain listens, eyes narrowed in concentration, then nods slowly. "Demonstrate," they command. You step into formation with two veterans, letting your body learn the rhythm they've practiced for years. When you shift the timing as you suggested, the ward that forms is noticeably stronger. The gap closes. Three become one shield, just as the ancient banners promised.
     *if honor >= 60
-      Your reputation precedes you. The squad drills your idea into doctrine.
+      Your reputation precedes you—the council has spoken of your balanced approach, your understanding of how protection and knowledge support each other. The captain doesn't just approve your formation; they integrate it into formal doctrine, renaming the pattern "The Scholar's Shield" in your honor. Within days, every warden squad in Avalon will be drilling your innovation. You've contributed to the realm's defenses in a way that will outlast your presence here.
       *set council_trust +15
       *goto after_wardens
     *else
-      The captain asks you to prove yourself first.
+      The captain acknowledges the merit in your idea but remains cautious. "Good thinking," they say, "but trust is earned through consistency, not clever observations. Prove yourself in the field, and we'll make this official." Still, you notice the wardens practicing your formation when they think you're not watching. The seed has been planted.
       *set honor +5
       *goto after_wardens
   #Ask the wardens what they fear most.
-    "Complacency," one whispers. "And portals that sing off-key."
+    The question surprises them. Warriors aren't often asked about fear—they're expected to embody courage without question. But you're genuinely curious, and something in your tone invites honesty. The youngest warden speaks first, voice quiet: "Complacency. The day we stop questioning whether we're ready, that's when we fail." An older veteran nods agreement and adds, with the faintest hint of a smile, "And portals that sing off-key. That's never a good sign—means the dimensional boundaries are stressed, about to tear. The universe has a sense of humor, but it's not usually funny." The captain watches this exchange with approval. You've reminded them that vulnerability isn't weakness, that acknowledging fear is the first step to facing it wisely. Your attunement grows—not to magic in the abstract, but to people, to the truth beneath their armor.
     *set attunement +5
     *goto after_wardens
 
 *label after_wardens
-The captain clasps your forearm. "When the council calls, remember this hall."
+The captain clasps your forearm in the warriors' grip—firm, steady, a promise without words. "When the council calls," they say, voice carrying the weight of battles fought and won, "remember this hall. Remember that you're never alone in Avalon. The moment you need us, we'll be there. That's what the oath means. That's what being a warden is." You understand now why Izack Thorne built this hall, why he insisted that Avalon needed defenders as much as it needed scholars. Because knowledge without protection is fragile. Because wonder without safety cannot flourish. Because sometimes love means being willing to stand between the light and the dark.
 *goto_scene convergence

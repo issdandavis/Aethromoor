@@ -1,20 +1,24 @@
-The skybridge to the Aerie arches above clouds. Banners from distant houses ripple in the wind. Below, the Spiral resonates with each step you take.
+The skybridge to the Aerie arches above clouds like a ribbon of living crystal, its surface inscribed with runes that glow faintly in the twilight. This is one of Avalon's wonders—a pathway between floating islands, suspended not by mere engineering but by the collective will of those who built it, layer upon layer of collaborative magic woven so tightly it became permanent.
+
+Banners from distant houses ripple in the wind: House Ravencrest's twilight boundary, House Silverglade's eternal spring, the Bonecasters of Shardfold Coast with their death-defying sigils. Each represents a lineage that has contributed to Avalon's growth, magical traditions that Izack Thorne wove together into something greater than their sum.
+
+Below, far below, the Spiral of Eternity resonates with each step you take—a cosmic heartbeat that connects this pocket dimension to the World Tree, to the mortal realm of Aethermoor, to places you've only read about in ancient texts. The rhythm is hypnotic, inviting, as if the realm itself is singing you home.
 
 *choice
   #Pause to read the banners.
-    The sigils speak of alliances and old debts. The wardens note your patience.
+    You stop, letting the wind carry their stories to you. Each sigil is more than decoration—it's a compressed history, a magical record of alliances forged and debts honored. House Ravencrest's banner shows the moment Aria bound two dimensions together with nothing but her will and a crystalline focus. House Silverglade's depicts the Verdant Tithe, that ancient forest where thoughts have weight. The Bonecasters' standard glows with necromantic power, beautiful and terrible in equal measure. The wardens nearby note your respect for these histories. Patience, they seem to say, is the first virtue of those who would understand Avalon's deeper mysteries.
     *set honor +5
     *set council_trust +5
     *goto next
   #Listen for echoes in the Spiral.
-    A rhythm of distant bells answers you. Your attunement sharpens.
+    You close your eyes and let your awareness sink into the rhythm beneath your feet. The Spiral isn't just a metaphor—it's the fundamental structure of Avalon itself, a dimensional architecture that connects all things in an eternal dance. You hear it now: the distant bells of the Aerie Conservatory, the whispered chants from the Archives, the clash of steel from the martial halls, all woven into a single harmonic chorus. For a moment, you understand what Izack Thorne must have felt when he first created this realm—the joy of finding harmony in chaos, of listening so deeply that the universe teaches you its song. Your attunement sharpens, and the world becomes clearer, more vibrant, more real.
     *set attunement +5
     *goto next
   #Move quickly; the council is waiting.
-    You stride forward. ${mentor} jogs to keep up.
+    Duty calls, and you answer with swift strides across the crystal bridge. But haste has its costs in Avalon—the realm responds better to those who take time to understand it. ${mentor} jogs to keep up, slightly breathless. "The council values punctuality," your guide says diplomatically, "but they value wisdom more. Remember that for next time." You've made it on schedule, but you wonder what insights you might have gained if you'd let yourself truly experience the journey rather than merely completing it.
     *set council_trust -5
     *goto next
 
 *label next
-You reach the council chambers. A portal shimmers, leading deeper into Avalon.
+You reach the council chambers, their doors carved from a single piece of World Tree wood—a gift from the parent tree in Aethermoor, given when Avalon's own sapling was still too young to provide such materials. A portal shimmers beside the entrance, its surface reflecting not your image but your potential, showing glimpses of who you might become. The realm is showing you possibilities, inviting you deeper into its mysteries.
 *finish

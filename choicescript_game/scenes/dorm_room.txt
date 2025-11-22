@@ -19,33 +19,37 @@
 
 *label start
 
-After the initial greetings and orientation, a second-year student named Marcus leads you through the winding corridors of the residential tower.
+After the initial greetings and orientation, a second-year student named Marcus leads you through the winding corridors of the residential tower. The walls here shift between states—sometimes solid stone, sometimes translucent crystal that reveals glimpses of other floors, other rooms, other students going about their lives in this impossible place.
 
-[b]"All first-years get their own room,"[/b] he explains, gesturing at the numbered doors. [b]"Avalon grows them custom. Literally. The Academy is a living dimension, remember?"[/b]
-
-*line_break
-
-He stops in front of a door marked with your name—${name}—already inscribed in flowing script.
-
-[b]"The room will shape itself to your preferences. Just... think about what you want, and the Academy will listen. It's actually pretty cool."[/b]
-
-*page_break
-
-You step inside.
-
-The room is... empty. No, not empty—[i]potential[/i]. The walls shimmer with soft dimensional energy, waiting. There's a basic bed, a desk, and a window, but everything else is undefined, like a sketch waiting to be colored in.
+[b]"All first-years get their own room,"[/b] Marcus explains, gesturing at the numbered doors with pride in his voice. [b]"Avalon grows them custom. Literally. The Academy is a living dimension, remember? Izack Thorne designed it so the realm itself responds to student needs. Your room will be as unique as you are."[/b]
 
 *line_break
 
-Polly hops off your shoulder and surveys the space critically.
+He stops in front of a door that seems to have just appeared—or perhaps it's been waiting here for years, knowing you'd eventually arrive. Your name is already inscribed in flowing script that shifts through colors: ${name}. The letters pulse gently, as if the door is breathing.
 
-[i]"Right. Your first major decision: interior design. How terrifyingly domestic."[/i]
+[b]"The room will shape itself to your preferences,"[/b] Marcus continues, his expression serious now. [b]"Just... think about what you want, and the Academy will listen. It's actually pretty cool. Though I should warn you—be careful what you wish for. Avalon has a sense of humor, and sometimes it gives you what you need rather than what you asked for."[/b]
 
 *page_break
 
-You reach out to touch the wall, and immediately feel the Academy's consciousness brush against yours. It's asking a question—not in words, but in feelings:
+You step inside, and the air changes instantly—warmer, somehow more welcoming, as if the space has been waiting specifically for you to arrive.
 
-[i]What kind of space do you need?[/i]
+The room is... empty. No, not empty—[i]potential[/i]. Pure, unlimited potential. The walls shimmer with soft dimensional energy, that same iridescent quality you've seen in leylines and portal boundaries. There's a basic bed frame that looks like it's made from condensed starlight, a desk constructed from World Tree wood (or at least a sapling grown from Avalon's connection to it), and a window that currently shows the courtyard but could probably be convinced to show anywhere in the realm. Everything else is undefined, waiting—like a canvas before the first brushstroke, like a story before the first word.
+
+*line_break
+
+Polly hops off your shoulder and surveys the space with her critical raven eye, head tilting as she examines corners and possibilities.
+
+[i]"Right. Your first major decision at Avalon: interior design. How terrifyingly domestic. Though I suppose where you choose to rest says a lot about where you hope to grow."[/i]
+
+*page_break
+
+You reach out hesitantly to touch the wall, and the moment your fingers make contact, you feel it—Avalon's consciousness, vast and curious and infinitely patient, brushing against yours like a friend greeting you after a long absence. It's asking a question, not in words but in feelings, in the language that exists beneath language:
+
+[i]What kind of space do you need? Not want—need. What will help you become who you're meant to be?[/i]
+
+*line_break
+
+This is magic at its most fundamental: intention meeting possibility, creating reality from the space between.
 
 *page_break
 
@@ -56,19 +60,23 @@ You reach out to touch the wall, and immediately feel the Academy's consciousnes
     *set dorm_comfort +20
     *set collaboration +5
 
-    You think of warmth. Comfort. Home.
+    You think of warmth. Comfort. Safety. Home—not the physical place you left behind, but the feeling of home, that deep sense of belonging that makes rest possible.
 
-    The room [i]responds[/i].
+    The room [i]responds[/i] immediately, eagerly, as if it's been waiting for permission to become this.
 
     *page_break
 
-    The walls shift to warm amber and deep burgundy. Soft rugs spread across the floor. The bed expands into a plush nest of pillows and blankets. A fireplace grows from the wall—not burning wood, but captured starlight that radiates gentle warmth.
+    The walls shift to warm amber and deep burgundy, colors that remind you of sunset and hearth-fire and autumn leaves. Soft rugs spread across the floor like moss growing in time-lapse, their patterns incorporating symbols from a dozen different magical traditions woven together in harmony. The basic bed expands into a proper nest—plush pillows and blankets that look like they were spun from clouds and dreams, all arranged in a way that practically begs you to collapse into them after a long day of study.
 
     *line_break
 
-    Polly settles onto a cushion that appeared specifically for her.
+    A fireplace grows from the wall—but it's not burning wood. Instead it holds captured starlight, the same kind that lights Avalon's artificial sun, radiating gentle warmth without smoke or ash. The light dances across the walls, creating shadows that move like stories being told.
 
-    [i]"Well. I approve. If I must narrate your story, at least I'll be comfortable doing it."[/i]
+    *line_break
+
+    Polly settles immediately onto a cushion that appeared specifically for her—deep purple, positioned perfectly to catch both the firelight and your attention when she wants to offer commentary.
+
+    [i]"Well. I approve. If I must narrate your story, at least I'll be comfortable doing it. Though I notice Avalon gave me the prime perch. The realm has excellent taste."[/i]
 
     *goto furniture_selection
 
@@ -78,21 +86,29 @@ You reach out to touch the wall, and immediately feel the Academy's consciousnes
     *set collaboration +5
     *set aria_relationship +5
 
-    You think of clarity. Focus. Knowledge.
+    You think of clarity. Focus. Knowledge pursued with single-minded dedication. You imagine yourself surrounded by books and notes, lost in research, finding truth in text.
 
-    The room [i]transforms[/i].
+    The room [i]transforms[/i] in response to that vision.
 
     *page_break
 
-    The walls become a soft cream color. The window expands, flooding the space with natural light. Bookshelves grow from the walls in elegant spirals. The desk multiplies into a proper research station with multiple surfaces.
+    The walls become a soft cream color that seems to glow with its own inner light—not bright enough to hurt, but bright enough that you could read anywhere in the room without additional illumination. The window expands dramatically, flooding the space with natural light (or whatever Avalon uses to simulate it). The view shifts from the courtyard to overlook the Archives themselves, as if the realm knows you'll want to be reminded of all that knowledge waiting to be discovered.
 
     *line_break
 
-    A small library ladder appears, providing access to the higher shelves.
+    Bookshelves grow from the walls in elegant spirals that follow the geometry of leylines and the Golden Ratio both. They're empty now, but they won't be for long—you can already imagine filling them with texts from Avalon's vast libraries, building your own curated collection of wisdom.
 
-    Polly perches on a reading stand.
+    *line_break
 
-    [i]"A scholar's retreat. Aria would approve. Though I hope you actually plan to use all these shelves."[/i]
+    The basic desk multiplies into a proper research station with multiple surfaces, each one positioned at slightly different heights for different purposes: writing, reading, examining artifacts, spreading out maps and charts.
+
+    *line_break
+
+    A small library ladder appears, providing access to the higher shelves. It looks like it was carved from a single piece of World Tree wood, smooth and warm to the touch.
+
+    Polly perches on a reading stand that definitely wasn't there a moment ago.
+
+    [i]"A scholar's retreat. Aria would approve. Though I hope you actually plan to use all these shelves. Nothing sadder than an empty library in a room built for learning."[/i]
 
     *goto furniture_selection
 

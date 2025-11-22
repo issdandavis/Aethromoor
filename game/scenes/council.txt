@@ -1,29 +1,33 @@
-The council chamber is a ring of suspended platforms. Holographic maps of the Spiral shimmer between the elders.
+The council chamber defies ordinary architecture. It's a ring of suspended platforms that float in space without visible support, each one representing a different magical tradition that Izack Thorne brought together when he founded Avalon. The Runic Engineers have their platform inscribed with living glyphs. The Elementalists stand on one that shifts between earth, fire, water, and air. The Boundary Specialists occupy a station that exists partially in this dimension and partially in another, their forms occasionally flickering as they bridge realities.
+
+Between these platforms, holographic maps of the Spiral shimmer and rotate—not just representations but active scrying surfaces that show Avalon's current state in real-time. You can see the leylines pulsing, the dimensional boundaries flexing, the collaborative magic that holds everything together flowing like blood through living veins.
+
+The elders themselves are a study in contrasts: some ancient beyond measure, others surprisingly young but marked by the Spiral's favor. What they all share is a depth of understanding that goes beyond mere power. They've learned to listen. They've mastered the art of working together. And now they watch you, curious about what you might contribute to Avalon's ever-evolving story.
 
 *choice
   #Present a balanced plan to strengthen both wards and archives.
-    Elders exchange impressed glances.
+    You step forward with the confidence of someone who has learned Avalon's deepest lesson: that strength comes from harmony, not dominance. Your proposal weaves together defensive wards with archival expansion, showing how knowledge and protection inform each other. The martial traditions can benefit from archived tactical wisdom. The scholars' theoretical work can guide ward placement. Everything connects. Everything supports everything else. The elders exchange impressed glances—this is the kind of thinking Izack Thorne hoped to cultivate when he founded this realm. One elder, her eyes reflecting starlight, nods slowly. "You understand," she says, and somehow you know she means more than just your proposal. She means Avalon itself.
     *set honor +5
     *set attunement +5
     *set council_trust +10
     *goto after_council
   #Advocate for deeper research into the Spiral's song.
-    Not all elders approve, but ${mentor} speaks in your favor.
+    The Spiral of Eternity isn't just Avalon's foundation—it's its consciousness, its soul, the living architecture that connects all things. You argue passionately that understanding it better should be the realm's highest priority. Not all elders approve; some value practical defenses over theoretical research. But ${mentor} speaks in your favor, voice carrying the weight of years spent listening to what others dismissed as background noise. "The Spiral has been trying to teach us something," your mentor says. "Perhaps it's time we stopped assuming we know better and started listening more carefully." The council allows your research proposal, though you sense some skepticism. You've been given a chance to prove that curiosity can be as valuable as caution.
     *set attunement +10
     *set council_trust +5
     *goto after_council
   #Request permission to reopen a dormant portal.
-    The room stills. This is bold.
+    The room stills instantly. What you're proposing is dangerous—dormant portals are closed for a reason, usually because they lead somewhere Avalon isn't ready to face. To Varn'ka'zul perhaps, that demon realm where reality runs backward. Or to the Dimensional Fringe, where the space between spaces grows thin enough to tear. Or to places that don't yet have names, waiting in the dark between stars.
     *if council_trust >= 55
-      They allow a trial. Responsibility settles on your shoulders.
+      But you've proven yourself worthy of trust. The elders deliberate in silence, their minds linked through collaborative magic you can feel but not quite perceive. Finally, the eldest speaks: "We grant a trial opening, under supervision. The portal to the Echoing Caverns—where Izack Thorne first bridged dimensions—may be unsealed for study. But understand: this responsibility settles on your shoulders. If something comes through that we're not prepared for, the consequences will be yours to bear." You feel the weight of their trust like a physical thing, both gift and burden.
       *set resonance_mark true
       *set honor +5
       *goto after_council
     *else
-      The elders frown. "Earn our confidence first."
+      The elders' frowns carry disappointment more than anger. "Your boldness is noted," one says carefully, "but boldness without the council's confidence is merely recklessness. Earn our trust first. Prove you understand what you're asking for. Then we'll discuss opening doors that were closed for good reason." The refusal stings, but there's wisdom in it. Trust must be built, not demanded.
       *set council_trust -5
       *goto after_council
 
 *label after_council
-A bell tolls from deeper within the chamber, signaling a new phase of your time in Avalon.
+A bell tolls from deeper within the chamber—not a physical bell but a resonance that travels through the Spiral itself, announcing transitions and new beginnings. The sound carries harmonics that make your bones vibrate, that speak to something older than language. This isn't just a signal. It's Avalon itself acknowledging that something has shifted, that your presence here has changed the realm's trajectory in some small but meaningful way. The paths ahead are opening. The story continues.
 *goto_scene convergence
