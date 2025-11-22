@@ -1,24 +1,32 @@
 # 👉 START HERE
 
-## To Play the Game Right Now:
+## To Play the Game Right Now (bundled ChoiceScript engine)
 
 ### **1. Find this folder on your computer:**
 ```
 Avalon/
 ```
 
-### **2. Go into the game folder:**
+### **2. Open the packaged ChoiceScript build:**
 ```
-Avalon/game/
-```
-
-### **3. Double-click this file:**
-```
-index.html
+Avalon/choicescript_game/web/index.html
 ```
 
-### **4. Play!**
-The game opens in your browser. Click the choice buttons to play.
+### **3. If your browser blocks local files:**
+Run a quick local server, then refresh:
+```
+cd Avalon/choicescript_game/web
+python3 -m http.server 8000
+```
+Then open http://localhost:8000/ in your browser.
+
+### **4. Smoke-check (30 seconds):**
+- Load `choicescript_game/web/index.html`
+- Confirm the ChoiceScript UI renders (title, menu buttons, and opening text)
+- If anything fails to load, see `TROUBLESHOOTING.md` for fixes and CSIDE/IDE alternatives.
+
+### **5. Play!**
+Click the choice buttons to play.
 
 ---
 
@@ -30,7 +38,7 @@ Everything else in this repository is:
 - Development docs (in `docs/` folder)
 - Professional game version (in `choicescript_game/` folder)
 
-**But to just play? Open `game/index.html`**
+**But to just play? Open `choicescript_game/web/index.html`**
 
 ---
 
@@ -39,8 +47,10 @@ Everything else in this repository is:
 ```
 Avalon/
 │
-├── game/
-│   └── index.html ← PLAY THIS!
+├── choicescript_game/
+│   ├── scenes/
+│   ├── startup.txt
+│   └── web/index.html ← PLAY THIS!
 │
 ├── lore/
 │   └── [worldbuilding documents]
@@ -51,8 +61,7 @@ Avalon/
 ├── docs/
 │   └── [guides and plans]
 │
-└── choicescript_game/
-    └── [professional version for publishing]
+└── [other folders]
 ```
 
 ---
@@ -61,8 +70,9 @@ Avalon/
 
 - Can't find the Avalon folder? Search your computer for "Avalon"
 - Still stuck? Read `QUICK_START.md` for detailed instructions
-- Browser won't open index.html? Right-click → "Open With" → Choose your browser
+- Browser won't open index.html? Right-click → "Open With" → choose your browser or run the quick server above
+- Need alternatives (CSIDE/online IDE)? See `TROUBLESHOOTING.md`
 
 ---
 
-**The game is ready to play. Just find `game/index.html` and open it!**
+**The game is ready to play. Just find `choicescript_game/web/index.html` and open it!**

@@ -1,72 +1,36 @@
 # 🎮 QUICK START GUIDE
 ## Polly's Wingscroll: The First Thread
 
-**You have TWO versions of the game to choose from!**
+**The bundled ChoiceScript web build is ready to play.** You can launch it locally or use an external IDE if you prefer.
 
 ---
 
-## 🌟 VERSION 1: ChoiceScript (RECOMMENDED - Feels Like a Real App!)
+## 🌟 OPTION 1: Play the Bundled ChoiceScript Build (Recommended)
 
-This is the **professional version** that works like published Choice of Games titles.
+### **Play immediately**
 
-### **How to Play:**
+**Step 1: Open the packaged index:**
+- On your computer, go to: `Avalon/choicescript_game/web/`
+- Open `index.html` (it auto-redirects to the game)
 
-**Step 1: Download ChoiceScript** (Free!)
-- Go to: https://www.choiceofgames.com/make-your-own-games/choicescript-intro/
-- Click **"Download ChoiceScript"**
-- Unzip the downloaded file
+**Step 2: If your browser blocks local files:**
+- Run a quick local server from the same folder:
+```
+cd Avalon/choicescript_game/web
+python3 -m http.server 8000
+```
+- Then open http://localhost:8000/ in your browser.
 
-**Step 2: Install Your Game**
-- Open the `Avalon/choicescript_game/` folder on your computer
-- Copy **everything** inside it
-- Paste into ChoiceScript's `web/mygame/` folder (replace existing files)
+**Step 3: Smoke-check (1 minute):**
+- Confirm the ChoiceScript UI renders (title, menu buttons, first page of text)
+- If you see missing-script errors, refresh, then check `TROUBLESHOOTING.md`
 
-**Step 3: Play!**
-- Open ChoiceScript's `index.html` file
-- Click **"Test Game"** or just click through the index
-- **Your game loads like a real app!**
-
-### **Features You Get:**
+**Features in this build:**
 ✅ Professional save/load system
 ✅ Stats screen (click "Show Stats")
 ✅ Achievements that pop up
 ✅ Multiple paths and endings
 ✅ Same feel as published games
-
-### **Current Content:**
-- 10-15 minute playable demo
-- Character creation
-- Polly's introduction
-- 3 arrival paths
-- Full first lesson
-- Expedition selection
-
----
-
-## 🌐 VERSION 2: HTML (Quick & Easy)
-
-Simple web version - just open and play!
-
-### **How to Play:**
-
-**Step 1: Find the File**
-- On your computer, go to: `Avalon/game/`
-- Find `index.html`
-
-**Step 2: Open It**
-- Double-click `index.html`
-- OR right-click → "Open With" → Your Browser
-
-**Step 3: Play!**
-- The game opens in your browser
-- Click choice buttons to play
-- That's it!
-
-### **Features:**
-✅ Works immediately
-✅ No installation needed
-✅ Runs offline
-✅ Mobile-friendly
 
 ### **Current Content:**
 - Full game with 30+ scenes
@@ -76,16 +40,33 @@ Simple web version - just open and play!
 
 ---
 
+## 🌐 OPTION 2: Use an External IDE (CSIDE or Online ChoiceScript IDE)
+
+If you prefer an IDE workflow or run into local security restrictions, use CSIDE or the official online IDE (see `TROUBLESHOOTING.md`).
+
+### **CSIDE (Desktop) quick steps:**
+- Install CSIDE from https://github.com/ChoicescriptIDE/main/releases
+- Open `Avalon/choicescript_game/` as a project
+- Press **Play Test**
+
+### **Online ChoiceScript IDE quick steps:**
+- Open https://www.choiceofgames.com/make-your-own-games/choicescript-intro/
+- Launch **ChoiceScript IDE**
+- Upload `startup.txt` and the `scenes/` folder from `Avalon/choicescript_game/`
+- Click **Test** to run
+
+---
+
 ## 📊 COMPARISON
 
-| Feature | ChoiceScript | HTML |
-|---------|--------------|------|
-| **Setup** | Need to download CS first | Instant |
-| **Feel** | Professional game | Web page |
-| **Save/Load** | Built-in | Manual |
-| **Stats Screen** | Professional | Custom |
-| **Publishing** | Can go to app stores | Web only |
-| **Content** | Demo (expandable) | Full game |
+| Feature | Bundled ChoiceScript | CSIDE/Online IDE |
+|---------|----------------------|------------------|
+| **Setup** | Open `choicescript_game/web/index.html` | Import project/files |
+| **Feel** | Professional game | IDE preview |
+| **Save/Load** | Built-in | Built-in |
+| **Stats Screen** | Professional | Professional |
+| **Publishing** | Suitable base | IDE-only |
+| **Content** | Full game | Full game |
 
 ---
 
@@ -130,31 +111,23 @@ Simple web version - just open and play!
 
 ## 🐛 TROUBLESHOOTING
 
-### **ChoiceScript Version:**
+### **ChoiceScript Build:**
 
 **"The game won't load!"**
-- Make sure you copied files to the correct folder (`web/mygame`)
-- Check that `startup.txt` is in the main folder, not in a subfolder
-- Try refreshing the browser
+- Open the bundled launcher: `choicescript_game/web/index.html`
+- If the browser blocks file access, run `python3 -m http.server 8000` in that folder and retry at http://localhost:8000/
+- Refresh once if you saw a missing-script warning; the bundled `version.js` is included.
 
 **"I see errors about missing scenes!"**
-- The demo intentionally ends at expedition selection
-- Full content coming soon!
+- Double-check the `*scene_list` in `startup.txt` matches the files in `choicescript_game/web/mygame/scenes/`
+- Re-copy the `web/` folder from the repository if anything was modified locally.
 
 **"Stats aren't showing!"**
-- Click the "Show Stats" button in the game
-- It's usually in the upper right corner
+- Click the "Show Stats" button in the game (upper right)
+- If you edited stats, rerun the game after saving changes
 
-### **HTML Version:**
-
-**"Nothing happens when I click index.html!"**
-- Right-click → "Open With" → Choose your browser
-- Try a different browser (Chrome, Firefox, Safari)
-
-**"The game looks weird!"**
-- Make sure `style.css` and `game.js` are in the same folder
-- Clear your browser cache
-- Try a different browser
+### **Need CSIDE/IDE alternatives?**
+- Jump to `TROUBLESHOOTING.md` for CSIDE/online IDE instructions and rebuild steps.
 
 ---
 
@@ -175,8 +148,8 @@ Simple web version - just open and play!
 ## 🆘 NEED HELP?
 
 **Check these files:**
-- `choicescript_game/README.md` - Full ChoiceScript instructions
-- `game/README.md` - HTML version details
+- `TROUBLESHOOTING.md` - Alternative launch methods (CSIDE/IDE) and rebuild steps
+- `choicescript_game/README.md` - ChoiceScript-specific notes
 - `docs/AUTOMATION_GUIDE.md` - Advanced setup
 
 **Resources:**

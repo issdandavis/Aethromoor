@@ -1,0 +1,350 @@
+*comment YEAR THREE - TEACHING UNDERCLASSMEN SCENE
+*comment Show player's growth by having them mentor others
+*comment ~2500 words
+
+*label teaching_begins
+
+The morning sun streams through the tall windows of Classroom Seven as you arrange your notes nervously. Today marks a significant milestone—your first time teaching underclassmen as part of Avalon Academy's peer mentorship program.
+
+A group of wide-eyed first-year students files into the room, their faces a mixture of excitement and trepidation that you remember all too well from your own first year. It feels like a lifetime ago.
+
+"Welcome, everyone," you begin, your voice steadier than you expected. "I'm ${name}, and I'll be your peer instructor today."
+
+*if (evocation > abjuration) and (evocation > illusion) and (evocation > transmutation)
+    *set teaching_subject "evocation"
+    "Today, we're going to work on evocation—the art of channeling raw magical energy."
+    *goto teaching_philosophy
+*if (abjuration > evocation) and (abjuration > illusion) and (abjuration > transmutation)
+    *set teaching_subject "abjuration"
+    "Today, we're going to work on abjuration—the art of protection and defensive magic."
+    *goto teaching_philosophy
+*if (illusion > evocation) and (illusion > abjuration) and (illusion > transmutation)
+    *set teaching_subject "illusion"
+    "Today, we're going to work on illusion—the art of perception and misdirection."
+    *goto teaching_philosophy
+*if (transmutation >= evocation) and (transmutation >= abjuration) and (transmutation >= illusion)
+    *set teaching_subject "transmutation"
+    "Today, we're going to work on transmutation—the art of transformation and change."
+    *goto teaching_philosophy
+
+*label teaching_philosophy
+
+You look at the eager faces before you and consider your approach. How do you want to teach?
+
+*choice
+    #Take a strict, disciplined approach—clear rules and high standards.
+        *set teaching_style "strict"
+        *set discipline +10
+
+        "Magic is not a toy," you say firmly. "It requires discipline, precision, and respect. I expect your full attention and your best effort. Follow my instructions exactly, and you'll succeed."
+
+        The students straighten in their seats, some looking intimidated, others appearing more focused. You remember how Professor Zara commanded attention in her classes, and you channel some of that energy.
+
+        *goto first_lesson
+
+    #Use a collaborative approach—learn together, emphasize teamwork.
+        *set teaching_style "collaborative"
+        *set collaboration +10
+
+        "We're all learning here," you say with a warm smile. "I'm only two years ahead of you, which means I remember exactly what it's like to be in your shoes. Let's work through this together, help each other out."
+
+        The students visibly relax, and you see several of them exchange encouraging looks with their classmates. This feels right—this is how you learned best.
+
+        *goto first_lesson
+
+    #Be experimental and creative—encourage them to explore and innovate.
+        *set teaching_style "experimental"
+        *set creativity +10
+
+        "Magic is about discovery," you say enthusiastically. "Yes, there are fundamentals to learn, but I want you to experiment, to find your own style. Don't be afraid to try new things or make mistakes—that's how we grow."
+
+        The students lean forward with interest, and you can see sparks of excitement in their eyes. You think of Professor Izack's innovative approaches and hope to inspire that same curiosity.
+
+        *goto first_lesson
+
+*label first_lesson
+
+*if teaching_subject = "evocation"
+    You demonstrate a basic force bolt spell, the energy crackling between your fingers with practiced ease. Two years ago, you struggled to create even a flicker. Now, the magic responds to your will like a natural extension of yourself.
+
+    "The key is to feel the energy before you shape it," you explain. "Don't force it—guide it."
+
+*if teaching_subject = "abjuration"
+    You conjure a shimmering protective barrier, the shield forming smoothly around you. Two years ago, your barriers were fragile and unstable. Now, they're solid, responsive, perfectly controlled.
+
+    "Protection magic is about boundaries," you explain. "You're not building a wall—you're establishing a relationship between yourself and potential threats."
+
+*if teaching_subject = "illusion"
+    You weave a small illusion—a butterfly that flutters convincingly through the air before landing on your finger. Two years ago, your illusions were transparent and unconvincing. Now, they're indistinguishable from reality.
+
+    "Illusion isn't about lying," you explain. "It's about understanding perception so well that you can reshape it."
+
+*if teaching_subject = "transmutation"
+    You transform a piece of chalk into a delicate flower, the molecular restructuring happening smoothly under your control. Two years ago, your transmutations were crude and unstable. Now, they're elegant and precise.
+
+    "Transmutation is about seeing the potential in everything," you explain. "Every object wants to be something—we just help it along."
+
+The students begin practicing, and you move among them, offering guidance and corrections. You're surprised by how naturally this comes to you—how clearly you can see their mistakes because you made the same ones yourself.
+
+*if teaching_style = "strict"
+    "No, that's not quite right," you tell a struggling student. "You're rushing the incantation. Slow down. Precision matters more than speed." The student takes a breath and tries again, this time succeeding.
+
+*if teaching_style = "collaborative"
+    "Hey, you two should work together on this," you suggest, pairing up students whose strengths complement each other. "Share what you're feeling, what's working." They help each other through the exercise, both improving.
+
+*if teaching_style = "experimental"
+    "That's an interesting variation," you tell a student who's doing things differently. "Show the class what you discovered." The student beams with pride as they demonstrate their unique approach.
+
+By the end of the lesson, every student has made progress. You watch them file out, chattering excitedly about what they learned, and feel a warm satisfaction you've never experienced before.
+
+*goto struggling_student
+
+*label struggling_student
+
+The next week, you're working with the same group when you notice one student—a small, nervous-looking girl named Elara—hanging back, her attempts at the spell failing repeatedly.
+
+"I just don't get it," she says quietly when you approach. Her eyes are glassy with frustrated tears. "Everyone else can do it, but I can't. Maybe I'm not meant to be here."
+
+Your heart clenches. You remember feeling exactly this way during your first year, when everything seemed impossible and everyone else seemed naturally talented.
+
+How do you help her?
+
+*choice
+    #Stay late with her, give her one-on-one attention.
+        *set empathy +15
+        *set mentoring_approach "patient"
+
+        "Class is over, everyone," you announce. "Elara, would you stay for a bit? I have some time."
+
+        After the others leave, you pull up a chair next to her. "Tell me what you're feeling when you try the spell. Not what you're doing—what you're *feeling*."
+
+        She describes the sensation, and you immediately recognize the problem. "You're trying too hard," you say gently. "You're so worried about failing that you're blocking yourself. Let's try something."
+
+        You spend the next hour working with her, patient and encouraging, sharing stories of your own struggles and breakthroughs. You adjust your teaching approach specifically for her learning style.
+
+        *goto elara_breakthrough
+
+    #Figure out what she *is* good at and build from there.
+        *set wisdom +15
+        *set mentoring_approach "adaptive"
+
+        "Show me something you can do well," you say. "Any spell, doesn't matter what."
+
+        She hesitates, then conjures a tiny light—just a simple illumination charm, but she does it perfectly, without even thinking about it.
+
+        "That's brilliant," you tell her. "Do you feel the difference? You're not worried about that spell, so the magic flows naturally. That's the feeling we need to recreate."
+
+        You work with her to connect the confidence she has in one area to the spell she's struggling with, building bridges between what she knows and what she's learning.
+
+        *goto elara_breakthrough
+
+    #Share your own struggles honestly, let her know she's not alone.
+        *set charisma +15
+        *set mentoring_approach "empathetic"
+
+        You sit down next to her. "Can I tell you something? During my first year, I failed a practical exam so badly that I accidentally turned my professor's desk into a pile of feathers."
+
+        She looks up, surprised. "Really?"
+
+        *if teaching_subject = "evocation"
+            "Really. I couldn't control my evocation magic at all. Every spell was either too weak or way too strong. I nearly burned down a classroom once."
+
+        *if teaching_subject = "abjuration"
+            "Really. My barriers would either be so weak they did nothing, or so strong they trapped me inside them. I spent an entire night stuck in my own shield."
+
+        *if teaching_subject = "illusion"
+            "Really. My illusions would fall apart constantly, or I'd lose track of what was real. I once created an illusion of myself and then forgot which one was me."
+
+        *if teaching_subject = "transmutation"
+            "Really. I turned things into the wrong objects, or partially transformed them, or made them unstable. I accidentally turned my lunch into a book once. Couldn't change it back for hours."
+
+        She giggles despite herself, and you see her shoulders relax.
+
+        "The point is," you continue, "everyone struggles. Everyone. The difference between the people who make it and the people who give up isn't talent—it's persistence. Let's figure this out together."
+
+        *goto elara_breakthrough
+
+*label elara_breakthrough
+
+*if empathy >= 60
+    You work with Elara patiently, your own experiences giving you insight into exactly what she needs.
+*if empathy < 60
+    You do your best to help Elara, though you're still learning the art of teaching yourself.
+
+After several more attempts, with your guidance and encouragement, something shifts. Elara tries the spell again, and this time—
+
+*if teaching_subject = "evocation"
+    A perfect bolt of force energy manifests between her hands, stable and controlled.
+
+*if teaching_subject = "abjuration"
+    A shimmering barrier forms around her, solid and beautifully structured.
+
+*if teaching_subject = "illusion"
+    A small but convincing illusion takes shape before her—a perfect rose.
+
+*if teaching_subject = "transmutation"
+    The practice object transforms smoothly into its intended form, the change clean and complete.
+
+"I did it!" Elara's face lights up with pure joy. "I actually did it!"
+
+*if mentoring_approach = "patient"
+    "You did," you confirm, feeling your own eyes getting misty. "I knew you could. You just needed time and the right approach."
+
+*if mentoring_approach = "adaptive"
+    "You did," you confirm with a proud smile. "See? You had the talent all along. You just needed to find your own way in."
+
+*if mentoring_approach = "empathetic"
+    "You did," you confirm, grinning at her. "What did I tell you? Persistence beats talent every time."
+
+Elara throws her arms around you in an impulsive hug. "Thank you," she says, her voice thick with emotion. "Thank you so much. I was ready to give up, but you... you made me believe I could do it."
+
+As she pulls back, wiping happy tears from her eyes, something profound settles over you. This is what it feels like to make a real difference in someone's life. This is what all your teachers have been doing for you.
+
+You understand now—truly understand—how much you've grown. You're not the confused, overwhelmed first-year student anymore. You've become someone who can guide others through the same darkness you once navigated.
+
+*set empathy +10
+*set collaboration +10
+*set happiness +15
+*set mentor_achievement true
+
+*goto faculty_recognition
+
+*label faculty_recognition
+
+Word of your success with Elara spreads quickly. A few days later, you're called to a meeting with the faculty members who oversee your area of specialty.
+
+*if teaching_subject = "evocation"
+    Professor Izack greets you with his characteristic warm smile. "I've been hearing excellent things about your peer instruction sessions," he says.
+
+*if teaching_subject = "abjuration"
+    Professor Zara regards you with her stern but approving expression. "Your teaching methods have been brought to my attention," she says. "Favorably, I should note."
+
+*if teaching_subject = "illusion"
+    Professor Aria welcomes you with her enigmatic smile. "The students speak highly of you," she says, her voice carrying that musical quality. "Particularly young Elara."
+
+*if teaching_subject = "transmutation"
+    Professor Izack meets with you in his office filled with transformed curiosities. "I've been impressed with your approach to teaching," he says warmly.
+
+*if teaching_style = "strict"
+    "You bring a discipline and focus to teaching that helps students understand the seriousness of their craft. You're not just instructing them in magic—you're instilling in them the respect and precision that mastery requires."
+
+*if teaching_style = "collaborative"
+    "You have a gift for creating an environment where students feel safe to learn and grow together. You're not just teaching them magic—you're showing them how to support and elevate each other."
+
+*if teaching_style = "experimental"
+    "You encourage innovation and creative thinking in a way that pushes students beyond rote memorization. You're not just teaching them magic—you're teaching them to question, explore, and discover."
+
+*if teaching_subject = "evocation"
+    Izack leans forward. "The case of Elara particularly impressed me. You identified her barrier and helped her overcome it with patience and insight. That's the mark of a true educator."
+
+*if teaching_subject = "abjuration"
+    Zara's expression softens slightly. "Your work with the struggling student, Elara, demonstrated real pedagogical skill. You adapted your approach to meet her needs. That's not something everyone can do."
+
+*if teaching_subject = "illusion"
+    Aria's eyes twinkle. "The way you helped Elara break through her limitations showed a depth of understanding—not just of magic, but of people. That's rare and valuable."
+
+*if teaching_subject = "transmutation"
+    Izack gestures to a transformed object on his desk. "Your approach with Elara—adapting to her learning style, finding what worked for her specifically—that's what separates adequate teachers from exceptional ones."
+
+"We'd like to make you an official offer," they continue. "After you graduate, there would be a position for you here at Avalon Academy. A junior instructor role, with the possibility of advancement. You have a gift for teaching, ${name}. We'd like to help you develop it."
+
+You sit back, stunned. A year ago, you were struggling to keep up with your own studies. Now, you're being offered a faculty position?
+
+*choice
+    #Accept enthusiastically—teaching feels like your calling.
+        *set career_path "teacher"
+        *set career_certainty "definite"
+        *set happiness +15
+
+        "Yes," you say immediately, unable to contain your excitement. "Absolutely yes. Teaching these students, seeing them grow and succeed—it's been one of the most rewarding experiences of my life."
+
+        *if teaching_subject = "evocation"
+            Izack beams at you. "Excellent! We'll begin preparing a formal curriculum for you during your final year."
+
+        *if teaching_subject = "abjuration"
+            Zara actually smiles—a rare sight. "Good. We'll discuss your specific responsibilities as graduation approaches."
+
+        *if teaching_subject = "illusion"
+            Aria nods approvingly. "Wonderful. I look forward to having you as a colleague."
+
+        *if teaching_subject = "transmutation"
+            Izack claps his hands together. "Splendid! This is exactly what Avalon needs—young, innovative educators."
+
+        "For now, focus on your own studies," they tell you. "But know that your future here is secure if you want it."
+
+        *goto teaching_reflection
+
+    #Express interest but say you need time to decide.
+        *set career_path "teacher"
+        *set career_certainty "considering"
+        *set wisdom +10
+
+        "I'm honored," you say carefully. "Truly. But I still have another year here, and I'm not sure what I want to do after graduation yet. Can I have time to think about it?"
+
+        *if teaching_subject = "evocation"
+            Izack nods understandingly. "Of course. Take all the time you need. The offer will remain open."
+
+        *if teaching_subject = "abjuration"
+            Zara inclines her head. "A thoughtful response. Consider it carefully. Teaching is not for everyone, but you have potential."
+
+        *if teaching_subject = "illusion"
+            Aria smiles mysteriously. "Naturally. Great decisions should never be rushed. We'll speak again when you're ready."
+
+        *if teaching_subject = "transmutation"
+            Izack waves a hand. "Absolutely. You're still young, still discovering who you are. The offer stands whenever you're ready."
+
+        "Whatever you decide," they assure you, "we're glad to have you teaching while you're here."
+
+        *goto teaching_reflection
+
+    #Decline politely—you have other plans for your future.
+        *set career_path "other"
+        *set independence +10
+
+        "I'm incredibly flattered," you say sincerely, "but I don't think teaching is my path. I've loved helping the first-years, and I'll continue doing so while I'm here, but I have other goals for after graduation."
+
+        *if teaching_subject = "evocation"
+            Izack looks disappointed but nods. "I understand. Still, you've made a real difference for these students. Don't forget that."
+
+        *if teaching_subject = "abjuration"
+            Zara regards you with respect. "A clear answer. Good. Know your own path. But you've done well here."
+
+        *if teaching_subject = "illusion"
+            Aria doesn't seem surprised. "Some paths lead elsewhere. That's perfectly natural. Thank you for the time you've given."
+
+        *if teaching_subject = "transmutation"
+            Izack smiles warmly. "Not everyone is meant to teach, and that's fine. But you've helped these students grow, and that matters."
+
+        "The offer will remain open," they tell you, "should you change your mind."
+
+        *goto teaching_reflection
+
+*label teaching_reflection
+
+That evening, you sit in your room, reflecting on the day's events. Your textbooks are spread across your desk—the same books that once seemed incomprehensible, now familiar and almost comfortable.
+
+You think about Elara's face when she finally succeeded at the spell. The pure joy, the relief, the gratitude. You think about the other students you've helped, the questions you've answered, the confidence you've built in them.
+
+Two years ago, you were terrified and lost. Now, you're someone others turn to for help.
+
+*if (romance_kaelen) or (romance_seraphine) or (romance_theron)
+    Your thoughts drift to your partner, and you wonder how they'll react to the teaching offer. Another piece of your future to consider, another factor in the complex equation of what comes after graduation.
+
+*if familiar_name != ""
+    ${familiar_name} curls up beside you, sensing your contemplative mood. You absently stroke their fur/scales/feathers, grateful for their constant presence through all your growth.
+
+*if golem_name != ""
+    ${golem_name} stands quietly in the corner, a reminder of your creative power—your ability to bring something new into the world. Teaching, in a way, is similar. You're helping create the next generation of mages.
+
+You've grown so much. Learned so much. Become so much more than you were.
+
+And the journey isn't over yet.
+
+*if mentor_achievement = true
+    *achieve mentor Earned the "Mentor" achievement by successfully helping a struggling student breakthrough.
+
+Your final year awaits, with all its challenges and opportunities. But now, you face it with the confidence of someone who knows their own strength—not just in magic, but in character.
+
+*page_break Tomorrow, the next trial awaits.
+
+*goto_scene year_three_trial

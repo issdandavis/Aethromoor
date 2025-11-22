@@ -1,0 +1,219 @@
+*comment ================================================
+*comment EPILOGUE - Ten Years Later
+*comment [PLACEHOLDER - Full outcomes to be added]
+*comment ================================================
+
+*label start
+
+[b]== TEN YEARS LATER ==[/b]
+
+*page_break
+
+*comment Calculate final life satisfaction
+*if (happiness >= 75) and (wealth >= 60) and (romantic_interest != "none")
+  *set life_satisfaction 95
+*if (happiness >= 60) and (fame >= 70)
+  *set life_satisfaction 85
+*if (happiness >= 50)
+  *set life_satisfaction 70
+*if happiness < 50
+  *set life_satisfaction 45
+
+*comment Determine reputation
+*if fame >= 80
+  *set reputation "legendary"
+*if (fame >= 60) and (fame < 80)
+  *set reputation "famous"
+*if (fame >= 40) and (fame < 60)
+  *set reputation "respected"
+*if fame < 40
+  *set reputation "known"
+
+*page_break
+
+Ten years have passed since you graduated from Avalon Academy.
+
+*line_break
+
+So much has changed.
+
+*page_break
+
+*comment CAREER OUTCOMES based on path and choices
+
+*if chosen_path = "research"
+  You've become a renowned magical researcher.
+
+  *if published_papers >= 3
+    Your papers have revolutionized dimensional theory. You're considered one of the great minds of your generation.
+
+    *set reputation "legendary"
+
+  *if published_papers >= 1
+    Your research has contributed meaningfully to the field.
+
+    *set reputation "respected"
+
+*if chosen_path = "combat"
+  You've become a protector of dimensional realms.
+
+  *if legendary_deeds >= 5
+    Tales of your heroic deeds are told across multiple dimensions. Children play games about your adventures.
+
+    *set reputation "legendary"
+
+  *if legendary_deeds >= 2
+    You're known as a reliable and powerful defender.
+
+*if chosen_path = "diplomatic"
+  You've become a dimensional ambassador.
+
+  *if fame >= 70
+    You've brokered peace between multiple realms. Wars have been prevented because of you.
+
+    *set reputation "legendary"
+
+  *if fame >= 40
+    You're trusted by many realms as a fair negotiator.
+
+*page_break
+
+*comment WEALTH OUTCOMES
+
+*if wealth >= 80
+  You're wealthy beyond your wildest first-year dreams.
+
+  *if origin = "commoner"
+    From nothing to everything—you've achieved financial success.
+
+  *if origin = "noble"
+    You've expanded your family's fortune significantly.
+
+*if (wealth >= 50) and (wealth < 80)
+  You're comfortable. Not rich, but you never worry about money.
+
+*if wealth < 50
+  Money has never been your focus. You have enough, and that's what matters.
+
+*page_break
+
+*comment ROMANCE OUTCOMES
+
+*if romantic_interest = "izack"
+  You and Izack Thorne are [i]married[/i].
+
+  *line_break
+
+  He still teaches at Avalon, of course—he'll never leave. But you've built a life together, splitting time between Avalon and your own projects.
+
+  *if origin = "refugee"
+    He's your home now. The realm you came from is gone, but you've found belonging with him.
+
+  *set happiness +20
+
+  *achievement true_love_ending visible 30 True Love Ending
+    You found lasting love with Izack Thorne.
+
+*if romantic_interest = "aria"
+  You and Aria Ravencrest are partners—in work and in life.
+
+  *line_break
+
+  She's mellowed over the years. You've learned to challenge her perfectionism, and she's learned to accept imperfection.
+
+  Together, you've published groundbreaking research.
+
+  *set happiness +20
+
+  *achievement true_love_ending visible 30 True Love Ending
+    You found lasting love with Aria Ravencrest.
+
+*if romantic_interest = "zara"
+  You and Zara are [i]married[/i], living between dimensions—sometimes in Avalon, sometimes in her home realm, sometimes exploring new worlds together.
+
+  *line_break
+
+  She still can't believe someone chose to love all the complicated parts of her. You remind her daily.
+
+  *set happiness +20
+
+  *achievement true_love_ending visible 30 True Love Ending
+    You found lasting love with Zara.
+
+*if romantic_interest = "none"
+  You never found romance at Avalon, but that's okay.
+
+  *line_break
+
+  You've built a fulfilling life focused on your work and friendships.
+
+*page_break
+
+*comment COMPANION OUTCOMES
+
+*if polly_is_familiar = true
+  Polly is still with you, of course. She'll outlive you by centuries.
+
+  [i]"Ten years later, and you're still making questionable decisions. But at least they're [i]interesting[/i] questionable decisions."[/i]
+
+*if (familiar_type != "none") and (polly_is_familiar = false)
+  Your familiar, ${familiar_name}, is still by your side. The bond hasn't faded.
+
+*if has_golem = true
+  Your golem, ${golem_name}, has become more sentient over the years. It's no longer just a companion—it's a friend.
+
+*page_break
+
+*comment FINAL ASSESSMENT
+
+*if reputation = "legendary"
+  Your name is known across dimensions. When people speak of the greatest mages of this age, they speak of [i]you[/i].
+
+*if reputation = "famous"
+  You're famous in magical circles. Not legendary, but certainly accomplished.
+
+*if reputation = "respected"
+  You're respected by those who know your work. That's enough.
+
+*if reputation = "known"
+  You're known in your field. Not famous, but you've made your mark.
+
+*page_break
+
+*if life_satisfaction >= 85
+  Looking back, you have no regrets.
+
+  *line_break
+
+  Avalon changed your life. You became who you were meant to be.
+
+*if (life_satisfaction >= 60) and (life_satisfaction < 85)
+  Looking back, you're satisfied.
+
+  *line_break
+
+  Not everything went perfectly, but you've built a good life.
+
+*if life_satisfaction < 60
+  Looking back, you wonder if you could have done things differently.
+
+  *line_break
+
+  But you did your best. That's all anyone can do.
+
+*page_break
+
+[b]== THE END ==[/b]
+
+*line_break
+
+Thank you for playing [b]Polly's Wingscroll: The First Thread[/b].
+
+*page_break
+
+*comment Display final stats
+*stat_chart
+
+*page_break
+
+*finish

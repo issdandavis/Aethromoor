@@ -2,7 +2,7 @@
 ## ChoiceScript Syntax Validation Complete
 
 **Date:** November 20, 2024
-**Status:** READY TO PLAY
+**Status:** READY TO PLAY (ChoiceScript web engine bundled)
 
 ---
 
@@ -97,15 +97,16 @@ avalon_crisis → final_trial → endings → epilogue → *finish
 
 ## 🎮 HOW TO PLAY NOW
 
-### Option 1: ChoiceScript IDE (Online - Fastest)
+### Option 1: Bundled ChoiceScript Web Build (Fastest)
 
-1. Go to: https://www.choiceofgames.com/make-your-own-games/choicescript-intro/
-2. Click **"ChoiceScript IDE"**
-3. Delete the example code
-4. Copy/paste from `/home/user/Avalon/choicescript_game/startup.txt`
-5. Upload all 36 scene files from `/home/user/Avalon/choicescript_game/scenes/`
-6. Click **"Test"**
-7. Play! 🎮
+1. Open `Avalon/choicescript_game/web/index.html` in your browser (auto-redirects to the game).
+2. If the browser blocks local file loading, run a quick server:
+   ```bash
+   cd /home/user/Avalon/choicescript_game/web
+   python3 -m http.server 8000
+   ```
+   Then open http://localhost:8000/.
+3. Smoke-check: confirm the ChoiceScript UI renders (title bar, menu buttons, first text) before deeper testing.
 
 ### Option 2: CSIDE Desktop App (Best for Development)
 
@@ -116,24 +117,15 @@ avalon_crisis → final_trial → endings → epilogue → *finish
 5. Click "Play Test"
 6. Done!
 
-### Option 3: Download ChoiceScript Engine (Manual Setup)
+### Option 3: Online ChoiceScript IDE (No install)
 
-```bash
-cd /home/user/Avalon
-wget https://github.com/dfabulich/choicescript/archive/refs/heads/master.zip
-unzip master.zip
-cp -r choicescript-master/web choicescript_game/
-cd choicescript_game/web
-rm -rf mygame
-mkdir mygame
-ln -s ../../scenes mygame/scenes
-ln -s ../../startup.txt mygame/startup.txt
-
-# Start server
-python3 -m http.server 8000
-```
-
-Then open: http://localhost:8000/
+1. Go to: https://www.choiceofgames.com/make-your-own-games/choicescript-intro/
+2. Click **"ChoiceScript IDE"**
+3. Delete the example code
+4. Copy/paste from `/home/user/Avalon/choicescript_game/startup.txt`
+5. Upload all 36 scene files from `/home/user/Avalon/choicescript_game/scenes/`
+6. Click **"Test"**
+7. Play! 🎮
 
 ---
 
