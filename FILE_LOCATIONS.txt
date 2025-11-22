@@ -26,6 +26,7 @@
 
 📦 OLD FILES:
    archive/ ← Chat logs and old versions
+   archive/non_project_files/ ← Unrelated files (music, shortcuts, etc.)
 
 ═══════════════════════════════════════════════════════
 
