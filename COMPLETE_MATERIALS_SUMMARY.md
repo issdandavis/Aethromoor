@@ -98,6 +98,13 @@ This repository now contains **complete, organized reference materials** for dev
 - **archive/Entire chat log.txt** - Contains original Aethermoor Chronicles
 - Multiple historical documents and chat logs
 
+### Campaign Source Materials:
+- **docs/avalon_materials/** - 60+ source files including:
+  - **everweave-export.pdf** (406 pages) - Complete Everweave AI D&D campaign export
+  - **IZACK_MASTER_CHRONICLE_UPDATED.txt** - Canonical lore reference (AUTHORITATIVE)
+  - Campaign archives, novel drafts, character letters, and worldbuilding documents
+  - **README_MATERIALS_INDEX.md** - Complete catalog of all materials
+
 ---
 
 ## 🎮 GAME FILES CATALOG

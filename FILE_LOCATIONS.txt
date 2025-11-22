@@ -23,6 +23,8 @@
 📋 PROJECT DOCS:
    docs/AUTOMATION_GUIDE.md ← Zapier workflows
    docs/PROJECT_ROADMAP.md ← Development plan
+   docs/avalon_materials/ ← Campaign archives & source materials (60+ files)
+      └─ README_MATERIALS_INDEX.md ← Complete materials catalog
 
 📦 OLD FILES:
    archive/ ← Chat logs and old versions
