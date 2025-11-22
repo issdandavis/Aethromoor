@@ -353,6 +353,7 @@ The Control path preserves knowledge. But it doesn't create it.
         You've learned to command magic, to impose your will on chaos. That's not nothing. That's power.
 
         *set control_score +20
+        *set ending_type "runeweaver"
         *goto glacier_final
 
     #Recognize the limitation—you need both control AND harmony to truly grow.
@@ -878,6 +879,7 @@ The Rune Glacier fades behind you, but its cold wisdom echoes in your memory for
 
   *set artifact_earned "Glacier Partnership"
   *set collaboration +20
+  *set ending_type "glacier_partner"
   *achievement glacier_partner
 
   [b]"Partner of the Glacier,"[/b] Theron whispers. [b]"Through harmony, you achieved what others seek through control. You will be legendary, ${name}."[/b]
@@ -1135,6 +1137,7 @@ The rune-figure smiles—if a being made of runes can smile.
 
   *set artifact_earned "Glacier Partnership"
   *set collaboration +20
+  *set ending_type "glacier_partner"
   *achievement glacier_partner
 
   *goto glacier_conclusion

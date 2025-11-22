@@ -7,86 +7,8 @@
 
 ## IMMEDIATE PRIORITIES
 
-### Task 1: Complete Singing Dunes Expedition
-**Priority:** HIGH
-**Effort:** Medium (2-4 hours)
-**Status:** Not Started
-
-**Description:**
-Convert the Singing Dunes content from `game/game.js` to ChoiceScript format in `choicescript_game/scenes/singing_dunes.txt`
-
-**Steps:**
-1. Read the Singing Dunes section in `game/game.js` (search for "singingDunes")
-2. Create ChoiceScript scenes for:
-   - Desert arrival and atmosphere
-   - Kael (desert guide) introduction
-   - Truth-testing sand interactions
-   - Oath-magic learning sequence
-   - Choice: embrace truth vs resist
-3. Connect to Truthbound Mage ending path
-4. Test all paths
-
-**Key Elements:**
-- Truth-sworn sand that judges honesty
-- Kael as guide character
-- Collaboration stat affects sand's response
-- Can become Truthbound Mage or be rejected
-
----
-
-### Task 2: Complete Verdant Tithe Expedition
-**Priority:** HIGH
-**Effort:** Medium (2-4 hours)
-**Status:** Not Started
-
-**Description:**
-Convert the Verdant Tithe content to ChoiceScript format in `choicescript_game/scenes/verdant_tithe.txt`
-
-**Steps:**
-1. Read the Verdant Tithe section in `game/game.js` (search for "verdantTithe")
-2. Create ChoiceScript scenes for:
-   - Sentient forest entrance
-   - Thoughtvine interactions
-   - Dreamwillow vision sequence
-   - Heartwood Tree encounter
-3. Three paths: Dreamwillow, Thoughtvine, Heartwood
-4. Connect to forest-related endings
-
-**Key Elements:**
-- Forest is alive and sentient
-- Thoughtvines read and share thoughts
-- Dreamwillow shows possible futures
-- Heartwood Guardian is most powerful forest ending
-
----
-
-### Task 3: Complete Rune Glacier Expedition
-**Priority:** HIGH
-**Effort:** Medium (2-4 hours)
-**Status:** Not Started
-
-**Description:**
-Convert the Rune Glacier content to ChoiceScript format in `choicescript_game/scenes/rune_glacier.txt`
-
-**Steps:**
-1. Read the Rune Glacier section in `game/game.js` (search for "runeGlacier")
-2. Create ChoiceScript scenes for:
-   - Living ice introduction
-   - Control vs Harmony approaches
-   - Aria's teaching sequences
-   - Frozen spell library discovery
-3. Connect to glacier-related endings
-
-**Key Elements:**
-- Ice is inscribed with adaptive runes
-- Control approach vs Partnership approach
-- Runeweaver ending (control)
-- Glacier Partner ending (harmony)
-
----
-
 ### Task 4: Implement All 14 Endings
-**Priority:** MEDIUM
+**Priority:** HIGH
 **Effort:** Medium (2-3 hours)
 **Status:** Not Started
 
@@ -176,6 +98,9 @@ Add more of Polly's sarcastic commentary:
 
 ## COMPLETED TASKS
 
+- [x] Complete Singing Dunes Expedition - 675 lines of content with multiple branching paths
+- [x] Complete Verdant Tithe Expedition - 629 lines of content with three distinct paths
+- [x] Complete Rune Glacier Expedition - 673 lines of content with Control/Harmony/Mystery approaches
 - [x] Create HTML version (full game)
 - [x] Set up ChoiceScript foundation
 - [x] Implement character creation
