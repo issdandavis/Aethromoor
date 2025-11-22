@@ -2,6 +2,7 @@
 *comment MAGICAL TOURNAMENT
 *comment Participate in Avalon's Annual Collaborative Competition
 *comment Tests skills, relationships, and collaborative philosophy
+*comment Visual Note: Follow VISUAL_CANON_REFERENCE.md for character descriptions
 *comment ================================================
 
 *temp tournament_style ""
@@ -17,7 +18,9 @@
 
 *line_break
 
-Izack stands before the assembled students, eyes bright with excitement.
+*comment Visual Note: Izack per canon - amber eyes bright with excitement, gesturing with rune-scarred hands, robes' constellations shifting with his enthusiasm
+
+Izack stands before the assembled students in the Grand Hall, and his excitement is palpable. His amber eyes are practically glowing—star-flecks dancing in their depths—and his hands move expressively as he speaks, trailing faint lines of dimensional energy. The constellations on his Transdimensional Reality Robes shift and swirl faster than usual, responding to his enthusiasm.
 
 *page_break
 
@@ -25,15 +28,25 @@ Izack stands before the assembled students, eyes bright with excitement.
 
 *line_break
 
-Polly lands on a nearby perch. [i]"Translation: it's a magical obstacle course designed to be impossible solo. You'll need partners, strategy, and actual teamwork to survive, let alone win."[/i]
+*comment Visual Note: Polly - iridescent feathers shimmer with sardonic amusement
+
+Polly lands on a nearby perch carved from living crystal, her iridescent feathers catching the hall's magical lighting and refracting it into purple and green shimmer. [i]"Translation: it's a magical obstacle course designed to be impossible solo. You'll need partners, strategy, and actual teamwork to survive, let alone win."[/i]
 
 *page_break
 
-Aria steps forward. [b]"The Trials have three stages: Harmony, Crisis, and Synthesis. Each tests different aspects of collaboration. Teams of three will compete."[/b]
+*comment Visual Note: Aria per canon - regal bearing, violet eyes analytical, ward-marks glowing faintly as she ensures the hall's safety
+
+Aria steps forward, her silver-white braids swaying with graceful precision. Her violet eyes sweep the gathered students with analytical intensity, and you notice the ward-marks on her forearms glowing faintly—she's already ensuring the hall's protective barriers are strong enough for any excited magical outbursts. Her Boundary Ward Dress flows around her in deep purple and silver, making her look every bit the noble mage.
+
+[b]"The Trials have three stages: Harmony, Crisis, and Synthesis. Each tests different aspects of collaboration. Teams of three will compete."[/b]
 
 *line_break
 
-Zara grins. [b]"And the winning team gets to study advanced techniques with all three masters simultaneously. Plus bragging rights for a year."[/b]
+*comment Visual Note: Zara per canon - heterochromatic eyes bright with excitement, flowers in hair blooming, scales shimmering
+
+Zara grins, and her heterochromatic eyes sparkle—gold-amber left eye warm like dragon-fire, violet-blue right eye dancing with fae mischief. The living flowers woven into her silver-blue hair bloom fully in response to her excitement, tiny petals unfurling. Her subtle scales catch the light, shimmering with opalescent rainbow colors.
+
+[b]"And the winning team gets to study advanced techniques with all three masters simultaneously. Plus bragging rights for a year."[/b]
 
 *page_break
 

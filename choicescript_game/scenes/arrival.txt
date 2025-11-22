@@ -1,28 +1,37 @@
 *comment ================================================
 *comment ARRIVAL AT AVALON ACADEMY
+*comment Visual Note: Descriptions follow canon reference - Potter-cover style with anime detail
 *comment ================================================
 
 *label polite_approach
 
-You walk through the crystalline gate, feeling the leyline energy wash over you like warm water. It tingles across your skin, welcoming and ancient.
+You walk through the crystalline gate, feeling the leyline energy wash over you like warm water. It tingles across your skin, welcoming and ancient, carrying whispers of a thousand magical conversations.
 
-Izack Thorne stands in the courtyard—tall, dark-haired, with eyes that seem to see through dimensions. His presence is gentle but undeniably powerful.
+*comment Visual Note: Izack Thorne per canon - dark-skinned elf (appears mid-30s, actually 112), shoulder-length wild dark hair with silver touches, amber eyes that shift/glow during magic, 6'2" lean, rune-scars on hands, Transdimensional Reality Robes (midnight blue with shifting constellations)
+
+Izack Thorne stands in the courtyard—and he's exactly as the stories described yet somehow more. Tall and lean at over six feet, his dark skin seems to glow faintly in Avalon's magical ambiance. His shoulder-length hair is wild and dark, touched with silver at the temples as if static electricity constantly runs through it, responding to the dimensional currents he commands. When his amber eyes meet yours, they seem to shift—deepening to gold, flickering with star-flecks that suggest he's seeing not just you, but all the possible yous across nearby timelines.
+
+His Transdimensional Reality Robes flow around him in deep midnight blue, the fabric itself alive with shifting constellations and golden runes that rearrange themselves in response to magical currents. Small glowing rune-scars mark his hands—the price of experimental magic—and his fingers are ink-stained from constant note-taking.
+
+His presence is gentle but undeniably powerful—like standing near the ocean. You know it could be devastating, but right now it's just beautiful and welcoming.
 
 "Welcome," he says warmly, his voice carrying that peculiar resonance of someone who speaks multiple magical languages fluently. "I'm Izack. You must be ${name}. How are you feeling after the portal crossing?"
 
 *line_break
 
-[i]*Perched on his shoulder, I ruffle my feathers.*[/i]
+*comment Visual Note: Polly (Polymnia Aetheris) per canon - large raven with iridescent black feathers (purple/green shimmer), intelligent golden eyes, often on Izack's shoulder, sardonic personality
+
+[i]*Perched on his shoulder, I ruffle my iridescent feathers—they catch the leyline light and refract it into impossible purples and greens.*[/i]
 
 "Oh good, we got a polite one. Those are always fun to watch when they realize magic here doesn't care about your manners."
 
 *line_break
 
-Izack shoots me a look—one I've seen a thousand times. Fond exasperation.
+Izack shoots me a look—one I've seen a thousand times. Fond exasperation. His amber eyes soften as he glances at the ancient raven who's been his companion for decades.
 
 "What Polly means is that magic responds to intention and collaboration, not formality. But courtesy is always appreciated."
 
-He gestures toward the soaring academy structures beyond.
+He gestures toward the soaring academy structures beyond—his hand moving in that characteristic way of his, fingers tracing patterns in the air as if conducting invisible symphonies.
 
 "Your first lesson begins shortly. We'll be exploring the nature of magical boundaries—specifically, how they can be [i]bridged[/i] rather than broken."
 
@@ -70,9 +79,15 @@ Izack will teach you to [i]feel[/i] magic rather than force it. Aria—his wife,
 
 *page_break
 
-Just then, a young woman with hybrid features approaches. Pointed ears, striking draconic eyes, an aura of someone who belongs to multiple worlds at once.
+*comment Visual Note: Zara per canon - hybrid (draconic/elven/fae bloodlines), early 20s, warm brown skin with subtle scales, silver-blue hair in natural waves, heterochromatic eyes (gold-amber left, violet-blue right), nature-attuned clothing with living vines
 
-"Hi! You must be new. I'm Zara." Her smile is genuinely warm. "Polly giving you the full orientation?"
+Just then, a young woman approaches—and she's beautiful in a way that defies singular classification. Zara is clearly hybrid, her heritage written in every striking feature: pointed elven ears, yes, but also the faintest shimmer of draconic scales along her warm brown cheekbones that catch the light like opals. Her silver-blue hair falls in natural waves to mid-back, adorned with tiny flowers that seem to bloom and close in response to her emotions.
+
+But it's her eyes that truly capture you—heterochromatic and mesmerizing. Her left eye burns gold-amber like dragon-fire, while her right shimmers violet-blue like twilight sky. She wears nature-attuned clothing—earth-toned fabrics interwoven with living vines that respond to her presence, leaves unfurling gently along her shoulders.
+
+She radiates an aura of belonging to multiple worlds at once—comfortable in her in-betweenness, proud of being bridge between traditions.
+
+"Hi! You must be new. I'm Zara." Her smile is genuinely warm, lighting up both eyes with different but equally welcoming glows. "Polly giving you the full orientation?"
 
 *choice
   #Thank Polly and ask Zara what her experience has been like.

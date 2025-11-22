@@ -222,33 +222,37 @@ You leave the habitat with a new understanding: magical creatures aren't so diff
 
 *label butterfly_encounter
 
-The time-twisted garden is disorienting.
+*comment Visual Note: Time-twisted garden - plants exist in multiple states simultaneously, temporal distortion visible as shimmer in air, colors bleed across time
 
-Plants grow, bloom, wither, and seed in loops. You can see the same rose existing as bud, flower, and seed pod simultaneously.
+The time-twisted garden is disorienting—beautiful but unsettling.
+
+Plants don't just grow; they exist in all stages at once. You watch a rose that is simultaneously a tight bud, a fully-bloomed flower in peak beauty, and a withered seed pod heavy with next year's potential. The garden shimmers with temporal distortion, and colors seem to bleed across moments—yesterday's sunlight mixing with tomorrow's shadows in ways that make your eyes water.
 
 *page_break
 
-[b]"Don't think about it too hard,"[/b] Zara advises. [b]"Temporal magic gives everyone headaches at first."[/b]
+[b]"Don't think about it too hard,"[/b] Zara advises, her heterochromatic eyes showing sympathy for your temporal discomfort. [b]"Temporal magic gives everyone headaches at first."[/b]
 
 *line_break
 
-In the center of the garden, a Temporal Butterfly rests on a flower.
+*comment Visual Note: Temporal Butterfly per canon - exists across past/present/future, wings display colors unnamed in linear time, leaves afterimages of motion
+
+In the center of the garden, perched on a flower that's blooming and dying and blooming again, you see the Temporal Butterfly.
 
 *page_break
 
-Except "rests" isn't quite right—it's landing, resting, and taking off all at the same time. You can see three versions of it: past, present, and future.
+Except "see" isn't quite adequate—you're witnessing something that challenges linear perception. The butterfly exists in three states overlaid: past (landing), present (resting), future (taking flight). Her wings are impossibly beautiful, displaying colors that don't exist in single-timeline reality—shades that are somehow both violet and haven't-been-named-yet, hues that are simultaneously fading and intensifying. Every movement leaves crystalline afterimages that persist for heartbeats before dissolving into temporal foam.
 
 *page_break
 
-[b]"She's tangled,"[/b] Zara explains. [b]"Sometimes Temporal Butterflies get their timelines knotted. She's stuck in a loop, reliving the same moment over and over."[/b]
+[b]"She's tangled,"[/b] Zara explains softly, careful not to disturb the delicate temporal fabric. [b]"Sometimes Temporal Butterflies get their timelines knotted. She's stuck in a loop, reliving the same moment over and over."[/b]
 
 *line_break
 
-[i]"Temporal magic is the worst,"[/i] Polly grumbles. [i]"Give me nice simple dimensional rifts any day."[/i]
+[i]"Temporal magic is the worst,"[/i] Polly grumbles, ruffling her iridescent feathers with distaste. [i]"Give me nice simple dimensional rifts any day."[/i]
 
 *page_break
 
-The butterfly seems aware of you across all three timeframes. Her wings shimmer with colors that don't have names in linear time.
+The butterfly seems aware of you across all three timeframes. One version turns its head to look at you while another is already watching and the third hasn't noticed yet. Her multichromatic wings shimmer with gentle desperation—conscious across past, present, and future of being trapped, but unable to escape the loop without help.
 
 *page_break
 
