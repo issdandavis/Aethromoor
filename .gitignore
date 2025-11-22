@@ -1,7 +1,6 @@
 # Environment and secrets
 .env
 keys.txt
-**/Open Ai and Claudie.txt
 **/*api*key*.txt
 **/*secret*.txt
 

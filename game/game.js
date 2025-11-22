@@ -1251,7 +1251,6 @@ const storyNodes = {
         `,
         choices: []
     }
-}
 };
 
 // UI Update Functions
@@ -1380,7 +1379,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     exportBtn.onclick = async () => {
         try {
-            const traceData = window.exportTrace ? window.exportTrace() : JSON.stringify({ error: 'Trace not available' }, null, 2);
+            const traceData = window.exportTrace ? window.exportTrace() : JSON.stringify({ error: 'Analytics module not loaded. Please refresh the page.' }, null, 2);
             
             // Try to copy to clipboard
             if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -1412,7 +1411,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
-    // Show export button after first choice
+    // Show export button after 5 seconds
     setTimeout(() => {
         exportBtn.classList.add('visible');
     }, 5000);
