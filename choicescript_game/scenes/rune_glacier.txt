@@ -78,6 +78,44 @@ She produces crystal styluses, one for each student. They're beautiful—clear a
 
 *page_break
 
+Before you begin, Aria kneels and touches the ice with one hand. The runes beneath her palm shift, responding to her presence like ripples in water.
+
+"The glacier doesn't just remember spells," she explains. "It [i]speaks[/i] them. Each rune is a word in a language that evolves with every casting. Watch."
+
+She traces a simple pattern with one finger—a question mark in flowing light. The ice beneath responds immediately, creating an answering pattern. Not mimicry, but [i]reply[/i]. A conversation written in frozen light.
+
+[i]"The ice is having a philosophical debate with her. About the nature of permanence versus change, probably. Ice has [b]opinions[/b] about that."[/i]
+
+*line_break
+
+*choice
+    #Try to understand the ice's 'language.'
+        You study the patterns as they flow and merge, trying to find meaning in their dance. Each rune connects to others, creating sentences, paragraphs, entire arguments written in crystalline light.
+        
+        It's beautiful. Complex. Almost comprehensible.
+        
+        *set rune_mastery +10
+        *set glacier_trust +5
+        *goto glacier_trial_begins
+    
+    #Ask Aria how she learned to read it.
+        "How do you learn to read something that changes so quickly?" you ask.
+        
+        Aria's expression softens. "You don't read it. You [i]listen[/i]. The ice will teach you its language if you're patient enough to learn."
+        
+        *set aria_relationship +10
+        *goto glacier_trial_begins
+    
+    #Simply observe in respectful silence.
+        You watch quietly as Aria and the glacier converse in patterns of light. Some things are better observed than questioned.
+        
+        *set harmony_score +10
+        *goto glacier_trial_begins
+
+*label glacier_trial_begins
+
+*page_break
+
 As your group begins walking, the ice beneath your feet suddenly [b]blazes[/b] with light.
 
 A rune appears—massive, undeniable:

@@ -117,6 +117,18 @@ Kael approaches you specifically, his amber eyes assessing.
 
 *label dunes_first_truth
 
+As students begin filling their vials, a sudden commotion draws attention. One student speaks a half-truth—the sand in their vial immediately turns cloudy, then hot. They drop it with a yelp, the vial shattering on impact.
+
+The sand where it fell glows angry crimson and stays that way.
+
+Kael watches calmly, though his voice carries across the dune. "The sand doesn't punish lies. It simply refuses to carry their weight. Truth is light. Deception is heavy. The desert knows the difference."
+
+He turns specifically to your group. "Truth has [i]mass[/i] here. Every word you speak literally weighs on the world. Choose carefully."
+
+[i]"Physics lesson from sentient sand: honesty = weightless, lies = very heavy. The desert is surprisingly literal about metaphors."[/i]
+
+*page_break
+
 You kneel before the dune, crystal vial in hand. The sand hums louder here, as if leaning in to listen.
 
 *line_break
