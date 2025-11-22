@@ -8,3 +8,16 @@ Thumbs.db
 
 # ChoiceScript engine clone (downloaded locally)
 game/choicescript/
+
+# Temporary AI working files (commit final versions only)
+*.tmp
+*.draft
+*_TEMP.md
+*_WIP.md
+.ai_scratch/
+
+# Build artifacts
+node_modules/
+dist/
+build/
+*.log
