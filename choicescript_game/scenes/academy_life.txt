@@ -17,15 +17,27 @@
 
 *line_break
 
-You've settled into the rhythm of Avalon Academy.
+You've settled into the rhythm of Avalon Academy, and it's like learning to hear music you've been deaf to your whole life.
 
 *page_break
 
-Mornings are dimensional theory with Aria Ravencrest. She's brilliant, demanding, and doesn't tolerate sloppy thinking. You've learned more in two weeks than you thought possible.
+**Mornings (6:00 AM - 9:00 AM):** Dimensional theory with Aria Ravencrest in the Chrysalis Library, where books rearrange themselves based on what you need to learn next. She's brilliant, demanding, and doesn't tolerate sloppy thinking. The scent of ancient parchment and fresh coffee fills the air as she dismantles your assumptions with surgical precision.
 
-Afternoons are practical magic with Izack Thorne. He's patient, enthusiastic, and genuinely delighted when students have breakthroughs.
+*line_break
 
-Evenings are collaborative exercises with Zara, who somehow makes grueling magical workouts feel like friendly conversations.
+**Mid-mornings (9:00 AM - 12:00 PM):** Practical magic with Izack Thorne in the Resonance Chambers, where dimensional boundaries are visible as shimmering curtains of light. He's patient, enthusiastic, and genuinely delighted when students have breakthroughs—you've seen him literally jump for joy when someone masters their first pocket dimension.
+
+*line_break
+
+**Lunch (12:00 PM - 1:00 PM):** The Grand Refectory serves food from seventeen different dimensions. Yesterday you tried Fae honey that tasted like summer memories. Today there's Dwarven stew that's so thick your spoon stands upright in it.
+
+*line_break
+
+**Afternoons (1:00 PM - 5:00 PM):** Collaborative exercises with Zara in the Living Gardens, where plants respond to magical resonance by growing or shrinking. She somehow makes grueling magical workouts feel like friendly conversations, humming harmony notes while you struggle to match her dimensional frequency.
+
+*line_break
+
+**Evenings (5:00 PM - 9:00 PM):** Free study time, though "free" is relative when Polly appears to mock your note-taking technique or suggest increasingly dangerous experiments "for educational purposes."
 
 *page_break
 

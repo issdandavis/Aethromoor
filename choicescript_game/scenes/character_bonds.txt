@@ -88,21 +88,27 @@ Instead, you have free time—rare in Avalon's intensive program. You can spend 
 
 You find Izack on the observation deck at the top of the Spiral Spire.
 
-He's sitting on the edge, legs dangling over a drop that would terrify most people, casually eating an apple while watching dimensional currents swirl through the sky.
+He's sitting on the edge, legs dangling over a drop that would terrify most people, casually eating an apple while watching dimensional currents swirl through the sky like aurora borealis made of pure magic. The wind up here tastes like ozone and possibility.
 
 *page_break
 
-[b]"Hey, ${name}!"[/b] He pats the space beside him. [b]"Join me?"[/b]
+[b]"Hey, ${name}!"[/b] He pats the space beside him, his voice warm despite the howling wind. [b]"Join me? The view is better when you're brave enough to sit on the edge."[/b]
 
-You sit carefully, trying not to look down.
+You sit carefully, trying not to look down at the impossible distance below.
 
-[b]"Don't worry—there's a dimensional cushion below. If you fall, you'll just float gently back up. Probably."[/b]
+[b]"Don't worry—there's a dimensional cushion woven into the architecture. If you fall, you'll just float gently back up. Probably."[/b]
 
 *line_break
 
-He grins at your expression.
+He grins at your expression, and you catch a flash of the young theorist he must have been before he became legendary.
 
-[b]"I'm kidding. Definitely. There's definitely a safety net."[/b]
+[b]"I'm kidding. Definitely. There's definitely a safety net. I tested it myself six times before allowing students up here."[/b]
+
+*line_break
+
+[i]*A raven-shaped shadow circles overhead.*[/i]
+
+[i]"He tested it by falling off seven times, actually. The seventh time was an accident. But who's counting?"[/i]
 
 *page_break
 

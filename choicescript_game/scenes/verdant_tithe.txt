@@ -9,13 +9,23 @@
 
 The portal opens onto an ocean of green.
 
-Trees larger than Avalon's towers rise into mist, their canopy creating a twilight world below. The air itself feels [i]alive[/i]—thick with the scent of growing things and something else...
+Trees larger than Avalon's towers rise into mist, their canopy creating a twilight world below. The air itself feels [i]alive[/i]—thick with the scent of growing things, rich loam, and something else... ancient honey, crushed leaves, and the green taste of new growth.
 
 Awareness.
 
+*line_break
+
+You can [i]feel[/i] the forest thinking. Not in words, but in slow, patient waves of consciousness that wash over you like warm rain. It's studying you, curious, cautious, welcoming.
+
 *page_break
 
-Izack leads this expedition personally. "Welcome to the Verdant Tithe, one of Avalon's transplanted biomes drawn from the ancient forests of Nirestal. Here, every thought has weight."
+Izack leads this expedition personally, his violet robes catching fragments of the filtered emerald light. "Welcome to the Verdant Tithe, one of Avalon's transplanted biomes drawn from the ancient forests of Nirestal—the Dryad homeland, where trees learned to dream and dreams learned to grow."
+
+*line_break
+
+He gestures to the massive trunks surrounding you, their bark covered in bioluminescent moss that pulses gently.
+
+"Here, every thought has weight. Every emotion resonates through the forest like ripples in a pond. The trees [i]remember[/i] everyone who passes through. Be mindful—the forest knows when you're lying, even to yourself."
 
 *line_break
 
