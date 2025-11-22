@@ -2,9 +2,22 @@
 
 This repository contains narrative source material and chat logs related to the Avalon/Spiral of Eternity world, plus a small ChoiceScript scaffold to help you spin up a runnable prototype locally.
 
+## 📚 Quick Start Documentation
+
+**@ @issdandavis - IMPORTANT ORGANIZATIONAL GUIDES:**
+
+- **[WORKFLOW_IMPROVEMENTS.md](WORKFLOW_IMPROVEMENTS.md)** - Comprehensive workflow optimization guide with bold suggestions
+- **[.github/AI_COLLABORATION_GUIDE.md](.github/AI_COLLABORATION_GUIDE.md)** - AI agent roles and collaboration protocols
+- **[lore/CANON_CHECKLIST.md](lore/CANON_CHECKLIST.md)** - Quick reference for canonical lore elements
+- **[.github/ISSUE_TEMPLATE/](.github/ISSUE_TEMPLATE/)** - Templates for story, technical, and lore issues
+- **[.github/PULL_REQUEST_TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md)** - PR submission checklist
+
 ## Project layout
-- `docs/avalon_materials/` — all reference documents, drafts, and PDFs that were previously in `AvalonBook STUFF`.
-- `docs/reference/` — miscellaneous reference files that were loose in the repo (chat logs, PDFs, and links).
+- `lore/` — Canonical lore and worldbuilding (single source of truth)
+- `game/scenes/` — Main game scene files
+- `choicescript_game/scenes/` — ChoiceScript implementation scenes
+- `writing_drafts/` — Work-in-progress narrative content
+- `docs/` — Project documentation and reference materials
 - `config/.env.example` — template for API keys and other sensitive values. Copy to `.env` and fill in your own credentials.
 - `game/` — ChoiceScript helper scripts, sample scenes, and README for running the demo (with stats screen and branching scenes).
 
