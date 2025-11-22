@@ -208,22 +208,45 @@ Each major location should have this structure:
 - Ice responds to magical intention
 - Guide: Aria teaches boundary magic here
 
-### Required Scenes
-1. `glacier_arrival` - Stepping onto living ice
-2. `glacier_runes_awaken` - Runes respond to your presence
-3. `glacier_aria_lesson` - Boundary magic introduction
-4. `glacier_approach_choice` - Control vs Harmony
-5. `glacier_control_attempt` - Trying to dominate ice
-6. `glacier_control_success` - Mastering ice through force
-7. `glacier_control_backlash` - Ice resists domination
-8. `glacier_harmony_attempt` - Partnering with ice
-9. `glacier_harmony_deep` - Ice accepts partnership
-10. `glacier_spell_library` - Discovering frozen knowledge
-11. `glacier_ancient_runes` - Reading the oldest inscriptions
-12. `glacier_boundary_test` - Testing magical limits
-13. `glacier_partnership_bond` - Forming lasting connection
-14. `glacier_runeweaver_path` - Control mastery ending
-15. `glacier_departure` - Leaving with ice's blessing
+### Implemented Scenes
+The rune_glacier.txt scene includes 25 labels organized into main paths:
+
+**Initial Scenes:**
+1. `glacier_arrival` - Stepping onto living ice, first impressions
+2. `glacier_introduction` - Aria's introduction and crystal stylus distribution
+3. `glacier_path_choice` - Choosing initial approach (Control/Harmony/Mystery)
+
+**Greeting & Early Tests:**
+4. `glacier_greeting` - Early interaction with the glacier
+5. `glacier_conversation_path` - Conversational approach to ice
+6. `glacier_communion` - Deepening connection with ice consciousness
+
+**Control Path (7 scenes):**
+7. `glacier_control_path` - Beginning control-focused approach
+8. `control_test_one` - First control challenge
+9. `control_test_two` - Second control challenge
+10. `control_conclusion` - Outcome of control approach
+
+**Harmony Path (7 scenes):**
+11. `glacier_harmony_path` - Beginning harmony-focused approach
+12. `harmony_test_one` - First harmony challenge
+13. `harmony_test_two` - Second harmony challenge
+14. `harmony_conclusion` - Outcome of harmony approach
+15. `harmony_consequence` - Long-term effects of harmony choice
+16. `harmony_transformation` - Transformation through partnership
+
+**Mystery Path (7 scenes):**
+17. `glacier_mystery_path` - Beginning mystery-focused exploration
+18. `path_mystery` - Navigating unknown aspects
+19. `mystery_creation` - Creating with mysterious forces
+20. `mystery_conversation` - Dialogue with unknowable
+21. `mystery_faith` - Trust in the incomprehensible
+22. `mystery_test` - Challenge of the unknown
+23. `mystery_revelation` - Unveiling hidden knowledge
+
+**Conclusion:**
+24. `glacier_final` - Final encounter with the glacier
+25. `glacier_conclusion` - Departure and reflection
 
 ### Key Mechanics
 - Control vs Harmony stat tracking
