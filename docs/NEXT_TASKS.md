@@ -7,34 +7,7 @@
 
 ## IMMEDIATE PRIORITIES
 
-### Task 1: Complete Singing Dunes Expedition
-**Priority:** HIGH
-**Effort:** Medium (2-4 hours)
-**Status:** Not Started
-
-**Description:**
-Convert the Singing Dunes content from `game/game.js` to ChoiceScript format in `choicescript_game/scenes/singing_dunes.txt`
-
-**Steps:**
-1. Read the Singing Dunes section in `game/game.js` (search for "singingDunes")
-2. Create ChoiceScript scenes for:
-   - Desert arrival and atmosphere
-   - Kael (desert guide) introduction
-   - Truth-testing sand interactions
-   - Oath-magic learning sequence
-   - Choice: embrace truth vs resist
-3. Connect to Truthbound Mage ending path
-4. Test all paths
-
-**Key Elements:**
-- Truth-sworn sand that judges honesty
-- Kael as guide character
-- Collaboration stat affects sand's response
-- Can become Truthbound Mage or be rejected
-
----
-
-### Task 2: Complete Verdant Tithe Expedition
+### Task 1: Complete Verdant Tithe Expedition
 **Priority:** HIGH
 **Effort:** Medium (2-4 hours)
 **Status:** Not Started
@@ -60,7 +33,7 @@ Convert the Verdant Tithe content to ChoiceScript format in `choicescript_game/s
 
 ---
 
-### Task 3: Complete Rune Glacier Expedition
+### Task 2: Complete Rune Glacier Expedition
 **Priority:** HIGH
 **Effort:** Medium (2-4 hours)
 **Status:** Not Started
@@ -85,7 +58,7 @@ Convert the Rune Glacier content to ChoiceScript format in `choicescript_game/sc
 
 ---
 
-### Task 4: Implement All 14 Endings
+### Task 3: Implement All 14 Endings
 **Priority:** MEDIUM
 **Effort:** Medium (2-3 hours)
 **Status:** Not Started
@@ -113,7 +86,7 @@ Port all endings from HTML to ChoiceScript in `choicescript_game/scenes/endings.
 
 ## MEDIUM PRIORITIES
 
-### Task 5: Add Achievement System
+### Task 4: Add Achievement System
 **Priority:** MEDIUM
 **Effort:** Small (1-2 hours)
 
@@ -124,7 +97,7 @@ Add achievements throughout the game:
 - Reached each ending
 - Special discoveries
 
-### Task 6: Balance Stat Requirements
+### Task 5: Balance Stat Requirements
 **Priority:** MEDIUM
 **Effort:** Small (1 hour)
 
@@ -133,7 +106,7 @@ Review and balance:
 - Relationship requirements for special scenes
 - Difficulty of achieving each ending
 
-### Task 7: Polish Polly's Commentary
+### Task 6: Polish Polly's Commentary
 **Priority:** MEDIUM
 **Effort:** Medium (2-3 hours)
 
@@ -147,7 +120,7 @@ Add more of Polly's sarcastic commentary:
 
 ## LOW PRIORITIES
 
-### Task 8: Beta Testing Setup
+### Task 7: Beta Testing Setup
 **Priority:** LOW (until content complete)
 **Effort:** Small (1 hour)
 
@@ -155,7 +128,7 @@ Add more of Polly's sarcastic commentary:
 - Write beta testing guide
 - Set up issue tracking for bugs
 
-### Task 9: Repository Cleanup
+### Task 8: Repository Cleanup
 **Priority:** LOW
 **Effort:** Small (1 hour)
 
@@ -163,7 +136,7 @@ Add more of Polly's sarcastic commentary:
 - Archive old/duplicate files
 - Update .gitignore if needed
 
-### Task 10: Marketing Preparation
+### Task 9: Marketing Preparation
 **Priority:** LOW (until near publication)
 **Effort:** Medium
 
@@ -181,6 +154,7 @@ Add more of Polly's sarcastic commentary:
 - [x] Implement character creation
 - [x] Create three arrival paths
 - [x] Complete first lesson
+- [x] **Complete Singing Dunes Expedition** - Full ChoiceScript implementation with desert arrival, Kael introduction, truth-testing sand, oath-magic learning, and connections to Truthbound Mage ending (931 lines)
 - [x] Create QUICK_START.md
 - [x] Create AUTOMATION_GUIDE.md
 - [x] Create PROJECT_ROADMAP.md
