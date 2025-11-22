@@ -231,12 +231,16 @@ Each major location should have this structure:
 12. `harmony_test_one` - First collaborative working with the glacier
 13. `harmony_test_two` - Deeper partnership and trust building
 14. `harmony_conclusion` - Outcome of the harmony-focused approach
-15. `glacier_mystery_path` - Exploring the glacier's ancient mysteries
-16. `mystery_creation` - Discovering how the runes were created
-17. `mystery_conversation` - Dialogue about the glacier's origins
-18. `mystery_faith` - Leap of faith in trusting the glacier's wisdom
-19. `glacier_final` - Final choices and departure from the glacier
-20. `harmony_consequence` - Long-term consequences of partnership choice
+15. `harmony_consequence` - Long-term consequences of partnership choice
+16. `harmony_transformation` - Transformation resulting from deep harmony with the glacier
+17. `glacier_mystery_path` - Exploring the glacier's ancient mysteries
+18. `mystery_creation` - Discovering how the runes were created
+19. `mystery_conversation` - Dialogue about the glacier's origins
+20. `mystery_test` - Facing a test of faith or understanding in the mystery path
+21. `mystery_revelation` - Revelation of the glacier's deepest secret
+22. `mystery_faith` - Leap of faith in trusting the glacier's wisdom
+23. `glacier_final` - Final choices and departure from the glacier
+24. (END)
 
 ### Key Mechanics
 - Control vs Harmony stat tracking
