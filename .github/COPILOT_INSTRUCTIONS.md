@@ -160,6 +160,10 @@ Each major location should have this structure:
 16. `dunes_oath_teaching` - Learning to bind promises with oath-magic
 17. `dunes_keeper_oath` - Making your oath to the desert
 18. `dunes_final` - Final choices and departure with desert's blessing
+19. `honest_truth` - Outcome for honest truth-tellers
+20. `safe_truth` - Outcome for cautious truth-tellers
+21. `rejected_truth` - Outcome for those rejected by the desert
+22. `return_to_avalon` - Portal journey back to the Academy
 
 ### Key Mechanics
 - Truth level tracking (honest choices accumulate)
