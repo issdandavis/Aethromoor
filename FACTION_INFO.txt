@@ -1,11 +1,14 @@
 ═══════════════════════════════════════════════════════
-  🌟 FACTION INFORMATION - QUICK ACCESS GUIDE
+  🌟 FACTION & CHARACTER INFORMATION - QUICK ACCESS
 ═══════════════════════════════════════════════════════
 
-📖 WHERE TO FIND FACTION INFORMATION:
+📖 WHERE TO FIND INFORMATION:
 
 🎯 QUICK REFERENCE (1-PAGE CHEAT SHEET):
    lore/FACTION_QUICK_REFERENCE.md
+
+👥 CHARACTER GUIDE (WRITER'S EDITION): ✨ NEW!
+   lore/CHARACTER_COMPENDIUM.md
 
 📚 COMPLETE GUIDE (DETAILED ENCYCLOPEDIA):
    lore/FACTION_GUIDE.md
@@ -16,6 +19,13 @@
 ═══════════════════════════════════════════════════════
 
 💡 WHAT'S INSIDE?
+
+CHARACTER_COMPENDIUM.md: ✨ NEW!
+   • The Core Truth About Clay (magic system foundation)
+   • Izack's character guide (voice, gifts, relationships)
+   • Writing guidelines for canonical characters
+   • Dialogue examples and patterns
+   • Perfect for writers maintaining character consistency!
 
 FACTION_QUICK_REFERENCE.md:
    • One-page printable reference
