@@ -101,7 +101,7 @@ def update_scene_list(scene_name):
         if line.strip() == '*scene_list':
             scene_list_start = i
         elif scene_list_start is not None and scene_list_end is None:
-            if line.strip() and not line.strip().startswith(' '):
+            if line and not line.startswith(' ') and not line.startswith('\t'):
                 scene_list_end = i
                 break
     
