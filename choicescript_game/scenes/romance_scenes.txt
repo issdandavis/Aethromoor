@@ -35,25 +35,31 @@
 
 *label izack_first_moment
 
-You find Izack in the Ley line Gazebo late at night, studying dimensional currents.
+You find Izack in the Leyline Gazebo late at night, standing at the heart of Avalon's primary convergence point where thirteen major leylines meet and braid together in impossible patterns. He's studying the dimensional currents with the focused intensity he brings to all his work, but there's something different tonight—a softness to his posture, a vulnerability that he usually keeps hidden beneath enthusiasm and confidence.
 
-He looks up when you approach, and something shifts in his expression—warmth beyond mere mentorship.
+He looks up when you approach, and something fundamental shifts in his expression. The warmth there goes beyond mere mentorship, beyond teacher and student, into territory that makes your heart beat faster and your dimensional awareness sharpen with anticipation.
 
 *page_break
 
-[b]"${name}. I was hoping you'd come."[/b]
+[b]"${name}. I was hoping you'd come,"[/b] he says, and the admission costs him something. Izack Thorne, who built an entire pocket dimension through willpower and imagination, sounds almost nervous. [b]"I asked Polly to... to make sure you knew I'd be here. I wanted to show you something."[/b]
 
 *line_break
 
-He gestures to the leylines flowing around you both, visible as streams of light.
+He gestures to the leylines flowing around you both, visible tonight as streams of pure light—silver and gold and colors that don't have names in mortal languages. Usually, they're subtle, barely perceptible except to trained dimensional awareness. But tonight, at this convergence point, with Izack's presence amplifying their resonance, they're beautiful enough to steal breath.
 
-[b]"I wanted to show you something. Watch."[/b]
+[b]"Watch,"[/b] he whispers.
 
 *page_break
 
-He raises a hand, and the ley lines respond—not commanded, but [i]invited[/i]. They dance around you both, creating patterns of light and magic.
+He raises a hand, and the leylines respond immediately—but not because he commanded them. Because he [i]invited[/i] them. Because they recognize him as the one who wove them together in the first place, who gave them purpose beyond mere energy transfer.
 
-[b]"This is what magic can be when we stop trying to control it. When we just... [i]listen[/i]."[/b]
+They dance around you both, creating patterns of light and magic that shift and evolve like living art. Like collaborative spellwork between Izack and the realm itself. Like a conversation between old friends.
+
+[b]"This is what magic can be,"[/b] Izack says softly, his eyes reflecting the dancing light, [b]"when we stop trying to control it, when we stop treating it as a tool to be wielded. When we just... [i]listen[/i]. When we remember it's alive, and treat it with the respect living things deserve."[/b]
+
+*line_break
+
+He's not just talking about magic. You both know that.
 
 *page_break
 
