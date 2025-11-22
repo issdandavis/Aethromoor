@@ -963,17 +963,17 @@ const storyNodes = {
             {
                 text: "Volunteer for the Singing Dunes expedition with Polly",
                 next: 'singing_dunes_journey',
-                effects: { collaboration: 1, aria: 1 }
+                effects: { collaboration: 1, aria: 1, pollyTrust: 2 }
             },
             {
                 text: "Join the Verdant Tithe forest exploration",
                 next: 'verdant_tithe_journey',
-                effects: { collaboration: 2, izack: 1 }
+                effects: { collaboration: 2, izack: 1, pollyTrust: 1 }
             },
             {
                 text: "Request the Rune Glacier - you want to master written magic",
                 next: 'rune_glacier_journey',
-                effects: { collaboration: 0, aria: 2 }
+                effects: { collaboration: 0, aria: 2, pollyTrust: 0 }
             }
         ]
     },
@@ -984,33 +984,35 @@ const storyNodes = {
 
             <p>The dunes are humming.</p>
 
-            <p>A low, haunting chorus rises from the desert itself - like a thousand voices singing just below the threshold of words. The sound shifts with each step you take.</p>
+            <p>A low, haunting chorus rises from the desert itself - like a thousand voices singing just below the threshold of words. The sound shifts with each step you take, responding to your presence like a living thing.</p>
 
-            <p><span class="polly-comment">*Landing on a sun-bleached stone* "Welcome to Sul'dessar, specifically the Sunscarred Dunes. This sand has a nasty habit of glowing red-hot when someone breaks an oath. Also, mirages here aren't just illusions - they're actual memories the desert preserved. Try not to walk into any traumatic historical events."</span></p>
+            <p><span class="polly-comment">*Landing on a sun-bleached stone, immediately ruffling my feathers* "Ugh, sand. I hate sand. But welcome to Sul'dessar, specifically the Sunscarred Dunes. This sand has a nasty habit of glowing red-hot when someone breaks an oath. Also, those mirages you're seeing? They aren't just illusions - they're actual memories the desert preserved. Try not to walk into any traumatic historical events. Yes, that's possible. Yes, it's happened before."</span></p>
 
-            <p>Your group's guide, a weathered desert mage named Kael, gestures to an oasis shimmering in the distance. "We camp there tonight. But first - a test."</p>
+            <p>Your group's guide, a weathered desert mage named Kael, gestures toward an oasis shimmering in the distance, surrounded by dark trees that seem impossibly solid. "We camp there tonight at the Ironwood oasis. Those trees are harder than metal - survivors in a place that kills the weak. But first..."</p>
 
-            <p>He hands each student a small crystal vial. "Fill this with sand while speaking a truth about yourself. The desert will judge whether you're honest. If you lie..." He points to a patch of sand glowing angry crimson. "That's what happens."</p>
+            <p>He hands each student a small crystal vial with solemn ceremony. "Fill this with sand while speaking a truth about yourself. The desert will judge whether you're honest. If you lie..." He points to a patch of sand glowing angry crimson in the distance. "That happens. And it hurts."</p>
 
-            <p>The other students nervously approach the dunes. You kneel and scoop sand, preparing to speak.</p>
+            <p>The other students nervously approach the dunes. You watch as one speaks and their vial glows soft gold. Another speaks and... nothing. Neutral. Accepted but not blessed. A third student's sand flares red, and they drop it with a yelp of pain. The desert's hum shifts to something discordant and angry.</p>
 
-            <p><span class="polly-comment">"This should be entertaining. The dunes are listening."</span></p>
+            <p>You kneel in the crystalline sand, vial in hand, feeling the weight of countless eyes - though whether they're your fellow students or the desert itself, you can't tell.</p>
+
+            <p><span class="polly-comment">*Hopping closer* "This is the moment where I find out if you're actually brave or just good at pretending. The dunes are listening. Choose wisely."</span></p>
         `,
         choices: [
             {
                 text: "Speak a vulnerable truth: 'I'm afraid I'm not strong enough to make a difference here'",
                 next: 'dunes_honest_truth',
-                effects: { collaboration: 2, aria: 2 }
+                effects: { collaboration: 2, aria: 2, pollyTrust: 3 }
             },
             {
                 text: "Share something safe: 'I want to learn everything Avalon can teach'",
                 next: 'dunes_safe_truth',
-                effects: { collaboration: 1 }
+                effects: { collaboration: 1, pollyTrust: 0 }
             },
             {
                 text: "Test the desert's limits with an exaggeration: 'I'm destined to be the greatest mage of my generation'",
                 next: 'dunes_rejected',
-                effects: { collaboration: -1 }
+                effects: { collaboration: -1, pollyTrust: -2 }
             }
         ]
     },
@@ -1088,37 +1090,39 @@ const storyNodes = {
 
     verdant_tithe_journey: {
         text: `
-            <p>The portal opens onto an ocean of green. Trees larger than Avalon's towers rise into mist, their canopy creating a twilight world below. The air itself feels <em>alive</em> - thick with the scent of growing things and something else... awareness.</p>
+            <p>The portal opens onto an ocean of green that takes your breath away. Trees larger than Avalon's towers rise into perpetual mist, their canopy creating a twilight world below where reality feels softer, more malleable. The air itself feels <em>alive</em> - thick with the scent of growing things, ancient bark, and something else... awareness. Consciousness.</p>
 
-            <p>Izack leads this expedition personally. "Welcome to the Verdant Tithe, one of Avalon's transplanted biomes drawn from the ancient forests of Nirestal. Here, every thought has weight."</p>
+            <p>Izack leads this expedition personally, his eyes bright with wonder even though he must have been here countless times. "Welcome to the Verdant Tithe, one of Avalon's transplanted biomes drawn from the ancient forests of Nirestal. Here, every thought has weight. Every emotion leaves ripples."</p>
 
-            <p>As if to demonstrate, a vine near you shifts, reaching toward a student who's thinking intensely about their family. The plant seems to sense the emotion.</p>
+            <p>As if to demonstrate, a vine near you shifts and coils, reaching gently toward a student who's thinking intensely about their family back home. The plant seems to <em>sense</em> the emotion, offering what feels like comfort.</p>
 
-            <p><span class="polly-comment">*Perched on Izack's shoulder* "The Thoughtvines are just the beginning. In the deep forest, the trees themselves remember every person who's passed through. Try to keep your mind calm - anxious thoughts attract attention you don't want."</span></p>
+            <p><span class="polly-comment">*Perched on Izack's shoulder, unusually serious* "The Thoughtvines are just the beginning. In the deep forest, the trees themselves remember every person who's passed through - their hopes, their fears, their secrets. Try to keep your mind calm. Not because the forest is hostile, but because anxious thoughts attract attention you might not be ready for."</span></p>
 
-            <p>Izack nods. "The Tithe takes a piece of your consciousness as payment for passage - usually just surface thoughts or recent memories. In return, it offers guidance and protection. But you must learn to quiet your mind."</p>
+            <p>Izack nods gravely. "The Tithe takes a piece of your consciousness as payment for passage - usually just surface thoughts or recent memories. Don't resist it; the forest only takes what it needs. In return, it offers guidance, protection, and wisdom older than most mortal realms. But you must learn to quiet your mind and listen to what it wants to teach you."</p>
 
-            <p>Your group begins walking the forest path. Around you, luminescent fungi bloom in response to your footsteps, and you swear you can hear whispers in the rustling leaves.</p>
+            <p>Your group begins walking the forest path in reverent silence. Around you, luminescent fungi bloom in delicate patterns responding to your footsteps. You swear you can hear whispers in the rustling leaves - not words exactly, but meaning nonetheless.</p>
 
-            <p>Suddenly, the path ahead splits into three directions. Each trail seems to call to different aspects of your mind.</p>
+            <p>The forest is <em>thinking</em>.</p>
 
-            <p>Izack smiles. "The forest is testing you. Choose the path that resonates, but understand - each leads to a different lesson."</p>
+            <p>Suddenly, the path ahead splits into three distinct directions. Each trail seems to call to different aspects of your mind - one pulling at your curiosity, another at your memories, the third at something deeper you can't quite name.</p>
+
+            <p>Izack smiles knowingly. "The forest is testing you, offering you a choice. Each path leads to a different lesson, a different truth about yourself and about magic. Choose the path that resonates most strongly, but understand - there's no wrong answer, only different journeys."</p>
         `,
         choices: [
             {
-                text: "Take the path lined with silver Dreamwillow trees - you sense visions there",
+                text: "Take the path lined with silver Dreamwillow trees - you sense visions and possibilities there",
                 next: 'dreamwillow_path',
-                effects: { collaboration: 1, izack: 2 }
+                effects: { collaboration: 1, izack: 2, pollyTrust: 1 }
             },
             {
-                text: "Follow the trail where Thoughtvines grow thickest - you want to understand the forest's mind",
+                text: "Follow the trail where Thoughtvines grow thickest - you want to understand the forest's consciousness",
                 next: 'thoughtvine_path',
-                effects: { collaboration: 2, zara: 1 }
+                effects: { collaboration: 2, zara: 1, pollyTrust: 1 }
             },
             {
-                text: "Choose the path leading to a distant glow - the Heartwood Tree awaits",
+                text: "Choose the path leading to a distant golden glow - the ancient Heartwood Tree awaits",
                 next: 'heartwood_path',
-                effects: { collaboration: 3, izack: 2 }
+                effects: { collaboration: 3, izack: 2, pollyTrust: 2 }
             }
         ]
     },
