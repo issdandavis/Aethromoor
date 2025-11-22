@@ -4,39 +4,53 @@
 
 *temp lesson_success 0
 
-The lesson chamber is breathtaking. Crystalline walls pulse with leyline energy, and dimensional boundaries shimmer visibly in the air like heat waves made of starlight.
+The lesson chamber is breathtaking in the way that only places of concentrated magic can be—where reality itself seems to hold its breath in anticipation. Crystalline walls pulse with leyline energy, each facet catching and refracting light that shouldn't exist in the visible spectrum. The dimensional boundaries shimmer visibly in the air like heat waves made of starlight, creating a subtle disorientation that makes you wonder if you're seeing the room as it is, or as it's becoming. The very atmosphere tastes of possibility and ancient power, with undertones of ozone and something sweeter—like honey mixed with moonlight.
 
 *line_break
 
-Izack stands at the center, surrounded by five other students. You recognize a few faces from the portal crossing—all nervous, all excited.
+Izack stands at the center of the chamber, surrounded by five other students, and somehow manages to be both completely present and seemingly elsewhere at the same time. There's a quality to the way he inhabits space that suggests he's aware of more dimensions than the three you can see. You recognize a few faces from the portal crossing—all nervous energy and barely contained excitement, their expressions a mirror of what you suspect your own face looks like. Each student's magical signature creates subtle ripples in the air around them, like individual instruments warming up before a symphony.
 
-"Welcome," Izack begins, his voice carrying to every corner without needing to be loud. "Today we're learning to [i]feel[/i] dimensional boundaries. Not to break them, but to understand their nature."
+"Welcome," Izack begins, his voice carrying to every corner of the chamber without needing to be loud—as if the space itself has decided his words are worth amplifying. There's a warmth in his tone that immediately puts you at ease, the kind of gentle authority that comes from someone who genuinely wants you to succeed rather than someone trying to prove their own superiority. "Today we're learning to [i]feel[/i] dimensional boundaries. Not to break them, shatter them, or bend them to our will—but to understand their nature, to listen to what they have to tell us. Magic," he pauses, and his eyes sweep across each student's face, "is not a force we command. It's a conversation we're learning to join."
 
 *page_break
 
-He gestures, and the air ripples. Reality itself seems to bend, revealing the membrane between dimensions—a shimmering, almost musical barrier.
+He gestures with a fluid motion that somehow looks both casual and impossibly precise, and the air ripples in response like a pond disturbed by a stone. Reality itself seems to bend, peeling back layers of existence you hadn't known were there, revealing the membrane between dimensions. It's a shimmering, almost musical barrier—you can actually [i]hear[/i] it humming, a frequency that resonates in your bones rather than your ears. The boundary looks like silk woven from starlight and spider's web, simultaneously fragile and impossibly strong.
 
-"Reach out—not with your hands, but with your awareness. What does the boundary feel like?"
-
-*line_break
-
-You close your eyes and extend your senses. The boundary feels like... a membrane. Flexible. Almost musical. It has texture, temperature, even something like emotion.
+"Reach out," Izack says softly, "not with your hands, but with your awareness. Let your consciousness extend like a question being asked. What does the boundary feel like? What does it [i]want[/i] to be?"
 
 *line_break
 
-[i]"Good. Now here's the fun part—Izack wants you to work together to create a harmonic resonance. Multiple mages, one unified frequency."[/i]
+You close your eyes and extend your senses, following Izack's guidance like stepping onto an invisible bridge. At first, there's nothing but darkness and the sound of your own heartbeat. Then, slowly, as if emerging from deep water into consciousness, you begin to [i]feel[/i] it. The boundary manifests in your awareness not as a single sensation but as a symphony of them—a membrane that exists in more dimensions than your physical senses were designed to perceive.
+
+It feels like... a membrane, yes, but alive. Flexible and responsive, almost breathing. The texture reminds you of silk that's been woven from moonlight and mathematics, impossibly delicate yet strong enough to hold entire realities apart. There's a temperature to it—not hot or cold in any traditional sense, but something that registers as warmth in some dimensions and a crystalline coolness in others, as if the boundary itself exists in multiple thermal states simultaneously.
+
+And there's emotion in it. That's the strangest part—the dimensional boundary has something like [i]feelings[/i]. Not human emotions, but the magical equivalent: curiosity about what lies on either side, a kind of patient watchfulness, even what might be called contentment when it's left undisturbed. You realize with a start that this barrier isn't a wall; it's more like a guardian, or perhaps a conversation between two realities that have agreed to remain distinct.
+
+The musical quality Izack mentioned becomes clearer now. The boundary hums with a frequency that bypasses your ears entirely, resonating instead in the marrow of your bones, in the space behind your thoughts where dreams are born. It's singing, you realize—not in any language you know, but in the fundamental harmonics of existence itself.
+
+*line_break
+
+A voice cuts through your concentration—not spoken aloud, but projected directly into your mind with the kind of sardonic precision that suggests its owner has been waiting for exactly the right moment to interject. [i]"Good. Now here's the fun part—Izack wants you to work together to create a harmonic resonance. Multiple mages, one unified frequency. It's like a choir, except if anyone hits the wrong note, you might accidentally fold space inside out. No pressure."[/i]
+
+The mental voice carries an unmistakable personality: sharp-witted, irreverent, and somehow both deeply wise and perfectly willing to let you make educational mistakes. You don't need to open your eyes to know it's Polly, Izack's legendary familiar. The raven's reputation precedes her—equal parts mentor, critic, and cosmic comedian. Her presence in your mind feels surprisingly natural, as if part of learning magic at Avalon means accepting that a sarcastic bird will occasionally commentate on your progress.
 
 *page_break
 
-Izack nods. "Exactly. Zara, would you demonstrate with ${name}?"
+Izack nods, a small smile playing at the corners of his mouth—the expression of someone who's heard Polly's particular brand of encouragement countless times and has learned to appreciate its underlying truth. His eyes, which shift between shades of violet and deep amber depending on the magical currents around him, hold a warmth that makes you feel less like a student being tested and more like a colleague being invited into something remarkable.
+
+"Exactly," he says, his voice carrying that same quality of gentle authority you noticed earlier. "Zara, would you demonstrate with ${name}?"
+
+The question hangs in the air for a moment, and you feel the attention of the entire class shift toward you and the young woman stepping forward. Zara moves with the kind of unconscious grace that suggests she's always been aware of the magical currents flowing around her body, adjusting her movements to complement them rather than fight against them. Her silver-streaked dark hair catches the crystalline light of the chamber, and there's something in her bearing that reminds you of the dimensional boundary itself—simultaneously grounded and ethereal, fully present yet connected to something beyond ordinary perception.
 
 *if zara_relationship > 50
-  Zara practically beams as she takes your hand.
+  Zara practically beams as she takes your hand, her fingers warm and slightly calloused—the mark of someone who's spent hours practicing physical components of spellcasting. Her smile is genuine and unguarded, the kind that makes you feel like you've somehow already passed a test you didn't know you were taking. The magical energy around her seems to brighten in response to her enthusiasm, creating small eddies of prismatic light that dance between your joined hands like curious fireflies.
   *set lesson_success +1
 *else
-  Zara takes your hand with a professional nod.
+  Zara takes your hand with a professional nod, her expression focused and serious. Her grip is firm, confident—the touch of someone who understands that partnership magic requires trust but isn't willing to presume familiarity before it's earned. There's a quiet competence in the way she positions herself beside you, adjusting her stance until your magical signatures begin to resonate at similar frequencies. You can feel her power humming just beneath her skin, controlled and patient, waiting for the right moment to synchronize.
 
-"Just match my breathing," she says softly. "Let our intentions align."
+"Just match my breathing," she says softly, her voice pitched low enough that it feels like a secret shared between the two of you despite the presence of your classmates. "Let our intentions align. Don't think about the magic as something you're [i]doing[/i]—think of it as something you're [i]becoming[/i] together. Like two rivers deciding to merge into one stronger current."
+
+Her words settle into your awareness with the weight of truth. This isn't just instruction; it's philosophy made practical, the kind of wisdom that comes from someone who's already walked the path you're just beginning to explore.
 
 *choice
   #Focus entirely on matching Zara's rhythm—trust the partnership.
@@ -44,11 +58,23 @@ Izack nods. "Exactly. Zara, would you demonstrate with ${name}?"
     *set zara_relationship +10
     *set lesson_success +2
 
-    You let go of control and simply follow Zara's lead. Your breathing synchronizes, your heartbeat aligns, and suddenly—
+    You make a conscious decision to release control, to stop trying to [i]manage[/i] the magic and instead simply [i]be[/i] with it. It's harder than it sounds—every instinct you have as a mage-in-training screams at you to maintain focus, to direct the energy, to prove your competence. But something in Zara's steady presence, in the quiet confidence of her breathing pattern, tells you that this is a different kind of test entirely.
 
-    The boundary becomes [i]clear[/i]. You're seeing it through both your perspective and Zara's, and it's infinitely more detailed than before.
+    You let go.
 
-    "Beautiful," Izack murmurs. "This is partnership magic."
+    Your breathing synchronizes first—not through effort but through surrender, the way two pendulums hanging side by side will eventually swing in harmony without anyone forcing them to match. Then your heartbeat follows, and you become aware of Zara's pulse thrumming through her hand into yours, creating a rhythm that's neither hers nor yours but somehow belongs to both of you. The magical energy flowing through your body begins to resonate with hers, finding frequencies that complement and amplify each other.
+
+    And suddenly—like a kaleidoscope clicking into perfect focus—the boundary becomes [i]clear[/i].
+
+    But it's more than clear. You're seeing it through both your perspective and Zara's simultaneously, experiencing it as she experiences it while still maintaining your own unique awareness. The boundary reveals layers you couldn't perceive alone: subtle harmonics that only become visible when two magical signatures observe them together, dimensional currents that flow differently depending on the observer, textures that shift based on collaborative intention.
+
+    It's infinitely more detailed than what you saw before, infinitely more [i]real[/i]. The membrane between dimensions reveals itself as a living tapestry woven from the threads of multiple realities, each strand vibrating with its own story, its own purpose. You can feel the age of it—this particular boundary has stood for centuries, maybe millennia, holding two worlds apart not through force but through patient, continuous agreement.
+
+    Through your joined awareness with Zara, you understand something profound: the boundary isn't trying to keep things separate. It's creating a space where two different realities can exist in relationship to each other, distinct yet aware, like two people holding a conversation across a comfortable distance.
+
+    "Beautiful," Izack murmurs, and his voice carries the unmistakable sound of pride mixed with something deeper—hope, perhaps, or vindication. "This is partnership magic. This is what Avalon was built to teach. Two mages, two perspectives, creating a third understanding that neither could achieve alone. You've just demonstrated the fundamental principle of the Third Thread."
+
+    The words settle into the chamber like a benediction. Around you, the other students lean forward, their expressions a mixture of awe and inspiration. Even the crystalline walls seem to pulse with a warmer light, as if the room itself approves of what's just happened.
 
     *goto lesson_success
 
@@ -58,9 +84,25 @@ Izack nods. "Exactly. Zara, would you demonstrate with ${name}?"
     *set zara_relationship +10
     *set lesson_success +3
 
-    An instinct tells you there's more. You reach out with your awareness, inviting the other students into the resonance.
+    The connection with Zara is profound, beautiful, transformative—but as you sink deeper into the merged awareness, an instinct whispers that there's more here. Something bigger waiting to be discovered. The resonance you're creating with Zara isn't meant to be a closed circuit between two people; it's meant to be an invitation, the first notes of a symphony that's calling for more instruments to join.
 
-    One by one, they join. Five minds, five hearts, one unified frequency.
+    You reach out with your awareness, not abandoning the connection with Zara but rather [i]expanding[/i] it, like ripples spreading across a still pond. The magical current flowing between you and her becomes a conduit, a pathway that others can follow if they choose. You're not forcing anyone to join—that would break the fundamental principle of collaborative magic—but you're opening a door, offering a hand, creating space in the resonance for others to enter.
+
+    One by one, they respond.
+
+    The first student to join is a tall young man with earth-brown skin and eyes that glow faintly amber—an Elementalist, you realize, his magical signature carrying the steady, grounded weight of stone and soil. His presence in the shared awareness feels like roots sinking deep, adding stability to what was previously just flow. The resonance shifts, deepens, gains a foundation it didn't have before.
+
+    Then comes a woman whose magic tastes like silver and starlight—a Timeweaver, perhaps, or someone touched by the Resonance Network. Her consciousness enters the connection with a gentle precision, and suddenly you're all aware not just of the present moment but of the potential futures and echoing pasts that surround it. The boundary you're observing reveals itself across multiple temporal layers, showing how it looked centuries ago and how it might evolve centuries hence.
+
+    The other three students join in rapid succession: a Runecaster whose mind thinks in geometric patterns that bring beautiful structure to the merged awareness; someone carrying the wild, unpredictable energy of raw elemental chaos that keeps the resonance from becoming too rigid; and finally, a student whose magical signature is unlike anything you've felt before—complex, layered, carrying harmonics that seem to bridge incompatible frequencies.
+
+    Five minds. Five hearts. Five completely different approaches to magic.
+
+    One unified frequency.
+
+    The sensation is indescribable. You're still yourself—you haven't lost your individual identity—but you're also part of something vastly larger. It's like being a single voice in a choir where every voice maintains its unique timbre while blending into a harmony that transcends what any individual could sing alone. You can feel the thoughts of your fellow students not as invasions but as perspectives, seeing the dimensional boundary through six different lenses simultaneously.
+
+    And the boundary [i]responds[/i].
 
     *goto breakthrough
 
@@ -68,9 +110,17 @@ Izack nods. "Exactly. Zara, would you demonstrate with ${name}?"
     *set collaboration -5
     *set lesson_success -1
 
-    The sensation of your consciousness blending with Zara's is too intense, too fast. You instinctively pull back.
+    The sensation of your consciousness blending with Zara's is too much, too fast, too [i]intimate[/i]. Your individual boundaries—not the dimensional ones Izack is teaching about, but the personal ones that define where you end and someone else begins—feel like they're dissolving. Panic rises in your chest, primal and instinctive, the kind of fear that doesn't respond to logic or reason.
 
-    And in that moment, the resonance destabilizes.
+    You instinctively pull back, yanking your awareness away from the merged state like someone jerking their hand from a hot surface. It's a reflexive action, survival instinct overriding your conscious intention to trust the process.
+
+    And in that moment, you feel something break.
+
+    The resonance you and Zara had been building—that delicate, beautiful harmonic frequency that was just beginning to stabilize—destabilizes. It's like watching a perfectly balanced structure collapse in slow motion, each element that had been supporting the others suddenly finding itself without foundation. The magical energy that was flowing smoothly between you fragments into discordant notes, creating interference patterns that ripple outward into the dimensional boundary itself.
+
+    Zara gasps, her hand tightening on yours reflexively before she pulls away. You catch a glimpse of her expression—not anger, but hurt. And worse than hurt: disappointment. She'd trusted you to maintain the connection, had opened her own magical awareness to merge with yours in a way that required profound vulnerability, and you'd flinched away from it.
+
+    The dimensional boundary you were examining, which had been responding so beautifully to your collaborative observation, begins to crack. A hairline fracture spreads across the shimmering membrane, thin as spider's silk but growing, propagating outward from the point where your attention had been focused. It's not dangerous yet—the crack is too small, too superficial—but you can see it spreading, taste the wrongness of it in the suddenly bitter air.
 
     *goto crisis
 
@@ -80,26 +130,52 @@ Izack nods. "Exactly. Zara, would you demonstrate with ${name}?"
 
 *achievement visible breakthrough Achieved Breakthrough Collaboration
 
+A presence manifests in your shared consciousness—Polly's mental voice, but for once completely devoid of sarcasm or wit. When she speaks, it carries the weight of genuine awe, the kind of respect that comes from witnessing something even an ancient, multidimensional being finds remarkable.
+
 [i]*Even I'm speechless. And that never happens. Caw.*[/i]
 
-*line_break
-
-The dimensional boundary doesn't just become visible—it [i]sings[/i]. You can feel its nature, its preferences, the way it wants to flex and flow. Together, your group creates a perfect harmonic resonance.
-
-Izack's eyes shine with unshed tears. "This is exactly what Avalon was built for. You just demonstrated the Third Thread—collaborative magic that transcends individual limitations."
+The mental equivalent of a pause, as if she's gathering herself. Then: [i]*What you've just done... Izack spent years developing the theory. Decades building an academy designed to make this possible. And you six just achieved it on your first day, in your first lesson, as if it was the most natural thing in the world. This is why Avalon exists. This is what the Third Thread looks like when it wakes up.*[/i]
 
 *line_break
 
-Aria appears at the doorway, clearly moved despite her usual composure. "In my years of dimensional work, I've never seen students achieve this level of connection on their first day."
+The dimensional boundary doesn't just become visible—it [i]sings[/i].
 
-Zara squeezes your hand, grinning. "We did it!"
+And you don't mean that metaphorically. The membrane between realities opens its voice in a chorus that exists in frequencies beyond human hearing, beyond magical perception as you understood it moments ago. It's a song made of mathematics and emotion, of pure structure and wild creativity, of order and chaos harmonizing in ways that should be impossible but somehow [i]work[/i]. The sound bypasses your ears entirely and resonates directly in your soul, in that deep place where your individual identity meets the universal consciousness that connects all things.
+
+Through your six-way merged awareness, you can feel the boundary's nature in its entirety. It's not a wall or a barrier—it's a [i]relationship[/i]. Two dimensions in conversation with each other, maintaining their distinct identities while remaining fundamentally aware of and responsive to each other's presence. The boundary has preferences: it likes to flex and flow in certain patterns, dislikes being forced or torn, responds with joy when treated gently and with cooperation.
+
+Together, your group creates a perfect harmonic resonance. It's not just that your magical signatures are aligned—you've transcended alignment and entered into a state of collaborative emergence, where the whole becomes genuinely greater than the sum of its parts. Each person's unique perspective enriches the collective understanding without diluting individual contribution. You can feel the Elementalist's grounding stability, the Timeweaver's temporal awareness, the Runecaster's geometric precision, the chaos mage's creative unpredictability, Zara's innate bridging ability, and your own unique contribution all weaving together into something that feels less like cooperation and more like a new form of consciousness temporarily coming into being.
+
+*line_break
+
+Izack's eyes shine with unshed tears, and when he speaks, his voice carries the tremor of someone watching a dream they'd almost given up on suddenly manifest in reality. "This is exactly what Avalon was built for. What I [i]hoped[/i] for but couldn't guarantee would ever actually happen. You just demonstrated the Third Thread—collaborative magic that transcends individual limitations, that creates new possibilities not through dominance or hierarchy but through genuine partnership."
+
+He moves closer to your circle, his movements slow and reverent, as if approaching something sacred. "The old magical traditions taught that power comes from control: controlling the elements, controlling dimensional energy, controlling other beings through contracts or compulsion. But you six just proved something different. You proved that the deepest power comes from [i]letting go[/i] of control, from trusting others enough to merge your awareness with theirs, from creating something together that none of you could build alone."
+
+*line_break
+
+Aria appears at the doorway, and for a moment you see her through the lingering traces of your expanded awareness—not just as a person but as a nexus of boundary magic, her entire being dedicated to understanding the spaces between things. Her usual composure has cracked, and you can see genuine emotion on her face: wonder, and something that might be the relief of someone who's spent years defending an ideal finally seeing proof that it works.
+
+"In my years of dimensional work," she says, her cultured voice rough with feeling, "I've never seen students achieve this level of connection on their first day. I've rarely seen [i]masters[/i] achieve it after decades of practice. What you've done here..." She trails off, shaking her head. "This is what the Academy was founded to discover. You've just validated everything Izack and I have been trying to build."
+
+Zara squeezes your hand, grinning with unrestrained joy, her face lit up like someone who's just discovered they can fly. "We did it!" The simple words carry complex harmonics—triumph and relief and the pure exhilaration of achieving something that felt impossible until the moment it wasn't.
+
+The merged awareness is beginning to naturally separate now, each consciousness gently drawing back into individual identity while retaining the memory of what union felt like. It's not a breaking apart but a gentle untangling, like six rivers that had flowed together for a time now returning to their distinct courses, changed by the experience but still fundamentally themselves.
 
 *set chosen_path "Third Thread"
 *set collaboration +20
 
 *page_break
 
-The lesson continues for another hour, but the breakthrough moment has set the tone. You've proven yourself capable of true collaboration.
+The lesson continues for another hour, but the breakthrough moment has fundamentally altered its trajectory. Nothing that follows can match the profound experience you just shared, and Izack seems to recognize this. He doesn't try to recreate it or force you to achieve it again. Instead, he guides the class through practical applications of what you've learned, helping each student understand how to access that collaborative state in more controlled, sustainable ways.
+
+You practice finding resonance with individual partners, learning to read another mage's magical signature quickly and adjust your own to complement it. You experiment with maintaining partial awareness-merger while still keeping enough individual identity to make independent decisions. You discover that some magical tasks become trivially easy when approached collaboratively—spatial mathematics that would take you hours to solve alone can be completed in minutes when two minds tackle them from different angles simultaneously.
+
+But more than the technical skills, you've absorbed something deeper: a proof-of-concept that the kind of magic Izack teaches isn't just theoretical idealism but a practical reality. You've felt what's possible when mages choose collaboration over competition, when they build together instead of striving for individual supremacy.
+
+The other students in the chamber look at your group differently now—not with jealousy, you're relieved to note, but with a kind of hunger. They want to experience what you experienced. They want to know what that kind of connection feels like. And Izack, ever the teacher, promises that they'll all have their chance, that what happened here wasn't unique to your particular combination of students but rather a demonstration of what becomes possible when the conditions are right.
+
+You've proven yourself capable of true collaboration. More importantly, you've proven to yourself that you [i]want[/i] to collaborate, that the vulnerability required to merge awareness with others isn't a weakness but a strength.
 
 *goto lesson_conclusion
 
@@ -107,13 +183,21 @@ The lesson continues for another hour, but the breakthrough moment has set the t
 
 *label lesson_success
 
-You and Zara maintain the connection, refining it. The boundary becomes crystal clear between your merged awareness.
+The connection with Zara holds steady, neither expanding into the breakthrough state you've heard about nor collapsing into discord. It's a middle path—stable, functional, quietly profound without being dramatically transformative. You and Zara maintain the merged awareness, refining it through small adjustments and micro-corrections, learning to read each other's magical signatures with increasing precision.
 
-Izack nods approvingly. "Beautiful work. This is partnership magic—two becoming greater than the sum of their parts."
+The boundary becomes crystal clear between your united perspectives, revealing details that would remain hidden to a single observer but not achieving the transcendent clarity that full group collaboration can provide. It's beautiful in its own right—this partnership magic, this two-becoming-greater-than-their-individual-parts. You can see the dimensional membrane's texture with perfect clarity, understand its preferences and nature, feel the way it responds to gentle observation versus forceful intrusion.
+
+Through the sustained connection, you and Zara develop an instinctive understanding of each other's magical rhythms. You learn that she thinks in spirals and curves while you think in lines and angles, and that these different cognitive patterns complement each other perfectly when observing multidimensional phenomena. She processes magical energy through what feels like intuition and emotional resonance; you approach it more analytically, breaking patterns down into component parts. Together, you create a balanced perspective that honors both approaches.
 
 *line_break
 
-[i]"Solid performance. Not flashy, but that's not always bad. You're learning the right lessons."[/i]
+Izack nods approvingly, his expression warm with the kind of satisfaction that comes from watching students grasp fundamental concepts without needing dramatic demonstrations. "Beautiful work. This is partnership magic—two becoming greater than the sum of their parts. Not every collaborative effort needs to achieve breakthrough-level resonance. Sometimes the most valuable skill is simply learning to work smoothly with one other person, building trust and mutual understanding through sustained practice."
+
+He gestures toward you and Zara, using your partnership as a teaching example for the other students. "Notice how they've maintained stability for several minutes now. That takes discipline—the discipline to neither push for more than the connection can handle nor pull back when vulnerability feels uncomfortable. They're in balance, and balance is often more useful than dramatic peaks of achievement."
+
+*line_break
+
+Polly's voice manifests in your mind, carrying her characteristic dry wit but also genuine approval. [i]"Solid performance. Not flashy, but that's not always bad. Flashy is what gets you  mentioned in legends. Solid is what keeps you alive long enough to become legendary in the first place. You're learning the right lessons—better to master partnership before attempting full group resonance. Walking before running, as the mortals say. Though personally, I've always found flying to be superior to both."[/i]
 
 *goto lesson_conclusion
 
@@ -123,17 +207,29 @@ Izack nods approvingly. "Beautiful work. This is partnership magic—two becomin
 
 *temp crisis_resolved false
 
-Zara gasps. "The harmonics are collapsing!"
+Zara gasps, her voice tight with alarm rather than pain. "The harmonics are collapsing!"
 
-The collaborative resonance destabilizes, and the dimensional boundary you were examining begins to crack. A hairline fracture spreads across the shimmering membrane.
+The collaborative resonance you'd been building—that delicate, beautiful thing that had felt so promising just moments ago—destabilizes like a musical chord suddenly playing all the wrong notes at once. The magical energy that had been flowing smoothly between you fractures into chaotic interference patterns, creating ripples of discord that propagate outward into the dimensional boundary you'd been examining.
 
-Aria's voice cuts through the rising panic. "Everyone, step back. Izack—"
+The boundary cracks. It's a hairline fracture at first, barely visible even to your magically enhanced perception, but it spreads with terrifying speed across the shimmering membrane. The sound it makes is wrong—a high, crystalline shriek that resonates in frequencies designed to trigger primal alarm in any being with magical sensitivity. This is the sound of reality itself being damaged, of the careful agreement between two dimensions beginning to fail.
 
-Izack is already moving, reaching for the fracturing boundary, but you can see the strain on his face. The crack is spreading faster than he can repair it alone.
+Through the crack, you can see... [i]something[/i]. Not the other dimension that the boundary was designed to separate—something else entirely. A space between spaces, a void that exists in the gaps where reality hasn't quite decided what it wants to be. It's not darkness, exactly, but an absence of light, matter, and meaning so complete that looking at it makes your eyes water and your thoughts scatter.
 
 *line_break
 
-[i]"Right. So this is a teachable moment about why we don't panic-quit collaborative spells. Your move, student."[/i]
+Aria's voice cuts through the rising panic, sharp and commanding—the tone of someone who's dealt with dimensional emergencies before and knows that hesitation kills. "Everyone, step back. Izack—"
+
+But Izack is already moving, his Transdimensional Robes flowing around him in a way that defies ordinary physics, responding to his will as if the fabric itself is alive and eager to help. He reaches for the fracturing boundary with both hands, and you can see the strain immediately appear on his face. His eyes, usually so warm and approachable, narrow with intense concentration. Sweat beads on his forehead despite the cool temperature of the chamber.
+
+The crack is spreading faster than he can repair it alone. You can see him trying—his magic weaving across the damaged membrane like someone desperately stitching a wound that keeps tearing wider—but dimensional boundaries are complex things, requiring precise harmonization of multiple magical frequencies simultaneously. One mage, even one as skilled as Izack, can only manage so many variables at once.
+
+The other students have stepped back as Aria commanded, their faces reflecting various degrees of fear and fascination. Some look ready to flee. Others seem frozen, unable to look away from the spreading fracture despite the danger.
+
+*line_break
+
+Polly's voice manifests in your mind, and this time there's no sarcasm in it—just the kind of practical urgency that comes from a being who's seen enough magical disasters to know exactly how bad this could get.
+
+[i]"Right. So this is a teachable moment about why we don't panic-quit collaborative spells. Your move, student. You can either help fix the mess you helped make, or you can stand there watching. Both are valid choices, technically, but only one of them will let you sleep well tonight. Choose fast—that crack's about three seconds from hitting cascade failure."[/i]
 
 *choice
   #Rejoin the collaborative effort to help stabilize it.
@@ -142,13 +238,27 @@ Izack is already moving, reaching for the fracturing boundary, but you can see t
     *set zara_relationship +10
     *set crisis_resolved true
 
-    You push past your fear and reach out again—not just to Zara, but to everyone. "Together! Like before!"
+    Fear still coils in your gut—cold and sharp and insistent—but beneath it, something stronger rises to the surface. This is your fault, at least partially. You pulled away from the resonance, created the discord that caused this crack. Running from it now, hiding behind Izack and Aria while they clean up your mess, would be the coward's choice. More than that: it would be a betrayal of everything Avalon stands for, everything you came here to learn.
 
-    Zara grabs your hand immediately. The other students join. Izack's eyes widen as he feels the collaborative resonance snap into place.
+    You push past your fear—not eliminating it, but acknowledging it and choosing to act anyway—and reach out again with your magical awareness. Not just to Zara this time, but to everyone. To all five of your fellow students who are standing paralyzed, to Izack who's straining against the cascade failure, even to Aria whose boundary magic is already starting to weave supportive patterns around Izack's repair work.
 
-    "That's it," he breathes. "Channel it through me—I'll direct the repair."
+    "Together!" you shout, surprised by the strength in your own voice. "Like before!"
 
-    Six students and one master mage, working as one. The fractured boundary responds to your unified intention, the cracks sealing like wounds knitting together.
+    Zara's head snaps toward you, her eyes wide. For a heartbeat, you think she might refuse—you hurt her when you broke the connection, and she'd have every right to protect herself from experiencing that again. But then something shifts in her expression: understanding, perhaps, or forgiveness, or simply the recognition that this is bigger than personal hurt feelings.
+
+    She grabs your hand immediately, her grip almost painfully tight, and throws her magical awareness wide open in a gesture of trust that makes your throat tighten with emotion. "Everyone!" she calls to the other students. "We can do this—the same way we were doing it before the crack!"
+
+    The other students hesitate for only a moment before responding. The tall Elementalist is first, his earth-magic presence sinking into the emerging resonance like an anchor being dropped. Then the Timeweaver, the Runecaster, the chaos mage—each one joining the collaborative current, adding their unique frequency to the growing harmony.
+
+    Izack's eyes widen as he feels the collaborative resonance snap into place around him, supporting him, amplifying his repair work. You can feel his surprise bleeding through the connection, followed immediately by fierce pride and approval.
+
+    "That's it," he breathes, his voice carrying through both physical sound and the magical link. "Channel it through me—I'll direct the repair. You provide the power, the perspective, the multiple viewpoints. Together."
+
+    Six students and one master mage, working as one organism with seven parts. The fractured boundary responds to your unified intention, the magical energy you're channeling flowing through Izack's skilled direction like water through a carefully designed irrigation system. Each crack begins to seal, reality knitting back together like wounds healing at impossible speed.
+
+    Through the merged awareness, you understand exactly what's happening: Izack is using his mastery of dimensional magic to guide the actual repair, but he's drawing on all of your combined power to fuel it, and more importantly, on your collective perspectives to ensure every tiny fracture gets noticed and addressed. What would have taken him hours alone, burning through his personal reserves and possibly still failing, takes only minutes with seven mages working in true collaboration.
+
+    The final crack seals with an almost audible click, like a door closing softly but firmly. The dimensional boundary settles back into its healthy shimmer, the dangerous void between spaces disappearing as the membrane regains its integrity.
 
     *goto crisis_resolved
 
@@ -172,15 +282,21 @@ Izack is already moving, reaching for the fracturing boundary, but you can see t
 
 *achievement visible crisis_hero Crisis Resolution
 
-[i]"NOW THIS is what I'm talking about! Crisis brings out the best collaborative magic. Well done!"[/i]
+Polly's mental voice returns, this time vibrating with fierce approval and something that might actually be pride. [i]"NOW THIS is what I'm talking about! You know what separates decent mages from great ones? Decent mages avoid making mistakes. Great mages make mistakes, own them, and then fix them through sheer stubborn collaboration. Crisis situations bring out the best collaborative magic because there's no time for ego or posturing—just the raw need to work together or watch everything fall apart. Well done! You created a disaster and then saved yourselves from it. That's called growth, and it's far more valuable than simply never screwing up in the first place."[/i]
 
 *line_break
 
-The boundary stabilizes, then settles into a perfect, shimmering membrane. The danger passes.
+The boundary stabilizes, then settles into a perfect, shimmering membrane—arguably more stable than it was before the crisis, as if the repair process has actually strengthened its structure. The dangerous void-between-spaces disappears completely, sealed away behind reality's restored integrity. The danger passes like a storm clearing, leaving behind only the crystalline clarity of a lesson well learned.
 
-Aria exhales. "Impressive crisis management. You recognized that individual strength wasn't enough and chose collaboration instead."
+Aria exhales deeply, her usual composure gradually returning though you can still see traces of genuine alarm in the slight tremor of her hands. She clasps them behind her back to still the shaking, but her voice remains steady and authoritative. "Impressive crisis management. You recognized that individual strength wasn't enough—that even Izack's mastery would fail without support—and chose collaboration instead of self-preservation. That choice, that willingness to re-enter the danger zone to help fix what you helped break, demonstrates the core principle of Avalon's approach to magic."
 
-Izack smiles, clearly proud. "This is exactly why Avalon exists."
+She moves closer to your group, her boundary-mage senses clearly reading the residual patterns of your collaborative work. "Many magical traditions teach self-sufficiency as the highest virtue. The lone wizard in their tower, the solitary hedge witch, the hermit sage who needs no one. But that model has inherent limitations. True power—the kind that can repair reality itself when it fractures—comes from connection, trust, and the courage to be vulnerable with others."
+
+*line_break
+
+Izack smiles, and the expression carries multiple layers: relief that the crisis was resolved, pride in his students' response, and the deeper satisfaction of someone who's dedicated his life to a particular philosophy and just watched it prove effective in real-world conditions. "This is exactly why Avalon exists. Not to teach you to avoid magical disasters—though we certainly try to minimize them—but to teach you how to handle them when they inevitably occur. Magic is powerful, reality is complex, and mistakes happen. The question isn't whether you'll create problems; it's whether you'll have the character to fix them collaboratively when you do."
+
+He places a hand on your shoulder and one on Zara's, a gesture of acknowledgment and forgiveness. "You pulled away from the resonance. That caused a crack. You could have fled, let someone else handle it, protected yourself from the consequences of your actions. Instead, you chose responsibility and collaboration. That's the choice that defines a Third Thread mage."
 
 *set collaboration +10
 *goto lesson_conclusion
@@ -230,33 +346,61 @@ The first lesson ends. You've learned something about yourself—and about what 
 
 *page_break
 
-Several days later, Izack gathers the class with exciting news.
+Several days pass in a blur of lessons, practical exercises, and late-night study sessions in Avalon's magnificent library—a structure that seems to exist in multiple dimensions simultaneously, its shelves extending into spaces that shouldn't physically fit within the building's external dimensions. You're beginning to understand the rhythm of academy life: the way magical theory and practical application interweave, how collaborative exercises are built into almost every aspect of study, the subtle ways that Avalon itself seems to respond to and support the learning happening within its bounds.
 
-"Avalon has grown far beyond what I originally imagined," he says, eyes bright with wonder. "This realm now spans multiple biomes—forests that think, oceans that remember the past, deserts lit by eternal flame. We've arranged field expeditions for advanced students to explore these regions."
+Then, one morning during breakfast in the great hall—a soaring space where the ceiling displays an ever-shifting sky that sometimes shows stars from other dimensions—Izack gathers the class with exciting news. His eyes hold that particular bright quality you've learned to associate with him having discovered something wonderful that he's eager to share.
+
+"Avalon has grown far beyond what I originally imagined," he begins, gesturing toward the tall windows that look out onto the academy grounds. Through them, you can see landscapes that shift and change depending on the viewer's perspective: forests that think, oceans that remember the past, deserts lit by eternal flame, glaciers inscribed with living runes. "When I first created this realm, it was meant to be simply a stable dimensional pocket where magic could be studied safely. But Avalon had other ideas. It's developed consciousness, creativity, ambition of its own."
+
+He pauses, a slight smile playing at his lips—the expression of someone still amazed by what he's accidentally created. "This realm now spans multiple biomes, each one a unique magical ecosystem with its own rules, inhabitants, and lessons to teach. We've arranged field expeditions for advanced students to explore these regions. Not just to study them from a distance, but to enter into relationship with them, to learn what they have to teach us about magic, reality, and ourselves."
 
 *line_break
 
-[i]"Translation: he accidentally created a small planet and now needs students to go poke around and make sure nothing's trying to eat the academy. It's educational AND practical!"[/i]
+Polly's voice manifests in your mind, carrying her characteristic mix of irreverence and genuine wisdom. [i]"Translation: he accidentally created a small planet and now needs students to go poke around and make sure nothing's trying to eat the academy. It's educational AND practical! Plus, these expeditions are where the really interesting stuff happens. Classroom theory's nice, but there's nothing quite like having a sentient desert test your honesty or a glacier challenge you to a magical duel to really cement your education. Builds character. Mostly through trauma, but still—character!"[/i]
 
 *line_break
 
-Aria steps forward with a crystalline map that shifts and glows.
+Aria steps forward, materializing a crystalline map that shifts and glows with inner light. The map is itself a work of art—not merely a representation of geography but a living, responsive diagram that shows magical currents, dimensional boundaries, temporal anomalies, and ecosystem characteristics all layered together in a display that somehow remains comprehensible despite its complexity. Runes pulse along its edges, updating in real-time as conditions in the various biomes shift and evolve.
 
-"We have three expeditions departing tomorrow. Each will teach different aspects of magic through direct environmental interaction."
+"We have three expeditions departing tomorrow," Aria says, her voice carrying the precise articulation of someone used to delivering important information to students who might miss crucial details. "Each will teach different aspects of magic through direct environmental interaction. These aren't tourist trips or casual nature walks. Each biome will test you, challenge you, and quite possibly try to kill you in creatively educational ways. But if you survive and pay attention, you'll learn things about magic that no amount of classroom theory could ever teach."
+
+She gestures toward the map, and three regions illuminate with distinctive magical signatures—each one a complex pattern of energy that tells its own story to those trained to read such things.
 
 *page_break
 
-She points to three glowing regions on the map:
+The first region pulses with warm, amber light that shifts through shades of gold and copper:
 
-[b]The Singing Dunes[/b] - A desert where the sand responds to truth and lies. You'll learn about honesty in magic and oath-binding.
+[b]The Singing Dunes[/b] — A vast desert where reality itself has developed a peculiar relationship with truth and deception. The sand responds to honesty and lies with measurable, often dramatic effects: truth-speakers find the sand supporting them, creating solid paths through otherwise impassable terrain, while liars sink into quicksand-like depths or face sand-storms that seem to arise specifically to punish their dishonesty.
 
-[b]The Verdant Tithe[/b] - An ancient forest where every thought has weight. Perfect for studying the connection between mind and nature.
+"This expedition focuses on oath-magic and the binding properties of sincere intention," Aria explains, her finger tracing patterns on the map that make the Singing Dunes region expand, showing greater detail. "You'll learn about the magical weight of words, how promises create tangible effects in realities where language and truth are fundamentally linked. The sand itself is semi-sentient—not conscious in the way Avalon is, but aware enough to judge sincerity and respond accordingly. You'll be supervised by Polly, who has extensive experience navigating truth-bound environments."
 
-[b]The Rune Glacier[/b] - A constantly shifting ice field inscribed with living spells. Ideal for those who want to understand written magic at its most dynamic.
+The desert imagery on the map shows massive dunes that seem to shift and flow like waves frozen in golden amber, with occasional crystalline formations that catch non-existent light and scatter it in rainbow patterns. You can almost hear a faint humming sound emanating from the map itself, as if the Singing Dunes are earning their name even in miniature representation.
 
 *line_break
 
-[i]"Choose wisely. Each one will try to kill you in completely different ways. I'll be supervising the Dunes trip because watching students panic when the sand starts screaming never gets old."[/i]
+The second region glows with deep emerald and jade green, pulsing with the slow, patient rhythm of ancient growth:
+
+[b]The Verdant Tithe[/b] — An ancient forest where the boundary between thought and physical reality has worn dangerously thin. Every thought carries weight here, manifesting as semi-physical phenomena that can affect the environment in unpredictable ways. Negative thoughts attract predatory plant life; focused intentions can cause flowers to bloom or trees to shift position; strong emotions ripple through the forest like weather patterns, affecting everything nearby.
+
+"Perfect for studying the connection between mind and nature," Aria continues, expanding this section of the map. "You'll learn about thought-magic, environmental consciousness, and the way living ecosystems can develop their own forms of intelligence. The Verdant Tithe isn't hostile, precisely, but it's profoundly sensitive. Students who can't maintain mental discipline tend to have... challenging experiences. Thoughtvines, Dreamwillows, and the Heartwood Tree will all teach you different lessons about the nature of consciousness and its relationship to reality."
+
+The forest imagery shows trees so massive their canopies could shelter entire villages, with root systems visible underground that form intricate networks resembling neural pathways. Streams of what might be water or might be liquid light flow between the trees, and occasional flickers of movement suggest inhabitants you can't quite see clearly.
+
+*line_break
+
+The third region radiates cool, crystalline blue-white light with undertones of silver and electric cyan:
+
+[b]The Rune Glacier[/b] — A constantly shifting ice field where ancient spells have frozen into the very structure of the glaciers themselves, creating a landscape where written magic is literally everywhere you look. The ice isn't merely carved with runes; the runes ARE the ice, fundamental to its existence. As the glacier flows and shifts, the spells transform, creating new magical effects as different rune combinations come into proximity.
+
+"Ideal for those who want to understand written magic at its most dynamic," Aria says, and you notice a particular intensity in her voice—this is clearly her specialty. "You'll study how permanent magical inscriptions interact with changing environmental conditions, how to read spells that are actively transforming, and how to navigate a landscape where every surface might suddenly activate a magical effect. The Rune Glacier requires both intellectual precision and adaptive thinking. Those who rely too heavily on rigid frameworks tend to struggle when the ice shifts and their carefully memorized patterns suddenly mean something completely different."
+
+The glacier imagery shows ice cliffs that tower hundreds of feet high, their surfaces covered in script so dense it looks like the ice itself is made of frozen text. The runes glow with various colors—some warm, some cold, some shifting through the spectrum—and you can see where different magical effects are creating localized phenomena: pockets of summer warmth, zones of altered gravity, areas where time seems to flow at different speeds.
+
+*line_break
+
+Polly's mental voice returns, carrying a note of dark amusement that suggests she's been on all these expeditions before and has Opinions about each one.
+
+[i]"Choose wisely. Each one will try to kill you in completely different ways. The Singing Dunes will test your honesty—lie to save face and you might end up buried alive. The Verdant Tithe will test your mental discipline—think angry thoughts and watch predatory vines try to strangle you. The Rune Glacier will test your adaptability—memorize the wrong pattern and you might turn yourself into ice sculpture. I'll be supervising the Dunes trip because watching students panic when the sand starts screaming never gets old. Iz ack oversees the forest because he's annoyingly good at the whole 'clear mind' thing. And Aria handles the glacier because she can read active runes faster than most people can blink. Pick the death trap that best suits your learning style!"[/i]
 
 *choice
   #Volunteer for the Singing Dunes expedition with Polly.
