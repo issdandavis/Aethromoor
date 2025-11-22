@@ -1,6 +1,9 @@
-// Game State
+// ========================================
+// GAME STATE MANAGEMENT
+// ========================================
 // Tracing helper (defined in tracing.js). If absent, provide no-op.
 const traceEvent = window.traceEvent || function(){};
+
 const gameState = {
     currentNode: 'start',
     collaborationScore: 0,
@@ -9,10 +12,18 @@ const gameState = {
         aria: 0,
         zara: 0
     },
-    choices: []
+    choices: [],
+    // Track player's journey for richer storytelling
+    visitedExpeditions: [],
+    learningStyle: null, // 'collaborative', 'balanced', 'independent'
+    pollyTrust: 0 // Special relationship with narrator
 };
 
-// Story Nodes
+// ========================================
+// STORY NODES - NARRATIVE CONTENT
+// ========================================
+// Structure: Each node has 'text' (HTML content) and 'choices' (array of player options)
+// Effects modify: collaboration score, relationships (izack/aria/zara), and pollyTrust
 const storyNodes = {
     start: {
         text: `
@@ -32,17 +43,17 @@ const storyNodes = {
             {
                 text: "Approach respectfully and introduce yourself properly",
                 next: 'polite_intro',
-                effects: { collaboration: 1, izack: 1 }
+                effects: { collaboration: 1, izack: 1, pollyTrust: 1 }
             },
             {
                 text: "Ask Polly more questions about what to expect",
                 next: 'ask_polly',
-                effects: { collaboration: 0, zara: 1 }
+                effects: { collaboration: 0, zara: 1, pollyTrust: 2 }
             },
             {
                 text: "Walk past confidently - you've read about Avalon and know what you're doing",
                 next: 'confident_intro',
-                effects: { collaboration: -1, aria: 1 }
+                effects: { collaboration: -1, aria: 1, pollyTrust: -1 }
             }
         ]
     },
@@ -105,33 +116,33 @@ const storyNodes = {
 
     confident_intro: {
         text: `
-            <p><span class="polly-comment">*Caw!* "Oh, we have a confident one. This should be entertaining."</span></p>
+            <p><span class="polly-comment">*Caw!* "Oh, we have a confident one. This should be entertaining. I've seen this movie before - let's see if you have the wisdom to match the confidence."</span></p>
 
-            <p>You stride through the gate with purpose. You've read about Avalon, studied dimensional theory, and you're ready to prove yourself.</p>
+            <p>You stride through the gate with purpose. You've read extensively about Avalon, studied dimensional theory from multiple sources, and you're ready to prove yourself capable.</p>
 
-            <p>A woman with sharp eyes and elegant bearing steps into your path. Her presence radiates controlled power - this is someone who knows exactly where every boundary lies.</p>
+            <p>A woman with sharp, intelligent eyes and elegant bearing steps into your path. Her presence radiates controlled power - this is someone who knows exactly where every boundary lies and how to make them serve her purpose.</p>
 
-            <p>"Aria Ravencrest," she introduces herself. "Co-founder, boundary specialist, and the person who makes sure enthusiastic students don't accidentally collapse dimensional barriers."</p>
+            <p>"Aria Ravencrest," she introduces herself with a slight, measuring smile. "Co-founder, boundary specialist, political survivor, and the person who makes sure enthusiastic students don't accidentally collapse dimensional barriers and kill everyone in a three-realm radius."</p>
 
-            <p><span class="polly-comment">"That's Izack's wife. She's the reason Avalon hasn't imploded from all the experimental magic. Show some respect."</span></p>
+            <p><span class="polly-comment">"That's Izack's wife. She's brilliant, terrifying, and the reason Avalon hasn't imploded from all the experimental magic. She once stabilized a dimensional rift while simultaneously negotiating a peace treaty. Show some respect."</span></p>
 
-            <p>Aria's expression softens slightly. "Confidence is good. Overconfidence in dimensional magic is how you end up scattered across three realities. Let me ask you something: what do you think is more important - controlling magic, or understanding it?"</p>
+            <p>Aria's expression softens slightly as she regards you. "Confidence is good - I value it. Overconfidence in dimensional magic, however, is how you end up scattered across three realities with no way to reassemble yourself. So let me ask you something important: what do you think is more critical - controlling magic, or understanding it?"</p>
         `,
         choices: [
             {
-                text: "Controlling it - power without control is dangerous",
+                text: "Controlling it - power without control is dangerous to everyone",
                 next: 'aria_control',
-                effects: { collaboration: -1, aria: 2 }
+                effects: { collaboration: -1, aria: 2, pollyTrust: 0 }
             },
             {
                 text: "Understanding it - you can't work with something you don't comprehend",
                 next: 'aria_understanding',
-                effects: { collaboration: 2, aria: 1, izack: 1 }
+                effects: { collaboration: 2, aria: 1, izack: 1, pollyTrust: 1 }
             },
             {
-                text: "Both equally - they inform each other",
+                text: "Both equally - they inform each other and you need balance",
                 next: 'first_lesson_mixed',
-                effects: { collaboration: 1, aria: 2 }
+                effects: { collaboration: 1, aria: 2, pollyTrust: 1 }
             }
         ]
     },
@@ -330,13 +341,247 @@ const storyNodes = {
         choices: [
             {
                 text: "Thank everyone and express how amazing the collaboration felt",
-                next: 'ending_collaborative_master',
+                next: 'academy_commons_scene',
                 effects: { collaboration: 3, izack: 3, aria: 2, zara: 3 }
             },
             {
                 text: "Ask if there are opportunities to explore more of Avalon's realms",
                 next: 'field_expedition_offer',
                 effects: { collaboration: 2, izack: 2 }
+            }
+        ]
+    },
+
+    // NEW SCENE: Academy Commons - Added character development and world-building
+    academy_commons_scene: {
+        text: `
+            <p>After the breakthrough in your first lesson, your group moves to the Academy Commons - a soaring crystalline chamber where leyline energy creates shifting patterns of light across the walls like living stained glass.</p>
+
+            <p>Students from various realms gather here between classes. You see a scaled dragon-kin discussing spell theory with an elf, while nearby a group practices synchronized levitation with floating tea cups.</p>
+
+            <p><span class="polly-comment">*Perched on a crystal railing* "Welcome to the social heart of Avalon. This is where students actually learn to be people, not just spell-slingers. Izack designed this space specifically to encourage cross-cultural magical exchange. Fancy words for 'force the introverts to make friends.'"</span></p>
+
+            <p>Zara grabs your arm enthusiastically. "Come on! There's someone you should meet. Aria's about to give an informal demonstration on boundary resonance, and it's always spectacular."</p>
+
+            <p>As you approach, Aria stands at the center of a small crowd, her presence commanding despite her relaxed posture. She notices your group and offers a slight smile.</p>
+
+            <p>"Ah, our collaborative prodigies. Your performance today was noted." Her eyes flicker with something that might be pride. "Would you like to see what advanced boundary work looks like when combined with centuries of political survival instincts?"</p>
+
+            <p><span class="polly-comment">"Translation: she's going to show off. But honestly, when you can do what she does with dimensional barriers, you've earned the right."</span></p>
+        `,
+        choices: [
+            {
+                text: "Accept eagerly - you want to learn everything you can",
+                next: 'aria_demonstration',
+                effects: { collaboration: 1, aria: 2, pollyTrust: 1 }
+            },
+            {
+                text: "Ask Zara if she'd like to explore the academy grounds instead",
+                next: 'academy_exploration',
+                effects: { collaboration: 2, zara: 3, pollyTrust: 1 }
+            },
+            {
+                text: "Request to see Izack's personal workshop - you're curious about his research",
+                next: 'izack_workshop_visit',
+                effects: { collaboration: 1, izack: 3, pollyTrust: 2 }
+            }
+        ]
+    },
+
+    aria_demonstration: {
+        text: `
+            <p>Aria gestures, and the air around her shimmers with visible dimensional boundaries - dozens of them, layered like gossamer sheets.</p>
+
+            <p>"Most mages see boundaries as obstacles," she begins, her voice carrying easily. "But boundaries are conversation partners. Watch."</p>
+
+            <p>She places her hand against one shimmer, and it ripples outward, creating a cascade effect through all the others. Music fills the air - each boundary singing its own note, forming an impossible chord.</p>
+
+            <p><span class="polly-comment">"She's playing the barriers like a harp. Show-off."</span></p>
+
+            <p>Aria smirks slightly. "Polly, jealousy doesn't suit you." She looks at you. "This is what happens when you spend decades learning to ask boundaries what they want, rather than forcing what you need. Would you like to try?"</p>
+
+            <p>She creates a small, stable boundary in front of you - far simpler than her display, but still shimmering with potential.</p>
+        `,
+        choices: [
+            {
+                text: "Try to replicate her gentle, conversational approach",
+                next: 'aria_mentorship_moment',
+                effects: { collaboration: 2, aria: 3 }
+            },
+            {
+                text: "Ask if you can try the collaborative approach with another student",
+                next: 'field_expedition_offer',
+                effects: { collaboration: 3, aria: 1, zara: 2 }
+            }
+        ]
+    },
+
+    aria_mentorship_moment: {
+        text: `
+            <p>You reach out carefully, trying to sense the boundary's nature as Aria described. At first, nothing happens. Then, slowly, you feel it - a subtle resistance that isn't hostile, just... present.</p>
+
+            <p>Aria's voice is soft beside you. "Good. Now ask it a question. Not with words - with intention. What does it protect? Why does it exist?"</p>
+
+            <p>The boundary responds, sharing something that feels like... purpose. It exists to separate one dimensional layer from another, but also to allow controlled passage. It's not a wall - it's a filter, a guardian, a translator.</p>
+
+            <p><span class="polly-comment">"Oh. You're actually getting it. Aria looks... is that impressed? I think that's her impressed face."</span></p>
+
+            <p>Aria's eyes meet yours. "You have the patience for this work. That's rarer than raw power. If you're interested, I could provide additional mentorship in boundary theory."</p>
+
+            <p>Zara bounces excitedly. "That's huge! Aria almost never offers personal mentorship."</p>
+        `,
+        choices: [
+            {
+                text: "Accept Aria's offer gratefully - this is an incredible opportunity",
+                next: 'field_expedition_offer',
+                effects: { collaboration: 1, aria: 4, izack: 1 }
+            },
+            {
+                text: "Thank her but ask about collaborative boundary work instead",
+                next: 'field_expedition_offer',
+                effects: { collaboration: 3, aria: 2, zara: 2 }
+            }
+        ]
+    },
+
+    academy_exploration: {
+        text: `
+            <p>Zara grins. "Yes! Come on, I'll show you my favorite spots. Most new students don't find these places for months."</p>
+
+            <p><span class="polly-comment">*Flying after you* "Oh good, the Zara tour. This will either be educational or you'll end up somewhere accidentally extra-dimensional. Could go either way."</span></p>
+
+            <p>Zara leads you through a hidden archway behind a flowering Worldtree vine. The passage opens onto a balcony you wouldn't have noticed from the main chamber - one that overlooks Avalon's impossible geography.</p>
+
+            <p>From here, you can see it all: the Spiral Spire twisting upward, the forests of the Verdant Tithe in the distance, the shimmer of the Singing Dunes on the horizon, and far beyond, the glacial blue glow of the Rune Glacier.</p>
+
+            <p>"This is where I come when I need to remember why I'm here," Zara says softly. "Izack built this whole realm as proof that collaboration could create wonders impossible for any single person. Every time I doubt myself, I look at this view and remember I'm part of something bigger."</p>
+
+            <p><span class="polly-comment">*Unusually quiet* "Yeah. It's... it's pretty spectacular."</span></p>
+        `,
+        choices: [
+            {
+                text: "Share your own hopes for what you'll learn at Avalon",
+                next: 'zara_friendship_deepened',
+                effects: { collaboration: 2, zara: 4, pollyTrust: 2 }
+            },
+            {
+                text: "Ask Zara about her journey to Avalon and what she's learned",
+                next: 'zara_backstory',
+                effects: { collaboration: 1, zara: 3, pollyTrust: 1 }
+            }
+        ]
+    },
+
+    zara_friendship_deepened: {
+        text: `
+            <p>You tell Zara about your dreams - to master magic not for personal power, but to bridge worlds, to help others, to be part of creating something meaningful like Avalon itself.</p>
+
+            <p>Zara's eyes light up. "That's exactly it! That's what Izack teaches. Magic isn't about being the strongest - it's about what you build, who you help, how you connect people who couldn't connect before."</p>
+
+            <p>She takes your hand. "I think we're going to be great friends. And I have a feeling you're going to do amazing things here."</p>
+
+            <p><span class="polly-comment">"Okay, this is getting sappy, but... yeah. You two are going to be a force to reckon with. Now can we please go do something that involves less feelings and more explosions?"</span></p>
+
+            <p>Zara laughs. "Actually, Aria mentioned there are expedition opportunities opening up soon. Want to see what's available?"</p>
+        `,
+        choices: [
+            {
+                text: "Absolutely - let's see what adventures await",
+                next: 'field_expedition_offer',
+                effects: { collaboration: 2, zara: 2, pollyTrust: 1 }
+            }
+        ]
+    },
+
+    zara_backstory: {
+        text: `
+            <p>Zara leans against the balcony railing, her hybrid features catching the leyline light beautifully.</p>
+
+            <p>"I came from the Borderlands - where different realms bleed into each other. Being hybrid meant I never quite fit anywhere. Too elven for the dragon-kin, too draconic for the elves."</p>
+
+            <p>She smiles, but there's old pain in it. "Then I heard about Avalon. A place built on the idea that boundaries could be bridges, that being different wasn't weakness but potential. Izack found me when I was trying to teach myself dimensional magic from stolen books."</p>
+
+            <p><span class="polly-comment">"She was good too. Terrible technique, but natural talent that made even Aria take notice. Izack saw potential where everyone else saw a problem."</span></p>
+
+            <p>"Here, being hybrid is an asset. I can sense dimensional shifts that pure-bloods miss. My 'wrongness' became my strength." She turns to you. "That's what Avalon does - it helps you transform what the world called weakness into power."</p>
+        `,
+        choices: [
+            {
+                text: "Thank her for sharing - that took courage",
+                next: 'field_expedition_offer',
+                effects: { collaboration: 2, zara: 4, pollyTrust: 1 }
+            }
+        ]
+    },
+
+    izack_workshop_visit: {
+        text: `
+            <p><span class="polly-comment">"Oh, bold choice. Izack rarely lets anyone into his personal workshop. But hey, you did just nail that collaborative breakthrough. Let's see if he's feeling generous."</span></p>
+
+            <p>Polly leads you through corridors that shift and change - Avalon's living architecture rearranging itself to create a path. You arrive at a door that seems to exist in multiple places at once.</p>
+
+            <p>Izack looks up from a workbench covered in dimensional mapping crystals. "Ah! Come in, come in. Polly, I assume you're supervising?"</p>
+
+            <p><span class="polly-comment">"Someone has to make sure the new student doesn't accidentally touch something that rewrites their molecular structure."</span></p>
+
+            <p>Izack chuckles. "Fair point." He gestures around the workshop - walls covered in equations that shift and solve themselves, floating models of realm structures, and books that appear to be reading themselves.</p>
+
+            <p>"This is where I do my real work - trying to understand the fundamental nature of reality so I can help others shape it. What interests you most? The theoretical? The practical? The impossible?"</p>
+        `,
+        choices: [
+            {
+                text: "Ask about collaborative magic theory - how does shared consciousness actually work?",
+                next: 'izack_theory_lesson',
+                effects: { collaboration: 3, izack: 4, pollyTrust: 2 }
+            },
+            {
+                text: "Inquire about Avalon's creation - how did he build a living realm?",
+                next: 'izack_creation_story',
+                effects: { collaboration: 2, izack: 3, pollyTrust: 1 }
+            }
+        ]
+    },
+
+    izack_theory_lesson: {
+        text: `
+            <p>Izack's entire demeanor shifts - this is clearly his passion. He moves to a floating diagram showing multiple consciousness threads interweaving.</p>
+
+            <p>"The secret is resonance, not dominance. When mages try to combine power through hierarchical structures, they're creating a bottleneck - one will always filters everyone else's intent. But true collaboration..."</p>
+
+            <p>He gestures, and the threads in the diagram begin to pulse in harmony. "When each consciousness maintains its individuality but synchronizes intent, the combined capacity is exponential, not additive. You become a choir, not an echo."</p>
+
+            <p><span class="polly-comment">"He's been working on this theory for decades. It's why Avalon exists - as proof it works."</span></p>
+
+            <p>Izack nods. "Exactly. This academy isn't just a school - it's an ongoing experiment in collaborative existence. Every student who masters this becomes living proof that we don't have to choose between individuality and unity."</p>
+
+            <p>He looks at you seriously. "What you did today in the lesson chamber? That's the foundation. Would you like to explore it further through field work? We have expeditions forming."</p>
+        `,
+        choices: [
+            {
+                text: "Yes - show me how this theory applies in real environments",
+                next: 'field_expedition_offer',
+                effects: { collaboration: 3, izack: 3, pollyTrust: 1 }
+            }
+        ]
+    },
+
+    izack_creation_story: {
+        text: `
+            <p>Izack's eyes get distant, remembering. "Avalon started as a desperate act. I was losing Aria to political machinations, watching demons infiltrate the mortal realm, and feeling like everything I loved was slipping through my fingers."</p>
+
+            <p>"So I did something reckless - I found a pocket of the World Tree's roots, convinced it to let me graft reality onto it, and created a place where all my failures could become foundations."</p>
+
+            <p><span class="polly-comment">"That's the poetic version. The technical version involves him almost dying seventeen times, accidentally creating three new types of dimensional rifts, and making me promise to watch over this place if he didn't survive. I'm still not sure if I kept that promise or became part of the architecture."</span></p>
+
+            <p>Izack smiles fondly at Polly. "You're both, old friend. And thank the spirals for it."</p>
+
+            <p>He turns back to you. "Avalon is alive because I poured everything into it - hope, fear, love, desperation. It grows because students like you bring new dreams. Want to see what it's grown into? We have expeditions to the new biomes."</p>
+        `,
+        choices: [
+            {
+                text: "I'd be honored to explore what you've created",
+                next: 'field_expedition_offer',
+                effects: { collaboration: 2, izack: 4, pollyTrust: 2 }
             }
         ]
     },
@@ -1253,7 +1498,9 @@ const storyNodes = {
     }
 };
 
-// UI Update Functions
+// ========================================
+// UI UPDATE FUNCTIONS
+// ========================================
 function updateStats() {
     const collabPercent = Math.max(0, Math.min(100, 50 + (gameState.collaborationScore * 10)));
     document.getElementById('collaboration-bar').style.width = collabPercent + '%';
@@ -1271,6 +1518,19 @@ function updateStats() {
     document.getElementById('izack-rel').textContent = `Izack: ${getEmoji(gameState.relationships.izack)}`;
     document.getElementById('aria-rel').textContent = `Aria: ${getEmoji(gameState.relationships.aria)}`;
     document.getElementById('zara-rel').textContent = `Zara: ${getEmoji(gameState.relationships.zara)}`;
+    
+    // Update Polly trust if element exists (optional feature)
+    const pollyElement = document.getElementById('polly-rel');
+    if (pollyElement && gameState.pollyTrust !== undefined) {
+        const getPollyStatus = (trust) => {
+            if (trust >= 5) return '🐦‍⬛✨'; // Trusted companion
+            if (trust >= 3) return '🐦‍⬛😊'; // Friendly
+            if (trust >= 1) return '🐦‍⬛🙂'; // Neutral positive
+            if (trust <= -2) return '🐦‍⬛😒'; // Annoyed
+            return '🐦‍⬛😐'; // Neutral
+        };
+        pollyElement.textContent = `Polly: ${getPollyStatus(gameState.pollyTrust)}`;
+    }
 }
 
 function displayNode(nodeId) {
@@ -1318,9 +1578,21 @@ function displayNode(nodeId) {
 function makeChoice(choice) {
     // Apply effects
     if (choice.effects) {
+        // Update collaboration score
         if (choice.effects.collaboration !== undefined) {
             gameState.collaborationScore += choice.effects.collaboration;
+            
+            // Track learning style based on collaboration choices
+            if (choice.effects.collaboration >= 2) {
+                gameState.learningStyle = 'collaborative';
+            } else if (choice.effects.collaboration <= -1) {
+                gameState.learningStyle = 'independent';
+            } else if (!gameState.learningStyle) {
+                gameState.learningStyle = 'balanced';
+            }
         }
+        
+        // Update relationships
         if (choice.effects.izack !== undefined) {
             gameState.relationships.izack += choice.effects.izack;
         }
@@ -1330,17 +1602,24 @@ function makeChoice(choice) {
         if (choice.effects.zara !== undefined) {
             gameState.relationships.zara += choice.effects.zara;
         }
+        
+        // Update Polly trust
+        if (choice.effects.pollyTrust !== undefined) {
+            gameState.pollyTrust = (gameState.pollyTrust || 0) + choice.effects.pollyTrust;
+        }
     }
 
-    // Record choice
+    // Record choice with effects for better analytics
     gameState.choices.push({
         node: gameState.currentNode,
-        choice: choice.text
+        choice: choice.text,
+        effects: choice.effects
     });
 
     traceEvent('choice_made', {
         fromNode: gameState.currentNode,
         choiceText: choice.text,
+        nextNode: choice.next,
         effects: choice.effects || {},
         updatedCollaboration: gameState.collaborationScore,
         relationships: { ...gameState.relationships }
@@ -1362,6 +1641,9 @@ function restartGame() {
         zara: 0
     };
     gameState.choices = [];
+    gameState.visitedExpeditions = [];
+    gameState.learningStyle = null;
+    gameState.pollyTrust = 0;
 
     document.getElementById('restart-btn').style.display = 'none';
     updateStats();
