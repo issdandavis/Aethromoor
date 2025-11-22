@@ -1,6 +1,6 @@
 # AI Collaboration Guide for Avalon Project
 
-**@ @issdandavis - ESTABLISH THIS AS THE OFFICIAL AI COLLABORATION PROTOCOL**
+**@issdandavis - ESTABLISH THIS AS THE OFFICIAL AI COLLABORATION PROTOCOL**
 
 ## Purpose
 
@@ -119,7 +119,7 @@ This guide defines clear roles and responsibilities for AI agents collaborating 
 
 ### **@ Mention Usage**
 
-**@ @issdandavis** - Use when:
+**@issdandavis** - Use when:
 - ✅ Seeking approval for canonical lore additions
 - ✅ Reporting major milestones or blocking issues
 - ✅ Proposing significant structural changes
@@ -157,7 +157,7 @@ This guide defines clear roles and responsibilities for AI agents collaborating 
 ### **Lore Contradictions**
 
 1. Agent discovers potential contradiction
-2. Agent flags with comment: **@ @issdandavis - LORE CONFLICT DETECTED**
+2. Agent flags with comment: **@issdandavis - LORE CONFLICT DETECTED**
 3. Provide details: existing canon vs. proposed addition
 4. Pause work on affected content
 5. Wait for @issdandavis decision
@@ -169,7 +169,7 @@ Example: Technical limitation prevents desired narrative feature
 
 1. **@copilot** explains technical constraint
 2. **@claude** proposes alternative narrative approach
-3. Both agents present options to **@ @issdandavis**
+3. Both agents present options to **@issdandavis**
 4. @issdandavis decides direction
 5. Agents collaborate on chosen solution
 
@@ -214,7 +214,7 @@ Example: Technical limitation prevents desired narrative feature
 
 1. Discuss in PR comments
 2. Present both viewpoints clearly
-3. **@ @issdandavis** for final decision
+3. **@issdandavis** for final decision
 4. Document decision reasoning for future reference
 
 ---
@@ -247,7 +247,7 @@ If additional AI agents join:
 
 ## Document Maintenance
 
-**@ @issdandavis - KEEP THIS UPDATED:**
+**@issdandavis - KEEP THIS UPDATED:**
 
 - Review quarterly or when workflow issues arise
 - Update based on lessons learned
@@ -265,11 +265,11 @@ If additional AI agents join:
 ```
 NEED NARRATIVE CONTENT? → @ @claude
 NEED TECHNICAL WORK? → @ @copilot  
-NEED APPROVAL/DECISION? → @ @issdandavis
+NEED APPROVAL/DECISION? → @issdandavis
 
 ADDING LORE? → Check lore/CANON_CHECKLIST.md first
 CREATING PR? → Use appropriate labels
-STUCK/CONFUSED? → @ @issdandavis with clear question
+STUCK/CONFUSED? → @issdandavis with clear question
 
 EMERGENCY? → Flag with 🚨 in comment
 ```

@@ -1,6 +1,6 @@
 # 🚀 WORKFLOW IMPROVEMENTS FOR AVALON PROJECT
 
-**@ @issdandavis - READ THIS FOR IMPORTANT WORKFLOW SUGGESTIONS**
+**@issdandavis - READ THIS FOR IMPORTANT WORKFLOW SUGGESTIONS**
 
 ## **BOLD SUGGESTION #1: STORY CONTENT PIPELINE**
 
@@ -10,18 +10,18 @@ Story content is scattered across multiple directories with inconsistent naming 
 ### **RECOMMENDED WORKFLOW:**
 
 1. **LORE VAULT (Single Source of Truth)**
-   - **@ @issdandavis**: Move ALL canonical lore files to `/lore/` directory
+   - **@issdandavis**: Move ALL canonical lore files to `/lore/` directory
    - Create subdirectories: `/lore/characters/`, `/lore/locations/`, `/lore/magic-system/`, `/lore/history/`
    - **ACTION REQUIRED**: Consolidate duplicate files like "The Spiral of Avalon.txt" (appears in 3 locations)
 
 2. **STORY STAGING AREA**
    - Use `/writing_drafts/` ONLY for work-in-progress narrative content
-   - **@ @issdandavis**: Create `/writing_drafts/ready-for-game/` for scenes approved for implementation
+   - **@issdandavis**: Create `/writing_drafts/ready-for-game/` for scenes approved for implementation
    - Create `/writing_drafts/brainstorming/` for experimental ideas
 
 3. **GAME IMPLEMENTATION**
    - Maintain clear separation between `/game/scenes/` (main game) and `/choicescript_game/scenes/` (ChoiceScript version)
-   - **@ @issdandavis**: Add a `SCENE_TEMPLATE.txt` file to guide consistent scene structure
+   - **@issdandavis**: Add a `SCENE_TEMPLATE.txt` file to guide consistent scene structure
 
 ---
 
@@ -32,7 +32,7 @@ The `sync_scenes.sh` script exists but its purpose and usage aren't documented.
 
 ### **RECOMMENDED IMPROVEMENTS:**
 
-**@ @issdandavis - IMMEDIATE ACTION NEEDED:**
+**@issdandavis - IMMEDIATE ACTION NEEDED:**
 
 ```bash
 # Document sync_scenes.sh in README.md
@@ -53,7 +53,7 @@ The `sync_scenes.sh` script exists but its purpose and usage aren't documented.
 
 ## **BOLD SUGGESTION #3: GITHUB ORGANIZATION**
 
-### **@ @issdandavis - CRITICAL CLEANUP NEEDED:**
+### **@issdandavis - CRITICAL CLEANUP NEEDED:**
 
 **FILES TO ARCHIVE/ORGANIZE:**
 - `87357.docx`, `Document.docx` - Move to `/archive/` or rename descriptively
@@ -63,7 +63,7 @@ The `sync_scenes.sh` script exists but its purpose and usage aren't documented.
 - `Shortcut to Documents (OneDrive - Personal).lnk` - DELETE (not needed in repo)
 - Various `.url` files - Consolidate into `/docs/USEFUL_LINKS.md`
 
-**@ @issdandavis**: **RECOMMENDED DIRECTORY STRUCTURE:**
+**@issdandavis**: **RECOMMENDED DIRECTORY STRUCTURE:**
 
 ```
 Avalon/
@@ -96,7 +96,7 @@ Avalon/
 
 ## **BOLD SUGGESTION #4: AI COLLABORATION STRUCTURE**
 
-### **@ @issdandavis - ESTABLISH CLEAR ROLES:**
+### **@issdandavis - ESTABLISH CLEAR ROLES:**
 
 **Recommended AI Agent Roles:**
 
@@ -114,7 +114,7 @@ Avalon/
    - Focus: Final approval, vision alignment, lore consistency
    - Creates: Lore foundations, high-level direction
 
-**@ @issdandavis - CREATE THESE FILES:**
+**@issdandavis - CREATE THESE FILES:**
 - `.github/AI_COLLABORATION_GUIDE.md` - Define each agent's role clearly
 - `lore/CANON_CHECKLIST.md` - Quick reference for what's canonical
 - `CONTRIBUTING.md` - Guide for how AI agents should contribute
@@ -123,7 +123,7 @@ Avalon/
 
 ## **BOLD SUGGESTION #5: VERSION CONTROL BEST PRACTICES**
 
-### **@ @issdandavis - BRANCHING STRATEGY:**
+### **@issdandavis - BRANCHING STRATEGY:**
 
 ```
 main (protected)
@@ -141,7 +141,7 @@ main (protected)
 - `fix: Correct timeline inconsistency in prologue`
 - `chore: Archive deprecated files`
 
-**@ @issdandavis - USE PR TEMPLATES:**
+**@issdandavis - USE PR TEMPLATES:**
 Create `.github/PULL_REQUEST_TEMPLATE.md` with:
 - [ ] Lore consistency checked
 - [ ] No contradictions with existing canon
@@ -152,7 +152,7 @@ Create `.github/PULL_REQUEST_TEMPLATE.md` with:
 
 ## **BOLD SUGGESTION #6: DOCUMENTATION STANDARDS**
 
-### **@ @issdandavis - EVERY MAJOR FILE NEEDS:**
+### **@issdandavis - EVERY MAJOR FILE NEEDS:**
 
 1. **Header comment explaining:**
    - What this file contains
@@ -179,7 +179,7 @@ Create `.github/PULL_REQUEST_TEMPLATE.md` with:
 
 ## **BOLD SUGGESTION #7: AUTOMATION OPPORTUNITIES**
 
-### **@ @issdandavis - SCRIPTS TO CREATE:**
+### **@issdandavis - SCRIPTS TO CREATE:**
 
 1. **`scripts/lint_scenes.sh`**
    - Validate ChoiceScript syntax
@@ -198,7 +198,7 @@ Create `.github/PULL_REQUEST_TEMPLATE.md` with:
    - Generate searchable index of all lore files
    - Create cross-reference guide
 
-**@ @issdandavis - GitHub Actions Workflow:**
+**@issdandavis - GitHub Actions Workflow:**
 Create `.github/workflows/validate-content.yml`:
 ```yaml
 name: Validate Content
@@ -218,7 +218,7 @@ jobs:
 
 ## **QUICK WINS - IMPLEMENT THESE FIRST:**
 
-**@ @issdandavis - PRIORITY ACTIONS (DO THESE NOW):**
+**@issdandavis - PRIORITY ACTIONS (DO THESE NOW):**
 
 1. ✅ **IMMEDIATE:** Delete personal files (`next court date.txt`, shortcuts, etc.)
 2. ✅ **TODAY:** Create `/lore/README.md` explaining organization
@@ -230,7 +230,7 @@ jobs:
 
 ## **QUESTIONS FOR @issdandavis:**
 
-**@ @issdandavis - PLEASE CLARIFY:**
+**@issdandavis - PLEASE CLARIFY:**
 
 1. **ChoiceScript vs. Custom Game:** Are you maintaining both versions? If so, what's the sync strategy?
 2. **Canon Authority:** Who has final say on lore additions - you, or collaborative consensus?
@@ -242,7 +242,7 @@ jobs:
 
 ## **SUMMARY**
 
-**@ @issdandavis - KEY TAKEAWAYS:**
+**@issdandavis - KEY TAKEAWAYS:**
 
 ✅ **Story content has been significantly enriched** (17 files enhanced with lore-based narrative)  
 ✅ **Workflow improvements suggested above** will prevent future organizational issues  

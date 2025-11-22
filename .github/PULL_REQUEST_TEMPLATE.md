@@ -8,7 +8,7 @@ assignees: ''
 
 ## Pull Request
 
-**@ @issdandavis - CHANGES FOR REVIEW**
+**@issdandavis - CHANGES FOR REVIEW**
 
 ### 🎯 Type of Change
 <!-- Check all that apply -->

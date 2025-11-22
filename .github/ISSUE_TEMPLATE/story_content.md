@@ -8,7 +8,7 @@ assignees: issdandavis
 
 ## Story Content Proposal
 
-**@ @issdandavis - NEW STORY CONTENT FOR REVIEW**
+**@issdandavis - NEW STORY CONTENT FOR REVIEW**
 
 ### 📝 Content Type
 <!-- Check all that apply -->

@@ -1,6 +1,6 @@
 # Avalon Canon Checklist
 
-**@ @issdandavis - USE THIS AS QUICK REFERENCE FOR CANONICAL ELEMENTS**
+**@issdandavis - USE THIS AS QUICK REFERENCE FOR CANONICAL ELEMENTS**
 
 This document provides a quick reference for established canonical elements in the Avalon universe. Check this before adding new lore to ensure consistency.
 
@@ -209,7 +209,7 @@ This document provides a quick reference for established canonical elements in t
 - [ ] Is this necessary or just "cool but random"?
 - [ ] Can this be approved by @issdandavis?
 
-**If unsure, mark as [DRAFT] and @ @issdandavis for clarification.**
+**If unsure, mark as [DRAFT] and @issdandavis for clarification.**
 
 ---
 
@@ -232,7 +232,7 @@ These areas have basic framework but welcome expansion:
 
 ## 📚 PRIMARY CANON SOURCES
 
-**@ @issdandavis - THESE ARE THE AUTHORITATIVE SOURCES:**
+**@issdandavis - THESE ARE THE AUTHORITATIVE SOURCES:**
 
 1. `/lore/` directory - All files here are canonical
 2. `writing_drafts/The Spiral of Avalon.VERY GOOD.1st draft.txt` - Core narrative
@@ -246,7 +246,7 @@ These areas have basic framework but welcome expansion:
 
 ## 🆘 WHEN IN DOUBT
 
-**@ @issdandavis - ASK BEFORE:**
+**@issdandavis - ASK BEFORE:**
 
 - Adding major new characters with significant plot impact
 - Changing established character personalities
@@ -283,4 +283,4 @@ Use these when adding lore:
 **Last Canon Review:** 2025-11-22  
 **Next Review:** When major lore additions proposed  
 
-**@ @issdandavis - Keep this updated as canon expands!**
+**@issdandavis - Keep this updated as canon expands!**

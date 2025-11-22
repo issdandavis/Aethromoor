@@ -8,7 +8,7 @@ assignees: issdandavis
 
 ## Lore Question
 
-**@ @issdandavis - NEED CANON CLARIFICATION**
+**@issdandavis - NEED CANON CLARIFICATION**
 
 ### ❓ Question
 <!-- What do you need clarified? -->
