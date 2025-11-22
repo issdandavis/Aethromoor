@@ -76,3 +76,39 @@ This is "The Avalon Codex" - a multi-generational fantasy narrative project cent
 
 ## Current Priority
 Phase 2 development: Converting remaining HTML expeditions (`singing_dunes.txt`, `verdant_tithe.txt`, `rune_glacier.txt`) to ChoiceScript format while maintaining narrative consistency and implementing proper stat tracking.
+
+## Multi-AI Collaboration Guide
+Use multiple assistants in clearly defined roles to avoid overlap:
+- **Lore Curator (Claude/creative model)**: Validates new narrative against `lore/` and `IZACK_MASTER_CHRONICLE_UPDATED.txt`; flags timeline or magic rule conflicts.
+- **Conversion Engineer (Copilot / Continue)**: Translates HTML scene content in `game/scenes/` into ChoiceScript `.txt` files under `choicescript_game/scenes/` preserving choice logic and stats.
+- **Structural Reviewer (Cody / Codeium)**: Ensures scene parity (same branching & ending counts) and checks stat progression consistency with `startup.txt` and `choicescript_stats.txt`.
+- **Automation Planner (Any)**: Updates Zapier workflow docs in `docs/AUTOMATION_GUIDE.md` when new content types added (e.g., expedition assets).
+- **Quality Balancer**: Runs passes to equalize Collaboration stat difficulty; compares thresholds across expeditions.
+
+### Shared Context Artifacts
+Maintain these lightweight anchors so every AI has the same baseline:
+- `STATUS_CONTEXT.md` (create if missing): Weekly snapshot: current scene being converted + pending lore updates.
+- `SCENE_PARITY_CHECKLIST.md`: List each HTML scene vs ChoiceScript counterpart with status (Missing / Draft / Verified).
+- `STATS_MATRIX.md`: Table of each choice affecting Collaboration or relationships (source file + delta).
+
+### Collaboration Workflow
+1. Curator approves a scene's lore integrity (HTML source).
+2. Conversion Engineer drafts ChoiceScript scene (no stat tuning yet).
+3. Structural Reviewer verifies branching & endings alignment; updates checklist.
+4. Quality Balancer adjusts stat thresholds; updates `STATS_MATRIX.md`.
+5. Automation Planner notes any new triggers for analytics or Zapier.
+
+### Hand-off Conventions
+- Add `// TODO:[ROLE]: description` inline only in ChoiceScript draft files; remove before verification.
+- Prefix commit messages with role tag: `Lore:`, `Convert:`, `Struct:`, `Balance:`, `Auto:`.
+
+### Model Selection Tips
+- Creative/lore tasks: higher reasoning (Claude / GPT creative variant).
+- Structural/stat tasks: deterministic/code-focused (Copilot / Codeium).
+- Cross-file parity checks: tools with codebase indexing (Cody / Continue).
+
+### Quick Checks Before Merging
+- Scene has same number of choices and endings references as HTML original.
+- No new character traits contradict existing chronicles.
+- Stat changes logged in `STATS_MATRIX.md`.
+- Roadmap phase still accurate; update `docs/PROJECT_ROADMAP.md` if scope shifted.
