@@ -16,7 +16,18 @@ This repository contains narrative source material and chat logs related to the 
 5. Edit scenes in `game/scenes/` and re-run `./game/sync_scenes.sh` to refresh the playable build.
 
 ## Security
-Previous commits contained plaintext API keys. They have been removed from the tracked files. Make sure to rotate any keys that may have been exposed and only store live credentials in your local `.env` file.
+**⚠️ IMPORTANT: API Key Management**
+
+Previous commits contained plaintext API keys. They have been removed from tracked files. 
+
+**Best Practices:**
+- ✅ Never commit API keys to the repository
+- ✅ Use `config/.env.example` as a template
+- ✅ Store actual keys in `.env` (already gitignored)
+- ✅ Rotate any exposed keys immediately
+- ⚠️ Files matching `*api*key*.txt` or `*secret*.txt` are now gitignored
+
+**If you need to use AI services:** Copy `config/.env.example` to `config/.env` and add your keys there.
 # 🎮 Polly's Wingscroll: The First Thread
 
 **A choice-based narrative game set in Avalon Academy**

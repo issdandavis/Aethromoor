@@ -191,6 +191,46 @@ body {
 .footer {
     text-align: center;
     margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.export-btn {
+    background: linear-gradient(135deg, #5e84e2 0%, #4a6bb5 100%);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.export-btn:hover {
+    background: linear-gradient(135deg, #6a92f0 0%, #5577c9 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(94, 132, 226, 0.4);
+}
+
+.export-btn.visible {
+    display: inline-block;
+}
+
+.export-feedback {
+    color: #5e84e2;
+    font-size: 0.9em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.export-feedback.show {
+    opacity: 1;
 }
 
 /* Responsive design */
