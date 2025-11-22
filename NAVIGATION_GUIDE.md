@@ -83,6 +83,19 @@ Want to Learn About Factions?
 ```
 Want to Create Content?
     │
+    ├─► FOR CHOICESCRIPT WRITERS ✨ NEW!
+    │   └─► choicescript_game/CHOICESCRIPT_WRITERS_GUIDE.md
+    │       ├─► Lore-to-code examples
+    │       ├─► Character implementation
+    │       ├─► Faction system in ChoiceScript
+    │       └─► Testing checklist
+    │
+    ├─► UNDERSTAND CHARACTERS
+    │   └─► lore/CHARACTER_COMPENDIUM.md
+    │       ├─► Canonical dialogue patterns
+    │       ├─► Voice and speech patterns
+    │       └─► Writing guidelines
+    │
     ├─► UNDERSTAND FACTIONS FIRST
     │   └─► lore/FACTION_GUIDE.md
     │       ├─► Read all faction philosophies
@@ -251,10 +264,16 @@ Quick Prep:
 ### **Scenario 4: "I'm writing a story scene"**
 ```
 While Writing:
-1. Have lore/FACTION_QUICK_REFERENCE.md open in one window
+1. Have lore/CHARACTER_COMPENDIUM.md open in one window
 2. Reference lore/FACTION_GUIDE.md for details as needed
 3. Check character backstories in Pollys_Wingscrolls
 4. Verify world rules in Unified Worldbuilding
+
+For ChoiceScript Writers:
+1. Follow choicescript_game/CHOICESCRIPT_WRITERS_GUIDE.md
+2. Keep CHARACTER_COMPENDIUM.md open for dialogue
+3. Test in ChoiceScript IDE frequently
+4. Run Quicktest before committing scenes
 ```
 
 ### **Scenario 5: "I just need one specific fact"**
