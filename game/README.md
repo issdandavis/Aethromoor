@@ -24,6 +24,7 @@ This repository now includes a small ChoiceScript-friendly scaffolding to help y
 ### Included demo content
 - `startup`, `prologue`, and `crossroads` introduce stat creation and *goto_scene branching.
 - `archives`, `wardens`, and `council` showcase stat checks, gated options, and different narrative tones.
+- `convergence` reacts to accumulated flags and stats before handing off to the wrap-up.
 - `epilogue` wraps up the path with a replay hook.
 - `choicescript_stats.txt` enables the “Show Stats” button with meters for Honor, Attunement, mentor name, and council trust, plus a blurb that reacts to your flags.
 

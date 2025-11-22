@@ -1,4 +1,4 @@
-Beyond the council doors, a triad of portals rotates in perfect alignment. Each promises a different future.
+Beyond the council doors, a triad of portals rotates in perfect alignment. Each promises a different future. Threads of light braid between them, knitting the fates of Avalon together.
 
 *comment Branch into dedicated scenes to show *goto_scene usage and stat checks.
 *choice
@@ -6,8 +6,9 @@ Beyond the council doors, a triad of portals rotates in perfect alignment. Each 
     *if attunement >= 60
       The portal sings in harmony with you. Knowledge floods your mind, and the Spiral welcomes you as a student.
       *goto_scene archives
-    Your attunement falters, and the portal resists. You retreat to study more.
-    *finish
+    Your attunement falters, and the portal resists. You gather stray harmonics to study later.
+    *set attunement +5
+    *goto_scene council
   #Enter the martial hall marked by silver spears.
     The wardens salute as you pass. Honor carries you forward into service.
     *goto_scene wardens

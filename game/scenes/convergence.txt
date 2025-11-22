@@ -1,0 +1,51 @@
+You emerge onto a circular landing where the three portals meet. A lattice of light hums beneath your feet, recording traces of what you've done.
+
+*comment Offer bespoke acknowledgments based on prior flags and stats.
+*if (oathbound and resonance_mark)
+  The Spiral recognizes both your oath and your resonance. Elders and wardens glance your way, curious which you will lean on.
+*elseif oathbound
+  Your oath to the wardens anchors the lattice, bright as a drawn blade.
+*elseif resonance_mark
+  The Spiral's song follows you, weaving a counter-melody through the hall.
+*else
+  For now, your choices leave only faint trails. Avalon waits to see how you'll impress it.
+
+A courier approaches with three sealed missives, each bearing a different crest.
+
+*choice
+  #Answer the research call from the Aerie Conservatory.
+    The missive requests someone attuned to the Spiral to help tune a wavering beacon.
+    *if attunement >= 65
+      Your earlier harmonics steady the beacon immediately. Archivists scribble notes as the signal clarifies.
+      *set attunement +5
+      *set council_trust +5
+      *goto after_convergence
+    *else
+      The beacon sputters before stabilizing. You promise to return with sharper focus.
+      *set attunement +5
+      *goto after_convergence
+  #Join the wardens escorting dignitaries across the skybridge.
+    The missive warns of turbulence and rogue drones.
+    *if honor >= 65
+      You anticipate each crosswind and shield the dignitaries flawlessly. The captain nods: "Reliable as ever."
+      *set honor +5
+      *set council_trust +5
+      *goto after_convergence
+    *else
+      The escort completes with a few scrapes, but your vigilance earns respect.
+      *set honor +5
+      *goto after_convergence
+  #Seek ${mentor}'s counsel on weaving both paths.
+    ${mentor} greets you with tea and charts showing overlaps between wardens and archivists.
+    *if (honor >= 60) and (attunement >= 60)
+      Together you draft a joint initiative, convincing the council to fund it.
+      *set council_trust +10
+      *goto after_convergence
+    *else
+      ${mentor} challenges you to refine your goals before the council convenes again.
+      *set council_trust +5
+      *goto after_convergence
+
+*label after_convergence
+The lattice quiets, storing your response. A lift descends toward an open balcony.
+*goto_scene epilogue

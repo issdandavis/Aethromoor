@@ -24,4 +24,4 @@ The martial hall thrums with sparring and shouted cadence. Racks of spears line 
 
 *label after_wardens
 The captain clasps your forearm. "When the council calls, remember this hall."
-*goto_scene epilogue
+*goto_scene convergence

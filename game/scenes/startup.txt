@@ -7,6 +7,7 @@
   council
   archives
   wardens
+  convergence
   epilogue
 
 *create honor 50
@@ -16,7 +17,7 @@
 *create oathbound false
 *create resonance_mark false
 
-You stand before the gates of Avalon, the Spiral of Eternity humming under your feet. Today you choose how you will meet the city's secrets.
+You stand before the gates of Avalon, the Spiral of Eternity humming under your feet. Today you choose how you will meet the city's secrets. Airships arc between spires overhead, their contrails forming luminous sigils that fade as quickly as they appear.
 
 *choice
   #Study the ley lines that weave through the plaza.
