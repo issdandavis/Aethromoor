@@ -7,7 +7,7 @@
 *temp desert_blessing false
 *temp kael_approval 0
 
-The portal deposits your expedition group onto golden sand that gleams with crystalline fragments. The heat hits you immediately—dry, intense, ancient.
+The portal deposits your expedition group onto golden sand that gleams with crystalline fragments. The heat hits you immediately—dry, intense, ancient. It tastes like copper pennies and forgotten promises on your tongue.
 
 But it's the [i]sound[/i] that's unforgettable.
 
@@ -17,25 +17,37 @@ The dunes are humming.
 
 *line_break
 
-A low, haunting chorus rises from the desert itself—like a thousand voices singing just below the threshold of words. The sound shifts with each step you take, responding to your presence.
+A low, haunting chorus rises from the desert itself—like a thousand voices singing just below the threshold of words. The sound shifts with each step you take, responding to your presence. It's not quite music, not quite speech—something older than language, resonating through your bones.
+
+*line_break
+
+The sand beneath your feet feels warm, almost alive. Each grain catches the light differently, creating patterns that shift like schools of luminescent fish beneath a golden sea.
 
 *page_break
 
 [i]*I land on a sun-bleached stone, my feathers immediately too hot.*[/i]
 
-"Welcome to Sul'dessar, specifically the Sunscarred Dunes. This sand has a nasty habit of glowing red-hot when someone breaks an oath. Also, mirages here aren't just illusions—they're actual memories the desert preserved. Try not to walk into any traumatic historical events."
+"Welcome to Sul'dessar—the Truth-Testing Desert, specifically the Sunscarred Dunes. This sand has a nasty habit of glowing red-hot when someone breaks an oath. Also, mirages here aren't just illusions—they're actual memories the desert preserved. Try not to walk into any traumatic historical events from the War of Hierarchs. Those can give you temporal sunburn."
 
 *line_break
 
-Your group's guide steps forward—a weathered man with sun-darkened skin and eyes that seem to reflect the desert's ancient knowledge.
+[i]"The desert remembers [b]everything[/b]. Every promise made here in the last three thousand years. Every lie told. Every truth spoken into the wind. It's less a place and more a living archive of honesty."[/i]
 
-"I'm Kael," he says, voice rough as sand. "I've walked these dunes for thirty years. The desert and I... we have an understanding."
+*line_break
+
+Your group's guide steps forward—a weathered man with sun-darkened skin and eyes that seem to reflect the desert's ancient knowledge. Fine lines crease his face like the sand patterns around you, and when he moves, he does so with the patience of stone being shaped by wind.
+
+"I'm Kael," he says, voice rough as sand but warm as desert stone at sunset. "I've walked these dunes for thirty years. The desert and I... we have an understanding. It taught me that truth isn't about being right—it's about being honest enough to be wrong."
+
+*line_break
+
+He kneels, placing one weathered palm flat against the humming sand. The golden grains shift toward him, almost affectionately.
 
 *page_break
 
 He gestures to an oasis shimmering in the distance, surrounded by impossibly dark trees.
 
-"We camp there tonight at the Ironwood oasis. Those trees are harder than metal—survivors in a place that kills the weak. But first..."
+"We camp there tonight at the Ironwood oasis. Those trees are harder than metal—Ironwood, the only tree that can survive oath-fire. They've grown strong by rooting themselves in truth. Survivors in a place that kills the weak and tests the strong. But first..."
 
 Kael hands each student a small crystal vial.
 

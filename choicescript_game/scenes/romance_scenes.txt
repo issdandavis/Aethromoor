@@ -37,7 +37,11 @@
 
 You find Izack in the Ley line Gazebo late at night, studying dimensional currents.
 
-He looks up when you approach, and something shifts in his expression—warmth beyond mere mentorship.
+Moonlight filters through the latticed dome overhead, and the air hums with barely contained magic. The scent of night-blooming jasmine mingles with the electric tang of active leylines.
+
+*line_break
+
+He looks up when you approach, and something shifts in his expression—warmth beyond mere mentorship, recognition beyond teacher and student. His eyes catch the leylight, making them seem to glow soft gold.
 
 *page_break
 
@@ -45,15 +49,21 @@ He looks up when you approach, and something shifts in his expression—warmth b
 
 *line_break
 
-He gestures to the leylines flowing around you both, visible as streams of light.
+There's weight in those words, layers of meaning beneath the surface.
 
-[b]"I wanted to show you something. Watch."[/b]
+He gestures to the leylines flowing around you both, visible as streams of light in the darkness—emerald, sapphire, amber threads of pure magic weaving through reality.
+
+[b]"I wanted to show you something. Something I've never shown another student. Watch."[/b]
 
 *page_break
 
-He raises a hand, and the ley lines respond—not commanded, but [i]invited[/i]. They dance around you both, creating patterns of light and magic.
+He raises a hand, and the ley lines respond—not commanded, but [i]invited[/i]. They dance around you both like ribbons of starlight, creating patterns that feel somehow intimate, as if the magic itself is acknowledging the connection between you.
 
-[b]"This is what magic can be when we stop trying to control it. When we just... [i]listen[/i]."[/b]
+[b]"This is what magic can be when we stop trying to control it. When we just... [i]listen[/i]. When we approach power the way we approach... people we care about."[/b]
+
+*line_break
+
+His voice drops on those last words, and his eyes meet yours with unmistakable meaning.
 
 *page_break
 

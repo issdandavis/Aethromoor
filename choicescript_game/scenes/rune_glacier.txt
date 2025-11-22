@@ -10,23 +10,27 @@
 
 *label start
 
-The portal closes behind you with a crystalline chime, and the temperature plummets forty degrees in an instant.
+The portal closes behind you with a crystalline chime, and the temperature plummets forty degrees in an instant. Your breath becomes visible fog, each exhalation crystallizing into tiny geometric patterns that hang in the air before dissipating.
 
 *line_break
 
-You stand on the Rune Glacier—an impossible expanse of living ice that stretches to the horizon. Runes shimmer beneath the surface, moving like fish in deep water, rewriting themselves in patterns that predate language itself.
+You stand on the Rune Glacier—an impossible expanse of living ice that stretches to the horizon. But this isn't ordinary ice. Runes shimmer beneath the surface, moving like fish in deep water, rewriting themselves in patterns that predate language itself. The ice [i]breathes[/i], expanding and contracting with a rhythm that feels like the heartbeat of creation.
+
+*line_break
+
+The light here is strange—refracted through layers of ancient ice, it breaks into colors that don't exist elsewhere. Ultraviolet hope. Infrared sorrow. The frozen spectrum of emotions made visible.
 
 *page_break
 
 Polly materializes on your shoulder, fluffing her feathers against the cold.
 
-[i]"Brrr. Right. The Rune Glacier. Where magic is so ancient it forgot how to die properly."[/i]
+[i]"Brrr. Right. The Rune Glacier. Where magic is so ancient it forgot how to die properly, so it just froze itself into an eternal moment instead."[/i]
 
 *line_break
 
-She hops to a nearby ice formation. Beneath the surface, a rune pulses with soft blue light.
+She hops to a nearby ice formation. Beneath the surface, a rune pulses with soft blue light—not trapped, but [i]living[/i] in the ice the way fish live in water.
 
-[i]"These runes are alive, ${name}. Actually alive. They remember the First Tongue—the language used to create dimensional magic itself. Some mages try to control them. Others try to harmonize with them. A rare few... well, that's more interesting."[/i]
+[i]"These runes are alive, ${name}. Actually alive. They remember the First Tongue—the language used to create dimensional magic itself when the multiverse was young and boundaries were just suggestions. Some mages try to control them. Others try to harmonize with them. A rare few become partners with the ice itself."[/i]
 
 *page_break
 
