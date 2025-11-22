@@ -3,6 +3,8 @@
 
 A professional choice-based game built in ChoiceScript, the engine used by **Choice of Games** and **Hosted Games** for publishing to app stores.
 
+> **✨ NEW FOR WRITERS:** Check out [CHOICESCRIPT_WRITERS_GUIDE.md](CHOICESCRIPT_WRITERS_GUIDE.md) for how to integrate lore documentation with ChoiceScript development!
+
 ---
 
 ## 🎮 HOW TO PLAY THIS GAME
@@ -228,6 +230,11 @@ You can play through:
 ---
 
 ## 📞 HELP & RESOURCES
+
+**For Writers:**
+- **[CHOICESCRIPT_WRITERS_GUIDE.md](CHOICESCRIPT_WRITERS_GUIDE.md)** ← **NEW! Lore Integration Guide**
+- **[../lore/CHARACTER_COMPENDIUM.md](../lore/CHARACTER_COMPENDIUM.md)** - Character dialogue patterns
+- **[../lore/FACTION_GUIDE.md](../lore/FACTION_GUIDE.md)** - Faction motivations and conflicts
 
 **ChoiceScript Documentation:**
 https://www.choiceofgames.com/make-your-own-games/choicescript-intro/
