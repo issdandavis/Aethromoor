@@ -26,4 +26,4 @@ The council chamber is a ring of suspended platforms. Holographic maps of the Sp
 
 *label after_council
 A bell tolls from deeper within the chamber, signaling a new phase of your time in Avalon.
-*goto_scene epilogue
+*goto_scene convergence

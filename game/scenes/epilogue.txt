@@ -1,4 +1,4 @@
-You pause at the threshold of a balcony overlooking the Spiral. Choices made today ripple outward.
+You pause at the threshold of a balcony overlooking the Spiral. Choices made today ripple outward. Couriers and wardens move below, carrying the effects of your decisions into the wider city.
 
 *if resonance_mark
   The Spiral thrums in time with your pulse, marking you as one who listens.
@@ -6,6 +6,13 @@ You pause at the threshold of a balcony overlooking the Spiral. Choices made tod
   The badge of the wardens gleams. Duty anchors your steps.
 *else
   The council watches, curious which oath you will claim.
+
+*if council_trust >= 70
+  An elder leans close. "You've earned the room to propose something bold."
+*elseif council_trust >= 55
+  The council's sigils shimmer with measured confidence in you.
+*else
+  Whispers ripple along the balcony. Trust is budding but not yet firm.
 
 *comment Offer a small wrap-up and replay hook.
 *choice
@@ -15,5 +22,5 @@ You pause at the threshold of a balcony overlooking the Spiral. Choices made tod
     Council trust: ${council_trust}
     *finish
   #Step forward into the Spiral once more.
-    The path shifts with every decision.
+    The path shifts with every decision. New branches spiral outward from here.
     *ending

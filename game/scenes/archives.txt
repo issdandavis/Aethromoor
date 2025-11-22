@@ -18,4 +18,4 @@ You step into a crystalline hall where voices whisper in harmonics. Tomes float 
 
 *label after_archives
 An attendant smiles. "The council likes when scholars bring back clarity."
-*goto_scene epilogue
+*goto_scene convergence

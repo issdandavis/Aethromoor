@@ -14,7 +14,7 @@ This repository now includes a small ChoiceScript-friendly scaffolding to help y
 
 ## Load the sample Avalon demo scenes
 1. Ensure `game/choicescript/` exists (see bootstrap step above).
-2. Run `./game/sync_scenes.sh` to copy the sample scenes from `game/scenes/` into `game/choicescript/web/mygame/`.
+2. Run `./game/sync_scenes.sh` to copy the sample scenes from `game/scenes/` into `game/choicescript/web/mygame/scenes/` (the script creates the folder if needed).
 3. Launch the ChoiceScript local server from inside `game/choicescript/`:
    - Windows: double-click `run-server.bat` (may show as `run-server`).
    - macOS: double-click `serve.command` (you may need to allow it under System Settings > Gatekeeper the first time).
@@ -24,12 +24,13 @@ This repository now includes a small ChoiceScript-friendly scaffolding to help y
 ### Included demo content
 - `startup`, `prologue`, and `crossroads` introduce stat creation and *goto_scene branching.
 - `archives`, `wardens`, and `council` showcase stat checks, gated options, and different narrative tones.
+- `convergence` reacts to accumulated flags and stats before handing off to the wrap-up.
 - `epilogue` wraps up the path with a replay hook.
 - `choicescript_stats.txt` enables the “Show Stats” button with meters for Honor, Attunement, mentor name, and council trust, plus a blurb that reacts to your flags.
 
 ## Editing and extending scenes
 - The sample scenes live in `game/scenes/`. Edit them directly there.
-- Run `./game/sync_scenes.sh` after changes to push updates into the engine’s `web/mygame/` folder.
+- Run `./game/sync_scenes.sh` after changes to push updates into the engine’s `web/mygame/scenes/` folder.
 - Scene order and available files are controlled by `*scene_list` at the top of `startup.txt`.
 - To add stats, edit `choicescript_stats.txt`; you can use `*stat_chart` to display new variables.
 
