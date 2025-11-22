@@ -1,0 +1,1113 @@
+*comment ================================================
+*comment YEAR THREE TRIAL - END OF YEAR ASSESSMENT
+*comment The transition from student to master
+*comment Demonstrates mastery, faces unexpected crisis, receives mentor assessment
+*comment ================================================
+
+*temp mastery_demonstration ""
+*temp crisis_severity 0
+*temp combined_effort false
+*temp trial_performance ""
+
+*label start
+
+[b]== THE YEAR THREE TRIAL: PROVING MASTERY ==[/b]
+
+*line_break
+
+The Mastery Year draws to a close.
+
+*page_break
+
+Three years ago, you arrived at Avalon Academy as a nervous first-year, uncertain of your abilities, overwhelmed by the impossible architecture and dimensional magic that permeated every stone.
+
+Two years ago, you faced your first real crisis and proved you could survive.
+
+One year ago, you defended your competency in your chosen path.
+
+*line_break
+
+Today, you prove mastery.
+
+*page_break
+
+The Hall of Threads has been transformed. Where previous trials were conducted in separate chambers, today all three paths converge in a single vast space. The entire faculty stands witness—Izack, Aria, Zara, and dozens of other instructors you've learned from over the years.
+
+Every second-year student watches from elevated galleries. Every first-year peers down with wide eyes, wondering if they'll ever reach this level.
+
+*page_break
+
+Headmistress Valeris stands at the center, her silver hair catching the light from a hundred dimensional currents.
+
+[b]"Third-year students,"[/b] she announces, her voice carrying to every corner. [b]"You stand at the threshold between student and graduate. Between learning and practicing. Between potential and achievement."[/b]
+
+*line_break
+
+She gestures, and the floor of the hall transforms into a shimmering map of Avalon and the surrounding dimensional landscape.
+
+*page_break
+
+[b]"Your final assessment is not a simulation. Not a controlled environment. You will demonstrate your mastery by performing actual service to Avalon Academy and the realms we protect."[/b]
+
+*line_break
+
+Three markers appear on the map, each pulsing with different energy.
+
+*page_break
+
+*if chosen_path = "research"
+    [b]"Research scholars,"[/b] Aria steps forward, [b]"you will present your comprehensive research to the Continental Magical Symposium. Your findings will be evaluated not by us, but by the foremost scholars from seven realms. Your reputation—and Avalon's—rests on your work."[/b]
+
+    *goto research_mastery
+
+*if chosen_path = "combat"
+    [b]"Combat specialists,"[/b] Zara announces, [b]"you will lead a defense operation in the Shattered Wastes. A dimensional rift has spawned hostile entities. You will command a team, neutralize the threat, and seal the breach. Lives depend on your success."[/b]
+
+    *goto combat_mastery
+
+*if chosen_path = "diplomatic"
+    [b]"Diplomatic specialists,"[/b] Izack says warmly but seriously, [b]"you will negotiate a treaty between three feuding dimensional enclaves. The conflict threatens to destabilize the entire region. Your mediation is not practice—it is necessity."[/b]
+
+    *goto diplomatic_mastery
+
+*comment ================================================
+*comment RESEARCH PATH MASTERY
+*comment ================================================
+
+*label research_mastery
+
+*set mastery_demonstration "research"
+
+The Continental Magical Symposium materializes around you—a grand amphitheater constructed from pure collaborative magic, connecting seven different realms simultaneously.
+
+Hundreds of scholars, researchers, and magical theorists from across dimensions fill the seats. Their collective knowledge is staggering, intimidating, and exhilarating.
+
+*page_break
+
+You stand at the presentation podium. Behind you, magical projections wait to display your research. Three years of study, experimentation, and theoretical breakthrough distilled into this moment.
+
+Aria sits in the front row, her expression carefully neutral, but you can see the tension in her shoulders. Your success reflects on her mentorship.
+
+*page_break
+
+*if polly_is_familiar = true
+    Polly perches on the podium edge, invisible to everyone but you.
+
+    *line_break
+
+    [i]"So. No pressure. Only several hundred of the most brilliant magical minds in existence waiting to critique your life's work. You've got this. Probably."[/i]
+
+*page_break
+
+The Symposium Chair—an ancient mage whose species you can't even identify—gestures for you to begin.
+
+[b]"Avalon's representative. Present your research."[/b]
+
+*choice
+    #I present my theoretical breakthrough in dimensional stability with confidence and precision.
+        *set knowledge +10
+        *set collaboration +10
+        *set trial_performance "excellent"
+
+        You speak with the authority of three years' intensive study. Your research is groundbreaking—a new approach to stabilizing dimensional boundaries that could revolutionize how realms interact.
+
+        The projections behind you illustrate complex magical theorems with elegant clarity. You've prepared for every question, anticipated every critique.
+
+        *page_break
+
+        When Professor Caldris—one of the harshest critics in seven realms—nods with approval, you know you've succeeded.
+
+        "Remarkable work," he admits. "Not just competent—genuinely innovative."
+
+        *set academic_standing "exceptional"
+        *set published_papers +2
+        *set fame +15
+
+        *goto research_questions
+
+    #I present my collaborative research methodology, emphasizing how working with others strengthened the findings.
+        *set collaboration +15
+        *set empathy +10
+        *set trial_performance "good"
+
+        Your presentation focuses on process as much as results. You explain how collaborating with students across disciplines, across realms, across magical traditions enriched your research in ways solo work never could.
+
+        It's not flashy. It's not trying to be revolutionary. But it's solid, honest, and thoroughly Avalon.
+
+        *page_break
+
+        Izack's smile tells you he's proud. This is what Avalon stands for.
+
+        Several scholars lean forward with interest. Collaborative methodology is often overlooked in favor of individual brilliance.
+
+        *set academic_standing "excellent"
+        *set published_papers +1
+        *set collaboration +10
+
+        *goto research_questions
+
+    #I present my research nervously but push through with determination.
+        *set stress +10
+        *set collaboration +5
+        *set trial_performance "adequate"
+
+        Your voice wavers at first. The weight of hundreds of expert eyes makes your hands tremble. But you've worked too hard to fail now.
+
+        You push through nervousness, finding your footing as you explain the work you've poured your heart into. It's not perfect, but it's yours.
+
+        *page_break
+
+        Aria catches your eye and nods encouragingly. You're doing fine.
+
+        *set academic_standing "good"
+        *set stress +5
+
+        *goto research_questions
+
+*label research_questions
+
+The question period begins. Scholars challenge your methodology, probe for weaknesses in your theoretical framework, demand clarification on experimental results.
+
+*if knowledge >= 75
+    You field each question with growing confidence. Your preparation was thorough. When a scholar from the Crystalline Realm attempts to dismantle your core argument, you counter with references to recent dimensional theory that actually supports your position.
+
+    *page_break
+
+    "Well defended," the scholar concedes. "You've done your homework."
+
+    *line_break
+
+    The questioning continues for over an hour, but you hold firm. This is what mastery looks like.
+
+    *set fame +10
+    *set aria_relationship +10
+
+*else
+    You answer as best you can, admitting when you don't know something rather than fabricating responses. Some scholars look disappointed. Others respect your honesty.
+
+    *page_break
+
+    It's not a perfect defense, but you've proven you understand your subject and can engage with criticism professionally.
+
+    *set empathy +5
+    *set aria_relationship +5
+
+*page_break
+
+Finally, the Symposium Chair raises a hand, ending the questioning.
+
+[b]"We will deliberate. Avalon's representative, please wait outside."[/b]
+
+*page_break
+
+The next twenty minutes are agonizing. You pace outside the amphitheater while the assembled scholars debate your research's merit.
+
+Aria finds you.
+
+*if aria_romance = true
+    She pulls you into a brief, tight embrace—propriety be damned.
+
+    "You were magnificent," she whispers. "Whatever they decide, I'm proud of you."
+
+    *set aria_relationship +5
+    *set happiness +10
+
+*else
+    "You did well," she says quietly. "Whatever the verdict, you represented Avalon with competence and integrity."
+
+    *set aria_relationship +5
+
+*page_break
+
+The doors reopen. You're summoned back inside.
+
+*if trial_performance = "excellent"
+    The Symposium Chair's expression is approving.
+
+    [b]"Your research is accepted with distinction. Furthermore, we recommend immediate publication in the Journal of Dimensional Theory and request you present at next year's Grand Symposium as a featured speaker."[/b]
+
+    *line_break
+
+    The assembled scholars applaud—a rare honor.
+
+    *page_break
+
+    You're not just a student anymore. You're a recognized scholar whose work will influence dimensional magic across realms.
+
+    *set published_papers +2
+    *set fame +20
+    *set academic_standing "exemplary"
+    *achievement year_three_research_mastery Presented groundbreaking research at Continental Symposium
+
+    *goto unexpected_crisis
+
+*elseif trial_performance = "good"
+    The Symposium Chair nods with satisfaction.
+
+    [b]"Your research is sound and your methodology exemplary. We approve your work for publication and recommend you for collaborative research positions upon graduation."[/b]
+
+    *line_break
+
+    Solid approval. Not legendary, but genuinely impressive.
+
+    *page_break
+
+    You've proven yourself a competent scholar ready for the professional world of magical research.
+
+    *set published_papers +1
+    *set fame +10
+    *set academic_standing "excellent"
+
+    *goto unexpected_crisis
+
+*else
+    The Symposium Chair's expression is measured.
+
+    [b]"Your research shows promise but requires further development before publication. We recommend continued study under faculty supervision. You have demonstrated adequate understanding of your subject."[/b]
+
+    *line_break
+
+    Not the outcome you hoped for, but not failure either.
+
+    *page_break
+
+    You've proven you can engage with serious scholarship, even if you're not yet at the highest level.
+
+    *set academic_standing "good"
+
+    *goto unexpected_crisis
+
+*comment ================================================
+*comment COMBAT PATH MASTERY
+*comment ================================================
+
+*label combat_mastery
+
+*set mastery_demonstration "combat"
+
+The dimensional portal deposits you and your team in the Shattered Wastes—a devastated region where reality itself has fractured from centuries of magical warfare.
+
+The sky flickers between three different times of day simultaneously. Gravity shifts unpredictably. And somewhere ahead, hostile dimensional entities are pouring through an unstable rift.
+
+*page_break
+
+Your team consists of two second-year combat students and one first-year who's shown exceptional promise. They look to you for leadership.
+
+This is what command feels like.
+
+*page_break
+
+Zara's voice crackles through your communication crystal. [b]"You have tactical authority, ${name}. I'm monitoring but not interfering. The rift must be sealed, the entities neutralized, and your team brought home safely. Show me what you've learned."[/b]
+
+*if polly_is_familiar = true
+    Polly materializes on a nearby broken pillar.
+
+    [i]"So you're in charge of keeping people alive while fighting hostile dimensional monsters in an unstable reality zone. This is fine. Everything is fine."[/i]
+
+*page_break
+
+*choice
+    #I assess the tactical situation carefully before engaging.
+        *set power +10
+        *set knowledge +10
+        *set trial_performance "excellent"
+
+        You take time to analyze the rift, the entity patterns, the environmental hazards. Three years of training has taught you that rushing in gets people killed.
+
+        You identify the rift's anchor points, plot an approach that uses terrain to your advantage, and establish clear fallback positions.
+
+        "We go in smart, not hard," you tell your team. "Follow my lead and watch each other's backs."
+
+        *goto combat_engagement
+
+    #I lead from the front with overwhelming force.
+        *set power +15
+        *set collaboration +5
+        *set trial_performance "good"
+
+        Your team needs confidence. You give them that by demonstrating your power.
+
+        You charge toward the rift with spells blazing, trusting your team to follow your example. Sometimes the best tactics are pure, decisive action.
+
+        "With me!" you shout. "We hit hard and fast!"
+
+        *goto combat_engagement
+
+    #I coordinate carefully with my team, using combined tactics.
+        *set collaboration +15
+        *set empathy +10
+        *set trial_performance "good"
+
+        You turn to your team. "What are your specialties? How can we combine our strengths?"
+
+        The second-years respond eagerly, suggesting tactical synergies. The first-year looks terrified but determined.
+
+        Together, you develop a coordinated approach that maximizes everyone's abilities.
+
+        *goto combat_engagement
+
+*label combat_engagement
+
+The battle is brutal and chaotic.
+
+Dimensional entities—creatures of pure unstable magic—swarm from the rift. They phase in and out of reality, making them difficult to target. The environment itself works against you as gravity shifts and spatial dimensions warp.
+
+*page_break
+
+*if power >= 75
+    But you're ready for this. Three years of combat training under Zara has prepared you for exactly this kind of nightmare scenario.
+
+    Your combat magic is precise and devastating. You adapt to each spatial shift, counter every entity's unique properties, and keep your team positioned safely.
+
+    *page_break
+
+    When the first-year student gets overwhelmed by three entities at once, you're there—shielding spell deployed instantly, counterattack perfectly timed.
+
+    "I've got you," you assure them. "Focus on your breathing. Just like training."
+
+    *line_break
+
+    You're not just fighting. You're leading. Teaching. Protecting.
+
+    *set trial_performance "excellent"
+    *set collaboration +10
+    *set zara_relationship +10
+
+*else
+    The fight pushes you to your limits. The entities are relentless, the environment nightmarish.
+
+    You hold your ground, protecting your team through sheer determination even when technique falters. When the first-year student freezes in panic, you put yourself between them and danger.
+
+    *page_break
+
+    "Breathe!" you shout over the chaos. "Remember your training!"
+
+    *line_break
+
+    You're getting battered, but you're keeping everyone alive. That's what matters.
+
+    *set trial_performance "good"
+    *set collaboration +5
+    *set stress +10
+
+*page_break
+
+Finally, the last entity falls. The way to the rift is clear.
+
+But sealing an unstable dimensional rift requires precision under pressure—exactly the kind of advanced magic that separates students from masters.
+
+*choice
+    #I analyze the rift's structure and seal it methodically.
+        *set knowledge +15
+        *set power +10
+
+        You study the rift's dimensional resonance, identifying its anchor points and weaknesses. This is where theoretical knowledge meets practical application.
+
+        *page_break
+
+        Slowly, carefully, you weave a sealing pattern that matches the rift's unique signature. It takes fifteen minutes of intense concentration while your team guards you.
+
+        When the rift finally collapses in on itself, sealed permanently, you're exhausted but triumphant.
+
+        *if trial_performance = "excellent"
+            *set trial_performance "excellent"
+
+        *goto combat_aftermath
+
+    #I channel overwhelming power to force the rift closed.
+        *set power +20
+        *set stress +10
+
+        Subtlety be damned. You gather your magical power and slam it into the rift like a battering ram.
+
+        *page_break
+
+        The dimensional fabric screams in protest, but you don't relent. Raw power can solve problems that elegance cannot.
+
+        The rift shudders, buckles, and collapses. Not elegant, but effective.
+
+        *goto combat_aftermath
+
+    #I work with my team to seal it collaboratively.
+        *set collaboration +20
+        *set empathy +10
+
+        "Help me with this," you tell your team. "Link your magic to mine. Together we're strong enough."
+
+        *page_break
+
+        The four of you weave your power into a coordinated sealing pattern. It's textbook Avalon—collaborative magic solving what individual effort cannot.
+
+        The rift resists, then yields to your combined will. It collapses smoothly, sealed by teamwork.
+
+        *goto combat_aftermath
+
+*label combat_aftermath
+
+Zara's voice comes through the crystal, warm with pride. [b]"Well done. Extracting you now."[/b]
+
+*page_break
+
+The portal back to Avalon opens. Your team stumbles through, exhausted but victorious. All four of you alive. Mission accomplished.
+
+*if trial_performance = "excellent"
+    Zara is waiting, grinning broadly.
+
+    [b]"That was textbook perfect. Tactical assessment, team coordination, adaptive combat, and a clean seal on an unstable rift. ${name}, you're not a student anymore. You're a combat mage."[/b]
+
+    *set academic_standing "exceptional"
+    *set fame +15
+    *achievement year_three_combat_mastery Led successful combat operation in hostile dimension
+
+    *goto unexpected_crisis
+
+*else
+    Zara is waiting, looking satisfied.
+
+    [b]"Good work. Not perfect, but you kept everyone alive and completed the mission. That's what counts. You've proven you can handle real combat responsibility."[/b]
+
+    *set academic_standing "excellent"
+    *set fame +10
+
+    *goto unexpected_crisis
+
+*comment ================================================
+*comment DIPLOMATIC PATH MASTERY
+*comment ================================================
+
+*label diplomatic_mastery
+
+*set mastery_demonstration "diplomatic"
+
+The dimensional conference chamber connects three different enclaves simultaneously—the Merchant Coalition, the Artisan Federation, and the Agricultural Collective. All three groups claim rights to a resource-rich dimensional pocket. All three refuse to compromise.
+
+And you're the mediator.
+
+*page_break
+
+Representatives from each faction sit at the triangular negotiation table, literally and metaphorically as far from each other as possible. Tension crackles in the air.
+
+Izack observes from a gallery seat, his presence supportive but distant. This is your negotiation to lead.
+
+*page_break
+
+*if polly_is_familiar = true
+    Polly perches on the conference room chandelier.
+
+    [i]"So you need to prevent three groups who hate each other from starting a dimensional war over property rights. And you have... what, words? Good luck with that."[/i]
+
+*page_break
+
+Coalition Leader Theron speaks first, his voice sharp. "The pocket dimension was discovered by our merchants. We claim it by right of discovery."
+
+Federation Master Lyssa counters immediately. "Your merchants only found it because they were using tools our artisans created. We claim half."
+
+Collective Speaker Mara adds coldly, "The dimensional pocket contains fertile soil from our ancestral realm. It belongs to us by cultural inheritance."
+
+*line_break
+
+All three glare at each other, then at you.
+
+*choice
+    #I establish formal diplomatic protocol to manage the conversation.
+        *set empathy +10
+        *set knowledge +10
+        *set trial_performance "excellent"
+
+        "Let's begin with ground rules," you say calmly. "Each representative will have uninterrupted time to state their position. No accusations. No interruptions. We'll seek understanding before solutions."
+
+        *page_break
+
+        Your formal approach imposes structure on chaos. One by one, each faction explains their perspective while the others are compelled to listen.
+
+        As they speak, you identify common ground they can't see through their anger.
+
+        *goto diplomatic_mediation
+
+    #I appeal to shared interests and mutual benefit.
+        *set collaboration +15
+        *set empathy +10
+        *set trial_performance "good"
+
+        "You're all losing money while this dispute continues," you point out. "Every day without resolution costs each of you. So let's find a solution that benefits everyone."
+
+        *page_break
+
+        Practical appeal. They're angry, but they're not stupid. Financial reality focuses attention.
+
+        Theron nods grudgingly. Lyssa leans forward with interest.
+
+        *goto diplomatic_mediation
+
+    #I listen deeply to each party's underlying needs.
+        *set empathy +20
+        *set collaboration +10
+        *set trial_performance "good"
+
+        "Before we negotiate solutions," you say gently, "I need to understand what each of you truly needs. Not wants—needs. What would make this resolution meaningful for you?"
+
+        *page_break
+
+        The question catches them off guard. They expect argument, not genuine inquiry.
+
+        Slowly, more honestly, they begin to explain what's really driving their positions.
+
+        *goto diplomatic_mediation
+
+*label diplomatic_mediation
+
+The negotiation unfolds over hours. Voices are raised. Old grievances surface. Progress seems impossible.
+
+But you persist.
+
+*if empathy >= 75
+    Your ability to understand each faction's true motivations proves crucial. Beneath the legal claims and economic arguments, you identify the real drivers: fear of exploitation, pride in craft, cultural preservation.
+
+    *page_break
+
+    You reflect these needs back to them, showing each party that the others are driven by similar values—just from different perspectives.
+
+    "You all want recognition, fair compensation, and protection of what you've built," you say. "Those aren't conflicting goals. They're common ground."
+
+    *line_break
+
+    Something shifts in the room. The hostility doesn't vanish, but it softens.
+
+    *set trial_performance "excellent"
+    *set izack_relationship +10
+
+*else
+    You work hard to find common ground, though some nuances escape you. You focus on practical compromises even when you don't fully grasp the emotional undercurrents.
+
+    *page_break
+
+    It's not perfect mediation, but it's sincere effort. That counts for something.
+
+    *set izack_relationship +5
+
+*page_break
+
+Finally, you propose a framework:
+
+"The dimensional pocket will be jointly administered. The Merchant Coalition manages trade rights. The Artisan Federation receives priority access to resources for crafting. The Agricultural Collective holds cultural stewardship and educational use. Profits are divided equally. A joint council resolves future disputes."
+
+*page_break
+
+Silence.
+
+*if trial_performance = "excellent"
+    Theron considers. "I can accept this."
+
+    Lyssa nods slowly. "It honors our contribution."
+
+    Mara's severe expression softens. "Our heritage is acknowledged."
+
+    *page_break
+
+    They don't shake hands warmly. They don't become friends. But they sign the treaty you've drafted.
+
+    You've brokered actual, lasting peace.
+
+    *page_break
+
+    Izack descends from the gallery, his eyes shining with pride.
+
+    [b]"${name}, what you just accomplished—negotiating a three-party treaty on your own—some professional diplomats never achieve that. You have a genuine gift."[/b]
+
+    *set academic_standing "exemplary"
+    *set fame +20
+    *achievement year_three_diplomatic_mastery Independently negotiated three-party dimensional treaty
+
+    *goto unexpected_crisis
+
+*else
+    The parties exchange glances.
+
+    "It's... acceptable," Theron says carefully.
+
+    "We can work with this," Lyssa admits.
+
+    "Conditional approval," Mara states.
+
+    *page_break
+
+    It's not enthusiastic agreement, but it's agreement nonetheless. The immediate crisis is averted.
+
+    *page_break
+
+    Izack joins you, placing a supportive hand on your shoulder.
+
+    [b]"Well done. You kept them talking when they wanted to fight. You prevented conflict. That's what diplomacy is about."[/b]
+
+    *set academic_standing "excellent"
+    *set fame +10
+
+    *goto unexpected_crisis
+
+*comment ================================================
+*comment UNEXPECTED CRISIS - REAL DANGER
+*comment ================================================
+
+*label unexpected_crisis
+
+*page_break
+
+You return to the Hall of Threads, exhausted but triumphant. Your mastery has been demonstrated. Your trial is complete.
+
+Or so you think.
+
+*page_break
+
+The moment you step through the portal, you know something is wrong.
+
+The Hall of Threads is in chaos. Students are evacuating. Faculty are shouting orders. And at the center of the hall, a massive dimensional instability pulses with dangerous energy.
+
+*page_break
+
+Headmistress Valeris stands before it, her hands weaving complex stabilization patterns. But even her power isn't enough. The instability is growing.
+
+*if chosen_path = "research"
+    Aria rushes to your side. "The Symposium connection—it destabilized something. The Hall's dimensional anchors are failing. If this rift fully opens, it could tear Avalon apart."
+
+*if chosen_path = "combat"
+    Zara appears beside you, her expression grim. "The portal you used from the Wastes—something followed you back. It's attacking Avalon's dimensional foundation."
+
+*if chosen_path = "diplomatic"
+    Izack appears, his usual calm replaced by urgency. "The treaty negotiation created unexpected dimensional resonance. The Hall's structure is collapsing."
+
+*line_break
+
+*if polly_is_familiar = true
+    Polly lands on your shoulder, her usual sarcasm absent.
+
+    [i]"This is bad, ${name}. Really bad. Avalon could actually fall if this isn't contained."[/i]
+
+*page_break
+
+Valeris's voice cuts through the chaos. [b]"Third-years! Your trial continues! I need your mastery—NOW!"[/b]
+
+*page_break
+
+*set crisis_severity 100
+
+This is it. The moment where everything you've learned, everything you've become, is tested against real catastrophe.
+
+*choice
+    #I analyze the instability using my theoretical knowledge.
+        *set knowledge +15
+        *set crisis_severity -30
+
+        You push past panic and engage your mind. Three years of study. This is what it's for.
+
+        *page_break
+
+        You examine the instability's dimensional signature, identifying its core structure. It's trying to connect to something—a dimensional entity or realm seeking entry.
+
+        "The anchor points!" you shout to Valeris. "We need to redirect the resonance, not just suppress it!"
+
+        *line_break
+
+        She immediately adjusts her approach based on your analysis. The instability's growth slows.
+
+        *if chosen_path = "research"
+            *set combined_effort true
+
+        *goto crisis_resolution
+
+    #I channel my power directly into stabilization.
+        *set power +15
+        *set stress +15
+        *set crisis_severity -30
+
+        Theory can wait. Avalon needs power, now.
+
+        *page_break
+
+        You join Valeris in weaving stabilization magic, adding your strength to hers. Your power has grown significantly—you can feel how much stronger you are than even a year ago.
+
+        The instability pushes back, but so do you. Raw determination keeping catastrophe at bay.
+
+        *if chosen_path = "combat"
+            *set combined_effort true
+
+        *goto crisis_resolution
+
+    #I coordinate everyone into a collaborative defense.
+        *set collaboration +20
+        *set empathy +10
+        *set crisis_severity -30
+
+        Avalon was built on collaboration. This crisis will be solved the same way.
+
+        *page_break
+
+        "Everyone still in the hall!" you shout. "Faculty, third-years, second-years—link your magic to mine! We do this together!"
+
+        *line_break
+
+        They respond instantly. Dozens of magical signatures connecting to yours, channeling power through you to Valeris.
+
+        This is Avalon's true strength. Not individuals, but the network.
+
+        *if chosen_path = "diplomatic"
+            *set combined_effort true
+
+        *goto crisis_resolution
+
+*label crisis_resolution
+
+The combined effort makes the difference. The instability—faced with coordinated mastery-level magic instead of scattered panic—begins to collapse.
+
+*page_break
+
+*if has_golem = true
+    ${golem_name} appears at your side, channeling ${his_her} own constructed power into your efforts.
+
+    *if golem_personality = "protective"
+        "I will protect our home, ${name}!"
+    *if golem_personality = "curious"
+        "Fascinating dimensional structure! And we're stopping it!"
+    *if golem_personality = "scholarly"
+        "Applying optimal counter-resonance pattern!"
+    *if golem_personality = "cheerful"
+        "We can do this! Together!"
+
+    *set collaboration +5
+
+*page_break
+
+*if familiar_type != "none" and polly_is_familiar = false
+    ${familiar_name} channels ${his_her} own power through your bond, amplifying your magic.
+
+    Your familiar has grown alongside you—from a tentative connection to a true partnership of power.
+
+    *set power +5
+
+*page_break
+
+With a final surge of coordinated magic, the instability implodes. The dimensional tear seals. The crisis ends.
+
+Silence falls over the Hall of Threads.
+
+*page_break
+
+Then Headmistress Valeris begins to laugh—a sound of pure relief.
+
+[b]"Well. That was certainly more exciting than planned."[/b]
+
+*line_break
+
+She turns to face the assembled students, her expression shifting to pride.
+
+*page_break
+
+[b]"Third-years. What you just demonstrated—responding to genuine crisis with mastery-level competence—that is what we've been training you for. Not just to pass tests, but to protect realms when they need you most."[/b]
+
+*set confidence +15
+*set fame +10
+
+*goto mentors_assessment
+
+*comment ================================================
+*comment MENTORS' ASSESSMENT
+*comment ================================================
+
+*label mentors_assessment
+
+*page_break
+
+The Hall has been repaired, the crisis fully contained. The third-years stand before the faculty for formal assessment.
+
+Izack, Aria, and Zara step forward—your mentors, the ones who have guided you from nervous first-year to confident near-graduate.
+
+*page_break
+
+*if chosen_path = "research"
+    Aria speaks first, and for once, her severe expression has completely softened.
+
+    [b]"${name}. Three years ago, you chose the research path with potential but no proven skill. Today, you presented research to the Continental Symposium and helped save Avalon from dimensional collapse."[/b]
+
+    *line_break
+
+    *page_break
+
+    *if trial_performance = "excellent"
+        [b]"Your theoretical understanding rivals graduate students. Your analytical thinking is exceptional. Your dedication to scholarship is absolute."[/b]
+
+        *line_break
+
+        She pauses, and something almost like vulnerability crosses her face.
+
+        [b]"I am profoundly proud to have been your mentor. You have become the kind of scholar Avalon needs—brilliant, collaborative, and ethically grounded."[/b]
+
+        *set aria_relationship +15
+        *set happiness +15
+
+    *else
+        [b]"Your progress has been solid and your commitment never wavered. You have proven yourself a competent researcher ready for professional work."[/b]
+
+        *line_break
+
+        [b]"I'm proud of you, ${name}. You've come so far."[/b]
+
+        *set aria_relationship +10
+        *set happiness +10
+
+    *page_break
+
+    *if aria_romance = true
+        She adds more quietly, meant only for you: [b]"And personally... watching you grow has been one of the great joys of my life."[/b]
+
+        *set romance_depth +1
+        *set happiness +10
+
+*if chosen_path = "combat"
+    Zara practically bounces forward, unable to contain her enthusiasm.
+
+    [b]"${name}! Three years ago you could barely cast a shield spell without concentrating really hard. Today you led a combat operation in the Shattered Wastes and helped save Avalon from dimensional disaster!"[/b]
+
+    *line_break
+
+    *page_break
+
+    *if trial_performance = "excellent"
+        [b]"Your tactical thinking is brilliant. Your combat magic is powerful and precise. Your leadership kept your entire team alive in a nightmare scenario."[/b]
+
+        *line_break
+
+        Her grin is absolutely radiant.
+
+        [b]"I've trained combat mages for twenty years. You're easily in the top five students I've ever taught. You're going to do AMAZING things!"[/b]
+
+        *set zara_relationship +15
+        *set happiness +15
+
+    *else
+        [b]"You've become a genuinely capable combat mage. You can protect yourself and others. You can handle dangerous situations. That's huge!"[/b]
+
+        *line_break
+
+        [b]"I'm so proud of you, ${name}. You've exceeded every expectation."[/b]
+
+        *set zara_relationship +10
+        *set happiness +10
+
+    *page_break
+
+    *if zara_romance = true
+        She leans closer, her voice dropping to something more intimate: [b]"And also, you look really hot when you're being all competent and masterful. Just saying!"[/b]
+
+        *set romance_depth +1
+        *set happiness +10
+
+*if chosen_path = "diplomatic"
+    Izack steps forward, his warm smile carrying unmistakable pride.
+
+    [b]"${name}. Three years ago, you chose the diplomatic path—perhaps the most difficult path Avalon offers, because it requires not just magical skill but genuine empathy and wisdom."[/b]
+
+    *line_break
+
+    *page_break
+
+    *if trial_performance = "excellent"
+        [b]"Today you independently negotiated a three-party treaty that professional diplomats would struggle with. And then you coordinated Avalon's collective defense against catastrophe."[/b]
+
+        *line_break
+
+        His eyes shine with emotion.
+
+        [b]"I have trained diplomats for over a century. You have a gift, ${name}. Not just skill—a genuine gift for understanding others and building bridges between different perspectives. That is extraordinarily rare."[/b]
+
+        *set izack_relationship +15
+        *set happiness +15
+
+    *else
+        [b]"Today you successfully mediated a complex conflict and helped protect Avalon. You have proven yourself a capable diplomat ready for real-world challenges."[/b]
+
+        *line_break
+
+        [b]"I'm deeply proud of you, ${name}. Watching you develop has been a privilege."[/b]
+
+        *set izack_relationship +10
+        *set happiness +10
+
+    *page_break
+
+    *if izack_romance = true
+        He reaches out, briefly touching your hand—a gesture that manages to be both appropriate and deeply affectionate.
+
+        [b]"And on a personal level... you have brought light to my life I didn't know I was missing. Thank you."[/b]
+
+        *set romance_depth +1
+        *set happiness +10
+
+*page_break
+
+The other two mentors add their assessment:
+
+*if chosen_path = "research"
+    Zara grins. [b]"You're way smarter than me, but I've loved watching you grow. You're going to change how people think about magic!"[/b]
+
+    *line_break
+
+    Izack adds warmly, [b]"Your collaborative approach to research embodies Avalon's deepest principles. Well done."[/b]
+
+*if chosen_path = "combat"
+    Aria nods with approval. [b]"Your tactical application of theoretical knowledge is impressive. You're not just a fighter—you're a thinking combatant."[/b]
+
+    *line_break
+
+    Izack beams. [b]"And your care for your team demonstrates the collaborative values we hold most dear."[/b]
+
+*if chosen_path = "diplomatic"
+    Aria says, [b]"Your analytical approach to interpersonal dynamics is sophisticated. You understand the theory behind empathy."[/b]
+
+    *line_break
+
+    Zara adds enthusiastically, [b]"And you kept your cool during the crisis! Crisis management and diplomacy—perfect combination!"[/b]
+
+*page_break
+
+Headmistress Valeris raises her hands, and magical light fills the hall.
+
+[b]"Third-year students, you have completed your trials. You have demonstrated mastery. You have protected Avalon in its hour of need. You are no longer students learning magic—you are practitioners living it."[/b]
+
+*line_break
+
+*page_break
+
+[b]"Welcome to your fourth and final year."[/b]
+
+*comment ================================================
+*comment YEAR THREE COMPLETE
+*comment ================================================
+
+*label year_three_complete
+
+*page_break
+
+*set current_year 4
+
+*if trial_performance = "excellent"
+    *set academic_standing "exemplary"
+*elseif trial_performance = "good"
+    *set academic_standing "excellent"
+*else
+    *set academic_standing "good"
+
+*line_break
+
+YOUR YEAR THREE ASSESSMENT:
+
+*line_break
+
+Academic Standing: ${academic_standing}
+
+*line_break
+
+*if chosen_path = "research"
+    Path: Research Scholar - MASTERY LEVEL
+    *if published_papers >= 3
+        - Multiple published papers (exceptional achievement)
+    *else
+        - Published research recognized by Continental Symposium
+    - Crisis response: Provided critical theoretical analysis
+    - Ready for professional research career
+
+*if chosen_path = "combat"
+    Path: Combat Specialist - MASTERY LEVEL
+    - Successfully led combat operation in hostile dimension
+    - Crisis response: Provided powerful magical defense
+    - Ready for professional combat mage duties
+
+*if chosen_path = "diplomatic"
+    Path: Diplomatic Specialist - MASTERY LEVEL
+    - Independently negotiated three-party treaty
+    - Crisis response: Coordinated collaborative defense
+    - Ready for professional diplomatic missions
+
+*line_break
+
+Relationship Status:
+- Aria: ${aria_relationship}
+- Zara: ${zara_relationship}
+- Izack: ${izack_relationship}
+
+*if romantic_interest != "none"
+    *line_break
+    Romance: ${romantic_interest} (depth: ${romance_depth})
+
+*line_break
+
+Core Statistics:
+- Knowledge: ${knowledge}
+- Power: ${power}
+- Collaboration: ${collaboration}
+- Empathy: ${empathy}
+
+*line_break
+
+*page_break
+
+That evening, you return to your quarters—now a proper suite befitting a fourth-year student.
+
+One year remains.
+
+*page_break
+
+*if polly_is_familiar = true
+    Polly settles on her perch, regarding you with something that might be affection.
+
+    [i]"Fourth year, ${name}. The final year. When students become graduates. When everything you've built either solidifies into legacy or crumbles under final pressure."[/i]
+
+    *line_break
+
+    *page_break
+
+    [i]"No pressure though. You've only got to complete your thesis project, survive the final expedition, navigate whatever romance drama you've accumulated, and not die during graduation."[/i]
+
+    *line_break
+
+    [i]"Should be fine."[/i]
+
+*page_break
+
+You look out your window at Avalon spread below. Four years ago—wait, three years ago—you arrived terrified and uncertain.
+
+Now you're a master of your path. A protector of realms. A scholar, warrior, or diplomat ready for the professional world.
+
+*line_break
+
+But first, one final year.
+
+*page_break
+
+*if has_golem = true
+    ${golem_name} stands beside you at the window.
+
+    *if golem_personality = "protective"
+        "We will face Year Four together, ${name}. Whatever comes."
+    *if golem_personality = "curious"
+        "I wonder what we'll discover in our final year? The possibilities are endless!"
+    *if golem_personality = "scholarly"
+        "Year Four represents culmination of accumulated knowledge. Fascinating."
+    *if golem_personality = "cheerful"
+        "Our last year together! Let's make it the BEST year!"
+
+*page_break
+
+Year Three: Complete
+
+You have demonstrated mastery, protected Avalon from crisis, and earned the recognition of your mentors. Your reputation grows, your skills sharpen, and your future becomes clearer.
+
+*line_break
+
+Fourth year awaits—the year where everything you've built will be tested one final time.
+
+*page_break
+
+*stat_chart
+
+*page_break
+
+*goto_scene year_four_start

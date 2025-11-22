@@ -12,80 +12,35 @@
 - Character creation, branching paths, romances
 - ~80,000+ words of content
 
-⚠️ **Missing: ChoiceScript Engine**
+✅ **ChoiceScript Web Engine Bundled:**
+- Open `choicescript_game/web/index.html` to launch locally (or `python3 -m http.server 8000` from that folder if your browser blocks file:// requests)
+- Smoke-check: confirm the UI renders (title bar, menu buttons, opening text) before deeper testing
 
 ---
 
 ## Problem: Game Won't Launch
 
-Your `choicescript_game/` folder has all the story content but is missing the ChoiceScript web engine needed to play it.
-
-### Current Structure:
-```
-choicescript_game/
-├── startup.txt        ✅ (exists)
-├── scenes/            ✅ (36 files)
-└── web/               ❌ (MISSING - this is the problem!)
-```
-
-### What You Need:
-```
-choicescript_game/
-├── startup.txt
-├── scenes/
-└── web/
-    ├── index.html     ← Game launcher
-    ├── scene.js       ← ChoiceScript engine
-    ├── navigator.js   ← Scene navigation
-    ├── util.js        ← Utility functions
-    ├── style.css      ← Styling
-    └── mygame/
-        └── scenes/    ← Symlink to your scenes folder
-```
+### Quick fixes for local play
+- Make sure you are opening the bundled file: `choicescript_game/web/index.html`
+- If you see missing-script errors, refresh once (the bundled `version.js` is included)
+- If the browser blocks file access, run:
+  ```bash
+  cd /home/user/Avalon/choicescript_game/web
+  python3 -m http.server 8000
+  ```
+  Then open http://localhost:8000/
 
 ---
 
-## SOLUTION 1: Download ChoiceScript (Recommended)
+## SOLUTION 1: Use the Bundled Engine (Preferred)
 
-### Step 1: Download ChoiceScript
-
-Go to: https://www.choiceofgames.com/make-your-own-games/choicescript-intro/
-
-Or directly download from GitHub:
-```bash
-cd /home/user/Avalon
-wget https://github.com/dfabulich/choicescript/archive/refs/heads/master.zip
-unzip master.zip
-```
-
-### Step 2: Copy Engine Files to Your Game
-
-```bash
-# Copy the web engine files
-cp -r choicescript-master/web choicescript_game/
-
-# Remove the example game
-rm -rf choicescript_game/web/mygame
-
-# Create symlinks to your game content
-cd choicescript_game/web
-mkdir mygame
-ln -s ../../scenes mygame/scenes
-ln -s ../../startup.txt mygame/startup.txt
-```
-
-### Step 3: Test Locally
-
-```bash
-cd /home/user/Avalon/choicescript_game/web
-python3 -m http.server 8000
-```
-
-Then open: http://localhost:8000/
+1. Open `choicescript_game/web/index.html` (or run `python3 -m http.server 8000` there).
+2. Smoke-check that the ChoiceScript UI renders; if not, clear cache and refresh once.
+3. If issues persist, use CSIDE/IDE (below) or re-copy the bundled `web/` folder.
 
 ---
 
-## SOLUTION 2: Use Choice of Games IDE (Easiest)
+## SOLUTION 2: Use Choice of Games IDE (Online)
 
 1. Go to https://www.choiceofgames.com/make-your-own-games/choicescript-intro/
 2. Click "ChoiceScript IDE" (online editor)
@@ -118,33 +73,25 @@ Download CSIDE from: https://github.com/ChoicescriptIDE/main/releases
 
 ---
 
-## SOLUTION 4: Quick Web Setup (Manual)
+## SOLUTION 4: Rebuild the Engine (Only if you need a fresh copy)
 
-Create minimal `index.html` in `choicescript_game/web/`:
+If you suspect the bundled `web/` folder is corrupted, re-download ChoiceScript and replace it:
 
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Polly's Wingscroll</title>
-    <script src="https://choiceofgames.com/game-source/scene.js"></script>
-    <script src="https://choiceofgames.com/game-source/navigator.js"></script>
-    <script src="https://choiceofgames.com/game-source/util.js"></script>
-    <link rel="stylesheet" href="https://choiceofgames.com/game-source/style.css">
-</head>
-<body>
-    <div id="text"></div>
-    <script>
-        stats = {};
-        nav = new navigator();
-        nav.setStartingStatsClone(stats);
-        startLoading();
-    </script>
-</body>
-</html>
+```bash
+cd /home/user/Avalon
+wget https://github.com/dfabulich/choicescript/archive/refs/heads/master.zip
+unzip master.zip
+cp -r choicescript-main/web choicescript_game/
+rm -rf choicescript-main master.zip
+
+cd choicescript_game/web
+rm -rf mygame
+mkdir mygame
+cp -r ../scenes mygame/
+cp ../startup.txt mygame/startup.txt
 ```
 
-**Note:** This loads ChoiceScript from CDN. May not work offline.
+Then run `python3 -m http.server 8000` from `choicescript_game/web` and open http://localhost:8000/.
 
 ---
 

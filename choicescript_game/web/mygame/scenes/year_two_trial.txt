@@ -1,0 +1,741 @@
+*comment Year Two Trial - End of Year Assessment
+*comment After the major crisis, students face individual trials appropriate to their path
+
+*comment === RECOVERY FROM CRISIS ===
+
+The weeks following the crisis pass in a blur of reconstruction and reflection. Avalon's magnificent halls, though scarred by battle, slowly return to their former glory. You've seen students working alongside faculty to repair damaged classrooms, mend torn tapestries, and restore protective wards.
+
+But the true healing runs deeper than stone and magic.
+
+Today marks the final assessment of your second year—the Trial of Mastery. Unlike standard examinations, this trial is tailored specifically to your chosen path, designed to test not just what you've learned, but who you've become.
+
+You stand in the Grand Atrium, where Headmistress Valeris addresses the assembled second-year students. Her silver hair catches the morning light streaming through the repaired stained-glass windows.
+
+"You have all proven yourselves during the crisis," she says, her voice carrying to every corner of the vast space. "But a true mage must excel not only in moments of chaos, but in the deliberate application of their craft. Today, you will each face a trial appropriate to your specialization."
+
+She gestures, and three doorways shimmer into existence, each marked with a different symbol.
+
+"Research scholars, you will defend your thesis. Combat specialists, you will prove your mastery alone. Diplomats, you will broker peace where others have failed." Her gaze sweeps across the students. "These trials will determine not only your academic standing, but your readiness for the challenges of your third year."
+
+*set confidence +5
+
+Your heart pounds as students begin moving toward their respective doorways.
+
+*if (chosen_path = "research")
+    *goto research_trial
+*elseif (chosen_path = "combat")
+    *goto combat_trial
+*elseif (chosen_path = "diplomatic")
+    *goto diplomatic_trial
+*else
+    *comment Default to research if path not set
+    *goto research_trial
+
+*label research_trial
+
+*comment === RESEARCH PATH TRIAL ===
+
+You step through the doorway marked with the symbol of an open book and quill. The room beyond is an intimate circular chamber, its walls lined with shelves containing ancient texts. In the center sits a curved table where five faculty members await you.
+
+Professor Aria sits at the center, her keen eyes already assessing you. To her left is Professor Caldris, the aging master of theoretical magic. To her right, Professor Winters, who specializes in practical applications. The other two are visiting scholars from distant academies.
+
+"Welcome, ${name}," Aria says, gesturing to the single chair facing the panel. "Please, sit."
+
+You take your seat, acutely aware that the next hour will determine whether your research has merit—or if you've been chasing shadows.
+
+Aria opens a leather-bound folder. "Your thesis: '${research_focus}.' An ambitious topic. Let's begin with fundamentals. Explain your central hypothesis."
+
+*choice
+    #I take a deep breath and present my core argument clearly and confidently.
+        *set intelligence +5
+        *set confidence +10
+        *set academic_standing_year_two "excellent"
+
+        You speak with clarity and conviction, laying out your hypothesis with precision. Each word has been chosen carefully, each argument refined through countless hours of study and revision.
+
+        Aria nods approvingly. Professor Caldris leans forward, intrigued.
+
+        "Fascinating," Caldris murmurs. "Continue."
+
+        *goto research_questioning
+
+    #I present my work enthusiastically, sometimes getting lost in tangents.
+        *set enthusiasm +5
+        *set confidence +5
+        *set academic_standing_year_two "good"
+
+        Your passion for the subject shines through as you explain your work. You occasionally veer into fascinating side topics, your excitement evident in every gesture.
+
+        Aria raises a hand gently. "Focus, please. Save the tangents for after we understand your core argument."
+
+        You nod, redirecting your explanation.
+
+        *goto research_questioning
+
+    #I struggle slightly with nervousness but push through.
+        *set confidence -5
+        *set academic_standing_year_two "adequate"
+
+        Your voice wavers at first, the weight of five pairs of expert eyes upon you. But you push through, remembering all the work you've invested in this research.
+
+        Professor Winters offers an encouraging nod. "Take your time. We're here to understand your work, not to intimidate you."
+
+        The kindness helps you find your footing.
+
+        *goto research_questioning
+
+*label research_questioning
+
+The questioning begins in earnest. Professor Caldris challenges your theoretical framework. Professor Winters questions your practical applications. The visiting scholars probe for weaknesses in your methodology.
+
+*if (intelligence >= 60)
+    You field each question with growing confidence. Your research is solid, your preparation thorough. When Professor Caldris attempts to poke a hole in your theoretical model, you counter with a reference to ancient texts that supports your position.
+
+    "Well defended," he admits grudgingly.
+
+    *set academic_reputation +10
+    *set aria_relationship +10
+*else
+    You do your best to answer each question, though some catch you off guard. You admit when you don't know something rather than trying to bluff, which earns you respect even when your answers aren't perfect.
+
+    "Intellectual honesty," Aria observes. "An undervalued trait in academia."
+
+    *set academic_reputation +5
+    *set aria_relationship +5
+
+The examination continues for what feels like hours. Your ${research_focus} research is dissected from every angle, examined for flaws, tested against alternative theories.
+
+Finally, Aria raises her hand, silencing the other examiners.
+
+"One final question," she says, her tone serious. "What does this research mean to you? Beyond academic achievement, why does this matter?"
+
+*choice
+    #"Because understanding this could change how we teach magic to future generations."
+        *set teaching_interest +10
+        *set aria_relationship +10
+
+        Aria's expression softens. "A teacher's heart beats within you. Good. Knowledge hoarded helps no one."
+
+        *goto research_outcome
+
+    #"Because there are unanswered questions, and I can't rest until I find answers."
+        *set curiosity +10
+        *set intelligence +5
+
+        "The soul of a true scholar," Professor Caldris says approvingly. "The questions are often more important than the answers."
+
+        *goto research_outcome
+
+    #"Because during the crisis, I saw how theoretical knowledge becomes practical power."
+        *set practical_focus +10
+        *set confidence +5
+
+        Professor Winters nods firmly. "Applied knowledge saves lives. Never forget that."
+
+        *goto research_outcome
+
+    #"Because I want to prove I belong here, that I'm worthy of Avalon."
+        *set confidence +5
+        *set aria_relationship +5
+
+        Aria's eyes narrow slightly, but not unkindly. "You've already proven that. Now prove it to yourself."
+
+        *goto research_outcome
+
+*label research_outcome
+
+The examiners huddle, conferring in low tones. Your stomach churns as you wait.
+
+Finally, Aria stands.
+
+*if (academic_standing_year_two = "excellent")
+    "Your thesis is approved with distinction," she announces. "Furthermore, we recommend it for publication in the Journal of Magical Theory. ${name}, you have demonstrated not only mastery of your subject, but original thinking that advances the field."
+
+    Relief and joy flood through you. Published research in your second year—it's almost unheard of.
+
+    *set academic_reputation +20
+    *set published_researcher true
+    *set confidence +15
+    *set student_tier "elite"
+
+    "We will arrange for publication over the summer," Aria continues. "Your name will be known in academic circles well before your graduation. Congratulations."
+
+    As you leave the examination chamber, you're not just a student anymore. You're a scholar whose work will be read by mages across the continent.
+
+    *achievement year_two_research_distinction Successfully defended thesis with distinction and earned publication
+
+    *goto trial_complete
+
+*elseif (academic_standing_year_two = "good")
+    "Your thesis is approved," Aria announces. "You've demonstrated solid understanding of your subject and adequate research methodology. While your work shows promise, there are areas that require further development."
+
+    She hands you a document. "These are our notes and recommendations. Consider them carefully for your continued research."
+
+    *set academic_reputation +10
+    *set confidence +8
+
+    You accept the document, pride mixed with determination. You passed, proved yourself competent, and now you have a roadmap for improvement.
+
+    "Good work, ${name}," Professor Winters adds. "Many students would have crumbled under that questioning. You stood firm."
+
+    *achievement year_two_research_success Successfully defended thesis and advanced research knowledge
+
+    *goto trial_complete
+
+*else
+    "Your thesis is approved, conditionally," Aria says carefully. "Your fundamental understanding is sound, but your research methodology needs significant refinement. You will work with me personally next year to strengthen these areas."
+
+    It's not the outcome you hoped for, but it's not failure either. You've proven you have potential, even if the execution wasn't perfect.
+
+    *set academic_reputation +5
+    *set aria_relationship +5
+    *set confidence +3
+
+    "Don't be discouraged," Aria adds more gently. "Some of our finest researchers started with conditional approvals. It's not about where you begin, but where you're willing to go."
+
+    *achievement year_two_research_completion Completed thesis defense and earned mentorship opportunity
+
+    *goto trial_complete
+
+*label combat_trial
+
+*comment === COMBAT PATH TRIAL ===
+
+You step through the doorway marked with crossed swords. The room beyond vanishes, replaced by a swirling vortex that deposits you in a dimly lit stone corridor.
+
+A dungeon.
+
+The air is damp and cold, smelling of moss and ancient stone. Somewhere in the distance, you hear water dripping. Your hand instinctively goes to your weapon.
+
+Zara's voice echoes from everywhere and nowhere. "Welcome to the Trial of Blades. This dungeon is real, drawn from the ruins beneath Avalon and repurposed for your test. The dangers are real. The magic is real. Your skill must be real."
+
+You spot her then, standing in shadow high above you on a ledge, arms crossed.
+
+"I'm watching," she continues, "but I will not intervene. If you're truly ready for advanced combat training, you'll reach the chamber at this dungeon's heart and claim what waits there. If you're not ready..." She shrugs. "You'll learn that too."
+
+*set confidence +5
+
+*choice
+    #I draw my weapon confidently and proceed with caution.
+        *set combat_skill +5
+        *set tactical_thinking +10
+
+        You advance slowly, checking for traps, listening for movement. This is what Zara has trained you for—not reckless bravery, but calculated courage.
+
+        *goto dungeon_navigation
+
+    #I charge forward, eager to prove my combat prowess.
+        *set combat_skill +5
+        *set confidence +10
+        *set tactical_thinking -5
+
+        You move quickly, weapon ready, trusting your reflexes to handle whatever comes. Sometimes the best strategy is overwhelming offense.
+
+        *goto dungeon_navigation
+
+    #I take a moment to assess the environment and plan my approach.
+        *set intelligence +5
+        *set tactical_thinking +15
+
+        Before moving, you study your surroundings. The architecture, the wear patterns on the stone, the way sound carries—all of it tells a story about what dangers might lie ahead.
+
+        *goto dungeon_navigation
+
+*label dungeon_navigation
+
+The corridor branches into three paths. To your left, you hear the clank of metal—animated constructs, perhaps. Straight ahead, the sound of rushing water. To your right, an eerie silence that somehow seems more threatening than the other options.
+
+*choice
+    #Take the left path—I'll smash through any constructs.
+        *set chosen_dungeon_path "constructs"
+        *goto constructs_path
+
+    #Take the center path—I can handle water hazards.
+        *set chosen_dungeon_path "water"
+        *goto water_path
+
+    #Take the right path—silence means opportunity, not just danger.
+        *set chosen_dungeon_path "stealth"
+        *goto stealth_path
+
+*label constructs_path
+
+The clanking grows louder as you advance. The corridor opens into a large chamber where three iron golems patrol in overlapping patterns. Their movements are precise, mechanical, deadly.
+
+*if (combat_skill >= 60)
+    You time your approach perfectly, waiting for the gap in their patrol pattern. When it comes, you strike fast—targeting joints and weak points that Zara's training has taught you to find.
+
+    The first golem falls. The second turns, but you're already moving, using its bulk to block the third. It's a dance of violence, and you lead perfectly.
+
+    Within minutes, all three lie in pieces.
+
+    *set combat_skill +10
+    *set confidence +10
+    *set academic_standing_year_two "excellent"
+
+    From above, you hear Zara's approving grunt.
+
+    *goto dungeon_heart
+
+*else
+    You engage the constructs, and the fight is brutal. Your technique is solid, but the golems are relentless. You destroy one, then another, but the third lands a heavy blow that sends you crashing into the wall.
+
+    *set health -15
+
+    Pain floods your body, but you force yourself up. Zara is watching. You will not fail.
+
+    You adapt, using the environment—a fallen pillar to trip the golem, rubble to jam its joints. It's not elegant, but it works.
+
+    The final golem falls.
+
+    *set combat_skill +5
+    *set confidence +5
+    *set academic_standing_year_two "good"
+
+    You're battered but victorious.
+
+    *goto dungeon_heart
+
+*label water_path
+
+The sound of water becomes a roar as you enter a chamber bisected by a raging underground river. The only way across is a series of crumbling platforms, some magical, some physical.
+
+*if (magical_power >= 60)
+    You analyze the magical platforms—their resonance, their stability. Some are traps, designed to collapse. But your training lets you identify the safe path.
+
+    You cross with confidence, leaping from platform to platform. When one does start to crumble, your quick shielding spell saves you from a fall into the torrent below.
+
+    *set magical_power +10
+    *set confidence +10
+    *set academic_standing_year_two "excellent"
+
+    From somewhere above, Zara observes your magical and physical coordination.
+
+    *goto dungeon_heart
+
+*else
+    You test each platform carefully before committing your weight. It's slow, methodical work, and twice you have to scramble when stone gives way beneath you.
+
+    *set agility +5
+
+    You make it across, soaked and breathing hard, but you make it. Sometimes survival is its own victory.
+
+    *set confidence +5
+    *set academic_standing_year_two "adequate"
+
+    *goto dungeon_heart
+
+*label stealth_path
+
+The silent corridor is dark and narrow. You proceed carefully, every sense alert.
+
+Then you feel it—trip wires. The corridor is laced with them, each one likely connected to something unpleasant.
+
+*if (tactical_thinking >= 60)
+    You don't just avoid the traps; you study them. Zara has taught you that understanding your enemy's tactics is as important as raw skill.
+
+    These traps form a pattern, a psychological test as much as a physical one. You disarm several, use others against conjured shadows that lurk in alcoves, and navigate through what would have killed a less prepared student.
+
+    *set tactical_thinking +15
+    *set intelligence +10
+    *set academic_standing_year_two "excellent"
+
+    "Good," Zara's voice echoes. "Very good."
+
+    *goto dungeon_heart
+
+*else
+    You avoid most of the traps, though one catches you—a blade that slices across your arm before you can fully dodge.
+
+    *set health -10
+
+    But you keep going, learning from each close call. By the time you reach the corridor's end, you've developed a healthy respect for the person who designed this trap sequence.
+
+    *set tactical_thinking +5
+    *set confidence +5
+    *set academic_standing_year_two "good"
+
+    *goto dungeon_heart
+
+*label dungeon_heart
+
+The paths converge at a massive circular chamber. In its center, on a stone pedestal bathed in ethereal light, rests a weapon—but not just any weapon.
+
+*if (academic_standing_year_two = "excellent")
+    It's magnificent: a blade forged from starlight and shadow, its edge humming with power. This is a legendary artifact, the kind that appears in stories and history books.
+
+    Zara drops down from above, landing silently beside you.
+
+    "That," she says, "is the Duskblade. Forged during the War of Shadows, lost for three centuries, found by Avalon's founders in these very depths. It's been waiting for a warrior worthy of its power."
+
+    She gestures toward it. "Take it. You've earned it."
+
+    *set legendary_weapon true
+    *set combat_reputation +20
+    *set confidence +15
+    *set student_tier "elite"
+
+    You approach the pedestal, hardly believing this is real. When your hand closes around the Duskblade's hilt, power surges through you—not overwhelming, but welcoming, as if the weapon recognizes you.
+
+    "Few students ever earn a legendary artifact during their training," Zara says with rare pride in her voice. "You're not just a capable fighter, ${name}. You're becoming something exceptional."
+
+    *achievement year_two_combat_legendary Earned a legendary artifact through combat mastery
+
+    *goto trial_complete
+
+*elseif (academic_standing_year_two = "good")
+    It's an impressive weapon: well-crafted, magically enhanced, the kind that marks a serious warrior. Not legendary, but formidable.
+
+    Zara drops down from above, landing beside you.
+
+    "The Shadowstrike blade," she says. "Forged by Avalon's artificers, enchanted by our best battlemages. It's yours."
+
+    You take the weapon, feeling its balance, its power.
+
+    "You've proven you can handle yourself in real danger," Zara continues. "That's not nothing. Keep training like this, and by your third year, you'll be ready for anything."
+
+    *set enhanced_weapon true
+    *set combat_reputation +10
+    *set confidence +10
+
+    *achievement year_two_combat_success Proved combat mastery and earned enhanced weapon
+
+    *goto trial_complete
+
+*else
+    It's a solid, well-made weapon—better than what you've been training with, certainly, but nothing legendary.
+
+    Zara drops down beside you, evaluating you with sharp eyes.
+
+    "You made it through," she says. "Battered, bruised, but you made it. That shows something important: you don't give up."
+
+    She nods toward the weapon. "Take it. And remember—survival is victory too. You're not where you need to be yet, but you're getting there."
+
+    *set standard_weapon true
+    *set combat_reputation +5
+    *set confidence +5
+
+    *achievement year_two_combat_completion Completed combat trial and earned new weapon
+
+    *goto trial_complete
+
+*label diplomatic_trial
+
+*comment === DIPLOMATIC PATH TRIAL ===
+
+You step through the doorway marked with a dove and olive branch. The room beyond transforms into an elegant conference chamber with a long table, plush chairs, and windows overlooking a garden.
+
+Professor Izack awaits you, his diplomatic robes immaculate as always.
+
+"Welcome, ${name}," he says warmly. "Your trial begins not with hypotheticals, but with reality. Avalon has been contacted by two feuding factions—the Merchant Guild of Silverpeak and the Artisan Collective of Ironhaven. Their dispute threatens to escalate into violence."
+
+He gestures to documents spread across the table.
+
+"Normally, I would handle this negotiation. Instead, you will lead it, with me as your advisor only. Your success or failure will have real consequences for real people."
+
+*set confidence +5
+
+Your stomach tightens. This isn't a simulation.
+
+*choice
+    #"I'm honored by your trust, Professor. I won't let you down."
+        *set confidence +10
+        *set izack_relationship +10
+
+        Izack smiles. "Confidence tempered with humility. Good. You'll need both."
+
+        *goto diplomatic_preparation
+
+    #"What if I fail? What if people get hurt because of my mistakes?"
+        *set empathy +10
+        *set confidence -5
+
+        "Then you'll learn why diplomacy matters," Izack says seriously. "But I believe in you. I wouldn't give you this trial if I thought you'd fail."
+
+        *goto diplomatic_preparation
+
+    #"Tell me everything about these factions. I need all available information."
+        *set intelligence +10
+        *set tactical_thinking +5
+
+        "A wise first question," Izack approves. "Let's review the background together."
+
+        *goto diplomatic_preparation
+
+*label diplomatic_preparation
+
+You spend the next hour studying the dispute. The Merchant Guild claims the Artisan Collective is undercutting prices unfairly. The Artisan Collective claims the Merchant Guild is exploiting their labor. Both have valid grievances. Both refuse to compromise.
+
+*if (intelligence >= 60)
+    As you read, you notice something the reports don't explicitly state: both groups are hurting financially from the ongoing dispute. Neither can actually afford this conflict to continue.
+
+    That's your leverage.
+
+    *set tactical_thinking +10
+    *set academic_standing_year_two "excellent"
+*else
+    The situation is complex, the grievances tangled. You'll have to navigate carefully and listen more than you speak.
+
+    *set empathy +5
+    *set academic_standing_year_two "good"
+
+A shimmering portal opens, and representatives from both factions step through.
+
+Guildmaster Theron of Silverpeak: a portly man with calculating eyes and expensive clothes.
+
+Master Artisan Lyssa of Ironhaven: a woman with strong hands, simple dress, and fierce pride.
+
+They take seats on opposite sides of the table, as far from each other as possible. The tension is immediate and palpable.
+
+Izack gestures to you. "You have the floor, Diplomat ${name}."
+
+*choice
+    #I address both parties with formal diplomatic protocol.
+        *set charisma +5
+        *set diplomatic_reputation +5
+
+        "Honored representatives," you begin, using the traditional forms. "Avalon thanks you for your willingness to pursue peace. Let us begin by establishing common ground."
+
+        Theron nods approvingly at your formality. Lyssa looks less impressed but attentive.
+
+        *goto diplomatic_mediation
+
+    #I speak plainly about the reality of the situation.
+        *set practical_focus +10
+        *set confidence +5
+
+        "Let's be honest," you say, meeting their eyes. "This dispute is costing you both money and reputation. Neither of you can afford for it to continue. So let's find a solution that works for everyone."
+
+        Theron bristles slightly. Lyssa leans forward, interested.
+
+        *goto diplomatic_mediation
+
+    #I listen first, asking each party to explain their perspective.
+        *set empathy +10
+        *set wisdom +5
+
+        "Before we seek solutions," you say gently, "I need to understand. Guildmaster Theron, Master Lyssa—tell me, in your own words, what brought us to this moment."
+
+        Both representatives seem surprised by the request, but pleased to be heard.
+
+        *goto diplomatic_mediation
+
+*label diplomatic_mediation
+
+The negotiation unfolds over hours. Voices are raised. Accusations fly. Old wounds are reopened.
+
+But you persist, guiding the conversation, finding threads of commonality, proposing compromises.
+
+*if (charisma >= 60)
+    Your natural charm helps ease tensions when they spike. When Theron grows red-faced with anger, your calm demeanor diffuses him. When Lyssa's pride threatens to walk her out, your sincere words bring her back to the table.
+
+    *set diplomatic_reputation +10
+*if (empathy >= 60)
+    Your ability to understand both perspectives proves crucial. You reflect their concerns back to them, showing each party that the other is driven by fear and desperation as much as by greed or pride.
+
+    *set diplomatic_reputation +10
+*if (intelligence >= 60)
+    Your analysis of the financial realities helps both parties see that compromise isn't weakness—it's survival. You present numbers, projections, scenarios that make the path forward clear.
+
+    *set diplomatic_reputation +10
+
+Finally, after what feels like an eternity, you propose a framework:
+
+"The Merchant Guild will establish fair minimum prices, protecting artisans from exploitation. The Artisan Collective will agree to quality standards, protecting merchants' reputations. Both groups will form a joint council to resolve future disputes before they escalate."
+
+Silence falls over the table.
+
+*if (academic_standing_year_two = "excellent")
+    Theron and Lyssa exchange glances.
+
+    "I can work with this," Theron says slowly.
+
+    "As can I," Lyssa admits.
+
+    The handshake that follows isn't warm, but it's real. You've brokered actual peace between factions that were ready to go to war.
+
+    *set peacemaker_reputation +20
+    *set diplomatic_reputation +20
+    *set confidence +15
+    *set student_tier "elite"
+
+    As the representatives depart through the portal, Izack places a hand on your shoulder.
+
+    "I've trained diplomats for thirty years," he says quietly. "What you just did—navigating that with skill and grace—it's remarkable. You have a gift, ${name}. More than that, you have the dedication to hone it."
+
+    He produces a scroll sealed with Avalon's crest. "This is a letter of introduction to the Continental Diplomatic Corps. When you graduate, they'll be very interested in meeting you."
+
+    *set diplomatic_introduction true
+
+    *achievement year_two_diplomatic_triumph Brokered lasting peace and earned diplomatic recognition
+
+    *goto trial_complete
+
+*elseif (academic_standing_year_two = "good")
+    Theron and Lyssa consider your proposal.
+
+    "It's... acceptable," Theron says grudgingly.
+
+    "I can live with it," Lyssa agrees.
+
+    It's not enthusiastic agreement, but it's agreement nonetheless. The conflict won't escalate. That's a victory.
+
+    *set peacemaker_reputation +10
+    *set diplomatic_reputation +10
+    *set confidence +10
+
+    After the representatives leave, Izack nods with satisfaction.
+
+    "Well done. Not perfect—no negotiation ever is—but effective. You prevented violence and established a framework for future cooperation. That's what diplomacy is about."
+
+    *achievement year_two_diplomatic_success Successfully mediated conflict and prevented escalation
+
+    *goto trial_complete
+
+*else
+    Theron and Lyssa exchange skeptical looks.
+
+    "I'll... consider it," Theron says, noncommittal.
+
+    "We'll discuss it with our people," Lyssa adds.
+
+    They leave without a firm agreement, though the situation hasn't worsened either. You've bought time, if nothing else.
+
+    *set diplomatic_reputation +5
+    *set confidence +5
+
+    Izack sits beside you after they depart. "Sometimes, preventing immediate disaster is the best we can do. You kept them talking when they wanted to fight. Don't underestimate that achievement."
+
+    *set academic_standing_year_two "adequate"
+
+    *achievement year_two_diplomatic_completion Completed diplomatic trial and gained valuable experience
+
+    *goto trial_complete
+
+*label trial_complete
+
+*comment === YEAR TWO COMPLETE ===
+
+*page_break
+
+You return to the Grand Atrium where other students are emerging from their own trials. Some look triumphant. Some look exhausted. All look changed.
+
+Headmistress Valeris waits at the center, a subtle smile on her ageless face.
+
+"Second-year students," she announces, "you have completed your trials. You have proven yourselves capable of more than mere scholarship—you have demonstrated mastery in your chosen fields."
+
+She gestures, and magical projections appear above each student, displaying their achievements.
+
+*line_break
+
+YOUR YEAR TWO ACHIEVEMENTS:
+
+Academic Standing: ${academic_standing_year_two}
+
+*if (chosen_path = "research")
+    Path: Research Scholar
+    *if published_researcher
+        - Published researcher (rare achievement)
+    - Thesis approved
+    - Academic reputation enhanced
+*if (chosen_path = "combat")
+    Path: Combat Specialist
+    *if legendary_weapon
+        - Earned legendary artifact (rare achievement)
+    *elseif enhanced_weapon
+        - Earned enhanced weapon
+    *else
+        - Earned new weapon
+    - Combat reputation enhanced
+*if (chosen_path = "diplomatic")
+    Path: Diplomatic Specialist
+    *if diplomatic_introduction
+        - Diplomatic Corps recommendation (rare achievement)
+    - Successfully mediated real conflict
+    - Peacemaker reputation established
+
+*line_break
+
+Relationship Status:
+- Aria: ${aria_relationship}
+- Zara: ${zara_relationship}
+- Izack: ${izack_relationship}
+
+*if familiar_name != ""
+    - ${familiar_name} (Familiar): Bond strengthened through trials
+
+*line_break
+
+Core Statistics:
+- Intelligence: ${intelligence}
+- Charisma: ${charisma}
+- Combat Skill: ${combat_skill}
+- Magical Power: ${magical_power}
+- Confidence: ${confidence}
+
+*line_break
+
+"You have survived crisis and mastered trials," Valeris continues. "Your third year awaits—a year of advanced study, deeper mysteries, and greater challenges. But tonight, celebrate. You've earned it."
+
+*set current_year 3
+
+*choice
+    #I seek out my mentor to thank them for their guidance.
+        *if (chosen_path = "research")
+            You find Aria in the library, already immersed in another text. When you thank her, she looks up with genuine warmth.
+
+            "You did the work, ${name}. I merely pointed you in the right direction." She pauses. "I'm proud of you."
+
+            *set aria_relationship +10
+        *if (chosen_path = "combat")
+            You find Zara in the training yard, cleaning her weapons. When you approach, she nods in acknowledgment.
+
+            "You're getting there," she says—high praise from her. "Third year, we'll push even harder. You ready?"
+
+            "Yes," you say without hesitation.
+
+            She grins. "Good."
+
+            *set zara_relationship +10
+        *if (chosen_path = "diplomatic")
+            You find Izack in his office, updating diplomatic records. When you thank him, he sets down his quill with a smile.
+
+            "The pleasure was mine, ${name}. Watching you negotiate today reminded me why I love teaching. You're going to do great things."
+
+            *set izack_relationship +10
+
+        *goto year_two_end
+
+    #I join other students in celebrating our survival and success.
+        The evening dissolves into celebration—music, laughter, stories of trials completed and challenges overcome. You're part of something special here, a community forged in shared struggle.
+
+        *set social_bonds +10
+        *set confidence +5
+
+        *goto year_two_end
+
+    #I find a quiet place to reflect on how much I've grown.
+        You slip away to the rooftop gardens, overlooking Avalon's grounds bathed in moonlight. Two years ago, you arrived here uncertain and untested.
+
+        Now you're a scholar, a fighter, a diplomat—whatever path you've chosen, you've proven yourself worthy of it.
+
+        The challenges ahead will be greater still. But so will you.
+
+        *set wisdom +10
+        *set confidence +10
+
+        *goto year_two_end
+
+*label year_two_end
+
+*page_break
+
+Year Two: Complete
+
+You have survived the crisis, passed your trials, and proven your mastery. Your reputation grows, your skills sharpen, and your destiny becomes clearer with each passing day.
+
+Third year awaits—the year where students truly become mages.
+
+*line_break
+
+*goto_scene year_three_start

@@ -1,0 +1,283 @@
+*comment ================================================
+*comment CHARACTER CREATION - Origin Selection
+*comment Choose your background and starting bonuses
+*comment ================================================
+
+*label start
+
+But first, ${name}... where did you come from?
+
+*page_break
+
+Your origin shapes who you are—the experiences that brought you to Avalon's gates.
+
+*line_break
+
+*choice
+  #Noble Heritage - You come from a wealthy magical family with high expectations
+    *set origin "noble"
+    *set wealth +30
+    *set fame +10
+    *set stress +15
+    *set izack_relationship -5
+    *set aria_relationship +10
+    *goto noble_origin
+
+  #Self-Taught Prodigy - You discovered magic on your own and learned through experimentation
+    *set origin "prodigy"
+    *set power +15
+    *set knowledge +10
+    *set collaboration -10
+    *set tradition_vs_innovation +20
+    *goto prodigy_origin
+
+  #Magical Lineage - Your family has practiced magic for generations
+    *set origin "lineage"
+    *set knowledge +15
+    *set dimensional_magic +10
+    *set stress +10
+    *goto lineage_origin
+
+  #Late Bloomer - You discovered your magical potential later than most
+    *set origin "late_bloomer"
+    *set empathy +20
+    *set collaboration +15
+    *set power -10
+    *set happiness +10
+    *goto late_bloomer_origin
+
+  #Dimensional Refugee - You're from another realm, seeking haven at Avalon
+    *set origin "refugee"
+    *set tradition_vs_innovation +25
+    *set empathy +15
+    *set izack_relationship +15
+    *set wealth -20
+    *goto refugee_origin
+
+  #Commoner Scholar - You earned your place through merit and hard work
+    *set origin "commoner"
+    *set knowledge +10
+    *set empathy +10
+    *set collaboration +10
+    *set gold -50
+    *goto commoner_origin
+
+*comment ================================================
+
+*label noble_origin
+
+[i]Ah, nobility. Let me guess—your family expects you to bring honor to the [insert family name here], maintain traditions, and preferably not embarrass anyone at formal dinners.[/i]
+
+*line_break
+
+You come from House ${name}—well, your family name, at least. Magical nobility. Wealth, status, and all the pressure that comes with it.
+
+*page_break
+
+Your family sent you to Avalon with:
+[b]• A generous allowance (Wealth +30)[/b]
+[b]• Connections to influential mages (Aria +10, Fame +10)[/b]
+[b]• High expectations (Stress +15)[/b]
+
+*line_break
+
+Izack Thorne isn't particularly impressed by noble pedigree. He cares about collaboration, not bloodlines. But Aria Ravencrest—former politician, now boundary mage—appreciates someone who understands social structures.
+
+*page_break
+
+[i]"Try not to let the family expectations crush you. I've seen it happen. Repeatedly."[/i]
+
+*goto entrance_choice
+
+*comment ================================================
+
+*label prodigy_origin
+
+[i]Self-taught! Oh, this will be interesting. You probably have some very creative interpretations of magical theory. Some will be brilliant. Some will be dangerously wrong.[/i]
+
+*line_break
+
+You weren't born into magic. You discovered it.
+
+Maybe it was an accident—a moment of intense emotion that broke reality. Maybe you read forbidden texts and experimented in secret. However it happened, you taught yourself the basics before anyone knew you had the gift.
+
+*page_break
+
+Your self-teaching has given you:
+[b]• Raw power from experimentation (Power +15)[/b]
+[b]• Unconventional knowledge (Knowledge +10, Innovation +20)[/b]
+[b]• Difficulty with collaboration (Collaboration -10)[/b]
+
+*line_break
+
+You're used to working alone. Figuring things out yourself. Avalon's collaborative approach might challenge everything you know.
+
+*page_break
+
+[i]"Fair warning: unlearning bad habits is harder than learning good ones from scratch. But at least you'll bring fresh perspectives."[/i]
+
+*goto entrance_choice
+
+*comment ================================================
+
+*label lineage_origin
+
+[i]Magical lineage. So magic runs in your family—passed down through generations like a particularly complicated heirloom.[/i]
+
+*line_break
+
+You grew up surrounded by magic.
+
+Your parents (or grandparents, or great-aunt Millicent) practiced dimensional magic, boundary work, or ancient traditions. You learned theory at the dinner table. Practiced basic spells before you could write your own name.
+
+*page_break
+
+Your magical upbringing has given you:
+[b]• Strong foundational knowledge (Knowledge +15)[/b]
+[b]• Early dimensional magic training (Dimensional Magic +10)[/b]
+[b]• Family pressure to excel (Stress +10)[/b]
+
+*line_break
+
+You're not starting from scratch. But Avalon will push you beyond what your family taught—into collaborative magic they might not understand.
+
+*page_break
+
+[i]"Just remember: your family's way isn't the only way. Izack literally invented new forms of magic by ignoring tradition."[/i]
+
+*goto entrance_choice
+
+*comment ================================================
+
+*label late_bloomer_origin
+
+[i]Late bloomer! So you discovered magic later than the prodigies. That's actually not a disadvantage—you have life experience they lack.[/i]
+
+*line_break
+
+You discovered your magical potential recently.
+
+Maybe you were fifteen, twenty, even thirty before the first spell manifested. While others trained from childhood, you lived a non-magical life—experiencing the world without power, learning empathy, understanding people.
+
+*page_break
+
+Your late start has given you:
+[b]• Deep empathy from lived experience (Empathy +20)[/b]
+[b]• Natural collaborative instincts (Collaboration +15)[/b]
+[b]• Less raw power (Power -10)[/b]
+[b]• Appreciation for your opportunity (Happiness +10)[/b]
+
+*line_break
+
+You might not be the strongest mage at Avalon. But you understand people—their fears, hopes, motivations. That's a rare gift among mages who grew up with power.
+
+*page_break
+
+[i]"Some of the best mages I've known were late bloomers. They have perspective the prodigies lack."[/i]
+
+*goto entrance_choice
+
+*comment ================================================
+
+*label refugee_origin
+
+[i]Dimensional refugee. You're not from here—not from this realm. That makes you rare, valuable, and probably carrying trauma you haven't processed yet.[/i]
+
+*line_break
+
+You're from somewhere else.
+
+Another dimension, another reality. Maybe it was peaceful and you left by choice. Maybe it was destroyed and Avalon offered sanctuary. Either way, you're far from home, trying to build a new life in an unfamiliar reality.
+
+*page_break
+
+Your refugee status has given you:
+[b]• Unique perspective on dimensions (Innovation +25)[/b]
+[b]• Deep empathy for the displaced (Empathy +15)[/b]
+[b]• Izack's personal attention (Izack +15)[/b]
+[b]• Limited resources (Wealth -20)[/b]
+
+*line_break
+
+Izack Thorne created Avalon as a haven for those who don't fit elsewhere. Refugees, hybrids, outcasts. You're exactly the kind of student he most wants to help.
+
+*page_break
+
+[i]"Welcome to Avalon. You're safe here. Izack will make sure of that."[/i]
+
+*goto entrance_choice
+
+*comment ================================================
+
+*label commoner_origin
+
+[i]Commoner scholar. You earned your place through merit—which means you worked twice as hard as the nobles for half the recognition. I respect that.[/i]
+
+*line_break
+
+You're not from a magical family. No inherited power, no family traditions, no connections.
+
+You earned admission to Avalon through aptitude tests, scholarship competitions, and sheer determination. You're here because you're [i]good enough[/i]—not because of who your parents are.
+
+*page_break
+
+Your commoner background has given you:
+[b]• Well-rounded abilities (Knowledge +10, Empathy +10, Collaboration +10)[/b]
+[b]• Drive to prove yourself[/b]
+[b]• Limited funds (Gold -50)[/b]
+
+*line_break
+
+Some noble students might look down on you. Let them. You'll outwork them.
+
+*page_break
+
+[i]"Izack was a commoner too. He literally created a new dimension through merit alone. You're in good company."[/i]
+
+*goto entrance_choice
+
+*comment ================================================
+
+*label entrance_choice
+
+*page_break
+
+*set origin_bonus_used true
+
+Now, ${name}—let's talk about your arrival at Avalon.
+
+*line_break
+
+You stand at the edge of the academy, watching the impossible Spiral Spire twist upward into clouds that shimmer with leyline energy. The World Tree's branches arc overhead, and you can [i]feel[/i] the convergence of magical currents thrumming through the air.
+
+*page_break
+
+Through the crystalline gates ahead, you can see the courtyard. Izack himself is waiting to meet the new arrivals.
+
+*line_break
+
+So, ${name}. How do you want to make your entrance?
+
+*choice
+  #Approach respectfully and introduce yourself properly.
+    *set intro_choice "polite"
+    *set collaboration +10
+    *set izack_relationship +10
+
+    Smart. Politeness costs nothing and earns everything. Well, sometimes.
+    *goto_scene arrival polite_approach
+
+  #Ask Polly more questions about what to expect.
+    *set intro_choice "curious"
+    *set polly_relationship +10
+
+    [i]Smart. Ask the raven who's been here since the beginning. I like you already.[/i]
+    *goto_scene arrival ask_polly
+
+  #Walk past confidently—you've read about Avalon and know what you're doing.
+    *set intro_choice "confident"
+    *set aria_relationship +10
+    *set collaboration -5
+
+    [i]*Caw!* Oh, we have a confident one. This should be entertaining.[/i]
+    *goto_scene arrival confident_entrance

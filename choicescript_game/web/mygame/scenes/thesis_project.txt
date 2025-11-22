@@ -1,0 +1,183 @@
+*comment ================================================
+*comment THESIS PROJECT - Senior Thesis Work
+*comment [PLACEHOLDER - Full branching content to be added]
+*comment ================================================
+
+*label start
+
+[b]== THESIS PROJECT ==[/b]
+
+*line_break
+
+You spend the next several months working on your thesis project.
+
+*page_break
+
+*if thesis_topic = "pocket_dimension"
+  *goto pocket_dimension_thesis
+
+*if thesis_topic = "realm_bridge"
+  *goto realm_bridge_thesis
+
+*if thesis_topic = "ancient_mystery"
+  *goto mystery_thesis
+
+*if thesis_topic = "education_reform"
+  *goto education_thesis
+
+*comment Default fallback
+*goto pocket_dimension_thesis
+
+*comment ================================================
+
+*label pocket_dimension_thesis
+
+Working with Izack, you learn the deepest secrets of dimensional creation.
+
+*line_break
+
+Creating a pocket dimension isn't just about power—it's about understanding, patience, and collaboration with reality itself.
+
+*page_break
+
+*if dimensional_magic >= 70
+  After months of work, you succeed.
+
+  You create a small but stable pocket dimension—a room-sized space that exists between realities.
+
+  Izack's eyes shine with pride. [b]"You've mastered what took me decades to learn."[/b]
+
+  *set published_papers +1
+  *set fame +20
+  *set grades +30
+  *achievement thesis_master visible 30 Thesis Master
+    You completed an exceptional senior thesis.
+
+*if dimensional_magic < 70
+  You create something—a small, unstable pocket that lasts for a few minutes.
+
+  It's not perfect, but Izack is still proud. [b]"You've grasped the fundamentals. That's more than most ever achieve."[/b]
+
+  *set grades +20
+
+*goto thesis_complete
+
+*comment ================================================
+
+*label realm_bridge_thesis
+
+Working diplomatically, you establish first contact with a new realm.
+
+*line_break
+
+*if empathy >= 70
+  Your bridge succeeds—a stable portal connecting Avalon to the Twilight Expanse.
+
+  Two realms, now connected. New possibilities for trade, learning, and cooperation.
+
+  *set fame +25
+  *set grades +30
+
+*if empathy < 70
+  Your bridge is unstable, but it works intermittently.
+
+  It's a start. Future mages will build on your foundation.
+
+  *set grades +20
+
+*goto thesis_complete
+
+*comment ================================================
+
+*label mystery_thesis
+
+You delve into ancient texts, researching the Third Thread mystery.
+
+*line_break
+
+*if knowledge >= 70
+  You uncover truth: the Third Thread connects Zara, Alexander, and the mysterious Demon Child.
+
+  Your paper is published in the Journal of Dimensional Studies. Academic acclaim follows.
+
+  *set published_papers +2
+  *set fame +30
+  *set grades +35
+
+*if knowledge < 70
+  Your research is solid but inconclusive.
+
+  You've added pieces to the puzzle, even if you haven't solved it completely.
+
+  *set published_papers +1
+  *set grades +25
+
+*goto thesis_complete
+
+*comment ================================================
+
+*label education_thesis
+
+You design a revolutionary new curriculum combining all magical schools.
+
+*line_break
+
+*if collaboration >= 70
+  Your teaching method proves more effective than traditional approaches.
+
+  Several academies express interest in adopting your methods.
+
+  Izack offers you a permanent faculty position.
+
+  *set fame +25
+  *set grades +30
+
+*if collaboration < 70
+  Your methods show promise but need refinement.
+
+  Still, you've contributed something valuable to magical education.
+
+  *set grades +20
+
+*goto thesis_complete
+
+*comment ================================================
+
+*label thesis_complete
+
+*page_break
+
+Your thesis is complete.
+
+*line_break
+
+Months of work, culminating in this moment.
+
+*page_break
+
+*if grades >= 80
+  Your thesis is [b]exceptional[/b]. The faculty is impressed.
+
+  *set academic_standing "exceptional"
+
+*if (grades >= 60) and (grades < 80)
+  Your thesis is [b]strong[/b]. You've proven your competence.
+
+  *set academic_standing "strong"
+
+*if grades < 60
+  Your thesis is [b]adequate[/b]. You passed, which is what matters.
+
+  *set academic_standing "adequate"
+
+*page_break
+
+[i]"Thesis done. Two more major challenges await: the final expedition and... well, you'll see."[/i]
+
+*line_break
+
+Polly's being ominous again. That's never a good sign.
+
+*page_break
+
+*goto_scene final_expedition
