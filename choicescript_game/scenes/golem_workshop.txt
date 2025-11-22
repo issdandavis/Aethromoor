@@ -12,21 +12,33 @@
 
 *page_break
 
-During a free afternoon, you discover a workshop beneath the Academy—Grey's domain.
+During a free afternoon, curiosity leads you down a spiral staircase you hadn't noticed before—one of Avalon's many hidden passages that seem to appear when students are ready to find them. The air grows warmer as you descend, carrying the scent of heated metal and ancient stone. At the bottom, you discover Grey's domain: a workshop carved from the bedrock beneath the Academy itself.
 
-Grey is a massive golem commander, built of stone and bronze, with eyes that glow with ancient intelligence.
-
-*page_break
-
-[b]"A student,"[/b] Grey rumbles. [b]"Come to learn golem-craft, have you?"[/b]
-
-${He_She} gestures to workbenches covered with clay, crystals, and arcane tools.
-
-[b]"I can teach you to create a golem companion. Not a servant—a partner. Like Clayborn."[/b]
+The space is enormous, lit by forge-fire and glowing crystals. Workbenches sprawl across the cavern, covered with materials that shouldn't exist together: living clay from the Verdant Tithe, frost-iron from the Rune Glacier, obsidian tears from Varn'ka'zul's borders, leyline-infused crystals that pulse with Avalon's heartbeat. This is where the impossible becomes merely difficult.
 
 *page_break
 
-A smaller golem appears—Clayborn, made of living clay that shifts and morphs. When music plays nearby, Clayborn dances.
+Grey stands at the central forge—a massive golem commander built of stone and bronze, their form etched with runes that predate most magical traditions. They're one of Izack Thorne's earliest creations, given not just sentience but wisdom, purpose, memory. Their eyes glow with an intelligence that's both ancient and eternally curious.
+
+[b]"A student,"[/b] Grey rumbles, voice like granite grinding against granite. [b]"Come to learn golem-craft, have you? Or did the stairs simply decide you were ready?"[/b]
+
+*page_break
+
+${He_She} gestures to the workbenches with one massive hand, and you notice that each tool is precisely placed, each material carefully organized. This isn't chaos—it's a craftsperson's sanctuary.
+
+[b]"I can teach you to create a golem companion. Not a servant, mind you—Avalon doesn't trade in servitude. A partner. Like Clayborn here. Constructs with souls, given form through intention and care."[/b]
+
+*page_break
+
+A smaller golem appears from behind a workbench—Clayborn, Grey's masterpiece and companion. They're made of living clay that shifts and morphs with almost liquid grace, their form never quite settled into one shape. As you watch, music drifts from somewhere in the workshop—a haunting melody played on pipes you can't see—and Clayborn begins to dance. The movement is beautiful, joyful, proof that golems can be more than tools.
+
+[i]*From the shadows, Polly's voice echoes.* "Clayborn understands rhythm better than most mages. Music speaks to them in ways words never could. That's what happens when you create with love instead of compulsion."[/i]
+
+*line_break
+
+Grey's expression softens—if stone can be said to soften—as they watch Clayborn dance.
+
+[b]"Every golem is unique,"[/b] Grey explains. [b]"They're born from intention, shaped by the creator's hopes and dreams. Clayborn here loves music because I poured my longing for beauty into their clay. Your golem will reflect your truest self, whether you intend it or not. That's the responsibility and the gift both."[/b]
 
 *choice
   #"Yes, I want to create a golem companion."
@@ -37,42 +49,62 @@ A smaller golem appears—Clayborn, made of living clay that shifts and morphs. 
 
 *label golem_creation
 
-Grey nods.
+Grey nods with satisfaction, as if you've just passed a test you didn't know you were taking.
 
-[b]"First: choose your golem's element. This defines their nature."[/b]
+[b]"Good. Creating a golem isn't about power—it's about partnership. You'll be giving life to something that never asked to exist, so you'd better be ready to treat them with the respect they'll deserve."[/b]
+
+*page_break
+
+The golem commander moves to a shelf holding five crystalline vessels, each one containing a different elemental essence harvested from Avalon's transplanted biomes. Each glows with its own inner light, its own promise of what might be.
+
+[b]"First: choose your golem's element. This defines their fundamental nature—not just what they can do, but who they'll be. Choose wisely. This isn't a decision you can unmake."[/b]
 
 *choice
-  #Earth - Sturdy, loyal, protective
+  #Earth - Sturdy, loyal, protective; grounded in the deep places of the world.
     *set golem_element "earth"
+    
+    You choose the vessel of earth essence—clay from the Verdant Tithe mixed with stone from Avalon's foundations. It feels solid in your hands, heavy with patient strength. Earth golems are legendary for their loyalty, their ability to stand firm when everything else crumbles. They don't break easily, and neither do their bonds.
     *goto golem_personality_choice
 
-  #Fire - Passionate, energetic, fierce
+  #Fire - Passionate, energetic, fierce; burning with creative intensity.
     *set golem_element "fire"
+    
+    The vessel of fire essence pulses warm in your grip—obsidian tears from the borders of Varn'ka'zul, refined and purified until they hold only heat and light, none of the demon realm's darkness. Fire golems are living contradictions: destructive yet creative, fierce yet playful, always burning with intensity. They feel everything deeply.
     *goto golem_personality_choice
 
-  #Water - Adaptive, flowing, empathetic
+  #Water - Adaptive, flowing, empathetic; understanding currents others can't perceive.
     *set golem_element "water"
+    
+    You select the vessel of water essence, feeling it shift and flow even in its crystalline prison. Water from the Shimmering Mere, where memory pools and nothing is ever truly lost. Water golems adapt, change, flow around obstacles. They understand emotions the way rivers understand stone—patiently, persistently, reshaping everything they touch.
     *goto golem_personality_choice
 
-  #Air - Swift, curious, clever
+  #Air - Swift, curious, clever; moving between spaces with invisible grace.
     *set golem_element "air"
+    
+    The vessel of air essence seems almost weightless, filled with winds captured from Avalon's highest spires. Air golems are quicksilver and curiosity made manifest, always seeking, always questioning. They move through the world like thought moves through consciousness—faster than sight, impossible to truly contain.
     *goto golem_personality_choice
 
-  #Crystal - Precise, magical, attuned to leylines
+  #Crystal - Precise, magical, attuned to leylines; resonating with the Spiral itself.
     *set golem_element "crystal"
+    
+    You choose the vessel of pure crystal—leyline-infused stone that hums with the Spiral's own frequency. Crystal golems are Avalon's children in the truest sense, born from the realm's living magic. They perceive dimensional boundaries, hear the songs that others miss, understand magic as a language rather than a tool.
     *goto golem_personality_choice
 
 *label golem_personality_choice
 
 *page_break
 
-Grey hands you clay infused with ${golem_element} essence.
+Grey hands you clay infused with ${golem_element} essence, and the moment it touches your skin, you feel it respond—warm and alive and waiting to become something more.
 
-[b]"Now shape it. As you work, think about who your golem will be. Their personality will form from your intentions."[/b]
+[b]"Now shape it,"[/b] Grey instructs, voice gentle despite its grinding timbre. [b]"But don't just use your hands. Use your intention. As you work, think about who your golem will be. Their personality will form from your deepest hopes, your truest wishes for what they might become. The clay remembers everything you give it—love, fear, hope, doubt. All of it becomes part of their soul."[/b]
+
+*line_break
+
+Clayborn watches from beside the forge, their form rippling with what might be encouragement. This is a sacred moment, and even the playful golem seems to understand its weight.
 
 *page_break
 
-What kind of personality do you envision?
+You close your eyes and begin to shape the clay, letting your hands move while your mind reaches inward. What kind of personality do you envision? What do you hope this new being will be?
 
 *choice
   #Protective guardian - loyal and brave

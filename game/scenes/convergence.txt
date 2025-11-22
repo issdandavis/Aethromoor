@@ -1,51 +1,57 @@
-You emerge onto a circular landing where the three portals meet. A lattice of light hums beneath your feet, recording traces of what you've done.
+You emerge onto a circular landing where three portals meet and become one—the Convergence, the heart of Avalon's philosophy made physical. This is where scholars, warriors, and diplomats all return to remember they're working toward the same goal: protecting wonder, preserving knowledge, enabling the next generation to reach even further.
+
+A lattice of light hums beneath your feet, more complex than any rune you've studied. It's not writing but memory, recording traces of every choice made here, every path taken, every student who stood at this crossroads and decided who they wanted to become. Your own decisions are being woven into the pattern now, adding your thread to the infinite tapestry of Avalon's story.
+
+The air tastes of potential and promises kept. Somewhere in the distance, you can hear the World Tree's roots shifting through dimensional space, connecting this realm to others. A raven caws overhead—Polly perhaps, or one of her cousins, the obsidian ravens who serve as Avalon's messengers and occasional comedians.
 
 *comment Offer bespoke acknowledgments based on prior flags and stats.
 *if (oathbound and resonance_mark)
-  The Spiral recognizes both your oath and your resonance. Elders and wardens glance your way, curious which you will lean on.
+  The Spiral recognizes both your oath and your resonance—steel and song, protection and understanding, the warrior-scholar that Avalon was built to cultivate. Elders and wardens both glance your way with expressions that mix curiosity and hope. They wonder which aspect you'll lean on when the moment demands a choice. But perhaps the deeper truth is that you won't have to choose—that you've already begun to understand how they strengthen each other.
 *elseif oathbound
-  Your oath to the wardens anchors the lattice, bright as a drawn blade.
+  Your oath to the wardens anchors the lattice, making it glow bright as a drawn blade under noon sun. The realm recognizes commitment, honors those who choose to stand between innocents and danger. The pattern beneath your feet pulses with approval, weaving your dedication into its permanent memory.
 *elseif resonance_mark
-  The Spiral's song follows you, weaving a counter-melody through the hall.
+  The Spiral's song follows you like a faithful companion, weaving a counter-melody through the hall that makes the air itself shimmer with harmonics. You've learned to listen where others only hear noise, and Avalon rewards that patience with deeper understanding. The mark on your wrist glows faintly, warm against your skin.
 *else
-  For now, your choices leave only faint trails. Avalon waits to see how you'll impress it.
+  For now, your choices leave only faint trails in the lattice—not because you've chosen wrongly, but because Avalon is still learning what you might become, and you're still learning what Avalon offers. The realm waits with infinite patience, curious about how your story will unfold.
 
-A courier approaches with three sealed missives, each bearing a different crest.
+A courier approaches—one of Avalon's living constructs, formed from light and purpose and the collective will to maintain communication across the realm. It carries three sealed missives, each bearing a different crest and radiating a different kind of urgency. The Council of Elders has tasks that need completion, and you've proven yourself capable enough to be trusted with them.
 
 *choice
   #Answer the research call from the Aerie Conservatory.
-    The missive requests someone attuned to the Spiral to help tune a wavering beacon.
+    The missive's seal breaks with a soft chime, releasing the scent of starlight and old books. The Aerie Conservatory—Avalon's highest scholarly tower—needs someone attuned to the Spiral to help tune a wavering beacon. These beacons serve as dimensional lighthouses, guiding travelers between realms and warning of dimensional instabilities. When one begins to waver, it means the barriers between worlds are stressed, potentially dangerous.
     *if attunement >= 65
-      Your earlier harmonics steady the beacon immediately. Archivists scribble notes as the signal clarifies.
+      You arrive at the Conservatory to find panicked archivists surrounding a beacon that's flickering between dimensions like a candle in wind. But your earlier harmonics—all those hours spent listening to the Spiral's rhythm—have prepared you for this. You don't force the beacon back into alignment. Instead, you match its frequency, then gently guide it toward stability like singing a frightened child to sleep. The signal clarifies immediately, steady and strong. Archivists scribble notes furiously, trying to capture what you just did so they can teach it to others. "Intuitive harmonic resonance," one mutters in awe. You've given Avalon a new technique.
       *set attunement +5
       *set council_trust +5
       *goto after_convergence
     *else
-      The beacon sputters before stabilizing. You promise to return with sharper focus.
+      The beacon resists your efforts—not because you lack skill but because you're still learning the subtleties of dimensional harmonics. It sputters, flickers, then finally stabilizes under the combined efforts of you and three senior archivists. Not a failure, but not the triumph it might have been. The lead archivist pats your shoulder kindly. "You have the gift," they say, "but gifts need cultivation. Come back with sharper focus, and we'll try again." You promise you will.
       *set attunement +5
       *goto after_convergence
   #Join the wardens escorting dignitaries across the skybridge.
-    The missive warns of turbulence and rogue drones.
+    The missive's seal bears the warden captain's personal glyph—a call to service that you cannot and would not refuse. Dignitaries from the mortal realm of Aethermoor are visiting to negotiate magical treaties, and the skybridge route is treacherous. The missive warns of turbulence and rogue constructs—dimensional drones that sometimes malfunction and attack indiscriminately.
     *if honor >= 65
-      You anticipate each crosswind and shield the dignitaries flawlessly. The captain nods: "Reliable as ever."
+      You join the escort detail and immediately understand why the captain requested you specifically. The route crosses three unstable dimensional boundaries, and your presence helps stabilize them. You anticipate each crosswind before it hits, positioning yourself to shield the dignitaries without them even knowing they were in danger. When a rogue construct does appear—crackling with wild magic and malicious intent—you and the other wardens move as one unified shield. The threat is neutralized before the dignitaries' conversation even pauses. Afterward, the captain clasps your shoulder with genuine pride. "Reliable as ever," they say, and somehow that simple praise means more than any grand ceremony could.
       *set honor +5
       *set council_trust +5
       *goto after_convergence
     *else
-      The escort completes with a few scrapes, but your vigilance earns respect.
+      The escort completes successfully, though not without a few scrapes and moments of genuine danger. You acquit yourself well enough—the dignitaries arrive unharmed, after all—but you can see the wardens compensating for your inexperience, covering gaps you didn't know you'd left. Still, they nod with approval. Everyone starts somewhere, and you showed courage even when outmatched. That earns respect in its own way.
       *set honor +5
       *goto after_convergence
   #Seek ${mentor}'s counsel on weaving both paths.
-    ${mentor} greets you with tea and charts showing overlaps between wardens and archivists.
+    You find ${mentor} in a quiet chamber overlooking the Convergence plaza, surrounded by charts that map the intersections between different magical disciplines. Your mentor greets you with tea and that patient smile that says they've been expecting this conversation. "Wondering how to balance everything?" they ask, already knowing the answer. The charts they spread before you show overlaps between wardens and archivists, between scholars and diplomats, between all the paths that Avalon offers. "The secret," ${mentor} explains, fingers tracing connections, "is that they're not separate at all. They're facets of the same jewel, different approaches to the same goal: making Avalon strong enough to protect what it's built."
     *if (honor >= 60) and (attunement >= 60)
-      Together you draft a joint initiative, convincing the council to fund it.
+      Together, you draft a joint initiative—a program that would integrate combat training with archival research, creating defenders who understand what they're protecting on a deeper level than muscle memory alone can teach. The proposal is elegant, practical, and exactly the kind of synthesis Izack Thorne hoped Avalon would inspire. ${mentor} presents it to the council that same evening, with your name as co-author. They approve the funding unanimously, impressed by how you've woven disparate threads into something stronger than either alone.
       *set council_trust +10
       *goto after_convergence
     *else
-      ${mentor} challenges you to refine your goals before the council convenes again.
+      ${mentor} reviews your ideas carefully, then challenges you with the kind of gentle rigor that good teachers use. "You're thinking in the right direction," they say, "but you need to refine your goals before the council will fund it. Show them you've mastered at least one path before proposing to bridge multiple ones. Depth first, then breadth." It's good advice, even if it means more work before your vision can be realized.
       *set council_trust +5
       *goto after_convergence
 
 *label after_convergence
-The lattice quiets, storing your response. A lift descends toward an open balcony.
+The lattice beneath your feet quiets, absorbing your choices like earth absorbing rain. Your response has been recorded, woven into Avalon's permanent memory. Somewhere in the Archives, a tome is updating itself with your story. Somewhere in the martial halls, your name is being added to the roster of those the realm trusts. Somewhere in the council chambers, elders are noting your progress with satisfaction.
+
+A crystalline lift descends from above, its arrival accompanied by a soft chime that harmonizes with the Spiral's underlying rhythm. It will carry you toward an open balcony where the next chapter of your journey waits, patient and full of possibility.
 *goto_scene epilogue

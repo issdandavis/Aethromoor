@@ -1,26 +1,42 @@
-You pause at the threshold of a balcony overlooking the Spiral. Choices made today ripple outward. Couriers and wardens move below, carrying the effects of your decisions into the wider city.
+You pause at the threshold of a balcony overlooking the Spiral, and the vista takes your breath away.
+
+Below stretches all of Avalon in its impossible glory: the Spiral Spire rising like a crystalline needle into clouds that glow with their own inner light, the Dream Gardens where flowers bloom in response to passing thoughts, the floating isles connected by bridges of pure magic, the World Tree sapling pulsing gently at the realm's heart. Couriers and wardens move through the plaza below, carrying the effects of your decisions into the wider city like ripples spreading across still water.
+
+The sun—Avalon's artificial sun, created by Izack Thorne to maintain the realm's seasonal balance—is setting in shades of purple and gold that don't quite exist in the mortal world. The air tastes of completion and new beginnings both, of stories ended and stories just beginning.
+
+Your choices today have rippled outward in ways you're only beginning to understand. The realm itself has noted your passage, woven your decisions into its permanent memory. You are part of Avalon's story now, and it is part of yours.
 
 *if resonance_mark
-  The Spiral thrums in time with your pulse, marking you as one who listens.
+  The Spiral thrums in time with your pulse, a harmonic resonance that marks you as one who listens—truly listens—to what the universe is teaching. The silvery mark on your wrist glows faintly, warm against your skin. This is Avalon's recognition: not of your power, but of your willingness to learn, to grow, to meet magic as a partnership rather than a tool to be wielded.
 *elseif oathbound
-  The badge of the wardens gleams. Duty anchors your steps.
+  The badge of the wardens gleams on your chest, catching the last rays of the artificial sunset. You can feel its weight—not physical weight, but the gravity of promises made and kept. Duty anchors your steps, gives you purpose, reminds you that sometimes love means being willing to stand between innocents and danger. The wardens below notice your badge and salute, acknowledging you as one of their own.
 *else
-  The council watches, curious which oath you will claim.
+  The council watches from windows high above, curious about which path you'll ultimately claim as yours. You haven't yet committed fully to any single calling, and that's not failure—it's simply that Avalon is still learning what you might become, and you're still discovering what Avalon offers. The realm is patient. It has time. And so do you.
 
 *if council_trust >= 70
-  An elder leans close. "You've earned the room to propose something bold."
+  An elder appears beside you—how they moved so silently, you'll never know—and leans close with eyes that hold the patient wisdom of centuries. "You've earned the room to propose something bold," they whisper, voice warm with approval. "The council doesn't grant that lightly. When you're ready to reshape Avalon in some small way, we'll listen." This is the highest honor the realm can offer: trust enough to let you help guide its evolution.
 *elseif council_trust >= 55
-  The council's sigils shimmer with measured confidence in you.
+  The council's sigils shimmer in windows high above, pulsing with measured confidence in you. You're not yet one of their inner circle, but you've proven yourself worthy of attention. The elders remember your name now, mark your progress with interest. Doors are opening that were closed before.
 *else
-  Whispers ripple along the balcony. Trust is budding but not yet firm.
+  Whispers ripple along the balcony as other students and residents of Avalon discuss your performance. Trust is budding but not yet firm—you've shown potential, but potential requires cultivation to become achievement. The path ahead demands more of you, and Avalon is curious whether you'll rise to meet those demands.
 
 *comment Offer a small wrap-up and replay hook.
+A raven lands on the balcony railing—it might be Polly herself, or one of her many cousins who serve as Avalon's eyes and occasional messengers. The bird cocks its head at you, regarding you with unsettling intelligence, then caws once before flying off toward the Dream Gardens. You're not sure, but you think you hear laughter in that cry.
+
+The Spiral pulses beneath your feet one last time, a gentle reminder that you are part of something larger than yourself, something that will continue long after you've moved on. Izack Thorne built Avalon to be eternal, a haven that would outlast any single generation. Your contribution to that eternal project has begun.
+
 *choice
   #Reflect on what you learned.
-    Honor: ${honor}
-    Attunement: ${attunement}
-    Council trust: ${council_trust}
+    You close your eyes and let the day's experiences wash over you, integrating them into who you are.
+    
+    Honor: ${honor} - The measure of your commitment to protecting others.
+    Attunement: ${attunement} - Your ability to listen to the Spiral's deeper truths.
+    Council trust: ${council_trust} - How much influence you've earned in Avalon's future.
+    
+    These aren't just numbers. They're reflections of choices made, paths taken, the person you're becoming. And tomorrow, you'll have new chances to grow even further.
     *finish
   #Step forward into the Spiral once more.
-    The path shifts with every decision. New branches spiral outward from here.
+    The path shifts with every decision, branching into infinite possibilities. New choices spiral outward from this moment, each one leading somewhere you can't quite see yet. But that's the joy of Avalon: the journey is never finished, the story never complete. There's always another mystery to unravel, another truth to discover, another way to contribute to this living realm's eternal evolution.
+    
+    You step forward, and the Spiral welcomes you home.
     *ending
