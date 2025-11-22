@@ -653,57 +653,57 @@ const storyNodes = {
 
     crisis_collab_rescue: {
         text: `
-            <p>You push past your fear and reach out again - not just to Zara, but to everyone. "Together! Like before!"</p>
+            <p>You push past your fear and ego, reaching out desperately - not just to Zara, but to everyone around you. "Together! Please! Like we did before!"</p>
 
-            <p>Zara grabs your hand immediately. The other students join. Izack's eyes widen as he feels the collaborative resonance snap into place.</p>
+            <p>Zara grabs your hand immediately without hesitation. "I've got you!" The other students quickly join the circle, their combined intention creating an instant resonance.</p>
 
-            <p>"That's it," he breathes. "Channel it through me - I'll direct the repair."</p>
+            <p>Izack's eyes widen as he feels the collaborative harmonic snap into place like a perfectly tuned instrument. "That's it," he breathes, stepping into the circle. "Channel it through me - I'll direct the repair work while you provide the foundation."</p>
 
-            <p>Six students and one master mage, working as one. The fractured boundary responds to your unified intention, the cracks sealing like wounds knitting together.</p>
+            <p>Six frightened students and one master mage, working as one unified consciousness. The fractured boundary responds to your unified intention like it's been waiting for exactly this - the cracks sealing like wounds knitting together under healing magic.</p>
 
-            <p><span class="polly-comment">"Now THIS is what I'm talking about! Crisis brings out the best collaborative magic. Well done!"</span></p>
+            <p><span class="polly-comment">*Wings spread in excitement* "NOW THIS is what I'm talking about! You went from almost destroying everything to saving everyone through collaboration. Crisis brings out the best collaborative magic. This is textbook Avalon!"</span></p>
 
-            <p>The boundary stabilizes, then settles into a perfect, shimmering membrane. The danger passes.</p>
+            <p>The boundary stabilizes, shimmers, then settles into a perfect, humming membrane. The dimensional rifts close. The danger passes completely.</p>
 
-            <p>Aria exhales. "Impressive crisis management. You recognized that individual strength wasn't enough and chose collaboration instead."</p>
+            <p>Aria exhales slowly, her rigid posture relaxing. "Impressive crisis management. You recognized that individual strength wasn't enough and chose collaboration over pride. That takes real wisdom."</p>
 
-            <p>Izack smiles, clearly proud. "This is exactly why Avalon exists. You just demonstrated its core principle under pressure."</p>
+            <p>Izack smiles, clearly proud and perhaps a bit emotional. "This is exactly why Avalon exists. You just demonstrated its core principle under actual pressure, when it mattered most. Well done, all of you."</p>
         `,
         choices: [
             {
                 text: "Apologize for causing the crisis, but express gratitude for learning the lesson",
                 next: 'ending_collaborative_scholar',
-                effects: { collaboration: 3, izack: 3, zara: 2 }
+                effects: { collaboration: 3, izack: 3, zara: 2, pollyTrust: 2 }
             }
         ]
     },
 
     crisis_aria_rescue: {
         text: `
-            <p>You focus entirely on Aria's voice, blocking out the panic. "How do I stabilize it?"</p>
+            <p>You focus entirely on Aria's voice, blocking out the panic and dimensional chaos around you. "How do I stabilize it? Tell me what to do!"</p>
 
-            <p>"Feel the boundary's natural state," Aria instructs, stepping closer. "It wants to close. Stop forcing it open and guide it back to equilibrium."</p>
+            <p>"Feel the boundary's natural state," Aria instructs calmly, stepping closer despite the danger. "It wants to close. Stop forcing it open and start guiding it back to equilibrium. The boundary isn't your enemy - you are."</p>
 
-            <p><span class="polly-comment">"Listen to the scary competent lady. She knows what she's talking about."</span></p>
+            <p><span class="polly-comment">*Serious for once* "Listen to the scary competent lady. She's literally kept Avalon from imploding for decades. She knows what she's talking about."</span></p>
 
-            <p>You shift your approach - instead of controlling the portal, you <em>listen</em> to it. The boundary does have a natural state, and you can feel how it wants to return to stability.</p>
+            <p>You shift your entire approach - instead of trying to control the portal through force, you <em>listen</em> to it. And Aria's right: the boundary does have a natural state, a harmonic frequency where it wants to rest. You can feel how desperately it wants to return to stability.</p>
 
-            <p>Gently, carefully, you guide rather than force. The crackling energy calms. The portal shrinks, then seals.</p>
+            <p>Gently, carefully, treating it like a frightened animal rather than a tool, you guide rather than force. The crackling energy calms. The portal shrinks gradually, then seals completely with a soft chime.</p>
 
-            <p>Aria nods with satisfaction. "Well done. You trusted instruction over instinct, and you adapted your technique mid-crisis. That's the mark of a disciplined mage."</p>
+            <p>Aria nods with genuine satisfaction. "Well done. You trusted instruction over instinct, and you adapted your technique mid-crisis without letting ego interfere. That's the mark of a disciplined mage - and a smart one."</p>
 
-            <p>Izack approaches. "And you learned to listen to the magic itself. Both of you taught the same lesson from different angles."</p>
+            <p>Izack approaches with a thoughtful expression. "And you learned to listen to the magic itself, to respect its nature. Both Aria and I taught you the same lesson from different angles. Sometimes force fails, and listening succeeds."</p>
         `,
         choices: [
             {
                 text: "Thank Aria and ask to study more boundary techniques with her",
                 next: 'ending_boundary_specialist',
-                effects: { collaboration: 1, aria: 4, izack: 1 }
+                effects: { collaboration: 1, aria: 4, izack: 1, pollyTrust: 1 }
             },
             {
                 text: "Thank both teachers and commit to learning collaborative magic going forward",
                 next: 'ending_balanced_mage',
-                effects: { collaboration: 2, aria: 2, izack: 2 }
+                effects: { collaboration: 2, aria: 2, izack: 2, pollyTrust: 1 }
             }
         ]
     },
