@@ -199,6 +199,11 @@ Each major location should have this structure:
 18. `heartwood_path` - Choosing the Heartwood Guardian path
 19. `heartwood_acceptance` - Accepting the role of Heartwood Guardian
 20. `heartwood_decline` - Declining the Heartwood's offer
+21. `heartwood_question` - The Heartwood poses a pivotal question
+22. `forest_return` - Returning from the forest expedition
+23. `heartwood_transformation` - Undergoing transformation by the Heartwood
+24. `heartwood_declined` - The Heartwood's offer is declined and consequences unfold
+25. `forest_conclusion` - Final reflections and consequences of the forest journey
 
 ### Key Mechanics
 - Thoughts are visible to the forest
@@ -240,7 +245,8 @@ Each major location should have this structure:
 21. `mystery_revelation` - Revelation of the glacier's deepest secret
 22. `mystery_faith` - Leap of faith in trusting the glacier's wisdom
 23. `glacier_final` - Final choices and departure from the glacier
-24. (END)
+24. `path_mystery` - Additional mystery path exploration
+25. `glacier_conclusion` - Final reflections and consequences of the glacier journey
 
 ### Key Mechanics
 - Control vs Harmony stat tracking

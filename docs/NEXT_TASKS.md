@@ -98,9 +98,9 @@ Add more of Polly's sarcastic commentary:
 
 ## COMPLETED TASKS
 
-- [x] Complete Singing Dunes Expedition - 933 lines of content with multiple branching paths
-- [x] Complete Verdant Tithe Expedition - 998 lines of content with three distinct paths
-- [x] Complete Rune Glacier Expedition - 1270 lines of content with Control/Harmony/Mystery approaches
+- [x] Complete Singing Dunes Expedition - 932 lines of content with multiple branching paths
+- [x] Complete Verdant Tithe Expedition - 997 lines of content with three distinct paths
+- [x] Complete Rune Glacier Expedition - 1269 lines of content with Control/Harmony/Mystery approaches
 - [x] Create HTML version (full game)
 - [x] Set up ChoiceScript foundation
 - [x] Implement character creation
