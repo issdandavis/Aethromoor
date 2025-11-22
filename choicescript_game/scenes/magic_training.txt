@@ -70,7 +70,7 @@ She tilts her head, regarding you with one gleaming eye.
     *goto memory_practice
 
   #Actually, I'd rather do something else right now.
-    *goto academy_life
+    *goto_scene academy_life
 
 *comment ================================================
 *comment DIMENSIONAL MAGIC PRACTICE
