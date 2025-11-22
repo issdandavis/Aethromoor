@@ -5,9 +5,11 @@
 
 *label start
 
-You return through the portal to Avalon Academy.
+You step through the portal back to Avalon Academy, and the familiar sight strikes you with unexpected force: home. This place has become home in a way you didn't fully realize until you left and returned.
 
-The Spiral Spire gleams above you, its impossible geometry catching the afternoon light. The World Tree's branches sway in a breeze that smells of magic and possibility.
+The Spiral Spire gleams above you, its impossible geometry catching the afternoon light and refracting it into colors that don't exist in the mortal world. The World Tree sapling sways in a breeze that carries the scent of starlight and growing things, its branches reaching toward dimensional boundaries like a child reaching for something just out of grasp. All around you, leylines pulse with gentle light beneath the crystalline pathways, carrying Avalon's living magic through every part of this sentient realm.
+
+You've changed out there, in whichever biome tested you. Everyone who returns from their first expedition changes—but the question is: how much, and in what direction?
 
 *page_break
 
@@ -70,45 +72,53 @@ The Spiral Spire gleams above you, its impossible geometry catching the afternoo
 
 *achievement collaborative_master
 
-Izack Thorne himself is waiting in the courtyard.
+Izack Thorne himself is waiting in the courtyard, as if he knew the exact moment you'd return. As if Avalon itself told him something important was coming through the portal.
 
-When he sees you, his eyes widen. He can [i]see[/i] what you've become—the way the glacier's power flows through you, the living runes dancing beneath your skin, the fundamental change in how you interact with dimensional magic.
+When he sees you—truly sees you, with the dimensional awareness that let him create this entire realm—his eyes widen with recognition and wonder and something that might be awe. He can perceive what you've become: the way the glacier's ancient power flows through you like blood, the living runes dancing beneath your skin in patterns that speak the First Tongue, the fundamental transformation in how you exist in relation to dimensional magic.
+
+You're not just a mage who uses magic anymore. You're someone who partners with it.
 
 *line_break
 
-[b]"Impossible,"[/b] he whispers. [b]"You achieved partnership. True, equal partnership with one of the ancient forces. In your first expedition."[/b]
+[b]"Impossible,"[/b] he whispers, and Izack Thorne almost never whispers. [b]"You achieved partnership. True, equal partnership with one of the ancient forces—the kind that doesn't recognize hierarchy or domination, only mutual respect and collaboration. And you did it on your first expedition."[/b]
 
 *page_break
 
-He places a hand on your shoulder, and you feel his dimensional awareness brush against yours. For a moment, you sense the vast web of magic he maintains—Avalon itself, alive and growing under his guidance.
+He approaches slowly, reverently, and places a hand on your shoulder. Even through the physical contact, you feel his dimensional awareness brushing against yours—the vast web of magic he maintains spread across your consciousness like a map drawn in light. For a moment, you sense Avalon itself: alive, growing, evolving under his patient guidance, a realm that chose to be sentient because he believed it could.
 
-[b]"${name}, what you've done... it took me twenty years to achieve. You did it in weeks."[/b]
+[b]"${name}, what you've accomplished..."[/b] His voice cracks slightly with emotion. [b]"It took me twenty years of study, failure, and desperate experimentation to achieve my first true partnership. You did it in weeks. You've surpassed my wildest hopes for what Avalon could teach."[/b]
 
 *line_break
 
-Aria Ravencrest emerges from the library tower, her expression unreadable. She studies you for a long moment.
+Aria Ravencrest emerges from the library tower, her movements precise as always but her expression transformed by something you've never seen on her face before: uncertainty. She's encountering something outside her vast knowledge, and it both unsettles and excites her.
 
 *page_break
 
-[b]"A Collaborative Master,"[/b] she says quietly. [b]"I've only read about them in the oldest texts. Mages who don't just use magic—they [i]partner[/i] with it. Who treat power as a conversation rather than a tool."[/b]
+She studies you for a long moment with those sharp eyes that miss nothing, and you can practically see her cataloging every change, every subtle shift in your dimensional signature.
+
+[b]"A Collaborative Master,"[/b] she finally says, voice quiet with wonder. [b]"I've only read about them in the oldest texts—the ones written before the Sundering, before dimensional magic fractured into competing schools. Mages who don't just use magic but [i]partner[/i] with it. Who treat power as a conversation rather than a tool, as a relationship rather than a resource."[/b]
 
 *line_break
 
-She inclines her head—a gesture of respect from someone who rarely shows it.
+She inclines her head—a gesture of genuine respect from someone who rarely shows deference to anyone except Izack, and even that took years to develop.
 
-[b]"You will surpass us all, ${name}. I am certain of it."[/b]
+[b]"You will surpass us all, ${name}. Not might. Will. I am as certain of this as I am of the laws of dimensional mechanics. Your name will reshape what we understand magic to be."[/b]
 
 *page_break
 
-Polly lands on your shoulder, unusually quiet.
+Polly lands on your shoulder, her weight familiar and comforting, but she's unusually quiet. No sarcastic commentary. No dramatic narration. Just silence, and you realize: she's moved.
 
-After a moment, she speaks—and for once, there's no sarcasm in her voice:
+After a long moment, she speaks—and for perhaps the first time in three centuries, there's no armor of humor in her voice:
 
-[i]"I've watched Avalon Academy for three hundred years. I've seen thousands of students come and go. And I can count on one wing the number who achieved what you just did."[/i]
+[i]"I've watched Avalon Academy since before it was an academy—when it was just Izack and a cave and an impossible dream. I've seen thousands of students come through these halls, achieve their degrees, go on to reshape magical society. And I can count on one wing—literally one wing—the number who achieved what you just did."[/i]
 
 *line_break
 
-[i]"You're going to be legendary, ${name}. Truly legendary. Your name will be remembered alongside Izack's, alongside the First Mages who created dimensional magic itself."[/i]
+[i]"You're going to be legendary, ${name}. Truly, genuinely legendary. Your name will be remembered alongside Izack's, alongside the First Mages who discovered dimensional magic in the age before history. Three hundred years from now, students will study your technique. Your partnership. What you've proven is possible."[/i]
+
+*line_break
+
+[i]"I'm honored to have watched your story unfold. And I can't wait to see what comes next."[/i]
 
 *page_break
 
