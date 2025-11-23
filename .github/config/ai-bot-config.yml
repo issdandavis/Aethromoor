@@ -1,0 +1,41 @@
+# AI Organizer Bot Configuration
+
+# Agent Settings
+agents:
+  issue_triager:
+    enabled: true
+    auto_triage: true
+  
+  code_reviewer:
+    enabled: true
+    auto_review: true
+  
+  task_executor:
+    enabled: true
+    command_prefix: "/ai-"
+  
+  documentation_agent:
+    enabled: true
+    auto_update: true
+  
+  security_agent:
+    enabled: true
+    scan_schedule: "0 0 * * *"
+  
+  deployment_agent:
+    enabled: true
+    strategy: blue_green
+
+# Workflows
+workflows:
+  auto_organize:
+    enabled: true
+    schedule: "0 */6 * * *"
+
+# Security
+security:
+  verify_signatures: true
+  rate_limits:
+    enabled: true
+
+# See full configuration options in AI_BOT_README.md
