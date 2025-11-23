@@ -1,4 +1,6 @@
 *comment ================================================
+*comment 🎮 HUMAN GAME FILE - Edit this in CSIDE!
+*comment ================================================
 *comment POLLY'S WINGSCROLL: THE FIRST THREAD
 *comment A Choice-Based Adventure in Avalon Academy
 *comment Based on The Spiral of Pollyoneth universe

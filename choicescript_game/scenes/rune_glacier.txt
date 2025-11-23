@@ -1,3 +1,5 @@
+*comment 🎮 HUMAN GAME FILE - Edit this in CSIDE!
+
 *comment ================================================
 *comment RUNE GLACIER EXPEDITION - FULL EXPANSION
 *comment Living ice inscribed with adaptive magical runes
