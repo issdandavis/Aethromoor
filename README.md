@@ -35,16 +35,6 @@ For developers wanting to work with the ChoiceScript version:
 
 ---
 
-## 🎯 Quick Start - PLAY NOW!
-
-### Option 1: Instant Play (HTML Version)
-**👉 Just open `game/index.html` in your browser - that's it!**
-
-### Option 2: ChoiceScript Version (Professional)
-See **[PLAY_THE_GAME.md](PLAY_THE_GAME.md)** for detailed instructions.
-
----
-
 ## 📖 About the Game
 
 ### Story
