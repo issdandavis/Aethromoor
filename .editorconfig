@@ -1,0 +1,30 @@
+# EditorConfig helps maintain consistent coding styles
+# https://editorconfig.org
+
+root = true
+
+# All files
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = 80
+
+# YAML files  
+[*.{yml,yaml}]
+indent_size = 2
+
+# JavaScript/JSON
+[*.{js,json}]
+indent_size = 4
+
+# ChoiceScript files
+[*.txt]
+indent_size = 2
