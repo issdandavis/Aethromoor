@@ -81,6 +81,12 @@
 *create boy_girl "student"
 *create mr_ms "Mx"
 
+*comment Personal History
+*create background_origin "wanderer"
+*create magical_aptitude "untuned"
+*create social_style "reserved"
+*create academic_focus "generalist"
+
 *comment Primary Stats
 *create collaboration 50
 *create power 50
@@ -294,6 +300,136 @@ Excellent, ${name}.
     aria_relationship
   opposed_pair Zara
     zara_relationship
+
+*page_break
+
+*comment PERSONAL THREADS
+
+Everyone arrives at Avalon with a story. Polly tilts her head, studying you.
+
+"So what's yours, ${name}?" she asks. "Origin, talent, style—give me the highlights so I know how to narrate your impending glory or disaster."
+
+*page_break
+
+Where did you grow up before Avalon called to you?
+
+*choice
+  #Among floating market isles, haggling with merchants and dodging skyships.
+    *set background_origin "sky_isles"
+    *set communication_vs_domination +10
+    *set power +5
+
+    Bartering for spell-silk and stormwater taught you the rhythm of conversation—and the value of quick reflexes.
+    *goto magical_aptitude_selection
+
+  #In a groundbound city spire, apprenticed to archivists and rune-keepers.
+    *set background_origin "spire_archives"
+    *set knowledge +10
+    *set honesty_vs_deception +5
+
+    You cataloged dimensional lore until you could quote half the restricted stacks from memory.
+    *goto magical_aptitude_selection
+
+  #On the wild frontier, mending leyline fractures far from formal academies.
+    *set background_origin "frontier_mender"
+    *set empathy +10
+    *set power +5
+
+    Improvisation kept villages safe; you learned to listen to the land before it broke apart.
+    *goto magical_aptitude_selection
+
+*label magical_aptitude_selection
+
+How does magic respond when you reach for it?
+
+*choice
+  #Methodically—I prefer carefully prepared rituals.
+    *set magical_aptitude "ritualist"
+    *set knowledge +5
+    *set collaboration +5
+
+    Circles, sigils, and schedules soothe your mind and keep the power steady.
+    *goto social_style_selection
+
+  #Intuitively—I feel the threads and improvise in the moment.
+    *set magical_aptitude "intuitive"
+    *set collaboration +10
+    *set power +5
+
+    You ride the current instead of damming it, trusting instinct to guide your spells.
+    *goto social_style_selection
+
+  #Fiercely—raw talent surges first, discipline second.
+    *set magical_aptitude "wild_talent"
+    *set power +10
+    *set honesty_vs_deception -5
+
+    Control is a work in progress; force has always answered your call.
+    *goto social_style_selection
+
+*label social_style_selection
+
+What is your natural way of dealing with people?
+
+*choice
+  #Diplomatic—bridge gaps, find common ground, make allies.
+    *set social_style "diplomatic"
+    *set communication_vs_domination +15
+    *set empathy +5
+
+    You navigate conflict like a practiced envoy, assuming partnership is possible.
+    *goto academic_focus_selection
+
+  #Observant—listen first, speak when it matters.
+    *set social_style "observant"
+    *set honesty_vs_deception +10
+    *set collaboration +5
+
+    Watching patterns gives you leverage; silence earns unexpected truths.
+    *goto academic_focus_selection
+
+  #Provocateur—spark reactions to see what truths shake loose.
+    *set social_style "provocateur"
+    *set communication_vs_domination -10
+    *set power +5
+
+    Stirring the cauldron reveals real loyalties—and keeps you entertained.
+    *goto academic_focus_selection
+
+*label academic_focus_selection
+
+When lessons begin, what will you chase most eagerly?
+
+*choice
+  #Research breakthroughs—new theories, new models, new proofs.
+    *set academic_focus "research"
+    *set knowledge +10
+    *set collaboration +5
+
+    You crave the elegance of ideas that make entire systems snap into focus.
+    *goto personal_preview
+
+  #Applied experiments—build, test, and iterate until it works.
+    *set academic_focus "applied_craft"
+    *set power +5
+    *set collaboration +10
+
+    Give you a problem and a workspace, and you'll prototype a solution by sunrise.
+    *goto personal_preview
+
+  #Field observation—learn from living realms and their inhabitants.
+    *set academic_focus "fieldwork"
+    *set empathy +10
+    *set honesty_vs_deception +5
+
+    The world itself is your teacher; you trust experience over abstraction.
+    *goto personal_preview
+
+*label personal_preview
+
+*line_break
+
+Polly clicks her beak approvingly. "Good. Now I know whether to describe you as the diligent scholar, the intuitive whirlwind, or the chaos enthusiast."
 
 *page_break
 
