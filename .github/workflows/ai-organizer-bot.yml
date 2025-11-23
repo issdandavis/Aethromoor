@@ -59,7 +59,7 @@ jobs:
               ;;
             issue_comment)
               COMMENT_BODY="${{ github.event.comment.body }}"
-              if [[ "$COMMENT_BODY" == /ai-* ]]; then
+              if [[ "$COMMENT_BODY" =~ ^/ai- ]]; then
                 AGENT="task-executor"
                 ACTION="execute-command"
               fi
@@ -272,9 +272,10 @@ jobs:
                     has_issues = true;
                   }
                   
-                  if (patch.match(/\*goto\s+(\w+)/) && !patch.match(/\*label\s+\1/)) {
-                    review_comments.push(`⚠️ **${filename}** has *goto without matching *label.`);
-                    has_issues = true;
+                  // Check for goto/label pairs (simplified check)
+                  const gotoMatches = patch.match(/\*goto\s+(\w+)/g);
+                  if (gotoMatches) {
+                    review_comments.push(`⚠️ **${filename}** has *goto statements. Please verify matching *label definitions exist.`);
                   }
                 }
                 
@@ -317,7 +318,8 @@ jobs:
             // Command Executor Logic
             async function executeCommand() {
               const comment = context.payload.comment;
-              if (!comment) return;
+              const issue = context.payload.issue;
+              if (!comment || !issue) return;
               
               const body = comment.body.trim();
               console.log(`Processing command: ${body}`);
@@ -371,7 +373,7 @@ jobs:
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                issue_number: context.payload.issue.number,
+                issue_number: issue.number,
                 body: response
               });
               

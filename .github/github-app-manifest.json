@@ -3,14 +3,14 @@
   "url": "https://github.com/issdandavis",
   "description": "An AI-powered assistant that organizes issues, repositories, and workflows across the ISDanDavis enterprise. Automatically creates AI agents, manages tasks, and provides comprehensive GitHub automation.",
   "hook_attributes": {
-    "url": "https://api.issdandavis.dev/webhooks/github",
+    "url": "https://REPLACE_WITH_YOUR_WEBHOOK_URL/github",
     "active": true
   },
-  "redirect_url": "https://github.com/issdandavis/auth/callback",
+  "redirect_url": "https://REPLACE_WITH_YOUR_DOMAIN/auth/callback",
   "callback_urls": [
-    "https://github.com/issdandavis/auth/callback"
+    "https://REPLACE_WITH_YOUR_DOMAIN/auth/callback"
   ],
-  "setup_url": "https://github.com/issdandavis/ai-bot/setup",
+  "setup_url": "https://REPLACE_WITH_YOUR_DOMAIN/ai-bot/setup",
   "setup_on_update": true,
   "public": false,
   "default_permissions": {
