@@ -1,1 +1,0 @@
-- 2026-05-09T12:00:00Z — Lore index: core history in docs/AETHERMOOR_CHRONICLES.md; expedition specifics in game/game.js and mirrored placeholders under choicescript_game/scenes; character deep dives across root TXT files and writing_drafts/. Next actions: cross-link any new lore snippets from future work back into docs/Lore_Codex.txt to keep index consistent.
