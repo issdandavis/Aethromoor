@@ -199,6 +199,48 @@ Avalon/
 
 ---
 
+## 🤖 Multi-AI Collaboration Framework (Stage1)
+
+### For AI Assistants & Contributors
+
+**Stage1 Initialized:** November 23, 2025
+
+This project uses a **multi-AI collaboration framework** that enables multiple AI assistants to work efficiently without overlap. If you're an AI assistant joining this project:
+
+**👉 Start Here:** [STAGE1_QUICK_START.md](STAGE1_QUICK_START.md)
+
+### Core Organizational Files
+
+| File | Purpose | Primary Users |
+|------|---------|---------------|
+| **STATUS_CONTEXT.md** | Weekly development snapshot | All roles |
+| **SCENE_PARITY_CHECKLIST.md** | HTML↔ChoiceScript scene tracking | Structural Reviewer, Conversion Engineer |
+| **STATS_MATRIX.md** | Comprehensive stat balance tracking | Quality Balancer |
+| **MULTI_AI_ROLES.md** | Role definitions & protocols | All roles |
+| **STAGE1_COMPLETION_REPORT.md** | Framework documentation | Reference |
+
+### Specialized AI Roles
+
+- 🎨 **Lore Curator** - Maintains narrative consistency
+- 🔧 **Conversion Engineer** - Writes ChoiceScript scenes
+- 🏗️ **Structural Reviewer** - Verifies technical correctness
+- ⚖️ **Quality Balancer** - Balances stats & difficulty
+- 🤖 **Automation Planner** - Documents workflows
+
+### Current Development Status (Phase 2)
+
+**Progress:** 97% Complete
+- ✅ Singing Dunes (931 lines) - Production ready
+- ✅ Rune Glacier (1,266 lines) - Production ready
+- 🟡 Verdant Tithe (183 lines) - **Needs expansion to 600+**
+- ✅ Endings (1,118 lines) - 13/14 verified
+
+**Next Milestone:** Complete Verdant Tithe expansion → Phase 2 complete → Beta testing
+
+See **[PROJECT_ROADMAP.md](docs/PROJECT_ROADMAP.md)** for full development plan.
+
+---
+
 ## 🎊 Credits
 
 ### Game Design & Writing
