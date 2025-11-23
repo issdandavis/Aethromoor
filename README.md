@@ -90,6 +90,9 @@ Avalon/
 │
 ├── lore/                       ← Worldbuilding documents
 ├── writing_drafts/             ← Novel manuscripts
+├── AvalonBook STUFF/           ← Campaign source materials
+│   ├── everweave-export.pdf   ← 406-page D&D session log
+│   └── README.md              ← Campaign materials guide
 ├── docs/                       ← Additional documentation
 └── archive/                    ← Old files and backups
 ```
@@ -210,6 +213,10 @@ Avalon/
 - **ChoiceScript** by Choice of Games LLC
 - **HTML/CSS/JavaScript** for web version
 - **Node.js** for local testing
+- **Everweave.ai** for campaign worldbuilding sessions
+
+### Source Materials
+Campaign session logs from Everweave.ai tabletop RPG sessions form the canonical foundation of Izack Thorne's character development and the Spiral of Pollyoneth universe. See `AvalonBook STUFF/README.md` for details on 406+ pages of source material.
 
 ---
 

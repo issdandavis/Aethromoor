@@ -16,5 +16,5 @@ IZACK_NARRATIVE_BOOK_FULL_CH1.pdf
 PDF
 IZACK_FINAL_MASTER_CHRONICLE.pdf
 PDF
-everweave-export.pdf
-PDF
+AvalonBook STUFF/everweave-export.pdf
+PDF - Primary 406-page campaign session log from Everweave.ai
