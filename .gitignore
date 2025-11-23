@@ -5,6 +5,27 @@ keys.txt
 # OS/filesystem cruft
 .DS_Store
 Thumbs.db
+*.lnk
+*.url
+
+# Personal/temporary files
+notes.txt
+notes2.txt
+numbers.txt
+next*.txt
+
+# Music production files
+*.flp
+*.flp.bak
+
+# Game/software logs and configs
+*.log
+*ConfigReport*.xml
+
+# Temporary Office files
+~$*.doc*
+~$*.xls*
+*.tmp
 
 # ChoiceScript engine clone (downloaded locally)
 game/choicescript/

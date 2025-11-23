@@ -1,37 +1,51 @@
 ═══════════════════════════════════════════════════════
   WHERE EVERYTHING IS - QUICK REFERENCE
+  (Updated after full repository consolidation)
 ═══════════════════════════════════════════════════════
 
 🎮 TO PLAY THE GAME:
    game/index.html ← OPEN THIS FILE
+   game/PLAY_HERE.html ← Alternative entry point
 
 📚 DOCUMENTATION:
    START_HERE.md ← Simplest instructions
    README.md ← Full project overview
+   REPOSITORY_STRUCTURE.md ← Complete directory map
    QUICK_START.md ← Detailed play instructions
 
 📖 GAME FILES:
-   game/ ← HTML version (complete)
-   choicescript_game/ ← Professional version
+   game/ ← HTML version (complete, 30+ scenes)
+   choicescript_game/ ← Professional version (in progress)
 
 📚 LORE & WORLDBUILDING:
    lore/ ← All worldbuilding documents
+   lore/IZACK_MASTER_CHRONICLE_UPDATED.txt.txt ← Izack's complete timeline
+   lore/__Geography and Natural Lore of the Spiral of Pollyoneth__.pdf ← Geography
 
 📝 WRITING:
    writing_drafts/ ← Novel manuscripts
+   writing_drafts/book_chapters/ ← Individual chapters
 
 📋 PROJECT DOCS:
+   docs/PROJECT_ROADMAP.md ← Development plan & phases
    docs/AUTOMATION_GUIDE.md ← Zapier workflows
-   docs/PROJECT_ROADMAP.md ← Development plan
+   docs/GAME_DEVELOPMENT_MASTER_REFERENCE.md ← Game dev guide
+   docs/SUBMISSION_GUIDE.md ← Publishing guide
+   docs/NEXT_TASKS.md ← Immediate next steps
 
-📦 OLD FILES:
-   archive/ ← Chat logs and old versions
+📦 ARCHIVED FILES:
+   archive/conversations/ ← AI chat logs
+   archive/old_versions/ ← Old bundles & exports
+   archive/personal/ ← Personal notes & files
 
 ═══════════════════════════════════════════════════════
 
 MOST IMPORTANT:
 • To play: game/index.html
-• To understand structure: README.md
-• To learn how to play: START_HERE.md
+• To understand structure: REPOSITORY_STRUCTURE.md
+• To see development plan: docs/PROJECT_ROADMAP.md
+• To contribute: CONTRIBUTING.md
+
+ALL 150+ FILES NOW PROPERLY ORGANIZED! ✅
 
 ═══════════════════════════════════════════════════════
