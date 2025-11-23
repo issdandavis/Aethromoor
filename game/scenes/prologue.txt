@@ -1,20 +1,287 @@
-The skybridge to the Aerie arches above clouds. Banners from distant houses ripple in the wind. Below, the Spiral resonates with each step you take.
+*comment @issdandavis - Expanded prologue with cave awakening sequence from master lore
+
+*comment The Cave of Dimensional Resonance - Where It All Began
+
+You awaken to the scent of ancient stone and something else—ozone, perhaps, or the residue of magic that has seeped into rock over centuries. Your eyes adjust slowly to dim light filtering through crystal formations embedded in the cave walls.
+
+The walls themselves are covered in runes. Not carved—grown, as if the stone itself learned to speak and chose to express its knowledge through symbols that pulse with their own inner luminescence.
+
+*temp awakening_memory 0
 
 *choice
-  #Pause to read the banners.
-    The sigils speak of alliances and old debts. The wardens note your patience.
-    *set honor +5
-    *set council_trust +5
-    *goto next
-  #Listen for echoes in the Spiral.
-    A rhythm of distant bells answers you. Your attunement sharpens.
-    *set attunement +5
-    *goto next
-  #Move quickly; the council is waiting.
-    You stride forward. ${mentor} jogs to keep up.
-    *set council_trust -5
-    *goto next
+  #Study the runes carefully, trying to decipher their meaning.
+    The symbols seem to shift as you focus on them, rearranging themselves into patterns that almost make sense. Dimensional linguistics—your specialty, though you can't quite remember when you learned it.
+    
+    One inscription catches your eye: *"Where boundaries blur, something always listens."*
+    
+    *set attunement +15
+    *set awakening_memory +1
+    You feel the Spiral recognize you as a scholar, a seeker of truth.
+    *goto staff_discovery
+    
+  #Call out, see if anyone else is here.
+    Your voice echoes strangely, as if the cave is listening and considering its response. For a moment, nothing. Then—a rustle of wings.
+    
+    A raven lands before you, its feathers catching light that isn't quite there, reflecting colors that don't have names yet. Each wing bears intricate runic patterns that pulse with magical signatures.
+    
+    The raven tilts its head, assessing you with eyes sharp enough to cut glass and old enough to remember when the world was younger.
+    
+    *set awakening_memory +1
+    "Well," says the raven in a voice carrying slight rasp, "you're finally awake. I was beginning to wonder if dimensional displacement had scrambled more than just your location."
+    *goto polly_introduction
+    
+  #Search for an exit, you need to understand where you are.
+    You move carefully through the cave, your footsteps echoing. The deeper you go, the more the runes on the walls seem to react to your presence, glowing brighter as you pass.
+    
+    At the heart of the cave, you find something that wasn't there before—or perhaps it was always there, waiting for you to be ready to see it.
+    
+    *set honor +10
+    *set awakening_memory +1
+    *goto staff_discovery
 
-*label next
-You reach the council chambers. A portal shimmers, leading deeper into Avalon.
+*label polly_introduction
+*comment @issdandavis - Polly's first meeting, establishing her character and the partnership
+
+"I'm..." you begin, then realize you're not entirely sure how to finish that sentence.
+
+"Disoriented. Magically displaced. Wondering if you're dreaming or having the world's most elaborate hallucination," the raven supplies helpfully. "All perfectly normal reactions to dimensional awakening. I'm Polydimensional Manifestation of Accumulated Wisdom and Occasional Sarcasm."
+
+*choice
+  #"That's quite a mouthful."
+    "Polly will suffice for daily use," she says, hopping closer with an air of someone conducting an important evaluation. "Though I reserve the right to insist on my full designation during formal introductions."
+    
+    She walks over to where you'd apparently been attempting to sketch some runes in the dust. With one rune-marked feather, she scratches a correction that makes the entire spell matrix suddenly click into perfect sense.
+    
+    *set attunement +10
+    "You have potential," Polly observes. "Rough, unfocused, but the questions you're asking with your magic have interesting shapes."
+    *goto staff_chamber
+    
+  #"How did I get here?"
+    "You walked between dimensions following footprints that might have been your own," Polly says matter-of-factly. "Technically impressive, practically disorienting, magically significant in ways you don't yet understand."
+    
+    She settles onto a nearby stone, folding her wings with precision. "The better question is: do you remember why you were attempting dimensional translocation in the first place?"
+    
+    Fragments of memory surface—studying boundary theory, pushing past theoretical limitations, asking questions about the spaces between realities...
+    
+    *set attunement +5
+    *set council_trust +5
+    "I was... researching," you say slowly. "Something about collaborative magic across dimensional boundaries."
+    
+    "Bingo," Polly says. "And look where it got you. Right where you needed to be."
+    *goto staff_chamber
+    
+  #"Are you my familiar?"
+    Polly makes a sound that might be amusement or mild offense. "Familiar implies servitude. I prefer to think of this as a mutual contract between equals who've found themselves in the same strange corner of reality."
+    
+    She hops closer, examining you with professional interest. "You've been asking questions with your magic, scholar. I came because I heard those questions, and I rather liked the shape of them."
+    
+    *set honor +5
+    *set attunement +5
+    "Partnership, then?" you offer.
+    
+    "Now you're learning," Polly approves. "Though I should warn you—I have very strong opinions about proper research methodology."
+    *goto staff_chamber
+
+*label staff_chamber
+*comment @issdandavis - The Chronological Nexus Staff discovery, time magic introduction
+
+Polly leads you deeper into the cave, where the runes grow denser, their meanings layering into complex theories of dimensional architecture and temporal linguistics.
+
+At the chamber's heart rests a staff of crystalline formation that pulses with its own inner light. Not ancient, not future, but present beyond present—existing in temporal equilibrium, as if it has been waiting since before time learned to flow sequentially.
+
+"The Chronological Nexus Staff," Polly announces. "It doesn't bend time to the wielder's will. It helps you understand time's own intentions—translation, not domination."
+
+*choice
+  #Approach the staff respectfully, extending your magical senses to understand it.
+    Your consciousness brushes against the staff's awareness, and it welcomes your investigation with surprising trust. This isn't a tool to be wielded—it's a partner to be understood.
+    
+    When your hand closes around its grip, the cave erupts in light and meaning. Inscriptions lift from the walls, dancing like luminous butterflies. You see connections—the web binding magical theory into coherence, the harmonies connecting every expression of intent across all realities.
+    
+    *set attunement +20
+    *set resonance_mark true
+    
+    *temp staff_vision "I twisted the crystal once and time flickered like a sentence rewritten"
+    
+    The memory isn't yours, but you understand it perfectly. The staff has been used before, by wielders who grasped its true nature as an instrument of translation.
+    
+    "Well," Polly observes from your shoulder, having perched there as if she belongs, "that's promising. You didn't immediately try to make it do tricks."
+    *goto cave_exit
+    
+  #Hesitate. This feels like a test.
+    "Smart," Polly comments. "Caution isn't cowardice when dealing with artifacts of temporal significance."
+    
+    You circle the staff, observing how reality bends slightly in its presence. Time magic, yes, but deeper—the ability to perceive underlying structures that give time meaning, to understand causality as a language.
+    
+    *set honor +10
+    
+    "It's not going to bite," Polly adds after a moment. "Though it will judge you. Everything here judges you. That's rather the point of dimensional awakening."
+    
+    *choice
+      #Take the staff. You came here for a reason.
+        The moment your palm closes around its grip, understanding floods through you. Not domination—collaboration. The staff doesn't serve; it translates, interprets, helps you hear what time itself is trying to communicate.
+        
+        *set attunement +15
+        *set resonance_mark true
+        
+        Polly nods approval. "Better late than never. Shall we see what else you've been unconsciously preparing?"
+        *goto cave_exit
+        
+      #Ask Polly what she thinks you should do.
+        "I think," Polly says carefully, "that you already know. The staff has been waiting for someone who asks questions instead of making demands. Someone who sees magic as conversation, not conquest."
+        
+        She fixes you with those ancient, sharp eyes. "The question is whether you're ready to accept what you've been becoming."
+        
+        *set council_trust +10
+        
+        Taking a breath, you reach for the staff. It moves toward your touch, accepting you with certainty. Light and meaning cascade through the chamber.
+        
+        *set attunement +12
+        *goto cave_exit
+    
+  #"What happens if I take it?"
+    "Excellent question," Polly says. "Shows you're thinking. Taking it means accepting responsibility for dimensional linguistics as a living practice. It means becoming someone who translates between realities, who helps magic communicate across boundaries that others see as walls."
+    
+    She preens one wing thoughtfully. "It also means the Spiral of Pollyoneth will recognize you as an architect—someone capable of shaping dimensional spaces with intent and wisdom."
+    
+    *set council_trust +5
+    
+    *choice
+      #"I'm ready for that."
+        You grasp the staff firmly. Warmth spreads through your palm as it accepts you, knowledge flowing both ways—you learning its nature, it learning yours.
+        
+        *set attunement +15
+        *set honor +5
+        *set resonance_mark true
+        
+        "Good," Polly says. "Because whether you felt ready or not, you already started this path when you first asked why boundaries exist."
+        *goto cave_exit
+        
+      #"I need time to think."
+        Polly's eyes gleam with something that might be approval. "Wise. Rushing into partnerships with temporal artifacts rarely ends well. But understand—time thinking is still time spending, and the Spiral won't wait forever."
+        
+        *set attunement +8
+        *set honor +8
+        
+        You spend longer studying the staff, understanding its rhythms, feeling how it perceives reality as layers of causality and meaning. When you finally take it, the acceptance feels mutual, earned.
+        
+        *goto cave_exit
+
+*label staff_discovery
+*comment Alternative path for those who searched rather than called out
+
+At the heart of the cave, crystal formations create natural shelves where something rests—a staff of impossible crystalline structure, pulsing with light that seems to come from within and beyond simultaneously.
+
+As you approach, you become aware of another presence. A raven lands on one of the crystal outcroppings, her feathers marked with runic patterns that mirror those on the walls.
+
+"Took your time getting here," she observes. "I'm Polly. You're the dimensional theorist who's been asking interesting questions with unconscious magic. We should talk."
+
+*set attunement +5
+
+*goto polly_introduction
+
+*label cave_exit
+*comment @issdandavis - Transition to Avalon proper, establishing the Spiral's nature
+
+You emerge from the cave into forest light that feels both familiar and impossibly strange. Ancient trees whisper in languages your elven heritage almost recognizes. The paths ahead curve with intentional magic—someone, or someones, have shaped this place with care.
+
+*if resonance_mark
+  The staff hums in your grip, resonating with the forest's underlying harmonics. You can feel the Spiral beneath your feet—not a place, but a living dimension that responds to intent and remembers every choice.
+  
+"Welcome," Polly says from your shoulder, "to the boundaries of Pollyoneth. The Spiral of Eternity, the Academy of Collaborative Magic, the realm that grows in the spaces between established certainties."
+
+*temp location_understanding 0
+
+*choice
+  #"Pollyoneth? Named after you?"
+    Polly's feathers ruffle with what might be embarrassment or pride. "Named in my honor by Izack Thorne when he planted the World Seed. Apparently 'Polydimensional Manifestation of Accumulated Wisdom and Occasional Sarcasm' was too long for a realm designation."
+    
+    She settles more comfortably on your shoulder. "The realm itself is sentient—grown from a World Seed on sacred ground, watered with collaborative magic from nine traditions. It learns, remembers, and occasionally has opinions about proper spellcasting technique."
+    
+    *set location_understanding +1
+    *set attunement +5
+    *goto avalon_approach
+    
+  #"What is the Spiral of Eternity?"
+    "Not a what—a where and a when and a why all tangled together," Polly explains. "It's a pocket dimension where time flows thematically instead of linearly. Spring for awakening, summer for conflict, autumn for reflection, winter for transformation."
+    
+    She gestures with one wing at the forest around you. "Every tree, every stone, every whisper of wind is part of a living realm that exists to facilitate collaboration between different magical traditions, different ways of understanding reality."
+    
+    *set location_understanding +1
+    *set council_trust +5
+    *goto avalon_approach
+    
+  #"You mentioned an Academy?"
+    "Avalon Academy," Polly confirms. "The institution that grows within Pollyoneth. Structured around guilds—Elementalists, Runic Engineers, Diplomancers, Healers, and more. Each brings their tradition, their knowledge, their unique approach to magic."
+    
+    She preens one wing thoughtfully. "The genius is in the collaboration. What one tradition sees as limitation, another sees as opportunity. Together, they create magic none could achieve alone."
+    
+    *set location_understanding +1
+    *set honor +5
+    *goto avalon_approach
+
+*label avalon_approach
+*comment @issdandavis - First view of Avalon, establishing the visual grandeur and magical atmosphere
+
+The path opens onto a vista that stops your breath. 
+
+Ahead, Avalon rises from the forest like a dream made architecture. Spires of living crystal spiral toward skies where auroras dance regardless of time of day. Bridges of pure light connect floating islands where gardens bloom in impossible colors. The central tower—the Spiral Spire—reflects starlight even at noon, its surface showing not just what is, but what might be.
+
+Banners ripple from distant towers, each bearing sigils of the great magical houses: Ravencrest's crowned raven, Elensar's intertwined moons, Danvovik's geometric shields, and others you don't yet recognize.
+
+Below, the leylines are visible as rivers of prismatic light flowing through plazas where scholars debate and students practice. Chameleonetts—small creatures that flicker in and out of phase—dart between reality states, while rune-carving beavers work on guild hall construction with mystical precision.
+
+*if (attunement >= 20)
+  You can hear the Spiral singing—a distant choir of harmonics created by the leyline convergence beneath Avalon. It's not sound, exactly, but meaning conveyed through magical resonance.
+  
+  The song welcomes you, recognizing the questions you carry and the staff that helps you ask them.
+
+*choice
+  #Stand in awe. This is beyond anything you imagined.
+    "First time seeing collaborative magic at geographical scale?" Polly asks, not unkindly. "You'll get used to it. Eventually. Probably."
+    
+    You count at least seven different magical signatures working in harmony—creating something none could achieve alone. This is what you've been researching, theorizing about. This is magic as conversation instead of conquest.
+    
+    *set attunement +10
+    "Ready to meet those who built this?" Polly asks.
+    *goto city_entrance
+    
+  #Try to analyze the magical architecture, understand its principles.
+    The more you study, the more you understand. The spires aren't just beautiful—they're functional. Each serves as a resonance amplifier, helping different magical traditions communicate across philosophical boundaries.
+    
+    The floating islands create zones of specialized reality where specific types of magic work more easily. The gardens aren't mere decoration—they're living laboratories where flora adapted to multiple magical systems cross-pollinate ideas as well as genetics.
+    
+    *set attunement +15
+    *if resonance_mark
+      The staff in your hand hums, showing you the temporal architecture underlying everything—how each choice ripples outward, how the past and future negotiate through the eternal present.
+    
+    "Scholar to your core," Polly observes approvingly. "They'll like you at the Conservatory."
+    *goto city_entrance
+    
+  #Look for the people who built this. Where are the architects?
+    "Some dead, some teaching, some still building," Polly says. "Izack Thorne—Isimar Caedyn Sova in formal contexts—founded Pollyoneth with Aria Ravencrest. Their son Alexander studies here, along with students from realms you haven't dreamed of yet."
+    
+    She points toward a group of figures crossing a light-bridge: a young man whose robes shift between multiple cultural styles, a dragon-blooded woman whose scales catch sunlight, a demon-realm child whose horns are decorated with friendship braids.
+    
+    "That's the Third Thread generation," Polly explains. "Magic that learns, that synthesizes multiple traditions into something new. They're what happens when you build bridges instead of walls."
+    
+    *set council_trust +10
+    *set honor +5
+    *goto city_entrance
+
+*label city_entrance
+*comment @issdandavis - Entering Avalon proper, establishing player agency and the game's core choice
+
+You stand before the gates of Avalon, the Spiral of Eternity humming under your feet. Airships arc between spires overhead, their contrails forming luminous sigils that fade as quickly as they appear.
+
+A warden approaches—silver spear gleaming, oath-marks visible on her armor. Behind her, a scholar in robes that seem to be made of compiled questions peers at you with professional interest.
+
+"New arrival?" the warden asks. "You'll need to choose your path. Avalon welcomes all who come to learn and collaborate, but the city shapes itself around the intentions you carry."
+
+The scholar nods. "Will you walk the path of scholarship, seeking to understand the Spiral's deeper mysteries? Or the path of honor, protecting what we've built together? Or perhaps you'll seek balance, weaving both into something uniquely yours?"
+
+*if resonance_mark
+  Polly whispers from your shoulder: "They're not testing you—they're asking what you want to become. The Spiral will help you get there, but it can't decide for you."
+
+Today you choose how you will meet the city's secrets.
+
 *finish

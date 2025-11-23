@@ -1,17 +1,205 @@
+*comment @issdandavis - The Crossroads of Intent: Where player choices shape their path through Avalon
+
+*comment ═══════════════════════════════════════════════════════════════
+*comment     THE TRIAD OF PORTALS
+*comment     "Every choice is a conversation with possibility"
+*comment ═══════════════════════════════════════════════════════════════
+
 Beyond the council doors, a triad of portals rotates in perfect alignment. Each promises a different future. Threads of light braid between them, knitting the fates of Avalon together.
 
+The portals exist in a circular chamber where the floor shows a living map of Pollyoneth—leylines pulsing, guild halls glowing, students moving like stars through their individual orbits. The World Tree's roots are visible beneath the translucent floor, reaching toward other dimensions.
+
+*if mentor = "Aria"
+  Aria stands beside you, her presence making the leylines sing more clearly. "This is where every student must choose," she says softly. "Not forever—Avalon doesn't trap you in single paths—but for now. Where does your curiosity lead you?"
+
+*if mentor = "Polly"
+  Polly shifts on your shoulder, her rune-marked feathers catching portal-light. "Three doors, infinite implications. Typical Avalon efficiency. Choose based on what you want to learn first, not what you think you should be."
+
+*if mentor = "Corin"
+  Corin gestures toward the portals with practiced ease. "I've walked all three paths. Each taught me something essential. The question isn't which is best—it's which calls to you right now."
+
+*comment @issdandavis - Portal descriptions incorporating deep lore
+
+The three portals shimmer before you:
+
+**The Resonant Portal** (Left) glows with prismatic auroras, its surface showing glimpses of the Archives where living tomes whisper to each other in margin-script. You hear the distant hum of the Spiral's song—the cosmic harmonics created where leylines converge. This is the path of understanding, of scholarship, of learning to hear what magic itself is trying to say.
+
+**The Sentinel Portal** (Center) gleams silver like drawn blades, marked with oath-runes that pulse in time with your heartbeat. Through it, you see the Warden's Hall where spears rest beneath banners bearing names of the honored. This is the path of service, of protection, of understanding what's worth defending and why.
+
+**The Convergence Portal** (Right) swirls with multiple colors bleeding into each other—the visual representation of collaborative magic. Through it, you glimpse the Council Chamber where representatives from different magical traditions negotiate understanding across philosophical boundaries. This is the path of balance, of synthesis, of becoming someone who translates between different ways of seeing reality.
+
+*if resonance_mark
+  The Chronological Nexus Staff (if you're carrying it) responds to all three portals equally, as if reminding you that time magic touches every path—understanding requires time to learn, honor requires time to prove, balance requires time to achieve.
+
+*if (attunement >= 60)
+  Your heightened attunement lets you perceive additional details: the Archives portal hums with frequencies matching your own magical signature, suggesting natural affinity.
+
+*if (honor >= 60)
+  Your demonstrated honor makes the Sentinel portal brighten, as if the oath-magic within recognizes kindred spirit.
+
+*if (attunement >= 60) and (honor >= 60)
+  With both high attunement and honor, you notice the Convergence portal glowing brightest of all—responding to your balanced growth.
+
 *comment Branch into dedicated scenes to show *goto_scene usage and stat checks.
+
 *choice
-  #Step through the resonant portal tuned to the Spiral.
+  #Step through the Resonant Portal, tuned to the Spiral's song.
     *if attunement >= 60
-      The portal sings in harmony with you. Knowledge floods your mind, and the Spiral welcomes you as a student.
+      The portal sings in harmony with you as you approach. Its surface ripples like water accepting stone, and you step through into a space where knowledge itself has weight and texture.
+      
+      The transition is smooth, musical—each step producing a note that harmonizes with the Spiral's underlying frequencies. You feel the realm learning from your passage, incorporating your unique magical signature into its greater song.
+      
+      *set attunement +10
+      *set dimensional_understanding +1
+      
+      *if mentor = "Polly"
+        Polly's approval is palpable. "Natural affinity for scholarly paths. Good. The Archives need people who understand that wisdom accumulates, it doesn't just appear."
+      
       *goto_scene archives
-    Your attunement falters, and the portal resists. You gather stray harmonics to study later.
-    *set attunement +5
+    
+    *comment Alternative path if attunement is lower
+    Your attunement wavers as you approach the portal, and it resists—not hostilely, but firmly, like a teacher suggesting you're not quite ready for advanced material.
+    
+    You gather the stray harmonics that leak from the portal, studying them, learning from the resistance itself. The Spiral rewards curiosity even when it denies access.
+    
+    *set attunement +8
+    *set polly_approval +5
+    
+    *if mentor = "Aria"
+      "Don't be discouraged," Aria says gently. "The portal isn't rejecting you—it's asking you to grow first. Let's try another path."
+    
+    *if mentor = "Polly"
+      "Excellent," Polly says, surprising you. "You treated the refusal as data rather than failure. That's the beginning of real scholarship."
+    
+    The Convergence portal beckons, offering a different way forward.
     *goto_scene council
-  #Enter the martial hall marked by silver spears.
-    The wardens salute as you pass. Honor carries you forward into service.
+  
+  #Enter the Sentinel Portal, marked by silver spears and oaths.
+    *if honor >= 60
+      The oath-runes blaze as you approach, recognizing something in you—integrity proven, principles demonstrated, honor earned rather than claimed.
+      
+      You step through and feel the weight of responsibility settle on your shoulders like a cloak woven from starlight and vows. This is not burden—this is purpose, clarified and crystallized into form.
+      
+      *set honor +10
+      *set oathbound true
+      *set council_trust +10
+      
+      *if mentor = "Corin"
+        Corin's pride is evident in his posture. "Well done. The portal accepts only those who understand that true strength serves something beyond itself."
+      
+      *goto_scene wardens
+    
+    *comment Alternative path if honor is lower
+    The portal's surface remains firm, unyielding. The oath-magic within assesses you and finds... not failure, exactly, but potential not yet realized. Honor must be earned through action, proven through choice, demonstrated through consistency.
+    
+    You press your palm to the portal's surface, feeling the warmth of the oath-runes, understanding what they ask of you.
+    
+    *set honor +8
+    *set council_trust +5
+    
+    *if mentor = "Corin"
+      "The portal is honest," Corin says. "It shows you what you can become, not what you currently are. Let's build toward that future through another path."
+    
+    The Convergence portal awaits, offering balance and synthesis.
+    *goto_scene council
+  
+  #Approach the Convergence Portal, seeking balance between paths.
+    The swirling colors stabilize as you approach, forming a doorway that reflects your own image back at you—but refined, clarified, showing potential rather than just current state.
+    
+    *if (attunement >= 55) and (honor >= 55)
+      Perfect balance. The portal recognizes someone walking between extremes, synthesizing rather than specializing. This is the Third Thread approach—magic that learns by combining what others keep separate.
+      
+      You step through into a space where boundaries become conversations, where either/or transforms into both/and, where apparent contradictions reveal themselves as complementary facets of larger truth.
+      
+      *set attunement +8
+      *set honor +8
+      *set council_trust +15
+      *set dimensional_understanding +1
+      
+      *if mentor = "Aria"
+        "You remind me of Alexander," Aria says with warmth. "Not content with single answers, always looking for the synthesis that honors multiple perspectives."
+      
+      *if mentor = "Polly"
+        "Ambitious," Polly observes. "Trying to walk multiple paths simultaneously. Risky, but potentially revolutionary. That's how the Third Thread generation thinks."
+      
+      *goto_scene council
+    
+    *comment Alternative path if balance isn't quite there
+    The portal accepts you, though the transition is less smooth—colors bleeding and reforming as if the magic itself is negotiating with your current state of development.
+    
+    You understand: balance isn't a destination reached, it's a practice maintained. Every day you choose whether to honor both scholarship and service, understanding and action, learning and protecting.
+    
+    *set attunement +5
+    *set honor +5
+    *set council_trust +8
+    
+    *if mentor = "Polly"
+      "Balance is harder than it looks," Polly comments. "Most people claim they want it, but actually achieving it requires constant adjustment. You're on the right path."
+    
+    *goto_scene council
+  
+  #[Advanced Option - Only if resonance_mark = true] Ask the portals what they think you should do.
+    *if not(resonance_mark)
+      *goto normal_portal_choice
+    
+    *comment @issdandavis - Special option for those carrying the Chronological Nexus Staff
+    
+    An unusual choice, asking the portals themselves for guidance. But then, you've learned that magic here is conversational—why not have the conversation?
+    
+    You extend your awareness toward all three portals simultaneously, not demanding passage but requesting wisdom. The Chronological Nexus Staff (if you carry it) hums in resonance, translating your intent into frequencies the portal magic can understand.
+    
+    For a moment, all three portals pulse in perfect synchronization.
+    
+    Then they answer—not in words, but in {i}showing{/i}:
+    
+    You see yourself walking the scholar's path, becoming someone who understands the Spiral's deeper mysteries, who helps magic communicate across dimensional boundaries. This future-you has eyes that see leylines as clearly as others see roads.
+    
+    You see yourself walking the warrior's path, becoming someone who protects not just Avalon's physical space but its philosophical principles, who guards the idea that collaboration works. This future-you stands with quiet authority, oath-marks glowing steady and true.
+    
+    You see yourself walking the balanced path, becoming someone who translates between traditions, who synthesizes rather than specializes. This future-you speaks multiple magical languages fluently, helping others find common ground.
+    
+    All three futures are real. All three are possible. The portals can't choose for you—that's not how collaborative magic works. But they can show you what each path might help you become.
+    
+    *set dimensional_understanding +2
+    *set polly_approval +15
+    *set council_trust +5
+    
+    *if mentor = "Polly"
+      "Clever," Polly says with unmistakable approval. "Most people never think to ask the magic what it thinks. That's exactly the kind of approach that built this place."
+    
+    *if mentor = "Aria"
+      Aria's smile is warm. "Izack did something similar when he first encountered the World Seed. He asked it what it wanted to become, rather than deciding for it. That question changed everything."
+    
+    Now, understanding the implications, what do you choose?
+    
+    *choice
+      #The path of scholarship and deeper understanding.
+        *set attunement +10
+        *goto_scene archives
+      
+      #The path of honor and protective service.
+        *set honor +10
+        *set oathbound true
+        *goto_scene wardens
+      
+      #The path of balance and synthesis.
+        *set attunement +6
+        *set honor +6
+        *set council_trust +10
+        *goto_scene council
+
+*label normal_portal_choice
+*comment This label catches the advanced option choice if resonance_mark isn't true
+You consider asking the portals directly, but without the Chronological Nexus Staff or sufficient attunement to the Spiral, you're not sure how to frame the question in ways the magic would understand.
+
+Instead, you return to the straightforward choice: which portal calls to you?
+
+*choice
+  #The Resonant Portal (scholarship path)
+    *goto_scene archives
+  
+  #The Sentinel Portal (warrior path)
     *goto_scene wardens
-  #Seek ${mentor} for guidance before you decide.
-    ${mentor} meets your eyes. "The Spiral shifts for those who listen. Remember what you want to protect."
+  
+  #The Convergence Portal (balance path)
     *goto_scene council

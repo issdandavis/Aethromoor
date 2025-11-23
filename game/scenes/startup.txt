@@ -1,5 +1,9 @@
-*title Avalon Crossing (Demo)
-*author Avalon Story Team
+*comment @issdandavis - Avalon Crossing: The Spiral of Pollyoneth Interactive Story
+*comment Based on the extensive lore of Izack Thorne, Aria Ravencrest, and the collaborative magic of Avalon Academy
+
+*title Avalon Crossing: The Spiral of Pollyoneth
+*author Avalon Story Team (Issac Davis / Isimar Caedyn Sova)
+
 *scene_list
   startup
   prologue
@@ -10,6 +14,7 @@
   convergence
   epilogue
 
+*comment Core character stats tracking the player's growth
 *create honor 50
 *create attunement 50
 *create mentor "Aria"
@@ -17,25 +22,291 @@
 *create oathbound false
 *create resonance_mark false
 
-You stand before the gates of Avalon, the Spiral of Eternity humming under your feet. Today you choose how you will meet the city's secrets. Airships arc between spires overhead, their contrails forming luminous sigils that fade as quickly as they appear.
+*comment Additional lore-accurate stats
+*create polly_approval 50
+*create bloodline_awakened false
+*create dimensional_understanding 0
+*create guild_affiliation "none"
+*create staff_wielder false
+
+*comment @issdandavis - Opening establishes the world and its living magic
+
+*comment ═══════════════════════════════════════════════════════════════
+*comment     THE SPIRAL OF POLLYONETH
+*comment     Where Magic Listens and Boundaries Blur
+*comment ═══════════════════════════════════════════════════════════════
+
+*page_break
+
+{i}Where boundaries blur, something always listens.{/i}
+
+—Inscription in the Cave of Dimensional Resonance
+
+*page_break
+
+*comment PROLOGUE: THE NATURE OF THE SPIRAL
+
+The Spiral of Pollyoneth is not merely a place. It is a {i}conversation{/i}—between dimensions, between magical traditions, between what is and what might become.
+
+Founded by Izack Thorne (Isimar Caedyn Sova) and Aria Thalorien Elenstraea Ravencrest, this sentient realm grew from a World Seed planted on sacred ground, watered by collaborative magic from nine traditions. It exists in the spaces between established certainties, where time flows thematically rather than linearly.
+
+Here, the Avalon Academy thrives—not as a fortress of isolated knowledge, but as a living laboratory where:
+
+• Elementalists learn from Runic Engineers
+• Diplomancers study alongside Battle Mages  
+• Dragon-blooded students collaborate with demon-realm children
+• The Third Thread generation synthesizes magic that {i}learns{/i}
+
+This is magic as partnership, not domination.  
+This is scholarship as conversation, not conquest.  
+This is your story.
+
+*page_break
+
+*comment @issdandavis - Character creation establishing player identity and connection to lore
+
+You are a newly awakened dimensional traveler, drawn to Pollyoneth by resonances you don't yet fully understand. The Spiral recognizes something in you—potential, perhaps, or purpose not yet realized.
+
+But first: Who are you, beneath the titles and the uncertainty?
+
+*temp player_name ""
+*temp player_origin ""
+
+What name do you carry?
 
 *choice
-  #Study the ley lines that weave through the plaza.
-    The glyphs glow brighter as you trace them. You feel the Spiral answer your curiosity.
-    *set attunement +10
-    *set resonance_mark true
-    *goto embark
-  #Drill with the wardens who guard the bridge to the central spire.
-    Steel meets steel as you spar. The wardens nod when you match their pace.
-    *set honor +10
-    *set oathbound true
-    *goto embark
-  #Seek counsel from ${mentor}, the archivist who brought you here.
-    ${mentor} speaks softly about balance between duty and wonder.
-    *set mentor "Corin"
+  #A name from the mortal realms—practical, grounded.
+    *set player_name "Kaelen"
+    *set honor +5
+    Kaelen. A solid name, speaking of earthly heritage and practical wisdom.
+    *goto origin_choice
+  
+  #A name that hints at elven ancestry—musical, ancient.
+    *set player_name "Aerileth"
     *set attunement +5
-    *goto embark
+    Aerileth. The name carries echoes of older tongues, of forests that remember and stars that guide.
+    *goto origin_choice
+  
+  #A name you chose yourself, rejecting what you were given.
+    *set player_name "Cipher"
+    *set dimensional_understanding +1
+    Cipher. A name of meaning and mystery, of puzzles waiting to be solved.
+    *goto origin_choice
+
+*label origin_choice
+*comment @issdandavis - Establishing player's connection to the broader Spiralverse
+
+And where do you come from, before the Spiral called you here?
+
+*choice
+  #Aethermoor, the Prime World of mortals—where magic is studied but not always understood.
+    You come from lands where leylines run deep but quiet, where scholars debate theory while farmers pray to guardian spirits. You've seen magic, yes, but always at a distance—until it reached out and pulled you through dimensions.
+    
+    *set player_origin "Aethermoor"
+    *set honor +10
+    *set council_trust +5
+    
+    The warden at the gate nods recognition. "Aethermoor? Good people there. Practical magic, honest work. You'll find the transition... enlightening."
+    *goto mentor_choice
+  
+  #Nirestal, the Breathed Stone—diverse lands of singing deserts and haunted tundras.
+    You hail from a continent of contrasts: Sul'dessar's singing dunes, Dremsreach's frozen swamps, Viremont's fertile plains, or perhaps the Verdant Tithe's memory-woven forests. You've learned that magic comes in many forms, that every biome teaches its own wisdom.
+    
+    *set player_origin "Nirestal"
+    *set attunement +10
+    *set dimensional_understanding +1
+    
+    The scholar's eyes light up. "Nirestal! The geographical diversity must have prepared you well for Avalon's philosophical diversity. Excellent foundation."
+    *goto mentor_choice
+  
+  #The Dimensional Fringe—you've always existed in the spaces between.
+    You don't come from a place so much as from the gaps between places. Foldpoints and leyline nexuses have been your home, temporal loops and wild magic your teachers. You understand instinctively what others study for years: that boundaries are where the interesting conversations happen.
+    
+    *set player_origin "Fringe"
+    *set attunement +15
+    *set dimensional_understanding +2
+    *set resonance_mark true
+    
+    Both warden and scholar exchange glances. "Fringe-born," the scholar murmurs. "No wonder the Spiral sang when you approached. You're already halfway to understanding what we're building here."
+    *goto mentor_choice
+
+*label mentor_choice
+*comment @issdandavis - Introducing canonical characters as mentors, connecting player to main narrative
+
+The warden and scholar step aside, and you see three figures approaching. Each represents a different path through Avalon's mysteries.
+
+"One of us will guide your first steps," the scholar explains. "Though understand—choosing a mentor doesn't limit your growth. It simply indicates where you'll begin your journey."
+
+The three approach:
+
+**Aria Ravencrest** moves with the grace of a warrior-scholar, her silver hair bound in intricate braids that incorporate runic threads. As co-founder of Pollyoneth and symbolic Queen-Mother of the Spiral, her very presence makes leylines sing more clearly. You sense the bloodline magic that awakened during Alexander's birth still resonates within her.
+
+**Polly** (Polydimensional Manifestation of Accumulated Wisdom and Occasional Sarcasm) lands on a nearby post, her rune-marked feathers catching impossible light. The living archive, Izack's partner, and the realm's namesake—she embodies the principle that wisdom accumulates in the spaces between certainties.
+
+**Corin Dawnweaver**, Master of the Wardens, stands with quiet authority. His oath-marks glow faintly, speaking of vows kept and duties honored. He represents the martial philosophy that protection and scholarship must walk hand in hand.
+
+Who calls to you?
+
+*choice
+  #Aria Ravencrest—the path of bloodline magic and transformative power.
+    Aria inclines her head, and you feel the Spiral acknowledge the choice. "Welcome, ${player_name}. I see in you the potential for magic that transforms not just the world, but the self. Let me show you what collaborative power can become."
+    
+    *set mentor "Aria"
+    *set attunement +10
+    *set council_trust +10
+    
+    Her eyes—still bearing faint traces of the ancient magic that saved her life—study you with warmth and assessment. "First, I want you to understand something fundamental: magic here isn't about domination. It's about conversation. Are you ready to listen?"
+    *goto first_lesson
+  
+  #Polly—the path of accumulated wisdom and dimensional linguistics.
+    "Smart choice," Polly says, hopping onto your shoulder as if she's always belonged there. "I have very strong opinions about proper research methodology, but I suspect you'll appreciate that."
+    
+    *set mentor "Polly"
+    *set attunement +15
+    *set dimensional_understanding +2
+    *set polly_approval +20
+    
+    She preens one wing thoughtfully. "Here's what you need to know: this realm grows in the spaces between established certainties. Every question you ask shapes it. Every conversation you have teaches it. The Spiral is sentient, and it's been waiting for scholars like you."
+    *goto first_lesson
+  
+  #Corin Dawnweaver—the path of honor, oaths, and protective wisdom.
+    Corin clasps your forearm in the traditional warden's greeting. "Well met, ${player_name}. The path of the guardian is more than steel and oaths—it's about understanding what's worth protecting and why."
+    
+    *set mentor "Corin"
+    *set honor +15
+    *set council_trust +5
+    
+    His oath-marks pulse with steady light. "Avalon thrives because we guard not just its walls, but its principles. Collaboration requires trust. Trust requires those willing to stand watch. Come—let me show you what we defend."
+    *goto first_lesson
+
+*label first_lesson
+*comment @issdandavis - Establishing the core gameplay loop and thematic choices
+
+*if mentor = "Aria"
+  Aria leads you to the Dream Gardens, where flora blooms in response to magical intent. "Watch," she says, extending her hand toward a cluster of starlit roses.
+  
+  The flowers respond to her presence, their petals glowing brighter, their fragrance carrying hints of memory and possibility. "The Spiral learns from us even as we learn from it. Every spell we cast, every choice we make—it all becomes part of the realm's consciousness."
+  
+  She turns to you. "What do you think drives the best magic?"
+  
+  *choice
+    #"Understanding. Knowledge of how things work."
+      "Yes," Aria agrees, "but understanding alone can become cold, clinical. The gardens bloom not just for scholars who know their botanical properties, but for those who appreciate their beauty, who understand that magic has aesthetic as well as practical dimensions."
+      
+      *set attunement +10
+      
+      A flower at your feet blooms in response to the conversation, as if the Spiral itself is commenting.
+      *goto embark
+    
+    #"Collaboration. Magic that brings different traditions together."
+      Aria's smile widens. "Exactly what Izack and I built this place to prove. Alone, I was a warrior-scholar with ancient bloodline magic. Alone, he was a dimensional theorist pushing theoretical boundaries. Together, we planted a World Seed and grew a sentient realm."
+      
+      *set attunement +5
+      *set council_trust +10
+      
+      "The Third Thread generation—students like Alexander, Zara, and Malzeth'irun—they're the proof. Magic that learns by synthesizing multiple traditions."
+      *goto embark
+    
+    #"Purpose. Magic directed toward something worth achieving."
+      "Pragmatic and philosophical," Aria observes. "Yes, purpose matters. But here's what I learned during Alexander's birth, when my bloodline magic awakened to save my life: sometimes purpose finds us in moments of desperation, and we become something greater than we planned."
+      
+      *set honor +10
+      *set attunement +5
+      
+      "The question is whether we're ready to accept what we're becoming."
+      *goto embark
+
+*if mentor = "Polly"
+  Polly guides you to the Leyline Gazebo, where streams of prismatic magic converge and create harmonics audible to those who know how to listen.
+  
+  "Hear that?" she asks, tilting her head to catch the resonance. "That's seven different magical traditions singing in harmony. Elementalists, Runic Engineers, Diplomancers, Healers, Chronothurges, Bloodline Mages, and Dimensional Linguists—all contributing their unique frequency."
+  
+  She fixes you with those sharp, ancient eyes. "What do you hear in the song?"
+  
+  *choice
+    #"Complexity. So many layers I can't parse them all."
+      "Honest," Polly approves. "Most people pretend they understand more than they do. The leylines don't care about your ego—they'll sing their truth whether you comprehend it or not."
+      
+      *set attunement +10
+      *set polly_approval +10
+      
+      "But here's the secret: you don't have to understand everything at once. Learning is a conversation, not a conquest. Ask questions. Listen to the answers. Adjust your theories. Repeat."
+      *goto embark
+    
+    #"Harmony. Different voices creating something unified."
+      "Bingo," Polly says, her feathers ruffling with satisfaction. "This is what Izack understood when he started pushing dimensional boundaries. Magic isn't about forcing your will on reality—it's about finding the frequency where your intent and reality's possibilities harmonize."
+      
+      *set attunement +15
+      *set dimensional_understanding +1
+      
+      "The Spiral of Pollyoneth exists because enough practitioners believed in that principle to build a realm around it."
+      *goto embark
+    
+    #"Potential. These are foundations for magic not yet invented."
+      Polly's eyes gleam with unmistakable approval. "Now you're thinking like a dimensional architect. Yes! The leylines aren't just power sources—they're conversation starters. Every new practitioner who adds their voice creates new harmonics, new possibilities."
+      
+      *set dimensional_understanding +2
+      *set polly_approval +15
+      *set council_trust +5
+      
+      "The Third Thread generation proves it. Magic that learns, that synthesizes, that evolves beyond what any single tradition could achieve. {i}That's{/i} the real magic of Avalon."
+      *goto embark
+
+*if mentor = "Corin"
+  Corin brings you to the Warden's Hall, where silver spears rest in racks beneath banners bearing the names of those who've sworn oaths to protect Avalon's principles.
+  
+  "These aren't just weapons," he explains, running his hand along a spear shaft inscribed with flowing script. "Each is bound to its wielder through oath magic—a covenant that the weapon will serve only one who understands what's worth defending."
+  
+  He turns to you. "Why do you think Avalon needs wardens?"
+  
+  *choice
+    #"To protect against external threats. Every realm has enemies."
+      "True enough," Corin acknowledges, "but you're thinking too narrowly. Yes, we guard against incursions from Varn'ka'zul, against void traps in the Dimensional Fringe, against those who'd steal or corrupt what we've built."
+      
+      *set honor +10
+      
+      "But our deepest purpose is protecting the {i}idea{/i} of Avalon—that collaboration works, that boundaries can be bridges, that magic thrives when traditions share rather than hoard."
+      *goto embark
+    
+    #"To maintain order. Collaborative magic requires structure and rules."
+      "A common assumption," Corin says, "and partly true. But here's what I learned from Aria and Izack: too much structure kills creativity. Too little creates chaos. The warden's oath isn't to enforce rules—it's to create space where others can explore safely."
+      
+      *set honor +10
+      *set council_trust +5
+      
+      "We guard the boundaries so scholars can push them. We maintain stability so experimenters can risk failure. We're not enforcers—we're facilitators."
+      *goto embark
+    
+    #"To embody principles worth following. Leadership by example."
+      Corin's expression shifts to something approaching pride. "Yes. Exactly yes. The oath-marks we bear aren't just magical contracts—they're public commitments to live by Avalon's principles even when it's difficult."
+      
+      *set honor +15
+      *set oathbound true
+      *set council_trust +10
+      
+      "When students see wardens training alongside scholars, learning dimensional theory from Polly or healing magic from Selara Veyne, they understand that strength and wisdom aren't opposed—they're complementary."
+      *goto embark
 
 *label embark
-You carry these first decisions into the city. The Spiral waits.
-*finish
+*comment @issdandavis - Transition to the prologue, establishing the player's readiness
+
+*if mentor = "Aria"
+  "You're ready," Aria says, studying you with those eyes that see past surface to potential. "But before you walk deeper into the Spiral, you should understand where it all began—the Cave of Dimensional Resonance, where Izack first awakened to what he was becoming."
+  
+*if mentor = "Polly"
+  "Right then," Polly declares from your shoulder. "Theory is useful, but you learn magic by {i}doing{/i} magic. Time to show you where this whole glorious experiment started—the cave where Izack found the Chronological Nexus Staff and I found a dimensional theorist worth mentoring."
+  
+*if mentor = "Corin"
+  "Your training begins with understanding," Corin says. "Not just of Avalon as it is, but of how it came to be. Every warden walks the path Izack first walked—through the Cave of Dimensional Resonance, where boundaries blur and something always listens."
+
+The path opens before you, leading toward mysteries both personal and cosmic.
+
+You carry these first decisions into the city. The Spiral waits—patient, curious, ready to learn from you even as you learn from it.
+
+*page_break
+
+{b}End of Introduction{/b}
+
+The story continues in the Cave of Dimensional Resonance, where your true journey begins...
+
+*goto_scene prologue

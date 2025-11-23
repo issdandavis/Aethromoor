@@ -1,29 +1,258 @@
-The council chamber is a ring of suspended platforms. Holographic maps of the Spiral shimmer between the elders.
+*comment @issdandavis - The Council of Nine Traditions: Political intrigue and collaborative magic
+
+*comment ═══════════════════════════════════════════════════════════════
+*comment     THE COUNCIL CHAMBER
+*comment     Where traditions negotiate understanding
+*comment ═══════════════════════════════════════════════════════════════
+
+The council chamber is a ring of suspended platforms, each representing one of the nine magical traditions that founded Pollyoneth through collaborative spellwork. Holographic maps of the Spiral shimmer between the elders, showing leyline flows, dimensional stress points, and the pulsing rhythm of the World Tree's growth.
+
+The architecture itself is a masterwork of collaborative magic: Runic Engineers carved the stability wards, Elementalists regulate temperature and air flow, Diplomancers wove peace-binding enchantments into the very stone, and Dimensional Linguists ensured the space exists slightly outside normal time—allowing extended debates without aging the participants.
+
+*temp council_members_present 9
+
+*comment @issdandavis - Introducing the Nine Traditions through their representatives
+
+The nine elders are present today, a rare occurrence that suggests something significant is being discussed:
+
+**Elder Veyara Moonwhisper** (Bloodline Mages) - Her silver hair flows with veins of living magic, the mark of ancient lineages. She represents those like Aria Ravencrest, whose familial magic awakened during moments of desperate need.
+
+**Master Thornwick Runehand** (Runic Engineers) - His fingers are stained with enchanting inks, and every surface he touches briefly glows with structural equations. He builds wards that listen and adapt.
+
+**Archmage Selara Veyne of Bloomveil** (Healers) - The memory-stitching mage who helped save Aria during Alexander's birth. Her presence radiates calm and the scent of medicinal herbs.
+
+**Captain Eryssa Ironvow** (Battle Mages / Wardens) - Oath-marks visible on her arms, representing years of vows kept. Corin Dawnweaver serves under her command.
+
+**Scholar-Diplomat Kael Starweaver** (Diplomancers) - His robes shift between cultural styles depending on whom he addresses, adapting to facilitate understanding.
+
+**Elementalist Zephyr Stormcaller** - Crackling with barely contained lightning, she embodies the raw power of elemental forces disciplined through study.
+
+**Chronomage Aldric Temporis** - His eyes see multiple timelines simultaneously, making conversation with him occasionally disorienting but always enlightening.
+
+**Archon Mirabell Faewhisper** (Fey Negotiators) - Half-fey herself, she maintains treaties with beings whose concept of reality differs fundamentally from mortal understanding.
+
+**And Polly** - Representing Dimensional Linguistics and Archives, she perches on a stand carved specifically for her, her rune-marked feathers catching light from multiple dimensions.
+
+*if mentor = "Polly"
+  Polly shifts on your shoulder. "Stay quiet and observe," she whispers. "Council sessions are master classes in collaborative decision-making. Watch how they negotiate understanding across philosophical differences."
+
+*if mentor = "Aria"
+  Though Aria isn't an elder, her status as co-founder grants her voice in council matters. She stands beside you, her presence making you feel both protected and evaluated.
+
+*if mentor = "Corin"
+  Corin stands at attention near Captain Eryssa, but his eyes encourage you to engage fully. This is part of your education.
+
+*comment @issdandavis - The Council's Current Debate
+
+Elder Veyara speaks first, her voice carrying the musical quality of ancient bloodlines: "The question before us is whether to open formal diplomatic channels with the Heavenly Realm—the Star Children's Palace. They've sent envoys requesting exchange of knowledge and students."
+
+"A natural progression," Kael Starweaver argues. "We already host demon-realm children like Malzeth'irun, and the integration has been remarkably successful. Why not extend the same invitation to celestial beings?"
+
+"Because," Captain Eryssa counters, "the demon realm's culture we understand. Contracts, oaths, hierarchies of power. But the Heavenly Realm operates on principles of cosmic resonance and harmony that may conflict with our collaborative model."
+
+Thornwick Runehand taps the table, and runic calculations appear in the air above it. "My stability assessments show Pollyoneth can handle the dimensional stress of regular portals to celestial realms. The architecture supports it. The question is philosophical, not practical."
+
+*if resonance_mark
+  As the debate continues, you notice something others might miss: the World Tree's roots beneath the chamber floor are pulsing in rhythm with the discussion, as if the Spiral itself is participating in the council's deliberations.
+  
+  *set dimensional_understanding +1
+
+*comment @issdandavis - Player gets to participate in Council politics
+
+Elder Veyara's eyes fall on you—the newest member of Avalon's community. "You bring fresh perspective, untainted by our years of established patterns. What do you think?"
+
+The chamber falls silent. Nine of the most powerful magical practitioners in Pollyoneth await your response.
 
 *choice
-  #Present a balanced plan to strengthen both wards and archives.
-    Elders exchange impressed glances.
-    *set honor +5
-    *set attunement +5
+  #Present a balanced plan: Open limited exchange while establishing clear protocols.
+    You speak carefully, measuring your words: "What if we start small? A single exchange student from the Heavenly Realm, paired with a mentor who understands both dimensional transition and cultural integration. Observe, learn, adjust our approach based on actual experience rather than theoretical concerns."
+    
+    The elders exchange impressed glances.
+    
+    Kael Starweaver nods. "Pragmatic. Honors both the desire for expansion and the need for caution."
+    
+    Selara Veyne adds, "We could apply the same protocols we developed for Malzeth'irun's integration. They proved successful."
+    
+    *set honor +8
+    *set attunement +8
+    *set council_trust +15
+    
+    *if mentor = "Aria"
+      Aria's eyes warm with approval. "Exactly the kind of synthesis Izack and I hoped to cultivate here. Neither reckless nor paralyzed—measured and adaptive."
+    
+    Elder Veyara strikes her staff once against the platform. "Motion carries. We'll extend a preliminary invitation with the proposed limitations. Well reasoned, ${player_name}."
+    
+    *goto after_council
+  
+  #Advocate for deeper research into Heavenly Realm culture before making any commitments.
+    "With respect," you begin, and the elders lean forward—respect that comes before disagreement is the mark of thoughtful opposition—"we're discussing cultural exchange with beings whose fundamental nature we don't fully understand."
+    
+    You gesture toward the holographic maps. "The demon realm, we've studied. Fey culture, Archon Mirabell negotiates daily. But the Heavenly Realm? Their magic operates on cosmic resonance, on principles of harmonic purity that may fundamentally conflict with our collaborative model, which celebrates diversity and even dissonance."
+    
+    "Suggest we conduct thorough research first. Send diplomatic observers. Study their educational philosophy. {i}Then{/i} invite students, armed with understanding."
+    
+    Chronomage Aldric smiles, his multiple-timeline vision apparently showing him futures where this advice proves valuable. "Caution born of wisdom, not fear. I support this approach."
+    
+    *set attunement +15
     *set council_trust +10
+    *set dimensional_understanding +1
+    
+    *if mentor = "Polly"
+      Polly's approval radiates through your mental link. "Research before action. You're learning the scholar's path well."
+    
+    Not all elders approve immediately, but Elder Veyara nods. "A measured approach has merit. We'll establish a research delegation before extending invitations. Your voice is noted, ${player_name}."
+    
     *goto after_council
-  #Advocate for deeper research into the Spiral's song.
-    Not all elders approve, but ${mentor} speaks in your favor.
+  
+  #Argue passionately for immediate, full integration—why limit what could be transformative?
+    "We built Pollyoneth on a radical premise," you say, passion lending strength to your voice. "That magical traditions could collaborate instead of compete. That boundaries could become bridges. That diversity strengthens rather than weakens."
+    
+    You stand, unable to remain seated while making this argument. "The Third Thread generation—Alexander, Zara, Malzeth'irun—they prove the model works. Magic that {i}learns{/i} by synthesizing multiple traditions. Why hobble that potential with caution?"
+    
+    "Open the gates wide. Invite celestial students, demon-realm scholars, fey artists, dimensional nomads. Let Avalon become what it was always meant to be: a convergence point for {i}all{/i} magical understanding."
+    
+    The chamber erupts in debate—some elders nodding vigorously, others looking concerned.
+    
+    *set honor +10
     *set attunement +10
-    *set council_trust +5
-    *goto after_council
-  #Request permission to reopen a dormant portal.
-    The room stills. This is bold.
-    *if council_trust >= 55
-      They allow a trial. Responsibility settles on your shoulders.
-      *set resonance_mark true
-      *set honor +5
+    
+    *if (council_trust >= 60)
+      Elder Veyara raises her hand for silence. "Bold. Perhaps too bold for immediate implementation, but the spirit behind it reflects Avalon's founding principles. We'll open broader channels than initially proposed, though with monitoring protocols."
+      
+      *set council_trust +10
+      
+      Captain Eryssa adds, "And we'll increase warden presence to ensure safety during expanded integration. Your passion is noted, ${player_name}, and will shape our approach."
+      
       *goto after_council
     *else
-      The elders frown. "Earn our confidence first."
-      *set council_trust -5
+      Elder Veyara's expression is thoughtful but firm. "Your passion honors Avalon's principles, but governance requires balancing idealism with practical concerns. We'll note your perspective, but proceed more cautiously."
+      
+      *set council_trust +5
+      
+      *if mentor = "Corin"
+        Corin speaks quietly afterward: "Bold arguments earn respect, but trust is built through demonstrated wisdom. You'll have other opportunities to prove yourself."
+      
       *goto after_council
+  
+  #Remain silent. You're too new to weigh in on matters of such importance.
+    You bow your head respectfully. "I appreciate being included in this discussion, but I'm too new to Avalon to offer informed perspective on matters of such significance. I'll learn by observing how you reach consensus."
+    
+    The response is mixed. Some elders nod approval at your humility. Others look slightly disappointed.
+    
+    *set council_trust +8
+    *set honor +5
+    
+    Selara Veyne speaks gently: "New eyes see patterns veterans miss. Don't discount your perspective too quickly, ${player_name}. We value fresh insights."
+    
+    *if mentor = "Aria"
+      Aria adds quietly, "Izack revolutionized dimensional theory precisely because he questioned assumptions experts considered settled. Don't be afraid to speak, even as a newcomer."
+    
+    The council proceeds to vote without your input, eventually deciding on a measured approach—limited exchange with careful monitoring.
+    
+    *goto after_council
 
 *label after_council
-A bell tolls from deeper within the chamber, signaling a new phase of your time in Avalon.
-*goto_scene convergence
+*comment @issdandavis - Aftermath and deeper lore revelations
+
+As the formal session concludes, the council platforms begin their slow descent toward the chamber floor. Several elders approach you individually, each offering perspective on what you've witnessed.
+
+*if (council_trust >= 65)
+  Elder Veyara approaches first. "You showed wisdom today, ${player_name}. The council has been known to extend invitations to particularly promising newcomers. Would you be interested in serving as a student representative at future sessions?"
+  
+  *choice
+    #"I would be honored."
+      "Excellent," she says, and you feel a subtle magical mark settle onto your consciousness—not intrusive, but present. A connection to the council's communication network.
+      
+      *set council_trust +10
+      *set guild_affiliation "Council Observer"
+      
+      "You'll receive notifications when your perspective would be valuable. Welcome to Avalon's governance, in training."
+      *goto veyara_lore
+    
+    #"I need more time to understand Avalon before taking on such responsibility."
+      Veyara nods understanding. "Wise caution. The invitation remains open. When you feel ready, speak to any council member."
+      
+      *set honor +5
+      *goto veyara_lore
+
+*label veyara_lore
+*comment @issdandavis - Deep lore about bloodline magic and the Ravencrest legacy
+
+*if (council_trust >= 60)
+  Elder Veyara gestures for you to walk with her toward a quieter corner of the chamber. "Since you'll be working more closely with council matters, you should understand some of our history. Particularly regarding bloodline magic and how it shapes Avalon's present."
+  
+  She settles onto a bench carved from living wood. "Aria Ravencrest nearly died bringing Alexander into the world. The birthing was going wrong—Healers like Selara doing everything possible, but sometimes magic requires more than technique. It requires {i}sacrifice{/i}."
+  
+  *if mentor = "Aria"
+    Aria, if she's nearby, adds quietly: "I felt my life slipping away. And in that moment, something ancient in my bloodline awakened—magic my family had carried dormant for generations. It wasn't just healing magic. It was transformative. I became something more than I'd been, to save both Alexander and myself."
+  
+  Veyara continues: "That awakening changed Avalon's trajectory. It proved that bloodline magic isn't about superiority or isolation—it's about potential that manifests when purpose demands it. Aria's ancient lineage magic activated in service of bringing new life into the world. That's the pattern we honor here."
+  
+  *set attunement +10
+  *set dimensional_understanding +1
+  
+  "Alexander carries both Aria's awakened bloodline and Izack's dimensional architecture in his very being. He and students like Zara and Malzeth'irun represent the Third Thread—magic that synthesizes, that learns, that evolves beyond single traditions."
+  
+  *choice
+    #"Could my bloodline hold similar potential?"
+      Veyara's eyes gleam with interest. "Possibly. Most bloodlines carry dormant capabilities, waiting for the right catalyst. Avalon has ways of gently investigating such potential, if you're interested."
+      
+      *set bloodline_awakened false
+      *comment This sets up future content for bloodline discovery
+      
+      "Speak to me after you've walked more of Avalon's paths. We'll explore what sleeps in your lineage."
+      *goto council_conclusion
+    
+    #"The Third Thread generation sounds remarkable. I'd like to meet them."
+      "And you shall," Veyara promises. "Alexander often studies in the Archives. Zara frequents the training grounds—dragon-blooded and proud. Malzeth'irun, or 'Emberlight' as Aria calls her, spends time in the Dream Gardens. Seek them out. Learn from peers as well as elders."
+      
+      *set council_trust +5
+      *goto council_conclusion
+    
+    #"How do you balance honoring bloodlines without creating hierarchies?"
+      Veyara's smile is approving. "The exact right question. We acknowledge bloodline magic as one form of power among many—not superior, not inferior. A Runic Engineer's carefully constructed ward can equal or surpass bloodline magic in specific contexts. An Elementalist's trained discipline can channel power bloodline mages only access through crisis."
+      
+      "It's the collaborative synthesis that matters. What can this bloodline mage and this runic engineer create {i}together{/i} that neither could alone?"
+      
+      *set attunement +8
+      *set council_trust +10
+      *set honor +5
+      
+      "That question drives everything we do here."
+      *goto council_conclusion
+
+*label council_conclusion
+*comment @issdandavis - Transition and final council insights
+
+A bell tolls from deeper within the chamber—not a physical bell, but a resonance in the leylines themselves. The council session has officially concluded.
+
+*if mentor = "Polly"
+  Polly ruffles her feathers. "You survived your first council session. Most students find them overwhelming—too much political nuance, too many competing perspectives. You did well."
+  
+  *set polly_approval +10
+
+*if mentor = "Corin"
+  Corin clasps your forearm. "Council sessions inform warden duties more than most realize. Understanding why we protect something matters as much as knowing how. Remember what you learned here."
+
+*if mentor = "Aria"
+  Aria's hand rests briefly on your shoulder. "Izack and I built Pollyoneth through conversations like this—difficult, necessary, transformative. You're learning to participate in collaborative governance. That's no small thing."
+
+The platforms have fully descended now. Exits beckon in multiple directions—toward archives full of accumulated wisdom, toward training grounds where wardens drill, toward the convergence point where all paths meet.
+
+*temp council_learned true
+
+*choice
+  #Head to the Archives to research what was discussed.
+    *set attunement +5
+    Knowledge calls to you. Understanding the historical precedents for today's debates could prove valuable.
+    *goto_scene archives
+  
+  #Seek out the Wardens to understand how they'll implement council decisions.
+    *set honor +5
+    Theory matters, but implementation determines reality. You want to see how council decisions translate to practical action.
+    *goto_scene wardens
+  
+  #Go directly to the Convergence Point—you want to reflect on everything you've learned.
+    *set council_trust +5
+    Sometimes wisdom requires stepping back, seeing the larger pattern. The Convergence Point offers that perspective.
+    *goto_scene convergence

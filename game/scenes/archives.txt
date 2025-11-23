@@ -1,21 +1,334 @@
-You step into a crystalline hall where voices whisper in harmonics. Tomes float between shelves, threading stories into the Spiral.
+*comment @issdandavis - The Living Archives: Where wisdom accumulates and stories remember themselves
+
+*comment ═══════════════════════════════════════════════════════════════
+*comment     THE CRYSTALLINE ARCHIVES
+*comment     "Knowledge that listens, wisdom that grows"
+*comment ═══════════════════════════════════════════════════════════════
+
+You step into a crystalline hall where voices whisper in harmonics—not threatening, but conversational, as if the archive itself is engaged in eternal discussion with its own contents.
+
+The architecture defies simple description. Shelves grow from walls like living things, their surfaces shifting to present exactly the tome you need before you know you need it. Books float between levels, threading stories into the Spiral's greater consciousness. Some volumes glow with their own light; others cast shadows that seem more substantial than the books themselves.
+
+*if mentor = "Polly"
+  "Welcome," Polly says from your shoulder, "to my second home. The Archives are where Pollyoneth stores not just information, but {i}understanding{/i}. Every conversation, every debate, every breakthrough moment—the Spiral remembers and learns from it all."
+
+The deeper you walk, the more you notice: margins of books are covered in handwritten notes that weren't there a moment ago. Tomes whisper to each other, exchanging insights. A particularly old volume sprouts new pages as you watch, incorporating recent discoveries into its ancient framework.
+
+This isn't a library in any conventional sense. This is a living system of accumulated wisdom, constantly reorganizing itself to facilitate understanding.
+
+*comment @issdandavis - Polly's role as Living Archive explained
+
+*if mentor = "Polly"
+  Polly hops from your shoulder to a perch clearly designed for her—carved from a single piece of crystal that resonates with her magical signature.
+  
+  "A brief explanation," she says, settling her rune-marked feathers. "I'm not merely a familiar or companion to Izack. I'm a Polydimensional Manifestation of Accumulated Wisdom and Occasional Sarcasm—essentially a living archive in raven form."
+  
+  She gestures with one wing toward the floating tomes. "Every book here, I've read. Every conversation recorded in the Spiral's memory, I've witnessed or absorbed. I don't just store knowledge—I contextualize it, connect it, help others understand how seemingly unrelated ideas inform each other."
+
+*if mentor != "Polly"
+  A familiar rustle of wings announces Polly's arrival. She lands on a crystal perch, her presence making nearby tomes glow slightly brighter.
+  
+  "Wondered when you'd make it to the Archives," she says. "This is where real learning happens—not just memorizing facts, but understanding the conversations between ideas."
+
+*temp archive_discovery 0
+*temp polly_teaching false
 
 *choice
-  #Anchor yourself with a calming chant.
-    The resonance steadies. You imprint the Spiral's cadence onto your own heartbeat.
+  #Ask Polly to explain how the Archives work.
+    "Excellent question," Polly says, approval evident in her tone. "Most students just start grabbing books without understanding the system. You're already ahead."
+    
+    She hops to a nearby tome, tapping it with one rune-marked talon. Immediately, related books begin floating toward your position—not just on the same subject, but books that offer complementary or contradictory perspectives.
+    
+    "The Archives don't just store—they {i}curate{/i}. Touch a book about Elemental theory, and the Spiral shows you how Runic Engineers approached the same problems differently. Read about diplomatic history, and you'll get memoirs from all parties involved in the negotiation."
+    
+    *set polly_teaching true
+    *set attunement +12
+    *set polly_approval +15
+    *set archive_discovery +1
+    
+    "It's collaborative scholarship made architectural. The building itself helps you learn by showing connections you might have missed."
+    *goto archive_exploration
+  
+  #Try to navigate the Archives yourself, learning through exploration.
+    You move deeper into the crystalline halls, letting your instincts and curiosity guide you. The architecture responds to your interests—when you pause near a section on dimensional theory, shelves reorganize to present foundational texts first, then more advanced material.
+    
+    When you reach toward a particularly old tome, the Archive gently redirects you toward a more recent summary that incorporates the old knowledge but presents it more accessibly.
+    
     *set attunement +10
-    *set council_trust +5
-    *goto after_archives
-  #Let the current of memory carry you.
-    The voices show you futures yet unwritten. Insight floods your senses.
+    *set honor +5
+    *set archive_discovery +1
+    
+    *if mentor = "Polly"
+      "Learning by doing," Polly observes approvingly. "The Archive rewards that approach. It's designed to teach through interaction, not just passive reading."
+    *else
+      Polly watches from her perch. "Not bad. You're letting the Archive guide you instead of fighting its organization. That's the first step toward real scholarship here."
+    
+    *goto archive_exploration
+  
+  #Anchor yourself with a calming chant before proceeding deeper.
+    The harmonics can be overwhelming for those new to the Archives—multiple conversations happening simultaneously, knowledge pressing against consciousness from all directions. You ground yourself with a simple meditation technique, finding your center.
+    
+    The resonance steadies immediately. The voices don't quiet, but they become more ordered, more comprehensible. You feel your own rhythm synchronizing with the Spiral's cadence.
+    
     *set attunement +15
-    *set resonance_mark true
-    *goto after_archives
-  #Search for ${mentor}'s research notes.
-    You spot ${mentor}'s sigil and glean warnings about unstable portals.
-    *set council_trust +10
-    *goto after_archives
+    *set council_trust +8
+    *set archive_discovery +1
+    
+    Several nearby tomes glow brighter, as if approving your technique. The Archive itself seems to recognize someone who understands that scholarship requires both openness and discipline.
+    
+    *if mentor = "Polly"
+      "Smart," Polly says. "The Archives test everyone who enters. Most try to force understanding. You asked permission first, essentially. The Spiral appreciates that."
+      
+      *set polly_approval +10
+    
+    *goto archive_exploration
 
-*label after_archives
-An attendant smiles. "The council likes when scholars bring back clarity."
-*goto_scene convergence
+*label archive_exploration
+*comment @issdandavis - Deep dive into specific lore topics available in Archives
+
+The Archive's central chamber opens before you—a circular space where the most significant tomes orbit a central podium. These aren't just books; they're living records of Avalon's history, constantly updating themselves as new chapters unfold.
+
+*if polly_teaching
+  Polly guides you toward specific sections. "What you study first shapes how you understand everything after. Choose based on genuine curiosity, not what you think you should learn."
+
+*temp reading_choice ""
+
+The orbiting tomes include:
+
+**The Chronicle of Foundations** - Glowing with golden light, this records Izack and Aria's journey from that first cave to planting the World Seed that grew into Pollyoneth.
+
+**The Bloodline Codex** - Pulsing with crimson and silver, detailing the awakening of Aria's ancient magic during Alexander's birth, and the theory of dormant magical potential in family lines.
+
+**Dimensional Architecture and Theory** - Shifting through multiple colors simultaneously, this contains Izack's revolutionary work on treating boundaries as collaborative spaces rather than walls.
+
+**The Third Thread Prophecies** - Newest of the major tomes, still growing, recording Alexander, Zara, and Malzeth'irun's development as magic-that-learns.
+
+**Treaties and Alliances** - Marked with nine different seals representing the founding traditions, plus new seals being added as Avalon expands diplomatic relations.
+
+*choice
+  #Study the Chronicle of Foundations—understand how this all began.
+    The book opens to you willingly, its pages showing not just text but living images—Izack awakening in the cave, Polly correcting his runic notation, the staff's acceptance, Aria's first meeting with the dimensional theorist who would become her partner.
+    
+    You see the moment they decided to plant the World Seed. Aria had lost someone precious—a guardian animal, beloved and mourned. Izack wanted to comfort her, to create something beautiful from grief.
+    
+    Neither fully understood what they were starting. The seed grew with impossible speed, fed by collaborative magic from nine traditions who saw in Izack and Aria's partnership a model worth supporting.
+    
+    *set attunement +10
+    *set dimensional_understanding +2
+    *set reading_choice "Foundations"
+    
+    *if mentor = "Aria"
+      Aria, reading over your shoulder, speaks softly: "I remember that day. Grief and hope, endings and beginnings. We planted a seed and grew a realm. Sometimes I still can't quite believe it worked."
+    
+    *if mentor = "Polly"
+      "That's where I corrected Izack's spell matrix," Polly notes, pointing with one talon at a specific scene. "He'd have blown himself across three dimensions if I hadn't intervened. You're welcome, Pollyoneth."
+    
+    *goto archive_insight
+  
+  #Read the Bloodline Codex—understand magical inheritance and awakening.
+    The codex pulses as you touch it, and immediately you're immersed in the lore of bloodline magic—not as superiority or isolation, but as potential waiting for catalyzing moments.
+    
+    Aria Ravencrest's entry is extensive: warrior-scholar trained in practical magic, carrying dormant ancient lineage that activated during Alexander's birth when healing magic alone couldn't save her. The awakening was transformative—she became something more, gained abilities her family line had carried unexpressed for generations.
+    
+    But the codex doesn't stop there. It shows other examples: a farmer whose bloodline awakened earth-shaping magic during a drought. A scholar whose family's long-dormant telepathy manifested when teaching became more than words could convey.
+    
+    Pattern: Bloodline magic activates in service of something beyond the self. Crisis, yes, but purpose-driven crisis.
+    
+    *set attunement +12
+    *set bloodline_awakened false
+    *comment This flags for future content exploring player's potential
+    *set reading_choice "Bloodline"
+    
+    The codex whispers a question into your consciousness: {i}What sleeps in your lineage, waiting for purpose to wake it?{/i}
+    
+    *goto archive_insight
+  
+  #Explore Dimensional Architecture and Theory—Izack's revolutionary work.
+    This is complex material, dense with equations and theoretical frameworks, but the Archive presents it in ways tailored to your current understanding level.
+    
+    Core premise: Dimensional boundaries aren't walls to breach—they're membranes facilitating selective exchange. Like cell walls in biology, they exist to regulate flow, not prevent it entirely.
+    
+    Izack's innovation was treating dimensional linguistics as collaborative conversation. Instead of forcing passage between realms, he asked: "What do these dimensions want to exchange? How can I facilitate that communication?"
+    
+    The Chronological Nexus Staff emerges from this philosophy—not dominating time, but translating temporal intentions, helping conscious will and causal necessity negotiate.
+    
+    *set dimensional_understanding +3
+    *set attunement +15
+    *set reading_choice "Dimensional"
+    
+    *if resonance_mark
+      The staff (if you carry it) hums in resonance with the text, as if recognizing its own origin story.
+    
+    *if mentor = "Polly"
+      "Izack revolutionized dimensional theory," Polly explains, "precisely because he was willing to question assumptions everyone else considered settled truth. That's what real scholarship looks like—productive questioning, not just memorization."
+      
+      *set polly_approval +10
+    
+    *goto archive_insight
+  
+  #Read the Third Thread Prophecies—understand the next generation.
+    This tome is still being written, its pages appearing in real-time as Alexander, Zara, and Malzeth'irun make choices and discoveries that shape their unique approach to magic.
+    
+    **Alexander Danvovik-Elensar**: Child of Izack and Aria, carrying both dimensional architecture and awakened bloodline magic. His entries show a young man wrestling with expectations while discovering his own path—teaching as magic, philosophy as spellcraft, synthesis as the highest form of understanding.
+    
+    **Zara Millwright**: Dragon-blooded Third Thread prodigy, torn between raw power and emotional restraint. Her magic {i}learns{/i}—adapts to situations, incorporates techniques from traditions she observes. Partnership with Alexander developing, echoing Izack and Aria's relationship.
+    
+    **Malzeth'irun ("Emberlight")**: Demon-realm child with noble blood, navigating identity between cultural legacy and chosen family. Aria's nickname for her—Emberlight—speaks of warmth found in traditionally "dark" magic, of demonic heritage transformed through community acceptance.
+    
+    The prophecies aren't deterministic—they show possibilities, potential futures that might manifest if current trajectories continue. The Third Thread generation represents magic's next evolution: synthesis over specialization, learning over static mastery.
+    
+    *set council_trust +10
+    *set attunement +10
+    *set reading_choice "Third Thread"
+    
+    *goto archive_insight
+
+*label archive_insight
+*comment @issdandavis - Polly's commentary and deeper wisdom based on reading choice
+
+*if reading_choice = "Foundations"
+  Polly settles beside the Chronicle, her presence making its glow intensify slightly. "Here's what most students miss about the Foundations: Izack and Aria didn't set out to build Pollyoneth. They set out to comfort grief with beauty."
+  
+  "The realm grew from that simple impulse—transformed by collaborative magic from nine traditions who recognized something worth nurturing. Purpose found them. They became worthy of it through choices made afterward."
+  
+  She fixes you with those ancient, sharp eyes. "Same will likely happen to you. Purpose finds those asking interesting questions. Question is whether you'll be ready to accept what you're becoming."
+  
+  *set dimensional_understanding +1
+
+*if reading_choice = "Bloodline"
+  "Bloodline magic," Polly muses, preening one wing thoughtfully, "is perhaps the most misunderstood form of power. People think it's about superiority—ancient families, pure lineages, inherited privilege."
+  
+  "But look at the actual pattern: it activates in service, in crisis, in moments when individual capability isn't sufficient. Aria's magic awakened to save both herself and Alexander. That farmer's earth-shaping manifested to save crops, feeding community."
+  
+  "It's potential waiting for purpose. And here's the secret—{i}everyone{/i} carries dormant capabilities. Bloodline is just one form. You might carry something else entirely, waiting for the right catalyst."
+  
+  *set polly_approval +8
+
+*if reading_choice = "Dimensional"
+  "Izack's theoretical breakthrough," Polly explains, "came from refusing to accept boundaries as permanent barriers. He studied leylines, yes, but more importantly, he studied {i}why{/i} boundaries exist."
+  
+  "Protection, yes. Separation of incompatible magical systems, certainly. But also: conversation potential. Boundaries exist where different realities touch, where exchange becomes possible."
+  
+  "The Chronological Nexus Staff embodies that philosophy. It doesn't force time to bend—it translates between temporal intention and causal possibility, helping them negotiate."
+  
+  She hops closer to you. "You're learning to think like a dimensional architect. That's valuable, rare, and potentially revolutionary. Keep questioning assumptions."
+  
+  *set dimensional_understanding +1
+
+*if reading_choice = "Third Thread"
+  "Alexander, Zara, Malzeth'irun," Polly lists, affection evident in her tone. "I've watched them grow from confused children into practitioners developing entirely new magical approaches."
+  
+  "The Third Thread isn't just synthesis—it's {i}evolution{/i}. Magic that learns from every tradition it encounters, incorporating insights without losing coherence. They're proving that diversity strengthens rather than dilutes."
+  
+  "You'll likely meet them soon. When you do, don't just observe—{i}engage{/i}. They'll teach you things no elder can, precisely because they're discovering as they go."
+  
+  *set council_trust +5
+
+*comment @issdandavis - The choice to go deeper or synthesize learning
+
+The Archive's harmonics shift slightly, as if satisfied with your focused study. But there's always more to learn, more connections to discover.
+
+*choice
+  #Let the current of memory carry you deeper into the Archives.
+    You release conscious control, allowing the Spiral's accumulated wisdom to show you what it thinks you need to learn next.
+    
+    The voices flood your senses—not overwhelming, but illuminating. You see futures yet unwritten, connections between seemingly unrelated magical systems, the underlying harmonics that make Avalon possible.
+    
+    Insight cascades through you. This is what collaborative scholarship feels like at full intensity—consciousness expanding to hold more than individual perspective.
+    
+    *set attunement +20
+    *set resonance_mark true
+    *set dimensional_understanding +2
+    
+    When you surface from the experience, Polly is watching with unmistakable approval. "Brave. Not everyone's willing to let the Archive teach directly. You'll remember fragments of this for years, understanding more each time you recall."
+    
+    *if mentor != "Polly"
+      *set polly_approval +15
+    
+    *goto archives_conclusion
+  
+  #Search for ${mentor}'s research notes and contributions.
+    You navigate the Archive's organizational system (which is helpful once you understand it responds to intent rather than alphabetical order) and find your mentor's section.
+    
+    *if mentor = "Aria"
+      Aria's contributions are extensive: combat philosophy integrated with scholarly method, bloodline magic theory post-awakening, collaborative governance models, and extensive notes on Alexander's development as both son and magical prodigy.
+      
+      One entry catches your eye: {i}"Magic isn't about domination—it's about conversation. Every spell is a question posed to reality. The skill lies in learning to hear reality's answers."{/i}
+      
+      *set attunement +10
+      *set council_trust +12
+    
+    *if mentor = "Polly"
+      Polly's section is... extensive doesn't begin to cover it. Centuries of accumulated observations, corrections to other scholars' work (with varying degrees of sarcasm), and insights on dimensional linguistics that reshape entire fields of study.
+      
+      You find her notes on Izack's development particularly illuminating: {i}"Shows promise. Terrible penmanship. Revolutionary thinking wrapped in self-doubt. Will either change everything or explode spectacularly. Possibly both."{/i}
+      
+      *set dimensional_understanding +2
+      *set polly_approval +20
+      *set attunement +12
+    
+    *if mentor = "Corin"
+      Corin's contributions blend martial philosophy with ethical theory: when force is justified, how protection differs from control, why wardens study scholarship alongside combat.
+      
+      One entry resonates: {i}"Oaths bind, yes. But they also free—by clarifying what we stand for, they liberate us from aimless wandering. Purpose isn't restriction. It's direction."{/i}
+      
+      *set honor +15
+      *set council_trust +10
+    
+    Your mentor's work gives you framework for understanding your own path through Avalon's complexities.
+    
+    *goto archives_conclusion
+  
+  #Ask the Archive directly: What do I most need to learn right now?
+    An unusual approach, treating the Archive as conversational partner rather than passive resource. But then, everything in Pollyoneth is conversational if you know how to listen.
+    
+    You speak the question aloud: "Archive, Spiral, accumulated wisdom of Pollyoneth—what do I most need to understand at this moment in my journey?"
+    
+    For a heartbeat, nothing. Then every tome in the chamber pulses simultaneously, and a single book descends from the highest shelf directly into your hands.
+    
+    Its title shifts based on the angle you view it from, personalizing itself to your current needs. The content is exactly what you require—not necessarily what you expected, but precisely what your development needs next.
+    
+    *set attunement +15
+    *set dimensional_understanding +1
+    *set polly_approval +15
+    *set resonance_mark true
+    
+    Polly's eyes gleam with unmistakable approval. "Most students never think to {i}ask{/i} the Archive. You're learning that magic here is collaborative, conversational. That's the foundation everything else builds on."
+    
+    *goto archives_conclusion
+
+*label archives_conclusion
+*comment @issdandavis - Transition from Archives with new knowledge and understanding
+
+An attendant approaches—a student a few years ahead of you in studies, their robes marked with Archive insignia.
+
+"Impressive session," they comment, noting the glow of recently-consulted tomes around you. "Most newcomers spend their first Archive visit overwhelmed and confused. You engaged productively. The council likes when scholars bring back clarity rather than just questions."
+
+*set council_trust +8
+
+*if mentor = "Polly"
+  Polly returns to your shoulder, settling with satisfied wing-ruffle. "You did well. Real scholarship isn't about memorizing everything—it's about learning to ask productive questions and understanding where to find answers."
+
+*temp archive_complete true
+
+The attendant continues: "You'll want to see the Convergence Point next—where all paths through Avalon meet. It's where students synthesize their learning into coherent practice."
+
+*choice
+  #Head directly to the Convergence Point.
+    *set attunement +5
+    Knowledge gained here needs synthesis. The Convergence Point awaits.
+    *goto_scene convergence
+  
+  #Visit the Wardens first—balance scholarship with practical training.
+    *set honor +5
+    Understanding without application is incomplete. You want to see how theoretical knowledge translates to protective practice.
+    *goto_scene wardens
+  
+  #Stay in the Archives longer—there's always more to learn.
+    The attendant smiles understanding. "Scholar's curse—knowing there's always another book. But pace yourself. Wisdom accumulates through integration, not just consumption. Consider visiting the Convergence Point when you're ready."
+    
+    *set attunement +8
+    
+    You spend more time among the crystalline halls, letting the knowledge settle into understanding. When you finally emerge, you feel fundamentally changed—not by what you memorized, but by learning how to learn collaboratively.
+    
+    *goto_scene convergence
