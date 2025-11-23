@@ -20,6 +20,11 @@
 📝 WRITING:
    writing_drafts/ ← Novel manuscripts
 
+🎲 CAMPAIGN SOURCE MATERIALS:
+   AvalonBook STUFF/ ← D&D session logs & character development
+   AvalonBook STUFF/everweave-export.pdf ← Primary 406-page campaign log
+   AvalonBook STUFF/README.md ← Guide to campaign materials
+
 📋 PROJECT DOCS:
    docs/AUTOMATION_GUIDE.md ← Zapier workflows
    docs/PROJECT_ROADMAP.md ← Development plan
