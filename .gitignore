@@ -1,10 +1,44 @@
 # Environment and secrets
 .env
 keys.txt
+*.key
 
 # OS/filesystem cruft
 .DS_Store
 Thumbs.db
+desktop.ini
+*.lnk
+*.url
 
-# ChoiceScript engine clone (downloaded locally)
+# Build artifacts and dependencies
+node_modules/
+dist/
+build/
+*.log
+*.tmp
+
+# Music production files
+*.flp
+*.flp.backup
+
+# Game engine files (downloaded locally)
 game/choicescript/
+
+# Office temporary files
+~$*.doc*
+~$*.xls*
+~$*.ppt*
+*.tmp
+
+# Archives (keep source files, not zips)
+*.zip
+
+# IDE and editor files
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Personal notes (not project-related)
+archive/non_project_files/
