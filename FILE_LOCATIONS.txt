@@ -3,35 +3,90 @@
 ═══════════════════════════════════════════════════════
 
 🎮 TO PLAY THE GAME:
-   game/index.html ← OPEN THIS FILE
+   game/index.html ← OPEN THIS FILE IN YOUR BROWSER
 
-📚 DOCUMENTATION:
-   START_HERE.md ← Simplest instructions
+📚 DOCUMENTATION (Root Directory):
+   START_HERE.md ← Simplest instructions - Read this first!
    README.md ← Full project overview
    QUICK_START.md ← Detailed play instructions
+   PLAY_THE_GAME.md ← How to play both versions
+   SUBMISSION_GUIDE.md ← Publishing information
+   CONTRIBUTING.md ← How to contribute
 
 📖 GAME FILES:
-   game/ ← HTML version (complete)
-   choicescript_game/ ← Professional version
+   game/ ← HTML version (complete & playable)
+   choicescript_game/ ← Professional ChoiceScript version
 
 📚 LORE & WORLDBUILDING:
-   lore/ ← All worldbuilding documents
+   lore/ ← Core worldbuilding documents
+   lore/reference/ ← Detailed lore PDFs and chronicles
 
-📝 WRITING:
-   writing_drafts/ ← Novel manuscripts
+📝 WRITING & MANUSCRIPTS:
+   writing_drafts/ ← Novel manuscripts and story drafts
+   writing_drafts/chapters/ ← Individual chapter files
 
-📋 PROJECT DOCS:
+📋 PROJECT DOCUMENTATION:
+   docs/ ← Project guides and roadmaps
+   docs/reference/ ← Development references and guides
    docs/AUTOMATION_GUIDE.md ← Zapier workflows
    docs/PROJECT_ROADMAP.md ← Development plan
 
-📦 OLD FILES:
-   archive/ ← Chat logs and old versions
+📦 ARCHIVED MATERIALS:
+   archive/ ← Old files and historical materials
+   archive/chat_logs/ ← AI conversation logs
+   archive/campaign_materials/ ← D&D campaign materials
+   archive/misc/ ← Miscellaneous old files
+
+⚙️ CONFIGURATION:
+   config/ ← Configuration files
 
 ═══════════════════════════════════════════════════════
 
-MOST IMPORTANT:
-• To play: game/index.html
-• To understand structure: README.md
-• To learn how to play: START_HERE.md
+✨ MOST IMPORTANT FOR NEW USERS:
+1. To play the game → open game/index.html
+2. To understand the project → read START_HERE.md
+3. To explore the lore → check lore/ folder
+4. To read the novel → check writing_drafts/
+
+═══════════════════════════════════════════════════════
+
+📁 COMPLETE DIRECTORY STRUCTURE:
+
+Avalon/
+├── 📄 START_HERE.md ← Read this first!
+├── 📄 README.md ← Project overview
+├── 📄 QUICK_START.md
+├── 📄 PLAY_THE_GAME.md
+├── 📄 SUBMISSION_GUIDE.md
+├── 📄 CONTRIBUTING.md
+│
+├── 🎮 game/ ← Instant-play HTML game
+│   ├── index.html ← Double-click to play!
+│   ├── game.js
+│   └── style.css
+│
+├── 🎮 choicescript_game/ ← Professional version
+│   ├── startup.txt
+│   └── scenes/ ← All game scenes
+│
+├── 📚 lore/ ← Worldbuilding
+│   ├── Core lore documents
+│   └── reference/ ← Detailed PDFs
+│
+├── 📝 writing_drafts/ ← Novel content
+│   ├── Novel manuscripts
+│   └── chapters/ ← Chapter files
+│
+├── 📋 docs/ ← Project documentation
+│   ├── AUTOMATION_GUIDE.md
+│   ├── PROJECT_ROADMAP.md
+│   └── reference/ ← Dev guides
+│
+├── 📦 archive/ ← Old materials
+│   ├── chat_logs/
+│   ├── campaign_materials/
+│   └── misc/
+│
+└── ⚙️ config/ ← Configuration
 
 ═══════════════════════════════════════════════════════

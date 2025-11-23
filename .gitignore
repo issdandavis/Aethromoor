@@ -8,3 +8,27 @@ Thumbs.db
 
 # ChoiceScript engine clone (downloaded locally)
 game/choicescript/
+
+# Music production files (not part of game project)
+*.flp
+
+# Personal files
+next court date.txt
+notes.txt
+notes2.txt
+numbers.txt
+not ures.txt
+
+# Game-unrelated files
+DAO*.log
+DAO*.xml
+
+# System files
+*.lnk
+*.rtf
+*.url
+
+# Temporary/misc files
+Skip to content.*
+README.mdClaudeAI thigns
+New Rich Text Format.rtf
