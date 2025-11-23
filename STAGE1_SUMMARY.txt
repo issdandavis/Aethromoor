@@ -148,7 +148,7 @@ Verdant Tithe Expansion (Current Priority):
 KEY METRICS
 ═══════════════════════════════════════════════════════════════
 
-Documentation Created: ~61,000 characters
+Documentation Created: 83,880 characters
 Roles Defined: 5 specialized roles
 Scenes Tracked: 16 ChoiceScript scenes
 Stat Changes Documented: 50+ choice impacts
