@@ -62,9 +62,24 @@ check_file_sizes() {
     
     while IFS= read -r file; do
         if [ -f "$file" ]; then
-            local size=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file" 2>/dev/null || echo 0)
+            # Portable file size check - try different methods
+            local size=0
+            if [ -n "$(command -v stat)" ]; then
+                # Try BSD stat first (macOS)
+                size=$(stat -f%z "$file" 2>/dev/null || true)
+                # If that failed, try GNU stat (Linux)
+                if [ -z "$size" ] || [ "$size" = "0" ]; then
+                    size=$(stat -c%s "$file" 2>/dev/null || echo 0)
+                fi
+            else
+                # Fallback using ls
+                size=$(ls -l "$file" 2>/dev/null | awk '{print $5}' || echo 0)
+            fi
+            
             if [ "$size" -gt "$max_size_bytes" ]; then
-                large_files+=("$file ($(numfmt --to=iec-i --suffix=B $size 2>/dev/null || echo ${size}B))")
+                # Portable size formatting
+                local size_mb=$((size / 1024 / 1024))
+                large_files+=("$file (${size_mb}MB)")
             fi
         fi
     done < <(git diff --name-only --cached)
@@ -185,9 +200,9 @@ main() {
     if [ -n "$CUSTOM_MESSAGE" ]; then
         COMMIT_MSG="$CUSTOM_MESSAGE"
     else
-        # Auto-generate message based on changed files
-        local changed_files=$(git diff --cached --name-only | wc -l | tr -d ' ')
-        local file_types=$(git diff --cached --name-only | sed 's/.*\.//' | sort -u | paste -sd "," -)
+        # Auto-generate message based on changed files (cache the diff output)
+        local cached_files=$(git diff --cached --name-only)
+        local changed_files=$(echo "$cached_files" | wc -l | tr -d ' ')
         COMMIT_MSG="${COMMIT_MESSAGE_PREFIX} Updated ${changed_files} file(s) at ${TIMESTAMP}"
     fi
     

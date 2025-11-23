@@ -53,17 +53,24 @@ USAGE:
 EOF
 }
 
-# Parse arguments
-AUTO_COMMIT_ARGS=""
+# Parse arguments - use array for safety
+declare -a AUTO_COMMIT_ARGS_ARRAY=()
+CUSTOM_MESSAGE=""
+
 while getopts "i:m:Ph" opt; do
     case $opt in
         i) WATCH_INTERVAL="$OPTARG" ;;
-        m) AUTO_COMMIT_ARGS="$AUTO_COMMIT_ARGS -m '$OPTARG'" ;;
-        P) AUTO_COMMIT_ARGS="$AUTO_COMMIT_ARGS -P" ;;
+        m) CUSTOM_MESSAGE="$OPTARG" ;;
+        P) AUTO_COMMIT_ARGS_ARRAY+=("-P") ;;
         h) usage; exit 0 ;;
         \?) echo "Invalid option: -$OPTARG"; usage; exit 1 ;;
     esac
 done
+
+# Add custom message to args array if provided
+if [ -n "$CUSTOM_MESSAGE" ]; then
+    AUTO_COMMIT_ARGS_ARRAY+=("-m" "$CUSTOM_MESSAGE")
+fi
 
 # Validate watch interval
 if ! [[ "$WATCH_INTERVAL" =~ ^[0-9]+$ ]]; then
@@ -110,8 +117,8 @@ main() {
         if [ -n "$(git status --porcelain)" ]; then
             print_info "Changes detected. Running auto-commit..."
             
-            # Run auto-commit script
-            if eval "$AUTO_COMMIT_SCRIPT $AUTO_COMMIT_ARGS"; then
+            # Run auto-commit script with safe argument expansion
+            if "$AUTO_COMMIT_SCRIPT" "${AUTO_COMMIT_ARGS_ARRAY[@]}"; then
                 print_success "Auto-commit completed successfully"
             else
                 print_warning "Auto-commit failed or was cancelled"

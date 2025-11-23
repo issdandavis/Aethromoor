@@ -20,8 +20,9 @@ jobs:
   auto-commit:
     runs-on: ubuntu-latest
     
-    # Only run if there are changes
-    if: github.repository == 'issdandavis/Avalon'
+    # Only run on the main Avalon repository (skip on forks)
+    # Remove this condition if you want it to run on forks too
+    if: github.repository_owner == 'issdandavis' || github.event_name == 'workflow_dispatch'
     
     permissions:
       contents: write
