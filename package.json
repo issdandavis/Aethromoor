@@ -1,0 +1,29 @@
+{
+  "name": "avalon-game-dev-tools",
+  "version": "1.0.0",
+  "description": "Development tools for Polly's Wingscroll game",
+  "private": true,
+  "scripts": {
+    "validate": "bash scripts/validate-game.sh",
+    "play": "bash scripts/play-game.sh",
+    "analyze": "bash scripts/analyze-repo.sh",
+    "test": "npm run validate",
+    "lint:js": "echo 'JavaScript linting - Install ESLint if needed'",
+    "format": "echo 'Code formatting - Install Prettier if needed'",
+    "build": "echo 'No build step needed for HTML game'",
+    "serve": "python3 -m http.server 8000 --directory game || python -m SimpleHTTPServer 8000",
+    "help": "echo 'Available scripts: validate, play, analyze, serve'"
+  },
+  "keywords": [
+    "game",
+    "interactive-fiction",
+    "choicescript",
+    "avalon"
+  ],
+  "author": "Avalon Project",
+  "license": "UNLICENSED",
+  "devDependencies": {},
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
