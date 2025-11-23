@@ -19,3 +19,6 @@ notes.txt
 notes2.txt
 not ures.txt
 numbers.txt
+
+# Auto-generated CSIDE package (created by prepare-for-cside.sh)
+cside-ready/

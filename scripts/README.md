@@ -20,6 +20,14 @@ This directory contains automation scripts for the Avalon repository.
 - Copy to `auto-commit-config.sh` to customize behavior
 - Set commit message prefix, push behavior, file size limits, etc.
 
+### 🎮 CSIDE Preparation Script
+
+**`prepare-for-cside.sh`** - Prepares game files for CSIDE upload
+- Packages all ChoiceScript game files
+- Creates organized folder structure
+- Generates upload instructions
+- Perfect for getting your game into CSIDE quickly!
+
 ## Quick Start
 
 ```bash
@@ -34,6 +42,9 @@ This directory contains automation scripts for the Avalon repository.
 
 # Watch with custom interval
 ./scripts/watch-and-commit.sh -i 300
+
+# Prepare game files for CSIDE upload
+./scripts/prepare-for-cside.sh
 ```
 
 ## Documentation
