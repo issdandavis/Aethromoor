@@ -320,5 +320,70 @@ This gives immediate value and helps you learn the system!
 
 ---
 
+## 🔄 AUTO-COMMIT FUNCTIONALITY
+
+**NEW:** The repository now includes built-in auto-commit tools to streamline your workflow!
+
+### Available Auto-Commit Methods
+
+#### 1. **Manual Auto-Commit Script**
+Quick and simple - commit your changes whenever you want:
+```bash
+./scripts/auto-commit.sh
+./scripts/auto-commit.sh -m "Custom message"
+```
+
+#### 2. **File Watcher (Continuous Auto-Commit)**
+Perfect for writing sessions - automatically saves your work:
+```bash
+./scripts/watch-and-commit.sh -i 300  # Commits every 5 minutes
+```
+
+#### 3. **GitHub Actions (Scheduled)**
+Automatic commits running on GitHub's servers:
+- Runs every 6 hours automatically
+- Can be triggered manually
+- See `.github/workflows/auto-commit.yml`
+
+### Quick Examples
+
+**For Writers:**
+```bash
+# Start writing session with auto-saves every 10 minutes
+./scripts/watch-and-commit.sh -i 600 -m "Writing session:"
+```
+
+**For Game Development:**
+```bash
+# Quick commit with descriptive message
+./scripts/auto-commit.sh -m "Updated Singing Dunes expedition"
+```
+
+**For Testing:**
+```bash
+# Preview what would be committed (dry run)
+./scripts/auto-commit.sh -n
+```
+
+### Full Documentation
+
+See **[AUTO_COMMIT_GUIDE.md](AUTO_COMMIT_GUIDE.md)** for complete documentation including:
+- Detailed usage instructions
+- Configuration options
+- Best practices
+- Troubleshooting
+- Integration with Zapier workflows
+
+### Integration with Zapier
+
+Auto-commit scripts complement your Zapier workflows:
+- **Google Docs → Auto-Commit** - Scheduled commits pull external changes
+- **Local Work → GitHub** - File watcher commits local edits
+- **Automated Processes** - GitHub Actions handles scheduled commits
+
+This creates a complete automation pipeline for content management!
+
+---
+
 *This guide will be updated as new integrations are added.*
-*Last updated: [Auto-generated timestamp]*
+*Last updated: 2025-11-23 - Added auto-commit functionality*
