@@ -8,7 +8,12 @@
 *comment Show a short blurb based on current pathing.
 *if oathbound
   You swore an oath to Avalon and its wardens.
+  *goto stats_blurb_end
 *elseif resonance_mark
   The Spiral's song echoes through you.
+  *goto stats_blurb_end
 *else
   Your path through Avalon remains unwritten.
+  *goto stats_blurb_end
+
+*label stats_blurb_end

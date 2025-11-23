@@ -33,6 +33,9 @@ This repository now includes a small ChoiceScript-friendly scaffolding to help y
 - Scene order and available files are controlled by `*scene_list` at the top of `startup.txt`.
 - To add stats, edit `choicescript_stats.txt`; you can use `*stat_chart` to display new variables.
 
+## Pre-commit sanity check
+Run `./game/check_choicescript.sh` before opening a PR to ensure the embedded engine is present, scenes are synced, and the ChoiceScript quicktest still passes.
+
 ## Linking to existing narrative materials
 - Reference lore and narrative drafts live under `docs/avalon_materials/` and `docs/reference/`.
 - You can paste text from those sources into ChoiceScript scenes. Be mindful of indentation and convert smart quotes to straight quotes when necessary to avoid syntax errors.
