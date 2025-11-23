@@ -8,3 +8,6 @@ Thumbs.db
 
 # ChoiceScript engine clone (downloaded locally)
 game/choicescript/
+
+# Generated files
+extracted_content.json

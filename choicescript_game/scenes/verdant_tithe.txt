@@ -38,6 +38,14 @@ As if to demonstrate, a vine near you shifts—slowly, purposefully—reaching t
 
 "The Thoughtvines are just the beginning," Izack continues. "In the deep forest, the trees themselves remember every person who's passed through. They carry centuries of human thought like rings in their bark."
 
+*line_break
+
+You look closer at the vegetation around you. What first appeared as ordinary leaves reveals itself in new detail—each one bears faint patterns that shift like written words, each vine pulses with a rhythm that feels almost like breathing text.
+
+It's as if the entire forest is a living book, constantly writing and rewriting itself.
+
+[i]"Living magical inscriptions. The forest literally writes its thoughts into its own biology. Try not to step on any particularly flowery metaphors—they have thorns."[/i]
+
 *choice
     #"How do we keep the forest from reading everything?"
         Izack smiles. "You can't prevent it entirely. But you can learn to quiet your surface thoughts—let the deeper ones sink below where casual observation can't reach."
