@@ -1,3 +1,5 @@
+*comment 🎮 HUMAN GAME FILE - Edit this in CSIDE!
+
 *comment ================================================
 *comment DORM ROOM CUSTOMIZATION
 *comment Player's personal space in Avalon Academy

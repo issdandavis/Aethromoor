@@ -1,5 +1,9 @@
+# 🎮 HUMAN GAME FILES - DRAG TO CSIDE
+
 # Polly's Wingscroll: The First Thread
 ## ChoiceScript Edition
+
+**⚠️ IMPORTANT: All `.txt` files in this folder are GAME FILES for you to edit and use in CSIDE!**
 
 A professional choice-based game built in ChoiceScript, the engine used by **Choice of Games** and **Hosted Games** for publishing to app stores.
 
@@ -102,20 +106,23 @@ A professional choice-based game built in ChoiceScript, the engine used by **Cho
 
 ---
 
-## 🔧 FILE STRUCTURE
+## 🔧 FILE STRUCTURE - 🎮 ALL GAME FILES (HUMAN EDITABLE)
 
 ```
-choicescript_game/
-├── startup.txt              # Main config & character creation
+choicescript_game/                    ← 🎮 DRAG ENTIRE FOLDER TO CSIDE
+├── startup.txt                       ← 🎮 HUMAN: Main config & character creation
 └── scenes/
-    ├── arrival.txt          # Three different arrival paths
-    ├── first_lesson.txt     # Dimensional magic lesson
-    ├── singing_dunes.txt    # [Placeholder]
-    ├── verdant_tithe.txt    # [Placeholder]
-    ├── rune_glacier.txt     # [Placeholder]
-    ├── endings.txt          # [Placeholder]
-    └── choicescript_stats.txt  # Stats screen layout
+    ├── arrival.txt                   ← 🎮 HUMAN: Three different arrival paths
+    ├── first_lesson.txt              ← 🎮 HUMAN: Dimensional magic lesson
+    ├── singing_dunes.txt             ← 🎮 HUMAN: [AI will create, then you edit]
+    ├── verdant_tithe.txt             ← 🎮 HUMAN: [AI will create, then you edit]
+    ├── rune_glacier.txt              ← 🎮 HUMAN: [AI will create, then you edit]
+    ├── endings.txt                   ← 🎮 HUMAN: [AI will create, then you edit]
+    └── choicescript_stats.txt        ← 🎮 HUMAN: Stats screen layout
 ```
+
+**🎮 = YOU edit these files!**  
+**All `.txt` files here are your game content for CSIDE.**
 
 ---
 

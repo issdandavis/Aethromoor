@@ -1,3 +1,5 @@
+*comment 🎮 HUMAN GAME FILE - Edit this in CSIDE!
+
 *comment ================================================
 *comment ENDINGS - All 14 Unique Endings
 *comment Based on collaboration score, artifacts, and choices
