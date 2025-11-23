@@ -1,5 +1,7 @@
 # The Avalon Codex - AI Coding Agent Instructions
 
+> **Quick Summary**: This is a fantasy narrative game project with dual implementations (HTML and ChoiceScript). Focus on maintaining narrative consistency across game versions, respecting established lore, and following the collaborative magic system themes.
+
 ## Project Overview
 This is "The Avalon Codex" - a multi-generational fantasy narrative project centered around **Polly's Wingscroll: The First Thread**, a choice-based interactive game set in the Spiral of Pollyoneth universe.
 
@@ -112,3 +114,21 @@ Maintain these lightweight anchors so every AI has the same baseline:
 - No new character traits contradict existing chronicles.
 - Stat changes logged in `STATS_MATRIX.md`.
 - Roadmap phase still accurate; update `docs/PROJECT_ROADMAP.md` if scope shifted.
+
+## Additional Resources
+
+### Detailed Documentation
+- **Game Expansion Guide**: See `docs/GAME_EXPANSION_GUIDE.md` for detailed ChoiceScript conversion instructions, scene templates, and expansion guides for each expedition
+- **Project Roadmap**: `docs/PROJECT_ROADMAP.md` tracks current development phase and priorities
+- **Automation Guide**: `docs/AUTOMATION_GUIDE.md` documents Zapier workflows and integrations
+- **Task Queue**: `docs/NEXT_TASKS.md` lists upcoming work items
+
+### Custom Agents
+- **Avalon Lore Steward** (`@my-agent`): Specialized in organizing files, validating narrative canon, and maintaining lore consistency. Use for file organization, lore validation, and cross-referencing character information.
+
+## Getting Started
+1. Review this file for project architecture and patterns
+2. Check `START_HERE.md` for quick orientation
+3. Consult `docs/GAME_EXPANSION_GUIDE.md` for detailed game development tasks
+4. Reference `FILE_LOCATIONS.txt` for finding specific content
+5. Use the custom Lore Steward agent for narrative consistency checks

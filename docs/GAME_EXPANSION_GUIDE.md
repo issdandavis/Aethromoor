@@ -1,3 +1,10 @@
+# GAME EXPANSION GUIDE - DETAILED CHOICESCRIPT INSTRUCTIONS
+
+> **Note**: This is a detailed, task-specific guide for expanding ChoiceScript game content.  
+> For general project overview and architecture, see `.github/copilot-instructions.md`
+
+---
+
 # INSTRUCTIONS FOR GITHUB COPILOT AND AI ASSISTANTS
 
 **Project:** Polly's Wingscroll: The First Thread
