@@ -11,7 +11,7 @@
     "lint:js": "echo 'JavaScript linting - Install ESLint if needed'",
     "format": "echo 'Code formatting - Install Prettier if needed'",
     "build": "echo 'No build step needed for HTML game'",
-    "serve": "python3 -m http.server 8000 --directory game || python -m SimpleHTTPServer 8000",
+    "serve": "python3 -m http.server 8000 --directory game 2>/dev/null || npx -y serve game -p 8000",
     "help": "echo 'Available scripts: validate, play, analyze, serve'"
   },
   "keywords": [

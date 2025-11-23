@@ -90,10 +90,10 @@ if [ -f "choicescript_game/startup.txt" ]; then
     print_success "choicescript_game/startup.txt exists"
     
     # Check for required ChoiceScript commands
-    if grep -q '\*create' choicescript_game/startup.txt; then
+    if grep -q '\\*create' choicescript_game/startup.txt; then
         print_success "Startup file has stat definitions"
     else
-        print_warning "No \*create commands found in startup.txt"
+        print_warning "No *create commands found in startup.txt"
     fi
 else
     print_error "choicescript_game/startup.txt not found"

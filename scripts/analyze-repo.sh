@@ -23,10 +23,14 @@ archive_size=$(du -sb archive 2>/dev/null | cut -f1)
 docs_size=$(du -sb docs 2>/dev/null | cut -f1)
 game_size=$(du -sb game 2>/dev/null | cut -f1)
 
-echo "Total repository: $(format_bytes $total_size)"
-echo "  - archive/: $(format_bytes $archive_size) ($(($archive_size * 100 / $total_size))%)"
-echo "  - docs/: $(format_bytes $docs_size) ($(($docs_size * 100 / $total_size))%)"
-echo "  - game/: $(format_bytes $game_size) ($(($game_size * 100 / $total_size))%)"
+if [ "$total_size" -eq 0 ]; then
+    echo "Unable to calculate repository size"
+else
+    echo "Total repository: $(format_bytes $total_size)"
+    echo "  - archive/: $(format_bytes $archive_size) ($(($archive_size * 100 / $total_size))%)"
+    echo "  - docs/: $(format_bytes $docs_size) ($(($docs_size * 100 / $total_size))%)"
+    echo "  - game/: $(format_bytes $game_size) ($(($game_size * 100 / $total_size))%)"
+fi
 echo ""
 
 echo "2. File Type Distribution"
