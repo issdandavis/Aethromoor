@@ -1,27 +1,338 @@
-The martial hall thrums with sparring and shouted cadence. Racks of spears line the walls beneath banners of past victories.
+*comment @issdandavis - The Warden's Hall: Where oaths become magic and protection becomes philosophy
+
+*comment ═══════════════════════════════════════════════════════════════
+*comment     THE HALL OF SWORN SERVICE
+*comment     "Strength serves. Oaths clarify. Honor endures."
+*comment ═══════════════════════════════════════════════════════════════
+
+The martial hall thrums with shouted cadence and the precise rhythm of disciplined movement. Racks of spears line the walls beneath banners bearing names of those who've sworn oaths to Avalon's principles—not just names, but the essence of their vows made visible through enchantment.
+
+Unlike the mystical whispers of the Archives, this space resonates with physical presence: the impact of training weapons against practice dummies, the synchronized breathing of squadrons drilling formations, the crystalline chime of oath-marks activating as wardens renew their daily commitment to service.
+
+*if mentor = "Corin"
+  Corin gestures broadly at the organized chaos. "Welcome to where theory meets practice. Every warden here has studied in the Archives, debated in the Council. But scholarship without application is incomplete—just as force without wisdom is dangerous."
+
+The architecture reflects function: high ceilings allow for aerial combat training, reinforced floors bear enchantments to cushion falls while still teaching consequences, and windows face all cardinal directions—symbolic of wardens watching every approach.
+
+*temp warden_training_level 0
+*temp oath_understanding false
+
+*comment @issdandavis - Introduction to warden philosophy and Captain Eryssa
+
+Captain Eryssa Ironvow stands at the hall's center, overseeing multiple training groups simultaneously. Her oath-marks are visible on both arms—intricate patterns glowing faintly with each movement, representing decades of vows kept and challenges overcome.
+
+She notices your arrival and approaches with the controlled grace of someone for whom combat movement has become natural as breathing.
+
+"New recruit?" she asks, though her eyes suggest she already knows who you are. "Corin speaks well of you. Let's see if observation translates to capability."
+
+*if mentor = "Corin"
+  Corin adds, "Captain Eryssa trains every warden personally. She believes you can't command what you haven't experienced, can't protect what you don't understand."
+
+*if mentor = "Aria"
+  Aria, if present, speaks respectfully: "Captain Eryssa and I have trained together for years. She taught me that warrior-scholarship isn't contradiction—it's synthesis. Strength informed by wisdom."
+
+*if mentor = "Polly"
+  Polly observes from your shoulder: "Eryssa's oath-magic is among the strongest in Pollyoneth. Watch how her commitments manifest physically. It's philosophy made tactical."
 
 *choice
-  #Pledge yourself to the wardens' code.
-    You kneel, reciting the vows. Steel rings as you receive a badge.
-    *set honor +15
-    *set oathbound true
+  #Ask Captain Eryssa what wardens actually protect.
+    "Excellent question," Eryssa says, leading you toward a quieter alcove where massive windows overlook Avalon's spiraling architecture. "Most assume we guard walls, patrol boundaries, prevent intrusions."
+    
+    She gestures toward the view—scholars debating in plazas, students from multiple realms collaborating on spell-work, Elementalists teaching Runic Engineers while learning in return.
+    
+    "We protect {i}that{/i}. Not just the physical space, but the principle it embodies: that magical traditions can collaborate instead of compete. That boundaries can become bridges. That diversity strengthens rather than dilutes."
+    
+    Her oath-marks pulse with emphasis. "External threats exist, yes. Varn'ka'zul demons probe for weaknesses. Void traps in the Dimensional Fringe endanger travelers. But our deepest purpose is guarding the {i}idea{/i} of Avalon."
+    
+    *set honor +12
     *set council_trust +10
-    *goto after_wardens
-  #Test the wardens' tactics with a new formation.
-    Your suggestion closes gaps in their defense. The captain nods approvingly.
-    *if honor >= 60
-      Your reputation precedes you. The squad drills your idea into doctrine.
-      *set council_trust +15
-      *goto after_wardens
-    *else
-      The captain asks you to prove yourself first.
-      *set honor +5
-      *goto after_wardens
-  #Ask the wardens what they fear most.
-    "Complacency," one whispers. "And portals that sing off-key."
-    *set attunement +5
-    *goto after_wardens
+    *set oath_understanding true
+    
+    "Understand what's worth protecting, and you understand how to protect it properly."
+    *goto warden_training
+  
+  #Request to observe a training session first.
+    "Wise," Eryssa approves. "Never commit to practices you don't understand. Observation teaches as much as participation."
+    
+    She directs you toward a raised platform where you can watch multiple training groups simultaneously:
+    
+    **Group One** practices synchronized shield formations—but the shields are magical constructs, each warden contributing their unique tradition. Runic shields interlock with elemental barriers while bloodline magic reinforces the whole. Collaboration made tactical.
+    
+    **Group Two** engages in philosophical sparring—one warden argues a position while defending against actual attacks. The goal: maintain coherent argument while under pressure. Scholarship and combat integrated.
+    
+    **Group Three** meditates in perfect stillness—but their oath-marks blaze with intensity. They're renewing their daily commitment, the magic responding to genuine conviction rather than mere words.
+    
+    *set attunement +10
+    *set honor +8
+    *set warden_training_level +1
+    
+    *if mentor = "Corin"
+      "You see the pattern?" Corin asks. "Wardens don't just fight—we think, debate, commit. Force without philosophy is thuggery. We're scholar-warriors, embodying Avalon's synthesis."
+    
+    *goto warden_training
+  
+  #Immediately volunteer to train—you learn by doing.
+    Eryssa's eyebrow raises slightly. "Eager. I appreciate that. But understand—warden training isn't just physical conditioning. It's philosophical commitment manifested through oath-magic."
+    
+    She leads you to a practice circle marked with runic inscriptions. "Before you can train with weapons, you must understand what those weapons defend. Spar with me verbally first."
+    
+    "Why should Avalon exist?" she asks, settling into a ready stance even though this is philosophical debate.
+    
+    *choice
+      #"Because collaborative magic achieves more than isolated traditions."
+        "True," Eryssa acknowledges, "but incomplete. {i}Why{/i} should we care about achievement? What makes collaborative magic worth protecting?"
+        
+        You pause, considering. "Because it proves an alternative to competition and conquest. Because it demonstrates that strength doesn't require domination."
+        
+        Eryssa's oath-marks pulse with approval. "Better. You're thinking beyond technique to principle. That's the foundation warden-training builds on."
+        
+        *set honor +10
+        *set oath_understanding true
+        *goto warden_training
+      
+      #"Because people from different realms deserve a place to meet safely."
+        "Compassionate answer," Eryssa says, "and not wrong. But why {i}deserve{/i}? What obligates us to provide that safety?"
+        
+        You think carefully. "Perhaps obligation isn't the right framework. Maybe it's opportunity—creating something that benefits everyone involved, including the creators."
+        
+        "Now you're thinking like a warden," Eryssa approves. "We don't guard Avalon from duty alone. We protect it because we believe in what it represents."
+        
+        *set honor +10
+        *set council_trust +8
+        *goto warden_training
+      
+      #"Because the alternative—isolated magical traditions fighting over resources—creates endless conflict."
+        Eryssa nods slowly. "Pragmatic. You see the practical value. But here's my challenge: is Avalon merely the lesser evil, or does it represent positive good worth pursuing regardless of alternatives?"
+        
+        You consider the question seriously. "Both, maybe? It prevents conflict while also creating possibilities no single tradition could achieve alone. Defensive and creative simultaneously."
+        
+        "Nuanced thinking," Eryssa observes. "Wardens must hold multiple truths simultaneously—we're protectors and facilitators, enforcers and enablers. Binary thinking fails in complex situations."
+        
+        *set honor +12
+        *set attunement +5
+        *set oath_understanding true
+        *goto warden_training
 
-*label after_wardens
-The captain clasps your forearm. "When the council calls, remember this hall."
-*goto_scene convergence
+*label warden_training
+*comment @issdandavis - Actual training incorporating oath magic and collaborative combat
+
+Eryssa leads you to the main training floor, where various drills progress simultaneously. The noise level rises—but it's organized noise, rhythmic and purposeful.
+
+"Wardens train in three disciplines," she explains, "and all three must balance for oath-magic to function properly."
+
+**Physical**: Combat technique, weapon mastery, defensive formations. The body as instrument of protective will.
+
+**Philosophical**: Understanding what merits protection and why. The mind as strategic coordinator.
+
+**Magical**: Oath-magic that transforms conviction into tangible power. The spirit as source of commitment.
+
+"Neglect any aspect, and the oath weakens. Excel in all three, and you become force multiplied by principle."
+
+*choice
+  #Focus on physical training—master the combat techniques first.
+    You join a group practicing spear-work—not just individual technique, but collaborative formations where each warrior's movement creates opportunities for others.
+    
+    The lead instructor corrects your stance: "Warden combat isn't about personal glory. Every strike you make should either protect an ally or create opening they can exploit. Collaborative warfare."
+    
+    You drill for what feels like hours, learning to read teammates' micro-movements, to position yourself where your presence most benefits the group. Sweat and concentration, repeated motion building muscle memory.
+    
+    *set honor +15
+    *set warden_training_level +2
+    
+    *if (honor >= 65)
+      The instructor nods approval. "Natural aptitude for team dynamics. Your individual skill serves collective purpose. That's the warden way."
+      
+      *set council_trust +10
+    
+    *goto oath_ceremony_option
+  
+  #Engage with philosophical sparring—test ideas under pressure.
+    You're paired with a veteran warden who will attack you with actual (albeit training-dulled) weapons while you must maintain coherent philosophical argument.
+    
+    "Defend this position," the veteran says, taking ready stance: "Magic should be regulated to prevent abuse."
+    
+    They attack—controlled strikes you must defend against while arguing: "Regulation assumes authority knows better than practitioners. But magical innovation often comes from questioning established limits. Over-regulation stifles the experimentation that creates breakthroughs—" you block a sweep "—like Izack's dimensional architecture, which violated theoretical boundaries everyone considered inviolable."
+    
+    Strike, parry, riposte of ideas: "But without oversight, powerful magic endangers innocents." Attack comes high. You duck, continuing: "Then teach ethics alongside technique. Avalon's model—collaborative magic with peer accountability—prevents abuse through community rather than top-down control."
+    
+    The veteran steps back, lowering their weapon. "Well argued under pressure. Philosophy that survives combat stress is philosophy worth implementing."
+    
+    *set attunement +12
+    *set honor +10
+    *set warden_training_level +2
+    
+    *if (attunement >= 65)
+      "You think like a scholar-warrior," the veteran observes. "Rare combination, and exactly what Avalon needs."
+      
+      *set council_trust +10
+    
+    *goto oath_ceremony_option
+  
+  #Study the oath-magic system—understand the magical foundation.
+    Eryssa herself guides this study, explaining: "Oath-magic is commitment made manifest. Not mere words, but genuine conviction transformed through magical resonance into tangible power."
+    
+    She shows you her own oath-marks: "Each represents a specific vow. This one"—she traces a pattern on her right forearm—"commits me to prioritize Avalon's principles over personal advancement. This one commits me to honest counsel even when difficult. This one commits me to continuous learning, acknowledging I don't have all answers."
+    
+    "The magic responds to {i}sincerity{/i}," she continues. "You can't fake conviction. The Spiral knows the difference between words spoken and principles lived."
+    
+    She demonstrates: speaking a renewal of her vows, her oath-marks blaze with brilliant light. The power isn't just for show—you feel reality itself acknowledge her commitment, magical law aligning with stated principle.
+    
+    "When you're ready to swear oaths of your own, the magic will answer if your conviction is genuine."
+    
+    *set attunement +15
+    *set honor +10
+    *set oath_understanding true
+    *set warden_training_level +2
+    
+    *if resonance_mark
+      The Chronological Nexus Staff (if you carry it) resonates with the oath-magic, as if recognizing parallel systems—both transform abstract principle into concrete effect through genuine commitment.
+      
+      *set dimensional_understanding +1
+    
+    *goto oath_ceremony_option
+
+*label oath_ceremony_option
+*comment @issdandavis - Option to swear formal warden's oath or continue as observer
+
+Eryssa studies you with professional assessment. "You've trained well for a newcomer. Understood the principles, demonstrated capability. The question is whether you're ready to commit."
+
+*if (warden_training_level >= 4) and (oath_understanding)
+  "I can offer you the option of swearing a preliminary warden's oath—not the full commitment veterans make, but a foundational vow that marks you as warden-in-training."
+  
+  *if mentor = "Corin"
+    Corin stands nearby, pride evident in his posture. "This is significant, ${player_name}. Take time to consider."
+
+*if (warden_training_level < 4) or not(oath_understanding)
+  "You're progressing well, but oath-magic requires deeper foundation. Continue training, and when you're ready, the ceremony awaits."
+  
+  *set honor +8
+  *goto warden_conclusion
+
+*if (warden_training_level >= 4) and (oath_understanding)
+  *choice
+    #Swear the preliminary warden's oath—commit to Avalon's protection.
+      The training hall quiets as Eryssa raises her hand. This is ceremony, and even hardened warriors respect its significance.
+      
+      She leads you to the hall's center, where a platform carved with oath-runes awaits. "Kneel," she instructs, not as command but as invitation.
+      
+      You kneel, feeling the weight of decision. This isn't mere formality—this is magical contract, philosophical commitment, public declaration of what you stand for.
+      
+      Eryssa speaks the traditional words: "State your name and the principles you vow to uphold."
+      
+      You respond, voice steady: "I am ${player_name}. I vow to protect Avalon's principle that collaboration strengthens rather than dilutes. I vow to guard not just walls but ideas, not just people but possibilities. I vow to serve with strength informed by wisdom."
+      
+      The oath-runes blaze. Magic surges through you—not external power imposed, but internal conviction manifested. Your first oath-mark appears on your wrist, glowing with the same light that marks Eryssa's veteran commitments.
+      
+      *set honor +20
+      *set oathbound true
+      *set council_trust +15
+      *set guild_affiliation "Warden-in-Training"
+      
+      The assembled wardens strike their spears against the floor in synchronized approval—not applause, but acknowledgment. You are one of them now.
+      
+      *if mentor = "Corin"
+        Corin approaches, clasping your forearm in the traditional warden's greeting. "Well spoken, well meant. Welcome to service, ${player_name}."
+      
+      *if mentor = "Aria"
+        Aria's eyes gleam with approval. "Your oath echoes what Izack and I swore when we founded Pollyoneth. You understand what we're building here."
+      
+      *if mentor = "Polly"
+        Polly, surprisingly moved, speaks quietly: "Conviction made manifest. That's real magic, regardless of what tradition you study. The Spiral recognizes genuine commitment."
+        
+        *set polly_approval +15
+      
+      *goto warden_conclusion
+    
+    #Decline for now—you want to understand more before committing.
+      "Wise caution," Eryssa approves, surprising you. "Oath-magic demands sincerity. Better to wait than to swear vows you're not ready to uphold."
+      
+      She gestures toward the banners bearing veterans' names. "Every warden there took time to be certain. Some trained for months before swearing their first oath. Others knew immediately. Neither path is wrong—only insincere commitment is wrong."
+      
+      *set honor +10
+      *set council_trust +8
+      
+      "The ceremony awaits when you're ready. Until then, train, learn, understand what you're committing to."
+      
+      *goto warden_conclusion
+    
+    #Ask if you can swear a modified oath—incorporating your own principles.
+      Eryssa pauses, considering. "Unusual request. Most accept the traditional vows. But..." she glances toward the assembled wardens, "Avalon was founded on questioning traditions productively."
+      
+      "What modification would you propose?"
+      
+      *choice
+        #Include commitment to scholarly pursuits alongside martial duty.
+          "I vow to protect Avalon's principles through both strength and scholarship, understanding that wisdom and force must balance."
+          
+          Eryssa consults briefly with senior wardens, then nods. "The modification honors Avalon's scholar-warrior ideal. Acceptable."
+          
+          The ceremony proceeds with your modified oath. Your oath-mark appears, slightly different in pattern from traditional marks—unique, as you are unique.
+          
+          *set honor +15
+          *set attunement +10
+          *set oathbound true
+          *set council_trust +15
+          *set guild_affiliation "Scholar-Warden"
+          
+          *if mentor = "Polly"
+            "Smart," Polly comments. "You made the oath yours while respecting its essence. That's how traditions evolve productively."
+            
+            *set polly_approval +15
+          
+          *goto warden_conclusion
+        
+        #Include commitment to dimensional understanding alongside protection.
+          "I vow to protect Avalon's boundaries by understanding them, to guard by facilitating proper exchange rather than merely preventing all passage."
+          
+          Eryssa's eyebrows rise. "You're proposing oath-magic that incorporates dimensional linguistics. Ambitious. But if Izack Thorne swore such vows, perhaps others should as well."
+          
+          The ceremony proceeds. Your oath-mark manifests with unusual properties—it seems to shift slightly, as if existing in multiple states simultaneously, reflecting your dimensional focus.
+          
+          *set honor +12
+          *set dimensional_understanding +2
+          *set oathbound true
+          *set council_trust +15
+          *set guild_affiliation "Boundary Warden"
+          
+          *if resonance_mark
+            The Chronological Nexus Staff resonates powerfully with your modified oath, as if recognizing kindred approach to magic.
+          
+          *goto warden_conclusion
+
+*label warden_conclusion
+*comment @issdandavis - Transition from warden training with newfound commitment or understanding
+
+The training session gradually winds down. Wardens begin evening rituals—weapon maintenance, meditation on the day's lessons, renewal of daily oaths.
+
+*if oathbound
+  Your new oath-mark pulses gently, a constant reminder of commitment made and principles embraced. It doesn't feel like burden—it feels like clarity, like purpose crystallized.
+
+Eryssa approaches one final time. "Whether you swore oaths or simply trained, you've learned something valuable today: that protection requires understanding, that strength serves purpose, that force without wisdom is merely violence."
+
+*if mentor = "Corin"
+  Corin adds, "The Convergence Point awaits—where you'll synthesize everything you've learned from Archives, Council, and Wardens. That synthesis is where real growth happens."
+
+*temp warden_training_complete true
+
+*choice
+  #Head to the Convergence Point to synthesize your learning.
+    *set honor +5
+    Understanding gained here needs integration. Time to see how all paths connect.
+    *goto_scene convergence
+  
+  #Visit the Archives to research oath-magic theory you just experienced.
+    *set attunement +5
+    Experience provokes questions. The Archives can provide theoretical framework for what you just lived.
+    *goto_scene archives
+  
+  #Stay with the Wardens longer—evening rituals and meditation.
+    You join the veterans in their evening practice—quiet meditation after physical exertion, renewal of daily oaths, maintenance of equipment both physical and spiritual.
+    
+    *set honor +10
+    *set oath_understanding true
+    
+    An older warden speaks during meditation: "The oath you swear publicly matters. But the oath you keep privately—in moments when no one's watching, when keeping your word costs something—that's where real honor lives."
+    
+    When you finally prepare to leave, you feel fundamentally changed. Not just trained, but committed. Not just stronger, but clearer about what strength serves.
+    
+    *goto_scene convergence

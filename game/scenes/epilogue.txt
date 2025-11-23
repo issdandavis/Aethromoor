@@ -1,26 +1,328 @@
-You pause at the threshold of a balcony overlooking the Spiral. Choices made today ripple outward. Couriers and wardens move below, carrying the effects of your decisions into the wider city.
+*comment @issdandavis - Epilogue: Reflecting on the journey and looking toward the future
+
+*comment ═══════════════════════════════════════════════════════════════
+*comment     THE BALCONY OF BECOMING
+*comment     Where journeys pause and futures unfold
+*comment ═══════════════════════════════════════════════════════════════
+
+You pause at the threshold of a balcony overlooking the Spiral. Choices made today ripple outward like stones dropped in cosmic waters. Couriers and wardens move below, carrying the effects of your decisions into the wider city.
+
+The view is breathtaking: Avalon spreads before you in all its impossible glory. The Spiral Spire reflects starlight even at noon. Floating islands drift on leyline currents. The Dream Gardens bloom in response to students' emotional states. The World Tree's branches reach toward other dimensions while its roots anchor Pollyoneth to principles worth protecting.
+
+Everything you've learned, everyone you've met, every choice you've made—they've all led to this moment of reflection.
+
+*comment @issdandavis - Personalized reflection based on player's path
 
 *if resonance_mark
-  The Spiral thrums in time with your pulse, marking you as one who listens.
-*elseif oathbound
-  The badge of the wardens gleams. Duty anchors your steps.
-*else
-  The council watches, curious which oath you will claim.
+  The Chronological Nexus Staff (if you carry it) hums contentedly in your grip. You can feel time itself acknowledging your growth—not just chronological passage, but {i}developmental{/i} time. You've become someone different from who you were when you awakened in that cave.
+  
+  The Spiral thrums in time with your pulse, marking you as one who listens to what magic itself is trying to communicate.
 
-*if council_trust >= 70
-  An elder leans close. "You've earned the room to propose something bold."
-*elseif council_trust >= 55
-  The council's sigils shimmer with measured confidence in you.
-*else
-  Whispers ripple along the balcony. Trust is budding but not yet firm.
+*if oathbound
+  Your oath-marks gleam with steady light. The commitments you've sworn aren't burdens—they're clarifications, crystallizing who you choose to be into magical form.
+  
+  The badge of the wardens catches sunlight, reminding you that service and strength can balance, that protection requires understanding what's worth defending.
 
-*comment Offer a small wrap-up and replay hook.
+*if not(resonance_mark) and not(oathbound)
+  You haven't sworn grand oaths or bonded with legendary artifacts, but you've learned something equally valuable: that growth happens through choices accumulated, that wisdom emerges from questions asked, that becoming worthy is a process, not a destination.
+  
+  The council watches with measured interest, seeing potential not yet fully realized but definitely present.
+
+*comment @issdandavis - Council and mentor assessments
+
+*if council_trust >= 80
+  An elder approaches—Elder Veyara herself, which is significant. "You've earned considerable trust in remarkably short time, ${player_name}. The council would like to formalize your role within Avalon's structure."
+  
+  She presents a crystal token, glowing with the council's collective magical signature. "This grants you status as Council Observer and emerging voice in governance. Your perspective will be sought on matters requiring fresh insight."
+  
+  *set guild_affiliation "Council Observer"
+  
+  *if mentor = "Aria"
+    Aria beams with pride. "Exactly the kind of rapid integration Izack and I hoped Avalon would facilitate. You've proven yourself through action, not just words."
+
+*elseif council_trust >= 65
+  Several council members nod respectfully as you stand on the balcony. You've demonstrated capability and wisdom. Trust is budding, growing stronger with each choice that honors Avalon's principles.
+  
+  *if mentor = "Polly"
+    "Solid foundation," Polly assesses. "Not revolutionary yet, but definitely promising. Keep asking productive questions."
+
+*else
+  Whispers ripple along the balcony. You're known now—newer members of Avalon's community notice you, curious about your path and potential. Trust will come with continued demonstration of Avalon's principles.
+  
+  *if mentor = "Corin"
+    "Every warden starts here," Corin reassures. "Known but not yet proven. That's normal, expected. You'll earn deeper trust through consistent service."
+
+*comment @issdandavis - The World Tree's final communication
+
+As you stand in reflection, the World Tree—that vast consciousness connecting dimensions—reaches out one more time.
+
+*if (attunement >= 75)
+  You perceive its message clearly: {i}Thank you for asking what I need rather than demanding what you want. You understand that magic is conversation. That understanding will shape you into something remarkable.{/i}
+  
+  *set dimensional_understanding +2
+
+*if (honor >= 75)
+  You feel its approval: {i}You understand that strength serves purpose, that protection requires knowing what's worth defending. Your oaths honor what I was planted to embody.{/i}
+
+*if (council_trust >= 75)
+  A whisper of gratitude: {i}Collaborative magic planted me. Nine traditions working together, creating something none could achieve alone. You've embraced that principle. Help me grow it further.{/i}
+
+*if (attunement >= 70) and (honor >= 70) and (council_trust >= 70)
+  The World Tree's full attention focuses on you—rare, powerful, transformative. {i}You embody balance we need. Scholar-warrior. Protector-facilitator. Someone who understands that boundaries exist for conversation, not conquest. The Third Thread generation needs peers like you. The Spiral itself celebrates your growth.{/i}
+  
+  Your entire being resonates with the Tree's acknowledgment. This is blessing and responsibility combined.
+  
+  *set bloodline_awakened true
+  *comment Future content: Player's dormant potential begins awakening
+
+*comment @issdandavis - Meeting Izack and Aria (if player excelled)
+
+*if (council_trust >= 75) and ((attunement >= 70) or (honor >= 70))
+  A shimmer of dimensional energy announces new arrivals. Two figures materialize on the balcony—and you immediately recognize them from Archive descriptions and Polly's stories.
+  
+  **Izack Thorne** (Isimar Caedyn Sova) wears his ancient robes that have learned to teach, carrying his staff with casual familiarity. His eyes hold both theoretical curiosity and hard-won wisdom.
+  
+  **Aria Ravencrest** moves with warrior-scholar grace, her silver hair incorporating runic threads, her presence making leylines sing. The awakened bloodline magic still resonates within her.
+  
+  "Well met, ${player_name}," Izack says, his voice warm with genuine interest. "Polly's been sending updates about your progress. Someone who treats dimensional boundaries as collaborative opportunities rather than walls to breach—that's rare and valuable."
+  
+  Aria adds, "And someone who understands that strength serves purpose, that scholarship requires both openness and discipline. You remind us of ourselves when we first started building this place."
+  
+  *if mentor = "Polly"
+    Polly practically preens on your shoulder. "Told you they were promising. Revolutionary thinking wrapped in productive questioning."
+  
+  Izack extends his hand. "Avalon grows through people like you—those willing to question assumptions while honoring principles, to push boundaries while understanding what makes them necessary. Welcome to the ongoing experiment of collaborative magic."
+  
+  *set council_trust +15
+  *set dimensional_understanding +1
+  
+  *if resonance_mark
+    Izack notices the Chronological Nexus Staff's resonance with you. "The staff chose well. Time magic requires understanding that causality is conversation, not conquest. You have that instinct."
+
+*comment @issdandavis - Final character statistics and reflection
+
+*page_break
+
+Your journey through Avalon has shaped you in measurable ways:
+
+**Honor**: ${honor}  
+*if honor >= 80
+  Exceptional. Your commitments are proven, your principles demonstrated. Oaths you swear carry weight because you've shown you keep them.
+*elseif honor >= 65
+  Strong. You understand that service requires both capability and conviction. Wardens recognize you as emerging peer.
+*elseif honor >= 50
+  Developing. You're learning what it means to stand for something, to let principles guide actions.
+*else
+  Uncertain. Honor isn't about perfection—it's about consistent choice to do what's right even when difficult. Your path is beginning.
+
+**Attunement**: ${attunement}  
+*if attunement >= 80
+  Extraordinary. The Spiral recognizes you as someone who truly listens to what magic is trying to communicate. Scholars seek your perspective.
+*elseif attunement >= 65
+  Advanced. You hear harmonics others miss, perceive connections that reshape understanding. The Archives welcome you as peer.
+*elseif attunement >= 50
+  Growing. You're learning to treat magic as conversation rather than tool. Each question you ask deepens your understanding.
+*else
+  Beginning. Attunement develops through practice, patience, and willingness to listen. Your journey toward mastery has started.
+
+**Council Trust**: ${council_trust}  
+*if council_trust >= 80
+  Exceptional. The nine traditions recognize you as someone whose voice matters, whose perspective enriches governance.
+*elseif council_trust >= 65
+  Strong. Council members note your name, seek your input on significant decisions. You're becoming part of Avalon's leadership.
+*elseif council_trust >= 50
+  Developing. You're known to the council, recognized as someone with potential worth nurturing.
+*else
+  Emerging. Trust builds through demonstrated wisdom and consistent service to Avalon's principles. You're on that path.
+
+*if oathbound
+  **Oath Status**: Sworn
+  You've made magical commitments to Avalon's protection and principles. Your oath-marks glow with genuine conviction, recognized by the Spiral itself.
+
+*if resonance_mark
+  **Dimensional Resonance**: Activated
+  The Spiral recognizes you as someone attuned to its deeper harmonics. You hear what magic itself is trying to communicate.
+
+*if bloodline_awakened
+  **Bloodline Potential**: Awakening
+  Something dormant in your magical heritage is beginning to manifest. The World Tree itself has noticed and blessed your growth.
+
+*page_break
+
+*comment @issdandavis - Final choice: How to continue the journey
+
+The sun begins its descent toward horizons that shift based on which dimension you're viewing from. Evening in Pollyoneth carries its own magic—softer, more contemplative, inviting reflection on what was learned and anticipation of what comes next.
+
 *choice
-  #Reflect on what you learned.
-    Honor: ${honor}
-    Attunement: ${attunement}
-    Council trust: ${council_trust}
+  #Reflect on your journey—review what you've learned and become.
+    You stand quietly, letting the day's experiences settle into understanding. Every choice made, every path walked, every conversation engaged—they've all contributed to who you're becoming.
+    
+    *if mentor = "Aria"
+      Aria speaks softly: "Izack taught me that growth isn't linear—it's spiral. You return to similar questions at different levels of understanding. Each circuit deepens wisdom."
+    
+    *if mentor = "Polly"
+      "Learning through reflection," Polly approves. "Most people rush forward without integrating what they've experienced. You're showing wisdom."
+    
+    *if mentor = "Corin"
+      "Warriors meditate after battle," Corin says. "Not to forget the experience, but to learn from it. You're demonstrating that discipline."
+    
+    The Spiral seems to acknowledge your contemplation, its harmonics softening to support introspection.
+    
+    *goto final_stats
+  
+  #Look toward the future—what comes next in your Avalon journey?
+    Tomorrow brings new challenges: deeper Archive study, advanced warden training, council sessions addressing complex diplomatic questions. The Third Thread generation awaits, offering partnership in discovering magic's next evolution.
+    
+    *if (attunement >= 70) and (honor >= 70)
+      You realize you're not just student anymore—you're becoming teacher, leader, architect of Avalon's ongoing development. The synthesis you've achieved positions you to help others find their own balance.
+    
+    *if council_trust >= 75
+      Elder Veyara's invitation to serve as Council Observer opens paths you hadn't imagined when you first awakened in that cave. Governance, diplomacy, shaping policy that affects multiple realms.
+    
+    *if oathbound
+      Your oaths will guide you forward, clarifying which opportunities serve Avalon's principles and which distract from what truly matters.
+    
+    The future spirals outward in possibility. You're ready to meet it.
+    
+    *goto final_stats
+  
+  #Step forward into the Spiral once more—your journey continues.
+    This ending is really a beginning. Everything you've learned prepares you for challenges ahead. Questions you've asked open new avenues of exploration. Relationships you've built create networks of collaborative possibility.
+    
+    *if resonance_mark
+      The Chronological Nexus Staff hums with anticipation. Time magic recognizes that this moment—right now—is pivot point where past learning becomes future capability.
+    
+    *if mentor = "Polly"
+      "That's the spirit," Polly says. "The Spiral doesn't end—it {i}spirals{/i}. Each circuit brings you back to familiar questions at deeper understanding. Keep walking that path."
+    
+    *if mentor = "Aria"
+      "Izack and I planted a World Seed not knowing what it would become," Aria reflects. "You're planting your own seeds through choices you make, paths you walk. Trust the process."
+    
+    The path shifts with every decision. New branches spiral outward from here, each representing different possibilities, different futures you might help create.
+    
+    *goto final_stats
+
+*label final_stats
+*comment @issdandavis - Final summary and encouragement to replay
+
+*page_break
+
+═══════════════════════════════════════════════════════════════
+
+{b}THE SPIRAL OF POLLYONETH{/b}
+
+{i}"Where boundaries blur, something always listens."{/i}
+
+Your journey through Avalon has just begun. This was introduction—awakening in the cave, meeting Polly, grasping the Chronological Nexus Staff, walking paths through Archives and Warden's Hall, engaging with Council and Convergence.
+
+But the Spiral is vast, its mysteries deep, its possibilities endless.
+
+**The Third Thread generation** awaits your partnership.  
+**Elder councils** seek your emerging wisdom.  
+**Dimensional boundaries** call for architects who understand conversation over conquest.  
+**The World Tree** grows through students like you.
+
+**Your final statistics:**
+• Honor: ${honor}
+• Attunement: ${attunement}  
+• Council Trust: ${council_trust}
+*if oathbound
+  • Oath Status: Sworn to Avalon's principles
+*if resonance_mark
+  • Dimensional Resonance: Activated
+*if bloodline_awakened
+  • Bloodline Potential: Awakening
+*if (guild_affiliation != "none")
+  • Affiliation: ${guild_affiliation}
+*if (polly_approval >= 70)
+  • Polly's Assessment: "Promising. Revolutionary potential."
+*elseif (polly_approval >= 50)
+  • Polly's Assessment: "Solid foundation. Keep questioning."
+*else
+  • Polly's Assessment: "Learning. That's what matters."
+
+═══════════════════════════════════════════════════════════════
+
+*comment @issdandavis - Invitation to replay and explore different paths
+
+*page_break
+
+{b}About The Spiral of Pollyoneth{/b}
+
+This interactive story is based on the extensive lore created by Issac Davis (Isimar Caedyn Sova), featuring:
+
+• Izack Thorne's dimensional architecture  
+• Aria Ravencrest's awakened bloodline magic  
+• Polly's accumulated wisdom and occasional sarcasm  
+• The Third Thread generation (Alexander, Zara, Malzeth'irun)  
+• Nine collaborative magical traditions  
+• The World Tree's growing consciousness  
+• Avalon Academy's scholar-warrior synthesis  
+
+The story continues to grow as the Spiral learns from everyone who walks its paths. Your choices have added to Pollyoneth's consciousness. Thank you for engaging with collaborative magic made interactive.
+
+*page_break
+
+*choice
+  #Review your journey one final time.
+    {b}Journey Summary:{/b}
+    
+    You began in the Cave of Dimensional Resonance, where runes speak and boundaries blur. There you met Polly and possibly bonded with the Chronological Nexus Staff.
+    
+    You chose ${mentor} as your initial guide through Avalon's complexities.
+    
+    You walked paths through:
+    • The Living Archives, where wisdom accumulates  
+    • The Council of Nine Traditions, where governance happens collaboratively  
+    • The Warden's Hall, where oaths become magic  
+    • The Convergence, where all paths meet  
+    
+    *if oathbound
+      You swore oaths to Avalon's principles, gaining oath-marks that glow with conviction.
+    
+    *if resonance_mark
+      You achieved resonance with the Spiral's deeper harmonics, learning to hear what magic itself communicates.
+    
+    *if (council_trust >= 75)
+      You earned significant council trust, positioning yourself as emerging leader.
+    
+    The Spiral remembers your journey. It has become part of Pollyoneth's greater story.
+    
     *finish
-  #Step forward into the Spiral once more.
-    The path shifts with every decision. New branches spiral outward from here.
+  
+  #Begin again—walk different paths through the Spiral.
+    Different choices create different journeys. Different mentors teach different lessons. Different paths develop different capabilities.
+    
+    The Spiral waits, patient and curious, ready to learn from your next circuit through its mysteries.
+    
+    {i}Where boundaries blur, something always listens.{/i}
+    
+    *ending
+  
+  #Conclude your journey here—carry what you've learned forward.
+    Thank you for walking the Spiral's paths.  
+    Thank you for engaging with collaborative magic.  
+    Thank you for understanding that boundaries can become conversations.  
+    
+    May your own journey embody Avalon's principles:  
+    Scholarship that serves.  
+    Strength that protects.  
+    Synthesis that honors all traditions while creating new possibilities.  
+    
+    *if mentor = "Polly"
+      "Come back when you have more interesting questions," Polly says. "I'll be here. Accumulating wisdom. Occasionally providing sarcasm."
+    
+    *if mentor = "Aria"
+      "The Spiral grows through people like you," Aria says warmly. "Thank you for adding your thread to what we're weaving together."
+    
+    *if mentor = "Corin"
+      "Walk with honor," Corin says, clasping your forearm one final time. "Protect what matters. Serve what's worth serving."
+    
+    The World Tree's branches reach toward futures yet unwritten.  
+    Your story continues beyond these pages.  
+    
+    {i}The Spiral remembers.{/i}  
+    {i}Pollyoneth grows.{/i}  
+    {i}Magic listens.{/i}  
+    
     *ending
