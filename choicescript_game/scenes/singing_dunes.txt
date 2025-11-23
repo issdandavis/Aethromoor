@@ -902,6 +902,7 @@ Kael approaches you for a final word.
 *if kael_approval >= 2
   "The desert chose you, ${name}. That's not something that happens often. Honor what it taught you."
   *set chosen_path "Truthbound"
+  *set ending_type "truthbound_mage"
 
 *if (kael_approval = 1)
   "You learned what you came to learn. Remember—the desert is always listening, even from worlds away. Your honesty matters."
