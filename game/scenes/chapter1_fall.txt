@@ -1,0 +1,37 @@
+You lean over the balcony when the Spiral stutters and the skybridge tilts. For a heartbeat, Avalon itself seems to fall.
+
+*label echo_of_choice
+*if resonance_mark
+  The Spiral steadies under your palm, responding to the mark you earned earlier.
+*elseif oathbound
+  Your badge flashes; the wardens rally to your shout.
+*else
+  You reach for any sign the council trusts you to act.
+*return
+
+*gosub echo_of_choice
+
+*choice
+  #Leap toward the failing support and anchor it.
+    You seize a loose strand of force and bind it with a chant.
+    *set attunement +10
+    *set everweave_insight +5
+    *set echo_debt +5
+    *goto after_fall
+  #Signal the wardens and coordinate nearby crews.
+    You bark orders; the wardens form a living chain to brace the bridge.
+    *set honor +10
+    *set alliances +10
+    *set echo_debt +5
+    *goto after_fall
+  #Trust the Spiral to guide you into the open air.
+    You step into the gust, letting the resonance catch you mid-plunge.
+    *set attunement +5
+    *set alliances +5
+    *set everweave_insight +5
+    *set echo_debt +10
+    *goto after_fall
+
+*label after_fall
+The bridge holds. Above, elders debate how the stutter began. Below, citizens whisper your name.
+*goto_scene chapter2_weave

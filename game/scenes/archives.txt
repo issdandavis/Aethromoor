@@ -10,10 +10,12 @@ You step into a crystalline hall where voices whisper in harmonics. Tomes float 
     The voices show you futures yet unwritten. Insight floods your senses.
     *set attunement +15
     *set resonance_mark true
+    *set everweave_insight +10
     *goto after_archives
   #Search for ${mentor}'s research notes.
     You spot ${mentor}'s sigil and glean warnings about unstable portals.
     *set council_trust +10
+    *set everweave_insight +5
     *goto after_archives
 
 *label after_archives

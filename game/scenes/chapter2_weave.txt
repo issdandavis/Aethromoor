@@ -1,0 +1,38 @@
+You descend into the Everweave—an undercurrent of threads the Spiral hides from casual travelers.
+
+*label mentor_memory
+*if mentor = "Corin"
+  ${mentor}'s notes on unstable portals echo in your mind.
+*else
+  ${mentor}'s lessons on balance steady your breath.
+*return
+
+*gosub mentor_memory
+
+*choice
+  #Kneel and listen for the thread that faltered.
+    The Everweave hums, revealing fractures linked to the earlier stutter.
+    *set everweave_insight +15
+    *set echo_debt +5
+    *set council_trust +5
+    *goto weaving
+  #Map the lattice and send coded signals to allied banners.
+    You weave banners' sigils into the pattern so their houses feel the tremor.
+    *set alliances +10
+    *set honor +5
+    *set echo_debt +5
+    *goto weaving
+  #Offer your own strength to stabilize the song.
+    *if attunement >= 60
+      Your voice merges with the Everweave. Threads tighten, singing in tune.
+      *set attunement +5
+      *set everweave_insight +10
+      *set echo_debt +5
+      *goto weaving
+    The Everweave pushes back. You need more attunement to carry the chord.
+    *set echo_debt +10
+    *goto weaving
+
+*label weaving
+Each choice leaves a trace. Threads now carry your signature and the council will notice.
+*goto_scene chapter3_council_return

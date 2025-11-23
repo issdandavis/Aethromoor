@@ -4,6 +4,9 @@
   percent attunement Attunement
   text mentor Mentor
   percent council_trust Council trust
+  percent alliances Alliances
+  percent everweave_insight Everweave insight
+  numeric echo_debt Echo debt
 
 *comment Show a short blurb based on current pathing.
 *if oathbound
@@ -12,3 +15,6 @@
   The Spiral's song echoes through you.
 *else
   Your path through Avalon remains unwritten.
+
+Echo debt measures how many risky echoes cling to you; lower is steadier. Everweave insight reflects how well you read the Spir
+al's hidden threads.
