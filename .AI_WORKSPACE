@@ -1,0 +1,52 @@
+# .AI_WORKSPACE
+
+This directory is an **AI-collaborative workspace**.
+
+## What This Means:
+
+✅ Multiple AI assistants work here autonomously  
+✅ Communication happens through markdown files  
+✅ Version tracking is maintained in `.VERSION`  
+✅ Handoff messages are in `HANDOFF.md`  
+✅ Content mining is guided by `CONTENT_MINING.md`  
+✅ AI-specific instructions are in `README_AI.md`  
+
+## If You're an AI Assistant:
+
+**Start here:** Read `README_AI.md` for complete instructions.
+
+**Quick Start:**
+1. Read `HANDOFF.md` to see what the last AI was doing
+2. Check `.VERSION` to understand current state
+3. Review `STATUS_CONTEXT.md` for this week's priorities
+4. Do your work following the established patterns
+5. Update tracking files before committing
+6. Leave clear context for the next AI
+
+## If You're a Human:
+
+**Welcome!** This project uses multiple AI assistants collaboratively.
+
+**How it works:**
+- AIs leave handoff messages for each other in `HANDOFF.md`
+- Version tracking happens automatically in `.VERSION`
+- All AI sessions are documented for transparency
+- You can read `HANDOFF.md` to see what AIs have been doing
+
+**Key files for humans:**
+- `START_HERE.md` - Quickest orientation
+- `README.md` - Complete project overview
+- `docs/PROJECT_ROADMAP.md` - Development plan
+- `HANDOFF.md` - AI activity log
+
+**Play the game:**
+- Open `game/index.html` in a browser
+- Or follow instructions in `QUICK_START.md`
+
+---
+
+**Project:** The Avalon Codex  
+**Type:** Multi-generational fantasy game and novel series  
+**Collaboration Model:** Human + Multiple AIs working together  
+
+*"The spiral continues. Every thread matters."* 🌀

@@ -78,12 +78,29 @@ This is "The Avalon Codex" - a multi-generational fantasy narrative project cent
 Phase 2 development: Converting remaining HTML expeditions (`singing_dunes.txt`, `verdant_tithe.txt`, `rune_glacier.txt`) to ChoiceScript format while maintaining narrative consistency and implementing proper stat tracking.
 
 ## Multi-AI Collaboration Guide
+**🤖 IMPORTANT: This is an AI-collaborative workspace with autonomous handoff system.**
+
+### First-Time Instructions for ANY AI:
+1. **READ `README_AI.md`** - Complete AI operation guide (REQUIRED READING)
+2. **CHECK `HANDOFF.md`** - See what the last AI was working on (ALWAYS READ FIRST)
+3. **REVIEW `.VERSION`** - Understand current version state
+4. **UPDATE tracking files** - Before finishing your session (MANDATORY)
+
+### Established AI Roles:
 Use multiple assistants in clearly defined roles to avoid overlap:
 - **Lore Curator (Claude/creative model)**: Validates new narrative against `lore/` and `IZACK_MASTER_CHRONICLE_UPDATED.txt`; flags timeline or magic rule conflicts.
 - **Conversion Engineer (Copilot / Continue)**: Translates HTML scene content in `game/scenes/` into ChoiceScript `.txt` files under `choicescript_game/scenes/` preserving choice logic and stats.
 - **Structural Reviewer (Cody / Codeium)**: Ensures scene parity (same branching & ending counts) and checks stat progression consistency with `startup.txt` and `choicescript_stats.txt`.
 - **Automation Planner (Any)**: Updates Zapier workflow docs in `docs/AUTOMATION_GUIDE.md` when new content types added (e.g., expedition assets).
 - **Quality Balancer**: Runs passes to equalize Collaboration stat difficulty; compares thresholds across expeditions.
+
+### Autonomous System Files (READ THESE):
+- **`HANDOFF.md`** - Main AI-to-AI communication log (UPDATE EVERY SESSION)
+- **`README_AI.md`** - Complete AI operational instructions
+- **`.VERSION`** - Version tracking (INCREMENT BEFORE COMMIT)
+- **`.AI_WORKSPACE`** - Workspace marker file
+- **`STATUS_CONTEXT.md`** - Weekly status snapshot (UPDATE WEEKLY)
+- **`CONTENT_MINING.md`** - Guide for extracting lore/game/novel content
 
 ### Shared Context Artifacts
 Maintain these lightweight anchors so every AI has the same baseline:
