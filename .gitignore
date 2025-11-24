@@ -19,3 +19,6 @@ notes.txt
 notes2.txt
 not ures.txt
 numbers.txt
+
+# ChoiceScript backup files
+*.backup
