@@ -62,6 +62,7 @@ Avalon/
 - Can't find the Avalon folder? Search your computer for "Avalon"
 - Still stuck? Read `QUICK_START.md` for detailed instructions
 - Browser won't open index.html? Right-click → "Open With" → Choose your browser
+- **GitHub Copilot issues?** See `COPILOT_ACCESS.md` for setup help
 
 ---
 

@@ -35,6 +35,14 @@ See **[PLAY_THE_GAME.md](PLAY_THE_GAME.md)** for detailed instructions.
 
 ---
 
+## 🤖 GitHub Copilot Users
+
+**Need help accessing Copilot features?** See **[COPILOT_ACCESS.md](COPILOT_ACCESS.md)**
+
+This repository is configured with custom Copilot instructions to help with game development!
+
+---
+
 ## 📖 About the Game
 
 ### Story
