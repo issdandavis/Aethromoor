@@ -45,23 +45,26 @@ Avalon/
 │   ├── startup.txt
 │   └── scenes/
 │
-├── 📚 lore/ ← ALL worldbuilding (consolidated)
-│   ├── # IZACK'S MAGICAL UNIVERSE - COMPLE.txt
+├── 📚 lore/ ← ALL worldbuilding (consolidated, renamed Nov 2024)
+│   ├── izacks_magical_universe_complete.txt
 │   ├── Pollys_Wingscrolls_Worldbuilding.markdown
-│   ├── Unified Worldbuilding Master Framew.txt
+│   ├── unified_worldbuilding_master_framework.txt
 │   ├── Spiralverse_Language_Summary.markdown
 │   ├── Fae_Song_Appendix.txt
 │   ├── Tower_Layout_Reference.txt
 │   ├── Lore_Codex.txt
-│   └── __Geography and Natural Lore__.pdf
+│   └── geography_and_natural_lore_spiral_pollyoneth.pdf
 │
-├── 📝 writing_drafts/ ← ALL manuscripts (consolidated)
+├── 📝 writing_drafts/ ← ALL manuscripts (consolidated, renamed Nov 2024)
 │   ├── DarkSetting_Happy_Ending_Complete_Chronicle.txt
-│   ├── # The Spiral of Avalon.txt
+│   ├── spiral_of_avalon_draft.txt
+│   ├── spiral_of_avalon_complete_novel.txt
 │   ├── spiral-of-pollyoneth-novel.md
 │   ├── Complete_Writing_Guide.txt
 │   ├── Positioning_The_Avalon_Codex.txt
-│   └── [PDFs and outlines]
+│   ├── spiral_pollyoneth_book1_masterplan.pdf
+│   ├── spiral_pollyoneth_book1_masterplan_v20.pdf
+│   └── [Additional manuscript PDFs and outlines]
 │
 ├── 📋 docs/ ← ALL documentation (consolidated)
 │   ├── AETHERMOOR_CHRONICLES.md
@@ -78,8 +81,10 @@ Avalon/
 │   ├── avalon_materials/ ← Reference PDFs and docs
 │   └── reference/ ← Misc reference files
 │
-├── 📦 archive/ ← ALL historical materials (consolidated)
-│   ├── Entire chat log.txt (versions)
+├── 📦 archive/ ← ALL historical materials (consolidated, renamed Nov 2024)
+│   ├── entire_chat_log.txt (multiple versions)
+│   ├── chronological_updated.txt
+│   ├── chronological_quotes_updated.txt
 │   ├── Conversation logs
 │   ├── Old bundles and exports
 │   └── Legacy reference files
@@ -157,6 +162,22 @@ Only essential navigation files:
 ✅ FILE_LOCATIONS.txt updated with new structure
 ✅ Clean, unified repository structure
 
+## File Renaming Complete (November 2024):
+
+✅ **All files renamed for ease of access**
+✅ Removed special characters (#, __, parentheses, spaces)
+✅ Applied consistent snake_case naming convention
+✅ Clear, descriptive filenames for non-technical users
+✅ Version numbers standardized (v1, v2, v20 format)
+✅ 100+ files renamed across all directories:
+   - lore/ (9 files)
+   - writing_drafts/ (19 files)
+   - docs/avalon_materials/ (75+ files)
+   - docs/reference/ (4 files)
+   - archive/ (12+ files)
+✅ FILE_NAMING_GUIDE.md created for future consistency
+✅ All documentation updated with new filenames
+
 ---
 
 ## Files You'll See in Root:
@@ -164,7 +185,8 @@ Only essential navigation files:
 When you open the Avalon folder, you'll see:
 - START_HERE.md ← Read this!
 - README.md
-- FILE_LOCATIONS.txt
+- FILE_LOCATIONS.txt ← Quick reference guide
+- FILE_NAMING_GUIDE.md ← Naming conventions
 - PLAY_HERE.html
 - PLAY_THE_GAME.md
 - QUICK_START.md
