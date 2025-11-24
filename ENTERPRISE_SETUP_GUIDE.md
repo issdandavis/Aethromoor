@@ -143,9 +143,9 @@ Create coordination files so multiple AI assistants can work together:
 git clone https://github.com/issdandavis/Avalon.git
 cd Avalon
 
-# Configure git for Account 1
-git config user.name "Your Name"
-git config user.email "account1@example.com"
+# Configure git for Account 1 (replace with your actual details)
+git config user.name "Your Name"  # ← Your actual name
+git config user.email "your.email@example.com"  # ← Your Account #1 email
 ```
 
 ```bash
@@ -153,15 +153,15 @@ git config user.email "account1@example.com"
 git clone https://github.com/issdandavis/Avalon.git
 cd Avalon
 
-# Configure git for Account 2
-git config user.name "Your Name (Org)"
-git config user.email "account2@example.com"
+# Configure git for Account 2 (replace with your actual details)
+git config user.name "Your Name (Org)"  # ← Your actual name
+git config user.email "your.other.email@example.com"  # ← Your Account #2 email
 ```
 
 #### Step 2: Set Up Environment Variables
 
 ```bash
-# Copy the template
+# Copy the template (this file exists in the repository)
 cp config/.env.example config/.env
 
 # Edit config/.env with your API keys
@@ -170,9 +170,10 @@ nano config/.env
 
 **Add your keys:**
 ```bash
+# Replace 'xxx' with your actual API keys:
 ANTHROPIC_API_KEY=sk-ant-api03-xxx
 OPENAI_API_KEY=sk-xxx
-GITHUB_TOKEN=ghp_xxx  # For automation
+GITHUB_TOKEN=ghp_xxx  # For automation (optional)
 ```
 
 ⚠️ **NEVER commit `.env` to git** - it's already in `.gitignore`

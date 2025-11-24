@@ -36,8 +36,8 @@
 cd ~/projects  # or your projects folder
 git clone https://github.com/issdandavis/Avalon.git
 cd Avalon
-git config user.name "Your Name"
-git config user.email "account1@example.com"
+git config user.name "Your Name"  # ← Replace with your actual name
+git config user.email "your.email@example.com"  # ← Replace with your Account #1 email
 ```
 
 **On Secondary Machine/Profile (Account #2) - OPTIONAL:**
@@ -45,8 +45,8 @@ git config user.email "account1@example.com"
 cd ~/projects
 git clone https://github.com/issdandavis/Avalon.git
 cd Avalon
-git config user.name "Your Name (Org)"
-git config user.email "account2@example.com"
+git config user.name "Your Name (Org)"  # ← Replace with your name
+git config user.email "your.other.email@example.com"  # ← Replace with your Account #2 email
 ```
 
 ### 4. Set Up Environment Variables
