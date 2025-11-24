@@ -86,6 +86,17 @@ This guide helps you set up a professional "enterprise" environment for **The Av
 **Location:** `.github/agents/my-agent.agent.md`  
 **Current Name:** "Avalon Lore Steward"
 
+#### ⚠️ Access Issues?
+
+If you see **"Access to Copilot coding agent has been disabled by your administrator"**:
+
+📖 **See: `COPILOT_ACCESS_GUIDE.md`** for detailed setup instructions including:
+- How to subscribe to GitHub Copilot for both accounts
+- Budget-friendly options (single account)
+- Organization vs Individual subscriptions
+- Student/educator free access
+- Alternative AI tools
+
 #### Verify It's Working:
 
 ```bash
