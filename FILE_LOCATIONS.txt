@@ -9,6 +9,7 @@
 📚 GETTING STARTED:
    START_HERE.md ← Simplest instructions
    README.md ← Full project overview
+   ENTERPRISE_README.md ← Technical & organizational documentation
    QUICK_START.md ← Detailed play instructions
    PLAY_THE_GAME.md ← Game playing guide
 

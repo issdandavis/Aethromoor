@@ -1,5 +1,7 @@
 # Repository Organization - Consolidated & Unified ✅
 
+> **📊 For comprehensive enterprise documentation including technical architecture, CI/CD pipeline, security policies, and governance, see [ENTERPRISE_README.md](ENTERPRISE_README.md)**
+
 ## Consolidation Complete (November 2025)
 
 ### **What Was Done:**
