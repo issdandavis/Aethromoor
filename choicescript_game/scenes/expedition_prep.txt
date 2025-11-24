@@ -61,7 +61,7 @@ Aria's gaze is more analytical. "Before you decide which expedition, you need to
 
 *choice
     #"I want to know more about what to expect."
-        *set academics +2
+        *set knowledge +2
         *set collaboration +3
         
         Izack smiles approvingly. "Good question. Let's walk through the Preparation Hall while we talk."
@@ -71,7 +71,7 @@ Aria's gaze is more analytical. "Before you decide which expedition, you need to
         *goto preparation_hall_tour
     #"I'm ready to start preparing immediately."
         *set power +2
-        *set individual_power +1
+        *set individual_vs_collective -1
         
         Aria nods. "Confidence is useful. Just ensure it doesn't become recklessness."
         
@@ -131,8 +131,8 @@ Aria actually cracks a small smile at that. "Every expedition team needs balance
     #Study the watchful mirror—observation and perception
         You step closer to the first mirror. Your reflection's eyes seem sharper, more aware. You can almost feel the heightened senses it represents.
         
-        *set curiosity +3
-        *set perception +2
+        *set knowledge +3
+        *set empathy +2
         
         "The Scout aspect," Aria says. "Those who can sense danger before it manifests, who read environments like texts."
         
@@ -140,8 +140,8 @@ Aria actually cracks a small smile at that. "Every expedition team needs balance
     #Examine the magical mirror—action and spellwork
         The second mirror draws you in. Your reflection is surrounded by dancing lights, hands moving in complex patterns, magic responding to your will.
         
-        *set magic_control +2
-        *set academics +2
+        *set communication_vs_domination +2
+        *set knowledge +2
         
         "The Mage aspect," Izack says. "Those who shape reality through concentrated will and collaborative spellwork."
         
@@ -175,14 +175,14 @@ When you step back, Aria produces three role cards from her pocket—they shimme
 *choice
     #Scout – navigate, perceive, and sense danger.
         *set expedition_role "scout"
-        *set perception +3
-        *set agility +3
+        *set empathy +3
+        *set power +3
         "The forest is alive," Aria warns. "You'll need to listen more than you look."
         *goto choose_equipment
     #Mage – maintain spells, reinforce wards, and handle magical hurdles.
         *set expedition_role "mage"
-        *set magic_control +3
-        *set academics +2
+        *set communication_vs_domination +3
+        *set knowledge +2
         "The Tithe respects those who respect it," Izack adds. "Weave your spells with invitations, not commands."
         *goto choose_equipment
     #Heart – foster group cohesion, morale, and empathy.
@@ -227,8 +227,8 @@ The [b]Multi-Tool Drone[/b] — A Cassisivadan gadget that buzzes, chirps, and c
 *choice
     #Pick the Alchemical Satchel – potions and salves for healing and enhancement.
         *set equipment_chosen "alchemical_satchel"
-        *set magic_control +2
-        *set academics +1
+        *set communication_vs_domination +2
+        *set knowledge +1
         
         You lift the satchel—it's heavier than expected, packed with carefully labeled vials. Each one glows softly with inner light.
         
@@ -262,7 +262,7 @@ The [b]Multi-Tool Drone[/b] — A Cassisivadan gadget that buzzes, chirps, and c
     #Choose the Spirit Flute – attunes you to plant and animal spirits.
         *set equipment_chosen "spirit_flute"
         *set empathy +2
-        *set magic_control +2
+        *set communication_vs_domination +2
         
         The flute is warm to the touch, as if it's been sitting in sunlight. The wood grain swirls in patterns that seem to shift when you're not looking directly at them.
         
@@ -279,8 +279,8 @@ The [b]Multi-Tool Drone[/b] — A Cassisivadan gadget that buzzes, chirps, and c
         
     #Take the Multi-Tool Drone – Cassisivadan gadget that repairs and scouts.
         *set equipment_chosen "multi_tool_drone"
-        *set creativity +2
-        *set agility +1
+        *set knowledge +2
+        *set power +1
         
         The little device immediately springs to life when you touch it, unfolding from a compact sphere into a hovering mechanical companion. It chirps excitedly, circling your head like an enthusiastic hummingbird.
         
@@ -311,9 +311,8 @@ A student you don't recognize well—a quiet person from the Boundary Weavers gu
 
 *choice
     #Approach the anxious student and offer help.
-        *set empathy +3
+        *set empathy +5
         *set collaboration +5
-        *set social +2
         
         You walk over quietly. "First expedition?" you ask gently.
         
@@ -333,7 +332,7 @@ A student you don't recognize well—a quiet person from the Boundary Weavers gu
         *goto mental_preparation
         
     #Focus on your own preparation—you need to be ready.
-        *set individual_power +2
+        *set individual_vs_collective -2
         *set power +1
         
         You turn your attention back to your own gear, testing weight, checking seals, ensuring everything is properly secured. Preparation is personal responsibility.
@@ -380,8 +379,7 @@ You consider the question. Tomorrow you'll step through a portal into an environ
         
     #With intellectual curiosity. I want to study everything we encounter.
         *set mental_preparation "curious"
-        *set academics +2
-        *set knowledge +2
+        *set knowledge +4
         
         Your mind is already racing with questions. What makes the sand truth-sensitive? How does the forest read thoughts? What gives the glacier its adaptive properties?
         
@@ -417,8 +415,7 @@ You consider the question. Tomorrow you'll step through a portal into an environ
         
     #With determination. The Spiral prepared me for this.
         *set mental_preparation "determined"
-        *set power +2
-        *set individual_power +2
+        *set power +4
         
         You clench your fists and set your jaw. Whatever the expedition throws at you, you'll handle it. You've trained for this. You've studied. You've prepared.
         
@@ -463,7 +460,7 @@ She tilts her head, meeting your eyes with her ancient gaze.
 *choice
     #"Thank you, Polly. That actually helps."
         *set polly_relationship +5
-        *set confidence +2
+        *set power +2
         
         Polly ruffles her feathers, looking pleased and embarrassed in equal measure.
         
@@ -482,7 +479,7 @@ She tilts her head, meeting your eyes with her ancient gaze.
         *goto final_evening
         
     #"What expedition did you like best when you went through?"
-        *set curiosity +2
+        *set knowledge +2
         *set polly_relationship +3
         
         Polly actually laughs—a sound like wind chimes made of metal.
