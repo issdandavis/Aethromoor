@@ -142,4 +142,11 @@ Update documentation with new endpoints
 
 ---
 
+## GitHub Copilot Issues?
+
+Having trouble with GitHub Copilot Spark or other features? See our troubleshooting guide:
+- **[GitHub Copilot Spark Troubleshooting](docs/GITHUB_COPILOT_SPARK_TROUBLESHOOTING.md)**
+
+---
+
 *"Every contribution weaves another thread in the spiral."*
