@@ -161,12 +161,14 @@ git push origin feature/your-feature
 - **Start developing**: Read `ENTERPRISE_SETUP_GUIDE.md`
 - **Check progress**: Review `STATUS_CONTEXT.md`
 - **Get AI help**: Use GitHub Copilot in VS Code
+- **🔥 Paid for Copilot but blocked?**: See `COPILOT_TROUBLESHOOTING_PAID.md` ← START HERE
 - **🆕 Copilot access issues**: See `COPILOT_ACCESS_GUIDE.md`
 
 ### Documentation:
 - **Quick Start**: `SETUP_CHECKLIST.md` (30-60 min)
 - **Full Guide**: `ENTERPRISE_SETUP_GUIDE.md` (comprehensive)
 - **AI Instructions**: `.github/COPILOT_INSTRUCTIONS.md`
+- **🔥 Already Paid?**: `COPILOT_TROUBLESHOOTING_PAID.md` (org/repo permission fixes)
 - **🆕 Copilot Setup**: `COPILOT_ACCESS_GUIDE.md` (subscriptions & access)
 - **Troubleshooting**: See guides above
 

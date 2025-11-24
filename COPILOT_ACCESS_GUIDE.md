@@ -5,12 +5,28 @@
 
 ---
 
+## 🚨 ALREADY PAID BUT STILL BLOCKED?
+
+**If you've subscribed and paid but STILL see the error:**
+
+📖 **→ See: `COPILOT_TROUBLESHOOTING_PAID.md`** for immediate fixes
+
+This usually means:
+- Repository is in an organization (blocks individual subscriptions)
+- Organization policy is blocking Copilot
+- VS Code is signed into wrong account
+- Repository-level settings blocking access
+
+**The troubleshooting guide has step-by-step fixes for each scenario.**
+
+---
+
 ## 📋 Understanding the Issue
 
 If you see "Access to Copilot coding agent has been disabled by your administrator", it means:
 
 1. **GitHub Copilot subscription is needed** for each account
-2. **Organization settings** may be blocking Copilot access
+2. **Organization settings** may be blocking Copilot access (even if you've paid)
 3. **Repository permissions** may need adjustment
 
 ---
