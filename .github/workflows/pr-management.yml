@@ -1,0 +1,212 @@
+name: PR Management & Automation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  pr-labeler:
+    name: Auto-label Pull Requests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Label by size
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const additions = pr.additions;
+            const deletions = pr.deletions;
+            const total = additions + deletions;
+            
+            let sizeLabel;
+            if (total < 10) {
+              sizeLabel = 'size: XS';
+            } else if (total < 50) {
+              sizeLabel = 'size: S';
+            } else if (total < 200) {
+              sizeLabel = 'size: M';
+            } else if (total < 500) {
+              sizeLabel = 'size: L';
+            } else {
+              sizeLabel = 'size: XL';
+            }
+            
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              labels: [sizeLabel]
+            });
+            
+            console.log(`Added label: ${sizeLabel} (${total} lines changed)`);
+      
+      - name: Label by file type
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            
+            // Get files changed in PR
+            const files = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number
+            });
+            
+            const labels = new Set();
+            
+            files.data.forEach(file => {
+              const filename = file.filename;
+              
+              // Game content
+              if (filename.startsWith('choicescript_game/') || filename.startsWith('game/')) {
+                labels.add('game-content');
+              }
+              
+              // Lore
+              if (filename.startsWith('lore/')) {
+                labels.add('lore');
+              }
+              
+              // Documentation
+              if (filename.startsWith('docs/') || filename.endsWith('.md')) {
+                labels.add('documentation');
+              }
+              
+              // Writing
+              if (filename.startsWith('writing_drafts/')) {
+                labels.add('writing');
+              }
+              
+              // Workflows
+              if (filename.startsWith('.github/workflows/')) {
+                labels.add('github-actions');
+              }
+              
+              // Tests
+              if (filename.includes('test')) {
+                labels.add('tests');
+              }
+            });
+            
+            if (labels.size > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                labels: Array.from(labels)
+              });
+              
+              console.log(`Added labels: ${Array.from(labels).join(', ')}`);
+            }
+
+  pr-checklist:
+    name: Verify PR Checklist
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check PR description
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const body = pr.body || '';
+            
+            const checks = {
+              'Has summary': body.includes('## Summary') || body.includes('summary'),
+              'Has linked issue': body.includes('Closes #') || body.includes('Fixes #') || body.includes('Related to #'),
+              'Has change notes': body.includes('## Change Notes') || body.includes('WHAT WAS'),
+              'Sufficient length': body.length > 100
+            };
+            
+            const passed = Object.values(checks).filter(Boolean).length;
+            const total = Object.keys(checks).length;
+            
+            let comment = '### PR Checklist Results\n\n';
+            for (const [check, result] of Object.entries(checks)) {
+              comment += `${result ? '✅' : '❌'} ${check}\n`;
+            }
+            
+            comment += `\n**Score: ${passed}/${total}**\n\n`;
+            
+            if (passed < total) {
+              comment += '💡 Consider adding missing sections to your PR description using the template.';
+            } else {
+              comment += '🎉 Great job! Your PR description is complete.';
+            }
+            
+            // Only comment if there are issues
+            if (passed < total) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                body: comment
+              });
+            }
+
+  pr-notifications:
+    name: Send PR Notifications
+    runs-on: ubuntu-latest
+    if: github.event.action == 'opened'
+    
+    steps:
+      - name: Create notification summary
+        run: |
+          echo "# New Pull Request Opened" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**PR #${{ github.event.pull_request.number }}:** ${{ github.event.pull_request.title }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Author:** @${{ github.event.pull_request.user.login }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Base:** ${{ github.event.pull_request.base.ref }} ← **Head:** ${{ github.event.pull_request.head.ref }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Changes:**" >> $GITHUB_STEP_SUMMARY
+          echo "- Additions: ${{ github.event.pull_request.additions }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Deletions: ${{ github.event.pull_request.deletions }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Changed files: ${{ github.event.pull_request.changed_files }}" >> $GITHUB_STEP_SUMMARY
+
+  auto-merge-check:
+    name: Check Auto-merge Eligibility
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    
+    steps:
+      - name: Check merge eligibility
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            
+            // Criteria for auto-merge
+            const criteria = {
+              'Not draft': !pr.draft,
+              'CI passing': true, // Will be checked by required status checks
+              'No conflicts': !pr.mergeable_state || pr.mergeable_state === 'clean',
+              'Has approvals': false // Will be updated by reviews
+            };
+            
+            const eligible = Object.values(criteria).every(Boolean);
+            
+            let comment = '### Auto-merge Eligibility\n\n';
+            for (const [check, result] of Object.entries(criteria)) {
+              comment += `${result ? '✅' : '⏳'} ${check}\n`;
+            }
+            
+            if (eligible) {
+              comment += '\n✅ This PR is eligible for auto-merge once approved!';
+            } else {
+              comment += '\n⏳ Complete the checks above to enable auto-merge.';
+            }
+            
+            console.log(comment);

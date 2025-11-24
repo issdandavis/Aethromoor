@@ -1,0 +1,97 @@
+name: Auto-assign Issues
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  auto-assign:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    
+    steps:
+      - name: Assign issue to owner
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Auto-assign new issues to the repository owner
+            // Can be extended to rotate among team members
+            
+            const issue = context.payload.issue;
+            const issueNumber = issue.number;
+            const owner = context.repo.owner;
+            
+            console.log(`Auto-assigning issue #${issueNumber} to ${owner}`);
+            
+            try {
+              await github.rest.issues.addAssignees({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                assignees: [owner]
+              });
+              
+              // Add a comment to acknowledge the issue
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body: `👋 Thanks for opening this issue! It has been automatically assigned for review.\n\n` +
+                      `**Issue Type:** ${issue.labels.map(l => l.name).join(', ') || 'Unlabeled'}\n\n` +
+                      `We'll get back to you as soon as possible.`
+              });
+              
+              console.log('Issue assigned successfully');
+            } catch (error) {
+              console.error('Error assigning issue:', error);
+            }
+      
+      - name: Add labels based on content
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const title = issue.title.toLowerCase();
+            const body = issue.body ? issue.body.toLowerCase() : '';
+            const labels = [];
+            
+            // Auto-label based on keywords
+            if (title.includes('bug') || body.includes('bug') || body.includes('error') || body.includes('broken')) {
+              labels.push('bug');
+            }
+            
+            if (title.includes('feature') || title.includes('enhancement') || body.includes('feature request')) {
+              labels.push('enhancement');
+            }
+            
+            if (title.includes('doc') || title.includes('documentation') || body.includes('documentation')) {
+              labels.push('documentation');
+            }
+            
+            if (title.includes('question') || title.includes('help') || body.includes('how to')) {
+              labels.push('question');
+            }
+            
+            if (title.includes('game') || title.includes('choicescript') || body.includes('scene')) {
+              labels.push('game-content');
+            }
+            
+            if (title.includes('lore') || title.includes('worldbuilding') || body.includes('character')) {
+              labels.push('lore');
+            }
+            
+            if (title.includes('urgent') || title.includes('critical') || title.includes('security')) {
+              labels.push('priority: high');
+            }
+            
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: labels
+              });
+              
+              console.log(`Added labels: ${labels.join(', ')}`);
+            }
