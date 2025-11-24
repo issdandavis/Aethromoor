@@ -1,17 +1,176 @@
 *comment expedition_prep.txt
-*comment Preparing for the Verdant Tithe expedition. The player chooses their role, equipment, and mindset.  
+*comment Preparing for the expedition. The player chooses their preparation approach, equipment, and mindset.
+*comment This is a pre-expedition scene that occurs BEFORE choosing which expedition to join.
 
 *label expedition_prep
-*comment This scene is called when the player is invited to join the Verdant Tithe expedition.
+*comment This scene is called after academy_life when students are invited to join an expedition.
 
-Polly lands on your shoulder as you read the expedition notice posted outside the Guild Hall.  
-"Verdant Tithe," she reads. "A test of collaboration, trust, and the ability to not get eaten by flora. Fun."
+The summons arrives at breakfast—a shimmering scroll that materializes in the air above your porridge, causing several students to gasp and one unfortunate soul to spill tea down their robes.
 
-Izack and Aria stand at a nearby table covered in maps and supply lists.  
-"The Verdant Tithe is more than just a field trip," Izack says. "It's a rite of passage for Avalon students. We need volunteers to fill different roles."
+[i]"Ooh, fancy. They usually just post these on bulletin boards, but I guess Izack wanted to add drama. Always the showman."[/i]
 
-Aria lays out three role cards. "Scout," "Mage," and "Heart."  
-She looks at you. "Which role resonates with you?"
+*line_break
+
+Polly pecks the scroll open with her beak. The script glows in three colors—golden sand, emerald leaves, and crystalline blue.
+
+[b]EXPEDITION SUMMONS[/b]
+
+[i]Advanced students are hereby invited to participate in one of three field expeditions departing tomorrow at dawn. These expeditions are dangerous, educational, and will fundamentally shape your understanding of collaborative magic. Prepare accordingly.[/i]
+
+*page_break
+
+You spend the rest of breakfast reading about the three options:
+
+[b]The Singing Dunes[/b] — A truth-testing desert where the sand judges honesty. Guide: Kael, desert sage and oath-binder.
+
+[b]The Verdant Tithe[/b] — A sentient forest where thoughts have weight. Guide: Izack Thorne, dimensional mage.
+
+[b]The Rune Glacier[/b] — Living ice inscribed with adaptive runes. Guide: Aria Cassisi, boundary specialist.
+
+*line_break
+
+[i]"Three ways to nearly die while learning important life lessons. The Spiral really knows how to keep things interesting."[/i]
+
+*page_break
+
+*comment Player hasn't chosen their expedition yet - this is preparation phase
+
+The afternoon sun slants through the Guild Hall's crystalline windows as you make your way to the Expedition Preparation Wing. The corridors here smell of oiled leather, dried herbs, and something sharp that might be enchanted metal or might be nervous student sweat.
+
+Other students cluster in small groups, their voices echoing off stone walls as they debate which expedition to choose.
+
+*line_break
+
+"—heard the Dunes can literally smell lies—"
+
+"—my cousin tried the Glacier and came back with frostbite [i]on his thoughts[/i]—"
+
+"—the forest reads your mind, did you know that? Every. Single. Thought—"
+
+*page_break
+
+[i]"Ah yes, the traditional pre-expedition panic. A rite of passage in itself. For what it's worth, all three expeditions are equally likely to terrify and transform you. So, you know, pick your poison."[/i]
+
+*line_break
+
+Izack and Aria stand at the entrance to the Preparation Hall, checking students off a list. They both look up as you approach.
+
+"${name}," Izack says warmly. "Ready to make your choice?"
+
+Aria's gaze is more analytical. "Before you decide which expedition, you need to understand what you're preparing [i]for[/i]. Each journey tests different aspects of magical partnership."
+
+*choice
+    #"I want to know more about what to expect."
+        *set academics +2
+        *set collaboration +3
+        
+        Izack smiles approvingly. "Good question. Let's walk through the Preparation Hall while we talk."
+        
+        He gestures for you to follow, leading you past tables laden with expedition gear.
+        
+        *goto preparation_hall_tour
+    #"I'm ready to start preparing immediately."
+        *set power +2
+        *set individual_power +1
+        
+        Aria nods. "Confidence is useful. Just ensure it doesn't become recklessness."
+        
+        [i]"Translation: you're eager, which is cute, but you don't actually know what you're getting into yet. Don't worry, that'll change."[/i]
+        
+        *goto preparation_hall_tour
+    #"Honestly? I'm a bit nervous about all of this."
+        *set empathy +3
+        *set stress +2
+        
+        Izack's expression softens. "Everyone is. The expeditions are designed to challenge you. But you won't be alone."
+        
+        He places a reassuring hand on your shoulder. "Come on. Let's see what we can do to help you feel ready."
+        
+        *set izack_relationship +5
+        *goto preparation_hall_tour
+
+*label preparation_hall_tour
+
+*page_break
+
+The Preparation Hall is vast—a cathedral of supplies and magical equipment. Vaulted ceilings rise overhead, inscribed with protective runes that pulse softly with blue-white light. The air hums with latent enchantments.
+
+Tables are organized by expedition type: golden desert gear to the left, verdant forest supplies in the center, crystalline glacier equipment to the right.
+
+*line_break
+
+Other students move between the tables, testing the weight of enchanted packs, examining vials of alchemical mixtures, running fingers over runestones.
+
+You recognize Zara at the forest supplies table, carefully selecting dried herbs. Rupert stands near the glacier equipment, looking simultaneously excited and terrified.
+
+*page_break
+
+[i]"Notice how the room's organized by fear category? Desert fear over there, forest fear in the middle, ice fear to the right. Very efficient."[/i]
+
+*line_break
+
+Aria gestures to the various stations. "Each expedition requires different preparations, but there are common elements. Physical endurance. Mental resilience. Collaborative capacity."
+
+Izack adds, "But before you choose specific gear, you need to understand your role. Not just in the expedition, but in [i]any[/i] collaborative magical work."
+
+*page_break
+
+He leads you to a quiet alcove where three crystalline mirrors hang on the wall. Each reflects your image differently—one shows you alert and watchful, another shows you surrounded by swirling magical energy, the third shows you with arms open, connecting threads of light between other figures.
+
+"The three aspects of collaborative magic," Izack explains. "Observation. Action. Connection."
+
+*line_break
+
+[i]"Some people call them Scout, Mage, and Heart. Some call them the Perceiver, the Weaver, and the Binder. Izack once tried to rename them the 'Trinity of Awesome' but Aria vetoed that immediately."[/i]
+
+*page_break
+
+Aria actually cracks a small smile at that. "Every expedition team needs balance. You'll need to decide which aspect resonates most with your natural strengths."
+
+*choice
+    #Study the watchful mirror—observation and perception
+        You step closer to the first mirror. Your reflection's eyes seem sharper, more aware. You can almost feel the heightened senses it represents.
+        
+        *set curiosity +3
+        *set perception +2
+        
+        "The Scout aspect," Aria says. "Those who can sense danger before it manifests, who read environments like texts."
+        
+        *goto role_reflection
+    #Examine the magical mirror—action and spellwork
+        The second mirror draws you in. Your reflection is surrounded by dancing lights, hands moving in complex patterns, magic responding to your will.
+        
+        *set magic_control +2
+        *set academics +2
+        
+        "The Mage aspect," Izack says. "Those who shape reality through concentrated will and collaborative spellwork."
+        
+        *goto role_reflection
+    #Approach the connecting mirror—empathy and bonds
+        The third mirror shows something that makes your heart ache with recognition. Connection. Belonging. The threads between people made visible.
+        
+        *set empathy +3
+        *set collaboration +3
+        
+        "The Heart aspect," Izack says softly. "Those who hold groups together when everything else falls apart."
+        
+        *goto role_reflection
+
+*label role_reflection
+
+*page_break
+
+You spend several minutes in quiet contemplation, letting the mirrors show you different versions of yourself—potential versions, possible futures.
+
+[i]"Heavy stuff, I know. But understanding your natural role makes everything else easier. Well, not easier. Less likely to end in disaster, let's say."[/i]
+
+*line_break
+
+When you step back, Aria produces three role cards from her pocket—they shimmer with the same colors as the mirrors.
+
+"Choose," she says simply.
+
+*choice
 
 *choice
     #Scout – navigate, perceive, and sense danger.
@@ -34,7 +193,34 @@ She looks at you. "Which role resonates with you?"
         *goto choose_equipment
 
 *label choose_equipment
-The supply table holds an assortment of gear, each resonating with different skill sets.
+
+*page_break
+
+With your role selected, Aria guides you to the central equipment tables. The array is overwhelming—dozens of specialized tools, enchanted items, alchemical preparations, all carefully organized and labeled.
+
+"You can't take everything," she says. "Choose one primary piece of equipment. It will shape how you approach challenges on your expedition."
+
+*line_break
+
+Izack runs his hand over the various items. "Each piece of gear is collaborative in nature—designed to work [i]with[/i] magic, not just channel it. Choose something that resonates with your role and your instincts."
+
+*page_break
+
+You survey your options:
+
+The [b]Alchemical Satchel[/b] — A leather bag brimming with color-coded vials. Potions for healing, salves for enhancement, tinctures for perception. The Cassisi Lab's finest work.
+
+The [b]Runethic Toolkit[/b] — Carving tools, rune stones, and chalk that never runs out. For those who write their magic rather than speak it.
+
+The [b]Spirit Flute[/b] — A wooden instrument carved with flowing patterns. It attunes the player to plant and animal spirits, opening channels of communication.
+
+The [b]Multi-Tool Drone[/b] — A Cassisivadan gadget that buzzes, chirps, and can repair equipment or scout ahead. Requires speaking Cassisivadan to operate fully.
+
+*line_break
+
+[i]"Choose wisely. This gear might save your life. Or at least make your inevitable panic more organized."[/i]
+
+*page_break
 
 *comment Each choice modifies stats and the type of challenges the player can handle.
 
@@ -43,66 +229,339 @@ The supply table holds an assortment of gear, each resonating with different ski
         *set equipment_chosen "alchemical_satchel"
         *set magic_control +2
         *set academics +1
-        "Brewed by the Cassisi Lab," Izack says. "They do wonders for headaches and vine burns."  
-        *goto mental_preparation
+        
+        You lift the satchel—it's heavier than expected, packed with carefully labeled vials. Each one glows softly with inner light.
+        
+        "Brewed by the Cassisi Lab," Izack says with obvious pride. "Aria's family has been perfecting these formulas for generations. They do wonders for headaches, vine burns, sand blindness, and frostbite."
+        
+        Aria hands you a small guidebook. "Read this. Mixing the wrong potions can have... interesting consequences."
+        
+        *page_break
+        
+        [i]"'Interesting consequences' is Aria-speak for 'you might accidentally turn your hair purple or make your teeth taste sounds.' Read. The. Manual."[/i]
+        
+        *goto interaction_choice
+        
     #Grab the Runethic Toolkit – carving tools and rune stones.
         *set equipment_chosen "runethic_toolkit"
         *set knowledge +2
         *set power +1
-        "Remember: runes like straight lines and clear intent," Aria reminds you.  
-        *goto mental_preparation
+        
+        The toolkit unfolds like a magical toolbox—compartments within compartments, each holding precisely crafted instruments. The chalk feels alive in your hand, eager to write.
+        
+        "Remember: runes like straight lines and clear intent," Aria reminds you, her voice taking on a teacher's cadence. "Sloppy runes do sloppy magic. Respectful runes do collaborative magic."
+        
+        She demonstrates a simple protection rune on the table. It glows blue, then fades into the wood.
+        
+        *page_break
+        
+        [i]"Runes are great until you misspell one and accidentally summon a very confused dimensional entity. Ask me how I know. Actually, don't."[/i]
+        
+        *goto interaction_choice
+        
     #Choose the Spirit Flute – attunes you to plant and animal spirits.
         *set equipment_chosen "spirit_flute"
         *set empathy +2
         *set magic_control +2
-        Zara passes you the flute. "It will help you hear what the Verdant Tithe is saying. Listen closely."  
-        *goto mental_preparation
+        
+        The flute is warm to the touch, as if it's been sitting in sunlight. The wood grain swirls in patterns that seem to shift when you're not looking directly at them.
+        
+        Zara appears at your shoulder—you hadn't noticed her approach. "Oh, you chose the flute! That's wonderful." She demonstrates a simple melody, and for a moment, you swear you can hear the potted plants nearby humming in response.
+        
+        "It will help you hear what the Verdant Tithe is saying," she continues. "What the desert spirits whisper. What the glacier sings in frequencies humans usually can't perceive."
+        
+        *page_break
+        
+        [i]"Fair warning: once you start hearing everything, you can't unhear it. The universe is chattier than you'd think."[/i]
+        
+        *set zara_relationship +5
+        *goto interaction_choice
+        
     #Take the Multi-Tool Drone – Cassisivadan gadget that repairs and scouts.
         *set equipment_chosen "multi_tool_drone"
         *set creativity +2
         *set agility +1
-        The little device buzzes around your head, chirping in an excited rhythm. "You'll need to talk to it in Cassisivadan," Polly notes.
+        
+        The little device immediately springs to life when you touch it, unfolding from a compact sphere into a hovering mechanical companion. It chirps excitedly, circling your head like an enthusiastic hummingbird.
+        
+        "Ah, you picked Aria's personal favorite," Izack says with a grin.
+        
+        Aria actually looks pleased. "Cassisivadan engineering at its finest. The drone responds to voice commands, but only in Cassisivadan. I'll teach you the basics."
+        
+        For the next few minutes, she walks you through essential phrases: *zir'val* (scout ahead), *mend'kar* (repair), *val'syn* (return).
+        
+        *page_break
+        
+        [i]"Congratulations, you now have a flying companion who's more competent than most humans but also prone to interpretive execution of commands. Fun!"[/i]
+        
+        *set aria_relationship +5
+        *goto interaction_choice
+
+*label interaction_choice
+
+*page_break
+
+With your role and equipment chosen, you notice other students making their selections. Some work in pairs, discussing their choices. Others stand alone, looking overwhelmed.
+
+A student you don't recognize well—a quiet person from the Boundary Weavers guild—stands frozen before the equipment table, hands trembling slightly.
+
+*line_break
+
+[i]"Ah, the classic expedition prep anxiety. You could help... or focus on your own preparation. Your choice."[/i]
+
+*choice
+    #Approach the anxious student and offer help.
+        *set empathy +3
+        *set collaboration +5
+        *set social +2
+        
+        You walk over quietly. "First expedition?" you ask gently.
+        
+        The student nods, not meeting your eyes. "I can't decide. What if I choose wrong? What if I'm not ready?"
+        
+        You spend the next few minutes sharing your own nervousness, walking them through the options. By the end, they've selected a toolkit with a small, grateful smile.
+        
+        "Thank you," they whisper. "I'm Ven, by the way."
+        
+        *page_break
+        
+        Izack has been watching. He catches your eye and nods approvingly.
+        
+        [i]"Look at you, being all emotionally supportive. This is exactly the kind of thing that matters more than you realize."[/i]
+        
+        *set izack_relationship +3
+        *goto mental_preparation
+        
+    #Focus on your own preparation—you need to be ready.
+        *set individual_power +2
+        *set power +1
+        
+        You turn your attention back to your own gear, testing weight, checking seals, ensuring everything is properly secured. Preparation is personal responsibility.
+        
+        The anxious student eventually makes a choice, though they still look uncertain.
+        
+        [i]"Practical, but maybe a bit cold. Then again, you can't help everyone. Sometimes you have to focus on being ready yourself."[/i]
+        
         *goto mental_preparation
 
 *label mental_preparation
-Polly eyes you. "Mindset matters as much as gear," she says. "How are you approaching this expedition?"
+
+*page_break
+
+The Preparation Hall begins to empty as evening approaches. Soft leyline light filters through the windows, painting everything in shades of amber and blue.
+
+Aria has departed to check on glacier equipment logistics. Izack remains, speaking quietly with small groups of students about what to expect.
+
+*line_break
+
+Polly shifts on your shoulder, her weight familiar and comforting.
+
+"Gear and role are external," she says, her voice unusually serious. "But mindset? That's what actually determines how you'll handle what's coming. How are you approaching this expedition?"
+
+*page_break
+
+You consider the question. Tomorrow you'll step through a portal into an environment specifically designed to challenge you. How do you want to face it?
 
 *choice
-    #With cautious optimism. I trust my team and the forest.
+    #With cautious optimism. I trust my team and the environment.
         *set mental_preparation "optimistic"
         *set stress -3
-        You breathe deeply and visualize the Verdant Tithe as an ally, not an enemy.  
-        "Good," Polly says. "The forest hears intentions."
-        *goto expedition_brief
+        *set collaboration +2
+        
+        You breathe deeply and visualize the expedition not as a battle to win, but as a conversation to have. The desert, forest, or glacier—each is a partner, not an enemy.
+        
+        "Good," Polly says approvingly. "The expeditions respond to intentions. Go in expecting disaster, you'll probably find it. Go in expecting partnership... well, that usually works better."
+        
+        *page_break
+        
+        Izack, overhearing, smiles. "That's the Third Thread philosophy. Collaboration with the world itself, not just people."
+        
+        *goto evening_preparation
+        
     #With intellectual curiosity. I want to study everything we encounter.
         *set mental_preparation "curious"
         *set academics +2
-        You mentally prepare to take notes on every plant, creature, and resonance.  
-        "Just don't wander off chasing research," Aria warns.
-        *goto expedition_brief
+        *set knowledge +2
+        
+        Your mind is already racing with questions. What makes the sand truth-sensitive? How does the forest read thoughts? What gives the glacier its adaptive properties?
+        
+        You mentally prepare to take notes on every plant, creature, magical resonance, and environmental phenomenon.
+        
+        "Just don't wander off chasing research," a voice warns. You turn to find Aria has returned. "Curiosity is valuable, but so is staying with your team."
+        
+        *page_break
+        
+        [i]"Translation: trying to catalogue the forest's entire botanical system while your teammates are being digested by carnivorous vines is poor form."[/i]
+        
+        *goto evening_preparation
+        
     #With nerves and trepidation. I'm not sure I'm ready.
         *set mental_preparation "nervous"
         *set stress +3
         *set collaboration +1
-        You find your hands shaking slightly and your heart racing.  
-        Izack places a reassuring hand on your shoulder. "Everyone feels that way their first time," he says.
-        *goto expedition_brief
+        
+        You find your hands shaking slightly and your heart racing. The weight of tomorrow presses down—what if you fail? What if you endanger your team? What if you're simply not capable?
+        
+        Izack materializes beside you, as if he has a sixth sense for student panic.
+        
+        "Everyone feels that way their first time," he says quietly, placing a reassuring hand on your shoulder. "Fear means you understand the stakes. That's actually a sign of wisdom."
+        
+        *page_break
+        
+        He gestures to the other students. "Look around. Everyone here is nervous. The difference is whether you let that fear isolate you or bring you closer to your team."
+        
+        [i]"He's right, annoyingly. Vulnerability is a form of strength when you share it. Terrible when you hide it."[/i]
+        
+        *set izack_relationship +5
+        *goto evening_preparation
+        
     #With determination. The Spiral prepared me for this.
         *set mental_preparation "determined"
         *set power +2
         *set individual_power +2
-        You clench your fists and resolve to face whatever the Tithe throws at you.  
-        "Let's hope it doesn't throw too hard," Polly mutters.
-        *goto expedition_brief
+        
+        You clench your fists and set your jaw. Whatever the expedition throws at you, you'll handle it. You've trained for this. You've studied. You've prepared.
+        
+        You are ready.
+        
+        "Let's hope it doesn't throw too hard," Polly mutters, eyeing your battle-ready stance.
+        
+        *page_break
+        
+        Aria, passing by, pauses. "Determination is good. Just remember—individual strength has limits. Collaborative strength doesn't."
+        
+        [i]"She means you look like you're about to fistfight a forest. Maybe dial it back like five percent."[/i]
+        
+        *goto evening_preparation
 
-*label expedition_brief
-With role, gear, and mindset chosen, you gather with the expedition team at dawn. Izack, Aria, Zara, Rupert, and several other students stand in a semicircle.  
-Polly flaps to the center. "Repeat after me," she says. "*Sil'na med'thara. Kor'val thul'ael.*" You intone the Kor'aelin invocation, feeling the air chill and taste faintly of mint.  
-The Spiral hums in approval.  
+*label evening_preparation
 
-Aria passes you a sealed envelope. "For emergencies," she says. "Do not open unless absolutely necessary."  
-Zara checks her pack of herbs and runes. Rupert adjusts his dueling coat again.  
+*page_break
 
-"The Verdant Tithe awaits," Izack announces. "Let's move out."
+The evening finds you in your dorm room, expedition gear laid out carefully on your bed. Your chosen equipment sits ready. Your role is clear. Your mindset is... as set as it's going to be.
 
-*finish
+*line_break
+
+Through the window, you can see the portal yards where three shimmering doorways stand ready for tomorrow's departures—golden, green, and crystalline blue.
+
+Polly perches on the windowsill, her metallic feathers catching the last light of day.
+
+*page_break
+
+"Final advice before tomorrow," she says, and her voice is gentler than usual. "Whatever expedition you choose, remember this: the environment will test you. But it's not trying to break you. It's trying to teach you."
+
+"The Singing Dunes want you to learn truth. The Verdant Tithe wants you to learn connection. The Rune Glacier wants you to learn balance. Each one is harsh because the lessons are important."
+
+*line_break
+
+She tilts her head, meeting your eyes with her ancient gaze.
+
+"And for what it's worth? I think you're going to do fine. Scared and uncertain is a better starting point than arrogant and careless. Trust me on that."
+
+*page_break
+
+*choice
+    #"Thank you, Polly. That actually helps."
+        *set polly_relationship +5
+        *set confidence +2
+        
+        Polly ruffles her feathers, looking pleased and embarrassed in equal measure.
+        
+        "Don't get used to me being encouraging. I have a reputation for sarcasm to maintain."
+        
+        [i]But her tone is warm.[/i]
+        
+        *goto final_evening
+        
+    #"I'm still terrified, but I'll do my best."
+        *set empathy +2
+        *set collaboration +2
+        
+        "Good," Polly says firmly. "The students who worry about doing their best usually do. It's the ones who think they've got it all figured out that tend to fall into carnivorous plants."
+        
+        *goto final_evening
+        
+    #"What expedition did you like best when you went through?"
+        *set curiosity +2
+        *set polly_relationship +3
+        
+        Polly actually laughs—a sound like wind chimes made of metal.
+        
+        "Oh honey, I'm three thousand years old. These expeditions didn't [i]exist[/i] when I was learning magic. We just wandered into dangerous situations accidentally and called it 'education.'"
+        
+        *page_break
+        
+        "But," she adds more seriously, "I've watched hundreds of students go through them. Each expedition is perfect for different kinds of learners. You'll know which one calls to you when the time comes."
+        
+        *goto final_evening
+
+*label final_evening
+
+*page_break
+
+You sleep fitfully, dreams filled with golden sand, whispering leaves, and singing ice. When dawn arrives, you're already awake, heart pounding with anticipation and nerves.
+
+*line_break
+
+The expedition gear feels heavier now. The role card in your pocket seems to pulse with potential. Your mindset settles into something approaching readiness.
+
+*page_break
+
+Students gather in the portal yards as the sun rises. Izack stands before the green portal, Aria before the blue, and a tall, weather-worn figure you assume must be Kael stands before the golden one.
+
+All three expedition guides watch as students make their final choices.
+
+*line_break
+
+[i]"This is it. Time to choose your particular flavor of educational terror. No pressure."[/i]
+
+*page_break
+
+Polly lands on your shoulder one last time before you step forward.
+
+"Whichever portal you choose," she whispers, "I'll be there. You won't be alone."
+
+*line_break
+
+And somehow, that makes all the difference.
+
+*page_break
+
+*comment Now the player chooses which expedition to actually join
+*comment This leads to the expedition selection scene that was in first_lesson.txt
+
+The three portals shimmer before you—golden, emerald, crystalline.
+
+Which do you choose?
+
+*choice
+    #Step through the golden portal to the Singing Dunes.
+        *set expedition_choice "Singing Dunes"
+        *set polly_relationship +5
+        
+        You take a deep breath and step toward the golden portal. Kael nods in greeting, his weathered face breaking into a small smile.
+        
+        "Welcome to the truth-seekers," he says. "The desert awaits."
+        
+        *goto_scene singing_dunes
+        
+    #Enter the emerald portal to the Verdant Tithe.
+        *set expedition_choice "Verdant Tithe"
+        *set izack_relationship +5
+        
+        The green portal calls to something deep in your bones. You step forward, and Izack's face lights up.
+        
+        "Excellent choice," he says. "The forest has much to teach."
+        
+        *goto_scene verdant_tithe
+        
+    #Walk through the crystalline portal to the Rune Glacier.
+        *set expedition_choice "Rune Glacier"
+        *set aria_relationship +5
+        
+        The blue portal's mathematical precision speaks to you. You approach, and Aria nods with satisfaction.
+        
+        "The glacier reveals what is hidden," she says. "Let's begin."
+        
+        *goto_scene rune_glacier
+
