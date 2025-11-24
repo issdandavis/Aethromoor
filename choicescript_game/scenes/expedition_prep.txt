@@ -90,6 +90,11 @@ She points to the Singing Dunes.
 
 [b]"For someone with your theoretical background, I'd recommend the Dunes. The desert judges truth—and truth is something you've learned to recognize through rigorous study."[/b]
 
+*if academic_focus = "research"
+  [b]"Your research instincts will help you map what the Dunes reveal about itself,"[/b] she adds. [b]"Document everything."[/b]
+*if social_style = "observant"
+  [b]"And your patience for listening will serve you—the sand responds to those who don't rush."[/b]
+
 *line_break
 
 She pauses.
@@ -133,6 +138,11 @@ He grins.
 
 [b]"For someone who collaborates as naturally as you do, I'd lean toward either the Tithe or the Glacier. But honestly? Follow your instincts. They've served you well so far."[/b]
 
+*if magical_aptitude = "wild_talent"
+  [b]"The Glacier could teach your raw power some discipline,"[/b] he notes. [b]"Or the Tithe could show you how to channel that force into growth instead of breakage."[/b]
+*if background_origin = "sky_isles"
+  [b]"You already know how to navigate unpredictable terrain. The Dunes might actually feel like home."[/b]
+
 *line_break
 
 [b]"Trust the magic, ${name}. It wants to work with you."[/b]
@@ -171,6 +181,13 @@ She stops by a fountain where all three realms are visible in the water's reflec
 She touches the water, and the image shifts to show the Verdant Tithe.
 
 [b]"For someone who understands relationship as you do, I think the Tithe would welcome you. But any path can teach you what you need to learn."[/b]
+
+*if academic_focus = "fieldwork"
+  [b]"You learn best by being present with living systems. The Tithe will speak to that directly."[/b]
+*if social_style = "diplomatic"
+  [b]"Your diplomacy will help you listen to the forest and the expedition team alike."[/b]
+*if magical_aptitude = "ritualist"
+  [b]"And if you choose the Glacier instead, your rituals will keep you safe among its shifting runes."[/b]
 
 *page_break
 

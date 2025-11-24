@@ -4,6 +4,13 @@
 
 *temp lesson_success 0
 
+*if magical_aptitude = "ritualist"
+  The runes etched around the chamber remind you of the rituals you relied on back home—patterns and preparation steady your breathing.
+*if magical_aptitude = "intuitive"
+  Dimensional music hums at the edge of your senses, eager to be improvised with.
+*if magical_aptitude = "wild_talent"
+  Raw power thrums at your fingertips; the challenge will be guiding it instead of wrestling it.
+
 The lesson chamber is breathtaking. Crystalline walls pulse with leyline energy, and dimensional boundaries shimmer visibly in the air like heat waves made of starlight.
 
 *line_break
@@ -38,11 +45,25 @@ Izack nods. "Exactly. Zara, would you demonstrate with ${name}?"
 
 "Just match my breathing," she says softly. "Let our intentions align."
 
+*if social_style = "diplomatic"
+  Your instinct is to make space for Zara's rhythm first, smoothing any awkwardness.
+*if social_style = "observant"
+  You watch the subtleties of her inhale and exhale, letting data guide your empathy.
+*if social_style = "provocateur"
+  Part of you wants to push the tempo just to see how she reacts—but this is collaboration, not chaos.
+
 *choice
   #Focus entirely on matching Zara's rhythm—trust the partnership.
     *set collaboration +10
     *set zara_relationship +10
     *set lesson_success +2
+
+    *if magical_aptitude = "ritualist"
+      The familiar cadence of guided breathing mirrors the ritual pacing you trust.
+      *set lesson_success +1
+    *if social_style = "diplomatic"
+      Your instinct to harmonize makes the link smoother than expected.
+      *set zara_relationship +2
 
     You let go of control and simply follow Zara's lead. Your breathing synchronizes, your heartbeat aligns, and suddenly—
 
@@ -58,6 +79,13 @@ Izack nods. "Exactly. Zara, would you demonstrate with ${name}?"
     *set zara_relationship +10
     *set lesson_success +3
 
+    *if magical_aptitude = "intuitive"
+      The widening resonance feels natural—you follow instinctive threads between every heartbeat in the room.
+      *set lesson_success +1
+    *if social_style = "observant"
+      You've been studying everyone's rhythm since class began; weaving them together comes easily.
+      *set collaboration +3
+
     An instinct tells you there's more. You reach out with your awareness, inviting the other students into the resonance.
 
     One by one, they join. Five minds, five hearts, one unified frequency.
@@ -67,6 +95,10 @@ Izack nods. "Exactly. Zara, would you demonstrate with ${name}?"
   #Pull back slightly—the merging feels overwhelming.
     *set collaboration -5
     *set lesson_success -1
+
+    *if background_origin = "frontier_mender"
+      You've learned when to retreat before a leyline snaps; caution keeps the damage minimal.
+      *set lesson_success +1
 
     The sensation of your consciousness blending with Zara's is too intense, too fast. You instinctively pull back.
 
@@ -255,6 +287,23 @@ She points to three glowing regions on the map:
 [b]The Rune Glacier[/b] - A constantly shifting ice field inscribed with living spells. Ideal for those who want to understand written magic at its most dynamic.
 
 *line_break
+
+*if academic_focus = "research"
+  Your research habits itch to test themselves against the Rune Glacier's living runes.
+*if academic_focus = "applied_craft"
+  The Verdant Tithe's alchemy and the Glacier's inscriptions both promise hands-on puzzles.
+*if academic_focus = "fieldwork"
+  The Singing Dunes and the Tithe both match your preference for learning from living realms.
+
+*if background_origin = "sky_isles"
+  Windborne instincts tell you that open expanses like the Dunes will feel familiar.
+*if background_origin = "spire_archives"
+  Archivist training whispers that the Glacier's recorded memory could be priceless.
+*if background_origin = "frontier_mender"
+  Field repairs on the frontier make you confident about surviving the Tithe's living labyrinth.
+
+*if magical_aptitude = "wild_talent"
+  Polly pecks your shoulder. "Maybe pick somewhere that will teach you finesse, not just raw force," she mutters.
 
 [i]"Choose wisely. Each one will try to kill you in completely different ways. I'll be supervising the Dunes trip because watching students panic when the sand starts screaming never gets old."[/i]
 

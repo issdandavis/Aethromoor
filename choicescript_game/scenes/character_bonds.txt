@@ -118,6 +118,11 @@ You sit together in companionable silence for a moment.
 *if collaboration > 70
   [b]"Your collaboration scores are exceptional. You really understand what I'm trying to teach."[/b]
 
+*if background_origin = "sky_isles"
+  [b]"No wonder you navigate Avalon so comfortably,"[/b] he muses. [b]"Skyports and floating markets are their own pocket dimensions."[/b]
+*if academic_focus = "applied_craft"
+  [b]"And your urge to build things fits perfectly here. Avalon loves makers."[/b]
+
 *if collaboration <= 70
   [b]"You're learning. Growing. That's what matters."[/b]
 
@@ -241,6 +246,13 @@ She glances up when you enter.
 *line_break
 
 You approach carefully, not wanting to disturb her complex arrangement.
+
+*if academic_focus = "research"
+  She already has a small stack of texts tagged with your handwriting—she's been following your notes.
+  *set aria_relationship +2
+*if background_origin = "spire_archives"
+  The scent of ink and vellum feels like home; Aria notices your familiarity with the space.
+  *set aria_relationship +2
 
 *page_break
 
@@ -371,6 +383,13 @@ The tree is young but already showing signs of its future power—the branches s
 
 She gestures to the Dreamwillow.
 
+*if academic_focus = "fieldwork"
+  [b]"You've been most alive in the field,"[/b] she notes. [b]"Let's put that instinct to work here."[/b]
+  *set zara_relationship +2
+*if social_style = "diplomatic"
+  [b]"Your diplomacy calmed half the first-years last week. Try it on the sapling."[/b]
+  *set zara_relationship +2
+
 [b]"This sapling is struggling to stabilize its dimensional connection. It needs to feel safe, grounded. Can you help?"[/b]
 
 *page_break
@@ -476,6 +495,13 @@ You return to your dorm room early.
   Polly is on her perch, preening feathers.
 *if has_familiar_perch = false
   Polly is perched on your windowsill.
+
+*if background_origin = "frontier_mender"
+  The quiet reminds you of long nights watching leyline scars alone. Polly seems to notice the way your shoulders drop.
+  *set polly_relationship +2
+*if social_style = "provocateur"
+  Even you tire of stirring the pot sometimes; Polly eyes you as if waiting for the next spark.
+  *set polly_relationship +1
 
 *line_break
 
