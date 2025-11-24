@@ -98,7 +98,7 @@ This might mean:
 
 ---
 
-## Available Copilot Features (as of November 2024)
+## Available Copilot Features
 
 ### Included in Most Subscriptions:
 - ✅ **Code Completions** - Inline suggestions as you type
@@ -200,6 +200,5 @@ This might mean:
 
 ---
 
-**Last Updated**: November 24, 2024
-**For Issues**: Contact GitHub Support for account/billing questions
-**For Code Help**: Use the configured Copilot instructions in this repo
+*Documentation maintained as part of the Avalon repository*
+*For repository code help, use the configured Copilot instructions*
