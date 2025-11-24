@@ -7,8 +7,8 @@ contact_links:
     url: https://github.com/issdandavis/Avalon/blob/main/QUICK_START.md
     about: Learn how to play Polly's Wingscroll
   - name: 🤖 GitHub Copilot Support
-    url: https://support.github.com
-    about: Get official GitHub Copilot support
+    url: https://support.github.com/contact/copilot
+    about: Get official GitHub Copilot support - Select 'Copilot' as your topic
   - name: 🔧 Spark Troubleshooting
     url: https://github.com/issdandavis/Avalon/blob/main/docs/GITHUB_COPILOT_SPARK_TROUBLESHOOTING.md
     about: Having trouble with Copilot Spark? Check our troubleshooting guide

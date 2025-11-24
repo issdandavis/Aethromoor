@@ -133,7 +133,13 @@ This repository does not have any special configuration that would restrict Spar
 
 ### Q: What's the difference between "Pro" and "Pro+"?
 
-**A**: "Pro+" in the error message is confusing terminology. It means "Copilot Pro or higher" (Pro, Business, or Enterprise). If you have the paid Copilot Pro plan ($10/month), you should have Spark access.
+**A**: This is confusing terminology in the error message. GitHub's actual subscription tiers are:
+- Copilot Individual/Free
+- Copilot Pro ($10/month for individuals)
+- Copilot Business (for organizations)
+- Copilot Enterprise (advanced enterprise features)
+
+**There is no official "Pro+" plan.** The error message saying "Pro+" is shorthand meaning "Copilot Pro or higher" (which includes Pro, Business, and Enterprise). If you have the paid Copilot Pro plan ($10/month), you should have Spark access.
 
 ### Q: I'm in an organization. Does that affect Spark access?
 
