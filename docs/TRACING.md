@@ -14,6 +14,15 @@ New file: `game/tracing.js` and instrumentation in `game/game.js`:
 All events accumulate in `window.gameTrace.events` with timestamps.
 
 ## Accessing Trace Data
+**New in v1.1:** The HTML game now includes a built-in export button!
+
+### Method 1: UI Export Button (Easiest)
+1. Play the game for a few moments (the button appears after 5 seconds)
+2. Click the **📊 Export Trace Data** button in the footer
+3. Trace data is automatically copied to clipboard (or downloaded if clipboard unavailable)
+4. Paste into your analytics tool or save to a file
+
+### Method 2: Browser Console (Advanced)
 Open browser dev tools (F12) while playing:
 ```js
 window.exportTrace(); // Returns JSON string of full trace
@@ -59,12 +68,9 @@ ChoiceScript doesn’t run in the same JS context, but you can approximate traci
 4. Expose a debug option to show aggregated `trace_dump` for copy/paste.
 
 ## Export & Automation Ideas
-- Add a button to `index.html` for manual export:
-  ```html
-  <button onclick="navigator.clipboard.writeText(exportTrace())">Copy Trace JSON</button>
-  ```
-- Zapier/Webhook: POST `exportTrace()` payload on ending.
-- Aggregation: Merge multiple trace JSON files to produce frequency histograms of choices.
+- ✅ **Implemented:** UI export button with clipboard copy
+- Zapier/Webhook: POST `exportTrace()` payload on ending
+- Aggregation: Merge multiple trace JSON files to produce frequency histograms of choices
 
 ## Next Extension Ideas
 - Session UUID shown in UI (for playtest tagging)

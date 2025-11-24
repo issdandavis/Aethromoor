@@ -1251,7 +1251,6 @@ const storyNodes = {
         `,
         choices: []
     }
-}
 };
 
 // UI Update Functions
@@ -1373,6 +1372,50 @@ function restartGame() {
 // Initialize game
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('restart-btn').onclick = restartGame;
+    
+    // Setup export button
+    const exportBtn = document.getElementById('export-btn');
+    const exportFeedback = document.getElementById('export-feedback');
+    
+    exportBtn.onclick = async () => {
+        try {
+            const traceData = window.exportTrace ? window.exportTrace() : JSON.stringify({ error: 'Analytics module not loaded. Please refresh the page.' }, null, 2);
+            
+            // Try to copy to clipboard
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(traceData);
+                exportFeedback.textContent = '✓ Copied to clipboard!';
+            } else {
+                // Fallback: trigger download
+                const blob = new Blob([traceData], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `avalon-trace-${Date.now()}.json`;
+                a.click();
+                URL.revokeObjectURL(url);
+                exportFeedback.textContent = '✓ Downloaded trace file!';
+            }
+            
+            exportFeedback.classList.add('show');
+            setTimeout(() => {
+                exportFeedback.classList.remove('show');
+            }, 3000);
+        } catch (error) {
+            exportFeedback.textContent = '✗ Export failed';
+            exportFeedback.classList.add('show');
+            setTimeout(() => {
+                exportFeedback.classList.remove('show');
+            }, 3000);
+            console.error('Export error:', error);
+        }
+    };
+    
+    // Show export button after 5 seconds
+    setTimeout(() => {
+        exportBtn.classList.add('visible');
+    }, 5000);
+    
     updateStats();
     displayNode('start');
     traceEvent('init', {
