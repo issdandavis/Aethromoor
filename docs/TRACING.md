@@ -47,7 +47,7 @@ ChoiceScript doesn’t run in the same JS context, but you can approximate traci
    ```
    *label log_event
    *comment params: event_type, node, choice_text, collab, izack, aria, zara
-   *create trace_dump ""
+   *comment trace_dump must be *created in startup.txt first
    *set trace_dump & (event_type & "|" & node & "|" & choice_text & "|" & collab & "|" & izack & "|" & aria & "|" & zara & "\n")
    *return
    ```

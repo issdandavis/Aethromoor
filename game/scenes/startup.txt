@@ -29,8 +29,8 @@ You stand before the gates of Avalon, the Spiral of Eternity humming under your 
     *set honor +10
     *set oathbound true
     *goto embark
-  #Seek counsel from ${mentor}, the archivist who brought you here.
-    ${mentor} speaks softly about balance between duty and wonder.
+  #Seek counsel from Corin, the archivist who brought you here.
+    Corin speaks softly about balance between duty and wonder.
     *set mentor "Corin"
     *set attunement +5
     *goto embark
