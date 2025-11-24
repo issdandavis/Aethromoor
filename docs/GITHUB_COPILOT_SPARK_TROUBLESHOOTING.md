@@ -104,7 +104,7 @@ If none of these steps work:
 
 ## Repository-Specific Notes
 
-This repository (issdandavis/Avalon) does not have any special configuration that would restrict Spark access. The issue is at the GitHub account/subscription level, not the repository level.
+This repository does not have any special configuration that would restrict Spark access. The issue is at the GitHub account/subscription level, not the repository level.
 
 ## Quick Reference
 
@@ -176,4 +176,4 @@ This repository cannot enable/disable Spark access.
 ---
 
 **Last Updated**: November 24, 2025
-**Maintained By**: GitHub Copilot Workspace Team
+**Maintained By**: Avalon Project Team (@issdandavis)

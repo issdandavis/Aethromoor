@@ -27,7 +27,7 @@ Spark is currently only available to Copilot Pro+ and Enterprise users.
 
 
 ### Have you checked the troubleshooting guide?
-- [ ] Yes, I've reviewed [GITHUB_COPILOT_SPARK_TROUBLESHOOTING.md](../../docs/GITHUB_COPILOT_SPARK_TROUBLESHOOTING.md)
+- [ ] Yes, I've reviewed the [GitHub Copilot Spark Troubleshooting Guide](https://github.com/issdandavis/Avalon/blob/main/docs/GITHUB_COPILOT_SPARK_TROUBLESHOOTING.md)
 - [ ] No, I'll check it first
 
 ### Steps you've already tried
