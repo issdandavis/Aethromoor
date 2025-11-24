@@ -178,10 +178,12 @@ Simple web version - just open and play!
 - `choicescript_game/README.md` - Full ChoiceScript instructions
 - `game/README.md` - HTML version details
 - `docs/AUTOMATION_GUIDE.md` - Advanced setup
+- **`COPILOT_ACCESS.md`** - GitHub Copilot setup and features
 
 **Resources:**
 - ChoiceScript forums: https://forum.choiceofgames.com/
 - Official tutorial: https://www.choiceofgames.com/make-your-own-games/
+- GitHub Copilot help: https://docs.github.com/copilot
 
 ---
 
