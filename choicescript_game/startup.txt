@@ -86,6 +86,11 @@
 *create power 50
 *create knowledge 50
 *create empathy 50
+*create creativity 50
+*create curiosity 50
+*create imagination 50
+*create individual_power 50
+*create magic_control 50
 
 *comment Morality & Alignment Axes (opposed pairs)
 *create communication_vs_domination 50
@@ -107,7 +112,23 @@
 *create familiar_type "none"
 *create familiar_name ""
 *create familiar_personality ""
+*create has_familiar false
 *create polly_is_familiar false
+*create clay_is_familiar false
+*create dragon_is_familiar false
+*create sprite_is_familiar false
+*create spark_is_familiar false
+*create clay_bond 0
+*create spark_bond 0
+
+*comment Guild Affinities
+*create guild_elementalist 0
+*create guild_forgebound 0
+*create guild_diplomancer 0
+*create guild_lorekeeper 0
+*create guild_runecaster 0
+*create guild_wardkeeper 0
+*create guild_timeweaver 0
 
 *comment Golem Companion System
 *create has_golem false
