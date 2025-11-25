@@ -7,6 +7,7 @@ The `docs/` directory holds world-building material, transcripts, and other refe
 ### Development Guides
 - **[GITHUB_COPILOT_CLI_GUIDE.md](GITHUB_COPILOT_CLI_GUIDE.md)** - Comprehensive guide for using GitHub Copilot CLI
 - **[COPILOT_CLI_QUICK_REFERENCE.md](COPILOT_CLI_QUICK_REFERENCE.md)** - Quick reference card for common commands
+- **[AI_CONTENT_AUTOMATION.md](AI_CONTENT_AUTOMATION.md)** - 🤖 AI-powered content organization and growth strategies
 - **[AUTOMATION_GUIDE.md](AUTOMATION_GUIDE.md)** - Zapier and automation workflows
 - **[AI_SESSION_HANDOFF.md](AI_SESSION_HANDOFF.md)** - Guidelines for AI assistant collaboration
 - **[PROJECT_ROADMAP.md](PROJECT_ROADMAP.md)** - Development phases and status
