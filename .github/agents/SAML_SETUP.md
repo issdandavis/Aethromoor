@@ -262,13 +262,48 @@ This implementation follows SAML 2.0 standards and works with:
 
 ## Testing
 
+### Development/Testing Mode
+
+The current implementation includes placeholder functions for SAML response parsing and signature verification. These are suitable for testing the authentication flow but **MUST be replaced before production use**.
+
+### Production Readiness Checklist
+
+**⚠️ CRITICAL: Before deploying to production, you must:**
+
+- [ ] Install XML processing libraries:
+  ```bash
+  npm install xml-crypto xmldom
+  ```
+
+- [ ] Replace placeholder signature verification in `saml-auth.js`:
+  - Implement real XML signature verification using `xml-crypto`
+  - Validate against IdP's X.509 certificate
+  - Handle signature verification errors properly
+
+- [ ] Replace placeholder attribute extraction in `saml-auth.js`:
+  - Parse actual SAML assertion XML using `xmldom`
+  - Extract attributes using XPath queries
+  - Map attributes according to `config.attributes.mapping`
+
+- [ ] Update authentication flow in `explorer.js`:
+  - Remove simulated IdP response
+  - Implement proper redirect to IdP login URL
+  - Handle SAML response callback from IdP
+  - Validate real SAML assertions
+
+- [ ] Security validation:
+  - Verify all SAML responses are received over HTTPS
+  - Implement replay attack prevention (assertion ID tracking)
+  - Add timestamp validation for assertions
+  - Configure certificate expiration monitoring
+
 ### Test Authentication Flow
 
 ```bash
 # Install dependencies
-npm install
+npm install xml-crypto xmldom
 
-# Run test authentication
+# Run test authentication (uses placeholders)
 node test-saml-auth.js
 ```
 

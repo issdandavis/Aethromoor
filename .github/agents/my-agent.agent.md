@@ -74,10 +74,11 @@ explorer.logout();
    - `IDP_SSO_URL` - Single Sign-On service URL
    - `IDP_SLO_URL` - Single Logout service URL
    - `IDP_CERTIFICATE` - X.509 certificate for signature verification
-3. Ensure required npm packages are installed:
+3. Install required dependencies for production:
    ```bash
-   npm install crypto
+   npm install xml-crypto xmldom
    ```
+4. Implement production SAML response parsing (replace placeholder functions in saml-auth.js)
 
 ### Security
 - All SAML assertions are digitally signed and verified

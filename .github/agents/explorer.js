@@ -29,8 +29,18 @@ class AuthenticatedExplorer {
     const loginUrl = this.auth.initiateLogin();
     console.log('Login URL:', loginUrl);
     
-    // In production, redirect user to IdP login
-    // For now, simulate successful authentication
+    // PRODUCTION NOTE: In production, this should redirect the user to the IdP
+    // and wait for the SAML response callback. The code below is for testing only.
+    // 
+    // Production flow:
+    // 1. Redirect user to loginUrl
+    // 2. User authenticates with IdP
+    // 3. IdP POSTs SAML response to ACS URL
+    // 4. Validate actual SAML response from IdP
+    // 5. Create session with real user attributes
+    //
+    // For testing/development only:
+    console.warn('WARNING: Using simulated IdP response for testing. Replace in production!');
     const mockSamlResponse = this.simulateIdPResponse();
     
     try {

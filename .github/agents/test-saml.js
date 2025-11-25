@@ -133,8 +133,9 @@ console.log('Next Steps:');
 console.log('1. Configure your Identity Provider with SP metadata');
 console.log('2. Update .github/agents/saml-config.json with IdP details');
 console.log('3. Set environment variables in config/.env');
-console.log('4. Install required dependencies: npm install crypto');
-console.log('5. Test authentication with your IdP\n');
+console.log('4. Install XML signature libraries: npm install xml-crypto xmldom');
+console.log('5. Implement production SAML response parsing (replace placeholders)');
+console.log('6. Test authentication with your IdP\n');
 
 console.log('For detailed setup instructions, see:');
 console.log('.github/agents/SAML_SETUP.md\n');

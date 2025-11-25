@@ -185,12 +185,25 @@ class SAMLAuthenticator {
    * @returns {boolean} Signature valid
    */
   verifySignature(xml) {
-    // In production, use proper XML signature verification library
-    // This is a placeholder for the verification logic
+    // PRODUCTION NOTE: This is a placeholder implementation
+    // Before production use, implement proper XML signature verification using:
+    // - xml-crypto library: npm install xml-crypto
+    // - xmldom for XML parsing: npm install xmldom
+    // 
+    // Example production implementation:
+    // const { SignedXml } = require('xml-crypto');
+    // const { DOMParser } = require('xmldom');
+    // 
+    // const doc = new DOMParser().parseFromString(xml);
+    // const signature = new SignedXml();
+    // signature.loadSignature(doc.getElementsByTagName('Signature')[0]);
+    // return signature.checkSignature(xml);
+    
+    console.warn('WARNING: Using placeholder signature verification. Replace before production!');
     const cert = this.config.identityProvider.x509Certificate;
     
-    // Placeholder: actual implementation would use xmldsig library
-    return true; // For demonstration purposes
+    // Placeholder returns true - MUST BE REPLACED
+    return true;
   }
 
   /**
@@ -199,9 +212,23 @@ class SAMLAuthenticator {
    * @returns {Object} User attributes
    */
   extractAttributes(xml) {
-    // Placeholder: actual implementation would parse XML and extract attributes
-    // based on mapping in config.attributes.mapping
+    // PRODUCTION NOTE: This is a placeholder implementation
+    // Before production use, implement proper SAML assertion parsing using:
+    // - xmldom for XML parsing: npm install xmldom
+    // - XPath queries to extract AttributeStatement elements
+    //
+    // Example production implementation:
+    // const { DOMParser } = require('xmldom');
+    // const doc = new DOMParser().parseFromString(xml);
+    // const attrs = doc.getElementsByTagName('saml:Attribute');
+    // const mapping = this.config.attributes.mapping;
+    // 
+    // Extract and map attributes based on config.attributes.mapping
+    // Parse AttributeValue elements and return mapped object
     
+    console.warn('WARNING: Using placeholder attribute extraction. Replace before production!');
+    
+    // Placeholder returns hardcoded attributes - MUST BE REPLACED
     return {
       userId: 'placeholder-user-id',
       email: 'user@example.com',
