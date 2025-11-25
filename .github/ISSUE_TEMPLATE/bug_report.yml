@@ -1,0 +1,86 @@
+---
+name: Bug Report
+description: Report a bug in the game or codebase
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! This helps us improve Polly's Wingscroll.
+
+  - type: dropdown
+    id: version
+    attributes:
+      label: Game Version
+      description: Which version of the game are you using?
+      options:
+        - HTML Version (game/index.html)
+        - ChoiceScript Version (choicescript_game/)
+        - Both
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug you encountered
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+      description: What should have happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this bug?
+      placeholder: |
+        1. Start the game
+        2. Choose option '...'
+        3. See error
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scene
+    attributes:
+      label: Which scene/area?
+      description: Where in the game did this occur?
+      options:
+        - Arrival
+        - Dorm Room
+        - First Lesson
+        - Academy Life
+        - Expedition Prep
+        - Singing Dunes
+        - Verdant Tithe
+        - Rune Glacier
+        - Character Bonds
+        - Final Trial
+        - Endings
+        - Other/Unknown
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here (screenshots, console errors, etc.)
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      options:
+        - label: I have checked existing issues to avoid duplicates
+          required: true
+        - label: This bug is reproducible
+          required: false

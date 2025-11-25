@@ -1,0 +1,80 @@
+---
+name: Feature Request
+description: Suggest a new feature or enhancement for the game
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature! Your ideas help make Polly's Wingscroll better.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Feature Category
+      description: What type of feature is this?
+      options:
+        - Game Content (new scenes, choices, endings)
+        - Lore/Story (worldbuilding, characters)
+        - Technical (automation, testing, infrastructure)
+        - Documentation
+        - Community (Discord, forums, etc.)
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Description
+      description: What problem does this feature solve? Is your feature request related to a problem?
+      placeholder: I'm frustrated when...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: What would you like to see happen?
+      placeholder: I'd like the game to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Have you considered any alternative solutions or features?
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this to you?
+      options:
+        - Nice to have
+        - Would improve experience
+        - Important for gameplay
+        - Critical/Blocking
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context, mockups, or examples about the feature request here
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      options:
+        - label: I have checked existing issues/features to avoid duplicates
+          required: true
+        - label: This feature aligns with the Spiral of Pollyoneth lore
+          required: false
+        - label: I'm willing to help implement this feature
+          required: false

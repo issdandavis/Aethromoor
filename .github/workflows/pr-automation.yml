@@ -1,0 +1,151 @@
+name: PR Auto-Assignment and Notifications
+
+on:
+  pull_request:
+    types: [opened, ready_for_review, reopened]
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  pull-requests: write
+  issues: write
+  contents: read
+
+jobs:
+  auto-label-pr:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Label based on changed files
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            
+            // Get list of changed files
+            const files = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number
+            });
+            
+            const labels = new Set();
+            
+            // Check file paths and add appropriate labels
+            for (const file of files.data) {
+              if (file.filename.startsWith('game/')) {
+                labels.add('game-content');
+              }
+              if (file.filename.startsWith('choicescript_game/scenes/')) {
+                labels.add('game-content');
+                labels.add('choicescript');
+              }
+              if (file.filename.startsWith('lore/') || file.filename.startsWith('writing_drafts/')) {
+                labels.add('lore-writing');
+              }
+              if (file.filename.startsWith('docs/')) {
+                labels.add('documentation');
+              }
+              if (file.filename.includes('.github/workflows/') || file.filename.includes('automation')) {
+                labels.add('automation');
+              }
+              if (file.filename.endsWith('.md')) {
+                labels.add('documentation');
+              }
+              if (file.filename.endsWith('.yml') || file.filename.endsWith('.yaml')) {
+                labels.add('automation');
+              }
+            }
+            
+            // Add labels if any were identified
+            if (labels.size > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                labels: Array.from(labels)
+              });
+            }
+
+      - name: Add size label
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            
+            // Get PR diff stats
+            const additions = pr.additions;
+            const deletions = pr.deletions;
+            const totalChanges = additions + deletions;
+            
+            let sizeLabel = '';
+            if (totalChanges < 10) {
+              sizeLabel = 'size/XS';
+            } else if (totalChanges < 50) {
+              sizeLabel = 'size/S';
+            } else if (totalChanges < 200) {
+              sizeLabel = 'size/M';
+            } else if (totalChanges < 500) {
+              sizeLabel = 'size/L';
+            } else {
+              sizeLabel = 'size/XL';
+            }
+            
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              labels: [sizeLabel]
+            });
+
+  welcome-first-pr:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'opened'
+    steps:
+      - name: Welcome first-time contributors
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Get all PRs created by this user
+            const prs = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'all',
+              creator: context.payload.pull_request.user.login
+            });
+            
+            // If this is their first PR
+            if (prs.data.length === 1) {
+              await github.rest.issues.createComment({
+                issue_number: context.payload.pull_request.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `🎉 Thank you for your first pull request to the Avalon project, @${context.payload.pull_request.user.login}!\n\nYour contribution helps bring the Spiral of Pollyoneth universe to life. A maintainer will review your changes soon.\n\n**Before merging, please ensure:**\n- [ ] Your changes align with the project's lore and style\n- [ ] Any new game content has been tested\n- [ ] Documentation is updated if needed\n\nThank you for contributing to this interactive fiction project! 🌟`
+              });
+            }
+
+  link-to-issue:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'opened'
+    steps:
+      - name: Check for linked issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const body = pr.body || '';
+            
+            // Check if PR body contains issue references
+            const issuePattern = /(close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved)\s+#\d+/i;
+            
+            if (!issuePattern.test(body)) {
+              await github.rest.issues.createComment({
+                issue_number: pr.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `ℹ️ **Note:** This PR doesn't seem to reference any issue.\n\nIf this PR addresses an existing issue, please link it using keywords like:\n- \`Closes #123\`\n- \`Fixes #123\`\n- \`Resolves #123\`\n\nThis helps us track progress and maintain better project organization.`
+              });
+            }

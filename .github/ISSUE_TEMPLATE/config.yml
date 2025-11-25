@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Documentation
+    url: https://github.com/issdandavis/Avalon/blob/main/README.md
+    about: Check out the project documentation and guides
+  - name: 🎮 Play the Game
+    url: https://github.com/issdandavis/Avalon/blob/main/PLAY_THE_GAME.md
+    about: Instructions for playing Polly's Wingscroll
+  - name: 🗺️ Project Roadmap
+    url: https://github.com/issdandavis/Avalon/blob/main/docs/PROJECT_ROADMAP.md
+    about: See what we're working on and future plans
+  - name: 💬 Discussions
+    url: https://github.com/issdandavis/Avalon/discussions
+    about: Ask questions and discuss ideas with the community
