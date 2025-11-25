@@ -15,9 +15,9 @@ cd "$(dirname "$0")/.." || exit
 echo "📊 TOTAL CONTENT METRICS"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-total_words=$(find choicescript_game/scenes -name "*.txt" -exec wc -w {} + | tail -1 | awk '{print $1}')
-total_scenes=$(find choicescript_game/scenes -name "*.txt" | wc -l)
-lore_words=$(find lore -name "*.txt" -o -name "*.md" | xargs wc -w 2>/dev/null | tail -1 | awk '{print $1}')
+total_words=$(find choicescript_game/scenes -name "*.txt" -exec wc -w {} + 2>/dev/null | tail -1 | awk '{print $1}' || echo 0)
+total_scenes=$(find choicescript_game/scenes -name "*.txt" 2>/dev/null | wc -l)
+lore_words=$(find lore -name "*.txt" -o -name "*.md" 2>/dev/null | xargs wc -w 2>/dev/null | tail -1 | awk '{print $1}' || echo 0)
 
 echo "  Game Scenes:     $total_scenes files"
 echo "  Game Words:      $total_words words"
@@ -38,9 +38,11 @@ echo "🎮 SCENE BREAKDOWN"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 for scene in choicescript_game/scenes/*.txt; do
+    [ -f "$scene" ] || continue
     filename=$(basename "$scene")
-    words=$(wc -w < "$scene")
-    choices=$(grep -c "^\s*#" "$scene" 2>/dev/null || echo 0)
+    words=$(wc -w < "$scene" 2>/dev/null || echo 0)
+    # Remove any newlines from grep output
+    choices=$(grep -c "^[[:space:]]*#" "$scene" 2>/dev/null | tr -d '\n' || echo "0")
     
     # Color code by size
     if [ "$words" -gt 2000 ]; then

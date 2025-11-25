@@ -10,8 +10,8 @@ echo ""
 cd "$(dirname "$0")/.." || exit
 
 # Current metrics
-current_words=$(find choicescript_game/scenes -name "*.txt" -exec wc -w {} + | tail -1 | awk '{print $1}')
-current_scenes=$(find choicescript_game/scenes -name "*.txt" | wc -l)
+current_words=$(find choicescript_game/scenes -name "*.txt" -exec wc -w {} + 2>/dev/null | tail -1 | awk '{print $1}' || echo 0)
+current_scenes=$(find choicescript_game/scenes -name "*.txt" 2>/dev/null | wc -l)
 
 echo "CURRENT STATUS:"
 echo "  Total Words: $current_words"
@@ -35,8 +35,9 @@ find choicescript_game/scenes -name "*.txt" -exec wc -w {} \; | \
 echo ""
 echo "2. Scenes with Few Choices (Add Branching):"
 for scene in choicescript_game/scenes/*.txt; do
-    choices=$(grep -c "^\s*#" "$scene" 2>/dev/null || echo 0)
-    if [ "$choices" -lt 3 ]; then
+    [ -f "$scene" ] || continue
+    choices=$(grep -c "^[[:space:]]*#" "$scene" 2>/dev/null | tr -d '\n' || echo "0")
+    if [ "$choices" -lt 3 ] && [ "$choices" -ge 0 ]; then
         echo "   - $(basename "$scene"): only $choices choices"
     fi
 done
@@ -55,9 +56,15 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo ""
 
 needed=$((50000 - current_words))
-echo "  Remaining words needed: $needed"
-echo "  Suggested weekly target: $(( needed / 4 )) words/week"
-echo "  Average per scene: $(( needed / current_scenes )) words/scene"
+if [ "$needed" -le 0 ]; then
+    echo "  🎉 Target exceeded! You have $(( current_words - 50000 )) extra words!"
+else
+    echo "  Remaining words needed: $needed"
+    echo "  Suggested weekly target: $(( needed / 4 )) words/week"
+    if [ "$current_scenes" -gt 0 ]; then
+        echo "  Average per scene: $(( needed / current_scenes )) words/scene"
+    fi
+fi
 
 echo ""
 echo "✨ QUALITY CHECKS:"
