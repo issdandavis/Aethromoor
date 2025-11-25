@@ -210,6 +210,11 @@ Avalon/
 - **ChoiceScript** by Choice of Games LLC
 - **HTML/CSS/JavaScript** for web version
 - **Node.js** for local testing
+- **GitHub Copilot CLI** for AI-assisted development
+
+### Development Resources
+- See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines
+- See [docs/GITHUB_COPILOT_CLI_GUIDE.md](docs/GITHUB_COPILOT_CLI_GUIDE.md) for AI development tools
 
 ---
 
