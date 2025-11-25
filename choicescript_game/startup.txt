@@ -120,6 +120,8 @@
 *create spark_is_familiar false
 *create clay_bond 0
 *create spark_bond 0
+*create has_understood_clay_origin false
+*create has_understood_spark_nature false
 
 *comment Guild Affinities
 *create guild_elementalist 0
