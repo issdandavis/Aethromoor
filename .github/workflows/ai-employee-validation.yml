@@ -133,7 +133,7 @@ jobs:
           for file in choicescript_game/scenes/*.txt choicescript_game/*.txt; do
             if [ -f "$file" ]; then
               # Check for unmatched *if without *endif (basic check)
-              if_count=$(grep -c "^\*if " "$file" || true)
+              if_count=$(grep -c "^\*if\b" "$file" || true)
               endif_count=$(grep -c "^\*endif" "$file" || true)
               
               if [ $if_count -ne $endif_count ]; then

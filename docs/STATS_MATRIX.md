@@ -372,9 +372,9 @@
 ### Cap Implementation Notes
 ```choicescript
 *set collaboration (collaboration + 15)
-*if collaboration > 100
+*if (collaboration > 100)
     *set collaboration 100
-*if collaboration < 0
+*if (collaboration < 0)
     *set collaboration 0
 ```
 
