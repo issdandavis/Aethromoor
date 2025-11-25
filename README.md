@@ -210,6 +210,21 @@ Avalon/
 - **ChoiceScript** by Choice of Games LLC
 - **HTML/CSS/JavaScript** for web version
 - **Node.js** for local testing
+- **GitHub Copilot Custom Agents** for development assistance
+
+---
+
+## 🤖 GitHub Copilot Custom Agents
+
+This repository includes specialized custom AI agents to assist with development:
+
+- **Avalon Lore Steward** - Curates and maintains narrative consistency
+- **ChoiceScript Converter** - Converts HTML content to ChoiceScript format
+
+### Setup Custom Agents
+If you're seeing "Custom models have been disabled by your enterprise policy" error:
+- **Quick Fix**: See [docs/QUICK_START_CUSTOM_AGENTS.md](docs/QUICK_START_CUSTOM_AGENTS.md)
+- **Full Guide**: See [docs/CUSTOM_AGENTS_SETUP.md](docs/CUSTOM_AGENTS_SETUP.md)
 
 ---
 
