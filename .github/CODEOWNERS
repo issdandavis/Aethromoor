@@ -1,0 +1,33 @@
+# CODEOWNERS - Defines ownership and review requirements for different parts of the repository
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything (unless specified below)
+* @issdandavis
+
+# Core game files - require careful review
+/choicescript_game/startup.txt @issdandavis
+/choicescript_game/scenes/choicescript_stats.txt @issdandavis
+
+# Lore and narrative - maintain canon consistency
+/lore/ @issdandavis
+/writing_drafts/ @issdandavis
+/docs/AETHERMOOR_CHRONICLES.md @issdandavis
+
+# Game scenes - ensure quality and consistency
+/choicescript_game/scenes/ @issdandavis
+/game/game.js @issdandavis
+
+# Documentation - keep current and accurate
+/docs/ @issdandavis
+/*.md @issdandavis
+
+# GitHub configuration - protect CI/CD and automation
+/.github/ @issdandavis
+/.github/workflows/ @issdandavis
+
+# Configuration files - prevent accidental changes
+/.gitignore @issdandavis
+/config/ @issdandavis
+
+# Note: This is a single-maintainer project currently
+# As the project grows, additional owners can be added by section

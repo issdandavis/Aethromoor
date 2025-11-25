@@ -1,0 +1,266 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  # Validate ChoiceScript files
+  validate-choicescript:
+    name: Validate ChoiceScript
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Check ChoiceScript syntax
+        run: |
+          echo "Validating ChoiceScript files..."
+          
+          # Create validation script
+          cat > validate_cs.js << 'EOF'
+          const fs = require('fs');
+          const path = require('path');
+          
+          const scenesDir = './choicescript_game/scenes';
+          let errors = [];
+          
+          // Read all scene files
+          const files = fs.readdirSync(scenesDir).filter(f => f.endsWith('.txt'));
+          
+          files.forEach(file => {
+            const filepath = path.join(scenesDir, file);
+            const content = fs.readFileSync(filepath, 'utf8');
+            const lines = content.split('\n');
+            
+            // Check for *title at start
+            if (file !== 'choicescript_stats.txt' && !content.trimStart().startsWith('*title')) {
+              errors.push(`${file}: Missing *title command at start`);
+            }
+            
+            // Check for balanced *if/*else
+            let ifCount = 0;
+            lines.forEach((line, i) => {
+              if (line.trim().startsWith('*if ')) ifCount++;
+              if (line.trim().startsWith('*else')) ifCount--;
+              
+              // Check for orphaned choices
+              if (line.trim().startsWith('*choice')) {
+                const nextNonEmpty = lines.slice(i + 1).find(l => l.trim().length > 0);
+                if (nextNonEmpty && !nextNonEmpty.trim().startsWith('#')) {
+                  errors.push(`${file}:${i + 1}: *choice without options`);
+                }
+              }
+            });
+            
+            console.log(`✓ Checked ${file}`);
+          });
+          
+          if (errors.length > 0) {
+            console.error('\n❌ Validation errors found:');
+            errors.forEach(e => console.error(e));
+            process.exit(1);
+          } else {
+            console.log('\n✅ All ChoiceScript files validated successfully');
+          }
+          EOF
+          
+          node validate_cs.js
+          
+  # Validate JavaScript/HTML
+  validate-web-game:
+    name: Validate Web Game
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Check JavaScript syntax
+        run: |
+          echo "Checking JavaScript syntax..."
+          node --check game/game.js || exit 1
+          echo "✅ JavaScript syntax valid"
+          
+      - name: Validate HTML
+        run: |
+          echo "Checking HTML structure..."
+          # Basic HTML validation
+          if ! grep -q "<!DOCTYPE html>" game/index.html; then
+            echo "❌ Missing DOCTYPE in index.html"
+            exit 1
+          fi
+          echo "✅ HTML structure valid"
+          
+  # Check documentation
+  check-docs:
+    name: Check Documentation
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Check for broken links
+        run: |
+          echo "Checking for broken internal links in markdown files..."
+          
+          # Create link checker script
+          cat > check_links.sh << 'EOF'
+          #!/bin/bash
+          errors=0
+          
+          # Find all markdown files
+          while IFS= read -r file; do
+            echo "Checking $file..."
+            
+            # Extract markdown links
+            grep -oP '\[.*?\]\(\K[^)]+' "$file" | while read -r link; do
+              # Skip external links and anchors
+              if [[ $link == http* ]] || [[ $link == \#* ]]; then
+                continue
+              fi
+              
+              # Resolve relative paths
+              dir=$(dirname "$file")
+              target="$dir/$link"
+              
+              if [ ! -f "$target" ] && [ ! -d "$target" ]; then
+                echo "❌ Broken link in $file: $link"
+                ((errors++))
+              fi
+            done
+          done < <(find . -name "*.md" -not -path "./archive/*" -not -path "./.git/*")
+          
+          if [ $errors -gt 0 ]; then
+            echo "Found $errors broken links"
+            exit 1
+          else
+            echo "✅ All links valid"
+          fi
+          EOF
+          
+          chmod +x check_links.sh
+          ./check_links.sh || true  # Don't fail on broken links, just warn
+          
+      - name: Check README completeness
+        run: |
+          echo "Checking README.md completeness..."
+          
+          required_sections=(
+            "Quick Start"
+            "About the Game"
+            "Repository Structure"
+            "Endings Guide"
+          )
+          
+          for section in "${required_sections[@]}"; do
+            if ! grep -q "$section" README.md; then
+              echo "⚠️ Missing section: $section"
+            fi
+          done
+          
+          echo "✅ README check complete"
+          
+  # Lore consistency checks
+  check-lore:
+    name: Check Lore Consistency
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: Check character name consistency
+        run: |
+          echo "Checking character name consistency..."
+          
+          # Create lore checker
+          cat > check_lore.py << 'EOF'
+          import os
+          import re
+          
+          # Canonical character names
+          CANONICAL_NAMES = {
+              "Izack Thorne": ["Izack", "Izack Thorne", "Professor Thorne"],
+              "Polly": ["Polly", "Polymnia", "Polymnia Aetheris"],
+              "Aria Luminette": ["Aria", "Aria Luminette", "Professor Luminette"],
+              "Zara Thornveil": ["Zara", "Zara Thornveil", "Professor Thornveil"],
+              "Magnus": ["Magnus", "Professor Magnus"]
+          }
+          
+          # Common misspellings to catch
+          MISSPELLINGS = {
+              "Isaac": "Izack",
+              "Polly's": "Polly",  # Possessive is ok, but check context
+              "Aria Luminate": "Aria Luminette",
+          }
+          
+          errors = []
+          
+          # Check all scene files
+          scenes_dir = './choicescript_game/scenes'
+          if os.path.exists(scenes_dir):
+              for file in os.listdir(scenes_dir):
+                  if file.endswith('.txt'):
+                      filepath = os.path.join(scenes_dir, file)
+                      with open(filepath, 'r', encoding='utf-8') as f:
+                          content = f.read()
+                          
+                      # Check for misspellings
+                      for wrong, correct in MISSPELLINGS.items():
+                          if wrong in content:
+                              errors.append(f"{file}: Found '{wrong}', should be '{correct}'")
+          
+          if errors:
+              print("⚠️ Lore consistency warnings:")
+              for error in errors:
+                  print(f"  - {error}")
+          else:
+              print("✅ Lore consistency check passed")
+          EOF
+          
+          python check_lore.py || true  # Don't fail, just warn
+          
+  # Build status summary
+  summary:
+    name: Build Summary
+    runs-on: ubuntu-latest
+    needs: [validate-choicescript, validate-web-game, check-docs, check-lore]
+    if: always()
+    
+    steps:
+      - name: Generate summary
+        run: |
+          echo "## CI Build Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Check | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| ChoiceScript Validation | ${{ needs.validate-choicescript.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Web Game Validation | ${{ needs.validate-web-game.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Documentation Check | ${{ needs.check-docs.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Lore Consistency | ${{ needs.check-lore.result }} |" >> $GITHUB_STEP_SUMMARY

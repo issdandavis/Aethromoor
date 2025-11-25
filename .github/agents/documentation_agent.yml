@@ -1,0 +1,408 @@
+# Documentation Agent Configuration
+# Maintains and improves project documentation quality
+
+name: documentation-agent
+version: "1.0"
+description: "Automated documentation maintenance, validation, and improvement for the Avalon project"
+
+# Trigger Configuration
+triggers:
+  events:
+    - pull_request
+    - push
+    - issue_comment
+  paths:
+    include:
+      - "docs/**/*.md"
+      - "*.md"
+      - ".github/**/*.md"
+      - "choicescript_game/README.md"
+    exclude:
+      - "archive/**"
+      - "CHANGELOG.md"  # Managed separately
+
+# Agent Behavior
+behavior:
+  mode: "suggest"  # options: suggest, auto-fix, enforce
+  
+  # Automatically fix minor issues
+  auto_fix_enabled: true
+  auto_fix_types:
+    - "spelling"
+    - "formatting"
+    - "broken_links"
+    
+  # Create issues for major problems
+  create_issues: true
+  
+  # Comment style
+  comment_style: "summary"  # options: inline, summary, both
+
+# Documentation Standards
+standards:
+  # Markdown Formatting
+  markdown:
+    - rule: "consistent_headers"
+      severity: "warning"
+      message: "Use consistent header levels (no skipping levels)"
+      auto_fix: false
+      
+    - rule: "header_capitalization"
+      severity: "info"
+      style: "title_case"  # options: title_case, sentence_case
+      auto_fix: true
+      
+    - rule: "line_length"
+      severity: "info"
+      max_length: 120
+      message: "Consider breaking long lines for readability"
+      auto_fix: false
+      
+    - rule: "no_trailing_whitespace"
+      severity: "warning"
+      auto_fix: true
+      
+    - rule: "blank_line_before_headers"
+      severity: "info"
+      auto_fix: true
+      
+    - rule: "code_fence_language"
+      severity: "warning"
+      message: "Specify language for code blocks"
+      auto_fix: false
+      
+  # Content Quality
+  content:
+    - rule: "no_broken_links"
+      severity: "error"
+      message: "Documentation contains broken internal links"
+      auto_fix: true
+      check_external: true
+      
+    - rule: "proper_code_examples"
+      severity: "warning"
+      message: "Code examples should be complete and runnable"
+      
+    - rule: "up_to_date_version_numbers"
+      severity: "warning"
+      message: "Check if version numbers are current"
+      current_version: "1.0"
+      
+    - rule: "consistent_terminology"
+      severity: "warning"
+      message: "Use consistent terms throughout documentation"
+      
+  # Structure
+  structure:
+    - rule: "required_sections"
+      severity: "error"
+      message: "README files must have required sections"
+      required_in_readme:
+        - "title"
+        - "description"
+        - "installation"
+        - "usage"
+        
+    - rule: "table_of_contents"
+      severity: "info"
+      message: "Consider adding TOC for long documents"
+      threshold_lines: 200
+      auto_generate: true
+      
+    - rule: "proper_file_references"
+      severity: "error"
+      message: "File paths in documentation must exist"
+      auto_fix: false
+
+# Avalon-Specific Documentation Rules
+avalon_rules:
+  # Game Documentation
+  game_docs:
+    - rule: "scene_documentation_completeness"
+      severity: "warning"
+      message: "All game scenes should be documented"
+      check_files:
+        - "choicescript_game/scenes/*.txt"
+      document_in:
+        - "docs/GAME_DEVELOPMENT_MASTER_REFERENCE.md"
+        
+    - rule: "ending_documentation"
+      severity: "error"
+      message: "All 14 endings must be documented in README"
+      expected_count: 14
+      
+    - rule: "character_consistency"
+      severity: "error"
+      message: "Character descriptions must match lore files"
+      lore_source: "lore/characters/"
+      
+  # Lore Documentation
+  lore_docs:
+    - rule: "chronicle_completeness"
+      severity: "warning"
+      message: "Character chronicles should be complete"
+      
+    - rule: "magic_system_consistency"
+      severity: "error"
+      message: "Magic system documentation must be consistent"
+      reference_file: "lore/magic_system.md"
+      
+    - rule: "timeline_accuracy"
+      severity: "error"
+      message: "Timeline events must be chronologically consistent"
+      
+  # Technical Documentation
+  technical_docs:
+    - rule: "setup_instructions_tested"
+      severity: "critical"
+      message: "Setup instructions should be verified"
+      
+    - rule: "api_documentation"
+      severity: "warning"
+      message: "Public functions should be documented"
+      
+    - rule: "changelog_updated"
+      severity: "info"
+      message: "Consider updating CHANGELOG.md"
+
+# AI Model Configuration
+ai_config:
+  model: "gpt-4"
+  temperature: 0.4  # Balanced for creative but accurate docs
+  max_tokens: 3000
+  
+  system_prompt: |
+    You are a documentation specialist for the Avalon game development project.
+    
+    Project Context:
+    - ChoiceScript-based interactive fiction game
+    - Fantasy setting with established lore
+    - Multi-path narrative with 14 endings
+    - 40,000+ word game content
+    - Target audience: Choice of Games / Hosted Games
+    
+    Your responsibilities:
+    1. Ensure documentation is clear, accurate, and complete
+    2. Maintain consistency with game lore and mechanics
+    3. Check that setup instructions are correct
+    4. Validate links and file references
+    5. Suggest improvements for clarity and completeness
+    
+    Standards:
+    - Use clear, concise language
+    - Provide examples where helpful
+    - Keep technical accuracy high
+    - Respect established lore and terminology
+    - Maintain welcoming tone for new contributors
+
+# Documentation Templates
+templates:
+  # Scene documentation template
+  scene_template: |
+    ## Scene: {scene_name}
+    
+    **File:** `{file_path}`
+    **Word Count:** {word_count}
+    **Choices:** {choice_count}
+    
+    ### Synopsis
+    {synopsis}
+    
+    ### Key Choices
+    {choices}
+    
+    ### Stats Affected
+    {stats}
+    
+    ### Leads To
+    {next_scenes}
+    
+  # Character documentation template
+  character_template: |
+    ## {character_name}
+    
+    **Role:** {role}
+    **Appears In:** {scenes}
+    
+    ### Description
+    {description}
+    
+    ### Relationships
+    {relationships}
+    
+    ### Key Moments
+    {key_moments}
+
+# Link Checking
+link_checking:
+  enabled: true
+  
+  # Check internal links
+  check_internal: true
+  
+  # Check external links (slower)
+  check_external: false
+  
+  # Allowed domains for external links
+  allowed_domains:
+    - "github.com"
+    - "choiceofgames.com"
+    - "docs.python.org"
+    
+  # Ignore patterns
+  ignore_patterns:
+    - "^mailto:"
+    - "^#"  # Allow anchor links without checking
+    
+  # Cache link check results
+  cache_results: true
+  cache_duration: 86400  # 24 hours
+
+# Spell Checking
+spell_checking:
+  enabled: true
+  
+  # Base dictionary
+  language: "en_US"
+  
+  # Custom dictionary for Avalon terms
+  custom_dictionary:
+    # Character Names
+    - "Izack"
+    - "Thorne"
+    - "Polly"
+    - "Polydimensional"
+    - "Polymnia"
+    - "Aetheris"
+    - "Aria"
+    - "Luminette"
+    - "Zara"
+    - "Thornveil"
+    - "Magnus"
+    
+    # Locations
+    - "Avalon"
+    - "Aethermoor"
+    - "Pollyoneth"
+    - "Verdant"
+    - "Tithe"
+    - "Rune"
+    - "Glacier"
+    
+    # Magic Terms
+    - "wingscroll"
+    - "collaborative"
+    - "dimensional"
+    - "ChoiceScript"
+    - "mage"
+    - "mages"
+    - "runeweaver"
+    
+    # Technical
+    - "GitHub"
+    - "JavaScript"
+    - "API"
+    - "JSON"
+    - "YAML"
+    
+  # Words to flag (commonly misused)
+  flag_words:
+    - word: "effect"
+      suggestion: "affect (as verb) or effect (as noun)"
+    - word: "its"
+      suggestion: "check if you mean it's (it is)"
+
+# Output Configuration
+output:
+  format: "markdown"
+  
+  # Summary comment template
+  summary_template: |
+    ## 📚 Documentation Review
+    
+    **Files Reviewed:** {file_count}
+    **Issues Found:** {issue_count}
+    
+    ### {emoji} Summary
+    {summary}
+    
+    ### Issues by Severity
+    - ❌ Critical: {critical_count}
+    - ⚠️ Errors: {error_count}
+    - ⚡ Warnings: {warning_count}
+    - ℹ️ Info: {info_count}
+    
+    ### Recommendations
+    {recommendations}
+    
+    ### Auto-Fixed
+    {auto_fixed_list}
+    
+  # Include suggestions
+  include_suggestions: true
+  
+  # Generate diffs for auto-fixes
+  show_diffs: true
+
+# Auto-Fix Configuration
+auto_fix:
+  # Enable auto-commit of fixes
+  auto_commit: true
+  
+  # Commit message template
+  commit_message: "docs: auto-fix documentation issues"
+  
+  # Create PR for fixes
+  create_pr: false
+  
+  # Maximum files to auto-fix per run
+  max_files: 10
+
+# Performance Settings
+performance:
+  # Maximum files to review per run
+  max_files_per_run: 50
+  
+  # Timeout per file (seconds)
+  timeout_per_file: 15
+  
+  # Parallel processing
+  parallel: true
+  max_workers: 4
+  
+  # Cache analysis results
+  cache_enabled: true
+  cache_ttl: 3600
+
+# Integration Settings
+integrations:
+  # GitHub
+  github:
+    comments: true
+    checks: true
+    labels:
+      needs_docs: "📚 needs-documentation"
+      docs_updated: "📝 docs-updated"
+      
+  # Generate documentation site
+  doc_site:
+    enabled: false
+    generator: "mkdocs"
+    
+# Maintenance Tasks
+maintenance:
+  # Periodic checks (cron syntax)
+  schedule: "0 0 * * 0"  # Weekly on Sunday
+  
+  tasks:
+    - name: "check_all_links"
+      description: "Validate all documentation links"
+      
+    - name: "update_table_of_contents"
+      description: "Regenerate TOC for long documents"
+      
+    - name: "sync_version_numbers"
+      description: "Ensure version numbers are consistent"
+      
+    - name: "generate_scene_index"
+      description: "Create index of all game scenes"

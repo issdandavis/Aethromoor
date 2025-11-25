@@ -1,0 +1,282 @@
+# Code Review Agent Configuration
+# Automated code review for ChoiceScript games and web components
+
+name: code-review-agent
+version: "1.0"
+description: "Automated code review for ChoiceScript scenes, JavaScript game logic, and workflow files"
+
+# Trigger Configuration
+triggers:
+  events:
+    - pull_request
+    - pull_request_review
+  paths:
+    include:
+      - "choicescript_game/**/*.txt"
+      - "game/**/*.js"
+      - "game/**/*.html"
+      - "game/**/*.css"
+      - ".github/workflows/**/*.yml"
+    exclude:
+      - "archive/**"
+      - "**/*.md"
+
+# Agent Behavior
+behavior:
+  # Run mode
+  mode: "comment"  # options: comment, review, check
+  
+  # Auto-approve low-risk changes
+  auto_approve: false
+  
+  # Request changes on critical issues
+  request_changes_on: "critical"
+  
+  # Comment style
+  comment_style: "inline"  # options: inline, summary, both
+
+# Review Rules for ChoiceScript Files
+choicescript_rules:
+  # Scene Structure
+  scene_structure:
+    - rule: "must_have_title"
+      severity: "error"
+      message: "Scene file must start with a *title command"
+      
+    - rule: "proper_indentation"
+      severity: "warning"
+      message: "ChoiceScript commands should be properly indented"
+      
+    - rule: "no_orphaned_choices"
+      severity: "error"
+      message: "All *choice blocks must have at least one #option"
+      
+  # Variable Management
+  variables:
+    - rule: "declare_before_use"
+      severity: "error"
+      message: "Variables must be declared in startup.txt before use"
+      
+    - rule: "consistent_naming"
+      severity: "warning"
+      message: "Use snake_case for variable names"
+      
+    - rule: "no_undefined_stats"
+      severity: "error"
+      message: "Stats must be defined in choicescript_stats.txt"
+      
+  # Control Flow
+  control_flow:
+    - rule: "balanced_if_else"
+      severity: "warning"
+      message: "Consider if all *if branches are properly closed"
+      
+    - rule: "goto_target_exists"
+      severity: "error"
+      message: "All *goto and *gosub targets must exist"
+      
+    - rule: "no_infinite_loops"
+      severity: "critical"
+      message: "Detected potential infinite loop in scene logic"
+      
+  # Content Quality
+  content:
+    - rule: "no_placeholder_text"
+      severity: "warning"
+      message: "Remove placeholder text like TODO or FIXME before merging"
+      
+    - rule: "consistent_character_names"
+      severity: "error"
+      message: "Character names must match established lore"
+      
+    - rule: "minimum_scene_length"
+      severity: "info"
+      minimum_words: 100
+      message: "Consider expanding scene content"
+
+# Review Rules for JavaScript Files
+javascript_rules:
+  # Code Quality
+  quality:
+    - rule: "no_console_logs"
+      severity: "warning"
+      message: "Remove console.log statements in production code"
+      
+    - rule: "use_strict_mode"
+      severity: "warning"
+      message: "Consider using 'use strict' directive"
+      
+    - rule: "proper_error_handling"
+      severity: "error"
+      message: "Add error handling for async operations"
+      
+  # Security
+  security:
+    - rule: "no_eval"
+      severity: "critical"
+      message: "Never use eval() - security risk"
+      
+    - rule: "sanitize_user_input"
+      severity: "critical"
+      message: "User input must be sanitized"
+      
+    - rule: "no_hardcoded_credentials"
+      severity: "critical"
+      message: "Never hardcode API keys or passwords"
+      
+  # Performance
+  performance:
+    - rule: "avoid_global_variables"
+      severity: "warning"
+      message: "Minimize global variable usage"
+      
+    - rule: "efficient_dom_manipulation"
+      severity: "info"
+      message: "Consider batching DOM updates"
+
+# Review Rules for Workflow Files
+workflow_rules:
+  # Syntax
+  syntax:
+    - rule: "valid_yaml"
+      severity: "error"
+      message: "YAML syntax must be valid"
+      
+    - rule: "required_fields"
+      severity: "error"
+      message: "Workflow must have name, on, and jobs fields"
+      
+  # Security
+  security:
+    - rule: "pinned_action_versions"
+      severity: "warning"
+      message: "Pin GitHub Actions to specific versions for security"
+      
+    - rule: "no_exposed_secrets"
+      severity: "critical"
+      message: "Never expose secrets in workflow files"
+      
+  # Best Practices
+  best_practices:
+    - rule: "descriptive_job_names"
+      severity: "info"
+      message: "Use descriptive names for workflow jobs"
+
+# Lore Consistency Checks
+# Special rules for Avalon narrative content
+lore_checks:
+  enabled: true
+  
+  character_names:
+    canonical:
+      - "Izack Thorne"
+      - "Polly"
+      - "Aria Luminette"
+      - "Zara Thornveil"
+      - "Magnus"
+    
+  magic_system_terms:
+    approved:
+      - "collaborative casting"
+      - "dimensional theory"
+      - "First Tongue"
+      - "Spiral of Pollyoneth"
+      - "wingscroll"
+      
+  locations:
+    canonical:
+      - "Avalon Academy"
+      - "Singing Dunes"
+      - "Verdant Tithe"
+      - "Rune Glacier"
+      - "Aethermoor"
+
+# AI Model Configuration
+ai_config:
+  model: "gpt-4"
+  temperature: 0.3  # Lower for more consistent reviews
+  max_tokens: 2000
+  
+  system_prompt: |
+    You are a code review assistant for the Avalon game development project.
+    The project includes:
+    - ChoiceScript game files (.txt)
+    - HTML/CSS/JavaScript web game
+    - Fantasy narrative content with established lore
+    
+    Review code for:
+    1. ChoiceScript syntax correctness
+    2. Game logic consistency
+    3. Lore accuracy (character names, magic system terms)
+    4. Code quality and security
+    5. Performance considerations
+    
+    Provide constructive feedback with specific line references.
+    Prioritize critical issues (security, broken functionality).
+    Be encouraging while maintaining quality standards.
+
+# Output Configuration
+output:
+  format: "markdown"
+  
+  # Include code suggestions
+  include_suggestions: true
+  
+  # Group related issues
+  group_issues: true
+  
+  # Maximum comments per file
+  max_comments_per_file: 10
+  
+  # Comment template
+  comment_template: |
+    ## {severity_emoji} {severity}: {rule_name}
+    
+    **File:** `{file_path}:{line_number}`
+    
+    {message}
+    
+    {code_snippet}
+    
+    {suggestion}
+
+# Performance Settings
+performance:
+  # Maximum files to review per run
+  max_files_per_run: 20
+  
+  # Timeout per file (seconds)
+  timeout_per_file: 30
+  
+  # Parallel processing
+  parallel: true
+  max_workers: 4
+
+# Integration Settings
+integrations:
+  # Post results to PR comments
+  github_comments: true
+  
+  # Create check runs
+  github_checks: true
+  
+  # Update PR status
+  pr_status: true
+  
+  # Labels to add based on review
+  labels:
+    critical_issues: "⚠️ needs-revision"
+    minor_issues: "📝 review-comments"
+    approved: "✅ code-reviewed"
+
+# Exemptions
+exemptions:
+  # Files that skip certain rules
+  skip_rules:
+    - path: "choicescript_game/startup.txt"
+      rules: ["minimum_scene_length"]
+      reason: "Configuration file, not narrative content"
+      
+    - path: "game/game.js"
+      rules: ["avoid_global_variables"]
+      reason: "Legacy code structure"
