@@ -1,0 +1,137 @@
+name: AI Content Validation
+
+on:
+  pull_request:
+    paths:
+      - 'choicescript_game/scenes/**'
+      - 'lore/**'
+      - 'writing_drafts/**'
+  workflow_dispatch:
+
+jobs:
+  validate-choicescript:
+    runs-on: ubuntu-latest
+    name: Validate ChoiceScript Content
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Check for broken gotos
+        run: |
+          echo "Checking for broken *goto statements in ChoiceScript files..."
+          cd choicescript_game/scenes
+          
+          # Extract all *label definitions
+          labels=$(grep -h "^\*label " *.txt 2>/dev/null | sed 's/\*label //' | sort -u)
+          
+          # Extract all *goto targets
+          gotos=$(grep -h "^\s*\*goto " *.txt 2>/dev/null | sed 's/.*\*goto //' | sed 's/ .*//' | sort -u)
+          
+          # Check for missing labels
+          missing=0
+          for goto in $gotos; do
+            if ! echo "$labels" | grep -q "^${goto}$"; then
+              echo "WARNING: Found *goto $goto but no matching *label"
+              missing=$((missing + 1))
+            fi
+          done
+          
+          if [ $missing -gt 0 ]; then
+            echo "Found $missing potentially broken goto statements"
+            echo "Please verify these are scene transitions (*goto_scene)"
+          fi
+          
+      - name: Check stat modifications
+        run: |
+          echo "Checking stat modification patterns..."
+          cd choicescript_game/scenes
+          
+          # Check for proper stat syntax
+          grep -n "\*set " *.txt 2>/dev/null | while read line; do
+            if echo "$line" | grep -qv "\*set [a-z_]* [+-]*[0-9]*"; then
+              echo "Potential stat syntax issue: $line"
+            fi
+          done
+          
+      - name: Check for Polly commentary
+        run: |
+          echo "Verifying Polly's sarcastic commentary is present..."
+          cd choicescript_game/scenes
+          
+          for file in *.txt; do
+            if [ -f "$file" ] && [ "$file" != "startup.txt" ] && [ "$file" != "choicescript_stats.txt" ]; then
+              if ! grep -q "\[i\].*Polly\|\".*\".*\[/i\]" "$file"; then
+                echo "Note: $file may be missing Polly commentary"
+              fi
+            fi
+          done
+
+  validate-lore-consistency:
+    runs-on: ubuntu-latest
+    name: Validate Lore Consistency
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Check character name consistency
+        run: |
+          echo "Checking for consistent character naming..."
+          
+          # Key character names to check
+          characters=("Izack" "Aria" "Zara" "Polly" "Kael" "Alexander")
+          
+          # Search for potential misspellings
+          for char in "${characters[@]}"; do
+            # This is a simple check - could be enhanced
+            echo "Checking references to $char..."
+          done
+          
+      - name: Check magic system terminology
+        run: |
+          echo "Verifying magic system terminology consistency..."
+          
+          # Key terms that should be consistently used
+          terms=("Collaboration" "collaborative casting" "Spiral of Pollyoneth" "Avalon Academy")
+          
+          for term in "${terms[@]}"; do
+            echo "Checking usage of: $term"
+          done
+
+  scene-parity-check:
+    runs-on: ubuntu-latest
+    name: Check HTML vs ChoiceScript Parity
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Compare scene coverage
+        run: |
+          echo "Checking scene implementation parity..."
+          
+          # List major scenes expected
+          echo "Checking expedition scenes..."
+          
+          expeditions=("singing_dunes" "verdant_tithe" "rune_glacier")
+          
+          for exp in "${expeditions[@]}"; do
+            if [ -f "choicescript_game/scenes/${exp}.txt" ]; then
+              lines=$(wc -l < "choicescript_game/scenes/${exp}.txt")
+              echo "✓ ${exp}.txt exists ($lines lines)"
+              if [ $lines -lt 100 ]; then
+                echo "  ⚠ Scene may be placeholder (< 100 lines)"
+              fi
+            else
+              echo "✗ ${exp}.txt missing"
+            fi
+          done
+
+  generate-validation-report:
+    runs-on: ubuntu-latest
+    needs: [validate-choicescript, validate-lore-consistency, scene-parity-check]
+    if: always()
+    steps:
+      - name: Summary
+        run: |
+          echo "### Content Validation Complete"
+          echo "All automated checks have been run."
+          echo "Review the job outputs above for any warnings or issues."

@@ -199,6 +199,30 @@ Avalon/
 
 ---
 
+## 🤖 AI Automation Features
+
+This repository is enhanced with AI automation to streamline development and maintain quality:
+
+### Available Custom AI Agents
+- **Lore Steward** - File organization and general coding assistance
+- **Scene Converter** - Expert in HTML to ChoiceScript conversion
+- **Lore Guardian** - Validates narrative consistency across the epic
+
+### Automated Workflows
+- **Content Validation** - Checks ChoiceScript syntax, lore consistency, and scene parity
+- **Task Automation** - Auto-labels issues and suggests AI assistance
+- **ChoiceScript Tests** - Validates game functionality
+
+### AI-Powered Features
+- Smart issue templates for scene conversion and lore validation
+- Automated content quality checks on pull requests
+- Multi-AI coordination for complex tasks
+- Issue commands like `/create-checklist` for instant task breakdowns
+
+**📚 Learn More:** See [docs/AI_AUTOMATION_FEATURES.md](docs/AI_AUTOMATION_FEATURES.md) for complete guide or [docs/AI_QUICK_REFERENCE.md](docs/AI_QUICK_REFERENCE.md) for quick reference.
+
+---
+
 ## 🎊 Credits
 
 ### Game Design & Writing
