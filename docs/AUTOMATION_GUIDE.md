@@ -3,6 +3,8 @@
 
 This document outlines how to automate and integrate various tools to streamline game development and publishing.
 
+> **✨ NEW:** Inbox automation is now active! See [INBOX_AUTOMATION_CONFIG.md](INBOX_AUTOMATION_CONFIG.md) for details on automated issue/PR management, notifications, and templates.
+
 ---
 
 ## 🔌 ZAPIER AUTOMATION IDEAS
@@ -185,20 +187,27 @@ Avalon/
 
 ## 🚀 QUICK START AUTOMATION (Priority Order)
 
-### **Phase 1: Essential Automation**
-1. ✅ GitHub → Discord (new commits notification)
-2. ✅ Google Form → Google Sheet (bug tracking)
-3. ✅ GitHub Release → Social Media (announcements)
+### **Phase 1: Essential Automation** ✅ COMPLETE
+1. ✅ GitHub Actions inbox automation (issue/PR auto-labeling)
+2. ✅ Automated issue templates and triage
+3. ✅ Stale issue/PR management
+4. ✅ Notification system for updates
+5. ✅ First-time contributor welcome bot
 
-### **Phase 2: Content Pipeline**
-4. ⏳ Google Docs → GitHub (lore updates)
-5. ⏳ Notion → ChoiceScript (content sync)
-6. ⏳ Feedback Form → GitHub Issues
+### **Phase 2: External Integrations** (Ready to Configure)
+6. ⏳ GitHub → Discord (new commits notification) - Ready, needs webhook
+7. ⏳ Google Form → Google Sheet (bug tracking)
+8. ⏳ GitHub Release → Social Media (announcements) - Ready, needs tokens
 
-### **Phase 3: Advanced Automation**
-7. ⏳ Analytics → Dashboard (player stats)
-8. ⏳ Community Posts → Archive (discussion backup)
-9. ⏳ Automated testing triggers
+### **Phase 3: Content Pipeline**
+9. ⏳ Google Docs → GitHub (lore updates)
+10. ⏳ Notion → ChoiceScript (content sync)
+11. ⏳ Feedback Form → GitHub Issues
+
+### **Phase 4: Advanced Automation**
+12. ⏳ Analytics → Dashboard (player stats)
+13. ⏳ Community Posts → Archive (discussion backup)
+14. ⏳ Automated testing triggers
 
 ---
 
@@ -271,8 +280,16 @@ Action 3: Email - Send to Subscriber List
 
 ## ⚙️ SETUP CHECKLIST
 
-**Before enabling automations:**
-- [ ] Connect GitHub repository
+**GitHub Automations (COMPLETE):**
+- [x] GitHub Actions workflows configured
+- [x] Issue templates created
+- [x] Auto-labeling enabled
+- [x] Stale management active
+- [x] Notification system running
+- [x] PR automation configured
+
+**Before enabling external integrations:**
+- [ ] Connect GitHub repository to Zapier
 - [ ] Set up Google Workspace
 - [ ] Create Discord server/channels
 - [ ] Initialize project management tool
@@ -301,6 +318,7 @@ Action 3: Email - Send to Subscriber List
 - https://zapier.com/apps/google-docs/integrations
 
 **Documentation:**
+- **Inbox Automation:** [INBOX_AUTOMATION_CONFIG.md](INBOX_AUTOMATION_CONFIG.md) - Detailed guide to GitHub automation setup
 - ChoiceScript forums: https://forum.choiceofgames.com/
 - GitHub Actions: https://docs.github.com/actions
 - Discord webhooks: https://discord.com/developers/docs

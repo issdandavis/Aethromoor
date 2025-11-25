@@ -1,0 +1,92 @@
+---
+name: Automation Setup
+description: Issues related to project automation, Zapier, or workflows
+title: "[Automation]: "
+labels: ["automation", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for automation-related issues, suggestions, or questions.
+
+  - type: dropdown
+    id: automation-type
+    attributes:
+      label: Automation Type
+      description: What kind of automation is this about?
+      options:
+        - GitHub Actions workflow
+        - Zapier integration
+        - Issue/PR management
+        - Notifications (Discord, email, etc.)
+        - Testing automation
+        - Deployment automation
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: request-type
+    attributes:
+      label: Request Type
+      description: What are you trying to do?
+      options:
+        - New automation setup
+        - Fix broken automation
+        - Improve existing automation
+        - Question about automation
+        - Documentation request
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe what you want to automate or what's not working
+      placeholder: I want to set up automated notifications when...
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Current Behavior
+      description: If applicable, what's happening now?
+      placeholder: Currently, when X happens, Y occurs...
+
+  - type: textarea
+    id: desired-behavior
+    attributes:
+      label: Desired Behavior
+      description: What should happen instead?
+      placeholder: I want it to automatically...
+
+  - type: textarea
+    id: integration-details
+    attributes:
+      label: Integration Details
+      description: What services/tools need to be connected?
+      placeholder: |
+        - GitHub
+        - Discord webhook
+        - Google Sheets
+        etc.
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any error messages, logs, or screenshots
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      options:
+        - label: I have read the AUTOMATION_GUIDE.md
+          required: false
+        - label: I have checked existing workflows in .github/workflows/
+          required: false
+        - label: This automation won't expose secrets or sensitive data
+          required: true

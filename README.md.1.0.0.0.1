@@ -21,7 +21,9 @@ Previous commits contained plaintext API keys. They have been removed from the t
 
 **A choice-based narrative game set in Avalon Academy**
 
-![Version](https://img.shields.io/badge/version-1.0-blue) ![Word Count](https://img.shields.io/badge/words-40000%2B-green) ![Endings](https://img.shields.io/badge/endings-14-purple)
+![Version](https://img.shields.io/badge/version-1.0-blue) ![Word Count](https://img.shields.io/badge/words-40000%2B-green) ![Endings](https://img.shields.io/badge/endings-14-purple) ![Automation](https://img.shields.io/badge/automation-active-brightgreen)
+
+> **✨ New:** Automated inbox management is now active! Issues and PRs are automatically labeled and triaged. See [.github/INBOX_AUTOMATION_QUICKSTART.md](.github/INBOX_AUTOMATION_QUICKSTART.md) for details.
 
 ---
 

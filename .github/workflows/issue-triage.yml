@@ -1,0 +1,113 @@
+name: Issue Triage and Auto-Label
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  auto-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label bug reports
+        if: contains(github.event.issue.title, 'bug') || contains(github.event.issue.body, 'bug')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['bug']
+            })
+
+      - name: Label feature requests
+        if: contains(github.event.issue.title, 'feature') || contains(github.event.issue.body, 'feature request')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['enhancement']
+            })
+
+      - name: Label documentation issues
+        if: contains(github.event.issue.title, 'docs') || contains(github.event.issue.title, 'documentation')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['documentation']
+            })
+
+      - name: Label game content issues
+        if: contains(github.event.issue.body, 'game') || contains(github.event.issue.body, 'choicescript')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['game-content']
+            })
+
+      - name: Label lore/writing issues
+        if: contains(github.event.issue.body, 'lore') || contains(github.event.issue.body, 'writing')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['lore-writing']
+            })
+
+      - name: Label automation issues
+        if: contains(github.event.issue.title, 'automation') || contains(github.event.issue.body, 'zapier') || contains(github.event.issue.body, 'workflow')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['automation']
+            })
+
+  welcome-first-time:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'opened'
+    steps:
+      - name: Welcome first-time contributors
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Get all issues created by this user
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              creator: context.payload.issue.user.login,
+              state: 'all'
+            });
+            
+            // If this is their first issue
+            if (issues.data.length === 1) {
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `👋 Welcome to the Avalon project, @${context.payload.issue.user.login}! Thank you for opening your first issue.\n\nThis is an interactive fiction game project set in the Spiral of Pollyoneth universe. We appreciate your interest!\n\n- For game-related issues, please check if the issue occurs in both the HTML version (\`game/index.html\`) and ChoiceScript version.\n- For lore/writing questions, feel free to reference the \`lore/\` directory.\n- For automation suggestions, see our \`docs/AUTOMATION_GUIDE.md\`.\n\nA maintainer will review your issue soon. Thank you for contributing! 🎮✨`
+              });
+            }

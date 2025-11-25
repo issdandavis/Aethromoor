@@ -1,0 +1,65 @@
+---
+name: Lore Question
+description: Ask questions about the Spiral of Pollyoneth universe
+title: "[Lore]: "
+labels: ["lore-writing", "question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Welcome! Ask your questions about the Spiral of Pollyoneth universe, characters, or magic systems.
+
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic Area
+      description: What aspect of the lore is your question about?
+      options:
+        - Characters (Izack, Aria, Zara, Polly, etc.)
+        - Magic Systems (Collaborative casting, dimensional theory)
+        - Geography/Realms (Singing Dunes, Verdant Tithe, etc.)
+        - Timeline/History
+        - Academy Structure
+        - General Worldbuilding
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+      placeholder: I'm curious about...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Is this related to something in the game? Provide any relevant context.
+      placeholder: I was playing the Singing Dunes expedition and noticed...
+
+  - type: dropdown
+    id: reason
+    attributes:
+      label: Reason for Asking
+      description: Why are you asking? (This helps us provide better answers)
+      options:
+        - General curiosity
+        - Writing fan content
+        - Contributing to the project
+        - Found inconsistency
+        - Planning gameplay
+        - Other
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      options:
+        - label: I have checked the lore/ directory for existing information
+          required: false
+        - label: I have played through relevant game content
+          required: false
