@@ -5,6 +5,17 @@ This guide shows how to use AI tools to automatically organize, expand, and main
 
 ---
 
+## ⚠️ Security Best Practices
+
+**IMPORTANT:** When using AI-generated commands:
+1. **Always review** AI-suggested commands before execution
+2. **Never pipe** AI output directly to bash without validation
+3. **Test commands** in a safe environment first
+4. **Validate paths** exist before using in automation
+5. **Use the ready-made scripts** in `scripts/` directory for safe automation
+
+---
+
 ## 🤖 AI-Powered Content Management
 
 ### GitHub Copilot CLI for Content Organization
@@ -122,6 +133,8 @@ gh copilot suggest "find scenes without any relationship stat changes"
 
 ### Content Health Dashboard (Daily Script)
 
+**⚠️ SECURITY NOTE:** Always review AI-generated commands before execution. Never pipe directly to bash without validation.
+
 ```bash
 #!/bin/bash
 # Save as scripts/content-health.sh
@@ -132,7 +145,9 @@ echo ""
 
 # Total content metrics
 echo "📝 TOTAL CONTENT:"
-gh copilot suggest "count total words across all .txt and .md files" | bash
+# Review the suggested command before running
+gh copilot suggest "count total words across all .txt and .md files"
+# Then manually run the command after reviewing it
 
 # Scene progress
 echo ""
@@ -169,6 +184,8 @@ gh copilot suggest "calculate percentage growth for each content category"
 
 ### Automated Content Checks (CI/CD)
 
+**Note:** Ensure paths exist in your repository before adding to workflow triggers.
+
 Create `.github/workflows/content-check.yml`:
 
 ```yaml
@@ -178,7 +195,7 @@ on:
     paths:
       - 'choicescript_game/scenes/**'
       - 'lore/**'
-      - 'writing_drafts/**'
+      # Add other paths as they exist in your repo
 
 jobs:
   check:

@@ -18,7 +18,7 @@ echo "📁 Analyzing content..."
 echo ""
 
 # Find uncategorized files
-uncategorized=$(find . -maxdepth 1 -name "*.txt" -o -name "*.md" | grep -v README)
+uncategorized=$(find . -maxdepth 1 \( -name "*.txt" -o -name "*.md" \) 2>/dev/null | grep -v README)
 
 if [ -n "$uncategorized" ]; then
     echo "⚠️  Found uncategorized files in root:"

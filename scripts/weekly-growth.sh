@@ -17,7 +17,12 @@ echo "CURRENT STATUS:"
 echo "  Total Words: $current_words"
 echo "  Total Scenes: $current_scenes"
 echo "  Target: 50,000 words"
-echo "  Progress: $(( current_words * 100 / 50000 ))%"
+if [ "$current_words" -gt 0 ] 2>/dev/null; then
+    progress=$(( current_words * 100 / 50000 ))
+    echo "  Progress: ${progress}%"
+else
+    echo "  Progress: 0%"
+fi
 echo ""
 
 # Find content gaps

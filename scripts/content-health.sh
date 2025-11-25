@@ -102,8 +102,10 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 # Find smallest scenes
 echo "  Expand These Scenes (< 1000 words):"
 for scene in choicescript_game/scenes/*.txt; do
-    words=$(wc -w < "$scene")
-    if [ "$words" -lt 1000 ]; then
+    [ -f "$scene" ] || continue
+    words=$(wc -w < "$scene" 2>/dev/null || echo "0")
+    # Only process if we got a valid number
+    if [ "$words" -gt 0 ] 2>/dev/null && [ "$words" -lt 1000 ]; then
         echo "    - $(basename "$scene"): $words words"
     fi
 done
