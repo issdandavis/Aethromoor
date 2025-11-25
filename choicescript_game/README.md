@@ -40,6 +40,7 @@ A professional choice-based game built in ChoiceScript, the engine used by **Cho
 - Polly's sarcastic introduction
 - 3 different arrival paths
 - Dynamic stat tracking
+- **NEW: Familiar Selection** with 5 companion options (Polly, Clay, Dragonling, Spriteswarm, Spark)
 
 ✅ **First Lesson:**
 - Full dimensional magic lesson
@@ -52,6 +53,8 @@ A professional choice-based game built in ChoiceScript, the engine used by **Cho
 - Relationships with Izack, Aria, Zara, Polly
 - Achievement tracking
 - Custom stats screen
+- **NEW: Guild Affinity System** (7 magical guilds)
+- **NEW: Familiar Bond Tracking**
 
 ✅ **Professional Features:**
 - Save/Load system (built into ChoiceScript)
