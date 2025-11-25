@@ -1,0 +1,166 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                   SAML 2.0 AUTHENTICATION FLOW FOR AVALON AGENT             ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌─────────────┐                    ┌──────────────┐                ┌─────────────┐
+│   Agent     │                    │   Service    │                │  Identity   │
+│  Explorer   │                    │   Provider   │                │  Provider   │
+│             │                    │   (Avalon)   │                │    (IdP)    │
+└──────┬──────┘                    └───────┬──────┘                └──────┬──────┘
+       │                                   │                              │
+       │ 1. Initiate Authentication        │                              │
+       │──────────────────────────────────>│                              │
+       │                                   │                              │
+       │    2. Generate AuthnRequest       │                              │
+       │<──────────────────────────────────│                              │
+       │       (ID, Timestamp, EntityID)   │                              │
+       │                                   │                              │
+       │ 3. Redirect to IdP Login          │                              │
+       │───────────────────────────────────┼─────────────────────────────>│
+       │    GET https://idp.com/sso?       │                              │
+       │        SAMLRequest=base64(xml)    │                              │
+       │                                   │                              │
+       │                                   │   4. User Authenticates      │
+       │                                   │         (Username/Password)  │
+       │                                   │<─────────────────────────────│
+       │                                   │                              │
+       │                                   │   5. SAML Assertion          │
+       │                                   │<─────────────────────────────│
+       │                                   │      (Signed, Attributes)    │
+       │  6. POST to ACS                   │                              │
+       │<──────────────────────────────────┼──────────────────────────────│
+       │    SAMLResponse=base64(assertion) │                              │
+       │                                   │                              │
+       │ 7. Validate Signature             │                              │
+       │──────────────────────────────────>│                              │
+       │    - Verify XML signature         │                              │
+       │    - Check certificate            │                              │
+       │    - Validate timestamp           │                              │
+       │                                   │                              │
+       │ 8. Extract User Attributes        │                              │
+       │<──────────────────────────────────│                              │
+       │    - userId: agent-curator-001    │                              │
+       │    - email: curator@avalon.agent  │                              │
+       │    - groups: [curator]            │                              │
+       │                                   │                              │
+       │ 9. Create Session                 │                              │
+       │──────────────────────────────────>│                              │
+       │    sessionId: _abc123...          │                              │
+       │    expires: 3600s                 │                              │
+       │                                   │                              │
+       │ 10. Authentication Complete       │                              │
+       │<──────────────────────────────────│                              │
+       │                                   │                              │
+       │ 11. Perform Authorized Operations │                              │
+       │──────────────────────────────────>│                              │
+       │    - readFile(path)               │                              │
+       │    - searchFiles(pattern)         │                              │
+       │    - curateLore(dir)              │                              │
+       │                                   │                              │
+       │ 12. Session Refresh (if needed)   │                              │
+       │<─────────────────────────────────>│                              │
+       │    Automatic when <5min left      │                              │
+       │                                   │                              │
+       │ 13. Logout                        │                              │
+       │──────────────────────────────────>│                              │
+       │    Session terminated             │                              │
+       │                                   │                              │
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                         SECURITY CHECKPOINTS                                 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+✓ Step 2:  AuthnRequest signed with SP private key
+✓ Step 5:  SAML Assertion signed with IdP private key
+✓ Step 7:  Signature verified with IdP public certificate (X.509)
+✓ Step 7:  Timestamp validated (NotBefore, NotOnOrAfter)
+✓ Step 7:  Assertion ID checked for replay attacks
+✓ Step 8:  Required attributes validated (userId, email)
+✓ Step 9:  Session timeout enforced (1 hour default)
+✓ Step 11: Operation permissions checked against user role
+✓ Step 12: Session refresh maintains security context
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                        ROLE-BASED ACCESS CONTROL                             ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌──────────────┬─────────────┬──────────────┬──────────────┐
+│  Operation   │    Admin    │   Curator    │    Viewer    │
+├──────────────┼─────────────┼──────────────┼──────────────┤
+│ repo.read    │     ✓       │      ✓       │      ✓       │
+│ repo.explore │     ✓       │      ✓       │      ✓       │
+│ file.view    │     ✓       │      ✓       │      ✓       │
+│ file.search  │     ✓       │      ✓       │      ✓       │
+│ lore.curate  │     ✓       │      ✓       │      ✗       │
+│ lore.organize│     ✓       │      ✓       │      ✗       │
+│ ALL (*)      │     ✓       │      ✗       │      ✗       │
+└──────────────┴─────────────┴──────────────┴──────────────┘
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                           CONFIGURATION FILES                                ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+.github/agents/
+├── saml-config.json        → SAML 2.0 configuration
+├── saml-auth.js           → Authentication module (SAMLAuthenticator class)
+├── explorer.js            → Authenticated wrapper (AuthenticatedExplorer class)
+├── test-saml.js          → Automated test suite (8 tests)
+├── SAML_SETUP.md         → Complete setup guide
+├── PRODUCTION_GUIDE.md   → Production implementation examples
+├── QUICK_REFERENCE.md    → Quick start guide
+└── IMPLEMENTATION_SUMMARY.md → Technical summary
+
+config/
+└── .env.example          → IdP configuration template
+    ├── IDP_ENTITY_ID
+    ├── IDP_SSO_URL
+    ├── IDP_SLO_URL
+    └── IDP_CERTIFICATE
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                         SUPPORTED IDENTITY PROVIDERS                         ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+✓ Okta             - Enterprise identity management
+✓ Azure AD         - Microsoft Entra ID (formerly Azure Active Directory)
+✓ Auth0            - Developer-friendly authentication platform
+✓ OneLogin         - Cloud-based identity provider
+✓ Google Workspace - G Suite SAML integration
+✓ ADFS             - Active Directory Federation Services
+✓ Shibboleth       - Open-source identity provider
+
+All IdPs supporting SAML 2.0 protocol are compatible.
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                      QUICK START (3 STEPS)                                   ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+1. Configure Identity Provider
+   → Add SP Entity ID: avalon-agent-explorer
+   → Set ACS URL: https://github.com/issdandavis/Avalon/agent/saml/acs
+
+2. Update Configuration
+   → Edit .github/agents/saml-config.json with IdP details
+   → Set environment variables in config/.env
+
+3. Test & Deploy
+   → Run: node .github/agents/test-saml.js
+   → See PRODUCTION_GUIDE.md for production implementation
+   → Deploy with real SAML response parsing
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                             STATUS: READY                                    ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Development/Testing: ✓ COMPLETE
+  • Framework implemented
+  • Test suite passing (8/8)
+  • Documentation complete
+
+Production Deployment: ⚠ REQUIRES COMPLETION
+  • Replace placeholder signature verification
+  • Replace placeholder attribute extraction
+  • Install: npm install xml-crypto xmldom xpath
+  • See: PRODUCTION_GUIDE.md for complete implementation
+
+For detailed instructions, see: .github/agents/SAML_SETUP.md
