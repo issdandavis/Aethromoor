@@ -38,6 +38,11 @@ Avalon/
 ├── 📄 CONTRIBUTING.md ← Contribution guidelines
 ├── 📄 SUBMISSION_GUIDE.md ← Publishing info
 │
+├── 🤖 Multi-AI Coordination Files
+│   ├── STATUS_CONTEXT.md ← Weekly development snapshot
+│   ├── SCENE_PARITY_CHECKLIST.md ← HTML↔ChoiceScript tracking
+│   └── STATS_MATRIX.md ← Stat-affecting choices matrix
+│
 ├── 🎮 game/ ← HTML game (instant play)
 │   └── index.html ← PLAY THIS!
 │
