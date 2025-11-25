@@ -165,6 +165,13 @@ Grey nods with satisfaction.
 
   *page_break
 
+*if spark_is_familiar
+  ${familiar_name} flickers excitedly around ${golem_name}, leaving trails of warm light.
+  
+  The golem seems unbothered by the heat, and the two companions appear to reach an understanding.
+  
+  *page_break
+
 You now have ${golem_name}, your ${golem_element} golem companion.
 
 Together with ${familiar_name}, you're building quite the magical entourage.
