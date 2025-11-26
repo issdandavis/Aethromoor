@@ -1,6 +1,7 @@
 # The Avalon Codex
 
-> **A multi-generational fantasy narrative project featuring Polly's Wingscroll: The First Thread**
+> **A multi-generational fantasy narrative project featuring Polly's Wingscroll: The First Thread**  
+> *Play an interactive game, explore rich lore, or contribute to autonomous AI-powered development*
 
 [![Play Now](https://img.shields.io/badge/▶️_Play-Now-brightgreen?style=for-the-badge)](game/index.html)
 [![Version](https://img.shields.io/badge/version-1.0-blue)](https://github.com/issdandavis/Avalon)
@@ -25,10 +26,8 @@ The Avalon Codex is a fantasy worldbuilding and interactive fiction project cent
 
 ### 🎮 I Want to Play the Game
 **Instant Play (HTML Version):**
-```
 1. Open `game/index.html` in your browser
 2. Play immediately - no setup required!
-```
 
 **Professional Version (ChoiceScript):**
 - See **[PLAY_THE_GAME.md](PLAY_THE_GAME.md)** for detailed instructions
@@ -323,7 +322,10 @@ cd game
 ./bootstrap_choicescript.sh  # Clone ChoiceScript engine
 ./sync_scenes.sh             # Copy scenes to engine
 cd choicescript
-# Run appropriate server script for your OS
+# Run server for your OS:
+# - Windows: run-server.bat
+# - macOS: serve.command  
+# - Linux/WSL: bash serve.sh
 
 # For HTML version
 # Simply open game/index.html in browser
