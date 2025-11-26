@@ -140,7 +140,7 @@ python .github/scripts/agent_manager_cli.py recommend
 open agent-dashboard.html
 ```
 
-### Documentation
+### AI System Guides
 - **Beginner Guide:** [AGENT_MANAGEMENT_README.md](AGENT_MANAGEMENT_README.md)
 - **Activation:** [AI_SYSTEM_ACTIVATION_GUIDE.md](AI_SYSTEM_ACTIVATION_GUIDE.md)
 - **Tutorial:** [AGENT_TUTORIAL.md](AGENT_TUTORIAL.md)
@@ -162,7 +162,7 @@ open agent-dashboard.html
 - ✅ Security validation and integration status
 - ✅ Multi-platform monitoring
 
-### Documentation
+### Automation Resources
 - **[ACCOUNTS_README.md](ACCOUNTS_README.md)** - Account automation setup
 - **[docs/AUTOMATION_GUIDE.md](docs/AUTOMATION_GUIDE.md)** - Integration workflows
 - **Configuration:** `config/automation-settings.json`
