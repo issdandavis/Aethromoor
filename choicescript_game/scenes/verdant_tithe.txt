@@ -318,6 +318,8 @@ Then they go deeper.
 
         They find your deepest fear. The one you don't admit even to yourself.
 
+        *comment Relationship variables (relationship_izack, relationship_aria, relationship_zara)
+        *comment are defined in startup.txt and modified throughout earlier scenes
         *if (relationship_izack >= 30)
             The fear that you're not good enough for the people who believe in you. That Izack's faith in your potential is misplaced. That you'll disappoint everyone who invested hope in your success.
         *elseif (relationship_aria >= 30)

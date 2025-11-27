@@ -86,9 +86,22 @@ The issue requested:
    ```bash
    python .github/scripts/validate_choicescript.py choicescript_game/scenes/*.txt
    ```
-   - Catches structural errors
-   - Verifies goto/label references
-   - Identifies choice formatting issues
+   
+   **What it checks:**
+   - Valid ChoiceScript commands (*label, *goto, *choice, *set, etc.)
+   - Balanced *if/*else statements
+   - Choice option formatting (# prefix)
+   - goto/label reference validity (warns if label not in same file)
+   - Proper indentation structure
+   
+   **Expected output:**
+   ```
+   ✅ All files passed validation
+   Total: 0 errors, X warnings
+   ```
+   
+   **Note:** Warnings about undefined labels are expected when files reference 
+   labels in other scene files (e.g., *goto_scene endings). Only errors prevent compilation.
 
 2. **Content Quality Review**
    - [ ] Sensory details (taste/smell) in each scene
