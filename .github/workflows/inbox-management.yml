@@ -1,7 +1,8 @@
 name: AI Inbox Management System
 
 # Automated inbox management for GitHub notifications and email
-# Handles auto-replies, sorting, prioritization across all connected accounts
+# Handles categorization, sorting, prioritization across all connected accounts
+# Auto-replies are DISABLED to reduce notification spam
 
 on:
   issues:
@@ -55,14 +56,14 @@ jobs:
             // Categorization logic
             let category = 'general';
             let priority = 'medium';
-            let shouldAutoReply = false;
+            let shouldAutoReply = false; // Disabled to reduce notifications
             let replyMessage = '';
 
             // Determine notification type and category
             if (context.eventName === 'issues') {
               category = 'issue';
               priority = 'high';
-              shouldAutoReply = true;
+              // shouldAutoReply = true; // DISABLED: Auto-replies disabled to reduce spam
 
               const issue = context.payload.issue;
               const labels = issue.labels.map(l => l.name);
@@ -101,7 +102,7 @@ jobs:
             else if (context.eventName === 'pull_request') {
               category = 'pull-request';
               priority = 'high';
-              shouldAutoReply = true;
+              // shouldAutoReply = true; // DISABLED: Auto-replies disabled to reduce spam
 
               replyMessage = "Thank you for your pull request! 🎉\n\n" +
                 "**Automated PR Processing:**\n" +
@@ -119,7 +120,7 @@ jobs:
             else if (context.eventName === 'discussion') {
               category = 'discussion';
               priority = 'low';
-              shouldAutoReply = true;
+              // shouldAutoReply = true; // DISABLED: Auto-replies disabled to reduce spam
 
               replyMessage = "Thanks for starting this discussion! 💬\n\n" +
                 "**Automated Discussion Handling:**\n" +
