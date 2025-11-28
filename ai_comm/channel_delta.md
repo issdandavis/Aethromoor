@@ -1,0 +1,4 @@
+- [2025-11-22T10:22:16Z] Lore index: Core references live in `Lore_Codex.txt` (broad canon), `AETHERMOOR_CHRONICLES.md` (regional histories), and `Spiralverse_Language_Summary.markdown` (language/terminology).
+  - Next: Add pointers to any new lore docs created this session and note where they diverge or confirm existing canon.
+- [2025-11-22T22:11:15Z] Lore index: Flagged `AETHERMOOR_CHRONICLES.md` sections on the Singing Dunes aftermath and `Lore_Codex.txt` entries on mentor lineages as primary cross-checks for current scene drafts.
+  - Next: Add bullet links for any new lore snippets created during scene outlining, noting contradictions or confirmations against canon.

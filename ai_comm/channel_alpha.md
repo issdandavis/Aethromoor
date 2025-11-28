@@ -1,0 +1,4 @@
+- [2025-11-22T10:22:16Z] Status: Initialized AI comms log; priority is to keep channel updates concise and action-driven for rapid handoffs.
+  - Next: Review outstanding gameplay/doc tasks and log top 3 priorities with owners in the next update cycle.
+- [2025-11-22T22:11:15Z] Status: Confirmed all four comm channels live; immediate priorities are (1) validate ChoiceScript server instructions, (2) locate latest lore deltas touching Aethermoor/Spiralverse, and (3) prep next scene-beat expansion handoff.
+  - Next: Assign owners for each priority and record outcomes (success/blocker) before the next timestamped post.
