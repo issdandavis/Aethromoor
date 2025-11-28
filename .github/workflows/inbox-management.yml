@@ -51,8 +51,6 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const { context } = require('@actions/github');
-
             // Categorization logic
             let category = 'general';
             let priority = 'medium';
@@ -249,8 +247,6 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const { context } = require('@actions/github');
-
             // Get all open issues and PRs
             const issues = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
@@ -521,7 +517,7 @@ jobs:
           echo "  ✓ Unified inbox view"
           echo "  ✓ Cross-platform issue tracking"
           echo "  ✓ Automated status updates"
-          echo "  ✓ Consistent auto-replies"
+          echo "  ✓ Categorization and labeling"
           echo ""
           echo "To enable additional accounts, add credentials to GitHub Secrets"
 
@@ -536,7 +532,7 @@ jobs:
                 "repository": "Avalon",
                 "status": "active",
                 "inbox_managed": true,
-                "auto_reply_enabled": true,
+                "auto_reply_enabled": false,
                 "last_sync": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
               },
               "gitlab": {
