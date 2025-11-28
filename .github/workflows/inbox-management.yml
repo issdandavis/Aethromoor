@@ -41,6 +41,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
 
       - name: Categorize GitHub notification
         id: categorize
@@ -236,6 +239,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
 
       - name: Generate inbox summary
         id: summary
@@ -353,6 +359,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
 
       - name: Process email notifications
         run: |
@@ -486,6 +495,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
 
       - name: Sync across Git accounts
         run: |
