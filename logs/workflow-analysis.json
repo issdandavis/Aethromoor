@@ -1,21 +1,16 @@
 {
   "total_workflows": 13,
-  "total_issues": 23,
+  "total_issues": 22,
   "workflows": {
     "ai-content-polish.yml": {
-      "error": "YAML parse error: while parsing a block mapping\n  in \"/home/runner/work/Aethromoor/Aethromoor/.github/workflows/ai-content-polish.yml\", line 1, column 1\nexpected <block end>, but found '-'\n  in \"/home/runner/work/Aethromoor/Aethromoor/.github/workflows/ai-content-polish.yml\", line 91, column 1",
-      "issues": []
+      "issues": [],
+      "file_size": 4726,
+      "jobs_count": 1,
+      "has_schedule": false
     },
     "agent-management.yml": {
-      "issues": [
-        {
-          "severity": "medium",
-          "type": "no_caching",
-          "message": "Workflow doesn't use dependency caching",
-          "recommendation": "Add cache action for pip/npm dependencies"
-        }
-      ],
-      "file_size": 8069,
+      "issues": [],
+      "file_size": 7975,
       "jobs_count": 1,
       "has_schedule": false
     },
@@ -147,17 +142,7 @@
       "has_schedule": false
     },
     "ai-stat-balancer.yml": {
-      "error": "YAML parse error: while parsing a block mapping\n  in \"/home/runner/work/Aethromoor/Aethromoor/.github/workflows/ai-stat-balancer.yml\", line 1, column 1\nexpected <block end>, but found '-'\n  in \"/home/runner/work/Aethromoor/Aethromoor/.github/workflows/ai-stat-balancer.yml\", line 65, column 1",
-      "issues": []
-    },
-    "ai-game-tester.yml": {
       "issues": [
-        {
-          "severity": "medium",
-          "type": "no_caching",
-          "message": "Workflow doesn't use dependency caching",
-          "recommendation": "Add cache action for pip/npm dependencies"
-        },
         {
           "severity": "medium",
           "type": "no_work_detection",
@@ -165,7 +150,20 @@
           "recommendation": "Add early exit check for pending work"
         }
       ],
-      "file_size": 4712,
+      "file_size": 2279,
+      "jobs_count": 1,
+      "has_schedule": false
+    },
+    "ai-game-tester.yml": {
+      "issues": [
+        {
+          "severity": "medium",
+          "type": "no_work_detection",
+          "message": "Workflow may run when no work is needed",
+          "recommendation": "Add early exit check for pending work"
+        }
+      ],
+      "file_size": 4668,
       "jobs_count": 1,
       "has_schedule": false
     },
@@ -221,8 +219,8 @@
     }
   },
   "recommendations": [
-    "\ud83c\udfaf HIGH PRIORITY: 8 workflows missing dependency caching. Add .github/actions/setup-python-deps to reduce runtime by 40-60%",
-    "\u26a1 MEDIUM PRIORITY: 7 workflows lack work detection. Add early exit checks to reduce wasted runs by 30%",
+    "\ud83c\udfaf HIGH PRIORITY: 6 workflows missing dependency caching. Add .github/actions/setup-python-deps to reduce runtime by 40-60%",
+    "\u26a1 MEDIUM PRIORITY: 8 workflows lack work detection. Add early exit checks to reduce wasted runs by 30%",
     "\ud83d\udce6 LOW PRIORITY: 2 large workflow files. Consider modularization with reusable workflows for better maintainability",
     "\ud83d\ude80 MEDIUM PRIORITY: 3 workflows could benefit from parallelization. Review job dependencies to enable concurrent execution"
   ]
