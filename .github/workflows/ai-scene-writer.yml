@@ -30,14 +30,11 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
       
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Setup Python with caching
+        uses: ./.github/actions/setup-python-deps
         with:
-          python-version: '3.11'
-      
-      - name: Install dependencies
-        run: |
-          pip install anthropic GitPython pyyaml
+          extra-packages: pyyaml
+          cache-key-suffix: scene-writer
       
       - name: Configure Git
         run: |
@@ -50,8 +47,25 @@ jobs:
           git checkout ai-scene-development 2>/dev/null || git checkout -b ai-scene-development
           git merge origin/main --no-edit || true
       
+      - name: Check for pending work (early exit optimization)
+        id: check_work
+        run: |
+          echo "🔍 Checking if work is needed..."
+          PLACEHOLDER_COUNT=$(grep -r "PLACEHOLDER\|TODO\|STUB" choicescript_game/scenes/*.txt 2>/dev/null | wc -l)
+          INCOMPLETE_SCENES=$(find choicescript_game/scenes -name "*.txt" ! -name "choicescript_stats.txt" -size -5k | wc -l)
+          
+          if [ "$PLACEHOLDER_COUNT" -eq 0 ] && [ "$INCOMPLETE_SCENES" -eq 0 ]; then
+            echo "has_work=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No scene writing work needed - all scenes complete"
+            exit 0
+          else
+            echo "has_work=true" >> $GITHUB_OUTPUT
+            echo "✅ Work needed: $PLACEHOLDER_COUNT placeholders, $INCOMPLETE_SCENES incomplete scenes"
+          fi
+      
       - name: Analyze current game state
         id: analyze
+        if: steps.check_work.outputs.has_work == 'true'
         run: |
           echo "Analyzing scenes for completion status..."
           
@@ -70,6 +84,7 @@ jobs:
           echo "Found $PLACEHOLDER_COUNT placeholders in $TOTAL_SCENES scenes"
       
       - name: Write scene content with AI
+        if: steps.check_work.outputs.has_work == 'true'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           SCENE_NAME: ${{ github.event.inputs.scene_name }}
