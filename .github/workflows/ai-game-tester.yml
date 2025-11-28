@@ -20,13 +20,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: Setup Python with caching
+        uses: ./.github/actions/setup-python-deps
         with:
-          python-version: '3.11'
-      
-      - name: Install deps
-        run: pip install anthropic pyyaml
+          cache-key-suffix: game-tester
       
       - name: Run comprehensive tests
         id: test

@@ -37,15 +37,10 @@ jobs:
           git fetch --all
           echo "✅ Fetched all remote branches"
       
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Setup Python with caching
+        uses: ./.github/actions/setup-python-deps
         with:
-          python-version: '3.11'
-      
-      - name: Install dependencies
-        run: |
-          pip install PyYAML
-          echo "✅ Dependencies installed"
+          cache-key-suffix: agent-management
       
       - name: Run Agent Orchestrator
         id: orchestrator
