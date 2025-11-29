@@ -47,11 +47,20 @@ jobs:
       
       - name: Apply LICENSE to repositories
         env:
-          GH_TOKEN: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
           REPOS: ${{ inputs.repositories }}
           CREATE_PR: ${{ inputs.create_pr }}
         run: |
           set -e
+          
+          # Validate PAT_TOKEN exists
+          if [ -z "$GH_TOKEN" ]; then
+            echo "❌ ERROR: PAT_TOKEN secret is not set"
+            echo ""
+            echo "You need to create a Personal Access Token with 'repo' and 'workflow' scopes."
+            echo "See docs/LICENSE_APPLICATION_GUIDE.md for setup instructions."
+            exit 1
+          fi
           
           echo "🚀 Starting license application process"
           echo "Target repositories: $REPOS"
@@ -60,6 +69,17 @@ jobs:
           
           # Split repositories by comma
           IFS=',' read -ra REPO_ARRAY <<< "$REPOS"
+          
+          # Prepare commit message (used for both PR and direct commit)
+          COMMIT_TITLE="Add Apache 2.0 License"
+          COMMIT_BODY="This adds the Apache 2.0 License to protect intellectual property.
+
+- Full Apache 2.0 license text
+- Copyright notice included
+- Clear terms for use, modification, and distribution
+- Patent and liability protections
+
+Applied via automated workflow from Aethromoor repository."
           
           SUCCESS_COUNT=0
           FAIL_COUNT=0
@@ -77,8 +97,15 @@ jobs:
             cd "$TEMP_DIR"
             
             # Clone the repository
-            if ! gh repo clone "$repo" .; then
+            if ! gh repo clone "$repo" . 2>/tmp/clone_error.txt; then
               echo "❌ Failed to clone $repo"
+              echo "Error details:"
+              cat /tmp/clone_error.txt 2>/dev/null || echo "  No error details available"
+              echo ""
+              echo "Possible causes:"
+              echo "  - Repository doesn't exist or name is misspelled"
+              echo "  - PAT_TOKEN lacks access to this repository"
+              echo "  - Repository is private and PAT needs 'repo' scope"
               FAIL_COUNT=$((FAIL_COUNT + 1))
               cd - > /dev/null
               rm -rf "$TEMP_DIR"
@@ -100,9 +127,6 @@ jobs:
             
             # Get default branch name using GitHub CLI for reliability
             DEFAULT_BRANCH=$(gh repo view "$repo" --json defaultBranchRef --jq '.defaultBranchRef.name' 2>/dev/null || echo "main")
-            if [ -z "$DEFAULT_BRANCH" ]; then
-              DEFAULT_BRANCH="main"
-            fi
             
             if [ "$CREATE_PR" = "true" ]; then
               # Create PR workflow
@@ -110,17 +134,6 @@ jobs:
               
               git config user.name "github-actions[bot]"
               git config user.email "github-actions[bot]@users.noreply.github.com"
-              
-              # Prepare commit message
-              COMMIT_TITLE="Add Apache 2.0 License"
-              COMMIT_BODY="This adds the Apache 2.0 License to protect intellectual property.
-
-- Full Apache 2.0 license text
-- Copyright notice included
-- Clear terms for use, modification, and distribution
-- Patent and liability protections
-
-Applied via automated workflow from Aethromoor repository."
               
               git checkout -b "$BRANCH_NAME"
               git add LICENSE
@@ -169,17 +182,6 @@ This license was automatically applied from the [Aethromoor repository](https://
               # Direct commit workflow
               git config user.name "github-actions[bot]"
               git config user.email "github-actions[bot]@users.noreply.github.com"
-              
-              # Use same detailed commit message as PR workflow
-              COMMIT_TITLE="Add Apache 2.0 License"
-              COMMIT_BODY="This adds the Apache 2.0 License to protect intellectual property.
-
-- Full Apache 2.0 license text
-- Copyright notice included
-- Clear terms for use, modification, and distribution
-- Patent and liability protections
-
-Applied via automated workflow from Aethromoor repository."
               
               git add LICENSE
               git commit -m "$COMMIT_TITLE" -m "$COMMIT_BODY"

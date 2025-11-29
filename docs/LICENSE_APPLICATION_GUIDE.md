@@ -41,7 +41,7 @@ Before using this workflow, you need to create a **Personal Access Token (PAT)**
 #### Input 1: Repositories
 Enter a comma-separated list of repositories you want to add the license to.
 
-**Format:** `owner/repo-name` or `issdandavis/repo-name`
+**Format:** `owner/repo-name` (e.g., `issdandavis/repo-name`)
 
 **Examples:**
 - Single repo: `issdandavis/my-project`
