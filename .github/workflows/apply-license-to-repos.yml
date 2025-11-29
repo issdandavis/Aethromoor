@@ -99,7 +99,11 @@ jobs:
             cp "$GITHUB_WORKSPACE/LICENSE" .
             
             # Get default branch name
-            DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+            DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+            if [ -z "$DEFAULT_BRANCH" ]; then
+              echo "⚠️  Could not determine default branch, using 'main'"
+              DEFAULT_BRANCH="main"
+            fi
             
             if [ "$CREATE_PR" = "true" ]; then
               # Create PR workflow
@@ -110,16 +114,12 @@ jobs:
               
               git checkout -b "$BRANCH_NAME"
               git add LICENSE
-              git commit -m "Add Apache 2.0 License
-              
-              This adds the Apache 2.0 License to protect intellectual property.
-              
-              - Full Apache 2.0 license text
-              - Copyright notice included
-              - Clear terms for use, modification, and distribution
-              - Patent and liability protections
-              
-              Applied via automated workflow from Aethromoor repository."
+              git commit -m "Add Apache 2.0 License" -m "This adds the Apache 2.0 License to protect intellectual property." -m "- Full Apache 2.0 license text
+- Copyright notice included
+- Clear terms for use, modification, and distribution
+- Patent and liability protections
+
+Applied via automated workflow from Aethromoor repository."
               
               git push origin "$BRANCH_NAME"
               
