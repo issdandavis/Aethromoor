@@ -1,5 +1,10 @@
 # Repository Organization - Consolidated & Unified ✅
 
+> **📁 What This Document Is:** This describes the **file and folder structure** of this repository—where to find lore, writing drafts, documentation, and game files.
+> 
+> **Use:** [Account Management Guide](ACCOUNT_MANAGEMENT_GUIDE.md) for personal accounts, organizations, Stripe, and business integrations
+> **⚠️ Not To Be Confused With:** [Automation Monitoring](docs/AUTOMATION_MONITORING.md) - which describes the automated GitHub workflow monitoring system.
+
 ## Consolidation Complete (November 2025)
 
 ### **What Was Done:**
@@ -114,7 +119,7 @@ Only essential navigation files:
 - FILE_LOCATIONS.txt
 - CONTRIBUTING.md
 - SUBMISSION_GUIDE.md
-- ORGANIZATION_SUMMARY.md
+- REPOSITORY_ORGANIZATION.md
 
 ### ✅ **Better Navigation**
 - Updated FILE_LOCATIONS.txt with complete structure

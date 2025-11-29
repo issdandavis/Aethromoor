@@ -157,7 +157,7 @@ test ! -d "AvalonBook STUFF/" && echo "✅ Duplicates removed" || echo "❌ Old 
 
 # Verify organization docs
 ls -lh FILE_LOCATIONS.txt
-ls -lh ORGANIZATION_SUMMARY.md
+ls -lh REPOSITORY_ORGANIZATION.md
 ```
 
 ### Verification Checklist
@@ -168,7 +168,7 @@ ls -lh ORGANIZATION_SUMMARY.md
 - [x] `archive/` directory exists with historical files
 - [x] `AvalonBook STUFF/` removed (duplicate directory)
 - [x] `FILE_LOCATIONS.txt` created
-- [x] `ORGANIZATION_SUMMARY.md` created
+- [x] `REPOSITORY_ORGANIZATION.md` created
 - [x] Root directory cleaned (60+ files → 7 navigation files)
 
 **Status:** ✅ **COMPLETE**

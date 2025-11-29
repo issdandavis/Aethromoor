@@ -1135,7 +1135,7 @@ A continent of contrasts with five distinct biomes:
 ├── SUBMISSION_GUIDE.md       # Publishing info
 ├── QUICK_START.md            # Quick instructions
 ├── FILE_LOCATIONS.txt        # Quick reference
-├── ORGANIZATION_SUMMARY.md   # Repository organization
+├── REPOSITORY_ORGANIZATION.md   # Repository organization
 └── GAME_DEVELOPMENT_MASTER_REFERENCE.md  # This file
 ```
 

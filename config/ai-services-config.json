@@ -1,0 +1,330 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-11-29",
+  "description": "AI Service Integration Hub - Connect your AI subscriptions to automate GitHub management",
+  
+  "ai_services": {
+    "description": "Configure AI services you have subscriptions to",
+    
+    "anthropic_claude": {
+      "enabled": false,
+      "description": "Claude AI for intelligent responses and code review",
+      "api_key_stored_in": "ANTHROPIC_API_KEY",
+      "model": "claude-3-5-sonnet-20241022",
+      "use_cases": [
+        "inbox_auto_replies",
+        "code_review",
+        "pr_summaries",
+        "issue_analysis",
+        "documentation_help"
+      ],
+      "settings": {
+        "max_tokens": 4096,
+        "temperature": 0.7,
+        "auto_reply_enabled": true,
+        "code_review_enabled": true
+      }
+    },
+    
+    "openai_chatgpt": {
+      "enabled": false,
+      "description": "ChatGPT for automated responses and content generation",
+      "api_key_stored_in": "OPENAI_API_KEY",
+      "model": "gpt-4-turbo-preview",
+      "use_cases": [
+        "inbox_categorization",
+        "response_drafting",
+        "code_explanation",
+        "bug_analysis"
+      ],
+      "settings": {
+        "max_tokens": 2048,
+        "temperature": 0.8,
+        "auto_reply_enabled": true
+      }
+    },
+    
+    "github_copilot": {
+      "enabled": true,
+      "description": "GitHub Copilot for code assistance (included with GitHub account)",
+      "use_cases": [
+        "code_suggestions",
+        "pr_reviews",
+        "issue_assistance"
+      ],
+      "settings": {
+        "auto_review_prs": true,
+        "suggest_fixes": true
+      }
+    },
+    
+    "zapier": {
+      "enabled": false,
+      "description": "Zapier for advanced workflow automation",
+      "api_key_stored_in": "ZAPIER_WEBHOOK_URL",
+      "use_cases": [
+        "email_forwarding",
+        "slack_notifications",
+        "calendar_integration",
+        "multi_platform_sync"
+      ],
+      "webhooks": {
+        "new_issue": "",
+        "new_pr": "",
+        "new_comment": "",
+        "urgent_notification": ""
+      }
+    },
+    
+    "make_integromat": {
+      "enabled": false,
+      "description": "Make (Integromat) for visual automation workflows",
+      "api_key_stored_in": "MAKE_WEBHOOK_URL",
+      "use_cases": [
+        "notification_routing",
+        "cross_platform_sync",
+        "automated_backups"
+      ]
+    },
+    
+    "n8n": {
+      "enabled": false,
+      "description": "n8n for self-hosted automation workflows",
+      "api_key_stored_in": "N8N_WEBHOOK_URL",
+      "self_hosted": true,
+      "use_cases": [
+        "custom_workflows",
+        "data_processing",
+        "notification_management"
+      ]
+    }
+  },
+  
+  "notification_routing": {
+    "description": "How notifications are routed to AI services",
+    
+    "github_issues": {
+      "ai_handler": "anthropic_claude",
+      "fallback_ai": "openai_chatgpt",
+      "auto_reply": true,
+      "auto_categorize": true,
+      "auto_label": true,
+      "response_time_target_seconds": 30
+    },
+    
+    "github_pull_requests": {
+      "ai_handler": "github_copilot",
+      "code_review_ai": "anthropic_claude",
+      "auto_reply": true,
+      "auto_review": true,
+      "response_time_target_seconds": 60
+    },
+    
+    "github_discussions": {
+      "ai_handler": "openai_chatgpt",
+      "auto_reply": true,
+      "response_time_target_seconds": 120
+    },
+    
+    "urgent_notifications": {
+      "ai_handler": "anthropic_claude",
+      "send_to_zapier": true,
+      "send_email": true,
+      "send_sms": false,
+      "response_time_target_seconds": 10
+    }
+  },
+  
+  "automation_modes": {
+    "description": "Control how much the AI does automatically",
+    
+    "full_autopilot": {
+      "enabled": false,
+      "description": "AI handles everything automatically - you just review summaries",
+      "auto_reply_to_all": true,
+      "auto_close_resolved": true,
+      "auto_merge_approved_prs": false,
+      "auto_assign_labels": true,
+      "auto_assign_to_you": false,
+      "daily_summary_email": true
+    },
+    
+    "assisted_mode": {
+      "enabled": true,
+      "description": "AI drafts responses, you approve before sending (recommended)",
+      "auto_reply_to_all": true,
+      "draft_responses_for_review": true,
+      "require_approval_for": [
+        "pr_merge",
+        "issue_close",
+        "important_replies"
+      ],
+      "daily_summary_email": true
+    },
+    
+    "monitoring_only": {
+      "enabled": false,
+      "description": "AI just categorizes and notifies you, no automatic actions",
+      "auto_categorize": true,
+      "auto_label": true,
+      "send_notifications": true,
+      "no_auto_replies": true
+    }
+  },
+  
+  "notification_preferences": {
+    "description": "How you want to be notified",
+    
+    "email": {
+      "enabled": true,
+      "address": "",
+      "frequency": "daily_digest",
+      "include_ai_summaries": true,
+      "urgent_notifications_immediate": true
+    },
+    
+    "sms": {
+      "enabled": false,
+      "phone_number": "",
+      "only_critical": true,
+      "via_zapier": true
+    },
+    
+    "slack": {
+      "enabled": false,
+      "webhook_url_stored_in": "SLACK_WEBHOOK_URL",
+      "channel": "#github-notifications",
+      "notify_for": ["urgent", "pr_review_needed"]
+    },
+    
+    "discord": {
+      "enabled": false,
+      "webhook_url_stored_in": "DISCORD_WEBHOOK_URL",
+      "channel_name": "github-activity"
+    },
+    
+    "telegram": {
+      "enabled": false,
+      "bot_token_stored_in": "TELEGRAM_BOT_TOKEN",
+      "chat_id_stored_in": "TELEGRAM_CHAT_ID"
+    }
+  },
+  
+  "ai_response_templates": {
+    "description": "AI will use these as guidelines for responses",
+    
+    "new_issue": {
+      "tone": "helpful_and_professional",
+      "acknowledge_receipt": true,
+      "estimated_response_time": "24-48 hours",
+      "include_links_to": ["contributing_guide", "issue_template"],
+      "ask_for_clarification_if_needed": true
+    },
+    
+    "new_pr": {
+      "tone": "appreciative_and_constructive",
+      "acknowledge_contribution": true,
+      "mention_review_timeline": "2-3 days",
+      "trigger_automated_tests": true,
+      "request_copilot_review": true
+    },
+    
+    "bug_report": {
+      "tone": "empathetic_and_solution_focused",
+      "acknowledge_frustration": true,
+      "ask_for_reproduction_steps": true,
+      "assign_priority_automatically": true,
+      "estimated_fix_timeline": "depends_on_severity"
+    },
+    
+    "feature_request": {
+      "tone": "enthusiastic_but_realistic",
+      "thank_for_suggestion": true,
+      "explain_consideration_process": true,
+      "add_to_roadmap_discussion": true
+    }
+  },
+  
+  "smart_features": {
+    "description": "Advanced AI-powered features",
+    
+    "duplicate_detection": {
+      "enabled": true,
+      "ai_service": "openai_chatgpt",
+      "auto_link_duplicates": true,
+      "auto_close_duplicates": false
+    },
+    
+    "sentiment_analysis": {
+      "enabled": true,
+      "escalate_negative_sentiment": true,
+      "adjust_response_tone": true
+    },
+    
+    "language_translation": {
+      "enabled": false,
+      "translate_to_english": true,
+      "respond_in_original_language": true
+    },
+    
+    "code_quality_suggestions": {
+      "enabled": true,
+      "ai_service": "github_copilot",
+      "auto_suggest_improvements": true,
+      "security_vulnerability_scan": true
+    },
+    
+    "auto_documentation": {
+      "enabled": true,
+      "generate_pr_descriptions": true,
+      "update_readme_on_features": false,
+      "create_changelog_entries": true
+    }
+  },
+  
+  "github_manager_ai": {
+    "description": "AI assistant that handles GitHub management for you",
+    "enabled": true,
+    "primary_ai": "anthropic_claude",
+    
+    "responsibilities": [
+      "Monitor all notifications",
+      "Respond to issues and PRs",
+      "Review and categorize everything",
+      "Create daily summaries",
+      "Flag items needing your attention",
+      "Handle routine GitHub tasks",
+      "Manage labels and assignments",
+      "Keep repository organized"
+    ],
+    
+    "escalation_rules": {
+      "escalate_to_you_when": [
+        "security_vulnerability_detected",
+        "major_decision_needed",
+        "unclear_how_to_respond",
+        "multiple_conflicting_requests",
+        "breaking_change_proposed"
+      ],
+      "escalation_method": "email",
+      "include_ai_recommendation": true
+    },
+    
+    "learning": {
+      "learn_from_your_responses": true,
+      "adapt_response_style": true,
+      "remember_preferences": true,
+      "improve_categorization": true
+    }
+  },
+  
+  "dashboard": {
+    "description": "Simple dashboard for monitoring AI activity",
+    "enabled": true,
+    "update_frequency": "realtime",
+    "show_ai_activity_log": true,
+    "show_pending_items": true,
+    "show_ai_confidence_scores": true,
+    "mobile_friendly": true
+  }
+}

@@ -1,7 +1,7 @@
-name: Auto-Approve Enterprise Account Workflows
+name: Auto-Approve Trusted Account Workflows
 
-# Automatically approves and enables workflow runs from all enterprise accounts
-# For multi-profile organizations where one person manages multiple accounts
+# Automatically approves and enables workflow runs from all trusted accounts
+# For personal accounts and organizations you own/manage
 
 on:
   workflow_run:
@@ -27,13 +27,14 @@ jobs:
     if: github.event.pull_request.user.login == 'issdandavis' || github.actor == 'issdandavis' || github.event.workflow_run.actor.login == 'issdandavis'
     
     steps:
-      - name: Auto-approve workflow runs from enterprise accounts
+      - name: Auto-approve workflow runs from trusted accounts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "🔓 Auto-approving workflows for enterprise account"
+          echo "🔓 Auto-approving workflows for trusted account"
           
-          # List of approved enterprise account usernames/emails
+          # List of approved personal and organizational account usernames/emails
+          # To add more accounts, see config/account-settings.json
           APPROVED_ACCOUNTS=(
             "issdandavis"
             "215328633+issdandavis@users.noreply.github.com"
@@ -64,11 +65,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          # Approve PR from enterprise account
-          gh pr review $PR_NUMBER --approve --body "✅ Auto-approved: Enterprise account workflow authorization"
+          # Approve PR from trusted account
+          gh pr review $PR_NUMBER --approve --body "✅ Auto-approved: Trusted account workflow authorization"
           echo "✅ PR #$PR_NUMBER auto-approved"
       
       - name: Set workflow approval status
         run: |
-          echo "Enterprise account auto-approval complete"
+          echo "Trusted account auto-approval complete"
           echo "All workflows from approved accounts will run automatically"

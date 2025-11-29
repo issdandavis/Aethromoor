@@ -1,13 +1,23 @@
-# Enterprise Account Auto-Approval Configuration
+# Workflow Auto-Approval Configuration
 
-This configuration enables automatic workflow approval for trusted enterprise accounts in a multi-profile organization.
+> **🔐 What This Is:** Configuration for automatically approving workflow runs from **trusted accounts** (your personal accounts and organizations).
+>
+> **See Also:** [Account Management Guide](../ACCOUNT_MANAGEMENT_GUIDE.md) for managing all your accounts and business integrations.
 
-## Approved Enterprise Accounts
+This configuration enables automatic workflow approval for trusted accounts in your repositories.
+
+## Approved Accounts
 
 The following accounts are automatically approved to run all workflows:
 
+> **💡 Tip:** To add more accounts, see the [Account Management Guide](../ACCOUNT_MANAGEMENT_GUIDE.md) section on "Managing Organizations"
+
+**Personal Accounts:**
 - **issdandavis** (Primary account)
 - **215328633+issdandavis@users.noreply.github.com** (GitHub user ID)
+
+**Organizational Accounts:**
+- (Configure in `config/account-settings.json`)
 
 ## How It Works
 

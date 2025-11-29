@@ -1,0 +1,195 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-11-29",
+  "description": "Account management configuration for personal, organizational, and business accounts",
+  
+  "personal_accounts": {
+    "description": "Individual GitHub accounts owned by you",
+    "primary": {
+      "username": "issdandavis",
+      "email": "215328633+issdandavis@users.noreply.github.com",
+      "role": "Owner/Primary Developer",
+      "auto_approve_workflows": true,
+      "trusted": true
+    },
+    "secondary": {
+      "enabled": false,
+      "accounts": []
+    }
+  },
+  
+  "organizational_accounts": {
+    "description": "GitHub Organizations you own or manage",
+    "main_organization": {
+      "name": "issdandavis",
+      "type": "personal_organization",
+      "owner": "issdandavis",
+      "repositories": ["Aethromoor"],
+      "auto_approve_workflows": true,
+      "trusted": true
+    },
+    "sub_organizations": {
+      "enabled": false,
+      "description": "Additional organizations for different projects or business units",
+      "list": [
+        {
+          "name": "example-business-org",
+          "type": "business",
+          "enabled": false,
+          "purpose": "Placeholder for future business organization",
+          "auto_approve_workflows": false,
+          "trusted": false
+        }
+      ]
+    }
+  },
+  
+  "business_integrations": {
+    "description": "Third-party business services and payment processors",
+    "payment_processing": {
+      "stripe": {
+        "enabled": false,
+        "mode": "test",
+        "description": "Stripe payment processing for game sales, subscriptions, donations",
+        "api_keys": {
+          "test_publishable_key": "pk_test_YOUR_KEY_HERE",
+          "test_secret_key_stored_in": "STRIPE_TEST_SECRET_KEY",
+          "live_publishable_key": "pk_live_YOUR_KEY_HERE",
+          "live_secret_key_stored_in": "STRIPE_LIVE_SECRET_KEY"
+        },
+        "webhook_secret_stored_in": "STRIPE_WEBHOOK_SECRET",
+        "products": {
+          "game_purchase": {
+            "enabled": false,
+            "price_id": "price_YOUR_PRODUCT_ID_HERE"
+          },
+          "subscription": {
+            "enabled": false,
+            "price_id": "price_YOUR_SUBSCRIPTION_ID_HERE"
+          },
+          "donations": {
+            "enabled": false,
+            "price_id": "price_YOUR_DONATION_ID_HERE"
+          }
+        }
+      },
+      "paypal": {
+        "enabled": false,
+        "mode": "sandbox",
+        "client_id_stored_in": "PAYPAL_CLIENT_ID",
+        "client_secret_stored_in": "PAYPAL_CLIENT_SECRET"
+      },
+      "ko_fi": {
+        "enabled": false,
+        "username": "",
+        "webhook_token_stored_in": "KOFI_WEBHOOK_TOKEN"
+      }
+    },
+    "analytics": {
+      "google_analytics": {
+        "enabled": false,
+        "tracking_id": "G-...",
+        "property_id": ""
+      },
+      "plausible": {
+        "enabled": false,
+        "domain": ""
+      }
+    },
+    "email_services": {
+      "sendgrid": {
+        "enabled": false,
+        "api_key_stored_in": "SENDGRID_API_KEY",
+        "from_email": ""
+      },
+      "mailchimp": {
+        "enabled": false,
+        "api_key_stored_in": "MAILCHIMP_API_KEY",
+        "list_id": ""
+      }
+    },
+    "cdn_storage": {
+      "cloudflare": {
+        "enabled": false,
+        "account_id": "",
+        "api_token_stored_in": "CLOUDFLARE_API_TOKEN"
+      },
+      "aws_s3": {
+        "enabled": false,
+        "bucket": "",
+        "region": "us-east-1",
+        "access_key_stored_in": "AWS_ACCESS_KEY_ID",
+        "secret_key_stored_in": "AWS_SECRET_ACCESS_KEY"
+      }
+    }
+  },
+  
+  "workflow_automation": {
+    "description": "Automated workflow settings for different account types",
+    "auto_approval_rules": {
+      "personal_accounts": true,
+      "organizational_accounts": true,
+      "external_contributors": false,
+      "bots": {
+        "dependabot": true,
+        "copilot": true,
+        "renovate": false
+      }
+    },
+    "notification_settings": {
+      "personal_accounts": {
+        "workflow_failures": true,
+        "workflow_success": false,
+        "pr_reviews": true
+      },
+      "organizational_accounts": {
+        "workflow_failures": true,
+        "workflow_success": false,
+        "pr_reviews": true
+      }
+    }
+  },
+  
+  "security_settings": {
+    "description": "Security configuration for all managed accounts",
+    "2fa_required": true,
+    "signing_required": false,
+    "secrets_management": {
+      "github_secrets": true,
+      "external_vault": false,
+      "rotation_frequency_days": 90
+    },
+    "access_control": {
+      "require_review_for_external_prs": true,
+      "require_status_checks": true,
+      "require_signed_commits": false
+    }
+  },
+  
+  "deployment_targets": {
+    "description": "Where your projects are deployed",
+    "github_pages": {
+      "enabled": true,
+      "custom_domain": "",
+      "branch": "main",
+      "path": "/"
+    },
+    "netlify": {
+      "enabled": false,
+      "site_id": "",
+      "auth_token_stored_in": "NETLIFY_AUTH_TOKEN"
+    },
+    "vercel": {
+      "enabled": false,
+      "project_id": "",
+      "org_id": "",
+      "token_stored_in": "VERCEL_TOKEN"
+    },
+    "choice_of_games": {
+      "enabled": true,
+      "platform": "Hosted Games",
+      "submission_ready": false,
+      "beta_testing": false
+    }
+  }
+}

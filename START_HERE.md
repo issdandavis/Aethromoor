@@ -62,6 +62,7 @@ Avalon/
 - Can't find the Avalon folder? Search your computer for "Avalon"
 - Still stuck? Read `QUICK_START.md` for detailed instructions
 - Browser won't open index.html? Right-click → "Open With" → Choose your browser
+- **Confused about "Enterprise" vs "Organization"?** → Read [TERMINOLOGY_GUIDE.md](TERMINOLOGY_GUIDE.md)
 
 ---
 
