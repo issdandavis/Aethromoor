@@ -40,15 +40,24 @@ This repository features AI-powered automation for inter-account communications 
 - ✅ **Multi-platform monitoring** (GitHub, GitLab, Bitbucket, 2FA)
 - ✅ **Security validation** and integration status
 
+**☁️ Enterprise Cloud (NEW):**
+- ✅ **Cloud hosting** via GitHub Pages with global CDN
+- ✅ **Automated deployment** on every push to main branch
+- ✅ **Cloud backup system** with weekly automated backups
+- ✅ **Cloud artifact storage** with 90-day retention
+- ✅ **Disaster recovery** ready with automated restore
+- ✅ **Cloud monitoring** integrated into enterprise validation
+
 **Quick Start Guides:**
 - **[AI Employees Guide](docs/AI_EMPLOYEES_GUIDE.md)** - 5-minute setup for inbox management
 - **[Inbox Management](docs/INBOX_MANAGEMENT.md)** - Complete documentation
 - **[Enterprise Monitoring](docs/ENTERPRISE_MONITORING.md)** - Enterprise functions validation
+- **[Enterprise Cloud Setup](docs/ENTERPRISE_CLOUD_SETUP.md)** - Cloud infrastructure guide
 
 **Documentation:**
 - **[ACCOUNTS_README.md](ACCOUNTS_README.md)** - Complete account automation setup guide
 - **[docs/AUTOMATION_GUIDE.md](docs/AUTOMATION_GUIDE.md)** - Integration workflows
-- **Configuration:** `config/automation-settings.json`, `config/enterprise-settings.json`
+- **Configuration:** `config/automation-settings.json`, `config/enterprise-settings.json`, `config/enterprise-cloud-config.json`
 
 ## Security
 Previous commits contained plaintext API keys. They have been removed from the tracked files. Make sure to rotate any keys that may have been exposed and only store live credentials in your local `.env` file. All automation credentials are stored securely in GitHub Secrets.

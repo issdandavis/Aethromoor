@@ -1,0 +1,115 @@
+name: Deploy to GitHub Pages (Enterprise Cloud)
+
+# Deploy the game to GitHub Pages cloud hosting
+# Provides public cloud-based access to the HTML game
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'game/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: 'Force deployment even without changes'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build Site for Cloud Deployment
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Prepare game files for cloud hosting
+        run: |
+          echo "📦 Preparing game files for enterprise cloud deployment..."
+          
+          # Create deployment directory
+          mkdir -p _site
+          
+          # Copy game files
+          cp -r game/* _site/
+          
+          # Create index redirect at root if needed
+          if [ ! -f "_site/index.html" ]; then
+            cat > _site/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Polly's Wingscroll: The First Thread</title>
+            <meta http-equiv="refresh" content="0; url=./game.html">
+          </head>
+          <body>
+            <p>Redirecting to game...</p>
+            <p>If not redirected, <a href="./game.html">click here</a>.</p>
+          </body>
+          </html>
+          EOF
+          fi
+          
+          # Add cloud deployment metadata
+          cat > _site/deployment-info.json << EOF
+          {
+            "deployment_type": "enterprise_cloud",
+            "platform": "github_pages",
+            "deployment_time": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+            "commit_sha": "${{ github.sha }}",
+            "deployed_by": "github_actions",
+            "game_version": "1.0"
+          }
+          EOF
+          
+          echo "✅ Site prepared for cloud deployment"
+          ls -la _site/
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+  deploy:
+    name: Deploy to Enterprise Cloud (GitHub Pages)
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      
+      - name: Deployment success notification
+        run: |
+          echo "════════════════════════════════════════════════════════"
+          echo "   🚀 ENTERPRISE CLOUD DEPLOYMENT SUCCESSFUL"
+          echo "════════════════════════════════════════════════════════"
+          echo ""
+          echo "✅ Game deployed to cloud hosting"
+          echo "🌐 URL: ${{ steps.deployment.outputs.page_url }}"
+          echo "📦 Platform: GitHub Pages (Enterprise Cloud)"
+          echo "⏰ Deployed: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+          echo ""
+          echo "════════════════════════════════════════════════════════"
