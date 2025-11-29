@@ -1,12 +1,14 @@
-# Enterprise Functions Monitoring & Validation
+# Automation Monitoring & Validation
 
-> **🏢 What This Document Is:** This describes the **automated GitHub workflow monitoring** system that validates enterprise-level automation, 2FA integrations, and multi-platform connections.
+> **🤖 What This Document Is:** This describes the **automated GitHub workflow monitoring** system that validates automation health, 2FA integrations, and multi-platform connections.
 > 
-> **⚠️ Not To Be Confused With:** [Repository Organization](../REPOSITORY_ORGANIZATION.md) - which describes the file and folder structure of this repository.
+> **⚠️ Not To Be Confused With:** 
+> - [Repository Organization](../REPOSITORY_ORGANIZATION.md) - file and folder structure
+> - [Account Management](../ACCOUNT_MANAGEMENT_GUIDE.md) - personal accounts, organizations, and business integrations (Stripe, etc.)
 
-## 🏢 Overview
+## 🤖 Overview
 
-The Enterprise Functions Monitoring system provides **AI-powered automated validation** of all enterprise connections, workflows, and integrations. It continuously monitors your systems and provides confirmation that everything is working correctly.
+The Automation Monitoring system provides **AI-powered automated validation** of all workflow connections, automations, and integrations. It continuously monitors your systems and provides confirmation that everything is working correctly.
 
 ## 🎯 What It Does
 
@@ -116,7 +118,7 @@ Each validation generates a comprehensive report:
 
 ### Configuration File
 
-Location: `config/enterprise-settings.json`
+Location: `config/automation-monitoring-settings.json`
 
 ```json
 {
@@ -169,7 +171,7 @@ Location: `config/enterprise-settings.json`
 **For GitLab:**
 1. Create GitLab Personal Access Token
 2. Add to GitHub Secrets as `GITLAB_TOKEN`
-3. Update `config/enterprise-settings.json`:
+3. Update `config/automation-monitoring-settings.json`:
    ```json
    "gitlab": {
      "enabled": true,
@@ -214,10 +216,11 @@ Available anytime via Actions tab:
 
 ### Main Configuration
 - `config/automation-settings.json` - General automation
-- `config/enterprise-settings.json` - Enterprise monitoring
+- `config/automation-monitoring-settings.json` - Automation monitoring
+- `config/account-settings.json` - Account management (personal, org, business integrations)
 
 ### Workflow Files
-- `.github/workflows/enterprise-monitoring.yml` - Main monitoring
+- `.github/workflows/automation-monitoring.yml` - Main monitoring
 - `.github/workflows/inbox-management.yml` - Inbox automation
 - `.github/workflows/ai-automation.yml` - AI systems
 

@@ -2,7 +2,8 @@
 
 > **📁 What This Document Is:** This describes the **file and folder structure** of this repository—where to find lore, writing drafts, documentation, and game files.
 > 
-> **⚠️ Not To Be Confused With:** [Enterprise Monitoring](docs/ENTERPRISE_MONITORING.md) - which describes the automated GitHub workflow monitoring system.
+> **Use:** [Account Management Guide](ACCOUNT_MANAGEMENT_GUIDE.md) for personal accounts, organizations, Stripe, and business integrations
+> **⚠️ Not To Be Confused With:** [Automation Monitoring](docs/AUTOMATION_MONITORING.md) - which describes the automated GitHub workflow monitoring system.
 
 ## Consolidation Complete (November 2025)
 

@@ -23,7 +23,7 @@ Both documents now have clear explanations at the top:
 **REPOSITORY_ORGANIZATION.md:**
 > 📁 This describes the **file and folder structure** of this repository
 
-**docs/ENTERPRISE_MONITORING.md:**
+**docs/AUTOMATION_MONITORING.md:**
 > 🏢 This describes the **automated GitHub workflow monitoring** system
 
 #### 3. ✅ Created Comprehensive Guide
@@ -56,7 +56,7 @@ Updated 9 files across the repository to use the new naming:
 - "Where can I find the lore documents?"
 
 ### 🏢 For Automation Monitoring Questions
-**Use:** [docs/ENTERPRISE_MONITORING.md](docs/ENTERPRISE_MONITORING.md)
+**Use:** [docs/AUTOMATION_MONITORING.md](docs/AUTOMATION_MONITORING.md)
 
 **When asking:**
 - "Is my GitHub workflow working?"
@@ -75,14 +75,14 @@ This guide explains everything clearly with examples!
 | What You Want | Document to Use |
 |---------------|----------------|
 | Find where files are located | REPOSITORY_ORGANIZATION.md |
-| Check automation is working | docs/ENTERPRISE_MONITORING.md |
+| Check automation is working | docs/AUTOMATION_MONITORING.md |
 | Understand the difference | TERMINOLOGY_GUIDE.md |
 
 ---
 
 ## No More Confusion!
 
-✅ Clear naming (REPOSITORY_ORGANIZATION vs ENTERPRISE_MONITORING)
+✅ Clear naming (REPOSITORY_ORGANIZATION vs AUTOMATION_MONITORING)
 ✅ Clarifying headers in both documents
 ✅ Comprehensive terminology guide
 ✅ All references updated across the repository

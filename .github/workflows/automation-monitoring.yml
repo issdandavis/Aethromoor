@@ -1,6 +1,6 @@
-name: Enterprise Functions Monitoring
+name: Automation Monitoring & Validation
 
-# AI-powered monitoring and validation of all enterprise connections and functions
+# AI-powered monitoring and validation of all automation workflows and connections
 # Provides automated confirmation that all systems are operational
 
 on:

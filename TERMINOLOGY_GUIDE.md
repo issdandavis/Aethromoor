@@ -24,7 +24,7 @@ This repository uses two similar-sounding terms that refer to completely differe
 
 ### 🏢 Enterprise Monitoring
 **What it means:** Automated GitHub workflow monitoring system  
-**Document:** [docs/ENTERPRISE_MONITORING.md](docs/ENTERPRISE_MONITORING.md)  
+**Document:** [docs/AUTOMATION_MONITORING.md](docs/AUTOMATION_MONITORING.md)  
 **Covers:**
 - GitHub Actions workflow validation
 - 2FA integration (TwoFAS, Authy, etc.)
@@ -68,7 +68,7 @@ The word "enterprise" here refers to **enterprise-level** features—a technical
 **About automation:**
 - "Is my GitHub workflow monitoring working?"
 - "How do I check enterprise system health?"
-→ See [docs/ENTERPRISE_MONITORING.md](docs/ENTERPRISE_MONITORING.md)
+→ See [docs/AUTOMATION_MONITORING.md](docs/AUTOMATION_MONITORING.md)
 
 ---
 
@@ -77,9 +77,9 @@ The word "enterprise" here refers to **enterprise-level** features—a technical
 | Aspect | Repository Organization | Enterprise Monitoring |
 |--------|------------------------|----------------------|
 | **What is it?** | File/folder structure | Automation monitoring |
-| **Document** | REPOSITORY_ORGANIZATION.md | docs/ENTERPRISE_MONITORING.md |
+| **Document** | REPOSITORY_ORGANIZATION.md | docs/AUTOMATION_MONITORING.md |
 | **Related to** | Files, folders, content | Workflows, automation, security |
-| **Config files** | N/A | `config/enterprise-settings.json` |
+| **Config files** | N/A | `config/automation-monitoring-settings.json` |
 | **Keywords** | structure, folders, files, lore, docs | workflows, monitoring, 2FA, automation |
 
 ---
@@ -92,17 +92,17 @@ The word "enterprise" here refers to **enterprise-level** features—a technical
 3. Browse the organized directories: `lore/`, `writing_drafts/`, `docs/`, etc.
 
 ### Monitoring Automation
-1. Check [docs/ENTERPRISE_MONITORING.md](docs/ENTERPRISE_MONITORING.md) for system status
+1. Check [docs/AUTOMATION_MONITORING.md](docs/AUTOMATION_MONITORING.md) for system status
 2. View workflow runs in GitHub Actions tab
 3. Download health reports from workflow artifacts
-4. Review `config/enterprise-settings.json` for configuration
+4. Review `config/automation-monitoring-settings.json` for configuration
 
 ---
 
 ## Need Help?
 
 - **File organization questions** → Open [REPOSITORY_ORGANIZATION.md](REPOSITORY_ORGANIZATION.md)
-- **Automation/monitoring questions** → Open [docs/ENTERPRISE_MONITORING.md](docs/ENTERPRISE_MONITORING.md)
+- **Automation/monitoring questions** → Open [docs/AUTOMATION_MONITORING.md](docs/AUTOMATION_MONITORING.md)
 - **General questions** → Start with [README.md](README.md)
 
 ---
