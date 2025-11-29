@@ -294,5 +294,13 @@ Welcome to Avalon. 🌟
 
 ---
 
+## 📜 License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
+Copyright 2025 issdandavis
+
+---
+
 *"I've watched Avalon Academy for three hundred years. Your story is about to begin."*
 *— Polly (Polymnia Aetheris)*
