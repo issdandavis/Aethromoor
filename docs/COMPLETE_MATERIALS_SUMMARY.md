@@ -86,7 +86,7 @@ This repository now contains **complete, organized reference materials** for dev
 - **SUBMISSION_GUIDE.md** - Publishing information
 - **QUICK_START.md** - Instant play instructions
 - **FILE_LOCATIONS.txt** - Quick file reference
-- **ORGANIZATION_SUMMARY.md** - Repository structure
+- **REPOSITORY_ORGANIZATION.md** - Repository structure
 
 ### Lore Documentation:
 - **lore/Pollys_Wingscrolls_Worldbuilding.markdown** - Realm details

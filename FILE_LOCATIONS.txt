@@ -11,6 +11,8 @@
    README.md ← Full project overview
    QUICK_START.md ← Detailed play instructions
    PLAY_THE_GAME.md ← Game playing guide
+   REPOSITORY_ORGANIZATION.md ← File structure guide
+   TERMINOLOGY_GUIDE.md ← "Enterprise" vs "Organization" explained
 
 📖 GAME FILES:
    game/ ← HTML version (complete, playable)
@@ -71,6 +73,8 @@ MOST IMPORTANT:
 • To understand project: README.md
 • To get started: START_HERE.md
 • For development: docs/PROJECT_ROADMAP.md
+• Repository structure: REPOSITORY_ORGANIZATION.md
+• Terminology help: TERMINOLOGY_GUIDE.md
 
 CONSOLIDATED STRUCTURE:
 ✅ No duplicate files across directories

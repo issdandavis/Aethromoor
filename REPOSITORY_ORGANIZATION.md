@@ -1,5 +1,9 @@
 # Repository Organization - Consolidated & Unified ✅
 
+> **📁 What This Document Is:** This describes the **file and folder structure** of this repository—where to find lore, writing drafts, documentation, and game files.
+> 
+> **⚠️ Not To Be Confused With:** [Enterprise Monitoring](docs/ENTERPRISE_MONITORING.md) - which describes the automated GitHub workflow monitoring system.
+
 ## Consolidation Complete (November 2025)
 
 ### **What Was Done:**
@@ -114,7 +118,7 @@ Only essential navigation files:
 - FILE_LOCATIONS.txt
 - CONTRIBUTING.md
 - SUBMISSION_GUIDE.md
-- ORGANIZATION_SUMMARY.md
+- REPOSITORY_ORGANIZATION.md
 
 ### ✅ **Better Navigation**
 - Updated FILE_LOCATIONS.txt with complete structure

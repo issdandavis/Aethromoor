@@ -1,5 +1,9 @@
 # Enterprise Functions Monitoring & Validation
 
+> **🏢 What This Document Is:** This describes the **automated GitHub workflow monitoring** system that validates enterprise-level automation, 2FA integrations, and multi-platform connections.
+> 
+> **⚠️ Not To Be Confused With:** [Repository Organization](../REPOSITORY_ORGANIZATION.md) - which describes the file and folder structure of this repository.
+
 ## 🏢 Overview
 
 The Enterprise Functions Monitoring system provides **AI-powered automated validation** of all enterprise connections, workflows, and integrations. It continuously monitors your systems and provides confirmation that everything is working correctly.

@@ -36,7 +36,7 @@ The repository had:
 Avalon/
 ├── CONTRIBUTING.md
 ├── FILE_LOCATIONS.txt (updated)
-├── ORGANIZATION_SUMMARY.md (updated)
+├── REPOSITORY_ORGANIZATION.md (updated)
 ├── PLAY_HERE.html
 ├── PLAY_THE_GAME.md
 ├── QUICK_START.md
@@ -164,7 +164,7 @@ Each file exists in exactly one authoritative location
 ### ✅ Easy Navigation
 Updated documentation:
 - `FILE_LOCATIONS.txt` - Complete file reference
-- `ORGANIZATION_SUMMARY.md` - Structure explanation
+- `REPOSITORY_ORGANIZATION.md` - Structure explanation
 - `START_HERE.md` - Quick start guide
 
 ### ✅ Professional Appearance
@@ -180,7 +180,7 @@ Clear conventions make it easy to:
 
 ### Modified Files
 1. **FILE_LOCATIONS.txt** - Updated with complete new structure
-2. **ORGANIZATION_SUMMARY.md** - Reflects consolidation work
+2. **REPOSITORY_ORGANIZATION.md** - Reflects consolidation work
 3. **.gitignore** - Added personal file patterns
 
 ### Preserved Files

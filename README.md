@@ -18,6 +18,8 @@ This repository contains narrative source material and chat logs related to the 
 ## 🤖 Automation & Connected Accounts
 This repository features AI-powered automation for inter-account communications and progress tracking. All automation runs in **silent mode** by default (no user notifications for routine updates).
 
+> **📘 Terminology Note:** This section describes **Enterprise Monitoring** (automated GitHub workflows). For **Repository Organization** (file/folder structure), see [REPOSITORY_ORGANIZATION.md](REPOSITORY_ORGANIZATION.md). Confused? Check the [TERMINOLOGY_GUIDE.md](TERMINOLOGY_GUIDE.md).
+
 **Key Features:**
 - Automated progress tracking and metrics
 - Silent content synchronization
