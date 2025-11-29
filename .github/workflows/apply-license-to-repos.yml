@@ -98,10 +98,9 @@ jobs:
             # Copy LICENSE file from source repo
             cp "$GITHUB_WORKSPACE/LICENSE" .
             
-            # Get default branch name
-            DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+            # Get default branch name using GitHub CLI for reliability
+            DEFAULT_BRANCH=$(gh repo view "$repo" --json defaultBranchRef --jq '.defaultBranchRef.name' 2>/dev/null || echo "main")
             if [ -z "$DEFAULT_BRANCH" ]; then
-              echo "⚠️  Could not determine default branch, using 'main'"
               DEFAULT_BRANCH="main"
             fi
             
@@ -112,14 +111,20 @@ jobs:
               git config user.name "github-actions[bot]"
               git config user.email "github-actions[bot]@users.noreply.github.com"
               
-              git checkout -b "$BRANCH_NAME"
-              git add LICENSE
-              git commit -m "Add Apache 2.0 License" -m "This adds the Apache 2.0 License to protect intellectual property." -m "- Full Apache 2.0 license text
+              # Prepare commit message
+              COMMIT_TITLE="Add Apache 2.0 License"
+              COMMIT_BODY="This adds the Apache 2.0 License to protect intellectual property.
+
+- Full Apache 2.0 license text
 - Copyright notice included
 - Clear terms for use, modification, and distribution
 - Patent and liability protections
 
 Applied via automated workflow from Aethromoor repository."
+              
+              git checkout -b "$BRANCH_NAME"
+              git add LICENSE
+              git commit -m "$COMMIT_TITLE" -m "$COMMIT_BODY"
               
               git push origin "$BRANCH_NAME"
               
@@ -165,8 +170,19 @@ This license was automatically applied from the [Aethromoor repository](https://
               git config user.name "github-actions[bot]"
               git config user.email "github-actions[bot]@users.noreply.github.com"
               
+              # Use same detailed commit message as PR workflow
+              COMMIT_TITLE="Add Apache 2.0 License"
+              COMMIT_BODY="This adds the Apache 2.0 License to protect intellectual property.
+
+- Full Apache 2.0 license text
+- Copyright notice included
+- Clear terms for use, modification, and distribution
+- Patent and liability protections
+
+Applied via automated workflow from Aethromoor repository."
+              
               git add LICENSE
-              git commit -m "Add Apache 2.0 License"
+              git commit -m "$COMMIT_TITLE" -m "$COMMIT_BODY"
               git push origin "$DEFAULT_BRANCH"
               
               echo "✅ LICENSE committed directly to $repo"
