@@ -240,7 +240,8 @@ class AgentOrchestrator:
         # Configuration
         print("\n🔧 CONFIGURATION")
         print(f"  • Silent Mode: {'✅ Enabled' if report['configuration']['silent_mode'] else '❌ Disabled'}")
-        print(f"  • API Key: {'✅ Configured' if report['configuration']['api_key_configured'] else '⚠️ Missing (workers won\'t run)'}")
+        api_key_status = '✅ Configured' if report['configuration']['api_key_configured'] else "⚠️ Missing (workers won't run)"
+        print(f"  • API Key: {api_key_status}")
         
         # Workers
         print("\n🤖 AI WORKERS")
