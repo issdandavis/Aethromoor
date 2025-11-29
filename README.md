@@ -50,6 +50,18 @@ This repository features AI-powered automation for inter-account communications 
 - **[docs/AUTOMATION_GUIDE.md](docs/AUTOMATION_GUIDE.md)** - Integration workflows
 - **Configuration:** `config/automation-settings.json`, `config/enterprise-settings.json`
 
+## 📋 NEW: Pull Request Management Help
+
+**Have too many PRs? New to GitHub?** We've got you covered!
+
+- **[PR_HELP_README.md](PR_HELP_README.md)** - Start here! Complete guide for managing your pull requests
+- **[PULL_REQUEST_MANAGEMENT_GUIDE.md](PULL_REQUEST_MANAGEMENT_GUIDE.md)** - Detailed PR decision framework
+- **[GIT_PUSH_PULL_GUIDE.md](GIT_PUSH_PULL_GUIDE.md)** - Simple explanation of Git push vs pull
+- **[PR_CLEANUP_TRACKER.md](PR_CLEANUP_TRACKER.md)** - Track your progress cleaning up PRs
+- **[scripts/categorize-prs.sh](scripts/categorize-prs.sh)** - Automated PR categorization tool
+
+**Quick tip:** If you don't know when to push or pull, read `GIT_PUSH_PULL_GUIDE.md` - it has visual diagrams!
+
 ## Security
 Previous commits contained plaintext API keys. They have been removed from the tracked files. Make sure to rotate any keys that may have been exposed and only store live credentials in your local `.env` file. All automation credentials are stored securely in GitHub Secrets.
 # 🎮 Polly's Wingscroll: The First Thread

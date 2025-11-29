@@ -65,7 +65,26 @@ Avalon/
 
 ---
 
-## 🤖 NEW: Managing Your AI Workers?
+## 🆘 NEW to GitHub? Too Many Pull Requests?
+
+**If you have lots of open PRs and don't know what to do:**
+
+**→ Go to: [PR_HELP_README.md](PR_HELP_README.md)** ← START HERE!
+
+This will help you:
+- Understand what pull requests are
+- Learn when to push vs pull
+- Manage your 80+ open PRs
+- Get organized fast
+
+**Quick answers:**
+- `PULL` = Download from GitHub ⬇️
+- `PUSH` = Upload to GitHub ⬆️
+- Don't be afraid to close old PRs!
+
+---
+
+## 🤖 Managing Your AI Workers?
 
 If you're here because you need to manage the autonomous AI workers:
 
