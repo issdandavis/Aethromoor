@@ -52,24 +52,24 @@
         "mode": "test",
         "description": "Stripe payment processing for game sales, subscriptions, donations",
         "api_keys": {
-          "test_publishable_key": "pk_test_...",
+          "test_publishable_key": "pk_test_YOUR_KEY_HERE",
           "test_secret_key_stored_in": "STRIPE_TEST_SECRET_KEY",
-          "live_publishable_key": "pk_live_...",
+          "live_publishable_key": "pk_live_YOUR_KEY_HERE",
           "live_secret_key_stored_in": "STRIPE_LIVE_SECRET_KEY"
         },
         "webhook_secret_stored_in": "STRIPE_WEBHOOK_SECRET",
         "products": {
           "game_purchase": {
             "enabled": false,
-            "price_id": "price_..."
+            "price_id": "price_YOUR_PRODUCT_ID_HERE"
           },
           "subscription": {
             "enabled": false,
-            "price_id": "price_..."
+            "price_id": "price_YOUR_SUBSCRIPTION_ID_HERE"
           },
           "donations": {
             "enabled": false,
-            "price_id": "price_..."
+            "price_id": "price_YOUR_DONATION_ID_HERE"
           }
         }
       },
