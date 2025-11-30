@@ -48,6 +48,10 @@ jobs:
           rsync -av --exclude='.git' --exclude='.github' --exclude='_site' \
                     --exclude='node_modules' --exclude='.vscode' \
                     --exclude='*.pyc' --exclude='__pycache__' \
+                    --exclude='logs' --exclude='*.log' \
+                    --exclude='.env*' --exclude='*.env' \
+                    --exclude='keys.txt' --exclude='*.key' --exclude='*.secret' \
+                    --exclude='config/secrets' \
                     ./ _site/
           
           echo "✅ All files prepared for cloud deployment"
