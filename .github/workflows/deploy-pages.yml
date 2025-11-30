@@ -58,11 +58,18 @@ jobs:
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Polly's Wingscroll: The First Thread</title>
-            <meta http-equiv="refresh" content="0; url=./game.html">
+            <script>
+              // Redirect with JavaScript for better accessibility
+              window.location.href = "./game.html";
+            </script>
+            <noscript>
+              <meta http-equiv="refresh" content="0; url=./game.html">
+            </noscript>
           </head>
           <body>
+            <h1>Polly's Wingscroll: The First Thread</h1>
             <p>Redirecting to game...</p>
-            <p>If not redirected, <a href="./game.html">click here</a>.</p>
+            <p><a href="./game.html">Click here if you are not automatically redirected</a>.</p>
           </body>
           </html>
           EOF
