@@ -53,7 +53,8 @@
       "automation_systems",
       "external_integrations",
       "2fa_status",
-      "security_posture"
+      "security_posture",
+      "cloud_infrastructure"
     ],
     "ai_confirmation": {
       "enabled": true,
@@ -64,6 +65,26 @@
       "on_failure": true,
       "on_success": false,
       "critical_only": true
+    }
+  },
+  "enterprise_cloud": {
+    "enabled": true,
+    "description": "Enterprise cloud infrastructure for hosting, backup, and disaster recovery",
+    "config_file": "config/enterprise-cloud-config.json",
+    "github_pages": {
+      "enabled": true,
+      "auto_deploy": true,
+      "deployment_workflow": ".github/workflows/deploy-pages.yml"
+    },
+    "cloud_backup": {
+      "enabled": true,
+      "frequency": "weekly",
+      "workflow": ".github/workflows/enterprise-cloud-backup.yml",
+      "retention_days": 90
+    },
+    "cloud_monitoring": {
+      "enabled": true,
+      "integrated_with_enterprise_monitoring": true
     }
   },
   "external_services": {
