@@ -6,8 +6,8 @@ The Enterprise Cloud infrastructure is now **fully operational** and provides:
 
 ### 1. Cloud Hosting (GitHub Pages)
 - **File:** `.github/workflows/deploy-pages.yml`
-- **What it does:** Automatically deploys your game to the web
-- **When it runs:** Every push to main branch (when `game/` changes)
+- **What it does:** Automatically deploys ALL repository files to the web
+- **When it runs:** Every push to main branch (any file changes)
 - **Access:** Actions tab → Deploy to GitHub Pages
 
 ### 2. Cloud Backup System
@@ -36,12 +36,12 @@ The Enterprise Cloud infrastructure is now **fully operational** and provides:
 
 ## 🚀 Quick Actions
 
-### Deploy Game to Cloud
+### Deploy All Files to Cloud
 ```bash
 # Automatic
-git add game/
-git commit -m "Update game"
-git push  # Triggers deployment
+git add .
+git commit -m "Update project files"
+git push  # Triggers deployment of all files
 
 # Manual
 # Go to: Actions → Deploy to GitHub Pages → Run workflow

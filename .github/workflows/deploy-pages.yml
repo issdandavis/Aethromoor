@@ -1,14 +1,11 @@
 name: Deploy to GitHub Pages (Enterprise Cloud)
 
-# Deploy the game to GitHub Pages cloud hosting
-# Provides public cloud-based access to the HTML game
+# Deploy all repository files to GitHub Pages cloud hosting
+# Provides public cloud-based access to entire project
 
 on:
   push:
     branches: [main]
-    paths:
-      - 'game/**'
-      - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
     inputs:
       force_deploy:
@@ -39,56 +36,26 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
-      - name: Prepare game files for cloud hosting
+      - name: Prepare all files for cloud hosting
         run: |
-          echo "📦 Preparing game files for enterprise cloud deployment..."
+          echo "📦 Preparing all repository files for enterprise cloud deployment..."
           
           # Create deployment directory
           mkdir -p _site
           
-          # Copy game files
-          cp -r game/* _site/
+          # Copy all repository content except hidden files, git, and build artifacts
+          echo "Copying repository content..."
+          rsync -av --exclude='.git' --exclude='.github' --exclude='_site' \
+                    --exclude='node_modules' --exclude='.vscode' \
+                    --exclude='*.pyc' --exclude='__pycache__' \
+                    ./ _site/
           
-          # Create index redirect at root if needed
-          if [ ! -f "_site/index.html" ]; then
-            cat > _site/index.html << 'EOF'
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Polly's Wingscroll: The First Thread</title>
-            <script>
-              // Redirect with JavaScript for better accessibility
-              window.location.href = "./game.html";
-            </script>
-            <noscript>
-              <meta http-equiv="refresh" content="0; url=./game.html">
-            </noscript>
-          </head>
-          <body>
-            <h1>Polly's Wingscroll: The First Thread</h1>
-            <p>Redirecting to game...</p>
-            <p><a href="./game.html">Click here if you are not automatically redirected</a>.</p>
-          </body>
-          </html>
-          EOF
-          fi
-          
-          # Add cloud deployment metadata
-          cat > _site/deployment-info.json << EOF
-          {
-            "deployment_type": "enterprise_cloud",
-            "platform": "github_pages",
-            "deployment_time": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
-            "commit_sha": "${{ github.sha }}",
-            "deployed_by": "github_actions",
-            "game_version": "1.0"
-          }
-          EOF
-          
-          echo "✅ Site prepared for cloud deployment"
-          ls -la _site/
+          echo "✅ All files prepared for cloud deployment"
+          echo "📊 Content summary:"
+          du -sh _site/
+          echo ""
+          echo "📂 Top-level directories and files:"
+          ls -lah _site/ | grep -v "^total" | head -20
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -114,9 +81,17 @@ jobs:
           echo "   🚀 ENTERPRISE CLOUD DEPLOYMENT SUCCESSFUL"
           echo "════════════════════════════════════════════════════════"
           echo ""
-          echo "✅ Game deployed to cloud hosting"
+          echo "✅ All repository files deployed to cloud hosting"
           echo "🌐 URL: ${{ steps.deployment.outputs.page_url }}"
           echo "📦 Platform: GitHub Pages (Enterprise Cloud)"
           echo "⏰ Deployed: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+          echo ""
+          echo "📂 Deployed content includes:"
+          echo "   • Game files (HTML version)"
+          echo "   • ChoiceScript game"
+          echo "   • Documentation and guides"
+          echo "   • Lore and worldbuilding"
+          echo "   • Writing drafts"
+          echo "   • All project files"
           echo ""
           echo "════════════════════════════════════════════════════════"

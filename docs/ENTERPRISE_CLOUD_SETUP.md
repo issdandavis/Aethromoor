@@ -80,24 +80,25 @@ The enterprise cloud is **already set up and operational**! Here's what's active
 ### 1. GitHub Pages Deployment
 
 **What it does:**
-- Hosts your HTML game on the cloud
-- Makes it accessible worldwide
+- Hosts your entire project on the cloud
+- Makes all files accessible worldwide
 - Provides a public URL for sharing
+- Deploys game, documentation, lore, and all project content
 
 **How to use:**
 
 ```bash
 # Automatic deployment
-# Just push changes to main branch with game updates
-git add game/
-git commit -m "Update game content"
+# Just push any changes to main branch
+git add .
+git commit -m "Update project content"
 git push
 
 # Manual deployment
 # Go to Actions tab → Deploy to GitHub Pages → Run workflow
 ```
 
-**Access your deployed game:**
+**Access your deployed content:**
 - URL format: `https://<username>.github.io/<repository>/`
 - For this repo: Check Actions tab for deployment URL
 

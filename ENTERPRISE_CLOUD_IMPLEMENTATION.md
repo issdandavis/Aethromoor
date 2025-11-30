@@ -7,17 +7,19 @@
 
 **Features:**
 - Automatic deployment to GitHub Pages (cloud hosting)
+- Deploys ALL repository files (not just game)
 - Global CDN distribution via GitHub's infrastructure
 - HTTPS encryption by default
-- Deploys on every push to main branch
+- Deploys on every push to main branch (any file changes)
 - Manual deployment option available
-- Deployment metadata tracking
+- Deployment content summary logging
 - Success notifications
 
 **Benefits:**
-- Game is now accessible on the web
+- Entire project is now accessible on the web
+- All documentation, lore, and game content available
 - Zero-cost cloud hosting
-- Automatic updates when code changes
+- Automatic updates when any code changes
 - Enterprise-grade reliability (99.9% uptime)
 
 ### 2. Cloud Backup System
