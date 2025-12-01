@@ -39,4 +39,4 @@ SSH configuration would only be relevant if:
 
 ---
 
-*Generated: 2025-12-01*
+*Last updated: December 2025*
