@@ -175,8 +175,25 @@ Avalon/
 ├── lore/                       ← Worldbuilding documents
 ├── writing_drafts/             ← Novel manuscripts
 ├── docs/                       ← Additional documentation
+│   ├── 📚 LEARNING_RESOURCES_INDEX.md  ← Complete learning guide
+│   ├── GITHUB_TUTORIAL.md      ← Beginner's guide to GitHub
+│   ├── GIT_BASICS.md           ← Advanced Git workflows
+│   └── GIT_QUICK_REFERENCE.md  ← One-page cheat sheet
 └── archive/                    ← Old files and backups
 ```
+
+---
+
+## 📚 New to Git/GitHub?
+
+**Complete Learning Path Available!**
+
+- 👉 **Start Here:** [Learning Resources Index](docs/LEARNING_RESOURCES_INDEX.md) - Your complete guide
+- 🎓 **Beginner Tutorial:** [GitHub Tutorial](docs/GITHUB_TUTORIAL.md) - 20-30 min guided introduction
+- 📖 **Advanced Guide:** [Git Basics](docs/GIT_BASICS.md) - Workflows and best practices
+- ⚡ **Quick Reference:** [Git Cheat Sheet](docs/GIT_QUICK_REFERENCE.md) - One-page command guide
+
+**Never used GitHub before?** No problem! Our tutorials start from zero and walk you through everything step-by-step.
 
 ---
 
