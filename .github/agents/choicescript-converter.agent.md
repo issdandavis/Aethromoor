@@ -90,9 +90,10 @@ The desert sings around you. What do you do?
 
 ## Success Metrics
 - Conversion time: 30-45 minutes per scene
-- Syntax validation: 100% pass rate
-- Narrative parity: Player choices identical
-- Stat tracking: All modifications preserved
+- Syntax validation: 100% pass rate via validate_choicescript.py
+- Narrative parity: Same number of choice options and identical text
+- Stat tracking: All stat modifications preserved with correct values
+- Branching: Same number of *goto/*goto_scene transitions to identical labels
 
 ## Prohibited Actions
 - Never delete or modify HTML source files

@@ -86,10 +86,10 @@ Perform comprehensive technical validation on all ChoiceScript content:
 - `.github/scripts/stat_analyzer.py` (custom analysis)
 
 ## Success Metrics
-- 100% QuickTest pass rate
-- All endings reached within 1000 RandomTest iterations
-- Stat thresholds achievable by 50%+ of players
-- Zero unreachable achievements
+- 100% QuickTest pass rate (zero syntax errors)
+- All 14 endings reached within 1000 RandomTest iterations
+- Stat thresholds achievable by 50%+ of RandomTest simulation runs
+- Zero unreachable achievements (all triggerable via valid gameplay paths)
 
 ## Prohibited Actions
 - Never skip validation tests

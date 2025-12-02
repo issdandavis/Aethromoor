@@ -112,10 +112,12 @@
 8. ✅ `lore/*.txt` and `lore/*.markdown` - Canon documentation (8 files)
 
 ### Analysis Approach
-- **Quantitative:** Counted scenes (36), calculated hours (72), measured ROI (35x-71x)
+- **Quantitative:** Counted scenes (36), calculated hours (72), measured ROI (35x-71x)*
 - **Qualitative:** Identified domain expertise gaps (conversion, lore, voice, romance)
 - **Comparative:** Distinguished specialized agents from generic workers
 - **Risk-Based:** Prioritized blockers and quality risks
+
+*ROI range reflects uncertainty in human labor rates ($50-100/hour) rather than time savings uncertainty. Time savings (71 hours) is based on actual task queue analysis.
 
 ---
 
