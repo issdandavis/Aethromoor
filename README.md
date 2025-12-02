@@ -15,6 +15,19 @@ This repository contains narrative source material and chat logs related to the 
 4. Start the ChoiceScript server from inside `game/choicescript/` (`run-server.bat` on Windows, `serve.command` on macOS, `bash serve.sh` on Linux/WSL), then open the browser at `http://localhost:4200/` if it does not open automatically.
 5. Edit scenes in `game/scenes/` and re-run `./game/sync_scenes.sh` to refresh the playable build.
 
+## 📚 Learning Git & GitHub
+New to Git or GitHub? We've got you covered!
+
+**Tutorials:**
+- **[GitHub Tutorial](docs/GITHUB_TUTORIAL.md)** - Complete beginner's guide to GitHub (20-30 min)
+- **[Git Basics](docs/GIT_BASICS.md)** - Advanced Git workflows and commands (intermediate)
+- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to this project
+
+**Quick Reference:**
+- Fork → Clone → Branch → Commit → Push → Pull Request
+- Never worked with Git before? Start with the GitHub Tutorial!
+- Already know the basics? Jump to Git Basics for advanced workflows
+
 ## 🤖 Automation & Connected Accounts
 This repository features AI-powered automation for inter-account communications and progress tracking. All automation runs in **silent mode** by default (no user notifications for routine updates).
 
