@@ -775,7 +775,7 @@ Create an issue introducing yourself to the project!
 ---
 
 **Ready for more advanced Git?**  
-→ Next: [docs/GIT_BASICS.md](GIT_BASICS.md)
+→ Next: [GIT_BASICS.md](GIT_BASICS.md)
 
 **Want to understand the AI system?**  
 → See: [AGENT_TUTORIAL.md](../AGENT_TUTORIAL.md)
