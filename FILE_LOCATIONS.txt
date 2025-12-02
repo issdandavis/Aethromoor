@@ -11,6 +11,11 @@
    README.md ← Full project overview
    QUICK_START.md ← Detailed play instructions
    PLAY_THE_GAME.md ← Game playing guide
+   
+🆕 INVENTORY & ORGANIZATION (NEW!):
+   REPOSITORY_INVENTORY.md ← Complete file inventory (technical)
+   SIMPLE_FILE_GUIDE.md ← Easy guide for non-technical users
+   GITHUB_LABELS_GUIDE.md ← Label system for organization
 
 📖 GAME FILES:
    game/ ← HTML version (complete, playable)
