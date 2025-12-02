@@ -121,7 +121,7 @@ sudo zypper update gh
 
 [Homebrew](https://brew.sh/) is a free and open-source software package management system that simplifies the installation of software on Apple's operating system, macOS, as well as Linux.
 
-The [GitHub CLI formulae](https://formulae.brew.sh/formula/gh) is supported by the GitHub CLI maintainers with help from our friends at Homebrew with updated powered by [homebrew/homebrew-core](https://github.com/Homebrew/homebrew-core/blob/main/Formula/g/gh.rb).
+The [GitHub CLI formulae](https://formulae.brew.sh/formula/gh) is supported by the GitHub CLI maintainers with help from our friends at Homebrew with updates powered by [homebrew/homebrew-core](https://github.com/Homebrew/homebrew-core/blob/main/Formula/g/gh.rb).
 
 To install:
 
@@ -234,7 +234,7 @@ sudo dnf update gh
 
 [Flox](https://flox.dev/) is a virtual environment and package manager all in one. With Flox you create environments that layer and replace dependencies just where it matters, making them portable across the full software lifecycle.
 
-Flox relies upon the [GitHub CLI package](https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/gh/gh/package.nix) supported by the [NixOS community](https://nixos.org/)
+Flox relies upon the [GitHub CLI package](https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/gh/gh/package.nix) supported by the [NixOS community](https://nixos.org/).
 
 To install:
 
