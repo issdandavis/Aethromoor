@@ -223,8 +223,8 @@ def main():
         print("\n✅ All code quality issues fixed!")
         sys.exit(0)
     else:
-        print(
-            f"\n⚠️  {total_issues_after} issues remaining (may require manual fixing)")
+        remaining_msg = f"\n⚠️  {total_issues_after} issues remaining (may require manual fixing)"
+        print(remaining_msg)
         sys.exit(0)
 
 

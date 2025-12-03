@@ -9,10 +9,8 @@ and add more sophisticated task parsing.
 
 import os
 import sys
-# REMOVED: import json
 from pathlib import Path
 from datetime import datetime
-# REMOVED: import re
 
 try:
     import anthropic

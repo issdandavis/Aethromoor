@@ -12,10 +12,9 @@ Usage:
     python agent_manager_cli.py report          # Generate full report
 """
 
-from agent_orchestrator import AgentOrchestrator
 import sys
-# REMOVED: import json
 from pathlib import Path
+from agent_orchestrator import AgentOrchestrator
 
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent))

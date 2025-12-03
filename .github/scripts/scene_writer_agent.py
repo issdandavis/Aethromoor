@@ -5,7 +5,6 @@ This is a REAL implementation that generates usable content
 """
 
 import os
-# REMOVED: import sys
 import re
 from pathlib import Path
 import anthropic
