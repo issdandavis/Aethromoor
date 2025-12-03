@@ -152,7 +152,8 @@ Be specific about what to add, modify, or remove.
 
         log_file = log_dir / \
             f"ai-work-{datetime.now().strftime('%Y-%m-%d')}.md"
-        log_content = """# AI Worker Log - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        log_content = f"""# AI Worker Log - {timestamp}
 
 ## Task Attempted
 **Priority:** {task['priority']}

@@ -4,7 +4,6 @@ Auto-fix Code Quality Issues
 Automatically fixes common code quality issues in Python scripts
 """
 
-# REMOVED: import os
 import sys
 import subprocess
 import re

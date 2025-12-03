@@ -84,7 +84,7 @@ Output the COMPLETE polished scene with all original code intact."""
             print(f"⏭️ Skipping {scene_path.name} - too short for polish")
             return False
 
-        prompt = """Polish this ChoiceScript scene by adding sensory details (especially taste and smell).
+        prompt = f"""Polish this ChoiceScript scene by adding sensory details (especially taste and smell).
 
 ORIGINAL SCENE:
 {original_content}
