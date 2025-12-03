@@ -33,7 +33,7 @@
   /**
    * Record a game event with timestamp
    * @param {string} type - Event type (e.g., 'choice_made', 'ending_reached')
-   * @param {Object} payload - Additional event data
+   * @param {Object} [payload={}] - Additional event data (optional)
    */
   function traceEvent(type, payload = {}) {
     try {
