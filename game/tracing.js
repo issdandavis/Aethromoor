@@ -44,7 +44,8 @@
       });
       
       // Optional: Send to analytics service (if configured)
-      if (window.GAME_CONFIG && window.GAME_CONFIG.enableAnalytics) {
+      // Note: GAME_CONFIG is defined in game.js, check if available
+      if (typeof window !== 'undefined' && window.gameAnalyticsEnabled) {
         sendToAnalytics(type, payload);
       }
     } catch (error) {
@@ -102,14 +103,22 @@
   }
 
   /**
-   * Placeholder for analytics service integration
+   * Send analytics data to configured service
    * @param {string} type - Event type
    * @param {Object} payload - Event data
+   * 
+   * This is a placeholder function for analytics integration.
+   * To enable analytics:
+   * 1. Set window.gameAnalyticsEnabled = true in game.js
+   * 2. Implement actual tracking service (Google Analytics, Mixpanel, etc.)
+   * 3. Replace console.log with actual API calls
    */
   function sendToAnalytics(type, payload) {
-    // TODO: Implement analytics service integration
-    // Example: Google Analytics, Mixpanel, or custom backend
-    console.log('[Analytics]', type, payload);
+    // Placeholder for analytics integration
+    // When analytics is disabled, this is only called for debugging
+    if (console && console.debug) {
+      console.debug('[Analytics Placeholder]', type, payload);
+    }
   }
 
   // Expose public API

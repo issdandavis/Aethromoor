@@ -19,6 +19,11 @@ const GAME_CONFIG = {
     enableAutoSave: true
 };
 
+// Expose config to window for analytics integration
+if (typeof window !== 'undefined') {
+    window.gameAnalyticsEnabled = GAME_CONFIG.enableAnalytics;
+}
+
 // Tracing helper (defined in tracing.js). If absent, provide no-op.
 const traceEvent = window.traceEvent || function(){};
 
@@ -1376,6 +1381,11 @@ function makeChoice(choice) {
 
     // Move to next node
     displayNode(choice.next);
+    
+    // Auto-save after choice (if enabled)
+    if (GAME_CONFIG.enableAutoSave) {
+        saveGame();
+    }
 }
 
 /**
@@ -1508,15 +1518,6 @@ document.addEventListener('DOMContentLoaded', () => {
             loadedFromSave: loadedSuccessfully,
             version: GAME_CONFIG.version
         });
-        
-        // Auto-save on choice (if enabled)
-        if (GAME_CONFIG.enableAutoSave) {
-            const originalMakeChoice = window.makeChoice;
-            window.makeChoice = function(choice) {
-                originalMakeChoice.call(this, choice);
-                saveGame();
-            };
-        }
     } catch (error) {
         handleError(error, 'Game Initialization');
     }

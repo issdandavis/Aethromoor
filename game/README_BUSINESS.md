@@ -69,7 +69,7 @@ To enable analytics:
 
 ### Code Configuration
 
-Edit constants in `game.js`:
+**Important:** Core runtime settings are defined in `game.js`:
 ```javascript
 const GAME_CONFIG = {
     version: '1.0.0',
@@ -77,6 +77,10 @@ const GAME_CONFIG = {
     enableAutoSave: true
 };
 ```
+
+**Note:** The `config.json` file contains metadata and business information for reference and deployment. The actual game runtime uses the `GAME_CONFIG` constant in `game.js`. When updating version numbers or feature flags, update both files to maintain consistency.
+
+For future enhancement, consider loading `config.json` dynamically to create a single source of truth.
 
 ## 🔒 Security & Privacy
 
