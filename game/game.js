@@ -1424,7 +1424,13 @@ function loadGame() {
         
         // Verify version compatibility
         if (loadedState.gameVersion !== GAME_CONFIG.version) {
-            console.warn('Save game version mismatch. May not load correctly.');
+            console.warn('Save game version mismatch:', loadedState.gameVersion, 'vs', GAME_CONFIG.version);
+            // Don't load incompatible saves - could cause issues
+            if (confirm('Your saved game is from a different version. Loading it may cause problems. Load anyway?')) {
+                console.log('User chose to load incompatible save');
+            } else {
+                return false;
+            }
         }
         
         // Restore state
@@ -1483,16 +1489,33 @@ function handleError(error, context = 'Unknown') {
     console.error(`Error in ${context}:`, error);
     traceEvent('error', { context, message: error.message, stack: error.stack });
     
-    // Show user-friendly error message
+    // Show user-friendly error message (sanitized to prevent XSS)
     const storyText = document.getElementById('story-text');
     if (storyText) {
-        storyText.innerHTML = `
-            <p style="color: #ff6b6b; padding: 20px; background: rgba(255,0,0,0.1); border-radius: 8px;">
-                <strong>Oops! Something went wrong.</strong><br>
-                ${context}: ${error.message}<br><br>
-                Please try restarting the game or refreshing the page.
-            </p>
-        `;
+        // Create safe error display using DOM manipulation instead of innerHTML
+        storyText.innerHTML = ''; // Clear existing content
+        
+        const errorBox = document.createElement('p');
+        errorBox.style.cssText = 'color: #ff6b6b; padding: 20px; background: rgba(255,0,0,0.1); border-radius: 8px;';
+        
+        const title = document.createElement('strong');
+        title.textContent = 'Oops! Something went wrong.';
+        errorBox.appendChild(title);
+        
+        errorBox.appendChild(document.createElement('br'));
+        errorBox.appendChild(document.createElement('br'));
+        
+        // Use textContent to prevent XSS
+        const contextText = document.createTextNode(`${context}: ${error.message}`);
+        errorBox.appendChild(contextText);
+        
+        errorBox.appendChild(document.createElement('br'));
+        errorBox.appendChild(document.createElement('br'));
+        
+        const instruction = document.createTextNode('Please try restarting the game or refreshing the page.');
+        errorBox.appendChild(instruction);
+        
+        storyText.appendChild(errorBox);
     }
 }
 
