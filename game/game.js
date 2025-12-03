@@ -1425,12 +1425,13 @@ function loadGame() {
         // Verify version compatibility
         if (loadedState.gameVersion !== GAME_CONFIG.version) {
             console.warn('Save game version mismatch:', loadedState.gameVersion, 'vs', GAME_CONFIG.version);
-            // Don't load incompatible saves - could cause issues
-            if (confirm('Your saved game is from a different version. Loading it may cause problems. Load anyway?')) {
-                console.log('User chose to load incompatible save');
-            } else {
+            // Ask user before loading incompatible saves
+            const userConfirmed = confirm('Your saved game is from a different version. Loading it may cause problems. Load anyway?');
+            if (!userConfirmed) {
+                console.log('User declined to load incompatible save');
                 return false;
             }
+            console.log('User chose to load incompatible save');
         }
         
         // Restore state
@@ -1492,8 +1493,10 @@ function handleError(error, context = 'Unknown') {
     // Show user-friendly error message (sanitized to prevent XSS)
     const storyText = document.getElementById('story-text');
     if (storyText) {
-        // Create safe error display using DOM manipulation instead of innerHTML
-        storyText.innerHTML = ''; // Clear existing content
+        // Clear existing content safely
+        while (storyText.firstChild) {
+            storyText.removeChild(storyText.firstChild);
+        }
         
         const errorBox = document.createElement('p');
         errorBox.style.cssText = 'color: #ff6b6b; padding: 20px; background: rgba(255,0,0,0.1); border-radius: 8px;';

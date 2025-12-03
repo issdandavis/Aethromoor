@@ -44,7 +44,7 @@
       });
       
       // Optional: Send to analytics service (if configured)
-      // Note: GAME_CONFIG is defined in game.js, check if available
+      // Checks window.gameAnalyticsEnabled flag set by game.js
       if (typeof window !== 'undefined' && window.gameAnalyticsEnabled) {
         sendToAnalytics(type, payload);
       }
