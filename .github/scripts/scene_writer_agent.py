@@ -48,7 +48,7 @@ Produce complete, ready-to-use ChoiceScript code."""
         """Read file or return empty string"""
         try:
             return Path(path).read_text()
-        except BaseException:
+        except Exception:
             return ""
 
     def find_next_scene_to_write(self):
@@ -139,7 +139,7 @@ Produce complete, ready-to-use ChoiceScript code."""
     def write_scene_section(self, context, section="next"):
         """Use AI to write a section of the scene"""
 
-        prompt = """Write the {section} section for the ChoiceScript scene: {context['scene_name']}
+        prompt = f"""Write the {section} section for the ChoiceScript scene: {context['scene_name']}
 
 LORE CONTEXT:
 {context['lore']}

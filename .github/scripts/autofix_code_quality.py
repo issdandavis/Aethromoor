@@ -74,15 +74,15 @@ def fix_fstring_placeholders(filepath):
         content = f.read()
 
     # Replace f-strings without placeholders
-    # Match "..." or '...' where there are no {braces}
+    # Match f"..." or f'...' where there are no {braces}
     modified = False
     lines = content.splitlines(keepends=True)
 
     for i, line in enumerate(lines):
-        # Simple regex to find f-strings without placeholders
-        # This is a basic implementation, might need refinement
-        new_line = re.sub(r'"([^"{]*)"', r'"\1"', line)
-        new_line = re.sub(r"'([^'{]*)'", r"'\1'", new_line)
+        # Match f-strings without placeholders
+        # Pattern: f" or f' followed by content without { or }, then closing quote
+        new_line = re.sub(r'f"([^"{]*)"', r'"\1"', line)
+        new_line = re.sub(r"f'([^'{]*)'", r"'\1'", new_line)
 
         if new_line != line:
             lines[i] = new_line
@@ -102,9 +102,10 @@ def fix_bare_except(filepath):
         content = f.read()
 
     # Replace bare except: with except Exception:
+    # Match 'except:' with optional whitespace before newline or comment
     new_content = re.sub(
-        r'except:\s*$',
-        'except Exception:',
+        r'except:\s*($|#)',
+        r'except Exception:\1',
         content,
         flags=re.MULTILINE)
 
