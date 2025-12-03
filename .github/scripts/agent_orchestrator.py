@@ -171,13 +171,15 @@ class AgentOrchestrator:
                     with open(filepath, 'r', encoding='utf-8', errors='replace') as f:
                         content = f.read()
                         lines = len(content.splitlines())
-                        placeholders = content.count(
-                            'PLACEHOLDER') + content.count('TODO') + content.count('STUB')
+                        placeholders = (content.count('PLACEHOLDER') +
+                                        content.count('TODO') +
+                                        content.count('STUB'))
 
                         status[name] = {
-                            'lines': lines, 'placeholders': placeholders, 'estimated_complete': min(
-                                100, int(
-                                    (lines / TARGET_LINES) * 100))}
+                            'lines': lines,
+                            'placeholders': placeholders,
+                            'estimated_complete': min(100, int((lines / TARGET_LINES) * 100))
+                        }
                 except Exception as e:
                     status[name] = {
                         'error': f'Failed to read file: {str(e)}'

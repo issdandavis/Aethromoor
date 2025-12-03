@@ -23,9 +23,8 @@ def find_dead_ends():
         has_goto = bool(re.search(r'\*goto(?:_scene)?\s+\w+', content))
 
         if not has_finish and not has_goto:
-            issues.append(
-                f"⚠️ {
-                    scene_file.name}: No *finish or *goto found - potential dead end")
+            msg = f"⚠️ {scene_file.name}: No *finish or *goto found - potential dead end"
+            issues.append(msg)
 
         # Check for choices without outcomes
         choice_blocks = re.findall(
@@ -35,10 +34,8 @@ def find_dead_ends():
         for i, block in enumerate(choice_blocks):
             options = re.findall(r'#[^\n]+', block)
             if len(options) < 2:
-                issues.append(
-                    f"⚠️ {
-                        scene_file.name}: Choice block {
-                        i + 1} has fewer than 2 options")
+                msg = f"⚠️ {scene_file.name}: Choice block {i + 1} has fewer than 2 options"
+                issues.append(msg)
 
     if issues:
         print("\n🔍 Dead End Detection Results:\n")
