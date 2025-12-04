@@ -2,6 +2,10 @@ name: PR Review Requirements
 
 # Ensures all pull requests meet review requirements before merging
 # This workflow complements GitHub branch protection rules
+# 
+# Configuration:
+# - Code owner username: 'issdandavis' (hardcoded in multiple places)
+# - To change: search and replace all instances in this file
 
 on:
   pull_request:
@@ -98,21 +102,30 @@ jobs:
         with:
           script: |
             const pr = context.payload.pull_request;
+            if (!pr) {
+              console.log('⚠️ No pull_request data in payload');
+              return;
+            }
             
             // Get current labels
             const currentLabels = pr.labels.map(label => label.name);
             
-            // Determine which label to add
-            let labelToAdd = 'awaiting-review';
-            let labelToRemove = 'approved-for-merge';
+            // Check existing reviews to determine approval status
+            const { data: reviews } = await github.rest.pulls.listReviews({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number
+            });
             
-            // Check if this is a review event with approval
-            if (context.eventName === 'pull_request_review' && 
-                context.payload.action === 'submitted' && 
-                context.payload.review?.state === 'APPROVED') {
-              labelToAdd = 'approved-for-merge';
-              labelToRemove = 'awaiting-review';
-            }
+            // Check if there's an approval from the code owner
+            const hasApproval = reviews.some(review => 
+              review.state === 'APPROVED' && 
+              review.user.login === 'issdandavis'
+            );
+            
+            // Determine which label to add based on approval status
+            let labelToAdd = hasApproval ? 'approved-for-merge' : 'awaiting-review';
+            let labelToRemove = hasApproval ? 'awaiting-review' : 'approved-for-merge';
             
             // Add the appropriate label
             if (!currentLabels.includes(labelToAdd)) {
@@ -186,8 +199,10 @@ jobs:
                   pull_number: pr.number
                 });
                 
+                // Check if there's an approval from the code owner
                 const hasApproval = reviews.some(review => 
-                  review.state === 'APPROVED'
+                  review.state === 'APPROVED' && 
+                  review.user.login === 'issdandavis'
                 );
                 
                 if (!hasApproval) {
