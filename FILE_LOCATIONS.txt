@@ -18,24 +18,28 @@
 
 📚 LORE & WORLDBUILDING:
    lore/ ← All worldbuilding documents
-      ├── # IZACK'S MAGICAL UNIVERSE - COMPLE.txt
+      ├── izacks_magical_universe_complete.txt
       ├── Pollys_Wingscrolls_Worldbuilding.markdown
-      ├── Unified Worldbuilding Master Framew.txt
+      ├── unified_worldbuilding_master_framework.txt
       ├── Spiralverse_Language_Summary.markdown
       ├── Fae_Song_Appendix.txt
       ├── Tower_Layout_Reference.txt
       ├── Lore_Codex.txt
-      └── __Geography and Natural Lore__.pdf
+      └── geography_and_natural_lore_spiral_pollyoneth.pdf
 
 📝 WRITING DRAFTS:
    writing_drafts/ ← Novel manuscripts and drafts
       ├── DarkSetting_Happy_Ending_Complete_Chronicle.txt
-      ├── # The Spiral of Avalon.txt
+      ├── spiral_of_avalon_draft.txt
+      ├── spiral_of_avalon_complete_novel.txt
       ├── spiral-of-pollyoneth-novel.md
       ├── SpiralOfPollyoneth_Book1_FinishedChapters_Prose.markdown
       ├── Complete_Writing_Guide.txt
       ├── Positioning_The_Avalon_Codex.txt
-      └── [Various manuscript PDFs and outlines]
+      ├── spiral_pollyoneth_book1_masterplan.pdf
+      ├── spiral_pollyoneth_book1_masterplan_v20.pdf
+      ├── The_Spiral_of_Pollyoneth_Final_Manuscript.pdf
+      └── [Additional manuscript files]
 
 📋 PROJECT DOCUMENTATION:
    docs/ ← Development documentation
@@ -55,7 +59,9 @@
 
 📦 ARCHIVED MATERIALS:
    archive/ ← Chat logs, old versions, legacy files
-      ├── Entire chat log.txt (multiple versions)
+      ├── entire_chat_log.txt (multiple versions)
+      ├── chronological_updated.txt
+      ├── chronological_quotes_updated.txt
       ├── Conversation logs
       ├── Old bundles and exports
       └── Historical reference materials

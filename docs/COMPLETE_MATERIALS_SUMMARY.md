@@ -90,12 +90,12 @@ This repository now contains **complete, organized reference materials** for dev
 
 ### Lore Documentation:
 - **lore/Pollys_Wingscrolls_Worldbuilding.markdown** - Realm details
-- **lore/Unified Worldbuilding Master Framew.txt** - Framework
-- **lore/# IZACK'S MAGICAL UNIVERSE - COMPLE.txt** - Universe overview
-- **lore/__Geography and Natural Lore of the Spiral of Pollyoneth__.pdf** - Geography
+- **lore/unified_worldbuilding_master_framework.txt** - Framework
+- **lore/izacks_magical_universe_complete.txt** - Universe overview
+- **lore/geography_and_natural_lore_spiral_pollyoneth.pdf** - Geography
 
 ### Archive Materials:
-- **archive/Entire chat log.txt** - Contains original Aethermoor Chronicles
+- **archive/entire_chat_log.txt** - Contains original Aethermoor Chronicles
 - Multiple historical documents and chat logs
 
 ---

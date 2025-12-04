@@ -1144,15 +1144,15 @@ A continent of contrasts with five distinct biomes:
 /lore/
 ├── README.md
 ├── Pollys_Wingscrolls_Worldbuilding.markdown
-├── Unified Worldbuilding Master Framew.txt
-├── # IZACK'S MAGICAL UNIVERSE - COMPLE.txt
-└── __Geography and Natural Lore of the Spiral of Pollyoneth__.pdf
+├── unified_worldbuilding_master_framework.txt
+├── izacks_magical_universe_complete.txt
+└── geography_and_natural_lore_spiral_pollyoneth.pdf
 ```
 
 ### **Archive (Historical Content):**
 ```
 /archive/
-├── Entire chat log.txt       # Contains Aethermoor Chronicles
+├── entire_chat_log.txt       # Contains Aethermoor Chronicles
 ├── Entire chat log 2 missing begining.txt
 └── 700000 characters.txt
 ```
