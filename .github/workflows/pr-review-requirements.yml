@@ -38,6 +38,12 @@ jobs:
         with:
           script: |
             const pr = context.payload.pull_request;
+            if (!pr) {
+              console.log('⚠️ No pull_request data in payload');
+              core.setOutput('is_owner', 'unknown');
+              return false;
+            }
+            
             const isOwner = pr.user.login === 'issdandavis';
             
             core.setOutput('is_owner', isOwner);
@@ -54,6 +60,10 @@ jobs:
         with:
           script: |
             const pr = context.payload.pull_request;
+            if (!pr) {
+              console.log('⚠️ No pull_request data in payload');
+              return;
+            }
             
             // Get reviews for this PR
             const { data: reviews } = await github.rest.pulls.listReviews({
