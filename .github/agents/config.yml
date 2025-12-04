@@ -1,0 +1,207 @@
+# Global Configuration for Custom GitHub Agents
+# This file defines shared settings and agent management for the Avalon repository
+
+version: "1.0"
+
+# Global Settings
+settings:
+  # Default timeout for agent operations (in seconds)
+  default_timeout: 300
+  
+  # Maximum concurrent agents
+  max_concurrent_agents: 3
+  
+  # Enable verbose logging
+  verbose_logging: true
+  
+  # Agent retry policy
+  retry_policy:
+    max_retries: 3
+    retry_delay: 5
+    exponential_backoff: true
+
+# Agent Registry
+# Lists all available custom agents in this repository
+agents:
+  - name: avalon-lore-steward
+    file: my-agent.agent.md
+    enabled: true
+    priority: high
+    description: "Curates and safeguards Avalon narrative canon"
+    
+  - name: code-review-agent
+    file: code_review_agent.yml
+    enabled: true
+    priority: medium
+    description: "Reviews ChoiceScript and JavaScript code"
+    
+  - name: documentation-agent
+    file: documentation_agent.yml
+    enabled: true
+    priority: medium
+    description: "Maintains project documentation"
+
+# Shared Permissions
+# Permissions that all agents have access to
+shared_permissions:
+  contents: read
+  pull_requests: write
+  issues: write
+  checks: write
+
+# Shared Triggers
+# Events that can trigger any agent
+shared_triggers:
+  - pull_request
+  - push
+  - issue_comment
+  - workflow_dispatch
+
+# Path Filters
+# Define which paths each agent should monitor
+path_filters:
+  lore_steward:
+    include:
+      - "lore/**"
+      - "writing_drafts/**"
+      - "choicescript_game/scenes/**"
+      - "docs/AETHERMOOR_CHRONICLES.md"
+    exclude:
+      - "archive/**"
+      
+  code_review:
+    include:
+      - "choicescript_game/**/*.txt"
+      - "game/**/*.js"
+      - "game/**/*.html"
+      - "**/*.yml"
+    exclude:
+      - "archive/**"
+      - "docs/**"
+      
+  documentation:
+    include:
+      - "docs/**"
+      - "README.md"
+      - "*.md"
+      - ".github/**/*.md"
+    exclude:
+      - "archive/**"
+
+# Environment Variables
+# Available to all agents (non-sensitive values only)
+environment:
+  PROJECT_NAME: "Avalon - Polly's Wingscroll"
+  GAME_VERSION: "1.0"
+  CHOICESCRIPT_VERSION: "latest"
+  MIN_WORD_COUNT: "30000"
+  TARGET_WORD_COUNT: "40000"
+  
+# Rate Limiting
+# Prevent agent abuse and control costs
+rate_limits:
+  per_hour: 100
+  per_day: 500
+  per_pr: 20
+  
+# Notification Settings
+notifications:
+  # Send notifications on agent failures
+  on_failure: true
+  
+  # Send notifications on agent success
+  on_success: false
+  
+  # Notification channels
+  channels:
+    - github_comments
+    - github_checks
+    
+# Cost Controls
+cost_controls:
+  # Maximum tokens per agent run
+  max_tokens_per_run: 100000
+  
+  # Maximum cost per day (USD)
+  max_daily_cost: 5.00
+  
+  # Warn when approaching limits
+  warning_threshold: 0.8
+
+# Agent Interaction Rules
+interaction_rules:
+  # Can multiple agents run on the same PR?
+  allow_concurrent_on_pr: true
+  
+  # Agent execution order (if multiple triggered)
+  execution_order:
+    - avalon-lore-steward
+    - code-review-agent
+    - documentation-agent
+    
+  # Conflict resolution
+  conflict_resolution: "first_triggered_wins"
+
+# Caching
+caching:
+  enabled: true
+  ttl: 3600  # 1 hour
+  
+  # Cache strategies per agent type
+  strategies:
+    lore_validation: "aggressive"
+    code_review: "conservative"
+    documentation: "moderate"
+
+# Quality Gates
+quality_gates:
+  # Require human approval for certain changes
+  require_approval:
+    - path: "choicescript_game/startup.txt"
+      reason: "Core game configuration"
+    - path: "lore/**"
+      reason: "Canon narrative content"
+      
+  # Block merging on agent failures
+  block_merge_on_failure: false
+  
+  # Minimum quality score (0-100)
+  minimum_quality_score: 70
+
+# Logging and Monitoring
+logging:
+  level: "INFO"
+  format: "json"
+  
+  # Log retention (days)
+  retention_days: 30
+  
+  # Detailed logging for specific agents
+  detailed_logging:
+    - avalon-lore-steward
+    
+# Integration Settings
+integrations:
+  # OpenAI API settings
+  openai:
+    model: "gpt-4"
+    temperature: 0.7
+    max_tokens: 4000
+    
+  # GitHub API settings  
+  github:
+    api_version: "2022-11-28"
+    timeout: 30
+    
+  # External services
+  external:
+    enabled: false
+    services: []
+
+# Maintenance Windows
+# Times when agents should not run (UTC)
+maintenance_windows:
+  - day: "Sunday"
+    start: "02:00"
+    end: "04:00"
+    reason: "Weekly maintenance"

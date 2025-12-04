@@ -1,0 +1,233 @@
+# GitHub App Configuration for Avalon Project
+# This file defines the GitHub App integration settings
+
+# App Metadata
+name: Avalon Development Assistant
+description: AI-powered development assistant for the Avalon game project
+author: Avalon Development Team
+version: 1.0.0
+
+# Homepage and documentation
+homepage: https://github.com/issdandavis/Avalon
+documentation: https://github.com/issdandavis/Avalon/blob/main/docs/GITHUB_APP_SETUP.md
+support_url: https://github.com/issdandavis/Avalon/issues
+
+# Permissions
+# https://docs.github.com/en/rest/overview/permissions-required-for-github-apps
+permissions:
+  # Repository permissions
+  contents: write              # Read/write access to code
+  pull_requests: write         # Create and update PRs
+  issues: write                # Create and update issues
+  checks: write                # Create check runs
+  statuses: write              # Set commit statuses
+  metadata: read               # Read repository metadata
+  
+  # Organization permissions (optional)
+  members: read                # Read organization members
+  
+# Events the app subscribes to
+events:
+  - pull_request
+  - pull_request_review
+  - pull_request_review_comment
+  - push
+  - issues
+  - issue_comment
+  - check_run
+  - check_suite
+  - status
+  - workflow_run
+
+# Webhook configuration
+webhook:
+  active: true
+  
+  # Events to receive
+  events:
+    - pull_request
+    - push
+    - issues
+    - issue_comment
+    
+  # Webhook URL (set in GitHub App settings)
+  # url: https://your-server.com/webhook
+
+# Installation configuration
+installation:
+  # Allow installation on specific repositories only
+  restrict_to_repositories: true
+  
+  # Default permissions when installed
+  default_permissions:
+    contents: read
+    pull_requests: write
+    issues: write
+
+# Features
+features:
+  # AI Code Review
+  code_review:
+    enabled: true
+    auto_approve: false
+    
+    # File patterns to review
+    patterns:
+      - "choicescript_game/**/*.txt"
+      - "game/**/*.js"
+      - "**/*.yml"
+    
+    # Review triggers
+    triggers:
+      - pull_request_opened
+      - pull_request_synchronized
+      
+  # Documentation Assistant
+  docs_assistant:
+    enabled: true
+    auto_fix: true
+    
+    patterns:
+      - "docs/**/*.md"
+      - "*.md"
+      
+  # Lore Consistency Checker
+  lore_checker:
+    enabled: true
+    
+    patterns:
+      - "lore/**"
+      - "choicescript_game/scenes/**"
+      - "writing_drafts/**"
+      
+  # Automated Testing
+  testing:
+    enabled: true
+    run_on: pull_request
+    
+  # Issue Management
+  issue_management:
+    enabled: true
+    
+    # Auto-label issues
+    auto_label: true
+    
+    # Label rules
+    label_rules:
+      - pattern: "bug|error|crash"
+        label: "bug"
+      - pattern: "feature|enhancement"
+        label: "enhancement"
+      - pattern: "documentation|docs"
+        label: "documentation"
+      - pattern: "lore|story|narrative"
+        label: "lore"
+
+# Bot behavior
+bot:
+  # Bot username
+  username: avalon-bot
+  
+  # Comment style
+  comment_style: "friendly"
+  
+  # Rate limiting
+  rate_limit:
+    requests_per_hour: 100
+    requests_per_day: 500
+    
+  # Auto-responses
+  auto_responses:
+    welcome_contributor: |
+      Thanks for your contribution to Avalon! 🎮
+      
+      A maintainer will review your PR shortly. In the meantime:
+      - Make sure tests pass
+      - Check that lore is consistent
+      - Ensure ChoiceScript syntax is valid
+      
+    first_time_contributor: |
+      Welcome to Avalon! 🌟 This is your first contribution to the project.
+      
+      Please review:
+      - [Contributing Guide](CONTRIBUTING.md)
+      - [Project Roadmap](docs/PROJECT_ROADMAP.md)
+      - [Lore Guidelines](lore/README.md)
+      
+# Integration settings
+integrations:
+  # OpenAI integration
+  openai:
+    enabled: true
+    model: "gpt-4"
+    max_tokens: 4000
+    temperature: 0.7
+    
+  # GitHub Actions
+  actions:
+    enabled: true
+    workflows:
+      - ci.yml
+      - ai-code-review.yml
+      
+  # External services
+  external:
+    # Webhook notifications
+    webhooks:
+      - name: "discord"
+        enabled: false
+        # url: ${DISCORD_WEBHOOK_URL}
+        
+      - name: "slack"
+        enabled: false
+        # url: ${SLACK_WEBHOOK_URL}
+
+# Security
+security:
+  # Secret scanning
+  secret_scanning: true
+  
+  # Dependency alerts
+  dependency_alerts: true
+  
+  # Code scanning
+  code_scanning:
+    enabled: true
+    language: javascript
+    
+  # Allowed domains for webhooks
+  allowed_domains:
+    - "github.com"
+    - "githubusercontent.com"
+    
+# Environment variables
+# These are referenced but values are stored as secrets
+environment:
+  # API keys (use secrets)
+  - OPENAI_API_KEY
+  - GITHUB_TOKEN
+  
+  # Optional integrations
+  - DISCORD_WEBHOOK_URL
+  - SLACK_WEBHOOK_URL
+  
+# Logging and monitoring
+logging:
+  level: INFO
+  format: json
+  
+  # Log retention
+  retention_days: 30
+  
+# Maintenance
+maintenance:
+  # Update check frequency
+  update_check: weekly
+  
+  # Auto-update dependencies
+  auto_update: false
+  
+# Terms
+terms:
+  privacy_policy: https://github.com/issdandavis/Avalon/blob/main/docs/PRIVACY.md
+  terms_of_service: https://github.com/issdandavis/Avalon/blob/main/docs/TERMS.md

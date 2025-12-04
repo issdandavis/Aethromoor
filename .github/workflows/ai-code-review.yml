@@ -1,0 +1,206 @@
+name: AI Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'choicescript_game/**/*.txt'
+      - 'game/**/*.js'
+      - 'game/**/*.html'
+      - 'game/**/*.css'
+      - '.github/workflows/**/*.yml'
+      - '!archive/**'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR number to review'
+        required: true
+        type: number
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+  issues: write
+
+jobs:
+  code-review:
+    name: Automated Code Review
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for better context
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install pyyaml openai anthropic
+          
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v40
+        with:
+          files: |
+            choicescript_game/**/*.txt
+            game/**/*.js
+            game/**/*.html
+            game/**/*.css
+            .github/workflows/**/*.yml
+            
+      - name: Review ChoiceScript files
+        if: steps.changed-files.outputs.any_changed == 'true'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Reviewing files: ${{ steps.changed-files.outputs.all_changed_files }}"
+          
+          # Create review script
+          cat > review.py << 'EOF'
+          import os
+          import sys
+          import json
+          from openai import OpenAI
+          
+          client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
+          
+          def review_file(filepath, content):
+              """Review a single file"""
+              
+              # Determine file type
+              if filepath.endswith('.txt'):
+                  file_type = "ChoiceScript"
+                  rules = """
+                  ChoiceScript rules:
+                  - Must start with *title
+                  - Proper indentation for nested blocks
+                  - All *choice blocks need #options
+                  - Variables must be declared in startup.txt
+                  - Check for *goto target existence
+                  - Verify lore consistency (character names, locations)
+                  """
+              elif filepath.endswith('.js'):
+                  file_type = "JavaScript"
+                  rules = """
+                  JavaScript rules:
+                  - No console.log in production
+                  - Proper error handling
+                  - No eval() usage
+                  - Sanitize user input
+                  - No hardcoded credentials
+                  """
+              elif filepath.endswith('.yml'):
+                  file_type = "YAML workflow"
+                  rules = """
+                  Workflow rules:
+                  - Valid YAML syntax
+                  - Pin action versions
+                  - No exposed secrets
+                  - Descriptive job names
+                  """
+              else:
+                  file_type = "other"
+                  rules = "General code quality checks"
+              
+              prompt = f"""Review this {file_type} file for the Avalon game project.
+              
+              File: {filepath}
+              
+              {rules}
+              
+              Content:
+              ```
+              {content[:4000]}  # Limit content length
+              ```
+              
+              Provide:
+              1. Critical issues (security, functionality)
+              2. Warnings (best practices, potential bugs)
+              3. Suggestions (improvements, optimizations)
+              
+              Format as JSON:
+              {{
+                "critical": ["issue1", "issue2"],
+                "warnings": ["warning1"],
+                "suggestions": ["suggestion1"],
+                "overall_assessment": "summary"
+              }}
+              """
+              
+              try:
+                  response = client.chat.completions.create(
+                      model="gpt-4",
+                      messages=[
+                          {"role": "system", "content": "You are a code reviewer for a ChoiceScript game project."},
+                          {"role": "user", "content": prompt}
+                      ],
+                      temperature=0.3,
+                      max_tokens=2000
+                  )
+                  
+                  return response.choices[0].message.content
+              except Exception as e:
+                  return f"Error reviewing file: {str(e)}"
+          
+          # Get changed files from environment
+          changed_files = os.environ.get('CHANGED_FILES', '').split()
+          
+          results = []
+          for filepath in changed_files:
+              if os.path.exists(filepath):
+                  with open(filepath, 'r', encoding='utf-8') as f:
+                      content = f.read()
+                  
+                  review = review_file(filepath, content)
+                  results.append({
+                      'file': filepath,
+                      'review': review
+                  })
+          
+          # Output results
+          print("## AI Code Review Results\n")
+          for result in results:
+              print(f"### File: `{result['file']}`\n")
+              print(result['review'])
+              print("\n---\n")
+          EOF
+          
+          export CHANGED_FILES="${{ steps.changed-files.outputs.all_changed_files }}"
+          python review.py > review_output.md
+          
+      - name: Post review comment
+        if: steps.changed-files.outputs.any_changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const review = fs.readFileSync('review_output.md', 'utf8');
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: review
+            });
+            
+      - name: Check for critical issues
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          if grep -q "critical" review_output.md; then
+            echo "::warning::Critical issues found in code review"
+          fi
