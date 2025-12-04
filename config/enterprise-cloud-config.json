@@ -1,0 +1,183 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-11-30",
+  "description": "Enterprise cloud configuration for Avalon project",
+  "cloud_platforms": {
+    "github_pages": {
+      "enabled": true,
+      "deployment_type": "automatic",
+      "deployment_branch": "main",
+      "custom_domain": {
+        "enabled": false,
+        "domain": "",
+        "enforce_https": true
+      },
+      "deployment_triggers": [
+        "push_to_main",
+        "manual_dispatch"
+      ],
+      "deployment_paths": [
+        "game/**"
+      ],
+      "cdn": {
+        "enabled": true,
+        "provider": "github",
+        "cache_control": "public, max-age=3600"
+      },
+      "monitoring": {
+        "enabled": true,
+        "track_deployments": true,
+        "deployment_notifications": false
+      }
+    },
+    "artifact_storage": {
+      "enabled": true,
+      "provider": "github_artifacts",
+      "retention_days": {
+        "enterprise_reports": 90,
+        "build_artifacts": 30,
+        "test_results": 30,
+        "health_reports": 90
+      },
+      "compression": {
+        "enabled": true,
+        "format": "zip"
+      },
+      "auto_cleanup": {
+        "enabled": true,
+        "cleanup_threshold_days": 90
+      }
+    },
+    "cloud_backup": {
+      "enabled": true,
+      "provider": "github_releases",
+      "backup_frequency": "weekly",
+      "backup_items": [
+        "lore/**",
+        "writing_drafts/**",
+        "game/**",
+        "choicescript_game/**",
+        "config/**"
+      ],
+      "retention_policy": {
+        "keep_all_for_days": 30,
+        "keep_weekly_for_months": 6,
+        "keep_monthly_for_years": 2
+      },
+      "encryption": {
+        "enabled": false,
+        "type": "none"
+      }
+    }
+  },
+  "enterprise_features": {
+    "cloud_monitoring": {
+      "enabled": true,
+      "monitoring_frequency": "every_4_hours",
+      "components": [
+        "deployment_status",
+        "artifact_storage_usage",
+        "backup_integrity",
+        "cdn_performance"
+      ],
+      "alerts": {
+        "deployment_failure": true,
+        "storage_quota_warning": true,
+        "backup_failure": true
+      }
+    },
+    "cloud_analytics": {
+      "enabled": false,
+      "provider": "none",
+      "track_page_views": false,
+      "track_user_interactions": false,
+      "privacy_compliant": true
+    },
+    "cloud_cdn": {
+      "enabled": true,
+      "provider": "github_pages",
+      "geographic_distribution": "global",
+      "cache_strategy": "aggressive",
+      "compression": {
+        "html": true,
+        "css": true,
+        "javascript": true,
+        "images": false
+      }
+    },
+    "disaster_recovery": {
+      "enabled": true,
+      "backup_locations": [
+        "github_releases",
+        "github_artifacts"
+      ],
+      "recovery_time_objective_hours": 24,
+      "recovery_point_objective_hours": 24,
+      "automated_restore": false,
+      "test_recovery_frequency": "quarterly"
+    }
+  },
+  "security": {
+    "https_only": true,
+    "cors_policy": "same-origin",
+    "content_security_policy": {
+      "enabled": false,
+      "directives": []
+    },
+    "access_control": {
+      "public_access": true,
+      "require_authentication": false,
+      "ip_whitelist": {
+        "enabled": false,
+        "addresses": []
+      }
+    },
+    "ddos_protection": {
+      "enabled": true,
+      "provider": "github",
+      "rate_limiting": true
+    }
+  },
+  "performance": {
+    "caching": {
+      "enabled": true,
+      "browser_cache_hours": 1,
+      "cdn_cache_hours": 24
+    },
+    "compression": {
+      "enabled": true,
+      "formats": ["gzip", "br"]
+    },
+    "optimization": {
+      "minify_html": false,
+      "minify_css": false,
+      "minify_javascript": false,
+      "image_optimization": false
+    }
+  },
+  "compliance": {
+    "gdpr": {
+      "enabled": false,
+      "cookie_consent": false,
+      "data_processing": "none"
+    },
+    "accessibility": {
+      "wcag_level": "AA",
+      "ensure_compliance": true
+    },
+    "privacy": {
+      "no_tracking": true,
+      "no_cookies": true,
+      "no_analytics": true
+    }
+  },
+  "metadata": {
+    "project_name": "Polly's Wingscroll: The First Thread",
+    "project_type": "interactive_narrative_game",
+    "deployment_stage": "production",
+    "cloud_provider": "github",
+    "region": "global",
+    "cost_tier": "free",
+    "support_tier": "community"
+  }
+}
