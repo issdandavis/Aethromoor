@@ -1,0 +1,4 @@
+- [2025-11-22T10:22:16Z] Scene ideas: Mentor-student debrief on the Singing Dunes aftermath; dorm customization montage transitioning into expedition prep; quiet library duel where collaborative magic rewrites a spell in real time.
+  - Next: Choose one scene to expand with 3-5 beats and identify which characters drive the emotional stakes.
+- [2025-11-22T22:11:15Z] Scene ideas: Rooftop stargazing after the library duel where a new constellation unlocks a ward; campus festival side quest with improvised magic games; training sim glitch that fuses mentor and student memories mid-combat.
+  - Next: Pick one idea and outline 4-6 emotional beats plus props/locations so it can drop into the script without rework.

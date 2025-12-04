@@ -1,0 +1,4 @@
+- [2025-11-22T10:22:16Z] Build/run tips: Fastest check is opening `game/index.html` in a browser for the static playthrough. For ChoiceScript server, from repo root run `cd choicescript_game && npm install && node server.js` then open `http://localhost:3000`.
+  - Next: Verify Node.js availability (`node --version`) and confirm the server boots; record any dependency errors with exact messages.
+- [2025-11-22T22:11:15Z] Build/run tips: Documented quick smoke test via `node --version` to confirm runtime before launching ChoiceScript server; remind to clear old `node_modules` if startup stalls on missing packages.
+  - Next: Spin up `cd choicescript_game && node server.js` and capture first 20 lines of console output (success or error) for the log.
