@@ -19,6 +19,9 @@ Who do you seek out?
     *if (clay_is_familiar)
         #Your clay familiar – an extension of your own heart.
             *goto bond_clay
+    *if (spark_is_familiar)
+        #Your flame familiar – a dancing spirit of warmth and energy.
+            *goto bond_spark
 
 *label bond_izack
 You track down Izack in one of the side towers, where he is attempting to coax a staircase into staying in one place.  
@@ -193,4 +196,33 @@ Its eyes glow gently as it awaits your attention.
 *label clay_chat
 Clay presses into your hand, its warmth and solidity a comfort. You realize that while it is an extension of you, it is also its own consciousness in the making.  
 Polly lands nearby. "Fascinating thing, creation through need," she muses. "It always leaves me feeling... hopeful."  
+*finish
+
+*label bond_spark
+*comment Bond with the spark/flame familiar if chosen.  
+You find a quiet spot in one of the Academy's fireplaces (magically safe, of course). ${familiar_name} dances excitedly among the embers, flickering in greeting as you approach.  
+The flame pulses with warmth, its light casting playful shadows on the walls.
+
+*choice
+    #Share your worries and let the flame's warmth comfort you.
+        *set spark_bond +4
+        *set empathy +2
+        ${familiar_name} flares gently, wrapping you in soothing heat. You feel your anxieties burn away like morning mist, replaced by calm determination.  
+        The flame crackles softly, a sound like gentle laughter.  
+        *goto spark_chat
+    #Practice shaping the flame into different forms together.
+        *set spark_bond +3
+        *set creativity +3
+        Together, you guide ${familiar_name} into spirals, stars, and dancing figures. The flame seems delighted, shifting faster and more intricately with each success.  
+        *goto spark_chat
+    #Ask the flame about its nature—what it means to be living fire.
+        *set spark_bond +2
+        ${familiar_name} dims for a moment, then flares in a pattern that seems almost like words. You sense images: endless change, eternal warmth, the joy of movement and light.  
+        You understand that your familiar is not just fire, but the essence of transformation itself.  
+        *set has_understood_spark_nature true
+        *goto spark_chat
+
+*label spark_chat
+${familiar_name} settles into a steady, warm glow beside you. You feel a deep connection—this flame is both independent and intrinsically linked to your own inner fire.  
+Polly observes from a safe distance. "Fire's always been honest," she remarks. "It shows you exactly what it is—no pretense, just pure energy. Quite refreshing, really."  
 *finish

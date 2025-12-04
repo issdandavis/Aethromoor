@@ -15,11 +15,12 @@ You won't bind them. You will invite them, and if they accept, you will grow tog
 Polly lands on the pedestal, fluffing her feathers.  
 "They all have opinions," she adds. "If you pick me, you get unparalleled guidance and wit. If you don't, well... I'll still be around. Probably."
 
-The pedestal flares as four forms coalesce:  
+The pedestal flares as five forms coalesce:  
 — A raven formed of midnight ink and starlight, watching you with knowing eyes.  
 — A small clay figure kneading itself into different shapes, its surface etched with Runethic spirals.  
 — A miniature dragonling of shimmering scales and smoke, its wings beating in time with your heartbeat.  
 — A spriteswarm of glowing runes, each symbol flickering like a Cassisivadan rhyme.  
+— A dancing flame with bright eyes, crackling with warmth and boundless energy.
 
 *page_break Choose Your Familiar
 
@@ -138,6 +139,40 @@ The pedestal flares as four forms coalesce:
                 You hear dozens of faint voices: "We are many; call us *Kaleido*."  
                 *set familiar_name "Kaleido"
                 *goto familiar_affinity
+    #Welcome the dancing flame.
+        *if (familiar_type = "spark")
+            *disable_reuse
+        *set familiar_type "spark"
+        *set has_familiar true
+        *set spark_is_familiar true
+        *set polly_is_familiar false
+        *set clay_is_familiar false
+        *set dragon_is_familiar false
+        *set sprite_is_familiar false
+        The flame dances closer, radiating warmth without burning.  
+        You extend your hand and feel the heat pulsing in time with your own heartbeat.  
+        The flame flickers excitedly, leaving trails of golden light in the air.  
+        *choice
+            #Call the flame "Spark"
+                *set familiar_name "Spark"
+                *set power +5
+                *set creativity +3
+                The flame flares brightly, spinning in joyful circles around you.  
+                "Spark!" it seems to crackle, the name resonating with its very essence.  
+                *goto familiar_affinity
+            #Call the flame "Ember"
+                *set familiar_name "Ember"
+                *set empathy +3
+                *set collaboration +3
+                The flame settles into a steady glow, warm and comforting.  
+                It nestles against your shoulder, radiating gentle heat.  
+                *goto familiar_affinity
+            #Let the flame name itself.
+                The flame flickers, and you hear a warm whisper: "Ignis."
+                *set familiar_name "Ignis"
+                *set power +3
+                *set knowledge +3
+                *goto familiar_affinity
 
 *label familiar_affinity
 *comment Adjust guild affinities based on familiar choice
@@ -156,6 +191,10 @@ The pedestal flares as four forms coalesce:
 *elseif (familiar_type = "sprite")
     *set guild_timeweaver +2
     *set guild_diplomancer +2
+*elseif (familiar_type = "spark")
+    *set guild_elementalist +3
+    *set guild_forgebound +2
+    *set spark_bond +3
 
 "Your bond is sealed," Izack proclaims. "Remember: they are not tools, but partners."
 
