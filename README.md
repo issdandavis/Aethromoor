@@ -270,6 +270,17 @@ Avalon/
 
 ---
 
+## 🤖 Working with GitHub Copilot
+
+This project is designed to work well with GitHub Copilot and AI assistants:
+- Comprehensive instruction files in `.github/`
+- See `.github/COPILOT_INSTRUCTIONS.md` for AI development guidelines
+- Custom agent configuration in `.github/agents/`
+
+**Having trouble with Copilot Spark?** Check our [troubleshooting guide](docs/GITHUB_COPILOT_SPARK_TROUBLESHOOTING.md)
+
+---
+
 ## 🎊 Credits
 
 ### Game Design & Writing
