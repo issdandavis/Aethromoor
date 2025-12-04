@@ -48,6 +48,7 @@ This repository features AI-powered automation for inter-account communications 
 **Documentation:**
 - **[ACCOUNTS_README.md](ACCOUNTS_README.md)** - Complete account automation setup guide
 - **[docs/AUTOMATION_GUIDE.md](docs/AUTOMATION_GUIDE.md)** - Integration workflows
+- **[docs/GITHUB_CLI_INSTALLATION.md](docs/GITHUB_CLI_INSTALLATION.md)** - GitHub CLI installation guide for Linux/BSD
 - **Configuration:** `config/automation-settings.json`, `config/enterprise-settings.json`
 
 ## Security
