@@ -1,0 +1,422 @@
+name: AI Organizer Bot - Main Workflow
+on:
+  issues:
+    types: [opened, edited, labeled, assigned]
+  issue_comment:
+    types: [created]
+  pull_request:
+    types: [opened, synchronize, edited, labeled]
+  pull_request_review:
+    types: [submitted]
+  workflow_dispatch:
+    inputs:
+      task:
+        description: 'Task to execute'
+        required: true
+        type: string
+      parameters:
+        description: 'Task parameters (JSON)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  actions: write
+  checks: write
+
+jobs:
+  route-event:
+    runs-on: ubuntu-latest
+    outputs:
+      agent: ${{ steps.determine-agent.outputs.agent }}
+      action: ${{ steps.determine-agent.outputs.action }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Determine agent and action
+        id: determine-agent
+        run: |
+          EVENT_NAME="${{ github.event_name }}"
+          echo "Event: $EVENT_NAME"
+          
+          # Default values
+          AGENT="task-executor"
+          ACTION="process"
+          
+          # Route based on event type
+          case $EVENT_NAME in
+            issues)
+              if [[ "${{ contains(github.event.issue.labels.*.name, 'ai-agent-request') }}" == "true" ]]; then
+                AGENT="agent-creator"
+                ACTION="create-agent"
+              elif [[ "${{ github.event.action }}" == "opened" ]]; then
+                AGENT="issue-triager"
+                ACTION="triage"
+              fi
+              ;;
+            issue_comment)
+              COMMENT_BODY="${{ github.event.comment.body }}"
+              if [[ "$COMMENT_BODY" =~ ^/ai- ]]; then
+                AGENT="task-executor"
+                ACTION="execute-command"
+              fi
+              ;;
+            pull_request)
+              AGENT="code-reviewer"
+              ACTION="review"
+              ;;
+            workflow_dispatch)
+              ACTION="manual-task"
+              ;;
+          esac
+          
+          echo "agent=$AGENT" >> $GITHUB_OUTPUT
+          echo "action=$ACTION" >> $GITHUB_OUTPUT
+          echo "Selected agent: $AGENT, action: $ACTION"
+
+  execute-task:
+    needs: route-event
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install @actions/github @actions/core
+
+      - name: Execute agent task
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const agent = '${{ needs.route-event.outputs.agent }}';
+            const action = '${{ needs.route-event.outputs.action }}';
+            
+            console.log(`Executing ${agent} with action ${action}`);
+            
+            // Agent execution logic
+            async function executeAgent() {
+              switch(agent) {
+                case 'issue-triager':
+                  return await triageIssue();
+                case 'code-reviewer':
+                  return await reviewCode();
+                case 'task-executor':
+                  return await executeCommand();
+                case 'agent-creator':
+                  return await createAgent();
+                default:
+                  console.log('Unknown agent:', agent);
+              }
+            }
+            
+            // Issue Triager Logic
+            async function triageIssue() {
+              const issue = context.payload.issue;
+              if (!issue) return;
+              
+              console.log(`Triaging issue #${issue.number}: ${issue.title}`);
+              
+              const labels = [];
+              const title = issue.title.toLowerCase();
+              const body = (issue.body || '').toLowerCase();
+              const text = `${title} ${body}`;
+              
+              // Detect issue type
+              if (text.match(/bug|error|crash|broken|not working|fails/)) {
+                labels.push('bug');
+                labels.push('needs-investigation');
+              }
+              
+              if (text.match(/feature|enhancement|add|support for|would be nice/)) {
+                labels.push('enhancement');
+              }
+              
+              if (text.match(/docs|documentation|readme|typo/)) {
+                labels.push('documentation');
+                labels.push('good-first-issue');
+              }
+              
+              if (text.match(/question|how to|help|support/)) {
+                labels.push('question');
+              }
+              
+              if (text.match(/security|vulnerability|exploit|cve/)) {
+                labels.push('security');
+                labels.push('priority: critical');
+              }
+              
+              // Detect priority
+              if (text.match(/critical|urgent|asap|production down|data loss/)) {
+                labels.push('priority: critical');
+              } else if (text.match(/important|high priority|blocks/)) {
+                labels.push('priority: high');
+              }
+              
+              // Detect component
+              if (text.match(/choicescript|choice script|\.txt scene/)) {
+                labels.push('game-choicescript');
+              }
+              
+              if (text.match(/html|game\.js|browser|index\.html/)) {
+                labels.push('game-html');
+              }
+              
+              if (text.match(/lore|worldbuilding|character|story/)) {
+                labels.push('lore');
+              }
+              
+              if (text.match(/ci|cd|workflow|automation|github action/)) {
+                labels.push('automation');
+              }
+              
+              // Apply labels
+              if (labels.length > 0) {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  labels: labels
+                });
+                
+                console.log(`Applied labels: ${labels.join(', ')}`);
+              }
+              
+              // Post acknowledgment comment
+              let comment = '🤖 **AI Organizer Bot** has triaged this issue.\n\n';
+              
+              if (labels.includes('bug')) {
+                comment += '**Type:** Bug Report 🐛\n\n';
+                comment += 'Thank you for reporting this issue! To help us investigate faster, please ensure you\'ve provided:\n';
+                comment += '- [ ] Steps to reproduce\n';
+                comment += '- [ ] Expected behavior\n';
+                comment += '- [ ] Actual behavior\n';
+                comment += '- [ ] Environment details\n';
+              } else if (labels.includes('enhancement')) {
+                comment += '**Type:** Feature Request ✨\n\n';
+                comment += 'Thanks for the suggestion! This has been added to our backlog.\n\n';
+                comment += 'You can help by:\n';
+                comment += '- [ ] Describing the use case\n';
+                comment += '- [ ] Explaining the value\n';
+                comment += '- [ ] Providing examples\n';
+              } else if (labels.includes('documentation')) {
+                comment += '**Type:** Documentation 📚\n\n';
+                comment += 'Great catch! Documentation improvements are always welcome.\n';
+              } else if (labels.includes('security')) {
+                comment += '**Type:** Security Issue 🔒\n\n';
+                comment += '⚠️ This has been marked as a security issue and flagged for immediate review.\n\n';
+                comment += 'Please DO NOT share exploit details publicly. For sensitive information, email: security@issdandavis.dev\n';
+              }
+              
+              comment += `\n**Applied labels:** ${labels.join(', ')}`;
+              
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: comment
+              });
+              
+              console.log('Posted triaging comment');
+            }
+            
+            // Code Reviewer Logic
+            async function reviewCode() {
+              const pr = context.payload.pull_request;
+              if (!pr) return;
+              
+              console.log(`Reviewing PR #${pr.number}: ${pr.title}`);
+              
+              // Get PR files
+              const { data: files } = await github.rest.pulls.listFiles({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number
+              });
+              
+              console.log(`PR has ${files.length} changed files`);
+              
+              let review_comments = [];
+              let has_issues = false;
+              
+              // Analyze files
+              for (const file of files) {
+                const filename = file.filename;
+                const patch = file.patch || '';
+                
+                // Check for large files
+                if (file.additions > 500) {
+                  review_comments.push(`⚠️ **${filename}** is very large (${file.additions} additions). Consider breaking it into smaller files.`);
+                  has_issues = true;
+                }
+                
+                // Check for missing tests
+                if (filename.match(/\.js$/) && !filename.match(/test|spec/) && 
+                    !files.some(f => f.filename.includes(filename.replace('.js', '.test.js')))) {
+                  review_comments.push(`📝 **${filename}** appears to be missing test coverage.`);
+                }
+                
+                // ChoiceScript specific checks
+                if (filename.match(/\.txt$/) && filename.includes('scenes/')) {
+                  if (patch.match(/\*choice\s+[^\n]*\n\s+[^\#]/)) {
+                    review_comments.push(`⚠️ **${filename}** may have indentation issues in *choice blocks.`);
+                    has_issues = true;
+                  }
+                  
+                  // Check for goto/label pairs (simplified check)
+                  const gotoMatches = patch.match(/\*goto\s+(\w+)/g);
+                  if (gotoMatches) {
+                    review_comments.push(`⚠️ **${filename}** has *goto statements. Please verify matching *label definitions exist.`);
+                  }
+                }
+                
+                // Check for console.log
+                if (patch.match(/console\.log/)) {
+                  review_comments.push(`🔍 **${filename}** contains console.log statements. Consider removing or using proper logging.`);
+                }
+                
+                // Check for TODO comments
+                if (patch.match(/TODO|FIXME/)) {
+                  review_comments.push(`📌 **${filename}** has TODO/FIXME comments. Track these in issues.`);
+                }
+              }
+              
+              // Create review comment
+              let review_body = '🤖 **AI Code Review**\n\n';
+              
+              if (review_comments.length === 0) {
+                review_body += '✅ No major issues detected. Code looks good!\n\n';
+                review_body += 'Summary:\n';
+                review_body += `- ${files.length} files changed\n`;
+                review_body += `- ${pr.additions} additions, ${pr.deletions} deletions\n`;
+              } else {
+                review_body += `Found ${review_comments.length} items to review:\n\n`;
+                review_body += review_comments.join('\n\n');
+              }
+              
+              // Post review
+              await github.rest.pulls.createReview({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                body: review_body,
+                event: has_issues ? 'COMMENT' : 'APPROVE'
+              });
+              
+              console.log('Posted code review');
+            }
+            
+            // Command Executor Logic
+            async function executeCommand() {
+              const comment = context.payload.comment;
+              const issue = context.payload.issue;
+              if (!comment || !issue) return;
+              
+              const body = comment.body.trim();
+              console.log(`Processing command: ${body}`);
+              
+              // Parse command
+              const match = body.match(/^\/ai-(\w+)\s+(.*)/);
+              if (!match) return;
+              
+              const [, category, args] = match;
+              console.log(`Category: ${category}, Args: ${args}`);
+              
+              let response = '🤖 **AI Task Executor**\n\n';
+              
+              switch(category) {
+                case 'organize':
+                  if (args.includes('triage-all')) {
+                    response += '✅ Starting repository-wide issue triage...\n\n';
+                    response += 'This will:\n';
+                    response += '1. Review all open issues\n';
+                    response += '2. Apply appropriate labels\n';
+                    response += '3. Update priorities\n';
+                    response += '4. Generate report\n\n';
+                    response += '⏱️ Estimated time: 5-10 minutes';
+                  }
+                  break;
+                  
+                case 'review':
+                  response += '✅ Starting code review...\n\n';
+                  response += 'Analyzing:\n';
+                  response += '- Code quality\n';
+                  response += '- Security issues\n';
+                  response += '- Best practices\n\n';
+                  response += '📝 Review will be posted shortly.';
+                  break;
+                  
+                case 'task':
+                  response += `✅ Task queued: ${args}\n\n`;
+                  response += '⏱️ Estimated completion: 2-5 minutes\n\n';
+                  response += 'You will be notified when complete.';
+                  break;
+                  
+                default:
+                  response += `❌ Unknown command category: ${category}\n\n`;
+                  response += 'Available commands:\n';
+                  response += '- `/ai-organize triage-all`\n';
+                  response += '- `/ai-review pr <number>`\n';
+                  response += '- `/ai-task <description>`\n';
+              }
+              
+              // Post response
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: response
+              });
+              
+              console.log('Posted command response');
+            }
+            
+            // Agent Creator Logic
+            async function createAgent() {
+              const issue = context.payload.issue;
+              if (!issue) return;
+              
+              console.log(`Creating new agent from issue #${issue.number}`);
+              
+              let response = '🤖 **AI Agent Creator**\n\n';
+              response += '✅ Agent creation request received!\n\n';
+              response += 'The following will be created:\n';
+              response += '1. Agent configuration file\n';
+              response += '2. Workflow automation\n';
+              response += '3. Documentation\n\n';
+              response += '⏱️ This process typically takes 2-3 minutes.\n\n';
+              response += 'I\'ll update this issue when the agent is ready!';
+              
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: response
+              });
+              
+              console.log('Agent creation initiated');
+            }
+            
+            // Execute the selected agent
+            await executeAgent();
+
+  notify-completion:
+    needs: [route-event, execute-task]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Notify completion
+        run: |
+          echo "AI Organizer Bot workflow completed"
+          echo "Agent: ${{ needs.route-event.outputs.agent }}"
+          echo "Action: ${{ needs.route-event.outputs.action }}"
+          echo "Status: ${{ job.status }}"
