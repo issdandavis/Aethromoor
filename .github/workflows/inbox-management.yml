@@ -1,7 +1,8 @@
 name: AI Inbox Management System
 
 # Automated inbox management for GitHub notifications and email
-# Handles auto-replies, sorting, prioritization across all connected accounts
+# Handles categorization, sorting, prioritization across all connected accounts
+# Auto-replies are DISABLED to reduce notification spam
 
 on:
   issues:
@@ -41,25 +42,26 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
 
       - name: Categorize GitHub notification
         id: categorize
         uses: actions/github-script@v7
         with:
           script: |
-            const { context } = require('@actions/github');
-
             // Categorization logic
             let category = 'general';
             let priority = 'medium';
-            let shouldAutoReply = false;
+            let shouldAutoReply = false; // Disabled to reduce notifications
             let replyMessage = '';
 
             // Determine notification type and category
             if (context.eventName === 'issues') {
               category = 'issue';
               priority = 'high';
-              shouldAutoReply = true;
+              // shouldAutoReply = true; // DISABLED: Auto-replies disabled to reduce spam
 
               const issue = context.payload.issue;
               const labels = issue.labels.map(l => l.name);
@@ -98,7 +100,7 @@ jobs:
             else if (context.eventName === 'pull_request') {
               category = 'pull-request';
               priority = 'high';
-              shouldAutoReply = true;
+              // shouldAutoReply = true; // DISABLED: Auto-replies disabled to reduce spam
 
               replyMessage = "Thank you for your pull request! 🎉\n\n" +
                 "**Automated PR Processing:**\n" +
@@ -116,7 +118,7 @@ jobs:
             else if (context.eventName === 'discussion') {
               category = 'discussion';
               priority = 'low';
-              shouldAutoReply = true;
+              // shouldAutoReply = true; // DISABLED: Auto-replies disabled to reduce spam
 
               replyMessage = "Thanks for starting this discussion! 💬\n\n" +
                 "**Automated Discussion Handling:**\n" +
@@ -236,14 +238,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
 
       - name: Generate inbox summary
         id: summary
         uses: actions/github-script@v7
         with:
           script: |
-            const { context } = require('@actions/github');
-
             // Get all open issues and PRs
             const issues = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
@@ -353,6 +356,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
 
       - name: Process email notifications
         run: |
@@ -486,6 +492,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
 
       - name: Sync across Git accounts
         run: |
@@ -508,7 +517,7 @@ jobs:
           echo "  ✓ Unified inbox view"
           echo "  ✓ Cross-platform issue tracking"
           echo "  ✓ Automated status updates"
-          echo "  ✓ Consistent auto-replies"
+          echo "  ✓ Categorization and labeling"
           echo ""
           echo "To enable additional accounts, add credentials to GitHub Secrets"
 
@@ -523,7 +532,7 @@ jobs:
                 "repository": "Avalon",
                 "status": "active",
                 "inbox_managed": true,
-                "auto_reply_enabled": true,
+                "auto_reply_enabled": false,
                 "last_sync": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
               },
               "gitlab": {
