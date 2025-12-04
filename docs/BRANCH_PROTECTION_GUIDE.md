@@ -200,5 +200,5 @@ If you have questions about the review process:
 
 ---
 
-*Last updated: December 2025*
+*Last updated: 2025*
 *This document ensures quality and consistency across all contributions to the Aethromoor project.*

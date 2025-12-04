@@ -106,7 +106,9 @@ jobs:
             let labelToAdd = 'awaiting-review';
             let labelToRemove = 'approved-for-merge';
             
-            if (context.payload.action === 'submitted' && 
+            // Check if this is a review event with approval
+            if (context.eventName === 'pull_request_review' && 
+                context.payload.action === 'submitted' && 
                 context.payload.review?.state === 'APPROVED') {
               labelToAdd = 'approved-for-merge';
               labelToRemove = 'awaiting-review';
