@@ -58,6 +58,8 @@ Previous commits contained plaintext API keys. They have been removed from the t
 
 ![Version](https://img.shields.io/badge/version-1.0-blue) ![Word Count](https://img.shields.io/badge/words-40000%2B-green) ![Endings](https://img.shields.io/badge/endings-14-purple)
 
+> **📊 For enterprise stakeholders, DevOps teams, and organizational documentation, see [ENTERPRISE_README.md](ENTERPRISE_README.md)**
+
 ---
 
 ## 🎯 Quick Start - PLAY NOW!
