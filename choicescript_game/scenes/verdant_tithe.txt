@@ -1,183 +1,998 @@
-*comment verdant_tithe.txt
-*comment Scene representing the Verdant Tithe expedition. Contains multiple trials.
+*comment ================================================
+*comment VERDANT TITHE EXPEDITION - FULL EXPANSION
+*comment A sentient forest where thoughts have weight
+*comment Target: 15-20 scenes with meaningful branching
+*comment ================================================
+
+*temp forest_wisdom 0
+*temp sylas_trust 0
+*temp forest_blessing false
+*temp heartwood_bond false
+*temp dreamwillow_vision false
+*temp thoughtvine_connection false
 
 *label verdant_tithe
-*comment This scene is called when the player enters the Verdant Tithe.  
 
-The Verdant Tithe greets you like the breath of a living world. Towering trees arch overhead, their leaves shimmering with faint magical currents.  
-Vines coil and uncoil like curious serpents, and the ground itself pulses faintly, as if beneath its soil beats a giant heart.  
+The portal tears reality open with a sound like roots breaking through stone, and you step through into another world entirely.
 
-"Remember," Zara whispers, "we are guests here."  
-Izack nods. "And the Tithe has a sense of humor."  
-Polly caws. "Brace yourselves."
+*line_break
 
-*comment Initialize trial number and group cohesion
-*temp group_cohesion 100
-*rand trial_number 1 4
+Green. Everywhere, overwhelming green in shades you didn't know existed—emerald, jade, moss, olive, chartreuse. The forest canopy rises hundreds of feet overhead, ancient trees whose trunks are wider than houses, their bark inscribed with naturally-occurring runes that pulse with soft bioluminescence.
 
-*gosub_scene verdant_trial
+But it's the [i]presence[/i] that stops you mid-breath.
 
-*label verdant_complete
-*comment Conclude the expedition
+*line_break
 
-You emerge from the Verdant Tithe into a clearing where shafts of sunlight pierce the canopy.  
-Everyone breathes easier. You feel changed, not just by what you saw but by how you faced it.  
-Izack clasps your shoulder. "You did well," he says. "The Tithe doesn't yield easily, but you navigated it without losing yourself."  
-Aria smiles softly. "Rest. We'll debrief in the morning."  
-Polly lands on your head. "And maybe shower. You have moss in your hair."  
-*set verdant_tithe_survived true
-*finish
+The forest is alive. Not in the way all forests are alive, but [i]aware[/i]. You can feel it watching, assessing, remembering. The air tastes of petrichor and growing things, rich with the loamy scent of decomposition feeding new life. Somewhere in the distance, something that might be wind or might be breathing makes the canopy rustle like whispered conversations.
 
-*label verdant_trial
-*comment Determine which trial occurs based on trial_number
+[i]"Welcome to the Verdant Tithe, one of the oldest transplanted biomes Avalon ever claimed. This forest has been conscious longer than most civilizations have existed. It remembers the First Age. It remembers things that haven't happened yet. And yes, it's judging you right now."[/i]
 
-*if (trial_number = 1)
-    *set trial_type "labyrinth_of_roots"
-    *goto laby_roots
-*elseif (trial_number = 2)
-    *set trial_type "mirror_of_truth"
-    *goto mirror_truth
-*elseif (trial_number = 3)
-    *set trial_type "memory_moss"
-    *goto memory_moss
-*else
-    *set trial_type "guardian_negotiation"
-    *goto guardian_negotiation
+*page_break
 
-*comment Labyrinth of Roots
-*label laby_roots
-Massive roots twist and loop like serpents, forming a maze that shifts as you watch.  
-You step onto the first path and the roots close behind you.  
-Polly perches overhead, flying just above the ever-changing labyrinth.
+Your expedition guide steps forward from behind a tree that definitely wasn't there a moment ago. Sylas is less a person and more a piece of the forest that learned to walk upright—skin the color of bark, hair threaded with living vines, eyes the brilliant green of new leaves. They move with an unsettling grace, as if gravity is merely a suggestion.
+
+"Welcome, students of Avalon." Their voice sounds like wind through branches. "The Verdant Tithe tests all who enter. It seeks not your knowledge, but your [i]awareness[/i]—the truth of your thoughts, the weight of your mind, and whether you can coexist with something vaster than yourself."
+
+*line_break
+
+They gesture to the forest floor, where luminescent fungi bloom in spiraling patterns.
+
+"The forest will take its tithe—a memory, a thought, sometimes just the taste of your consciousness. What you receive in return depends entirely on what you're willing to give."
+
+[i]"Translation: the forest is going to root around in your brain like it's looking for loose change. Try to think calm thoughts. Panicking just makes it curious, and you do NOT want this place getting curious about your deepest fears. Trust me on that one."[/i]
 
 *choice
-    #Use your Scout instincts to look for patterns in the shifting roots.
-        *if (expedition_role = "scout")
-            *set perception +3
-            *set group_cohesion +5
-            You notice faint glimmers on the roots—Runethic glyphs indicating direction.  
-            You lead the group through twists and turns. After a few dizzying minutes, light filters through the canopy ahead.  
-            *goto laby_exit
-        *else
-            *set group_cohesion -10
-            The roots respond unpredictably to your directions. You find yourself doubling back more than once.  
-            *goto laby_exit
-    #Ask Zara to communicate with the roots.
-        *set zara_relationship +2
-        Zara places her hands on a root and murmurs Kor'aelin words: *sil'lan kor'ra* — "together-gentleness heart-flow."  
-        The roots rumble and shift, clearing a path.  
-        *set group_cohesion +10
-        *goto laby_exit
-    #Attempt to force your way through using brute magic.
-        *set individual_power +4
-        *set group_cohesion -15
-        You channel energy and burn through a tangled wall. The smell of scorched wood fills the air. The roots shudder in pain, and the path behind you collapses.  
-        "Easy!" Izack shouts. "It's alive!"  
-        *goto laby_exit
+    #"What happens if someone refuses to pay the tithe?"
+        Sylas's expression remains serene, but something darker flickers in those leaf-green eyes.
 
-*label laby_exit
-After much effort (and possibly some apologizing), you emerge from the labyrinth. The roots close behind you, leaving no trace of the path you took.  
-Polly flutters back to your shoulder. "At least you didn't end up as compost," she says.
-*return
+        "The forest doesn't force. It simply... waits." They point to a tree twenty paces away, its trunk wrapped in vines that pulse with an eerie rhythm. "That used to be a student. Refused to let the forest in, tried to wall off their mind completely."
 
-*comment Mirror of Truth
-*label mirror_truth
-An ancient pool lies ahead, its surface perfectly still. As you approach, it shimmers and rises into a vertical plane, reflecting not just your face but your desires, fears, and possible futures.  
-Aria warns, "The Mirror doesn't lie. But it doesn't always tell the truth you expect."
+        A pause. "The Tithe is patient. It waited until they slept."
 
-*choice
-    #Look into the mirror alone.
-        *set stress +3
-        *set philosophical_depth +3
-        The reflection shows you at the center of a vast Spiral, friends and lovers orbiting around you. In some loops, you are alone; in others, you are surrounded by laughter.  
-        You realize you crave connection as much as you fear losing yourself.  
-        *if (romantic_interest = "none" and (relationship_zara > 40 or relationship_izack > 40 or relationship_aria > 40))
-            The mirror flickers, offering a glimpse of you and one of them holding hands beneath the World Tree.  
-            A spark of hope flares in your chest.  
-        *goto mirror_exit
-    #Invite the team to join and see the reflection together.
-        *set collaboration +4
-        *set empathy +2
-        Everyone holds hands and looks into the mirror. It shows a tapestry of moments where you work together, fail together, and laugh together.  
-        The bonds between you strengthen; group_cohesion rises.  
-        *set group_cohesion +10
-        *goto mirror_exit
-    #Refuse to look; avert your gaze.
-        *set stress +1
-        *set individual_power +2
-        You sense the Mirror's surface ripple as you pass without looking.  
-        It feels like skipping an important page, but you keep your secrets to yourself.  
-        *goto mirror_exit
+        [i]"The tree-person is technically still alive and conscious, by the way. The forest keeps them aware. Forever. So yeah, maybe just pay the tithe and avoid the whole 'eternal wooden prison' situation."[/i]
 
-*label mirror_exit
-Polly shakes her feathers. "Self-reflection can be useful," she says, "if you actually pay attention to it."  
-You continue deeper into the forest.  
-*return
+        *set sylas_trust +5
+        *goto forest_preparation
 
-*comment Memory Moss trial
-*label memory_moss
-A carpet of vivid green moss stretches across your path. When you step on it, visions flood your mind: memories, real and imagined, of times you felt strong, weak, loved, and alone.  
-Your group's cohesion is tested by what is revealed.  
+    #"I'm ready. My thoughts are open."
+        Sylas's severe face cracks into something almost like a smile, though it doesn't quite reach their eyes.
+
+        "Brave. The forest appreciates honesty." A pause. "Though it will find your secrets regardless. At least you won't waste energy hiding."
+
+        [i]"Bold strategy. Let's see if being an open book in a mind-reading forest works out better than it sounds. Narrator: it probably won't."[/i]
+
+        *set forest_wisdom +5
+        *goto forest_preparation
+
+    #Study the bioluminescent patterns before committing to anything.
+        You kneel and examine the fungi more closely. The light pulses in complex rhythms—not random, but following patterns that feel almost like language. Like the forest is speaking in colors and timing.
+
+        The closer you look, the more you sense something looking back.
+
+        Sylas watches approvingly. "Wise. Understanding before action. The forest respects those who listen before they speak."
+
+        [i]"An actual thinking student? In this expedition? Revolutionary. Though watching you stare at glowing mushrooms is slightly less entertaining than watching someone panic-run into a Thoughtvine. Slightly."[/i]
+
+        *set forest_wisdom +3
+        *set sylas_trust +5
+        *goto forest_preparation
+
+*label forest_preparation
+
+The other students spread out among the ancient trees, each finding a quiet spot to center themselves. Some close their eyes in meditation. Others nervously watch the vines that seem to track their movements with unsettling awareness.
+
+Sylas approaches you specifically, tilting their head in that distinctly non-human way.
+
+*line_break
+
+"You carry something heavy in your thoughts," they say quietly. "The forest can already sense it—like a weight pressing down on the canopy. Better to release it willingly than have the Thoughtvines drag it out root by root."
+
+[i]"They're not exaggerating. The Thoughtvines are absolutely going to find whatever you're trying not to think about. It's like being told not to think about a purple elephant, except the elephant is your deepest insecurity and the forest is writing it down for future reference."[/i]
 
 *choice
-    #Share a painful memory with the group.
-        *set vulnerability +5
+    #"How do you know what I'm thinking?"
+        "I don't," Sylas says simply. "But the forest does. I've been part of this place long enough to recognize the signs. The way certain vines lean toward you. The pattern of the bioluminescence at your feet."
+
+        They gesture to the fungi near you—pulsing in agitated, questioning rhythms.
+
+        "You're already in conversation with the Tithe. You just don't know the language yet."
+
+        *set sylas_trust +5
+        *goto forest_first_trial
+
+    #"I'll face whatever the forest wants to show me."
+        Sylas's eyes reflect the forest's light, making them look even less human.
+
+        "Acceptance is the first step to understanding. The forest will appreciate your openness." A pause. "Though appreciation and gentleness are not the same thing."
+
+        [i]"Look at you, all brave and cooperative. The forest is definitely going to traumatize you, but at least you'll be traumatized efficiently."[/i]
+
+        *set forest_wisdom +5
+        *goto forest_first_trial
+
+    #"What if I don't want my thoughts exposed?"
+        Sylas's expression doesn't change, but something in the forest around you seems to lean closer, listening.
+
+        "The forest cares nothing for want. It simply [i]is[/i]. You can guard your thoughts, build walls, hide behind mental barriers." They point to the tree-wrapped student. "But walls tire you. The forest never tires."
+
+        "Better to choose what you share than have everything taken while you sleep."
+
+        [i]"Grim, but accurate. The forest has literally infinite patience and you need to sleep eventually. The math here does not favor you."[/i]
+
+        *set forest_wisdom +2
+        *goto forest_first_trial
+
+*label forest_first_trial
+
+Sylas leads your group deeper into the Verdant Tithe, following paths that seem to appear and disappear based on the forest's whims. The bioluminescent patterns grow more complex, creating rivers of light along the forest floor.
+
+*page_break
+
+You walk for what feels like hours but might be minutes—time moves strangely here, governed by the forest's slow heartbeat rather than the sun you can't see through the canopy.
+
+Finally, you reach a clearing where three paths diverge.
+
+*line_break
+
+The first path is lined with silver-barked trees whose leaves shimmer like mirrors. [b]Dreamwillow[/b], Sylas explains. "They show possible futures. The forest's gift of foresight to those willing to see what might be."
+
+The second path winds through a tunnel of vines that seem to breathe, their surfaces covered in patterns that shift like thoughts made visible. [b]Thoughtvines[/b]. "They read what you think and share it. The forest's test of honesty and vulnerability."
+
+The third path leads to a massive tree in the distance, its trunk glowing with an inner light that pulses like a heartbeat. [b]The Heartwood Tree[/b]. "The forest's oldest guardian. It offers bonds that last beyond a single lifetime—if you're worthy."
+
+*line_break
+
+[i]"So we've got: Door Number One: Traumatic Visions of Possible Failure, Door Number Two: Your Deepest Secrets Become Public Knowledge, or Door Number Three: A Tree Judges Your Entire Existence. Personally, I'd go with the visions. At least those are hypothetical trauma."[/i]
+
+*choice
+    #Take the Dreamwillow path—I need to see what futures might await.
+        *goto dreamwillow_journey
+        
+    #Follow the Thoughtvines—I'll prove I have nothing to hide.
+        *goto thoughtvine_journey
+        
+    #Approach the Heartwood Tree—I want to understand this ancient guardian.
+        *goto heartwood_journey
+
+*label dreamwillow_journey
+
+You choose the silver path, and the Dreamwillows seem to sigh with approval—or maybe anticipation. Their mirror-leaves catch the bioluminescence and reflect it back in patterns that make your eyes water if you look too long.
+
+Sylas nods. "The path of visions. Bold. Or foolish. Often both."
+
+*line_break
+
+As you walk beneath the Dreamwillow canopy, the air grows thick with something that tastes like honey and lightning. The trees' leaves begin to shimmer more intensely, and you realize they're showing images—fragments of possible futures, flickering past faster than thought.
+
+You see yourself triumphant. You see yourself broken. You see versions of yourself you don't recognize, making choices you can't imagine making. The visions come faster, overwhelming, a thousand possible lives lived in seconds.
+
+*page_break
+
+Then the visions stop.
+
+*line_break
+
+You're standing in front of a single Dreamwillow tree, ancient beyond measure, its trunk twisted into impossible shapes that hurt to perceive. Its leaves have gone still, showing one image clearly:
+
+*choice
+    #A vision of yourself mastering the forest's magic, crowned in living vines
+        The vision clarifies. You stand at the heart of the Verdant Tithe, not as a visitor but as a guardian. The forest has accepted you completely, made you part of itself. You can feel every root, every leaf, every living thing within its boundaries.
+
+        It's beautiful. It's terrifying. It's [i]permanent[/i].
+
+        *line_break
+
+        [i]"Okay, so that's the 'become a forest person' ending. Looks peaceful, honestly. No more worries about rent or taxes or whether you left the oven on. Just... eternal communion with sentient vegetation. Some people are into that."[/i]
+
+        The vision fades, but something lingers—a sense of possibility. An offer.
+
+        *set forest_wisdom +10
+        *set dreamwillow_vision true
+        *goto dreamwillow_choice
+
+    #A vision of yourself teaching others to respect the forest, a bridge between worlds
+        The vision expands. You're older, wiser, standing at the edge of the Verdant Tithe with students of your own. You're teaching them what Sylas taught you—how to listen, how to coexist, how to pay the tithe willingly.
+
+        In this future, you're not consumed by the forest. You're its ambassador. Its voice in the wider world.
+
+        *line_break
+
+        [i]"The 'teaching position' future. Respectable. Probably comes with decent benefits and only moderate psychological scarring. You'd make a good forest whisperer, honestly."[/i]
+
+        The vision fades, leaving warmth behind—like the forest approving of this path.
+
+        *set collaboration +5
+        *set forest_wisdom +15
+        *set dreamwillow_vision true
+        *goto dreamwillow_choice
+
+    #A vision of yourself leaving the forest forever, carrying its lessons but not its burden
+        The vision is quieter than the others. You see yourself walking away from the Verdant Tithe, back through the portal to Avalon. But you're changed—forever marked by what you learned here, carrying the forest's wisdom without becoming part of it.
+
+        It's a smaller future, maybe. But it's entirely yours.
+
+        *line_break
+
+        [i]"The 'take what you learned and go' option. Honestly? Probably the healthiest choice. The forest is great for visits, less great for permanent residence. Like in-laws that way."[/i]
+
+        The vision fades, but you feel something like... permission? The forest isn't offended. It understands.
+
+        *set forest_wisdom +8
         *set collaboration +3
-        You describe a moment when you failed someone important to you. The moss glows gently, absorbing your sadness.  
-        Others share their own stories. You all feel lighter afterward.  
-        *set group_cohesion +10
-        *goto moss_exit
-    #Stay silent and focus on your own memories.
-        *set stress +5
-        *set power +1
-        The moss shows you a memory of your beach arrival—the moment Clay formed from need. You re-experience the weight of responsibility.  
-        You carry the lesson forward but don't share it.  
-        *set group_cohesion -5
-        *goto moss_exit
-    #Tell a joke to break the tension.
-        *set joy +3
-        *set polly_relationship +3
-        You quip something about the moss being a better listener than most professors.  
-        Laughter ripples through the group. The moss seems to vibrate happily.  
-        *set group_cohesion +5
-        *goto moss_exit
+        *set dreamwillow_vision true
+        *goto dreamwillow_choice
 
-*label moss_exit
-Polly hops along the moss. "Better a field of memories than a field of nettles," she quips.  
-You move on, new stories woven into your shared history.  
-*return
+*label dreamwillow_choice
 
-*comment Guardian negotiation trial
-*label guardian_negotiation
-An ancient, vine-covered stone figure blocks your path. Its eyes glow with Runethic runes.  
-When it speaks, its voice is the groan of tectonic plates: "State your purpose, Spiral-walkers."
+The ancient Dreamwillow's leaves rustle, and you realize it's waiting. Not for words—the forest doesn't need words. It's waiting for [i]intent[/i]. For you to choose which future you want to walk toward.
 
 *choice
-    #Address it in Kor'aelin, inviting collaboration.
-        *set collaboration +4
-        *set knowledge +2
-        You step forward and say, *sil'nav vel'ra med'gal* — "diversity invitation learning-strength."  
-        The guardian tilts its head, then steps aside.  
-        *set group_cohesion +10
-        "You have respect for language and life," it rumbles. "Proceed."
-        *goto guardian_exit
-    #Speak Runethic, asserting your authority.
-        *set power +4
-        *set individual_power +2
-        You intone, *Vel'ar nos med'ar thular syn'ar nuu*, the ancient invocation.  
-        The guardian considers your words, then nods slowly. "Old tongue spoken by young voice," it says. "Be cautious with old power."  
-        It moves aside.  
-        *goto guardian_exit
-    #Let Zara negotiate in Diplomatic Avali.
-        *set zara_relationship +3
-        *set diplomacy +3
-        Zara steps forward, speaking Avali phrases of respect and intent.  
-        The guardian's stone brows raise in surprise; clearly it does not often hear the common tongue used with such nuance.  
-        "Interesting," it says. "Pass, and remember this language shapes hearts."  
-        *set group_cohesion +5
-        *goto guardian_exit
+    #Accept the vision of forest guardianship—I'm willing to bond with this place
+        You reach out and touch the tree's silver bark. The moment your skin makes contact, the world [i]blooms[/i].
 
-*label guardian_exit
-Polly flutters onto the guardian's shoulder as you pass. "He'll tell everyone you sang to him," she whispers. "Ancient statues gossip more than you think."  
-You continue on, grateful for your varied linguistic repertoire.  
-*return
+        Every tree in the forest lights up. You can feel them, thousands of consciousnesses touching yours, curious and ancient and welcoming. The Dreamwillow is offering more than a vision—it's offering [i]belonging[/i].
+
+        *page_break
+
+        But then you feel Polly's claws digging into your shoulder—sharp enough to draw blood, sharp enough to ground you in your own body.
+
+        [i]"Easy there. You're about to say yes to something you can't undo. I'm not saying don't do it, I'm just saying... be sure."[/i]
+
+        *choice
+            #"I'm sure. I want this bond."
+                You push past Polly's warning and open yourself completely to the forest. The Dreamwillow's consciousness floods in—not invasive, but vast. So impossibly vast.
+
+                You understand now. This is what the forest has been offering all along. Not servitude. [i]Partnership[/i].
+
+                *line_break
+
+                When you open your eyes, you can see in ways you couldn't before. The bioluminescent patterns aren't random—they're language. The rustling leaves aren't wind—they're conversations. The forest has been speaking all along. You just couldn't hear it.
+
+                Until now.
+
+                *set forest_blessing true
+                *set forest_wisdom +25
+                *set heartwood_bond true
+                *achievement forest_guardian "Forest Guardian" "Bonded with the Verdant Tithe's consciousness"
+                
+                Sylas is staring at you with something like awe.
+
+                "You accepted the deep bond," they whisper. "The forest hasn't chosen someone in... I can't remember how long."
+
+                *goto forest_blessed_journey
+
+            #"No. I can't. Not yet."
+                You pull back from the tree's offer, gentle but firm. The forest's presence recedes—not angry, just... patient. Like it knew you'd refuse. Like it has all the time in the world to ask again.
+
+                [i]"Good call. Probably. Maybe. Look, I'm not saying it was definitely the wrong choice, but if you end up regretting this in twenty years, don't say I didn't give you the option."[/i]
+
+                *set forest_wisdom +10
+                *goto thoughtvine_encounter
+
+    #Acknowledge the vision but don't commit—I need to see more first
+        You bow to the ancient Dreamwillow, showing respect without acceptance. The tree's leaves shimmer once—acknowledgment?—and then go still.
+
+        The path forward opens, leading deeper into the forest.
+
+        Sylas appears at your elbow. "Wise to wait. The forest appreciates certainty more than haste."
+
+        *set forest_wisdom +8
+        *set sylas_trust +5
+        *goto thoughtvine_encounter
+
+*label thoughtvine_journey
+
+You choose the vine-tunnel path, and immediately regret it as the Thoughtvines begin to [i]move[/i]. Not attacking—just shifting, repositioning, making the tunnel tighter. More intimate.
+
+Sylas follows without hesitation. "The path of honesty. The forest will know everything. Every fear, every hope, every small cruelty you've tried to forget."
+
+*line_break
+
+[i]"We're walking into a tunnel of mind-reading plants that share what they learn with the whole forest. This is fine. Everything is fine. I'm definitely not broadcasting my deep anxiety about this to every vine in hearing range."[/i]
+
+*page_break
+
+You enter the tunnel.
+
+*line_break
+
+The Thoughtvines brush against your skin—gentle, questioning. Each touch sends a small shock of connection, and you feel the forest rifling through your surface thoughts like pages in a book.
+
+*temp secret_revealed false
+
+Your most recent worry. Your last argument with someone you care about. That embarrassing thing you said three weeks ago that you replay at 2 AM sometimes.
+
+The vines are sharing it all, spreading your thoughts through the forest's network like gossip at a market.
+
+*line_break
+
+Then they go deeper.
+
+*choice
+    #Let them in—I have nothing to hide that matters
+        You stop walking and deliberately lower every mental wall you have. If the forest wants to know you, then [i]let it know you[/i]. The good, the bad, the petty, the kind. All of it.
+
+        The Thoughtvines pause, then surge forward—not violent, but eager. Curious.
+
+        *page_break
+
+        They find your deepest fear. The one you don't admit even to yourself.
+
+        *comment Relationship variables (relationship_izack, relationship_aria, relationship_zara)
+        *comment are defined in startup.txt and modified throughout earlier scenes
+        *if (relationship_izack >= 30)
+            The fear that you're not good enough for the people who believe in you. That Izack's faith in your potential is misplaced. That you'll disappoint everyone who invested hope in your success.
+        *elseif (relationship_aria >= 30)
+            The fear that you're too chaotic, too messy, too [i]much[/i] for someone as controlled as Aria to ever truly accept. That her patience with you is temporary.
+        *elseif (relationship_zara >= 30)
+            The fear that your power makes you dangerous. That Zara's warmth toward you is partially fear, dressed up as friendship. That you're one bad day away from proving everyone's worst assumptions right.
+        *else
+            The fear that you don't belong here at all. That Avalon made a mistake, and one day everyone will realize you were never supposed to be special.
+
+        *line_break
+
+        The vines pause. Then, gently, they show you something back.
+
+        *page_break
+
+        Everyone who's ever walked this path has carried the same fear. Different specifics, same core: [i]What if I'm not enough?[/i]
+
+        The forest is showing you that you're not alone in your doubt. That everyone—even legendary mages, even ancient forest guardians—has questioned their worth.
+
+        [i]"...Okay, that was actually kind of beautiful. The mind-reading vines just did group therapy on you. I think they helped?"[/i]
+
+        *set forest_wisdom +15
+        *set collaboration +5
+        *set thoughtvine_connection true
+        *set secret_revealed true
+        *goto thoughtvine_gift
+
+    #Try to hide your deepest secrets—some things should stay buried
+        You throw up mental walls, hiding behind every defense mechanism you've ever developed. The Thoughtvines press against your barriers, curious, insistent, but not forceful.
+
+        They can't take what you won't give.
+
+        *line_break
+
+        But holding them back takes effort. Constant, exhausting effort. And the vines are [i]patient[/i].
+
+        *page_break
+
+        You make it halfway through the tunnel before your concentration slips. Just for a second.
+
+        The Thoughtvines surge through the gap and find it—the secret you were hiding. The shame you carry. The guilt that gnaws at you when you're alone.
+
+        *choice
+            #Let it go—they found it anyway, might as well accept it
+                You stop fighting and let the walls crumble. The secret spills out, raw and painful, and the Thoughtvines spread it through their network.
+
+                For a horrible moment, you feel utterly exposed. Naked before an ancient intelligence that now knows the worst thing about you.
+
+                *page_break
+
+                Then you realize... the forest doesn't care.
+
+                Not in the way humans care. It's not judging. It's just [i]knowing[/i]. Your secret is one more piece of information in a consciousness that's been collecting thoughts for millennia.
+
+                It's liberating and horrifying in equal measure.
+
+                *set forest_wisdom +12
+                *set thoughtvine_connection true
+                *set secret_revealed true
+                *goto thoughtvine_gift
+
+            #Force the walls back up—I won't surrender this
+                You pour everything you have into reinforcing your mental barriers. The Thoughtvines press harder, and for a terrible moment it feels like something might break—you or them.
+
+                *page_break
+
+                Then they withdraw.
+
+                The tunnel opens ahead, and the vines retreat, leaving you gasping and alone. You won, if you can call it winning.
+
+                Sylas is waiting at the exit, their expression unreadable.
+
+                "The forest allowed you to keep your secret," they say quietly. "But know this: it will remember you refused. And the tithe... is not yet paid."
+
+                [i]"Well. That was tense. You kept your secret, but I'm pretty sure the forest just put you on a list. Probably not the good kind of list."[/i]
+
+                *set forest_wisdom +5
+                *goto heartwood_approach
+
+    #Share something else—a truth, but not THE truth
+        You deliberately surface a different secret—something real enough to satisfy the vines, but not the deepest thing you're hiding. A careful sacrifice.
+
+        The Thoughtvines wrap around the memory you offer, examining it. For a moment, you think they'll accept the trade.
+
+        *page_break
+
+        Then they tighten.
+
+        *line_break
+
+        They [i]know[/i]. They can sense the deception, the thing you're still hiding. And they're not pleased.
+
+        The tunnel constricts. Not dangerous yet, but warning. Pressure. A reminder that the forest doesn't appreciate being lied to.
+
+        *choice
+            #"Fine. You want the real secret? Here."
+                You surrender completely, releasing the truth you were trying to protect. The Thoughtvines accept it with something that feels like satisfaction, spreading your genuine secret through their network.
+
+                The tunnel opens. The pressure releases.
+
+                [i]"The forest just taught you that half-truths are worse than no truth at all. Expensive lesson, but at least you learned it."[/i]
+
+                *set forest_wisdom +10
+                *set thoughtvine_connection true
+                *set secret_revealed true
+                *goto thoughtvine_gift
+
+            #Stay silent and endure the pressure
+                You refuse to give more. The tunnel stays constricted, uncomfortable but not unbearable. You walk the rest of the path in tense silence, the vines brushing against you with something like disappointment.
+
+                When you finally emerge, you're exhausted and the tithe still weighs on you, unpaid.
+
+                *set forest_wisdom +3
+                *goto heartwood_approach
+
+*label thoughtvine_gift
+
+The Thoughtvine tunnel opens into a clearing filled with the most complex vine growth you've seen yet. These vines are different—older, wiser, covered in naturally-occurring runes that glow with soft intelligence.
+
+Sylas steps forward, their expression almost... proud?
+
+*line_break
+
+"You paid the tithe willingly. Shared yourself with the forest when you could have hidden. That's rare."
+
+The ancient Thoughtvines pulse, and suddenly you can [i]feel[/i] them. Not reading your thoughts now, but offering their own—a connection, a gift, a way to sense the thoughts of living things around you.
+
+*page_break
+
+"The forest is offering you a bond," Sylas explains. "Accept, and you'll carry a piece of the Thoughtvines with you always. You'll sense deception. Feel the emotional truth beneath words. Understand the unspoken."
+
+[i]"So basically you'd become a living lie detector. Useful at poker. Terrible for maintaining friendships with people who tell polite lies. 'Does this robe make me look fat?' becomes a minefield."[/i]
+
+*choice
+    #Accept the Thoughtvine's gift
+        You reach out and touch the ancient vine. It wraps around your wrist once—gentle, warm—and then sinks beneath your skin like it was always meant to be there.
+
+        You gasp as new sensations flood in. You can feel Sylas's quiet approval. Polly's sardonic affection. Even the forest's vast, patient awareness washing over everything like a tide.
+
+        It's overwhelming. It's beautiful. It's [i]true[/i].
+
+        *set thoughtvine_connection true
+        *set forest_wisdom +20
+        *set collaboration +5
+        *achievement thoughtvine_bearer "Bearer of Living Truth" "Bonded with the ancient Thoughtvines"
+        
+        "You're connected now," Sylas says. "The forest will always be with you. And you with it."
+
+        *goto heartwood_approach
+
+    #Politely decline—this gift is too much
+        You bow respectfully to the ancient vines, showing gratitude without acceptance.
+
+        The Thoughtvines pulse once—understanding, not offense—and retreat back into their complex patterns.
+
+        Sylas nods. "The forest offered. You chose. Both are acceptable."
+
+        *set forest_wisdom +8
+        *goto heartwood_approach
+
+*label heartwood_journey
+
+You choose the path toward the glowing tree, and Sylas actually smiles—a real smile, not their usual forest-creature inscrutability.
+
+"The direct path. The Heartwood Tree sees few visitors who approach with such intention."
+
+*line_break
+
+The path winds through increasingly ancient forest. The trees here are older than nations, their trunks bearing scars from events that predate recorded history. The bioluminescence shifts from green to gold, creating the feeling of walking through liquid sunlight.
+
+And always ahead, that pulse. Like a heartbeat. Like the core of everything.
+
+*page_break
+
+You walk for what might be hours or might be moments. Time doesn't flow properly this deep in the Verdant Tithe. But eventually, you arrive.
+
+*line_break
+
+The Heartwood Tree defies description. It's not just large—it's [i]foundational[/i], like it's holding the forest together through sheer presence. Its trunk glows from within with light that shifts through every color living things can perceive, and probably several they can't.
+
+Roots spread in all directions, diving deep into the earth and surfacing again hundreds of feet away. The canopy disappears into a ceiling of light and leaves that might as well be sky.
+
+*page_break
+
+But it's the [i]awareness[/i] that freezes you in place.
+
+This tree is ancient beyond measure, conscious beyond human comprehension, and it's looking directly at you.
+
+*line_break
+
+[i]"...Okay. I'm just going to admit it. That tree is SIGNIFICANTLY more intimidating than I expected. I've met gods less present than whatever that thing is. If it asks you to do something, I recommend doing it."[/i]
+
+*choice
+    #Approach the tree respectfully and introduce yourself
+        You step forward, moving slowly, keeping your thoughts calm and open. When you're close enough to touch the bark, you stop and speak aloud.
+
+        "I'm a student of Avalon Academy. I've come to learn from the Verdant Tithe, and from you, if you're willing to teach me."
+
+        *page_break
+
+        The Heartwood Tree doesn't speak in words. Instead, it shows you.
+
+        Visions flood your mind—the forest's entire history. You see the First Age, when this tree was already ancient. You see civilizations rise and fall like waves. You see the tree nurturing, protecting, sometimes consuming those who came seeking power they didn't deserve.
+
+        You see every person who's ever bonded with this forest, their lives playing out in fast-forward. Some become guardians. Others become teachers. A few become part of the tree itself, their consciousness merged with its vast awareness.
+
+        *line_break
+
+        Then the visions stop, and a single question reverberates through your entire being:
+
+        [i]What do you offer in exchange for what you seek?[/i]
+
+        *set forest_wisdom +10
+        *goto heartwood_offering
+
+    #Kneel before the tree in silence—some things are beyond words
+        You kneel, pressing your hands flat against the forest floor. You don't speak, because what could you possibly say to something this vast, this ancient?
+
+        Instead, you simply open yourself. Let the tree see who you are, what you carry, what you hope for.
+
+        *page_break
+
+        The Heartwood Tree's awareness wraps around you like roots—gentle but inexorable. You feel it examining every part of you. Not judging, exactly. Just... knowing.
+
+        After a long moment, it shows you a single memory from its own experience:
+
+        A young mage, centuries ago, kneeling exactly where you're kneeling now. Offering themselves to the forest completely. The tree accepted, and that mage became the first forest guardian, bonded so deeply they could hear every leaf's whisper, feel every root's stretch.
+
+        *line_break
+
+        The tree is showing you what's possible. What it might offer. What it might cost.
+
+        [i]What do you offer in exchange for what you seek?[/i]
+
+        *set forest_wisdom +12
+        *set sylas_trust +5
+        *goto heartwood_offering
+
+    #Study the tree from a distance—I'm not ready to approach yet
+        You keep your distance, circling the massive trunk, observing the patterns in the bark, the way the roots flow, the rhythm of that eternal heartbeat-pulse.
+
+        The Heartwood Tree allows this. Doesn't push. Doesn't pull. Just... waits.
+
+        *page_break
+
+        Sylas appears beside you. "Fear?"
+
+        "Respect," you answer.
+
+        They nod. "Good. Fear and respect often look the same, but the tree can tell the difference. Respect it appreciates."
+
+        *line_break
+
+        After a long silence, you finally speak to the tree:
+
+        "I'm not ready to make promises I don't understand. But I'm willing to learn."
+
+        The Heartwood Tree pulses once—acknowledgment?—and you feel something shift. A door opening. An invitation, but not a demand.
+
+        *set forest_wisdom +8
+        *goto heartwood_offering
+
+*label heartwood_offering
+
+The Heartwood Tree is waiting for your answer. Not impatiently—it has outlasted empires, it can wait for one student to decide—but definitely waiting.
+
+Sylas speaks quietly. "The tree offers different bonds to different people. What it asks in return varies. But know this: whatever you offer must be genuine. The Heartwood can't be bargained with."
+
+*line_break
+
+*if forest_blessing
+    [i]"You already bonded with the Dreamwillow earlier. You're basically committed to this forest at this point. Might as well go all in."[/i]
+*elseif thoughtvine_connection
+    [i]"The Thoughtvines already marked you. The Heartwood knows this. It's asking what more you'll give."[/i]
+*else
+    [i]"This is the big decision. What you offer here will shape everything that comes after. No pressure."[/i]
+
+*choice
+    #"I offer my service as a guardian—I'll protect this forest"
+        You speak the words aloud, and they echo through the clearing with unexpected weight. Like the forest itself is listening, recording, remembering.
+
+        "I offer my service as a guardian. When the Verdant Tithe needs protection, I'll answer. When it needs a voice in the wider world, I'll speak for it. I'll be the bridge between the forest and those who don't understand it."
+
+        *page_break
+
+        The Heartwood Tree [i]responds[/i].
+
+        Light explodes from its trunk—not harmful, but overwhelming. Every tree in sight lights up in sympathy. The ground itself seems to sing. And you feel something fundamental change in your connection to this place.
+
+        The forest accepts your oath.
+
+        *line_break
+
+        When the light fades, you're kneeling before the tree, and you're... different. You can feel the forest now, always, like an extra sense you never knew you were missing. Every tree, every vine, every living thing within the Tithe's boundaries—you're aware of all of it.
+
+        The bond is complete.
+
+        *set heartwood_bond true
+        *set forest_wisdom +30
+        *set collaboration +8
+        *achievement heartwood_guardian "Heartwood Guardian" "Sworn to protect the Verdant Tithe"
+
+        Sylas drops to one knee. "Guardian," they whisper. "The forest hasn't chosen a new guardian in three hundred years."
+
+        [i]"You just swore an eternal magical oath to a sentient forest. This is either the best decision you've ever made or the worst, and honestly we won't know which for several decades. Congratulations?"[/i]
+
+        *goto forest_blessed_journey
+
+    #"I offer my time—I'll return and learn from this place"
+        "I can't offer forever," you say honestly. "But I can offer this: I'll return. Regularly. I'll learn from the Verdant Tithe, study its ways, and carry that knowledge forward. I'll be a student of the forest for as long as I live."
+
+        *page_break
+
+        The Heartwood Tree considers this. The pause stretches long enough that you start to worry it's not enough.
+
+        Then, gently, the tree pulses once. Acceptance.
+
+        *line_break
+
+        You feel a small connection form—not the overwhelming bond of a guardian, but something quieter. A promise recognized. A commitment acknowledged.
+
+        The forest will remember you. And when you return, it will teach you.
+
+        *set forest_wisdom +18
+        *set collaboration +5
+        *set sylas_trust +10
+
+        Sylas smiles. "A wise offer. The forest values students as much as guardians. Perhaps more—students spread its wisdom further."
+
+        [i]"The 'I'll visit for holidays' arrangement. Healthy boundaries with sentient forests are important. You can learn from the Tithe without becoming the Tithe. Probably a good call."[/i]
+
+        *goto heartwood_path
+
+    #"I offer nothing—I seek knowledge, not obligation"
+        You stand firm. "I won't make promises I might not keep. I respect the Verdant Tithe, but I won't bind myself to it. If that means I leave without its deepest secrets, I accept that."
+
+        *page_break
+
+        The Heartwood Tree goes still. Utterly, completely still.
+
+        For a horrible moment, you think you've offended it. That you've failed some crucial test.
+
+        *line_break
+
+        Then it pulses—slow, considering—and you feel something like... respect?
+
+        The tree shows you one final vision: A mage, long ago, who made grand promises to the forest and then abandoned them all. Who swore eternal service and fled when the weight became too great.
+
+        The Heartwood is showing you that it values honest refusal over false promises.
+
+        *line_break
+
+        You feel a small gift settle into your mind—knowledge of the forest, basic but true. The Heartwood is teaching you anyway, not because you swore service, but because you were honest about your limits.
+
+        *set forest_wisdom +12
+        *set collaboration +3
+
+        Sylas looks surprised. "The tree respects your honesty. That's... rare."
+
+        [i]"You just got the 'B+ for effort' ending. Not the legendary bond, but still passing marks. The forest appreciates that you didn't promise things you couldn't deliver."[/i]
+
+        *goto heartwood_path
+
+*label heartwood_approach
+
+*comment This is where the other paths converge before reaching the Heartwood
+
+The path opens ahead, and in the distance, you can see it—the Heartwood Tree, pulsing with that inexorable heartbeat-rhythm.
+
+Sylas gestures forward. "The forest has tested you already. Now it offers you its heart. What you do with that offer is up to you."
+
+*goto heartwood_journey
+
+*label forest_blessed_journey
+
+*comment Special path for those who formed deep bonds with the forest
+
+The forest changes around you. Or maybe you're seeing it differently now, through the lens of your new connection.
+
+The bioluminescence isn't random—it's [i]language[/i]. The rustling leaves aren't just wind—they're conversations spanning miles, centuries, discussing things that matter to ancient consciousness.
+
+You're part of it now. A small thread in an impossibly vast tapestry.
+
+*page_break
+
+Sylas walks beside you, though "beside" feels wrong. You can sense their thoughts now, close to the surface—pride in your achievement, concern for the weight you've taken on, and underneath it all, loneliness. They've been the forest's only guardian for so long.
+
+"You feel it now," they say aloud. "The forest's awareness. Its memories. Its [i]self[/i]."
+
+*line_break
+
+You nod, still trying to process the overwhelming flood of new sensations.
+
+"It will quiet with time," Sylas continues. "You'll learn to filter, to focus. Right now, you're hearing everything at once. Eventually, you'll learn to listen to what matters."
+
+[i]"You bonded with a consciousness that spans miles and remembers millennia. Your brain is currently trying to process input from roughly forty thousand trees. This is fine. Probably. Maybe sit down before you fall down."[/i]
+
+*choice
+    #"How do you manage it? Being connected to all of this?"
+        Sylas's expression softens—the most human you've seen them look.
+
+        "Meditation. Boundaries. Remembering that I'm still myself, even while being part of something greater." They pause. "And accepting that some days, the forest feels more real than my own thoughts. That's... difficult."
+
+        *page_break
+
+        They place a hand on a nearby tree, and you feel the connection pulse between them—deep, permanent, comfortable as breathing.
+
+        "But it's worth it. To be part of something that will outlast empires. To guard something that matters beyond any single lifetime."
+
+        *line_break
+
+        You understand now. This is your future too. The weight and the wonder of it.
+
+        *set sylas_trust +10
+        *set forest_wisdom +8
+        *goto forest_grove_gift
+
+    #"Show me how to filter it—I'm drowning in input"
+        "Good," Sylas says approvingly. "Recognizing when you need help is crucial. Guardians who pretend they can handle everything alone... don't last."
+
+        *page_break
+
+        They sit beneath a massive oak, gesturing for you to join them.
+
+        "Close your eyes. Feel the forest's awareness, but don't try to process it all. Instead, imagine a stream. Let the thoughts flow past without grabbing each one. Just... observe."
+
+        You try. It's impossibly hard. The forest is so [i]loud[/i], so present.
+
+        *line_break
+
+        But slowly, gradually, you find the rhythm. The stream flows, and you let it flow, dipping in only when something truly important surfaces.
+
+        When you open your eyes, the overwhelming pressure has eased to a manageable hum.
+
+        *set collaboration +5
+        *set forest_wisdom +10
+        *goto forest_grove_gift
+
+    #Sit in silence and simply experience the connection
+        You find a patch of moss and sit, not speaking, just experiencing.
+
+        The forest washes over you in waves. You feel ancient roots seeking water deep beneath the earth. You sense new growth pushing toward sunlight at the canopy. You experience the slow, patient thoughts of trees that measure time in decades instead of heartbeats.
+
+        *page_break
+
+        Sylas sits nearby, not interrupting. They understand. Sometimes the connection speaks louder than words ever could.
+
+        [i]"So we're having a moment with the forest-brain. That's cool. I'll just... perch here quietly and not interrupt the communion with ancient plant consciousness. Don't mind me."[/i]
+
+        *line_break
+
+        After what might be minutes or hours, you return to yourself—changed, but still you.
+
+        The forest acknowledges your acceptance with a pulse of warmth that feels like approval.
+
+        *set forest_wisdom +12
+        *goto forest_grove_gift
+
+*label forest_grove_gift
+
+Sylas leads you to a grove you swear wasn't there before—circular, perfect, with seven ancient trees forming a natural amphitheater. The bioluminescence here is different: gold and silver, pulsing in harmonies that sound like music.
+
+"This is the Grove of Oaths," Sylas explains. "Where the forest keeps its most precious memories. As a guardian, you have access now."
+
+*line_break
+
+The trees here don't just remember—they [i]show[/i]. You see flashes of every guardian who came before, their oaths, their lives, their eventual endings. Some served for centuries. Others for mere decades before the weight became too much.
+
+But all of them mattered. All of them made the forest stronger.
+
+*page_break
+
+One tree in particular draws your attention—silver bark, leaves that shimmer like starlight. When you touch it, a memory crystallizes:
+
+Izack. Young, uncertain, standing in this exact spot. He never took the full guardian oath—you can see him refusing, politely but firmly—but the forest offered him a smaller gift anyway. Knowledge of how collaborative magic works with natural systems.
+
+That gift became the foundation for everything he teaches at Avalon.
+
+*line_break
+
+[i]"Huh. So Izack's whole teaching philosophy came from the Verdant Tithe. That actually explains a lot about why he's so insistent on the collaborative approach. The forest literally reprogrammed his understanding of magic."[/i]
+
+*choice
+    #"I want to leave a memory here—for future guardians"
+        You place both hands on the silver tree and deliberately open your mind, offering a memory of your own:
+
+        This moment. Standing in the Grove of Oaths, having just sworn to guard the forest. The overwhelming mix of terror and wonder. The sense of purpose you've been searching for finally clicking into place.
+
+        *page_break
+
+        The tree accepts the memory, weaving it into its bark in patterns of light that will last centuries. Future guardians will know you were here, that you chose this, that you meant your oath.
+
+        It's humbling and exhilarating in equal measure.
+
+        *set forest_wisdom +15
+        *achievement memory_keeper "Memory Keeper" "Left a legacy in the Grove of Oaths"
+        *goto forest_final
+
+    #"Can I learn from the memories here—see what past guardians knew?"
+        Sylas nods. "That's why the Grove exists. Guardians learning from guardians, across centuries."
+
+        You spend time moving from tree to tree, absorbing lessons:
+
+        *page_break
+
+        How to communicate with Thoughtvines. How to encourage Dreamwillows to show helpful visions instead of traumatic ones. How to convince the forest to let travelers pass safely. How to guard against those who would exploit or harm this place.
+
+        Each memory is a gift from someone long dead, preserved perfectly by the forest they served.
+
+        *set forest_wisdom +18
+        *set collaboration +5
+        *goto forest_final
+
+    #"I need to know—do any guardians ever leave? Or is this forever?"
+        "An important question," Sylas says carefully. "And one I wish more people asked before swearing oaths."
+
+        They gesture to one tree with bark darker than the others, its leaves touched with autumn colors despite the perpetual spring of the Grove.
+
+        *page_break
+
+        "That one was a guardian who served for fifty years, then asked to be released. The forest... let them go." A pause. "But the bond doesn't truly break. They could still feel the Tithe for the rest of their life. Still heard its whispers. The connection just... quieted."
+
+        *line_break
+
+        "You can leave," Sylas continues. "The forest doesn't trap its guardians. But you'll never be fully separate again. Part of you will always belong here."
+
+        [i]"So it's like a tattoo. You can cover it up, you can try to forget about it, but it's permanent. Good to know before committing, I suppose."[/i]
+
+        *set forest_wisdom +10
+        *goto forest_final
+
+*label heartwood_path
+
+*comment Alternative path for those who didn't take the full guardian bond
+
+The Heartwood Tree's presence fades behind you as you continue through the forest. You're changed—carrying knowledge and a new awareness of how vast consciousness can become—but still entirely yourself.
+
+*page_break
+
+Sylas walks with you, their demeanor relaxed in a way it wasn't before.
+
+"The tree respects what you chose," they say. "Bond or no bond, you approached with genuine intent. That matters."
+
+*line_break
+
+The forest around you seems friendlier now. The Thoughtvines don't reach as aggressively. The bioluminescence forms helpful patterns, showing the safest paths. Even the air tastes sweeter.
+
+[i]"Turns out being honest with an ancient forest intelligence earns you some goodwill. Who knew? Well, everyone. Everyone knew that. But you did it anyway, and now the murder-plants like you."[/i]
+
+*choice
+    #"Will I be able to return here, if I want?"
+        "Of course," Sylas says immediately. "The Verdant Tithe remembers all who walk its paths with respect. You're welcome here, always."
+
+        They pause, then add more quietly: "And... I would be glad to see you again. It's lonely, being the forest's only human-ish voice for decades at a time."
+
+        *set sylas_trust +10
+        *set forest_wisdom +8
+        *goto forest_final_approach
+
+    #"What did you see in me that made you think I could handle this?"
+        Sylas tilts their head, considering.
+
+        "Awareness," they finally say. "You listened before acting. Thought before speaking. Most students charge into the Tithe expecting to conquer it. You approached it as something to learn from."
+
+        *line_break
+
+        "The forest responds to that. It doesn't want masters. It wants... conversation partners, maybe. People who can exist alongside it without trying to dominate or be dominated."
+
+        *set forest_wisdom +10
+        *set collaboration +5
+        *goto forest_final_approach
+
+    #Walk in companionable silence, processing everything you've learned
+        You walk without speaking, and Sylas doesn't push for conversation. The forest speaks loudly enough—its rustling leaves, its breathing canopy, its endless patient presence.
+
+        You've learned more in hours here than in weeks of traditional study. Not facts, exactly. More like... perspectives. Ways of seeing magic and consciousness that you'd never considered before.
+
+        *page_break
+
+        The knowledge settles into you like roots finding soil.
+
+        *set forest_wisdom +12
+        *goto forest_final_approach
+
+*label forest_final_approach
+
+The forest begins to thin—which shouldn't be possible in a transplanted biome that has defined boundaries, but apparently the Verdant Tithe does what it wants.
+
+Ahead, you can see the shimmer of the portal back to Avalon, waiting at the edge of a clearing.
+
+*goto forest_final
+
+*label forest_final
+
+The portal back to Avalon shimmers at the edge of the clearing, waiting. But before you can reach it, Sylas calls you to stop.
+
+"One last thing," they say.
+
+*line_break
+
+They reach into their robe and produce a small vial, similar to the sand-filled crystal from the Singing Dunes expedition. But this one holds something different—a single leaf that glows with gentle bioluminescence, wrapped in what looks like a living vine.
+
+"A gift from the Verdant Tithe. The leaf will show you when someone is being honest—it glows brighter in the presence of genuine emotion, dims when faced with deception. The vine..." Sylas smiles slightly. "That's for you to discover."
+
+*page_break
+
+*if forest_blessing or heartwood_bond
+    "And remember," they add, their voice taking on a tone of ritual, "you carry the forest with you now. Its awareness, its wisdom, its patient strength. When you need us, we'll be there. And when we need you..."
+
+    "I'll answer," you finish.
+
+    Sylas bows—respect between equals. "Guardian."
+
+*elseif thoughtvine_connection
+    "The Thoughtvines marked you," Sylas continues. "You'll find you can sense emotional truth more easily now. Trust that instinct. It's the forest's gift, and it won't steer you wrong."
+
+*else
+    "You walked the Verdant Tithe with respect and left without becoming part of it. That's wisdom too," Sylas says. "The forest will remember you fondly."
+
+*line_break
+
+[i]"Time to go home. And yes, before you ask, you can keep the glowing leaf. Though explaining to Customs why you're carrying luminescent vegetation might be entertaining. 'It's a gift from a sentient forest' is technically true but rarely believed."[/i]
+
+*page_break
+
+You step toward the portal, and the other students from your expedition materialize around you—they've been on their own journeys through the Tithe, facing their own trials.
+
+Everyone looks changed. Some carry new scars. Others wear expressions of wonder. One student has vines braided into their hair that definitely weren't there when you arrived.
+
+*line_break
+
+Izack appears, having supervised from a distance. He takes one look at you and his eyebrows rise.
+
+*if forest_blessing or heartwood_bond
+    "You bonded," he says, wonder and concern mixing in his voice. "Fully bonded. I can see the forest's awareness in your eyes."
+
+    He's quiet for a moment, then: "That's a heavy burden. But... I think you can carry it."
+
+*elseif thoughtvine_connection
+    "The Thoughtvines marked you," he observes. "I can see the connection. Use it wisely—sensing emotional truth is a gift, but it can isolate you too."
+
+*elseif forest_wisdom >= 15
+    "You learned something profound here," he says approvingly. "I can see it in how you carry yourself. The Tithe changes people, but you let it change you without losing who you are."
+
+*else
+    "You survived," he says with a smile. "The Verdant Tithe doesn't make survival easy. You should be proud."
+
+*page_break
+
+You step through the portal, carrying the forest's gifts:
+
+*if forest_blessing and heartwood_bond
+    The eternal bond of a Forest Guardian, sworn to protect the Verdant Tithe across lifetimes. You'll never be truly alone again—the forest's vast consciousness touches yours always, a connection that transcends distance and time.
+
+*elseif heartwood_bond
+    The Heartwood's recognition and a promise to return. The forest knows you now, remembers your oath, and will teach you its deepest secrets when you come seeking wisdom.
+
+*elseif thoughtvine_connection
+    The Thoughtvines' mark, granting you the ability to sense emotional truth beneath surface lies. The forest gave you its gift of honest perception—use it well.
+
+*elseif dreamwillow_vision
+    The Dreamwillows' visions of possible futures, haunting and beautiful in equal measure. You know now what paths might lie ahead, and the weight of choosing wisely among them.
+
+*elseif forest_wisdom >= 15
+    Deep knowledge of how consciousness works when it's vast and patient and older than civilization. The forest taught you that magic isn't about control—it's about conversation.
+
+*else
+    Respect for forces greater than yourself, and the humility to know when not to make promises you can't keep. Sometimes wisdom is knowing your limits.
+
+*line_break
+
+The Verdant Tithe fades behind you, but you'll carry it forward forever—in knowledge, in connection, or in the simple memory of standing before something ancient and choosing how to respond.
+
+*set verdant_tithe_survived true
+
+*goto_scene endings
