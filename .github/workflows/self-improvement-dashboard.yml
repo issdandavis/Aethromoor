@@ -57,7 +57,8 @@ jobs:
           # Run radon for complexity
           cc_result = subprocess.run(['radon', 'cc', '.', '-a', '-s'], 
                                     capture_output=True, text=True)
-          avg_complexity = cc_result.stdout.split('\n')[-2] if cc_result.returncode == 0 else "N/A"
+          lines = cc_result.stdout.split('\n')
+          avg_complexity = lines[-2] if cc_result.returncode == 0 and len(lines) >= 2 else "N/A"
           
           # Run radon for maintainability
           mi_result = subprocess.run(['radon', 'mi', '.', '-s'], 
@@ -69,7 +70,8 @@ jobs:
               ['find', '.', '-name', '*.py', '-type', 'f', '!', '-path', './.git/*'],
               capture_output=True, text=True
           )
-          file_count = len(python_files.stdout.strip().split('\n'))
+          file_list = [f for f in python_files.stdout.strip().split('\n') if f]
+          file_count = len(file_list)
           
           # Save metrics
           metrics = {
@@ -96,7 +98,8 @@ jobs:
           
           if len(trend_data) > 1:
               improvement = trend_data[0]['issue_count'] < trend_data[-1]['issue_count']
-              print(f"::set-output name=improving::{improvement}")
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+                  output.write(f"improving={improvement}\n")
           
           EOF
       

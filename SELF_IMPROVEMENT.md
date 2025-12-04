@@ -148,7 +148,7 @@ gh workflow run self-improvement-dashboard.yml
 ## 📚 Documentation
 
 - **[Complete Guide](.github/SELF_IMPROVEMENT_GUIDE.md)** - Full documentation
-- **[Auto-fix Script](. github/scripts/README_AUTOFIX.md)** - Script usage
+- **[Auto-fix Script](.github/scripts/README_AUTOFIX.md)** - Script usage
 - **[Dashboard](DASHBOARD.md)** - Current metrics
 
 ## 🔐 Security
