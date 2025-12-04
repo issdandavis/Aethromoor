@@ -9,6 +9,7 @@ Welcome! This guide is for both human contributors and AI assistants working on 
 1. **Read the docs:** Start with `docs/AI_SESSION_HANDOFF.md` for full context
 2. **Understand the goal:** Create a publishable choice-based game for Hosted Games
 3. **Check current status:** See `docs/PROJECT_ROADMAP.md` for what's done and what's next
+4. **Use AI tools:** See `docs/GITHUB_COPILOT_CLI_GUIDE.md` for command-line AI assistance
 
 ---
 
@@ -75,6 +76,13 @@ The HTML version (`game/game.js`) is the complete reference. ChoiceScript versio
 4. Test locally (see below)
 5. Submit a pull request
 
+### Developer Tools
+
+**GitHub Copilot CLI** - Get AI-powered command suggestions:
+- See `docs/GITHUB_COPILOT_CLI_GUIDE.md` for installation and usage
+- Use `gh copilot suggest` for command help
+- Use `gh copilot explain` to understand complex commands
+
 ### Testing Locally
 
 **HTML Version:**
@@ -100,6 +108,7 @@ Avalon/
 │   ├── AI_SESSION_HANDOFF.md
 │   ├── PROJECT_ROADMAP.md
 │   ├── AUTOMATION_GUIDE.md
+│   ├── GITHUB_COPILOT_CLI_GUIDE.md
 │   └── NEXT_TASKS.md
 ├── QUICK_START.md         # Player guide
 └── CONTRIBUTING.md        # This file
