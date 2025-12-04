@@ -29,7 +29,9 @@ python .github/scripts/agent_manager_cli.py recommend
 
 ---
 
-## 🤖 The 6 AI Agents
+## 🤖 The AI Agent System
+
+### Workflow Workers (6 Agents)
 
 | Agent | Emoji | Runs | Does |
 |-------|-------|------|------|
@@ -39,6 +41,18 @@ python .github/scripts/agent_manager_cli.py recommend
 | Game Tester | 🧪 | Daily 6 AM | Finds bugs |
 | Autonomous Worker | 🔧 | Every 6hr | Misc tasks |
 | **Agent Manager** | 🎯 | **2x daily** | **Coordinates all** |
+
+### Custom Specialized Agents (5 Agents) 🆕
+
+| Agent | Specialty | Use When |
+|-------|-----------|----------|
+| ChoiceScript Converter | HTML→CS format | Converting scenes |
+| Lore Guardian | Canon validation | Before publishing |
+| CS Validator | Technical QA | After completion |
+| Polly's Voice | Commentary | Polishing scenes |
+| Romance Orchestrator | Relationship design | Romance content |
+
+See: `CUSTOM_AGENTS_INDEX.md` for complete details
 
 ---
 

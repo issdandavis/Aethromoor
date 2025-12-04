@@ -57,9 +57,11 @@ python .github/scripts/agent_orchestrator.py
 
 ---
 
-## 🤖 The 6 AI Agents
+## 🤖 The AI Agent System
 
-### 1. Scene Writer 🎭
+### Workflow Workers (6 Agents)
+
+#### 1. Scene Writer 🎭
 - **What:** Writes narrative ChoiceScript scenes
 - **When:** Every 3 hours
 - **Output:** 300-500 lines per run
@@ -67,7 +69,7 @@ python .github/scripts/agent_orchestrator.py
 - **Script:** `.github/scripts/scene_writer_agent.py`
 - **Branch:** `ai-scene-development`
 
-### 2. Content Polisher ✨
+#### 2. Content Polisher ✨
 - **What:** Adds sensory details (taste/smell)
 - **When:** Every 4 hours
 - **Output:** Enhanced atmosphere
@@ -75,7 +77,7 @@ python .github/scripts/agent_orchestrator.py
 - **Script:** `.github/scripts/content_polisher.py`
 - **Branch:** `ai-content-polish`
 
-### 3. Stat Balancer ⚖️
+#### 3. Stat Balancer ⚖️
 - **What:** Analyzes and balances game stats
 - **When:** Daily at noon
 - **Output:** Balance reports and adjustments
@@ -83,14 +85,14 @@ python .github/scripts/agent_orchestrator.py
 - **Script:** `.github/scripts/stat_analyzer.py`
 - **Branch:** `ai-stat-balance`
 
-### 4. Game Tester 🧪
+#### 4. Game Tester 🧪
 - **What:** Validates syntax and finds bugs
 - **When:** Daily at 6 AM + all PRs
 - **Output:** QA reports
 - **Workflow:** `.github/workflows/ai-game-tester.yml`
 - **Scripts:** `validate_choicescript.py`, `find_dead_ends.py`
 
-### 5. Autonomous Worker 🔧
+#### 5. Autonomous Worker 🔧
 - **What:** General task queue processing
 - **When:** Every 6 hours
 - **Output:** Flexible task completion
@@ -98,13 +100,54 @@ python .github/scripts/agent_orchestrator.py
 - **Script:** `.github/scripts/ai_autonomous_worker.py`
 - **Branch:** `ai-autonomous-work`
 
-### 6. Agent Manager 🎯 (NEW!)
+#### 6. Agent Manager 🎯
 - **What:** Coordinates all other workers
 - **When:** Twice daily (6 AM, 6 PM UTC)
 - **Output:** Health reports and recommendations
 - **Workflow:** `.github/workflows/agent-management.yml`
 - **Script:** `.github/scripts/agent_orchestrator.py`
 - **Agent:** `.github/agents/agent-manager.agent.md`
+
+---
+
+### Custom Specialized Agents (5 Agents) 🆕
+
+#### 7. ChoiceScript Conversion Specialist 🔄
+- **What:** Converts HTML scenes to ChoiceScript format
+- **When:** On-demand for conversion tasks
+- **Output:** ChoiceScript scenes with narrative parity
+- **Agent:** `.github/agents/choicescript-converter.agent.md`
+- **Priority:** ⚡ Phase 1 (Critical)
+
+#### 8. Lore Consistency Guardian 📖
+- **What:** Validates content against canonical lore
+- **When:** Before publishing new content
+- **Output:** Canon validation reports
+- **Agent:** `.github/agents/lore-guardian.agent.md`
+- **Priority:** ⚡ Phase 1 (Critical)
+
+#### 9. ChoiceScript Technical Validator ✅
+- **What:** Advanced QA with QuickTest/RandomTest
+- **When:** After scene completion, before beta
+- **Output:** Technical validation reports
+- **Agent:** `.github/agents/choicescript-validator.agent.md`
+- **Priority:** ⭐ Phase 2 (Quality)
+
+#### 10. Polly's Voice Architect 🪶
+- **What:** Enhances scenes with Polly's meta-commentary
+- **When:** During content polish phase
+- **Output:** Polly-enhanced scenes
+- **Agent:** `.github/agents/polly-voice-architect.agent.md`
+- **Priority:** ⭐ Phase 2 (Quality)
+
+#### 11. Romance System Orchestrator 💕
+- **What:** Designs ethical polyamory romance systems
+- **When:** Creating relationship content
+- **Output:** Character-specific romance arcs
+- **Agent:** `.github/agents/romance-orchestrator.agent.md`
+- **Priority:** 💕 Phase 3 (Enhancement)
+
+**📚 Complete Guide:** See `CUSTOM_AGENTS_INDEX.md` for deployment strategy and ROI
 
 ---
 
