@@ -45,10 +45,12 @@ This repository features AI-powered automation for inter-account communications 
 - **[Inbox Management](docs/INBOX_MANAGEMENT.md)** - Complete documentation
 - **[Enterprise Monitoring](docs/ENTERPRISE_MONITORING.md)** - Enterprise functions validation
 - **[Auto Sync Agent](docs/AUTO_SYNC_AGENT.md)** - Automatic git pull/push automation
+- **[Pipedream Workflows](pipedream/README.md)** - Cloud orchestration and backup automation
 
 **Documentation:**
 - **[ACCOUNTS_README.md](ACCOUNTS_README.md)** - Complete account automation setup guide
 - **[docs/AUTOMATION_GUIDE.md](docs/AUTOMATION_GUIDE.md)** - Integration workflows
+- **[Pipedream Workflows](pipedream/)** - Ready-to-use Pipedream components
 - **Configuration:** `config/automation-settings.json`, `config/enterprise-settings.json`
 
 ## 🔐 Security & API Keys

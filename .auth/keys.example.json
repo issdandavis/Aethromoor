@@ -99,6 +99,14 @@
     "note": "Create Slack apps at https://api.slack.com/apps"
   },
   
+  "dropbox": {
+    "access_token": "YOUR_DROPBOX_ACCESS_TOKEN_HERE",
+    "refresh_token": "YOUR_DROPBOX_REFRESH_TOKEN_HERE",
+    "app_key": "YOUR_APP_KEY_HERE",
+    "app_secret": "YOUR_APP_SECRET_HERE",
+    "note": "Create apps at https://www.dropbox.com/developers/apps"
+  },
+  
   "custom_apis": {
     "api_1": {
       "name": "Your Custom API",
