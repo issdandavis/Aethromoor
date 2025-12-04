@@ -1,0 +1,252 @@
+name: Self-Improving System Dashboard
+
+on:
+  schedule:
+    # Run daily at 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  analyze:
+    name: Analyze Repository Health
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install analysis tools
+        run: |
+          pip install flake8 radon pylint bandit safety gitpython
+      
+      - name: Analyze code quality trends
+        id: trends
+        run: |
+          python3 << 'EOF'
+          import json
+          import os
+          from datetime import datetime, timedelta
+          from pathlib import Path
+          import subprocess
+          
+          metrics_dir = Path('.github/metrics')
+          metrics_dir.mkdir(parents=True, exist_ok=True)
+          
+          # Current metrics
+          today = datetime.now().strftime('%Y-%m-%d')
+          
+          # Run flake8
+          result = subprocess.run(
+              ['flake8', '.', '--max-line-length=120', '--count', '--statistics'],
+              capture_output=True, text=True
+          )
+          issue_count = result.stdout.count('\n') if result.returncode != 0 else 0
+          
+          # Run radon for complexity
+          cc_result = subprocess.run(['radon', 'cc', '.', '-a', '-s'], 
+                                    capture_output=True, text=True)
+          lines = cc_result.stdout.split('\n')
+          avg_complexity = lines[-2] if cc_result.returncode == 0 and len(lines) >= 2 else "N/A"
+          
+          # Run radon for maintainability
+          mi_result = subprocess.run(['radon', 'mi', '.', '-s'], 
+                                    capture_output=True, text=True)
+          maintainability = mi_result.stdout.strip() if mi_result.returncode == 0 else "N/A"
+          
+          # Count Python files
+          python_files = subprocess.run(
+              ['find', '.', '-name', '*.py', '-type', 'f', '!', '-path', './.git/*'],
+              capture_output=True, text=True
+          )
+          file_list = [f for f in python_files.stdout.strip().split('\n') if f]
+          file_count = len(file_list)
+          
+          # Save metrics
+          metrics = {
+              'date': today,
+              'issue_count': issue_count,
+              'average_complexity': str(avg_complexity),
+              'maintainability_index': str(maintainability),
+              'python_file_count': file_count
+          }
+          
+          with open(metrics_dir / f'daily_{today}.json', 'w') as f:
+              json.dump(metrics, f, indent=2)
+          
+          print(f"Metrics saved: {metrics}")
+          
+          # Calculate trends (last 7 days)
+          trend_data = []
+          for i in range(7):
+              date = (datetime.now() - timedelta(days=i)).strftime('%Y-%m-%d')
+              metric_file = metrics_dir / f'daily_{date}.json'
+              if metric_file.exists():
+                  with open(metric_file) as f:
+                      trend_data.append(json.load(f))
+          
+          if len(trend_data) > 1:
+              improvement = trend_data[0]['issue_count'] < trend_data[-1]['issue_count']
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+                  output.write(f"improving={improvement}\n")
+          
+          EOF
+      
+      - name: Generate dashboard
+        run: |
+          python3 << 'EOF'
+          import json
+          from pathlib import Path
+          from datetime import datetime, timedelta
+          
+          metrics_dir = Path('.github/metrics')
+          
+          # Load recent metrics
+          metrics_files = sorted(metrics_dir.glob('daily_*.json'), reverse=True)[:30]
+          
+          dashboard = """# 🎯 Self-Improving System Dashboard
+          
+          **Last Updated:** {date}
+          
+          ## 📊 Current Health Status
+          
+          """.format(date=datetime.now().strftime('%Y-%m-%d %H:%M UTC'))
+          
+          if metrics_files:
+              with open(metrics_files[0]) as f:
+                  current = json.load(f)
+              
+              # Calculate health score
+              issue_count = int(current.get('issue_count', 0))
+              health_score = max(0, 100 - issue_count)
+              
+              if health_score >= 90:
+                  status = "🟢 Excellent"
+              elif health_score >= 70:
+                  status = "🟡 Good"
+              elif health_score >= 50:
+                  status = "🟠 Fair"
+              else:
+                  status = "🔴 Needs Improvement"
+              
+              dashboard += f"""
+          **Health Score:** {health_score}/100 {status}
+          
+          ### Metrics
+          - **Code Quality Issues:** {current.get('issue_count', 'N/A')}
+          - **Python Files:** {current.get('python_file_count', 'N/A')}
+          - **Average Complexity:** {current.get('average_complexity', 'N/A')}
+          - **Maintainability Index:** {current.get('maintainability_index', 'N/A')}
+          
+          ## 📈 Trend Analysis (Last 30 Days)
+          
+          | Date | Issues | Files | Complexity |
+          |------|--------|-------|------------|
+          """
+              
+              for mf in metrics_files[:10]:
+                  with open(mf) as f:
+                      m = json.load(f)
+                  dashboard += f"| {m['date']} | {m.get('issue_count', 'N/A')} | {m.get('python_file_count', 'N/A')} | {m.get('average_complexity', 'N/A')} |\n"
+              
+              # Improvement suggestions
+              dashboard += "\n## 🎯 Improvement Goals\n\n"
+              
+              if issue_count > 50:
+                  dashboard += "- 🔴 **Priority:** Reduce code quality issues to below 50\n"
+              elif issue_count > 20:
+                  dashboard += "- 🟡 **Goal:** Reduce code quality issues to below 20\n"
+              else:
+                  dashboard += "- 🟢 **Status:** Code quality is excellent!\n"
+              
+              dashboard += """
+          ## 🤖 Automated Improvements
+          
+          The system automatically:
+          - ✅ Fixes PEP8 violations on every commit
+          - ✅ Sorts imports and formats code
+          - ✅ Runs security scans
+          - ✅ Tracks quality metrics daily
+          - ✅ Creates improvement suggestions
+          
+          ## 🔧 Integration Status
+          
+          - **GitHub Actions:** ✅ Active
+          - **Pre-commit Hooks:** ✅ Configured
+          - **CodeQL:** ✅ Enabled
+          - **Dependabot:** ✅ Monitoring
+          - **Auto-fix Bot:** ✅ Running
+          
+          ## 📝 Next Steps
+          
+          1. Run pre-commit hooks locally: `pre-commit install`
+          2. Auto-fix all files: `pre-commit run --all-files`
+          3. Review daily metrics in `.github/metrics/`
+          4. Check workflow runs for automated improvements
+          
+          ---
+          *This dashboard is automatically updated daily by the self-improving system.*
+          """
+          
+          # Save dashboard
+          with open('DASHBOARD.md', 'w') as f:
+              f.write(dashboard)
+          
+          print("Dashboard generated successfully")
+          EOF
+      
+      - name: Create improvement issues
+        if: steps.trends.outputs.improving == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            // Check if improvement issue already exists
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'self-improvement',
+              state: 'open'
+            });
+            
+            if (issues.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '🎯 Code Quality Improvement Needed',
+                body: `The self-improving system has detected code quality regression.
+                
+                Please review the latest metrics in \`.github/metrics/\` and run:
+                
+                \`\`\`bash
+                # Auto-fix all issues
+                .github/scripts/autofix_code_quality.py
+                
+                # Or use pre-commit
+                pre-commit run --all-files
+                \`\`\`
+                
+                Check the [Dashboard](DASHBOARD.md) for detailed metrics.`,
+                labels: ['self-improvement', 'code-quality', 'automated']
+              });
+            }
+      
+      - name: Commit dashboard and metrics
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add DASHBOARD.md .github/metrics/ || true
+          git commit -m "📊 Update self-improving system dashboard [skip ci]" || echo "No changes"
+          git push || echo "Nothing to push"

@@ -17,6 +17,7 @@ __pycache__/
 /tmp/sync_manifest.json
 automation_reports/
 *.artifact
+logs/agent-management/
 
 # OS/filesystem cruft
 .DS_Store

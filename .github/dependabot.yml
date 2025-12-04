@@ -1,0 +1,64 @@
+# Dependabot Configuration
+# Automatically updates dependencies and creates PRs
+
+version: 2
+updates:
+  # Python dependencies
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "python"
+      - "automated"
+    commit-message:
+      prefix: "⬆️ deps"
+      include: "scope"
+    reviewers:
+      - "issdandavis"
+    assignees:
+      - "issdandavis"
+    
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "github-actions"
+      - "automated"
+    commit-message:
+      prefix: "⬆️ actions"
+    reviewers:
+      - "issdandavis"
+    
+  # Docker (if applicable)
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "docker"
+      - "automated"
+    
+  # NPM (for ChoiceScript if needed)
+  - package-ecosystem: "npm"
+    directory: "/choicescript_game"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "npm"
+      - "automated"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]

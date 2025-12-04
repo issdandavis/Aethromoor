@@ -1,0 +1,99 @@
+# Pre-commit Configuration
+# This file configures automatic code quality checks before commits
+# Install: pip install pre-commit
+# Setup: pre-commit install
+
+repos:
+  # Python code formatting
+  - repo: https://github.com/psf/black
+    rev: 23.12.1
+    hooks:
+      - id: black
+        language_version: python3.11
+        args: ['--line-length=120']
+
+  # Import sorting
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        args: ['--profile=black', '--line-length=120']
+
+  # PEP8 compliance
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.0.0
+    hooks:
+      - id: flake8
+        args: ['--max-line-length=120', '--extend-ignore=E203,W503']
+
+  # Auto-fix with autopep8
+  - repo: https://github.com/pre-commit/mirrors-autopep8
+    rev: v2.0.4
+    hooks:
+      - id: autopep8
+        args: ['-i', '--aggressive', '--aggressive']
+
+  # Remove unused imports
+  - repo: https://github.com/PyCQA/autoflake
+    rev: v2.2.1
+    hooks:
+      - id: autoflake
+        args: ['--in-place', '--remove-all-unused-imports', '--remove-unused-variables']
+
+  # Security checks
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.6
+    hooks:
+      - id: bandit
+        args: ['-ll', '-c', '.bandit']
+        files: \.py$
+
+  # Check for secrets
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+
+  # General file checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+      - id: mixed-line-ending
+
+  # Markdown formatting
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.17
+    hooks:
+      - id: mdformat
+        additional_dependencies:
+          - mdformat-gfm
+          - mdformat-black
+
+  # Commit message checks
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.13.0
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
+
+# Configuration for CI mode
+ci:
+  autofix_commit_msg: |
+    🤖 Auto-fix: Pre-commit hooks applied
+    
+    [skip ci]
+  autofix_prs: true
+  autoupdate_branch: ''
+  autoupdate_commit_msg: 'chore: Update pre-commit hooks [skip ci]'
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false
