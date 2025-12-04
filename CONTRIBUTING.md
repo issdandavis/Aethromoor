@@ -142,4 +142,61 @@ Update documentation with new endpoints
 
 ---
 
+## Issue Guidelines
+
+### Creating Good Issues
+
+**DO:**
+- ✅ Use descriptive, specific titles
+- ✅ Use the appropriate issue template
+- ✅ Provide clear descriptions and context
+- ✅ Link to relevant files or documentation
+- ✅ Add appropriate labels
+- ✅ Keep issues focused on one topic
+- ✅ Search for existing issues before creating new ones
+
+**DON'T:**
+- ❌ Use issues for lore documentation (use markdown files)
+- ❌ Create placeholder or test issues
+- ❌ Rely solely on external links (archive content in-repo)
+- ❌ Leave issues without descriptions
+- ❌ Mix multiple unrelated topics in one issue
+
+### Issue Types and Templates
+
+We provide templates for common issue types:
+- **Game Scene Request**: For requesting new game content
+- **Lore Addition**: For proposing worldbuilding additions (submit as PR)
+- **Bug Report**: For reporting problems
+- **Feature Request**: For suggesting new features
+
+### Lore and Documentation
+
+**Lore content belongs in files, not issues:**
+- Add new lore via pull requests to `lore/` directory
+- Discuss lore ideas in GitHub Discussions first
+- Reference existing lore files for formatting
+- Ensure consistency with established canon
+
+**The custom agent can help:**
+- Use `@my-agent` to validate lore consistency
+- Get help organizing lore content
+- Verify timeline and character details
+
+### Issue Labels
+
+Common labels and their meanings:
+- `game-content`: Game scene or content additions
+- `lore`: Worldbuilding and narrative content
+- `choicescript`: ChoiceScript game specific
+- `html-game`: HTML game specific
+- `documentation`: Documentation improvements
+- `enhancement`: New features or improvements
+- `bug`: Something isn't working
+- `good first issue`: Good for newcomers
+
+For more details, see `docs/ISSUE_ORGANIZATION_GUIDE.md`.
+
+---
+
 *"Every contribution weaves another thread in the spiral."*
