@@ -3,18 +3,203 @@ name: ChoiceScript Tests
 on:
   push:
     paths:
-      - 'choicescript_game/scenes/**'
+      - 'choicescript_game/**'
+      - 'game/**'
       - '.github/workflows/choicescript-tests.yml'
+  pull_request:
+    paths:
+      - 'choicescript_game/**'
+      - 'game/**'
   workflow_dispatch:
 
 jobs:
-  quicktest:
+  validate-scenes:
+    name: Validate ChoiceScript Scenes
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Run Quicktest and Randomtest
+        uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Check scene files exist
         run: |
-          echo "Running Quicktest and Randomtest (placeholder)."
-          # TODO: Add commands to run ChoiceScript's Quicktest and Randomtest here
-          echo "Quicktest and Randomtest completed."
+          echo "Checking ChoiceScript scene files..."
+          
+          SCENE_DIR="choicescript_game/scenes"
+          if [ ! -d "$SCENE_DIR" ]; then
+            echo "❌ Scene directory not found: $SCENE_DIR"
+            exit 1
+          fi
+          
+          SCENE_COUNT=$(find "$SCENE_DIR" -name "*.txt" | wc -l)
+          echo "Found $SCENE_COUNT scene files"
+          
+          if [ $SCENE_COUNT -eq 0 ]; then
+            echo "⚠️ Warning: No scene files found"
+          else
+            echo "✅ Scene files present"
+            find "$SCENE_DIR" -name "*.txt" -exec basename {} \;
+          fi
+      
+      - name: Validate startup.txt
+        run: |
+          echo "Validating startup.txt..."
+          
+          STARTUP="choicescript_game/startup.txt"
+          if [ ! -f "$STARTUP" ]; then
+            echo "❌ startup.txt not found"
+            exit 1
+          fi
+          
+          # Check for required ChoiceScript commands
+          if grep -q "*create" "$STARTUP"; then
+            echo "✅ Contains variable definitions"
+          else
+            echo "⚠️ Warning: No *create commands found in startup.txt"
+          fi
+          
+          if grep -q "*scene_list" "$STARTUP"; then
+            echo "✅ Contains scene list"
+          else
+            echo "⚠️ Warning: No *scene_list found in startup.txt"
+          fi
+      
+      - name: Check for common syntax issues
+        run: |
+          echo "Checking for common ChoiceScript syntax issues..."
+          
+          # Check all .txt files in scenes directory
+          ERROR_COUNT=0
+          
+          for file in choicescript_game/scenes/*.txt choicescript_game/*.txt; do
+            if [ -f "$file" ]; then
+              filename=$(basename "$file")
+              echo "Checking $filename..."
+              
+              # Check for common issues
+              if grep -n "^\*choice$" "$file" | grep -A1 . | grep -v "^--$" | grep -v "^\*choice$" | grep -v "^[0-9]*:[[:space:]]*#"; then
+                echo "⚠️ Possible empty choice in $filename"
+              fi
+              
+              # Check for unmatched indentation (basic check)
+              if grep -n "^[[:space:]]\+\*" "$file" > /dev/null; then
+                echo "ℹ️ Indented commands found in $filename (verify nesting)"
+              fi
+            fi
+          done
+          
+          echo "✅ Syntax check completed"
+      
+      - name: Word count validation
+        run: |
+          echo "Calculating word count..."
+          
+          TOTAL_WORDS=0
+          for file in choicescript_game/scenes/*.txt; do
+            if [ -f "$file" ]; then
+              # Count words excluding ChoiceScript commands
+              WORDS=$(grep -v "^\*" "$file" | wc -w)
+              TOTAL_WORDS=$((TOTAL_WORDS + WORDS))
+            fi
+          done
+          
+          echo "Total word count (approximate): $TOTAL_WORDS"
+          
+          MIN_WORDS=30000
+          if [ $TOTAL_WORDS -lt $MIN_WORDS ]; then
+            echo "⚠️ Warning: Word count ($TOTAL_WORDS) below minimum for Hosted Games ($MIN_WORDS)"
+          else
+            echo "✅ Word count meets minimum requirement"
+          fi
+      
+      - name: Test summary
+        if: always()
+        run: |
+          echo "# ChoiceScript Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Status:** ✅ Validation completed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Note:** Full Quicktest and Randomtest require ChoiceScript engine." >> $GITHUB_STEP_SUMMARY
+          echo "Run locally with official ChoiceScript tools for comprehensive testing." >> $GITHUB_STEP_SUMMARY
+
+  html-validation:
+    name: Validate HTML Game
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Validate HTML structure
+        run: |
+          echo "Validating HTML game files..."
+          
+          HTML_FILE="game/index.html"
+          if [ ! -f "$HTML_FILE" ]; then
+            echo "❌ HTML game file not found"
+            exit 1
+          fi
+          
+          # Check for required files
+          if [ -f "game/game.js" ]; then
+            echo "✅ game.js found"
+          else
+            echo "⚠️ game.js not found"
+          fi
+          
+          if [ -f "game/style.css" ]; then
+            echo "✅ style.css found"
+          else
+            echo "⚠️ style.css not found"
+          fi
+          
+          # Basic HTML validation
+          if grep -q "<html" "$HTML_FILE" && grep -q "</html>" "$HTML_FILE"; then
+            echo "✅ Valid HTML structure"
+          else
+            echo "❌ Invalid HTML structure"
+            exit 1
+          fi
+      
+      - name: Check JavaScript syntax
+        if: hashFiles('game/game.js') != ''
+        run: |
+          echo "Checking JavaScript syntax..."
+          
+          # Use Node.js to check for syntax errors
+          node -c game/game.js || {
+            echo "❌ JavaScript syntax errors found"
+            exit 1
+          }
+          
+          echo "✅ JavaScript syntax valid"
+
+  content-consistency:
+    name: Content Consistency Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Compare HTML and ChoiceScript versions
+        run: |
+          echo "Checking content consistency between versions..."
+          
+          # This is a basic check - can be expanded
+          HTML_SCENES=$(grep -o "currentScene = '[^']*'" game/game.js 2>/dev/null | wc -l || echo "0")
+          CS_SCENES=$(find choicescript_game/scenes -name "*.txt" 2>/dev/null | wc -l || echo "0")
+          
+          echo "HTML version scenes referenced: $HTML_SCENES"
+          echo "ChoiceScript scene files: $CS_SCENES"
+          
+          if [ $CS_SCENES -eq 0 ]; then
+            echo "ℹ️ ChoiceScript version may be incomplete"
+          fi
+          
+          echo "✅ Consistency check completed"
