@@ -284,6 +284,25 @@ Avalon/
 
 ---
 
+## 🤝 Contributing
+
+We welcome contributions! All pull requests require review and approval before merging.
+
+**Quick Start:**
+1. Read the [Contributing Guide](CONTRIBUTING.md)
+2. Check the [Branch Protection Guide](docs/BRANCH_PROTECTION_GUIDE.md) for PR requirements
+3. Fork the repository and create a feature branch
+4. Make your changes and submit a pull request
+5. Wait for code review and approval
+
+**Key Points:**
+- All PRs to `main` require at least 1 approval from @issdandavis
+- Automated checks must pass
+- Code owners are automatically requested for review
+- See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines
+
+---
+
 ## 🎮 Ready to Play?
 
 **👉 Open [PLAY_THE_GAME.md](PLAY_THE_GAME.md) or just double-click `game/index.html`**

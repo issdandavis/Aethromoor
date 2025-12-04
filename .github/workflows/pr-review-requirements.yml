@@ -1,0 +1,233 @@
+name: PR Review Requirements
+
+# Ensures all pull requests meet review requirements before merging
+# This workflow complements GitHub branch protection rules
+# 
+# Configuration:
+# - Code owner username: 'issdandavis' (hardcoded in multiple places)
+# - To change: search and replace all instances in this file
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  pull_request_review:
+    types: [submitted, dismissed]
+  schedule:
+    # Check for stale PRs daily at 9 AM UTC
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  pull-requests: write
+  checks: write
+  contents: read
+
+jobs:
+  check-review-status:
+    name: Verify PR Review Requirements
+    runs-on: ubuntu-latest
+    if: github.event_name != 'schedule'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check if PR is from owner
+        id: check_owner
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            if (!pr) {
+              console.log('⚠️ No pull_request data in payload');
+              core.setOutput('is_owner', 'unknown');
+              return false;
+            }
+            
+            const isOwner = pr.user.login === 'issdandavis';
+            
+            core.setOutput('is_owner', isOwner);
+            core.setOutput('pr_author', pr.user.login);
+            
+            console.log(`PR author: ${pr.user.login}`);
+            console.log(`Is owner: ${isOwner}`);
+            
+            return isOwner;
+
+      - name: Require review for non-owner PRs
+        if: steps.check_owner.outputs.is_owner == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            if (!pr) {
+              console.log('⚠️ No pull_request data in payload');
+              return;
+            }
+            
+            // Get reviews for this PR
+            const { data: reviews } = await github.rest.pulls.listReviews({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number
+            });
+            
+            // Check if there's at least one approval from a codeowner
+            const approvals = reviews.filter(review => 
+              review.state === 'APPROVED' && 
+              review.user.login === 'issdandavis'
+            );
+            
+            const hasApproval = approvals.length > 0;
+            
+            // Add a comment if no approval yet
+            if (!hasApproval && context.payload.action === 'opened') {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                body: '## ⚠️ Review Required\n\n' +
+                      'This pull request requires approval from a code owner before it can be merged.\n\n' +
+                      '**Review Process:**\n' +
+                      '1. Automated checks will run first\n' +
+                      '2. A code owner will review your changes\n' +
+                      '3. Once approved, the PR can be merged\n\n' +
+                      '**Reviewers:** @issdandavis\n\n' +
+                      'Thank you for your contribution! 🎉'
+              });
+            }
+            
+            // Set status
+            if (hasApproval) {
+              console.log('✅ PR has required approvals');
+              core.setOutput('review_status', 'approved');
+            } else {
+              console.log('⏳ PR awaiting review and approval');
+              core.setOutput('review_status', 'pending');
+            }
+
+      - name: Add labels based on review status
+        if: steps.check_owner.outputs.is_owner == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            if (!pr) {
+              console.log('⚠️ No pull_request data in payload');
+              return;
+            }
+            
+            // Get current labels
+            const currentLabels = pr.labels.map(label => label.name);
+            
+            // Check existing reviews to determine approval status
+            const { data: reviews } = await github.rest.pulls.listReviews({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number
+            });
+            
+            // Check if there's an approval from the code owner
+            const hasApproval = reviews.some(review => 
+              review.state === 'APPROVED' && 
+              review.user.login === 'issdandavis'
+            );
+            
+            // Determine which label to add based on approval status
+            let labelToAdd = hasApproval ? 'approved-for-merge' : 'awaiting-review';
+            let labelToRemove = hasApproval ? 'awaiting-review' : 'approved-for-merge';
+            
+            // Add the appropriate label
+            if (!currentLabels.includes(labelToAdd)) {
+              try {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: pr.number,
+                  labels: [labelToAdd]
+                });
+                console.log(`✅ Added label: ${labelToAdd}`);
+              } catch (error) {
+                console.log(`⚠️ Could not add label ${labelToAdd}:`, error.message);
+              }
+            }
+            
+            // Remove the opposite label if present
+            if (currentLabels.includes(labelToRemove)) {
+              try {
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: pr.number,
+                  name: labelToRemove
+                });
+                console.log(`✅ Removed label: ${labelToRemove}`);
+              } catch (error) {
+                console.log(`⚠️ Could not remove label ${labelToRemove}:`, error.message);
+              }
+            }
+
+      - name: Owner PR auto-approved
+        if: steps.check_owner.outputs.is_owner == 'true'
+        run: |
+          echo "✅ PR from owner (@issdandavis) - Auto-approved"
+          echo "This PR can be merged after automated checks pass"
+
+  review-reminder:
+    name: Review Reminder (Scheduled)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+    
+    steps:
+      - name: Check for stale PRs needing review
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Get all open PRs
+            const { data: prs } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100
+            });
+            
+            const now = new Date();
+            const oneDayAgo = new Date(now - 24 * 60 * 60 * 1000);
+            
+            for (const pr of prs) {
+              // Skip owner PRs
+              if (pr.user.login === 'issdandavis') continue;
+              
+              const prCreated = new Date(pr.created_at);
+              
+              // Check if PR is older than 1 day
+              if (prCreated < oneDayAgo) {
+                // Get reviews
+                const { data: reviews } = await github.rest.pulls.listReviews({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: pr.number
+                });
+                
+                // Check if there's an approval from the code owner
+                const hasApproval = reviews.some(review => 
+                  review.state === 'APPROVED' && 
+                  review.user.login === 'issdandavis'
+                );
+                
+                if (!hasApproval) {
+                  console.log(`⏰ PR #${pr.number} needs review (${pr.title})`);
+                  
+                  // Add a comment reminder
+                  await github.rest.issues.createComment({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: pr.number,
+                    body: '## 🔔 Review Reminder\n\n' +
+                          'This PR has been waiting for review for over 24 hours.\n\n' +
+                          'Reviewers: @issdandavis\n\n' +
+                          'Please review when you have a chance. Thank you! 🙏'
+                  });
+                }
+              }
+            }

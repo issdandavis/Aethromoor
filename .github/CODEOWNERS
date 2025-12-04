@@ -1,0 +1,25 @@
+# CODEOWNERS - Automatic Review Assignment
+# This file defines code ownership for automatic review requests
+# When a PR is opened, owners are automatically requested for review
+
+# Default owner for all files
+* @issdandavis
+
+# Game content files
+/game/** @issdandavis
+/choicescript_game/** @issdandavis
+
+# Lore and writing
+/lore/** @issdandavis
+/writing_drafts/** @issdandavis
+
+# Documentation
+/docs/** @issdandavis
+*.md @issdandavis
+
+# Workflows and automation
+/.github/workflows/** @issdandavis
+/.github/scripts/** @issdandavis
+
+# Configuration files
+/config/** @issdandavis

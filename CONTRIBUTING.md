@@ -74,6 +74,7 @@ The HTML version (`game/game.js`) is the complete reference. ChoiceScript versio
 3. Make changes
 4. Test locally (see below)
 5. Submit a pull request
+6. Wait for code review and approval (see [Branch Protection Guide](docs/BRANCH_PROTECTION_GUIDE.md))
 
 ### Testing Locally
 
@@ -131,6 +132,19 @@ Add Singing Dunes truth-testing scene
 Fix stat tracking in first lesson
 Update documentation with new endpoints
 ```
+
+---
+
+## Pull Request Review Process
+
+All pull requests require review and approval before merging:
+
+- **External Contributors**: Require at least 1 approval from @issdandavis
+- **Automated Checks**: All tests and validations must pass
+- **Code Owners**: Automatically requested for review based on changed files
+- **Labels**: PRs are automatically labeled (`awaiting-review`, `approved-for-merge`)
+
+See the [Branch Protection Guide](docs/BRANCH_PROTECTION_GUIDE.md) for complete details on the review process.
 
 ---
 
