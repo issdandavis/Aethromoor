@@ -1,0 +1,229 @@
+name: Apply License to Other Repositories
+
+# Manually triggered workflow to copy the LICENSE file to other repositories
+# This creates a PR in each target repository with the Apache 2.0 License
+
+on:
+  workflow_dispatch:
+    inputs:
+      repositories:
+        description: 'Comma-separated list of repositories (e.g., owner/repo1,owner/repo2)'
+        required: true
+        type: string
+      create_pr:
+        description: 'Create PR instead of direct commit'
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  apply-license:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      
+      - name: Verify LICENSE file exists
+        run: |
+          if [ ! -f LICENSE ]; then
+            echo "❌ ERROR: LICENSE file not found in this repository"
+            exit 1
+          fi
+          echo "✅ LICENSE file found"
+          echo "License preview:"
+          head -5 LICENSE
+          echo "..."
+          tail -5 LICENSE
+      
+      - name: Setup GitHub CLI
+        run: |
+          type -p gh >/dev/null || echo "GitHub CLI already installed"
+      
+      - name: Apply LICENSE to repositories
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+          REPOS: ${{ inputs.repositories }}
+          CREATE_PR: ${{ inputs.create_pr }}
+        run: |
+          set -e
+          
+          # Validate PAT_TOKEN exists
+          if [ -z "$GH_TOKEN" ]; then
+            echo "❌ ERROR: PAT_TOKEN secret is not set"
+            echo ""
+            echo "You need to create a Personal Access Token with 'repo' and 'workflow' scopes."
+            echo "See docs/LICENSE_APPLICATION_GUIDE.md for setup instructions."
+            exit 1
+          fi
+          
+          echo "🚀 Starting license application process"
+          echo "Target repositories: $REPOS"
+          echo "Create PR: $CREATE_PR"
+          echo ""
+          
+          # Split repositories by comma
+          IFS=',' read -ra REPO_ARRAY <<< "$REPOS"
+          
+          # Prepare commit message (used for both PR and direct commit)
+          COMMIT_TITLE="Add Apache 2.0 License"
+          COMMIT_BODY="This adds the Apache 2.0 License to protect intellectual property.
+
+- Full Apache 2.0 license text
+- Copyright notice included
+- Clear terms for use, modification, and distribution
+- Patent and liability protections
+
+Applied via automated workflow from Aethromoor repository."
+          
+          SUCCESS_COUNT=0
+          FAIL_COUNT=0
+          
+          for repo in "${REPO_ARRAY[@]}"; do
+            # Trim whitespace
+            repo=$(echo "$repo" | xargs)
+            
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "📦 Processing: $repo"
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            
+            # Create temporary directory for this repo
+            TEMP_DIR=$(mktemp -d)
+            cd "$TEMP_DIR"
+            
+            # Clone the repository
+            if ! gh repo clone "$repo" . 2>/tmp/clone_error.txt; then
+              echo "❌ Failed to clone $repo"
+              echo "Error details:"
+              cat /tmp/clone_error.txt 2>/dev/null || echo "  No error details available"
+              echo ""
+              echo "Possible causes:"
+              echo "  - Repository doesn't exist or name is misspelled"
+              echo "  - PAT_TOKEN lacks access to this repository"
+              echo "  - Repository is private and PAT needs 'repo' scope"
+              FAIL_COUNT=$((FAIL_COUNT + 1))
+              cd - > /dev/null
+              rm -rf "$TEMP_DIR"
+              continue
+            fi
+            
+            # Check if LICENSE already exists
+            if [ -f LICENSE ]; then
+              echo "⚠️  LICENSE file already exists in $repo"
+              echo "Skipping to avoid overwriting existing license"
+              FAIL_COUNT=$((FAIL_COUNT + 1))
+              cd - > /dev/null
+              rm -rf "$TEMP_DIR"
+              continue
+            fi
+            
+            # Copy LICENSE file from source repo
+            cp "$GITHUB_WORKSPACE/LICENSE" .
+            
+            # Get default branch name using GitHub CLI for reliability
+            DEFAULT_BRANCH=$(gh repo view "$repo" --json defaultBranchRef --jq '.defaultBranchRef.name' 2>/dev/null || echo "main")
+            
+            if [ "$CREATE_PR" = "true" ]; then
+              # Create PR workflow
+              BRANCH_NAME="add-apache-license-$(date +%s)"
+              
+              git config user.name "github-actions[bot]"
+              git config user.email "github-actions[bot]@users.noreply.github.com"
+              
+              git checkout -b "$BRANCH_NAME"
+              git add LICENSE
+              git commit -m "$COMMIT_TITLE" -m "$COMMIT_BODY"
+              
+              git push origin "$BRANCH_NAME"
+              
+              # Create PR
+              if gh pr create \
+                --title "Add Apache 2.0 License" \
+                --body "## Summary
+
+This PR adds the Apache 2.0 License to establish clear usage terms and copyright protection for repository content.
+
+## What's Included
+
+- Complete Apache 2.0 license text (201 lines)
+- Copyright notice: \"Copyright 2025 issdandavis\"
+- Clear terms for use, modification, and distribution
+- Patent and liability protections
+
+## Why This Matters
+
+Adding a license:
+- ✅ Protects your intellectual property
+- ✅ Defines how others can use your work
+- ✅ Provides legal clarity for contributors
+- ✅ Establishes copyright ownership
+
+## Applied From
+
+This license was automatically applied from the [Aethromoor repository](https://github.com/issdandavis/Aethromoor) using the license application workflow.
+
+---
+
+**Review and merge when ready. The license takes effect immediately upon merge.**" \
+                --base "$DEFAULT_BRANCH" \
+                --head "$BRANCH_NAME"; then
+                echo "✅ PR created successfully for $repo"
+                SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
+              else
+                echo "❌ Failed to create PR for $repo"
+                FAIL_COUNT=$((FAIL_COUNT + 1))
+              fi
+            else
+              # Direct commit workflow
+              git config user.name "github-actions[bot]"
+              git config user.email "github-actions[bot]@users.noreply.github.com"
+              
+              git add LICENSE
+              git commit -m "$COMMIT_TITLE" -m "$COMMIT_BODY"
+              git push origin "$DEFAULT_BRANCH"
+              
+              echo "✅ LICENSE committed directly to $repo"
+              SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
+            fi
+            
+            cd - > /dev/null
+            rm -rf "$TEMP_DIR"
+            echo ""
+          done
+          
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📊 Summary"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ Success: $SUCCESS_COUNT"
+          echo "❌ Failed:  $FAIL_COUNT"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          
+          if [ $FAIL_COUNT -gt 0 ]; then
+            echo ""
+            echo "⚠️  Some repositories failed. Check the logs above for details."
+          fi
+          
+          if [ $SUCCESS_COUNT -eq 0 ]; then
+            echo ""
+            echo "❌ No repositories were successfully updated"
+            exit 1
+          fi
+      
+      - name: Workflow complete
+        run: |
+          echo "🎉 License application workflow complete!"
+          echo ""
+          echo "Next steps:"
+          if [ "${{ inputs.create_pr }}" = "true" ]; then
+            echo "1. Review the PRs created in each repository"
+            echo "2. Merge the PRs to activate the license"
+            echo "3. The license will protect each repository upon merge"
+          else
+            echo "1. Verify the LICENSE file in each repository"
+            echo "2. The license is now active and protecting your repositories"
+          fi
