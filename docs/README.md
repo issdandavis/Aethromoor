@@ -4,5 +4,6 @@ The `docs/` directory holds world-building material, transcripts, and other refe
 
 - `avalon_materials/` — bulk creative drafts, PDFs, and lore packages.
 - `reference/` — smaller loose references that were previously in the repository root.
+- `WORKSPACE_REMOVAL_GUIDE.md` — troubleshooting checklist and support template for deleting or leaving a workspace when UI options are blocked.
 
 Keep any new design documents or narrative sources under this folder to avoid mixing them with runnable game code.
