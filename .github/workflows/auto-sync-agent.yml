@@ -1,0 +1,222 @@
+name: Auto Sync Agent
+# Automatically pulls changes from main and pushes local changes
+
+on:
+  schedule:
+    # Run every 30 minutes
+    - cron: '*/30 * * * *'
+  
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to sync (default: current branch)'
+        required: false
+        default: ''
+      force_push:
+        description: 'Force push changes (use with caution)'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Configure Git
+        run: |
+          git config --global user.name "Auto Sync Agent[bot]"
+          git config --global user.email "auto-sync-agent[bot]@users.noreply.github.com"
+      
+      - name: Get current branch
+        id: branch
+        run: |
+          if [ -n "${{ github.event.inputs.branch }}" ]; then
+            BRANCH="${{ github.event.inputs.branch }}"
+          else
+            BRANCH="${GITHUB_REF#refs/heads/}"
+          fi
+          echo "name=$BRANCH" >> $GITHUB_OUTPUT
+          echo "📌 Syncing branch: $BRANCH"
+      
+      - name: Pull latest changes
+        id: pull
+        run: |
+          echo "🔄 Fetching latest changes from origin..."
+          git fetch origin
+          
+          BRANCH="${{ steps.branch.outputs.name }}"
+          
+          # Check if remote branch exists
+          if git ls-remote --heads origin "$BRANCH" | grep -q "$BRANCH"; then
+            echo "✅ Remote branch exists: $BRANCH"
+            
+            # Try to pull with rebase
+            echo "🔄 Pulling changes with rebase..."
+            if git pull --rebase origin "$BRANCH"; then
+              echo "pulled=true" >> $GITHUB_OUTPUT
+              echo "✅ Successfully pulled changes"
+            else
+              echo "⚠️ Rebase failed, trying merge..."
+              git rebase --abort 2>/dev/null || true
+              
+              if git pull origin "$BRANCH"; then
+                echo "pulled=true" >> $GITHUB_OUTPUT
+                echo "✅ Successfully merged changes"
+              else
+                echo "pulled=false" >> $GITHUB_OUTPUT
+                echo "❌ Failed to pull changes - conflicts detected"
+                echo "conflicts=true" >> $GITHUB_OUTPUT
+                exit 1
+              fi
+            fi
+          else
+            echo "pulled=false" >> $GITHUB_OUTPUT
+            echo "⚠️ Remote branch does not exist: $BRANCH"
+          fi
+      
+      - name: Check for local changes
+        id: status
+        run: |
+          echo "📋 Checking repository status..."
+          
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "✅ Local changes detected:"
+            git status --short
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No local changes to commit"
+          fi
+          
+          # Check for unpushed commits
+          BRANCH="${{ steps.branch.outputs.name }}"
+          if git rev-parse "origin/$BRANCH" >/dev/null 2>&1; then
+            BEHIND=$(git rev-list HEAD..origin/$BRANCH --count)
+            AHEAD=$(git rev-list origin/$BRANCH..HEAD --count)
+            
+            echo "behind=$BEHIND" >> $GITHUB_OUTPUT
+            echo "ahead=$AHEAD" >> $GITHUB_OUTPUT
+            
+            echo "📊 Branch status:"
+            echo "  - Commits behind origin: $BEHIND"
+            echo "  - Commits ahead of origin: $AHEAD"
+          else
+            echo "behind=0" >> $GITHUB_OUTPUT
+            echo "ahead=0" >> $GITHUB_OUTPUT
+            echo "ℹ️ No remote tracking branch"
+          fi
+      
+      - name: Commit local changes
+        if: steps.status.outputs.has_changes == 'true'
+        run: |
+          echo "💾 Committing local changes..."
+          
+          # Add all changes
+          git add -A
+          
+          # Create commit with timestamp
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          git commit -m "Auto-sync: Save changes ($TIMESTAMP)" \
+                     -m "Automated commit by Auto Sync Agent" \
+                     -m "Changes detected and saved automatically."
+          
+          echo "✅ Changes committed"
+      
+      - name: Push changes
+        if: steps.status.outputs.ahead != '0' || steps.status.outputs.has_changes == 'true'
+        run: |
+          BRANCH="${{ steps.branch.outputs.name }}"
+          FORCE_PUSH="${{ github.event.inputs.force_push }}"
+          
+          echo "🚀 Pushing changes to origin/$BRANCH..."
+          
+          if [ "$FORCE_PUSH" = "true" ]; then
+            echo "⚠️ Force pushing (with lease)..."
+            git push origin "$BRANCH" --force-with-lease
+          else
+            if git push origin "$BRANCH"; then
+              echo "✅ Successfully pushed changes"
+            else
+              echo "❌ Push failed - may need to pull first or resolve conflicts"
+              exit 1
+            fi
+          fi
+      
+      - name: Create sync report
+        if: always()
+        run: |
+          echo "## 🔄 Auto Sync Report" > /tmp/sync_report.md
+          echo "" >> /tmp/sync_report.md
+          echo "**Branch:** ${{ steps.branch.outputs.name }}" >> /tmp/sync_report.md
+          echo "**Time:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> /tmp/sync_report.md
+          echo "" >> /tmp/sync_report.md
+          
+          if [ "${{ steps.pull.outputs.pulled }}" = "true" ]; then
+            echo "✅ **Pulled:** Changes from remote" >> /tmp/sync_report.md
+          else
+            echo "ℹ️ **Pulled:** No changes" >> /tmp/sync_report.md
+          fi
+          
+          if [ "${{ steps.status.outputs.has_changes }}" = "true" ]; then
+            echo "✅ **Committed:** Local changes saved" >> /tmp/sync_report.md
+          else
+            echo "ℹ️ **Committed:** No local changes" >> /tmp/sync_report.md
+          fi
+          
+          if [ "${{ steps.status.outputs.ahead }}" != "0" ] || [ "${{ steps.status.outputs.has_changes }}" = "true" ]; then
+            echo "✅ **Pushed:** Changes to remote" >> /tmp/sync_report.md
+          else
+            echo "ℹ️ **Pushed:** Nothing to push" >> /tmp/sync_report.md
+          fi
+          
+          echo "" >> /tmp/sync_report.md
+          echo "### Branch Status" >> /tmp/sync_report.md
+          echo "- Commits behind: ${{ steps.status.outputs.behind }}" >> /tmp/sync_report.md
+          echo "- Commits ahead: ${{ steps.status.outputs.ahead }}" >> /tmp/sync_report.md
+          
+          cat /tmp/sync_report.md
+      
+      - name: Notify on conflict
+        if: steps.pull.outputs.conflicts == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🚨 Auto Sync Conflict Detected',
+              body: `## Sync Conflict on Branch: ${{ steps.branch.outputs.name }}
+              
+              The Auto Sync Agent encountered conflicts while trying to sync changes.
+              
+              **Action Required:**
+              1. Manually pull the latest changes: \`git pull origin ${{ steps.branch.outputs.name }}\`
+              2. Resolve any merge conflicts
+              3. Commit the resolved changes
+              4. Push: \`git push origin ${{ steps.branch.outputs.name }}\`
+              
+              **Or use the manual sync:**
+              \`\`\`bash
+              git fetch origin
+              git checkout ${{ steps.branch.outputs.name }}
+              git merge origin/${{ steps.branch.outputs.name }}
+              # Resolve conflicts
+              git commit
+              git push
+              \`\`\`
+              
+              ---
+              *Auto Sync Agent - Workflow Run: [${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})*`,
+              labels: ['auto-sync', 'conflict', 'needs-attention']
+            })

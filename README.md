@@ -44,14 +44,47 @@ This repository features AI-powered automation for inter-account communications 
 - **[AI Employees Guide](docs/AI_EMPLOYEES_GUIDE.md)** - 5-minute setup for inbox management
 - **[Inbox Management](docs/INBOX_MANAGEMENT.md)** - Complete documentation
 - **[Enterprise Monitoring](docs/ENTERPRISE_MONITORING.md)** - Enterprise functions validation
+- **[Auto Sync Agent](docs/AUTO_SYNC_AGENT.md)** - Automatic git pull/push automation
+- **[Pipedream Workflows](pipedream/README.md)** - Cloud orchestration and backup automation
 
 **Documentation:**
 - **[ACCOUNTS_README.md](ACCOUNTS_README.md)** - Complete account automation setup guide
 - **[docs/AUTOMATION_GUIDE.md](docs/AUTOMATION_GUIDE.md)** - Integration workflows
+- **[Pipedream Workflows](pipedream/)** - Ready-to-use Pipedream components
 - **Configuration:** `config/automation-settings.json`, `config/enterprise-settings.json`
 
-## Security
-Previous commits contained plaintext API keys. They have been removed from the tracked files. Make sure to rotate any keys that may have been exposed and only store live credentials in your local `.env` file. All automation credentials are stored securely in GitHub Secrets.
+## 🔐 Security & API Keys
+
+**IMPORTANT:** This repository includes secure API key management for payment processing, AI services, and automation tools.
+
+### 📚 Security Documentation
+- **[docs/SECURITY.md](docs/SECURITY.md)** - Complete security guide
+- **[docs/GITHUB_SECRETS_SETUP.md](docs/GITHUB_SECRETS_SETUP.md)** - GitHub Secrets for automation
+- **[.auth/README.md](.auth/README.md)** - Secure key storage guide
+- **[.auth/AUTOMATION_QUICK_START.md](.auth/AUTOMATION_QUICK_START.md)** - Pipedream/Zapier integration
+
+### 🔑 Key Management
+- **Local Development:** Use `.env` files (gitignored)
+- **Automation Tools:** Use `.auth/` directory (gitignored, except docs)
+- **CI/CD & Production:** Use GitHub Secrets (encrypted)
+
+### ⚠️ Critical Security Rules
+1. **NEVER commit API keys to Git**
+2. **ALWAYS use test keys for development** (Stripe: `sk_test_`, `pk_test_`)
+3. **ALWAYS rotate exposed keys immediately**
+4. **ALWAYS use GitHub Secrets for production**
+
+**Quick Start:**
+```bash
+# Copy templates
+cp config/.env.example config/.env
+cp .auth/keys.example.json .auth/keys.json
+
+# Fill in your keys (use test keys!)
+nano config/.env
+```
+
+See [docs/SECURITY.md](docs/SECURITY.md) for complete details.
 # 🎮 Polly's Wingscroll: The First Thread
 
 **A choice-based narrative game set in Avalon Academy**
@@ -78,6 +111,7 @@ This repository now includes a complete **AI autonomous workflow system** that:
 - ✨ Writes ChoiceScript scenes automatically (every 3 hours)
 - ✨ Polishes content with sensory details (every 4 hours)
 - ✨ Balances stats and game difficulty (daily)
+- ✨ **NEW: Auto Sync Agent** - Automatically pulls and pushes changes (every 30 min)
 - ✨ Tests for bugs and validates code (daily)
 - ✨ Makes progress even while you sleep!
 

@@ -1,7 +1,18 @@
 # Environment and secrets
 .env
+.env.local
+.env.*.local
 keys.txt
 config/.env
+
+# Auth directory - NEVER commit actual keys!
+.auth/keys.json
+.auth/.env*
+.auth/service-accounts/
+.auth/*.local.*
+# But DO track documentation
+!.auth/README.md
+!.auth/keys.example.json
 
 # Python cache
 __pycache__/

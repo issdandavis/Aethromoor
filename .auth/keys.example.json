@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Template for API keys and authentication credentials. Copy this to keys.json and fill in your actual values.",
+  
+  "stripe": {
+    "publishable_key": "pk_test_YOUR_PUBLISHABLE_KEY_HERE",
+    "secret_key": "sk_test_YOUR_SECRET_KEY_HERE",
+    "webhook_secret": "whsec_YOUR_WEBHOOK_SECRET_HERE",
+    "environment": "test",
+    "note": "Use test keys for development. Never commit live keys!"
+  },
+  
+  "openai": {
+    "api_key": "sk-YOUR_OPENAI_API_KEY_HERE",
+    "organization_id": "org-YOUR_ORG_ID_HERE",
+    "model": "gpt-4",
+    "note": "Get your API key from https://platform.openai.com/api-keys"
+  },
+  
+  "anthropic": {
+    "api_key": "sk-ant-YOUR_ANTHROPIC_API_KEY_HERE",
+    "model": "claude-3-sonnet-20240229",
+    "note": "Get your API key from https://console.anthropic.com/"
+  },
+  
+  "pipedream": {
+    "api_key": "YOUR_PIPEDREAM_API_KEY_HERE",
+    "workspace_id": "YOUR_WORKSPACE_ID_HERE",
+    "webhook_urls": {
+      "stripe_events": "https://YOUR_PIPEDREAM_ENDPOINT.m.pipedream.net",
+      "github_webhooks": "https://YOUR_PIPEDREAM_ENDPOINT.m.pipedream.net"
+    },
+    "note": "Get your API key from https://pipedream.com/settings/account"
+  },
+  
+  "zapier": {
+    "webhook_urls": {
+      "catch_hook": "https://hooks.zapier.com/hooks/catch/YOUR_HOOK_ID/",
+      "stripe_payments": "https://hooks.zapier.com/hooks/catch/YOUR_HOOK_ID/",
+      "form_submissions": "https://hooks.zapier.com/hooks/catch/YOUR_HOOK_ID/"
+    },
+    "note": "Create webhooks in your Zapier workflows"
+  },
+  
+  "github": {
+    "personal_access_token": "ghp_YOUR_GITHUB_PAT_HERE",
+    "oauth_client_id": "YOUR_OAUTH_CLIENT_ID",
+    "oauth_client_secret": "YOUR_OAUTH_CLIENT_SECRET",
+    "webhook_secret": "YOUR_WEBHOOK_SECRET_HERE",
+    "note": "Create tokens at https://github.com/settings/tokens"
+  },
+  
+  "discord": {
+    "bot_token": "YOUR_DISCORD_BOT_TOKEN_HERE",
+    "webhook_urls": {
+      "general": "https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN",
+      "dev_updates": "https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN",
+      "errors": "https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN"
+    },
+    "note": "Create webhooks in Discord channel settings"
+  },
+  
+  "vercel": {
+    "token": "YOUR_VERCEL_TOKEN_HERE",
+    "team_id": "YOUR_TEAM_ID_HERE",
+    "project_id": "YOUR_PROJECT_ID_HERE",
+    "note": "Get your token from https://vercel.com/account/tokens"
+  },
+  
+  "sendgrid": {
+    "api_key": "SG.YOUR_SENDGRID_API_KEY_HERE",
+    "from_email": "noreply@yourdomain.com",
+    "template_ids": {
+      "welcome": "d-YOUR_TEMPLATE_ID",
+      "notification": "d-YOUR_TEMPLATE_ID"
+    },
+    "note": "Get your API key from https://app.sendgrid.com/settings/api_keys"
+  },
+  
+  "google": {
+    "api_key": "YOUR_GOOGLE_API_KEY_HERE",
+    "client_id": "YOUR_CLIENT_ID.apps.googleusercontent.com",
+    "client_secret": "YOUR_CLIENT_SECRET_HERE",
+    "service_account_key": "path/to/service-account-key.json",
+    "note": "Manage keys at https://console.cloud.google.com/apis/credentials"
+  },
+  
+  "twilio": {
+    "account_sid": "AC_YOUR_ACCOUNT_SID_HERE",
+    "auth_token": "YOUR_AUTH_TOKEN_HERE",
+    "phone_number": "+1234567890",
+    "note": "Get credentials from https://console.twilio.com/"
+  },
+  
+  "slack": {
+    "bot_token": "xoxb-YOUR-SLACK-BOT-TOKEN",
+    "webhook_url": "https://hooks.slack.com/services/YOUR/WEBHOOK/URL",
+    "signing_secret": "YOUR_SIGNING_SECRET_HERE",
+    "note": "Create Slack apps at https://api.slack.com/apps"
+  },
+  
+  "dropbox": {
+    "access_token": "YOUR_DROPBOX_ACCESS_TOKEN_HERE",
+    "refresh_token": "YOUR_DROPBOX_REFRESH_TOKEN_HERE",
+    "app_key": "YOUR_APP_KEY_HERE",
+    "app_secret": "YOUR_APP_SECRET_HERE",
+    "note": "Create apps at https://www.dropbox.com/developers/apps"
+  },
+  
+  "custom_apis": {
+    "api_1": {
+      "name": "Your Custom API",
+      "api_key": "YOUR_CUSTOM_API_KEY",
+      "base_url": "https://api.example.com",
+      "note": "Add any custom APIs you need"
+    }
+  },
+  
+  "_metadata": {
+    "created_at": "2024-12-04",
+    "version": "1.0.0",
+    "last_rotated": "YYYY-MM-DD",
+    "next_rotation_due": "YYYY-MM-DD",
+    "notes": [
+      "Copy this file to keys.json and fill in your actual values",
+      "Never commit keys.json to version control",
+      "Rotate all keys every 90 days",
+      "Use test/development keys for local development",
+      "Use GitHub Secrets for CI/CD and production"
+    ]
+  }
+}
