@@ -24,8 +24,8 @@ This repository now includes a small ChoiceScript-friendly scaffolding to help y
 ### Included demo content
 - `startup`, `prologue`, and `crossroads` introduce stat creation and *goto_scene branching.
 - `archives`, `wardens`, and `council` showcase stat checks, gated options, and different narrative tones.
-- `epilogue` wraps up the path with a replay hook.
-- `choicescript_stats.txt` enables the “Show Stats” button with meters for Honor, Attunement, mentor name, and council trust, plus a blurb that reacts to your flags.
+- `epilogue` now leads into `chapter1_fall`, `chapter2_weave`, and `chapter3_council_return`, adding reactivity with *gosub calls, new stats, and multiple endings.
+- `choicescript_stats.txt` enables the “Show Stats” button with meters for Honor, Attunement, mentor name, council trust, alliances, Everweave insight, and Echo debt, plus a blurb that reacts to your flags.
 
 ## Editing and extending scenes
 - The sample scenes live in `game/scenes/`. Edit them directly there.

@@ -13,7 +13,14 @@ You pause at the threshold of a balcony overlooking the Spiral. Choices made tod
     Honor: ${honor}
     Attunement: ${attunement}
     Council trust: ${council_trust}
-    *finish
+    Alliances: ${alliances}
+    Echo debt: ${echo_debt}
+    Everweave insight: ${everweave_insight}
+    *goto onward
   #Step forward into the Spiral once more.
     The path shifts with every decision.
-    *ending
+    *goto onward
+
+*label onward
+New ripples travel through the Spiral, beckoning you toward a deeper chord.
+*goto_scene chapter1_fall

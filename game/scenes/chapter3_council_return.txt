@@ -1,0 +1,49 @@
+You return to the suspended council platforms. The elders stand beneath auroras of data—visualizations of the Everweave's tremors.
+
+*label debt_refrain
+*if echo_debt >= 20
+  The Spiral's echo clings to you like frost. Elders trace the debt with wary eyes.
+*elseif echo_debt >= 10
+  A faint shimmer follows your steps, proof of the risks you accepted.
+*else
+  Your movements are clean, your debts light.
+*return
+
+*gosub debt_refrain
+
+"Reports of the stutter reached every banner," one elder says. "What did you bring back?"
+
+*choice
+  #Present stabilized threads and the allies you warned.
+    *set council_trust +10
+    *set alliances +5
+    *goto reckon
+  #Confess the strain and request aid to settle your Echo debt.
+    *set echo_debt +5
+    *set council_trust +5
+    *goto reckon
+  #Declare the Everweave needs bold action, with or without approval.
+    *set honor +5
+    *set council_trust -5
+    *goto reckon
+
+*label reckon
+The council deliberates while the Spiral sings.
+
+*if (alliances >= 70) and (everweave_insight >= 60) and (echo_debt <= 15)
+  The elders nod. "You wove Avalon tighter and warned our friends." They grant you stewardship of a new skybridge.
+  *set honor +5
+  *ending
+*elseif (honor >= 70) and oathbound
+  The wardens take you aside. "Your duty is to protect, even from council politics." They grant you command of the martial hall.
+  *ending
+*elseif (attunement >= 65) and resonance_mark
+  The Spiral itself pulses in your favor. The elders step back as you attune the chamber and rewrite the lattice.
+  *set everweave_insight +5
+  *ending
+*elseif echo_debt >= 25
+  Your debts roar louder than your triumphs. The elders exile you beyond the bridges until the Spiral quiets.
+  *ending
+*else
+  The council delays a final judgment, assigning you to mend minor portals until your song steadies.
+  *ending

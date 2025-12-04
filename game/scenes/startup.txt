@@ -8,6 +8,9 @@
   archives
   wardens
   epilogue
+  chapter1_fall
+  chapter2_weave
+  chapter3_council_return
 
 *create honor 50
 *create attunement 50
@@ -15,6 +18,9 @@
 *create council_trust 45
 *create oathbound false
 *create resonance_mark false
+*create alliances 40
+*create echo_debt 0
+*create everweave_insight 30
 
 You stand before the gates of Avalon, the Spiral of Eternity humming under your feet. Today you choose how you will meet the city's secrets.
 
