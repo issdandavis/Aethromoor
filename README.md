@@ -44,6 +44,7 @@ This repository features AI-powered automation for inter-account communications 
 - **[AI Employees Guide](docs/AI_EMPLOYEES_GUIDE.md)** - 5-minute setup for inbox management
 - **[Inbox Management](docs/INBOX_MANAGEMENT.md)** - Complete documentation
 - **[Enterprise Monitoring](docs/ENTERPRISE_MONITORING.md)** - Enterprise functions validation
+- **[Auto Sync Agent](docs/AUTO_SYNC_AGENT.md)** - Automatic git pull/push automation
 
 **Documentation:**
 - **[ACCOUNTS_README.md](ACCOUNTS_README.md)** - Complete account automation setup guide
@@ -108,6 +109,7 @@ This repository now includes a complete **AI autonomous workflow system** that:
 - ✨ Writes ChoiceScript scenes automatically (every 3 hours)
 - ✨ Polishes content with sensory details (every 4 hours)
 - ✨ Balances stats and game difficulty (daily)
+- ✨ **NEW: Auto Sync Agent** - Automatically pulls and pushes changes (every 30 min)
 - ✨ Tests for bugs and validates code (daily)
 - ✨ Makes progress even while you sleep!
 
