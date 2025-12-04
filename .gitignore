@@ -35,3 +35,29 @@ notes.txt
 notes2.txt
 not ures.txt
 numbers.txt
+
+# Large binary files (keep only in archive or docs, not both)
+# PDFs and exports should be in one location only
+*.pdf.duplicate
+*.html.duplicate
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# Build artifacts
+dist/
+build/
+*.min.js
+*.min.css
+
+# Editor files
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+
+# Node modules if we add any tooling
+node_modules/
+package-lock.json

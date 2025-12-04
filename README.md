@@ -296,3 +296,41 @@ Welcome to Avalon. 🌟
 
 *"I've watched Avalon Academy for three hundred years. Your story is about to begin."*
 *— Polly (Polymnia Aetheris)*
+
+---
+
+## 🛠️ Development Tools (NEW!)
+
+This repository now includes automation tools for streamlined development:
+
+### Quick Commands
+```bash
+make validate    # Validate game files before committing
+make play        # Open game in browser
+make analyze     # Analyze repository health
+make serve       # Start local development server
+make help        # Show all available commands
+```
+
+### Automation Scripts
+- **validate-game.sh** - Pre-commit validation
+- **play-game.sh** - Quick game launcher
+- **analyze-repo.sh** - Repository health check
+
+See [QUICK_COMMANDS.md](QUICK_COMMANDS.md) for complete command reference.
+
+### Documentation
+- [QUICK_COMMANDS.md](QUICK_COMMANDS.md) - Command reference
+- [scripts/README.md](scripts/README.md) - Script documentation
+- [docs/IMPROVEMENTS_SUMMARY.md](docs/IMPROVEMENTS_SUMMARY.md) - Recent improvements
+- [docs/OPTIMIZATION_RECOMMENDATIONS.md](docs/OPTIMIZATION_RECOMMENDATIONS.md) - Future optimizations
+
+---
+
+## 🤖 Automation & CI/CD
+
+- **GitHub Actions**: Automatic validation on push/PR
+- **NPM Scripts**: `npm test`, `npm run serve`
+- **Pre-commit Ready**: Validation before commits
+- **Makefile**: Quick command shortcuts
+
