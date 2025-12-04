@@ -143,20 +143,27 @@ Each major location should have this structure:
 
 ### Required Scenes
 1. `dunes_arrival` - Portal arrival, first impression of golden sand
-2. `dunes_kael_intro` - Meeting Kael, learning desert rules
-3. `dunes_sand_test_intro` - Explanation of truth-sworn sand
-4. `dunes_first_truth` - Initial truth test (3+ choices)
-5. `dunes_honest_path` - Reward for vulnerability
-6. `dunes_safe_path` - Result of playing it safe
-7. `dunes_rejection` - Consequence of lying
-8. `dunes_oasis_discovery` - Finding the Ironwood oasis
-9. `dunes_sand_spirits` - Encountering oath-bound spirits
-10. `dunes_oath_magic_lesson` - Learning to bind promises
-11. `dunes_night_mirages` - Twilight vision sequence
-12. `dunes_kael_wisdom` - Deep conversation with guide
-13. `dunes_final_test` - Major truth challenge
-14. `dunes_truthbound_success` - Earning desert's blessing
-15. `dunes_departure` - Leaving with new knowledge
+2. `dunes_preparation` - Meeting Kael, learning desert rules and preparing for the journey
+3. `dunes_first_truth` - Initial truth test with multiple response options
+4. `dunes_honest_path` - Reward for vulnerability and openness
+5. `dunes_safe_path` - Result of playing it safe with truthful but guarded answers
+6. `dunes_rejected_path` - Consequence of evasion or dishonesty
+7. `dunes_deep_truth_path` - Path for those who share profound personal truths
+8. `dunes_oasis_journey` - Traveling to the Ironwood oasis
+9. `dunes_spirit_story` - Kael shares the history of oath-bound spirits
+10. `dunes_spirit_contact` - First encounter with the sand spirits
+11. `dunes_spirit_recognition` - Spirits acknowledge your worthiness
+12. `dunes_night_song` - Twilight vision and song sequence with the desert
+13. `dunes_humbled_journey` - Path for those learning humility
+14. `dunes_blessed_journey` - Path for those already aligned with desert wisdom
+15. `dunes_morning` - Dawn breaking over the desert
+16. `dunes_oath_teaching` - Learning to bind promises with oath-magic
+17. `dunes_keeper_oath` - Making your oath to the desert
+18. `dunes_final` - Final choices and departure with desert's blessing
+19. `honest_truth` - Outcome for honest truth-tellers
+20. `safe_truth` - Outcome for cautious truth-tellers
+21. `rejected_truth` - Outcome for those rejected by the desert
+22. `return_to_avalon` - Portal journey back to the Academy
 
 ### Key Mechanics
 - Truth level tracking (honest choices accumulate)
@@ -176,21 +183,31 @@ Each major location should have this structure:
 - Guide: Izack leads this expedition
 
 ### Required Scenes
-1. `forest_arrival` - Entering the living forest
-2. `forest_first_thoughts` - Thoughtvines react to you
-3. `forest_path_choice` - Three paths diverge
-4. `dreamwillow_grove` - Silver tree visions
-5. `dreamwillow_vision_good` - Collaborative future
-6. `dreamwillow_vision_bad` - Isolated future
-7. `dreamwillow_vision_crisis` - World-shaking choice
-8. `thoughtvine_deep` - Merging with forest mind
-9. `thoughtvine_memory` - Forest shares its history
-10. `thoughtvine_question` - Forest asks for promise
-11. `heartwood_approach` - Nearing the ancient tree
-12. `heartwood_test` - The Tithe demands payment
-13. `heartwood_communion` - Becoming forest-bound
-14. `heartwood_rejection` - Forest finds you wanting
-15. `forest_departure` - Leaving with new connection
+1. `forest_arrival` - Stepping into the living forest, sensing its awareness
+2. `forest_first_steps` - Initial reactions from the Thoughtvines
+3. `forest_path_split` - Three paths diverge into the forest depths
+4. `forest_guided_path` - Following the forest's subtle guidance
+5. `dreamwillow_grove` - Discovering the silver Dreamwillow tree
+6. `dreamwillow_visions` - Experiencing visions of possible futures
+7. `dreamwillow_conclusion` - Processing and responding to the visions
+8. `thoughtvine_deep` - Choosing to merge deeply with the forest mind
+9. `dreamwillow_path` - Following the Dreamwillow's vision path
+10. `thoughtvine_path` - Choosing the Thoughtvine connection path
+11. `thoughtvine_merge` - Fully merging consciousness with the vines
+12. `thoughtvine_careful` - Cautious approach to the vine connection
+13. `thoughtvine_retreat` - Pulling back from deep merge
+14. `thoughtvine_question` - The forest asks for a promise or commitment
+15. `heartwood_approach` - Nearing the ancient Heartwood Tree
+16. `heartwood_communion` - Ritual of communion with the Heartwood
+17. `forest_bond_accepted` - The forest accepts your bond
+18. `heartwood_path` - Choosing the Heartwood Guardian path
+19. `heartwood_acceptance` - Accepting the role of Heartwood Guardian
+20. `heartwood_decline` - Declining the Heartwood's offer
+21. `heartwood_question` - The Heartwood poses a pivotal question
+22. `forest_return` - Returning from the forest expedition
+23. `heartwood_transformation` - Undergoing transformation by the Heartwood
+24. `heartwood_declined` - The Heartwood's offer is declined and consequences unfold
+25. `forest_conclusion` - Final reflections and consequences of the forest journey
 
 ### Key Mechanics
 - Thoughts are visible to the forest
@@ -209,21 +226,31 @@ Each major location should have this structure:
 - Guide: Aria teaches boundary magic here
 
 ### Required Scenes
-1. `glacier_arrival` - Stepping onto living ice
-2. `glacier_runes_awaken` - Runes respond to your presence
-3. `glacier_aria_lesson` - Boundary magic introduction
-4. `glacier_approach_choice` - Control vs Harmony
-5. `glacier_control_attempt` - Trying to dominate ice
-6. `glacier_control_success` - Mastering ice through force
-7. `glacier_control_backlash` - Ice resists domination
-8. `glacier_harmony_attempt` - Partnering with ice
-9. `glacier_harmony_deep` - Ice accepts partnership
-10. `glacier_spell_library` - Discovering frozen knowledge
-11. `glacier_ancient_runes` - Reading the oldest inscriptions
-12. `glacier_boundary_test` - Testing magical limits
-13. `glacier_partnership_bond` - Forming lasting connection
-14. `glacier_runeweaver_path` - Control mastery ending
-15. `glacier_departure` - Leaving with ice's blessing
+1. `glacier_arrival` - Stepping onto the living ice, feeling its awareness
+2. `glacier_introduction` - First contact with the glacier's rune-consciousness
+3. `glacier_path_choice` - Choosing approach: Control, Harmony, or Mystery
+4. `glacier_greeting` - The glacier's response to your chosen approach
+5. `glacier_conversation_path` - Path of dialogue and understanding with the ice
+6. `glacier_communion` - Deep communion with the glacier's ancient mind
+7. `glacier_control_path` - Attempting to master and control the ice
+8. `control_test_one` - First test of dominance over the runes
+9. `control_test_two` - Second test pushing boundaries of control
+10. `control_conclusion` - Outcome of the control-focused approach
+11. `glacier_harmony_path` - Partnering with the ice as equals
+12. `harmony_test_one` - First collaborative working with the glacier
+13. `harmony_test_two` - Deeper partnership and trust building
+14. `harmony_conclusion` - Outcome of the harmony-focused approach
+15. `harmony_consequence` - Long-term consequences of partnership choice
+16. `harmony_transformation` - Transformation resulting from deep harmony with the glacier
+17. `glacier_mystery_path` - Exploring the glacier's ancient mysteries
+18. `mystery_creation` - Discovering how the runes were created
+19. `mystery_conversation` - Dialogue about the glacier's origins
+20. `mystery_test` - Facing a test of faith or understanding in the mystery path
+21. `mystery_revelation` - Revelation of the glacier's deepest secret
+22. `mystery_faith` - Leap of faith in trusting the glacier's wisdom
+23. `glacier_final` - Final choices and departure from the glacier
+24. `path_mystery` - Additional mystery path exploration
+25. `glacier_conclusion` - Final reflections and consequences of the glacier journey
 
 ### Key Mechanics
 - Control vs Harmony stat tracking
