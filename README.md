@@ -1,132 +1,57 @@
-# Avalon Repository Overview
+# The Avalon Codex
 
-This repository contains narrative source material and chat logs related to the Avalon/Spiral of Eternity world, plus a small ChoiceScript scaffold to help you spin up a runnable prototype locally.
+> **A multi-generational fantasy narrative project featuring Polly's Wingscroll: The First Thread**  
+> *Play an interactive game, explore rich lore, or contribute to autonomous AI-powered development*
 
-## Project layout
-- `docs/avalon_materials/` — all reference documents, drafts, and PDFs that were previously in `AvalonBook STUFF`.
-- `docs/reference/` — miscellaneous reference files that were loose in the repo (chat logs, PDFs, and links).
-- `config/.env.example` — template for API keys and other sensitive values. Copy to `.env` and fill in your own credentials.
-- `game/` — ChoiceScript helper scripts, sample scenes, and README for running the demo (with stats screen and branching scenes).
-
-## Getting ready to add game files
-1. Install Node.js (LTS) and Git.
-2. From the repo root, run `./game/bootstrap_choicescript.sh` to clone the official ChoiceScript engine locally under `game/choicescript/`.
-3. Run `./game/sync_scenes.sh` to copy the demo scenes into `game/choicescript/web/mygame/`.
-4. Start the ChoiceScript server from inside `game/choicescript/` (`run-server.bat` on Windows, `serve.command` on macOS, `bash serve.sh` on Linux/WSL), then open the browser at `http://localhost:4200/` if it does not open automatically.
-5. Edit scenes in `game/scenes/` and re-run `./game/sync_scenes.sh` to refresh the playable build.
-
-## 🤖 Automation & Connected Accounts
-This repository features AI-powered automation for inter-account communications and progress tracking. All automation runs in **silent mode** by default (no user notifications for routine updates).
-
-**Key Features:**
-- Automated progress tracking and metrics
-- Silent content synchronization
-- Quality checks and validation
-- Daily maintenance tasks
-- **NEW:** AI-powered inbox management with auto-replies
-- **NEW:** Enterprise functions monitoring and validation
-
-**🆕 Inbox Management:**
-- ✅ **Auto-replies** to all GitHub notifications within 30 seconds
-- ✅ **Smart categorization** of issues, PRs, and discussions
-- ✅ **Multi-account support** for GitHub, GitLab, Bitbucket
-- ✅ **Email integration** ready (setup required)
-- ✅ **5 AI agents** working 24/7 to manage your inbox
-
-**🏢 Enterprise Monitoring (NEW):**
-- ✅ **Automated validation** every 4 hours of all enterprise functions
-- ✅ **AI-powered confirmation** that all systems are operational
-- ✅ **Health reports** with detailed analysis and recommendations
-- ✅ **Multi-platform monitoring** (GitHub, GitLab, Bitbucket, 2FA)
-- ✅ **Security validation** and integration status
-
-**Quick Start Guides:**
-- **[AI Employees Guide](docs/AI_EMPLOYEES_GUIDE.md)** - 5-minute setup for inbox management
-- **[Inbox Management](docs/INBOX_MANAGEMENT.md)** - Complete documentation
-- **[Enterprise Monitoring](docs/ENTERPRISE_MONITORING.md)** - Enterprise functions validation
-
-**Documentation:**
-- **[ACCOUNTS_README.md](ACCOUNTS_README.md)** - Complete account automation setup guide
-- **[docs/AUTOMATION_GUIDE.md](docs/AUTOMATION_GUIDE.md)** - Integration workflows
-- **Configuration:** `config/automation-settings.json`, `config/enterprise-settings.json`
-
-## Security
-Previous commits contained plaintext API keys. They have been removed from the tracked files. Make sure to rotate any keys that may have been exposed and only store live credentials in your local `.env` file. All automation credentials are stored securely in GitHub Secrets.
-# 🎮 Polly's Wingscroll: The First Thread
-
-**A choice-based narrative game set in Avalon Academy**
-
-![Version](https://img.shields.io/badge/version-1.0-blue) ![Word Count](https://img.shields.io/badge/words-40000%2B-green) ![Endings](https://img.shields.io/badge/endings-14-purple)
+[![Play Now](https://img.shields.io/badge/▶️_Play-Now-brightgreen?style=for-the-badge)](game/index.html)
+[![Version](https://img.shields.io/badge/version-1.0-blue)](https://github.com/issdandavis/Avalon)
+[![Word Count](https://img.shields.io/badge/words-40000%2B-green)](choicescript_game/)
+[![Endings](https://img.shields.io/badge/endings-14-purple)](choicescript_game/scenes/)
 
 ---
 
-## 🎯 Quick Start - PLAY NOW!
+## 🎯 What Is This?
 
-### Option 1: Instant Play (HTML Version)
-**👉 Just open `game/index.html` in your browser - that's it!**
+The Avalon Codex is a fantasy worldbuilding and interactive fiction project centered around the **Spiral of Pollyoneth** universe. This repository contains:
 
-### Option 2: ChoiceScript Version (Professional)
-See **[PLAY_THE_GAME.md](PLAY_THE_GAME.md)** for detailed instructions.
-
----
-
-## 🤖 NEW: AI Autonomous Development System
-
-**Game development on autopilot!**
-
-This repository now includes a complete **AI autonomous workflow system** that:
-- ✨ Writes ChoiceScript scenes automatically (every 3 hours)
-- ✨ Polishes content with sensory details (every 4 hours)
-- ✨ Balances stats and game difficulty (daily)
-- ✨ Tests for bugs and validates code (daily)
-- ✨ Makes progress even while you sleep!
-
-### 🎯 NEW: Agent Management System
-
-**Managing your AI team made easy!**
-
-The **Agent Manager** coordinates all 5 AI workers and tells you exactly what needs attention:
-
-```bash
-# Check system health (60 seconds)
-python .github/scripts/agent_manager_cli.py health
-
-# See what to do next
-python .github/scripts/agent_manager_cli.py recommend
-```
-
-**Visual Dashboard:** Open `agent-dashboard.html` in browser for colorful status display
-
-👉 **For Beginners:** [AGENT_MANAGEMENT_README.md](AGENT_MANAGEMENT_README.md) - 3 minute guide  
-👉 **Detailed Guide:** [docs/AGENT_MANAGEMENT_GUIDE.md](docs/AGENT_MANAGEMENT_GUIDE.md)  
-👉 **Activation:** [AI_SYSTEM_ACTIVATION_GUIDE.md](AI_SYSTEM_ACTIVATION_GUIDE.md)  
-👉 **Verify Closed PRs:** [CLOSED_SESSIONS_VERIFICATION.md](CLOSED_SESSIONS_VERIFICATION.md)
-
-**Quick activation:** Add `ANTHROPIC_API_KEY` to repository secrets and watch the magic happen!
+- 🎮 **A Complete Choice-Based Game** - Play as a student at Avalon Academy
+- 📚 **Rich Lore & Worldbuilding** - Characters, magic systems, multi-generational history
+- ✍️ **Novel Manuscripts** - Fantasy fiction set in the same universe
+- 🤖 **AI Development System** - Autonomous game development workflows
+- 🔧 **Professional Game Framework** - ChoiceScript implementation for mobile publishing
 
 ---
 
-## 📖 About the Game
+## 🚀 Quick Start - Choose Your Path
 
-### Story
-You're a new student at Avalon Academy, a living pocket dimension where the greatest mages of the age teach collaborative dimensional magic. Guided by Polly—a sarcastic, ancient raven familiar—you'll navigate relationships with legendary mages, explore magical realms, and shape your destiny through meaningful choices.
+### 🎮 I Want to Play the Game
+**Instant Play (HTML Version):**
+1. Open `game/index.html` in your browser
+2. Play immediately - no setup required!
 
-### Key Features
-- **Customizable dorm room** with magical features
-- **11 complete scenes** with branching narratives
-- **3 expedition paths**: Singing Dunes, Verdant Tithe, or Rune Glacier
-- **14 unique endings** from legendary master to humble student
-- **Deep character relationships** that affect your story
-- **5 achievements** to unlock
-- **40,000+ words** of content (and growing via AI!)
-- **High replay value** - every playthrough is different
+**Professional Version (ChoiceScript):**
+- See **[PLAY_THE_GAME.md](PLAY_THE_GAME.md)** for detailed instructions
 
-### Game Statistics
-- **Estimated Playtime**: 45-90 minutes per run
-- **Total Scenes**: 11
-- **Unique Choices**: 100+
-- **Relationship Tracking**: 5 characters
-- **Collaboration System**: Choices affect your magical approach
+### 👨‍💻 I Want to Develop/Contribute
+**For Contributors:**
+- Read **[CONTRIBUTING.md](CONTRIBUTING.md)** for contribution guidelines
+- Check **[docs/PROJECT_ROADMAP.md](docs/PROJECT_ROADMAP.md)** for current development status
+
+**For ISDanDavis (Repository Owner):**
+- **Start Here:** [README_FOR_ISSDANDAVIS.md](README_FOR_ISSDANDAVIS.md)
+- **Quick Reference:** [ISSDANDAVIS_QUICKSTART.md](ISSDANDAVIS_QUICKSTART.md)
+- **Agent Management:** [AGENT_START_HERE.md](AGENT_START_HERE.md)
+
+### 📖 I Want to Explore the Lore
+Navigate to:
+- `lore/` - Complete worldbuilding documentation
+- `writing_drafts/` - Novel manuscripts and chronicles
+- `docs/AETHERMOOR_CHRONICLES.md` - Complete world history
+
+### 🤖 I Want to Use the AI System
+- **Activation Guide:** [AI_SYSTEM_ACTIVATION_GUIDE.md](AI_SYSTEM_ACTIVATION_GUIDE.md)
+- **System Index:** [AI_SYSTEM_INDEX.md](AI_SYSTEM_INDEX.md)
+- **Management:** [AGENT_MANAGEMENT_README.md](AGENT_MANAGEMENT_README.md)
 
 ---
 
@@ -134,165 +59,402 @@ You're a new student at Avalon Academy, a living pocket dimension where the grea
 
 ```
 Avalon/
-├── 🎮 PLAY_THE_GAME.md          ← START HERE TO PLAY
-├── 📤 SUBMISSION_GUIDE.md       ← Publishing/submission info
-├── 📋 README.md                 ← You are here
+├── 🎮 game/                     # HTML game (complete & playable)
+│   ├── index.html              # ← Double-click to play!
+│   ├── game.js                 # Game logic
+│   └── style.css               # Styling
 │
-├── game/                        ← HTML Version (Instant Play)
-│   ├── index.html              ← Double-click to play!
-│   ├── game.js                 ← Game logic
-│   └── style.css               ← Styling
+├── 🎯 choicescript_game/       # Professional ChoiceScript version
+│   ├── startup.txt             # Game configuration
+│   ├── scenes/                 # All game scenes (11 complete)
+│   └── web/                    # Web player files
 │
-├── choicescript_game/          ← ChoiceScript Version (Professional)
-│   ├── startup.txt             ← Game configuration
-│   ├── scenes/                 ← All game scenes
-│   │   ├── arrival.txt
-│   │   ├── dorm_room.txt       ← NEW! Customization
-│   │   ├── first_lesson.txt
-│   │   ├── academy_life.txt    ← NEW! Daily life
-│   │   ├── expedition_prep.txt ← NEW! Preparation
-│   │   ├── singing_dunes.txt
-│   │   ├── verdant_tithe.txt
-│   │   ├── rune_glacier.txt
-│   │   ├── character_bonds.txt ← NEW! Relationships
-│   │   ├── final_trial.txt     ← NEW! Climax
-│   │   └── endings.txt         ← 14 unique endings
-│   └── web/                    ← Web player files
+├── 📚 lore/                    # Fantasy worldbuilding
+│   ├── Character chronicles
+│   ├── Magic system documentation
+│   └── Geographical lore
 │
-├── lore/                       ← Worldbuilding documents
-├── writing_drafts/             ← Novel manuscripts
-├── docs/                       ← Additional documentation
-└── archive/                    ← Old files and backups
+├── ✍️ writing_drafts/          # Novel manuscripts
+│   ├── Complete chronicles
+│   └── Chapter drafts
+│
+├── 📖 docs/                    # Project documentation
+│   ├── PROJECT_ROADMAP.md      # Development plan
+│   ├── AUTOMATION_GUIDE.md     # AI workflows
+│   └── Reference materials
+│
+└── 🤖 .github/                 # AI autonomous system
+    ├── workflows/              # GitHub Actions (automated development)
+    └── scripts/                # AI agent coordination
 ```
+
+**Quick File Finder:** [FILE_LOCATIONS.txt](FILE_LOCATIONS.txt)
 
 ---
 
-## 🎭 Game Paths Overview
+## 🎮 About Polly's Wingscroll: The First Thread
+
+### The Game
+A choice-based interactive narrative where you play as a new student at **Avalon Academy**, a living pocket dimension where legendary mages teach collaborative dimensional magic. Guided by **Polly**—a sarcastic, ancient raven familiar—you'll navigate relationships, explore magical realms, and shape your destiny through meaningful choices.
+
+### Key Features
+- **40,000+ words** of interactive narrative
+- **11 complete scenes** with branching storylines
+- **14 unique endings** from legendary master to expelled student
+- **5 achievements** to unlock
+- **Deep character relationships** that affect your story
+- **Multiple expedition paths**: Singing Dunes, Verdant Tithe, or Rune Glacier
+- **Customizable dorm room** with magical features
+- **Collaboration stat system** - choices shape your magical approach
+
+### Game Stats
+- **Playtime:** 45-90 minutes per playthrough
+- **Total Scenes:** 11
+- **Unique Choices:** 100+
+- **Relationship Tracking:** 5 major characters
+- **High Replay Value:** Multiple paths and endings
+
+---
+
+## 🤖 AI Autonomous Development System
+
+This repository features a **complete AI workflow system** that autonomously develops the game:
+
+### What It Does
+- ✨ **Scene Writer** - Adds new ChoiceScript content (every 3 hours)
+- ✨ **Content Polisher** - Enhances atmosphere and details (every 4 hours)
+- ✨ **Stat Balancer** - Adjusts game difficulty (daily)
+- ✨ **Game Tester** - Validates code and finds bugs (daily)
+- ✨ **Agent Manager** - Coordinates all AI workers and reports health
+
+### Quick Commands
+```bash
+# Check system health (60 seconds)
+python .github/scripts/agent_manager_cli.py health
+
+# See recommendations
+python .github/scripts/agent_manager_cli.py recommend
+
+# View visual dashboard
+open agent-dashboard.html
+```
+
+### AI System Guides
+- **Beginner Guide:** [AGENT_MANAGEMENT_README.md](AGENT_MANAGEMENT_README.md)
+- **Activation:** [AI_SYSTEM_ACTIVATION_GUIDE.md](AI_SYSTEM_ACTIVATION_GUIDE.md)
+- **Tutorial:** [AGENT_TUTORIAL.md](AGENT_TUTORIAL.md)
+- **Quick Reference:** [AGENT_QUICK_REFERENCE.md](AGENT_QUICK_REFERENCE.md)
+
+---
+
+## 🏢 Automation & Enterprise Features
+
+### Inbox Management
+- ✅ Auto-replies to GitHub notifications (30 seconds)
+- ✅ Smart categorization of issues, PRs, discussions
+- ✅ Multi-platform support (GitHub, GitLab, Bitbucket)
+- ✅ 5 AI agents managing communications 24/7
+
+### Enterprise Monitoring
+- ✅ Automated validation every 4 hours
+- ✅ Health reports with analysis and recommendations
+- ✅ Security validation and integration status
+- ✅ Multi-platform monitoring
+
+### Automation Resources
+- **[ACCOUNTS_README.md](ACCOUNTS_README.md)** - Account automation setup
+- **[docs/AUTOMATION_GUIDE.md](docs/AUTOMATION_GUIDE.md)** - Integration workflows
+- **Configuration:** `config/automation-settings.json`
+
+All automation runs in **silent mode** by default (no notifications for routine updates).
+
+---
+
+## 🔐 Security
+
+⚠️ **Important:** Previous commits contained plaintext API keys (now removed).
+- Rotate any exposed credentials
+- Store credentials only in local `.env` file
+- All automation credentials use GitHub Secrets
+
+See `config/.env.example` for template.
+
+---
+## 🌟 The Spiral of Pollyoneth Universe
+
+### Core Narrative
+A four-generation epic spanning 150+ years, centered around:
+- **Izack Thorne** - Mage-turned-king who founded Avalon Academy
+- **Polly** - "Polydimensional Manifestation of Accumulated Wisdom and Occasional Sarcasm"
+- **Collaborative Magic** - A revolutionary approach to dimensional magic vs. hierarchical control
+
+### The World
+- **Avalon Academy** - A living pocket dimension dedicated to teaching collaborative magic
+- **The Spiral** - Multi-dimensional reality with interconnected realms
+- **Dimensional Theory** - A complete magical system built on collaborative casting
+- **150+ Years of History** - Detailed chronicles across multiple generations
+
+---
+
+## 🎭 Game Content Overview
 
 ### Scene Flow
-1. **Arrival** → Choose your first impression
-2. **Dorm Room** → Customize your space (**NEW!**)
-3. **First Lesson** → Learn collaborative magic
-4. **Academy Life** → Choose your training focus (**NEW!**)
-5. **Expedition Prep** → Prepare for your journey (**NEW!**)
-6. **Expedition** → Choose: Singing Dunes, Verdant Tithe, or Rune Glacier
-7. **Character Bonds** → Deepen relationships (**NEW!**)
-8. **Final Trial** → Face the ultimate test (**NEW!**)
-9. **Endings** → Discover your fate (14 possibilities)
+1. **Arrival** → Make your first impression
+2. **Dorm Room** → Customize your living space
+3. **First Lesson** → Learn collaborative magic principles  
+4. **Academy Life** → Choose your training focus
+5. **Expedition Prep** → Prepare for your journey
+6. **Expedition** → Explore Singing Dunes, Verdant Tithe, or Rune Glacier
+7. **Character Bonds** → Deepen relationships with mentors
+8. **Final Trial** → Face the ultimate test of collaboration
+9. **Endings** → Discover your fate (14 unique possibilities)
 
-### Major Choices
-- **Dorm Style**: Sanctuary, Study, Workshop, or Zen
-- **Magical Features**: Multi-realm window, time clock, garden, or memory crystal
-- **Training Focus**: Theory (Aria), Practical (Izack), or Living Magic (Zara)
-- **Expedition**: Which realm to explore
-- **Bonds**: Which relationships to prioritize
-- **Trial Approach**: Leadership, collaboration, or support
+### Major Choice Points
+- **Dorm Customization:** Sanctuary, Study, Workshop, or Zen Garden style
+- **Magical Features:** Multi-realm window, time clock, living garden, or memory crystal
+- **Training Focus:** Theory (Aria), Practical (Izack), or Living Magic (Zara)
+- **Expedition Path:** Which realm to explore and master
+- **Relationship Priorities:** Which mentors to bond with
+- **Trial Approach:** Leadership, collaboration, or support role
 
 ---
 
 ## 🏆 Endings Guide
 
-### Legendary Tier (Best)
-1. **Collaborative Master** - Partnership + 80+ collaboration
-2. **Glacier Partner** - Achieved true partnership
-3. **Heartwood Guardian** - Bonded with ancient tree
+### 🥇 Legendary Tier (Best Outcomes)
+1. **Collaborative Master** - True partnership + 80+ collaboration score
+2. **Glacier Partner** - Achieved mastery through unity
+3. **Heartwood Guardian** - Bonded with the ancient consciousness
 
-### High Achievement
-4. **Truthbound Mage** - Desert's truth + high collaboration
-5. **Runeweaver** - Mastered the First Tongue
-6. **Forestbound Guardian** - Verdant Tithe connection
+### 🥈 High Achievement Tier
+4. **Truthbound Mage** - Mastered the desert's truth + high collaboration
+5. **Runeweaver** - Achieved fluency in the First Tongue
+6. **Forestbound Guardian** - Deep connection with the Verdant Tithe
 
-### Success Tier
-7. **Collaborative Scholar** - 75+ collaboration
-8. **Balanced Mage** - Found harmony
-9. **Humble Seeker** - Chose mystery wisely
+### 🥉 Success Tier
+7. **Collaborative Scholar** - 75+ collaboration, solid foundation
+8. **Balanced Mage** - Found harmony across disciplines
+9. **Humble Seeker** - Chose the path of mystery and growth
 
-### Standard Tier
-10. **Boundary Specialist** - Competent professional
-11. **Second Chance** - Redemption through effort
+### 📋 Standard Tier
+10. **Boundary Specialist** - Competent professional mage
+11. **Second Chance** - Redemption through persistent effort
 
-### Challenging Tier
-12. **Humbled Student** - Struggled but completed
-13. **Expelled** - Failed collaborative principles
-14. **Standard Path** - Average graduation
+### ⚠️ Challenging Tier
+12. **Humbled Student** - Struggled but ultimately graduated
+13. **Expelled** - Failed to uphold collaborative principles
+14. **Standard Path** - Average graduation without distinction
+
+---
+
+## 💻 Technical Information
+
+### Dual Implementation
+The game exists in two versions:
+
+**HTML Version** (`game/`)
+- **Language:** JavaScript + HTML5 + CSS3
+- **Size:** ~100KB total
+- **Platform:** All modern browsers
+- **Status:** Complete and fully playable offline
+
+**ChoiceScript Version** (`choicescript_game/`)
+- **Language:** ChoiceScript
+- **Scenes:** 11 complete .txt files
+- **Lines:** 5,000+ lines of code
+- **Achievements:** 5 defined achievements
+- **Variables:** 20+ stats and flags tracked
+- **Status:** Ready for professional publication
+
+### Development Workflow
+1. **Content Creation** → Prototype in HTML or write directly in ChoiceScript
+2. **AI Enhancement** → Autonomous polishing and expansion
+3. **Testing** → Automated validation and manual playtesting
+4. **Publishing** → Submission to Hosted Games platform
+
+---
+
+## 📤 Publishing Status
+
+### ✅ Ready for Submission
+- ✅ Exceeds 30,000 word minimum (40,000+ words)
+- ✅ Complete narrative with all endings implemented
+- ✅ Title under 30 characters
+- ✅ Professional ChoiceScript formatting
+- ✅ Multiple meaningful branching choices
+- ✅ All content is original (human-written with AI polishing)
+
+### Publication Process
+1. **Beta Testing** - Submit to Choice of Games forum (2-4 weeks)
+2. **Community Feedback** - Gather player input and refine
+3. **Submission** - Submit to Hosted Games via email
+4. **Review Period** - Wait for editorial review (2-6 weeks)
+5. **Publication** - If approved, game goes live (4-6 months total)
+
+**Complete details:** [SUBMISSION_GUIDE.md](SUBMISSION_GUIDE.md)
+
+---
+
+## 🛠️ Development & Contribution
+
+### For New Contributors
+1. Read **[CONTRIBUTING.md](CONTRIBUTING.md)** for guidelines
+2. Check **[docs/PROJECT_ROADMAP.md](docs/PROJECT_ROADMAP.md)** for current priorities
+3. Review **[FILE_LOCATIONS.txt](FILE_LOCATIONS.txt)** to navigate the repository
+4. Test the game by opening `game/index.html`
+
+### For Repository Owner (issdandavis)
+- **Your Personal Guide:** [README_FOR_ISSDANDAVIS.md](README_FOR_ISSDANDAVIS.md)
+- **Quick Commands:** [ISSDANDAVIS_QUICKSTART.md](ISSDANDAVIS_QUICKSTART.md)
+- **Managing AI Agents:** [AGENT_START_HERE.md](AGENT_START_HERE.md)
+- **System Verification:** [CLOSED_SESSIONS_VERIFICATION.md](CLOSED_SESSIONS_VERIFICATION.md)
+
+### Development Tools
+- **Node.js** (LTS) for local ChoiceScript testing
+- **Git** for version control
+- **Python 3.8+** for AI automation scripts
+- Modern web browser for HTML version
+
+### Build & Test
+```bash
+# For ChoiceScript version (detailed setup)
+cd game
+./bootstrap_choicescript.sh  # Clone ChoiceScript engine
+./sync_scenes.sh             # Copy scenes to engine
+cd choicescript
+# Run server for your OS:
+# - Windows: run-server.bat
+# - macOS: serve.command  
+# - Linux/WSL: bash serve.sh
+
+# For HTML version
+# Simply open game/index.html in browser
+
+# For AI system health check
+python .github/scripts/agent_manager_cli.py health
+```
 
 ---
 
 ## 🎨 What's New in Version 1.0
 
-### Expanded Content (Nov 2025)
+### Recent Additions (November 2025)
 - ✨ **Dorm Room Customization** - 16 unique combinations
-- 📚 **Academy Life Scene** - Choose your training path
-- 🗺️ **Expedition Prep** - Meaningful preparation choices
-- 💕 **Character Bonds** - Deep relationship scenes
-- ⚔️ **Final Trial** - Collaborative crisis management
-- 📝 **40,000+ words** - More than doubled original content
-- 🎯 **Achievement system** - Proper ChoiceScript achievements
-- 🔧 **Professional polish** - Ready for submission
+- 📚 **Academy Life Scene** - Training path selection
+- 🗺️ **Expedition Preparation** - Meaningful pre-quest choices
+- 💕 **Character Bonds** - Deep relationship development scenes
+- ⚔️ **Final Trial** - Collaborative crisis management climax
+- 📝 **40,000+ Words** - More than doubled original content
+- 🎯 **Achievement System** - Proper ChoiceScript achievements
+- 🤖 **AI Development** - Autonomous content creation and polishing
+- 🔧 **Professional Polish** - Submission-ready quality
 
 ---
 
-## 💻 Technical Details
+## 📚 Documentation Index
 
-### ChoiceScript Version
-- **Language**: ChoiceScript
-- **Scenes**: 11 complete .txt files
-- **Total Lines**: 5,000+ lines of code
-- **Achievements**: 5 defined achievements
-- **Variables Tracked**: 20+ stats and flags
+### Getting Started
+- **[START_HERE.md](START_HERE.md)** - Simplest possible start guide
+- **[QUICK_START.md](QUICK_START.md)** - Detailed play instructions
+- **[PLAY_THE_GAME.md](PLAY_THE_GAME.md)** - Complete game playing guide
 
-### HTML Version
-- **Language**: JavaScript + HTML5 + CSS3
-- **Size**: ~100KB total
-- **Browser**: Works in all modern browsers
-- **Offline**: Fully playable offline
+### For Users
+- **[PLAY_HERE.html](PLAY_HERE.html)** - Alternative game launcher
+- **[FILE_LOCATIONS.txt](FILE_LOCATIONS.txt)** - Quick reference for all files
 
----
+### For Developers
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - How to contribute
+- **[docs/PROJECT_ROADMAP.md](docs/PROJECT_ROADMAP.md)** - Development plan
+- **[docs/GAME_DEVELOPMENT_MASTER_REFERENCE.md](docs/GAME_DEVELOPMENT_MASTER_REFERENCE.md)** - Complete dev guide
+- **[docs/AUTOMATION_GUIDE.md](docs/AUTOMATION_GUIDE.md)** - Workflow automation
 
-## 📤 Publishing Information
+### For AI System Management
+- **[AGENT_START_HERE.md](AGENT_START_HERE.md)** - Begin here for AI system
+- **[AGENT_MANAGEMENT_README.md](AGENT_MANAGEMENT_README.md)** - 3-minute guide
+- **[AI_SYSTEM_ACTIVATION_GUIDE.md](AI_SYSTEM_ACTIVATION_GUIDE.md)** - Setup instructions
+- **[AGENT_TUTORIAL.md](AGENT_TUTORIAL.md)** - Step-by-step practice
+- **[AI_SYSTEM_INDEX.md](AI_SYSTEM_INDEX.md)** - Find any AI documentation
 
-### Ready for Submission
-- ✅ Meets 30,000 word minimum (40,000+)
-- ✅ Complete game with all endings
-- ✅ Title under 30 characters
-- ✅ Professional ChoiceScript formatting
-- ✅ Multiple meaningful choices
-- ✅ No AI-generated content
+### For Repository Owner
+- **[README_FOR_ISSDANDAVIS.md](README_FOR_ISSDANDAVIS.md)** - Personalized summary
+- **[ISSDANDAVIS_QUICKSTART.md](ISSDANDAVIS_QUICKSTART.md)** - Quick reference
+- **[ACCOUNTS_README.md](ACCOUNTS_README.md)** - Account automation setup
 
-### Next Steps
-1. **Beta test** on Choice of Games forum (2-4 weeks)
-2. **Gather feedback** and make improvements
-3. **Submit to Hosted Games** via email
-4. **Wait for review** (2-6 weeks)
-5. **Publication** if approved (4-6 months total)
-
-**See [SUBMISSION_GUIDE.md](SUBMISSION_GUIDE.md) for complete details**
+### Reference Materials
+- **[docs/AETHERMOOR_CHRONICLES.md](docs/AETHERMOOR_CHRONICLES.md)** - Complete world history
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history
+- **[SUBMISSION_GUIDE.md](SUBMISSION_GUIDE.md)** - Publishing information
 
 ---
 
-## 🎊 Credits
+## 🎊 Credits & Attribution
 
 ### Game Design & Writing
-- All game content and narrative
-- Lore development
-- Character creation
+- All narrative content and worldbuilding
+- Character creation and development
+- Game mechanics and choice architecture
+- Lore development across 150+ years of fictional history
 
 ### Tools & Frameworks
-- **ChoiceScript** by Choice of Games LLC
-- **HTML/CSS/JavaScript** for web version
-- **Node.js** for local testing
+- **[ChoiceScript](https://www.choiceofgames.com/make-your-own-games/choicescript-intro/)** by Choice of Games LLC
+- **HTML5/CSS3/JavaScript** for web version
+- **GitHub Actions** for automation
+- **Anthropic Claude** (via API) for AI development assistance
+
+### Open Source Components
+- ChoiceScript engine (used under Choice of Games license)
+- Various JavaScript libraries (see `game/` for details)
 
 ---
 
-## 🎮 Ready to Play?
+## 📞 Support & Contact
 
-**👉 Open [PLAY_THE_GAME.md](PLAY_THE_GAME.md) or just double-click `game/index.html`**
+### Getting Help
+- **Issues:** Create a [GitHub Issue](https://github.com/issdandavis/Avalon/issues)
+- **Discussions:** Use [GitHub Discussions](https://github.com/issdandavis/Avalon/discussions)
+- **Documentation:** Check the extensive docs in this repository
 
-Your journey at Avalon Academy awaits. Every choice matters. Every relationship counts. And magic is alive.
+### Reporting Bugs
+1. Check if the issue already exists
+2. Provide steps to reproduce
+3. Include browser/system information (for HTML version)
+4. Specify which version (HTML or ChoiceScript)
 
-Welcome to Avalon. 🌟
+### Contributing
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
-*"I've watched Avalon Academy for three hundred years. Your story is about to begin."*
-*— Polly (Polymnia Aetheris)*
+## 📜 License & Usage
+
+This project contains original creative work. Please respect the intellectual property:
+- **Game content** - All rights reserved
+- **Code** - Available for reference and learning
+- **Lore & Worldbuilding** - All rights reserved
+
+For licensing inquiries, please create an issue.
+
+---
+
+## 🎮 Ready to Begin?
+
+### Play the Game
+**👉 Open [game/index.html](game/index.html) or see [PLAY_THE_GAME.md](PLAY_THE_GAME.md)**
+
+### Explore the World
+**👉 Browse `lore/` directory or read [docs/AETHERMOOR_CHRONICLES.md](docs/AETHERMOOR_CHRONICLES.md)**
+
+### Start Developing
+**👉 Read [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/PROJECT_ROADMAP.md](docs/PROJECT_ROADMAP.md)**
+
+### Manage AI Workers
+**👉 See [AGENT_START_HERE.md](AGENT_START_HERE.md)**
+
+---
+
+*"I've watched Avalon Academy for three hundred years. Your story is about to begin."*  
+— **Polly (Polymnia Aetheris)**
+
+---
+
+**Repository maintained by issdandavis** | **Last updated: November 2025**
