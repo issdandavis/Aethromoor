@@ -1,0 +1,95 @@
+{
+  "game": {
+    "title": "Polly's Wingscroll: The First Thread",
+    "version": "1.0.0",
+    "author": "Polly's Wingscroll Project",
+    "publisher": "Hosted Games",
+    "releaseDate": "2024-TBD",
+    "genre": ["Interactive Fiction", "Fantasy", "Choice-Based"],
+    "estimatedPlaytime": "45-90 minutes",
+    "wordCount": 40000,
+    "uniqueEndings": 14
+  },
+  
+  "features": {
+    "autoSave": true,
+    "analytics": false,
+    "achievements": true,
+    "multipleEndings": true,
+    "characterRelationships": true,
+    "statTracking": true
+  },
+  
+  "analytics": {
+    "enabled": false,
+    "provider": "none",
+    "trackingId": "",
+    "trackEvents": [
+      "game_start",
+      "choice_made",
+      "ending_reached",
+      "game_restarted"
+    ]
+  },
+  
+  "save": {
+    "storageKey": "pollys_wingscroll_save",
+    "autoSaveEnabled": true,
+    "maxSaveSlots": 3,
+    "cloudSaveEnabled": false
+  },
+  
+  "display": {
+    "theme": "dark",
+    "primaryColor": "#5e84e2",
+    "secondaryColor": "#a8b2d1",
+    "fontFamily": "Georgia, serif",
+    "enableAnimations": true,
+    "transitionSpeed": "0.5s"
+  },
+  
+  "accessibility": {
+    "highContrast": false,
+    "largeText": false,
+    "screenReaderSupport": true,
+    "keyboardNavigation": true
+  },
+  
+  "business": {
+    "license": "Commercial - All Rights Reserved",
+    "copyright": "2024 Polly's Wingscroll Project",
+    "contactEmail": "",
+    "website": "",
+    "supportedPlatforms": ["Web Browser", "Desktop", "Mobile (future)"],
+    "targetMarket": ["Interactive Fiction Fans", "Fantasy Readers", "Choice Game Players"],
+    "competitiveApps": ["Choice of Games", "Hosted Games", "Interactive Fiction"],
+    "monetization": "Premium Purchase via Hosted Games Platform"
+  },
+  
+  "development": {
+    "environment": "production",
+    "debugMode": false,
+    "verboseLogging": false,
+    "testMode": false,
+    "enableDevTools": false
+  },
+  
+  "metadata": {
+    "description": "An immersive choice-based narrative adventure in Avalon Academy. Learn collaborative magic, forge relationships with legendary mages, and shape your destiny through meaningful choices.",
+    "keywords": [
+      "interactive fiction",
+      "choice-based game",
+      "narrative game",
+      "Avalon Academy",
+      "fantasy",
+      "magic",
+      "collaborative magic",
+      "text adventure",
+      "visual novel",
+      "branching narrative"
+    ],
+    "rating": "Everyone 10+",
+    "contentWarnings": [],
+    "languages": ["en"]
+  }
+}

@@ -1,6 +1,33 @@
-// Game State
+/**
+ * Polly's Wingscroll: The First Thread - HTML Game Engine
+ * 
+ * @fileoverview Main game logic and story content for the browser-based version
+ * @version 1.0.0
+ * @copyright (c) 2024 Polly's Wingscroll Project
+ * @license All Rights Reserved - For commercial publication via Hosted Games
+ * 
+ * This is a choice-based interactive narrative game set in Avalon Academy.
+ * For more information, see README.md
+ */
+
+// Configuration
+const GAME_CONFIG = {
+    version: '1.0.0',
+    title: 'Polly\'s Wingscroll: The First Thread',
+    saveKey: 'pollys_wingscroll_save',
+    enableAnalytics: false, // Set to true when ready for production analytics
+    enableAutoSave: true
+};
+
+// Expose config to window for analytics integration
+if (typeof window !== 'undefined') {
+    window.gameAnalyticsEnabled = GAME_CONFIG.enableAnalytics;
+}
+
 // Tracing helper (defined in tracing.js). If absent, provide no-op.
 const traceEvent = window.traceEvent || function(){};
+
+// Game State Management
 const gameState = {
     currentNode: 'start',
     collaborationScore: 0,
@@ -9,7 +36,10 @@ const gameState = {
         aria: 0,
         zara: 0
     },
-    choices: []
+    choices: [],
+    gameVersion: GAME_CONFIG.version,
+    startTime: null,
+    lastSaveTime: null
 };
 
 // Story Nodes
@@ -1251,7 +1281,6 @@ const storyNodes = {
         `,
         choices: []
     }
-}
 };
 
 // UI Update Functions
@@ -1352,8 +1381,88 @@ function makeChoice(choice) {
 
     // Move to next node
     displayNode(choice.next);
+    
+    // Auto-save after choice (if enabled)
+    if (GAME_CONFIG.enableAutoSave) {
+        saveGame();
+    }
 }
 
+/**
+ * Save game state to localStorage
+ * @returns {boolean} Success status
+ */
+function saveGame() {
+    if (!GAME_CONFIG.enableAutoSave) return false;
+    
+    try {
+        const saveData = {
+            ...gameState,
+            lastSaveTime: new Date().toISOString(),
+            gameVersion: GAME_CONFIG.version
+        };
+        localStorage.setItem(GAME_CONFIG.saveKey, JSON.stringify(saveData));
+        traceEvent('game_saved', { success: true });
+        return true;
+    } catch (error) {
+        console.error('Failed to save game:', error);
+        traceEvent('game_saved', { success: false, error: error.message });
+        return false;
+    }
+}
+
+/**
+ * Load game state from localStorage
+ * @returns {boolean} Success status
+ */
+function loadGame() {
+    try {
+        const savedData = localStorage.getItem(GAME_CONFIG.saveKey);
+        if (!savedData) return false;
+        
+        const loadedState = JSON.parse(savedData);
+        
+        // Verify version compatibility
+        if (loadedState.gameVersion !== GAME_CONFIG.version) {
+            console.warn('Save game version mismatch:', loadedState.gameVersion, 'vs', GAME_CONFIG.version);
+            // Ask user before loading incompatible saves
+            const userConfirmed = confirm('Your saved game is from a different version. Loading it may cause problems. Load anyway?');
+            if (!userConfirmed) {
+                console.log('User declined to load incompatible save');
+                return false;
+            }
+            console.log('User chose to load incompatible save');
+        }
+        
+        // Restore state
+        Object.assign(gameState, loadedState);
+        updateStats();
+        displayNode(gameState.currentNode);
+        
+        traceEvent('game_loaded', { success: true });
+        return true;
+    } catch (error) {
+        console.error('Failed to load game:', error);
+        traceEvent('game_loaded', { success: false, error: error.message });
+        return false;
+    }
+}
+
+/**
+ * Clear saved game data
+ */
+function clearSave() {
+    try {
+        localStorage.removeItem(GAME_CONFIG.saveKey);
+        traceEvent('save_cleared', { success: true });
+    } catch (error) {
+        console.error('Failed to clear save:', error);
+    }
+}
+
+/**
+ * Restart game from beginning
+ */
 function restartGame() {
     gameState.currentNode = 'start';
     gameState.collaborationScore = 0;
@@ -1363,20 +1472,79 @@ function restartGame() {
         zara: 0
     };
     gameState.choices = [];
+    gameState.startTime = new Date().toISOString();
 
     document.getElementById('restart-btn').style.display = 'none';
     updateStats();
     displayNode('start');
+    clearSave();
     traceEvent('game_restarted', {});
 }
 
-// Initialize game
+/**
+ * Handle errors gracefully with user-friendly messages
+ * @param {Error} error - The error that occurred
+ * @param {string} context - Context where error occurred
+ */
+function handleError(error, context = 'Unknown') {
+    console.error(`Error in ${context}:`, error);
+    traceEvent('error', { context, message: error.message, stack: error.stack });
+    
+    // Show user-friendly error message (sanitized to prevent XSS)
+    const storyText = document.getElementById('story-text');
+    if (storyText) {
+        // Clear existing content safely
+        while (storyText.firstChild) {
+            storyText.removeChild(storyText.firstChild);
+        }
+        
+        const errorBox = document.createElement('p');
+        errorBox.style.cssText = 'color: #ff6b6b; padding: 20px; background: rgba(255,0,0,0.1); border-radius: 8px;';
+        
+        const title = document.createElement('strong');
+        title.textContent = 'Oops! Something went wrong.';
+        errorBox.appendChild(title);
+        
+        errorBox.appendChild(document.createElement('br'));
+        errorBox.appendChild(document.createElement('br'));
+        
+        // Use textContent to prevent XSS
+        const contextText = document.createTextNode(`${context}: ${error.message}`);
+        errorBox.appendChild(contextText);
+        
+        errorBox.appendChild(document.createElement('br'));
+        errorBox.appendChild(document.createElement('br'));
+        
+        const instruction = document.createTextNode('Please try restarting the game or refreshing the page.');
+        errorBox.appendChild(instruction);
+        
+        storyText.appendChild(errorBox);
+    }
+}
+
+// Initialize game with error handling
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('restart-btn').onclick = restartGame;
-    updateStats();
-    displayNode('start');
-    traceEvent('init', {
-        sessionId: window.gameTrace && window.gameTrace.sessionId,
-        startNode: gameState.currentNode
-    });
+    try {
+        gameState.startTime = new Date().toISOString();
+        
+        document.getElementById('restart-btn').onclick = restartGame;
+        
+        // Try to load saved game
+        const loadedSuccessfully = GAME_CONFIG.enableAutoSave && loadGame();
+        
+        if (!loadedSuccessfully) {
+            // Start new game
+            updateStats();
+            displayNode('start');
+        }
+        
+        traceEvent('init', {
+            sessionId: window.gameTrace && window.gameTrace.sessionId,
+            startNode: gameState.currentNode,
+            loadedFromSave: loadedSuccessfully,
+            version: GAME_CONFIG.version
+        });
+    } catch (error) {
+        handleError(error, 'Game Initialization');
+    }
 });
