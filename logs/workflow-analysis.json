@@ -1,0 +1,227 @@
+{
+  "total_workflows": 13,
+  "total_issues": 22,
+  "workflows": {
+    "ai-content-polish.yml": {
+      "issues": [],
+      "file_size": 4726,
+      "jobs_count": 1,
+      "has_schedule": false
+    },
+    "agent-management.yml": {
+      "issues": [],
+      "file_size": 7975,
+      "jobs_count": 1,
+      "has_schedule": false
+    },
+    "jekyll-docker.yml": {
+      "issues": [
+        {
+          "severity": "medium",
+          "type": "no_caching",
+          "message": "Workflow doesn't use dependency caching",
+          "recommendation": "Add cache action for pip/npm dependencies"
+        },
+        {
+          "severity": "medium",
+          "type": "no_work_detection",
+          "message": "Workflow may run when no work is needed",
+          "recommendation": "Add early exit check for pending work"
+        }
+      ],
+      "file_size": 476,
+      "jobs_count": 1,
+      "has_schedule": false
+    },
+    "choicescript-tests.yml": {
+      "issues": [
+        {
+          "severity": "medium",
+          "type": "no_caching",
+          "message": "Workflow doesn't use dependency caching",
+          "recommendation": "Add cache action for pip/npm dependencies"
+        },
+        {
+          "severity": "medium",
+          "type": "no_work_detection",
+          "message": "Workflow may run when no work is needed",
+          "recommendation": "Add early exit check for pending work"
+        }
+      ],
+      "file_size": 544,
+      "jobs_count": 1,
+      "has_schedule": false
+    },
+    "inbox-management.yml": {
+      "issues": [
+        {
+          "severity": "medium",
+          "type": "no_caching",
+          "message": "Workflow doesn't use dependency caching",
+          "recommendation": "Add cache action for pip/npm dependencies"
+        },
+        {
+          "severity": "low",
+          "type": "excessive_checkouts",
+          "message": "Workflow has 4 checkout actions",
+          "recommendation": "Consider using artifacts to share data between jobs"
+        },
+        {
+          "severity": "medium",
+          "type": "no_work_detection",
+          "message": "Workflow may run when no work is needed",
+          "recommendation": "Add early exit check for pending work"
+        },
+        {
+          "severity": "low",
+          "type": "sequential_jobs",
+          "message": "Some jobs could potentially run in parallel",
+          "recommendation": "Review job dependencies and enable parallelization"
+        },
+        {
+          "severity": "low",
+          "type": "large_file",
+          "message": "Large workflow file (20368 bytes)",
+          "recommendation": "Consider splitting into reusable workflows"
+        }
+      ],
+      "file_size": 20368,
+      "jobs_count": 4,
+      "has_schedule": false
+    },
+    "auto-approve-workflows.yml": {
+      "issues": [
+        {
+          "severity": "medium",
+          "type": "no_caching",
+          "message": "Workflow doesn't use dependency caching",
+          "recommendation": "Add cache action for pip/npm dependencies"
+        },
+        {
+          "severity": "medium",
+          "type": "no_work_detection",
+          "message": "Workflow may run when no work is needed",
+          "recommendation": "Add early exit check for pending work"
+        }
+      ],
+      "file_size": 2399,
+      "jobs_count": 1,
+      "has_schedule": false
+    },
+    "multi-ai-orchestration.yml": {
+      "error": "YAML parse error: while scanning a simple key\n  in \"/home/runner/work/Aethromoor/Aethromoor/.github/workflows/multi-ai-orchestration.yml\", line 327, column 1\ncould not find expected ':'\n  in \"/home/runner/work/Aethromoor/Aethromoor/.github/workflows/multi-ai-orchestration.yml\", line 329, column 1",
+      "issues": []
+    },
+    "ai-scene-writer.yml": {
+      "error": "YAML parse error: while scanning a simple key\n  in \"/home/runner/work/Aethromoor/Aethromoor/.github/workflows/ai-scene-writer.yml\", line 120, column 1\ncould not find expected ':'\n  in \"/home/runner/work/Aethromoor/Aethromoor/.github/workflows/ai-scene-writer.yml\", line 121, column 1",
+      "issues": []
+    },
+    "ai-automation.yml": {
+      "issues": [
+        {
+          "severity": "medium",
+          "type": "no_caching",
+          "message": "Workflow doesn't use dependency caching",
+          "recommendation": "Add cache action for pip/npm dependencies"
+        },
+        {
+          "severity": "low",
+          "type": "excessive_checkouts",
+          "message": "Workflow has 4 checkout actions",
+          "recommendation": "Consider using artifacts to share data between jobs"
+        },
+        {
+          "severity": "low",
+          "type": "sequential_jobs",
+          "message": "Some jobs could potentially run in parallel",
+          "recommendation": "Review job dependencies and enable parallelization"
+        }
+      ],
+      "file_size": 12381,
+      "jobs_count": 5,
+      "has_schedule": false
+    },
+    "ai-stat-balancer.yml": {
+      "issues": [
+        {
+          "severity": "medium",
+          "type": "no_work_detection",
+          "message": "Workflow may run when no work is needed",
+          "recommendation": "Add early exit check for pending work"
+        }
+      ],
+      "file_size": 2279,
+      "jobs_count": 1,
+      "has_schedule": false
+    },
+    "ai-game-tester.yml": {
+      "issues": [
+        {
+          "severity": "medium",
+          "type": "no_work_detection",
+          "message": "Workflow may run when no work is needed",
+          "recommendation": "Add early exit check for pending work"
+        }
+      ],
+      "file_size": 4668,
+      "jobs_count": 1,
+      "has_schedule": false
+    },
+    "enterprise-monitoring.yml": {
+      "issues": [
+        {
+          "severity": "medium",
+          "type": "no_caching",
+          "message": "Workflow doesn't use dependency caching",
+          "recommendation": "Add cache action for pip/npm dependencies"
+        },
+        {
+          "severity": "low",
+          "type": "excessive_checkouts",
+          "message": "Workflow has 5 checkout actions",
+          "recommendation": "Consider using artifacts to share data between jobs"
+        },
+        {
+          "severity": "medium",
+          "type": "no_work_detection",
+          "message": "Workflow may run when no work is needed",
+          "recommendation": "Add early exit check for pending work"
+        },
+        {
+          "severity": "low",
+          "type": "sequential_jobs",
+          "message": "Some jobs could potentially run in parallel",
+          "recommendation": "Review job dependencies and enable parallelization"
+        },
+        {
+          "severity": "low",
+          "type": "large_file",
+          "message": "Large workflow file (16619 bytes)",
+          "recommendation": "Consider splitting into reusable workflows"
+        }
+      ],
+      "file_size": 16619,
+      "jobs_count": 6,
+      "has_schedule": false
+    },
+    "ai-autonomous-worker.yml": {
+      "issues": [
+        {
+          "severity": "medium",
+          "type": "no_work_detection",
+          "message": "Workflow may run when no work is needed",
+          "recommendation": "Add early exit check for pending work"
+        }
+      ],
+      "file_size": 3654,
+      "jobs_count": 1,
+      "has_schedule": false
+    }
+  },
+  "recommendations": [
+    "\ud83c\udfaf HIGH PRIORITY: 6 workflows missing dependency caching. Add .github/actions/setup-python-deps to reduce runtime by 40-60%",
+    "\u26a1 MEDIUM PRIORITY: 8 workflows lack work detection. Add early exit checks to reduce wasted runs by 30%",
+    "\ud83d\udce6 LOW PRIORITY: 2 large workflow files. Consider modularization with reusable workflows for better maintainability",
+    "\ud83d\ude80 MEDIUM PRIORITY: 3 workflows could benefit from parallelization. Review job dependencies to enable concurrent execution"
+  ]
+}

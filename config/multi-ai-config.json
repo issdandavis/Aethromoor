@@ -1,0 +1,276 @@
+{
+  "version": "2.0",
+  "last_updated": "2025-11-28",
+  "description": "Multi-AI integration configuration for 24/7 continuous development",
+  
+  "ai_providers": {
+    "anthropic_claude": {
+      "enabled": true,
+      "api_key_secret": "ANTHROPIC_API_KEY",
+      "models": ["claude-sonnet-4-20250514", "claude-3-5-sonnet-20241022"],
+      "strengths": ["creative_writing", "scene_development", "lore_consistency", "character_voice"],
+      "rate_limits": {
+        "requests_per_minute": 50,
+        "tokens_per_minute": 40000
+      },
+      "cost_optimization": {
+        "prefer_for": ["scene_writing", "content_creation", "narrative_tasks"],
+        "cache_system_prompts": true,
+        "batch_requests": true
+      },
+      "schedule_slots": [0, 3, 6, 9, 12, 15, 18, 21]
+    },
+    "openai_gpt": {
+      "enabled": false,
+      "api_key_secret": "OPENAI_API_KEY",
+      "models": ["gpt-4-turbo", "gpt-4"],
+      "strengths": ["code_optimization", "bug_fixing", "documentation", "analysis"],
+      "rate_limits": {
+        "requests_per_minute": 60,
+        "tokens_per_minute": 90000
+      },
+      "cost_optimization": {
+        "prefer_for": ["code_tasks", "debugging", "technical_docs"],
+        "use_cheaper_models_when_possible": true
+      },
+      "schedule_slots": [1, 4, 7, 10, 13, 16, 19, 22]
+    },
+    "github_copilot": {
+      "enabled": true,
+      "api_key_secret": "GITHUB_TOKEN",
+      "strengths": ["code_completion", "refactoring", "test_generation", "code_review"],
+      "rate_limits": {
+        "requests_per_minute": 100
+      },
+      "cost_optimization": {
+        "prefer_for": ["code_refactoring", "test_writing", "minor_fixes"],
+        "unlimited_usage": true
+      },
+      "schedule_slots": [2, 5, 8, 11, 14, 17, 20, 23]
+    },
+    "local_automation": {
+      "enabled": true,
+      "strengths": ["syntax_validation", "formatting", "linting", "simple_tasks"],
+      "rate_limits": {
+        "unlimited": true
+      },
+      "cost_optimization": {
+        "prefer_for": ["validation", "formatting", "trivial_tasks"],
+        "always_free": true
+      },
+      "schedule_slots": "continuous"
+    }
+  },
+  
+  "orchestration": {
+    "conflict_detection": {
+      "enabled": true,
+      "check_frequency_minutes": 5,
+      "auto_resolve": true,
+      "resolution_strategies": {
+        "file_conflicts": "queue_newer_session",
+        "task_dependencies": "defer_dependent",
+        "resource_conflicts": "round_robin"
+      }
+    },
+    
+    "session_management": {
+      "max_concurrent_sessions": 3,
+      "max_session_duration_minutes": 60,
+      "auto_cleanup_stale_sessions": true,
+      "stale_threshold_minutes": 90,
+      "session_timeout_minutes": 120
+    },
+    
+    "work_distribution": {
+      "strategy": "intelligent",
+      "load_balancing": true,
+      "prefer_provider_strengths": true,
+      "cost_aware": true,
+      "fallback_enabled": true
+    },
+    
+    "handoff_protocol": {
+      "enabled": true,
+      "context_preservation": true,
+      "state_transfer": true,
+      "seamless_continuation": true,
+      "handoff_types": ["continuation", "takeover", "collaboration"]
+    }
+  },
+  
+  "scheduling": {
+    "mode": "24/7",
+    "timezone": "UTC",
+    "round_robin": {
+      "enabled": true,
+      "cycle_duration_hours": 24,
+      "provider_rotation": true,
+      "avoid_overlap": true
+    },
+    
+    "intelligent_scheduling": {
+      "enabled": true,
+      "work_detection": true,
+      "skip_if_no_work": true,
+      "dynamic_frequency": true,
+      "peak_hours": [9, 10, 11, 14, 15, 16],
+      "reduce_frequency_off_peak": true
+    },
+    
+    "workflow_coordination": {
+      "ai_scene_writer": {
+        "frequency_hours": 3,
+        "preferred_provider": "anthropic_claude",
+        "fallback_provider": "github_copilot",
+        "work_detection": true
+      },
+      "ai_content_polish": {
+        "frequency_hours": 4,
+        "preferred_provider": "anthropic_claude",
+        "offset_from_writer_minutes": 30,
+        "work_detection": true
+      },
+      "ai_stat_balancer": {
+        "frequency_hours": 12,
+        "preferred_provider": "openai_gpt",
+        "fallback_provider": "local_automation",
+        "work_detection": true
+      },
+      "ai_game_tester": {
+        "frequency_hours": 6,
+        "preferred_provider": "local_automation",
+        "work_detection": true
+      }
+    }
+  },
+  
+  "performance_optimization": {
+    "caching": {
+      "enabled": true,
+      "cache_dependencies": true,
+      "cache_git_objects": true,
+      "cache_api_responses": true,
+      "ttl_minutes": 60
+    },
+    
+    "parallel_execution": {
+      "enabled": true,
+      "max_parallel_jobs": 4,
+      "independent_jobs_only": true
+    },
+    
+    "resource_management": {
+      "cleanup_artifacts": true,
+      "artifact_retention_days": 7,
+      "compress_logs": true,
+      "limit_log_size_mb": 10
+    },
+    
+    "api_optimization": {
+      "batch_requests": true,
+      "request_deduplication": true,
+      "response_caching": true,
+      "rate_limit_awareness": true,
+      "exponential_backoff": true
+    }
+  },
+  
+  "monitoring": {
+    "health_checks": {
+      "enabled": true,
+      "frequency_minutes": 30,
+      "alert_on_issues": true,
+      "auto_recovery": true
+    },
+    
+    "metrics_collection": {
+      "enabled": true,
+      "track_provider_usage": true,
+      "track_costs": true,
+      "track_performance": true,
+      "track_conflicts": true,
+      "retention_days": 90
+    },
+    
+    "reporting": {
+      "daily_summary": true,
+      "weekly_analysis": true,
+      "cost_breakdown": true,
+      "performance_trends": true,
+      "export_format": "json"
+    }
+  },
+  
+  "cost_management": {
+    "daily_budget_usd": 5.0,
+    "monthly_budget_usd": 100.0,
+    "auto_pause_on_budget_exceeded": true,
+    "cost_tracking": {
+      "enabled": true,
+      "track_by_provider": true,
+      "track_by_task_type": true,
+      "alert_at_percentage": 80
+    },
+    
+    "optimization_rules": {
+      "use_free_providers_first": true,
+      "batch_similar_tasks": true,
+      "cache_expensive_calls": true,
+      "prefer_cheaper_models": false,
+      "quality_over_cost": true
+    }
+  },
+  
+  "notification_settings": {
+    "notify_on": {
+      "system_errors": true,
+      "budget_alerts": true,
+      "conflict_resolution_failures": true,
+      "major_milestones": true,
+      "health_degradation": true
+    },
+    
+    "suppress_notifications_for": {
+      "routine_tasks": true,
+      "successful_completions": true,
+      "minor_issues": true,
+      "auto_resolved_conflicts": true
+    },
+    
+    "notification_channels": {
+      "github_issues": false,
+      "workflow_summary": true,
+      "artifact_reports": true
+    }
+  },
+  
+  "quality_assurance": {
+    "validation_before_commit": true,
+    "syntax_checking": true,
+    "lore_consistency_check": true,
+    "auto_rollback_on_error": true,
+    "require_tests_pass": false,
+    "code_review_integration": false
+  },
+  
+  "experimental_features": {
+    "multi_provider_collaboration": {
+      "enabled": false,
+      "description": "Multiple AIs working on same task collaboratively",
+      "requires_coordination_engine": true
+    },
+    
+    "predictive_scheduling": {
+      "enabled": false,
+      "description": "ML-based prediction of optimal scheduling",
+      "requires_historical_data": true
+    },
+    
+    "cross_repository_coordination": {
+      "enabled": false,
+      "description": "Coordinate work across multiple repositories",
+      "repositories": []
+    }
+  }
+}

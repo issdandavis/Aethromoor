@@ -28,13 +28,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: Setup Python with caching
+        uses: ./.github/actions/setup-python-deps
         with:
-          python-version: '3.11'
+          cache-key-suffix: content-polish
       
-      - name: Install deps
-        run: pip install anthropic GitPython
+      - name: Check for work (early exit)
+        id: check_work
+        run: |
+          echo "🔍 Checking if polishing is needed..."
+          # Count scenes that could use more sensory details
+          NEEDS_POLISH=$(grep -r -L "taste\|smell\|scent\|flavor\|aroma" choicescript_game/scenes/*.txt 2>/dev/null | wc -l)
+          
+          if [ "$NEEDS_POLISH" -eq 0 ]; then
+            echo "has_work=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ All scenes have sensory details"
+            exit 0
+          else
+            echo "has_work=true" >> $GITHUB_OUTPUT
+            echo "✅ $NEEDS_POLISH scenes need polishing"
+          fi
       
       - name: Configure Git
         run: |
@@ -47,6 +60,7 @@ jobs:
       
       - name: Analyze content quality
         id: analyze
+        if: steps.check_work.outputs.has_work == 'true'
         run: |
           echo "Analyzing content for quality issues..."
           
@@ -86,12 +100,11 @@ jobs:
             POLISHED=$(git diff --name-only | head -1 | xargs basename)
             git add choicescript_game/scenes/*.txt
             
-            git commit -m "[AI-POLISH] Enhanced $POLISHED with sensory details
-
-- Added taste/smell descriptions
-- Enriched atmospheric writing
-- Preserved character voices
-- Maintained ChoiceScript syntax"
+            git commit -m "[AI-POLISH] Enhanced $POLISHED with sensory details" \
+                      -m "- Added taste/smell descriptions" \
+                      -m "- Enriched atmospheric writing" \
+                      -m "- Preserved character voices" \
+                      -m "- Maintained ChoiceScript syntax"
             
             git push origin ai-content-polish --force-with-lease
             echo "✅ Polished and pushed $POLISHED"
