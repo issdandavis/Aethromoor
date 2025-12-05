@@ -12,6 +12,16 @@ This repository runs in an isolated environment with **no outbound internet acce
 
 > Looking for a full example? See [`docs/pipedream_shopify_affiliate_workflow.md`](./pipedream_shopify_affiliate_workflow.md) for a complete, copy-pastable workflow that pulls products from an affiliate feed and upserts them into Shopify.
 
+### Use it right now (5-minute setup)
+If you just want a working workflow to test immediately, follow these exact steps:
+1. Go to **Workflows → New** → choose **HTTP / Webhook**.
+2. Copy the **Endpoint URL** shown at the top of the trigger step.
+3. Click **Secrets** → **+ Add secret** → create `MY_SERVICE_KEY` with your real API key.
+4. Add a **Code (Node.js)** step and paste the **Minimal Pipedream code** from below.
+5. Click **Deploy**.
+6. From your terminal, run the **Trigger test helper** (replace the URL with your endpoint). Your run should appear in **Inspect** with `status` and `items` exports.
+7. Replace the placeholder API URL in the code step with your real service and redeploy.
+
 ## Sample REST call with your API key
 Use `curl` from your machine (not inside this repo) to verify the key works and to list workflows:
 
