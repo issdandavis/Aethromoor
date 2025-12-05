@@ -2,12 +2,13 @@
 
 This repository runs in an isolated environment with **no outbound internet access**. That means the local agent cannot connect to Pipedream or accept real API keys. Use the steps below to connect your own Pipedream account safely while keeping secrets out of the repository.
 
-## How to connect using your API key (safe path)
-1. **Create a Pipedream API key** in the Pipedream dashboard (`Settings -> API Keys`). Treat it like a password.
+## Quickstart: safe path with your API key
+1. **Create a Pipedream API key** in the Pipedream dashboard (`Settings → API Keys`). Treat it like a password.
 2. **Do *not* paste the key into chat or commit it.** Store it in Pipedream's Secret Store or as an Environment Variable.
-3. **Create a workflow** in Pipedream and add a **HTTP trigger** (or schedule) for your use case.
-4. **Add code steps** (Node.js or Python) that call external services. Keep all credentials in secrets (e.g., `process.env.MY_API_KEY`).
-5. **Test in Pipedream** using the "Send Test Event" button or by hitting the public trigger URL from your terminal.
+3. **Create a workflow** and add a **HTTP trigger** (or schedule) for your use case. Copy the trigger URL if HTTP-based.
+4. **Open the Secrets panel** and add entries like `MY_SERVICE_KEY`, `SHOPIFY_ADMIN_TOKEN`, or `AFFILIATE_FEED_URL`.
+5. **Add a Code step** (Node.js or Python) that reads secrets via `process.env.SECRET_NAME` and calls your APIs.
+6. **Test in Pipedream** using "Send Test Event" or by hitting the trigger URL with `curl` (example below). Confirm the step exports the values you expect.
 
 > Looking for a full example? See [`docs/pipedream_shopify_affiliate_workflow.md`](./pipedream_shopify_affiliate_workflow.md) for a complete, copy-pastable workflow that pulls products from an affiliate feed and upserts them into Shopify.
 
@@ -21,6 +22,15 @@ curl -H "Authorization: Bearer $PIPEDREAM_API_KEY" \
 ```
 
 If you see workflow JSON, the key is valid and your account is reachable.
+
+## End-to-end example: create and test an HTTP-triggered workflow
+Follow these concrete steps in the Pipedream UI:
+1. **Create workflow → HTTP / Webhook** trigger. Copy the generated URL.
+2. Click **+** and choose **Code (Node.js)**.
+3. Click **Secrets** (upper right) → **+ Add secret** → create `MY_SERVICE_KEY` with your API key.
+4. Paste the code template below, replacing the placeholder URL with your target API.
+5. Click **Deploy** and then **Send Test Event** (or run the `curl` command under the trigger URL) to populate sample data.
+6. Open the **Inspect** tab → select the latest run → confirm the step **Exports** show the status/data you expect.
 
 ## Adding secrets to a Pipedream workflow
 1. In the workflow editor, open **Secrets** and add entries like `SHOPIFY_ADMIN_TOKEN` or `AFFILIATE_FEED_URL`.
@@ -44,6 +54,15 @@ export default defineComponent({
     $.export("items", res.data?.items || []);
   },
 });
+```
+
+### Trigger test helper (replace with your trigger URL)
+Run this from your terminal to fire the workflow after deployment. It sends a JSON payload you can inspect in **steps.trigger.event**:
+
+```bash
+curl -X POST "https://endpoint.m.pipedream.net/your-trigger-id" \
+  -H "Content-Type: application/json" \
+  -d '{"sample": "hello"}'
 ```
 
 ## What the local agent can and cannot do
