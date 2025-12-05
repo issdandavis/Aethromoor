@@ -79,6 +79,14 @@ curl -X POST "https://endpoint.m.pipedream.net/your-trigger-id" \
 - ✅ **Can**: design workflows, draft code steps, and review Pipedream logs you paste here.
 - ❌ **Cannot**: call Pipedream APIs directly, create workflows on your account, or accept real API keys inside this environment.
 
+### Why the agent can't build flows for you automatically
+- **No internet**: The repository sandbox blocks outbound network calls, so the agent cannot reach Pipedream's API or UI.
+- **No secret storage**: There is nowhere safe in this environment to keep your API keys; you should add them to Pipedream Secrets instead.
+- **Account ownership**: Creating or modifying workflows happens inside *your* Pipedream account, which requires your login and consent.
+- **Security policy**: Keys sent in chat would be exposed in repo history. Keeping them out of the repo protects your credentials.
+
+If you want a workflow created quickly, paste your trigger URL and the external service you need to call (plus any expected payload shape). The agent can return a ready-to-paste **Code step** and test `curl` so you can deploy it in a couple of minutes.
+
 ## Next steps
 - Decide which trigger you need (HTTP, schedule, new row in Google Sheets, webhook, etc.).
 - List the external services you want to call and which credentials each requires.
