@@ -79,6 +79,15 @@ curl -X POST "https://endpoint.m.pipedream.net/your-trigger-id" \
 - ✅ **Can**: design workflows, draft code steps, and review Pipedream logs you paste here.
 - ❌ **Cannot**: call Pipedream APIs directly, create workflows on your account, or accept real API keys inside this environment.
 
+### Can the agent use your GitHub account?
+- **No direct access**: The agent cannot log into GitHub, install apps, or push to your repos because it has no internet access and no way to store your credentials safely.
+- **How to connect GitHub yourself**:
+  1. In Pipedream, open **Sources → New** and choose **GitHub** (or add a GitHub step inside a workflow).
+  2. Click **Connect account** and authorize with the official Pipedream GitHub app. Alternatively, create a fine-scoped **GitHub Personal Access Token (classic)** with just the permissions you need (e.g., `repo` for private repos, `public_repo` for public) and add it as a **Secret**.
+  3. Reference the secret in your code step, for example: `const githubToken = process.env.GITHUB_TOKEN;` and set the `Authorization: Bearer ${githubToken}` header on GitHub API calls.
+  4. Test with **Send Test Event** or your trigger’s URL to confirm GitHub responses look correct in **Exports**.
+- **What the agent can do**: Draft the exact GitHub API calls, webhook handlers, or file update logic you can paste into your Pipedream Code step—just share which repos/endpoints you want to call and what payloads to send or expect.
+
 ### Why the agent can't build flows for you automatically
 - **No internet**: The repository sandbox blocks outbound network calls, so the agent cannot reach Pipedream's API or UI.
 - **No secret storage**: There is nowhere safe in this environment to keep your API keys; you should add them to Pipedream Secrets instead.
