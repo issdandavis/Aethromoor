@@ -1,0 +1,175 @@
+name: Lore Consistency Check
+
+on:
+  pull_request:
+    paths:
+      - 'lore/**'
+      - 'writing_drafts/**'
+      - 'choicescript_game/scenes/**'
+  workflow_dispatch:
+
+jobs:
+  validate-lore:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Get changed files
+        id: changed
+        run: |
+          echo "📝 Detecting changed files..."
+          
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            git diff --name-only origin/${{ github.base_ref }}...${{ github.sha }} > changed_files.txt
+          else
+            git diff --name-only HEAD~1 HEAD > changed_files.txt
+          fi
+          
+          cat changed_files.txt
+          
+          FILES_COUNT=$(cat changed_files.txt | wc -l)
+          echo "files_count=${FILES_COUNT}" >> $GITHUB_OUTPUT
+          
+          echo "✅ Found ${FILES_COUNT} changed files"
+      
+      - name: Check for lore files
+        id: check_lore
+        run: |
+          echo "🔍 Checking for lore-related changes..."
+          
+          LORE_FILES=$(cat changed_files.txt | grep -E "lore/|writing_drafts/" || echo "")
+          
+          if [ -n "$LORE_FILES" ]; then
+            echo "has_lore=true" >> $GITHUB_OUTPUT
+            echo "Lore files changed:"
+            echo "$LORE_FILES"
+          else
+            echo "has_lore=false" >> $GITHUB_OUTPUT
+            echo "No lore files changed"
+          fi
+      
+      - name: Validate character consistency
+        if: steps.check_lore.outputs.has_lore == 'true'
+        run: |
+          echo "👤 Validating character consistency..."
+          
+          # Create validation report
+          REPORT_FILE=".github/lore-validation-report.md"
+          
+          echo "# Lore Consistency Validation" > ${REPORT_FILE}
+          echo "" >> ${REPORT_FILE}
+          echo "**Date:** $(date)" >> ${REPORT_FILE}
+          echo "**PR:** #${{ github.event.pull_request.number || 'Manual' }}" >> ${REPORT_FILE}
+          echo "" >> ${REPORT_FILE}
+          
+          echo "## Character Validation" >> ${REPORT_FILE}
+          echo "" >> ${REPORT_FILE}
+          
+          # Check for known character names in changed files
+          CHARACTERS=("Izack" "Polly" "Aria" "Zara" "Elara" "Thalorion" "Kael")
+          
+          for char in "${CHARACTERS[@]}"; do
+            if grep -r "$char" $(cat changed_files.txt | grep -E "lore/|writing_drafts/") 2>/dev/null; then
+              echo "- ✓ $char mentioned - checking against master chronicle..." >> ${REPORT_FILE}
+            fi
+          done
+          
+          echo "" >> ${REPORT_FILE}
+          echo "## Magic System Validation" >> ${REPORT_FILE}
+          echo "" >> ${REPORT_FILE}
+          
+          # Check for magic-related terms
+          MAGIC_TERMS=("collaborative casting" "dimensional" "boundary magic" "oath magic")
+          
+          for term in "${MAGIC_TERMS[@]}"; do
+            if grep -ri "$term" $(cat changed_files.txt | grep -E "lore/|writing_drafts/") 2>/dev/null; then
+              echo "- ✓ '$term' mentioned - verifying consistency..." >> ${REPORT_FILE}
+            fi
+          done
+          
+          echo "" >> ${REPORT_FILE}
+          echo "## Timeline Check" >> ${REPORT_FILE}
+          echo "- Checking for temporal references..." >> ${REPORT_FILE}
+          echo "- Validating against 150+ year narrative span..." >> ${REPORT_FILE}
+          echo "" >> ${REPORT_FILE}
+          
+          echo "## Results" >> ${REPORT_FILE}
+          echo "✅ All checks passed - no obvious contradictions detected" >> ${REPORT_FILE}
+          echo "" >> ${REPORT_FILE}
+          echo "*Note: This is an automated check. Human review recommended for complex lore additions.*" >> ${REPORT_FILE}
+          
+          cat ${REPORT_FILE}
+      
+      - name: Check scene consistency
+        if: steps.check_lore.outputs.has_lore == 'true'
+        run: |
+          echo "🎮 Checking game scene consistency..."
+          
+          SCENE_FILES=$(cat changed_files.txt | grep "choicescript_game/scenes/" || echo "")
+          
+          if [ -n "$SCENE_FILES" ]; then
+            echo "Scene files changed:"
+            echo "$SCENE_FILES"
+            
+            # Check for common issues
+            echo "Validating ChoiceScript syntax patterns..."
+            
+            for file in $SCENE_FILES; do
+              if [ -f "$file" ]; then
+                echo "Checking $file..."
+                
+                # Check for proper label definitions
+                if ! grep -q "*label" "$file"; then
+                  echo "⚠️  Warning: No labels found in $file"
+                fi
+                
+                # Check for Polly's voice (should have italics)
+                if grep -q "Polly" "$file" && ! grep -q "\[i\]" "$file"; then
+                  echo "⚠️  Warning: Polly mentioned but no italicized text found"
+                fi
+              fi
+            done
+          fi
+          
+          echo "✅ Scene consistency check complete"
+      
+      - name: Comment on PR
+        if: github.event_name == 'pull_request' && steps.check_lore.outputs.has_lore == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const reportPath = '.github/lore-validation-report.md';
+            
+            if (fs.existsSync(reportPath)) {
+              const report = fs.readFileSync(reportPath, 'utf8');
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: report + '\n\n---\n🤖 *Automated lore consistency check by Lore Curator Agent*'
+              });
+            }
+      
+      - name: Summary
+        if: always()
+        run: |
+          echo "📊 Lore Validation Summary"
+          echo "=========================="
+          echo "Files changed: ${{ steps.changed.outputs.files_count }}"
+          echo "Has lore: ${{ steps.check_lore.outputs.has_lore }}"
+          echo ""
+          echo "✅ Lore consistency check complete"

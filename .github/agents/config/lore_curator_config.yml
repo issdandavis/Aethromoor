@@ -1,0 +1,240 @@
+# Lore Curator Agent Configuration
+
+# Canon validation strictness
+strictness_level: high  # Options: low, medium, high
+auto_expand_gaps: true  # Automatically generate content for identified gaps
+max_daily_expansions: 3  # Limit automatic expansions per day
+
+# Canon source files (in priority order)
+canon_sources:
+  primary:
+    - "lore/IZACK_MASTER_CHRONICLE_UPDATED.txt"
+    - "docs/AETHERMOOR_CHRONICLES.md"
+  
+  secondary:
+    - "lore/"  # All files in lore directory
+    - "writing_drafts/"  # Novel content as reference
+  
+  game_canon:
+    - "game/game.js"  # HTML version reference
+    - "choicescript_game/scenes/"  # ChoiceScript scenes
+
+# Validation rules
+validation_rules:
+  character_consistency:
+    enabled: true
+    check_personality_traits: true
+    verify_relationships: true
+    validate_timelines: true
+    check_abilities: true
+  
+  magic_system:
+    enabled: true
+    enforce_collaborative_philosophy: true
+    check_dimensional_mechanics: true
+    validate_spell_logic: true
+    verify_power_limitations: true
+  
+  timeline:
+    enabled: true
+    check_character_ages: true
+    verify_event_order: true
+    validate_generational_span: true  # 150+ years
+    check_historical_references: true
+  
+  geography:
+    enabled: true
+    verify_location_consistency: true
+    check_travel_times: true
+    validate_realm_descriptions: true
+  
+  thematic:
+    enabled: true
+    collaboration_vs_individual: true
+    wisdom_over_power: true
+    truth_seeking: true
+    humility_in_growth: true
+
+# Known canon elements to protect
+protected_canon:
+  characters:
+    Izack:
+      traits:
+        - "Humble despite great power"
+        - "Teacher-first mentality"
+        - "Founded Avalon Academy"
+        - "Dimensional magic specialist"
+      relationships:
+        - "Mentor to player"
+        - "Polly's long-time friend"
+    
+    Polly:
+      traits:
+        - "3000+ years old"
+        - "Sarcastic but caring"
+        - "Immortal raven"
+        - "Fourth-wall aware"
+      voice: "Dry humor, brutally honest, wants students to succeed"
+    
+    Aria:
+      traits:
+        - "Boundary magic specialist"
+        - "Political background"
+        - "Professional and precise"
+        - "Protective energy"
+    
+    Zara:
+      traits:
+        - "Chaos mage"
+        - "Experimental approach"
+        - "Chaotic-good alignment"
+        - "Enthusiastic teacher"
+  
+  locations:
+    - "Avalon Academy"
+    - "Singing Dunes (truth-testing desert)"
+    - "Verdant Tithe (sentient forest)"
+    - "Rune Glacier (living ice)"
+    - "Aethermoor (dimensional realm)"
+  
+  magic_systems:
+    - "Collaborative casting vs hierarchical control"
+    - "Magic requires understanding AND consent"
+    - "Dimensional theory (three realms)"
+    - "Power without wisdom leads to corruption"
+  
+  philosophical_core:
+    - "Collaboration over individual power"
+    - "Wisdom through humility"
+    - "Truth-seeking over power-seeking"
+    - "Balance between individual and collective"
+
+# Gap identification
+gap_detection:
+  enabled: true
+  identify_missing_backstories: true
+  find_undeveloped_locations: true
+  detect_unexplained_references: true
+  track_incomplete_relationships: true
+  
+  priority_levels:
+    critical: 
+      - "Main character contradictions"
+      - "Core magic system violations"
+      - "Timeline impossibilities"
+    
+    high:
+      - "Supporting character inconsistencies"
+      - "Location description gaps"
+      - "Relationship underdevelopment"
+    
+    medium:
+      - "Minor lore gaps"
+      - "Cultural detail expansions"
+      - "Historical event elaborations"
+    
+    low:
+      - "Flavor text additions"
+      - "Background character development"
+      - "World detail enhancements"
+
+# Expansion behavior
+expansion_settings:
+  auto_generate_for_gaps: true
+  max_auto_expansions_per_day: 3
+  require_human_approval: true
+  minimum_canon_confidence: 0.90  # 90%+ confidence to auto-generate
+  
+  generation_priorities:
+    - critical_gaps  # Fix contradictions first
+    - character_development  # Then develop characters
+    - location_detail  # Then expand locations
+    - cultural_elements  # Then add cultural depth
+
+# Cross-referencing
+cross_reference_settings:
+  auto_create_links: true
+  update_character_chronicles: true
+  maintain_relationship_maps: true
+  track_artifact_histories: true
+  document_timeline_events: true
+
+# Voice validation
+voice_consistency:
+  enabled: true
+  check_character_dialogue: true
+  validate_polly_commentary: true
+  verify_tone_matches: true
+  
+  character_voice_profiles:
+    Polly:
+      markers:
+        - "Sarcastic remarks"
+        - "Historical perspective"
+        - "Student welfare concern"
+        - "Dry humor"
+      avoid:
+        - "Cruelty"
+        - "False encouragement"
+        - "Breaking fourth wall too often"
+    
+    Izack:
+      markers:
+        - "Teaching analogies"
+        - "Humble wisdom"
+        - "Encouraging patience"
+        - "Collaborative emphasis"
+      avoid:
+        - "Authoritarianism"
+        - "Boastfulness"
+        - "Discouragement"
+    
+    Aria:
+      markers:
+        - "Boundary metaphors"
+        - "Professional precision"
+        - "Diplomatic phrasing"
+        - "Protective instincts"
+      avoid:
+        - "Casual speech"
+        - "Harshness"
+        - "Boundary violations"
+    
+    Zara:
+      markers:
+        - "Enthusiasm"
+        - "Experimental suggestions"
+        - "Rule-bending ideas"
+        - "Encouraging chaos"
+      avoid:
+        - "Recklessness"
+        - "Traditional thinking"
+        - "Discouragement"
+
+# Reporting
+reporting:
+  daily_scan: true
+  weekly_full_audit: true
+  monthly_comprehensive_review: true
+  
+  report_includes:
+    - "Contradictions found"
+    - "Gaps identified"
+    - "Expansions suggested"
+    - "Cross-references updated"
+    - "Quality score"
+
+# Integration
+integration:
+  notify_content_organizer: true
+  inform_content_generator: true
+  comment_on_prs: true
+  create_issues_for_conflicts: true
+  update_master_chronicles: true
+
+# Performance
+performance:
+  cache_canon_data: true
+  batch_validations: true
+  parallel_processing: false  # Keep false for consistency
+  max_files_per_scan: 100

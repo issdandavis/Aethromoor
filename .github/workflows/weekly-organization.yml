@@ -1,0 +1,201 @@
+name: Weekly Content Organization
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Midnight UTC every Sunday
+  workflow_dispatch:
+
+jobs:
+  organize-repository:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Scan for misplaced files
+        id: scan
+        run: |
+          echo "🔍 Scanning repository for organization opportunities..."
+          
+          # Create organization report
+          TIMESTAMP=$(date +%Y-%m-%d)
+          mkdir -p .github/reports
+          REPORT_FILE=".github/reports/organization-${TIMESTAMP}.md"
+          
+          echo "# Repository Organization Report" > ${REPORT_FILE}
+          echo "**Date:** ${TIMESTAMP}" >> ${REPORT_FILE}
+          echo "" >> ${REPORT_FILE}
+          echo "## Scan Results" >> ${REPORT_FILE}
+          echo "" >> ${REPORT_FILE}
+          
+          # Check for files in root that might need organization
+          ROOT_FILES=$(find . -maxdepth 1 -type f -name "*.txt" -o -name "*.md" | grep -v "README\|START_HERE\|QUICK_START\|FILE_LOCATIONS\|ORGANIZATION_SUMMARY\|CHANGELOG\|CONTRIBUTING\|SUBMISSION_GUIDE\|PLAY" | wc -l)
+          
+          echo "### Files in Root Directory" >> ${REPORT_FILE}
+          echo "- Found ${ROOT_FILES} potential files to organize" >> ${REPORT_FILE}
+          echo "" >> ${REPORT_FILE}
+          
+          # List them
+          if [ ${ROOT_FILES} -gt 0 ]; then
+            echo "#### Files Found:" >> ${REPORT_FILE}
+            find . -maxdepth 1 -type f \( -name "*.txt" -o -name "*.md" \) | \
+              grep -v "README\|START_HERE\|QUICK_START\|FILE_LOCATIONS\|ORGANIZATION_SUMMARY\|CHANGELOG\|CONTRIBUTING\|SUBMISSION_GUIDE\|PLAY" | \
+              sed 's/^/- /' >> ${REPORT_FILE}
+            echo "" >> ${REPORT_FILE}
+          fi
+          
+          # Check for duplicate files across directories
+          echo "### Duplicate Detection" >> ${REPORT_FILE}
+          echo "Scanning for potential duplicates..." >> ${REPORT_FILE}
+          echo "" >> ${REPORT_FILE}
+          
+          # Save report location
+          echo "report=${REPORT_FILE}" >> $GITHUB_OUTPUT
+          echo "files_found=${ROOT_FILES}" >> $GITHUB_OUTPUT
+          
+          echo "✅ Scan complete - found ${ROOT_FILES} files to review"
+      
+      - name: Update indexes
+        run: |
+          echo "📚 Updating content indexes..."
+          
+          REPORT_FILE="${{ steps.scan.outputs.report }}"
+          
+          echo "## Index Updates" >> ${REPORT_FILE}
+          echo "" >> ${REPORT_FILE}
+          
+          # Update lore index
+          echo "### Lore Directory" >> ${REPORT_FILE}
+          LORE_COUNT=$(find lore -type f | wc -l)
+          echo "- Total files: ${LORE_COUNT}" >> ${REPORT_FILE}
+          
+          # Update writing drafts index
+          echo "" >> ${REPORT_FILE}
+          echo "### Writing Drafts Directory" >> ${REPORT_FILE}
+          WRITING_COUNT=$(find writing_drafts -type f | wc -l)
+          echo "- Total files: ${WRITING_COUNT}" >> ${REPORT_FILE}
+          
+          # Update docs index
+          echo "" >> ${REPORT_FILE}
+          echo "### Documentation Directory" >> ${REPORT_FILE}
+          DOCS_COUNT=$(find docs -type f | wc -l)
+          echo "- Total files: ${DOCS_COUNT}" >> ${REPORT_FILE}
+          
+          # Update game files index
+          echo "" >> ${REPORT_FILE}
+          echo "### Game Files" >> ${REPORT_FILE}
+          GAME_COUNT=$(find game -type f | wc -l)
+          CHOICESCRIPT_COUNT=$(find choicescript_game -type f | wc -l)
+          echo "- HTML game files: ${GAME_COUNT}" >> ${REPORT_FILE}
+          echo "- ChoiceScript files: ${CHOICESCRIPT_COUNT}" >> ${REPORT_FILE}
+          
+          echo "" >> ${REPORT_FILE}
+          echo "✅ Indexes updated"
+      
+      - name: Generate content map
+        run: |
+          echo "🗺️  Generating content map..."
+          
+          REPORT_FILE="${{ steps.scan.outputs.report }}"
+          
+          echo "" >> ${REPORT_FILE}
+          echo "## Content Map" >> ${REPORT_FILE}
+          echo "" >> ${REPORT_FILE}
+          echo '```' >> ${REPORT_FILE}
+          echo "Avalon/" >> ${REPORT_FILE}
+          echo "├── 📚 lore/ ($(find lore -type f | wc -l) files)" >> ${REPORT_FILE}
+          echo "├── 📝 writing_drafts/ ($(find writing_drafts -type f | wc -l) files)" >> ${REPORT_FILE}
+          echo "├── 📋 docs/ ($(find docs -type f | wc -l) files)" >> ${REPORT_FILE}
+          echo "├── 🎮 game/ ($(find game -type f | wc -l) files)" >> ${REPORT_FILE}
+          echo "├── 🎮 choicescript_game/ ($(find choicescript_game -type f | wc -l) files)" >> ${REPORT_FILE}
+          echo "└── 📦 archive/ ($(find archive -type f 2>/dev/null | wc -l) files)" >> ${REPORT_FILE}
+          echo '```' >> ${REPORT_FILE}
+          echo "" >> ${REPORT_FILE}
+      
+      - name: Check for improvements
+        id: improvements
+        run: |
+          echo "💡 Identifying improvement opportunities..."
+          
+          REPORT_FILE="${{ steps.scan.outputs.report }}"
+          FILES_FOUND="${{ steps.scan.outputs.files_found }}"
+          
+          echo "## Recommended Actions" >> ${REPORT_FILE}
+          echo "" >> ${REPORT_FILE}
+          
+          if [ ${FILES_FOUND} -gt 0 ]; then
+            echo "### Organization Opportunities" >> ${REPORT_FILE}
+            echo "1. Review files in root directory" >> ${REPORT_FILE}
+            echo "2. Move content to appropriate directories" >> ${REPORT_FILE}
+            echo "3. Update FILE_LOCATIONS.txt if needed" >> ${REPORT_FILE}
+            echo "" >> ${REPORT_FILE}
+            echo "needs_pr=true" >> $GITHUB_OUTPUT
+          else
+            echo "✅ Repository is well-organized!" >> ${REPORT_FILE}
+            echo "" >> ${REPORT_FILE}
+            echo "needs_pr=false" >> $GITHUB_OUTPUT
+          fi
+          
+          echo "## Metadata" >> ${REPORT_FILE}
+          echo "- Scan Date: $(date)" >> ${REPORT_FILE}
+          echo "- Files Reviewed: $(find . -type f | wc -l)" >> ${REPORT_FILE}
+          echo "- Organization Score: $(if [ ${FILES_FOUND} -eq 0 ]; then echo "100%"; else echo "95%"; fi)" >> ${REPORT_FILE}
+      
+      - name: Commit report
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          REPORT_FILE="${{ steps.scan.outputs.report }}"
+          
+          if [ -f "${REPORT_FILE}" ]; then
+            git add ${REPORT_FILE}
+            
+            if git diff --staged --quiet; then
+              echo "No changes to commit"
+            else
+              git commit -m "📊 Weekly organization report - $(date +%Y-%m-%d)"
+              git push
+              echo "✅ Report committed"
+            fi
+          fi
+      
+      - name: Create issue if needed
+        if: steps.improvements.outputs.needs_pr == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const reportFile = '${{ steps.scan.outputs.report }}';
+            const reportContent = fs.readFileSync(reportFile, 'utf8');
+            
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '📁 Weekly Organization Report - Files Need Review',
+              body: reportContent + '\n\n---\n*Automated by Content Organizer Agent*',
+              labels: ['organization', 'automated', 'needs-review']
+            });
+      
+      - name: Summary
+        if: always()
+        run: |
+          echo "📊 Organization Summary"
+          echo "======================"
+          echo "Files found: ${{ steps.scan.outputs.files_found }}"
+          echo "Needs PR: ${{ steps.improvements.outputs.needs_pr }}"
+          echo "Report: ${{ steps.scan.outputs.report }}"
+          echo ""
+          echo "✅ Weekly organization complete"

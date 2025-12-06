@@ -35,3 +35,17 @@ notes.txt
 notes2.txt
 not ures.txt
 numbers.txt
+
+# AI Agent System
+# Note: We DO want to commit generated content for review
+# but we exclude temporary processing files
+.github/agents/state/*.tmp
+.github/agents/cache/
+*.swp
+*.swo
+*~
+
+# Temporary directories
+temp/
+tmp/
+.temp/

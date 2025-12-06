@@ -1,0 +1,241 @@
+# Content Generator Agent Configuration
+
+# Generation quotas
+daily_generation:
+  scene_lines: 200  # Lines of scene content to generate daily
+  lore_entries: 1  # Number of lore entries per day
+  dialogue_variations: 5  # Dialogue options to generate
+  worldbuilding_details: 3  # Minor worldbuilding additions
+
+weekly_generation:
+  scene_lines: 500  # Lines for weekly sprint
+  major_scenes: 1  # Complete expedition scenes
+  character_moments: 3  # Character development scenes
+  ending_variations: 1  # New ending paths
+  lore_expansions: 5  # Major lore entries
+
+# Quality standards
+quality_thresholds:
+  min_quality_score: 70  # 0-100 scale, minimum to submit
+  min_voice_consistency: 85  # Character voice accuracy %
+  min_canon_compliance: 95  # Must match canon closely
+  min_integration_score: 80  # How well it fits existing content
+
+# Quality weighting (must sum to 1.0)
+quality_weights:
+  voice_consistency: 0.30  # 30% - Character voices match
+  canon_compliance: 0.40  # 40% - Follows established lore
+  creativity: 0.15  # 15% - Novel and interesting
+  integration: 0.15  # 15% - Fits existing content
+
+# Scene generation settings
+scene_generation:
+  min_length: 300  # Minimum lines for major scenes
+  max_length: 800  # Maximum lines before splitting
+  min_choices: 3  # Minimum meaningful choices per scene
+  max_choices: 7  # Maximum to avoid overwhelming
+  
+  required_elements:
+    - environmental_description: 2  # Minimum sensory descriptions
+    - polly_commentary: 1  # At least once per major section
+    - character_interaction: 1  # Dialog or action with others
+    - stat_modification: 1  # Choices must affect stats
+    - emotional_moment: 1  # Character growth or feeling
+  
+  expansion_priorities:
+    - singing_dunes  # Desert expedition priority
+    - verdant_tithe  # Forest expedition
+    - rune_glacier  # Ice expedition
+    - endings  # After expeditions complete
+
+# Lore generation settings
+lore_generation:
+  min_length: 200  # Minimum words for lore entry
+  max_length: 1000  # Maximum before splitting
+  
+  required_sections:
+    - overview: true  # What this is
+    - history: true  # How it came to be
+    - significance: true  # Why it matters
+    - connections: true  # Related elements
+    - story_integration: true  # How to use in game
+  
+  priority_topics:
+    - character_backstories
+    - location_details
+    - magical_artifacts
+    - cultural_traditions
+    - historical_events
+
+# Dialogue generation settings
+dialogue_generation:
+  variations_per_scenario: 5  # Generate 5 options
+  
+  character_voices:
+    polly:
+      tone: sarcastic_caring
+      length: medium  # 1-2 sentences typically
+      markers:
+        - "Historical perspective"
+        - "Dry humor"
+        - "Student concern"
+      
+    izack:
+      tone: humble_wise
+      length: medium_long  # 2-3 sentences
+      markers:
+        - "Teaching moment"
+        - "Collaborative emphasis"
+        - "Patient encouragement"
+    
+    aria:
+      tone: professional_precise
+      length: short_medium  # 1-2 sentences
+      markers:
+        - "Boundary awareness"
+        - "Diplomatic phrasing"
+        - "Protective instinct"
+    
+    zara:
+      tone: enthusiastic_experimental
+      length: medium  # 1-3 sentences
+      markers:
+        - "Excitement"
+        - "Creative solutions"
+        - "Chaos (controlled)"
+
+# Content templates
+templates:
+  scene_structure:
+    - arrival_description
+    - character_introduction
+    - polly_commentary
+    - exploration_sequence
+    - challenge_moment
+    - choice_point
+    - consequence_branches
+    - resolution_path
+  
+  lore_structure:
+    - title_and_category
+    - overview_summary
+    - detailed_history
+    - current_significance
+    - related_elements
+    - story_hooks
+    - integration_notes
+
+# Writing style
+style_guidelines:
+  prose_quality: literary_accessible  # Sophisticated but readable
+  pacing: mixed  # Vary between action, dialogue, description
+  showing_vs_telling: 80_20  # 80% show, 20% tell
+  sensory_detail: high  # Rich environmental descriptions
+  emotional_depth: medium_high  # Character feelings matter
+  
+  voice_consistency:
+    maintain_character_voices: true
+    preserve_tone: true
+    match_existing_style: true
+    
+  formatting:
+    use_italics_for_polly: true
+    use_bold_for_emphasis: false  # Sparingly
+    proper_choicescript_syntax: true
+    include_line_breaks: true
+
+# Validation before submission
+pre_submission_checks:
+  syntax_validation: true
+  canon_compliance_check: true
+  voice_consistency_check: true
+  quality_score_minimum: true
+  lore_curator_approval: true
+  
+  auto_approve_if:
+    quality_score: 90  # 90+ auto-approved
+    canon_compliance: 98  # 98+ canon match
+    voice_consistency: 90  # 90+ voice match
+  
+  require_human_review_if:
+    quality_score: "< 80"
+    canon_compliance: "< 95"
+    major_canon_additions: true
+    new_character_introduced: true
+
+# Learning and improvement
+learning_settings:
+  track_acceptance_rate: true
+  analyze_human_edits: true
+  adjust_parameters: true
+  improve_over_time: true
+  
+  feedback_integration:
+    learn_from_pr_comments: true
+    track_rejection_reasons: true
+    identify_improvement_patterns: true
+    adjust_generation_style: true
+
+# Resource management
+resource_limits:
+  max_api_calls_per_day: 100
+  max_tokens_per_generation: 4000
+  max_concurrent_generations: 3
+  timeout_seconds: 120
+
+# Output organization
+output_settings:
+  base_directory: "generated_content/"
+  use_timestamps: true
+  include_metadata: true
+  generate_reports: true
+  
+  file_naming:
+    format: "{type}_{date}_{topic}.{ext}"
+    timestamp_format: "YYYY-MM-DD_HH-mm"
+    sanitize_names: true
+
+# Integration with other agents
+integration:
+  submit_to_lore_curator: true
+  notify_content_organizer: true
+  create_pr_automatically: true
+  tag_for_review: true
+  
+  collaboration:
+    request_validation_before_submit: true
+    incorporate_curator_feedback: true
+    follow_organization_rules: true
+
+# Reporting
+reporting:
+  generate_daily_report: true
+  weekly_summary: true
+  monthly_analytics: true
+  
+  metrics_tracked:
+    - lines_generated
+    - acceptance_rate
+    - quality_scores
+    - canon_compliance_rate
+    - human_edit_percentage
+    - time_to_review
+    - merge_rate
+
+# Special features
+special_features:
+  polly_commentary_generator:
+    enabled: true
+    frequency: "once_per_major_scene_section"
+    tone: "sarcastic_but_caring"
+    
+  stat_effect_calculator:
+    enabled: true
+    balance_across_choices: true
+    meaningful_differences: true
+    
+  branching_path_creator:
+    enabled: true
+    min_branches_per_choice: 2
+    max_depth: 3
+    ensure_all_paths_resolve: true

@@ -1,0 +1,107 @@
+# Content Organizer Agent Configuration
+
+# Confidence thresholds for automatic organization
+confidence_threshold: 0.85  # Must be 85%+ confident to auto-organize
+auto_organize_threshold: 0.85  # Confidence level for automatic filing
+manual_review_threshold: 0.60  # Below 60% creates issue for human review
+
+# Paths to monitor for new content
+monitored_paths:
+  - "/"  # Root directory
+  - "/temp/"  # Temporary staging area
+  - "/new_content/"  # Content inbox (create this for easy drops)
+
+# Paths to exclude from monitoring
+exclude_paths:
+  - ".git/"
+  - ".github/"
+  - "node_modules/"
+  - ".vscode/"
+  - "archive/"  # Don't re-organize archived content
+
+# Directory mapping rules
+category_mappings:
+  lore:
+    directory: "lore/"
+    indicators:
+      - "character backstory"
+      - "world history"
+      - "magic system"
+      - "geography"
+      - "timeline"
+      - "creature lore"
+      - "cultural element"
+    
+  writing:
+    directory: "writing_drafts/"
+    indicators:
+      - "chapter"
+      - "manuscript"
+      - "novel"
+      - "prose narrative"
+      - "scene draft"
+      - "character arc"
+    
+  game_scene:
+    directory: "choicescript_game/scenes/"
+    indicators:
+      - "*choice"
+      - "*goto"
+      - "*label"
+      - "game scene"
+      - "expedition"
+    
+  documentation:
+    directory: "docs/"
+    indicators:
+      - "guide"
+      - "roadmap"
+      - "instructions"
+      - "how to"
+      - "tutorial"
+      - "reference"
+    
+  archive:
+    directory: "archive/"
+    indicators:
+      - "old version"
+      - "superseded"
+      - "deprecated"
+      - "chat log"
+      - "conversation"
+
+# Naming conventions
+naming_rules:
+  lowercase_preferred: true
+  max_length: 50
+  separator: "_"  # Use underscores, not spaces
+  remove_special_chars: true
+  preserve_original_for_archives: true
+
+# Organization behavior
+behavior:
+  create_backup_before_move: true
+  update_indexes_after_organize: true
+  notify_on_organization: true
+  max_files_per_run: 50  # Prevent overwhelming the system
+  
+# Notification settings
+notifications:
+  create_issue_on_conflict: true
+  comment_on_pr_when_organizing: true
+  daily_summary: true
+  weekly_report: true
+
+# Metadata settings
+metadata:
+  auto_tag: true
+  generate_descriptions: true
+  track_move_history: true
+  update_cross_references: true
+
+# Quality checks
+quality_checks:
+  verify_no_duplicates: true
+  check_naming_conventions: true
+  validate_category_fit: true
+  ensure_proper_encoding: true
